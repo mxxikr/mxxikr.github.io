@@ -17,14 +17,14 @@
   --blockquote-text-color: rgb(117, 117, 117);
   /* --link-color: rgb(138, 180, 248); */
   --link-color: rgb(203, 171, 237);
-  --link-underline-color: (203, 171, 237);
+  --link-underline-color: rgb(203, 171, 237);
   --button-bg: rgb(39, 40, 43);
   --btn-border-color: rgb(203, 171, 237);
   --btn-backtotop-color: var(--text-color);
   --btn-backtotop-border-color: var(--btn-border-color);
   --btn-box-shadow: var(--main-wrapper-bg);
   --card-header-bg: rgb(0, 0, 0);
-  --label-color: rgb(108, 117, 125);
+  --label-color: rgb(203, 171, 237);
   --checkbox-color: rgb(118 120 121);
   --checkbox-checked-color: var(--link-color);
 
@@ -54,13 +54,13 @@
   --pin-color: inherit;
 
   /* Posts */
-  --toc-highlight: rgb(116, 178, 243);
+  --toc-highlight: rgb(203, 171, 237);
   --tag-bg: rgb(41, 40, 40);
   --tag-hover: rgb(43, 56, 62);
   --tb-odd-bg: rgba(42, 47, 53, 0.52); /* odd rows of the posts' table */
   --tb-even-bg: rgb(31, 31, 34); /* even rows of the posts' table */
   --tb-border-color: var(--tb-odd-bg);
-  --footnote-target-bg: rgb(63, 81, 181);
+  --footnote-target-bg: rgb(203, 171, 237);
   --btn-share-color: #6c757d;
   --btn-share-hover-color: #bfc1ca;
   --relate-post-date: var(--text-muted-color);
@@ -77,7 +77,7 @@
   --prompt-info-bg: rgb(7 59 104 / 80%);
   --prompt-info-icon-color: #0075d1;
   --prompt-warning-bg: rgb(90 69 3 / 95%);
-  --prompt-warning-icon-color: rgb(255 165 0 / 80%);
+  --prompt-warning-icon-color: rgb(203 171 237 / 80%);
   --prompt-danger-bg: rgb(86 28 8 / 80%);
   --prompt-danger-icon-color: #cd0202;
 
