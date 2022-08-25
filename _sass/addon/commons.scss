@@ -264,8 +264,8 @@ img[data-src] {
     margin: 0 0.35rem 0.5rem 0;
 
     &:hover {
-      background-color: #2a408e;
-      border-color: #2a408e;
+      background-color: rgb(203, 171, 237);
+      border-color: rgb(203, 171, 237);
       color: #fff;
       transition: none;
     }
@@ -530,7 +530,7 @@ img[data-src] {
   background: var(--tag-bg);
   border-radius: 0.3rem;
   padding: 0 0.4rem;
-  color: inherit;
+  color: rgb(203, 171, 237);
   line-height: 1.3rem;
 
   &:not(:last-child) {
@@ -542,7 +542,7 @@ img[data-src] {
 
     border-bottom: none;
     text-decoration: none;
-    color: #d2603a;
+    color: rgb(203, 171, 237);
   }
 }
 
