@@ -33,7 +33,7 @@
   --sidebar-muted-color: #6d6c6b;
   --sidebar-active-color: rgb(255 255 255 / 80%);
   --nav-cursor-color: rgb(183, 182, 182);
-  --sidebar-btn-bg: rgb(117 116 116 / 20%);
+  --sidebar-btn-bg: rgb(203 171 237 / 60%);
 
   /* Topbar */
   --topbar-text-color: rgb(203, 171, 237);
@@ -47,7 +47,7 @@
   /* Home page */
   --post-list-text-color: rgb(175, 176, 177);
   --btn-patinator-text-color: var(--text-color);
-  --btn-paginator-hover-color: rgb(64, 65, 66);
+  --btn-paginator-hover-color: rgb(203 171 237 / 60%);
   --btn-paginator-border-color: var(--btn-border-color);
   --btn-text-color: var(--text-color);
   --pin-bg: rgb(34 35 37);
@@ -65,7 +65,7 @@
   --btn-share-hover-color: #bfc1ca;
   --relate-post-date: var(--text-muted-color);
   --card-bg: rgb(0,0,0);
-  --card-border-color: rgb(53, 53, 60);
+  --card-border-color: rgb(203, 171, 237);
   --card-box-shadow: var(--main-wrapper-bg);
   --preview-img-bg: radial-gradient(circle, rgb(22 22 24) 0%, rgb(32 32 32) 100%);
   --kbd-wrap-color: #6a6a6a;
@@ -82,7 +82,6 @@
   --prompt-danger-icon-color: #cd0202;
 
   /* tags */
-  /*--tag-border: rgb(59, 79, 88);*/
   --tag-border: rgb(203, 171, 237);
   --tag-shadow: rgb(32, 33, 33);
   --search-tag-bg: var(--tag-bg);
