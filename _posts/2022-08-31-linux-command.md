@@ -212,7 +212,7 @@ mermaid: true
     * [Spacebar] : 단위 출력  
 * `grep`
     ```bash
-    cat test.txt | grep "test" # test.txt에서 test문자열 포함한 줄 출력
+    cat test.txt | grep "test" # test.txt에서 test 문자열 포함한 줄 출력
     ```
     * **문자열 검색** 명령어
     * **문자가 포함된 열 추출**
@@ -235,7 +235,7 @@ mermaid: true
     ```bash
     find /home -name mxxikr  # /home에 있는 파일 중 파일명이 mxxikr인 파일 검색       
     find /home -name mxxikr -o -name mxxikr2 # /home에 있는 파일 중 파일명이 mxxikr, mxxikr2인 파일 검색      
-    find / -perm +4000  # setuid(관리자 권한 명령 확인)
+    find / -perm +4000  # setuid (관리자 권한 확인)
     find /find -name 'te*' -exec rm {} \;  # /find에서 파일명이 te로 시작하는 모든 파일 찾아서 삭제
     ```
     * **하위 폴더에 존재하는 파일 찾아주는** 명령어
