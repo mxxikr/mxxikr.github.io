@@ -19,9 +19,9 @@ mermaid: true
   CREATE TABLE {TABLE_ID} (
   idx serial, 
   {COLUMN_NAME} {DATA_TYPE}, 
-  timstamp TIMESTAMP
+  timestamp TIMESTAMP
   ) partition by range(timestamp);
-  ```
+  ```   
 
 ### **파티셔닝 설정**
 1. partition 설정 위한 `pg_partman` 확장 사용 적용
