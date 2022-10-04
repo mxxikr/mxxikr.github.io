@@ -136,9 +136,9 @@ mermaid: true
 ### **조회**
   * 테이블 전체 데이터 조회
     ```sql
-    SELECT * FROM {TABLE_ID} limit 100; -- 해당 테이블 데이터 100개 조회
-    SELECT * FROM {TABLE_ID} order by {COLUMN_NAME} desc -- 정렬 기준 칼럼에 대해 내림차순 조회
-    SELECT * FROM {TABLE_ID} order by {COLUMN_NAME} asc -- 정렬 기준 칼럼에 대해 오름차순 조회
+    SELECT * FROM {TABLE_ID} LIMIT 100; -- 해당 테이블 데이터 100개 조회
+    SELECT * FROM {TABLE_ID} ORDER BY {COLUMN_NAME} DESC -- 정렬 기준 칼럼에 대해 내림차순 조회
+    SELECT * FROM {TABLE_ID} ORDER BY {COLUMN_NAME} ASC -- 정렬 기준 칼럼에 대해 오름차순 조회
     ```  
 
 <br/><br/>
@@ -156,7 +156,7 @@ mermaid: true
     ```
 * 유저 생성 확인
     ```sql
-    select * from pg_user where {USER_ID} in ('{USER_ID}');
+    SELECT * FROM pg_user WHERE {USER_ID} IN ('{USER_ID}');
     ```  
 
 ### **계정 및 비밀번호 수정**
@@ -188,7 +188,7 @@ mermaid: true
   * 권한을 줄 수 있을 경우 YES, 아닐 경우 NO  
 * 권한 확인
     ```sql
-    SELECT * from information_schema.role_table_grants WHERE grantee ='{USER_ID}'
+    SELECT * FROM information_schema.role_table_grants WHERE grantee ='{USER_ID}'
     ```
 * DB 접근 권한 할당
     ```sql
