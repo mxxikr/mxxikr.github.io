@@ -63,8 +63,9 @@ mermaid: true
 * 중복 제거 후 특정 날짜 데이터 복사
     ```sql
     INSERT INTO `{TGT_PROJECT_ID}.{TGT_TABLE_ID}` partition (ds) SELECT DISTINCT * FROM `{SRC_PROJECT_ID}.{SRC_TABLE_ID}` WHERE ds >= '2022-10-01';
-
-    INSERT INTO `{TGT_TABLE_ID}` partition(ds) SELECT DISTINCT * FROM `{SRC_TABLE_ID}` WHERE ds >= '2022-10-01';
+    ```
+    ```sql
+    INSERT INTO `{TGT_TABLE_ID}` partition (ds) SELECT DISTINCT * FROM `{SRC_TABLE_ID}` WHERE ds >= '2022-10-01';
     ```
 
 ### **데이터 삭제**
