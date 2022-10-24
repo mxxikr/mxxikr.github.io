@@ -5,7 +5,7 @@ author:
   link: https://github.com/mxxikr"
 date: 2022-08-31 19:27:00 +0900
 category:
-  - [Linux]
+  - [OS, Linux]
 tags:
   - [linux, bash, shell script, shell]
 math: true
