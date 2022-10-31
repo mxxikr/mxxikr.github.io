@@ -7,7 +7,7 @@ date: 2022-10-31 22:55:00 +0900
 category:
   - [OS, Linux]
 tags:
-  - [linux, disk, partition, fidisk, mkfs, mount]
+  - [linux, disk, partition, fdisk, mkfs, mount]
 math: true
 mermaid: true
 ---
@@ -161,10 +161,10 @@ mermaid: true
     * 파티션 속성 변경
 * `mkfs` (**M**a**K**e **F**ile**S**ystem)
   ```bash
-  mkfs -t {파일 시스템 형식} {디바이스 명}  
+  mkfs -t {FILE_SYSTEM_TYPE} {DEVICE_NAME}  
   ```
   ```bash
-  mkfs.{파일 시스템 형식} {디바이스 명}
+  mkfs.{FILE_SYSTEM_TYPE} {DEVICE_NAME}
   ```
     * **<span style="color:#F26C6C">파티션 작업을 한 하드 디스크 포맷</span>**할 때 사용 
     * extended 파티션은 포맷 불가능
@@ -172,7 +172,7 @@ mermaid: true
       * 파일 시스템의 형식을 지정(`ext2`, `ext3`, `ext4` 등)
 * `mount`
   ```bash
-  mount -t {파일 시스템 형식} -o {옵션} {디바이스 명} {mount point}
+  mount -t {FILE_SYSTEM_TYPE} -o {옵션} {DEVICE_NAME} {MOUNT_POINT}
   ```
     * **<span style="color:#F26C6C">Directory에 파티션을 나누고 포맷 통해 드라이브 연결</span>**하는 개념
     * Linux는 디스크를 파티션으로 나누고 포맷 한 후에 mount 해야 함
@@ -185,14 +185,14 @@ mermaid: true
       * 옵션 (`rw`, `suid`, `exec`, `auto`, `nouser`, `async` 등)
 * `umount`
   ```bash
-  umount {장치명}
-  umount {mount point}
+  umount {DEVICE_NAME}
+  umount {MOUNT_POINT}
   ```
     * **<span style="color:#F26C6C">마운트 해제</span>** 명령어
     * mount point 외의 장소에서 umount 해야함
 * `fuser`
   ```bash
-  fuser {mount point}
+  fuser {MOUNT_POINT}
   ```
     * **<span style="color:#F26C6C">directory 내 process 확인</span>**
     * 특정 파일이나 directory를 사용하는 process 정보나 사용자 정보 확인 가능
