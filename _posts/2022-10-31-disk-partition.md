@@ -1,5 +1,5 @@
 ---
-title:  "disk와 partition"
+title:  "Disk와 Partition"
 author:
   name: mxxikr
   link: https://github.com/mxxikr"
@@ -11,7 +11,7 @@ tags:
 math: true
 mermaid: true
 ---
-# 디스크 구조와 타입
+# Disk 구조와 타입
 ---
 ### **디스크 구조**
 * **하드 디스크 구조**  
@@ -78,18 +78,18 @@ mermaid: true
 
 <br/><br/>
 
-# 파티션 구조
+# Partition 구조
 ---
 ### **파티션 (partition)**  
 * 하드 디스크를 논리적으로 나눈 구역  
 * 하나의 디스크를 여러개의 파티션으로 나누면 각 파티션마다 하나의 드라이브로 인식  
-* 하나의 하드 디스크에는 <span style="color:#F26C6C">**최대 3개의 primary**와 **1개의 extended 파티션** 생성 가능</span>   
-  ![image](/assets/img/linux/disk-2.jpg)    
-      * **<span style="color:#F26C6C">primary 파티션 1</span>**, extended 파티션 0 (logical 파티션 0)
-      * **<span style="color:#F26C6C">primary 파티션 2</span>**, extended 파티션 0 (logical 파티션 0)
-      * **<span style="color:#F26C6C">primary 파티션 3</span>**, extended 파티션 0 (logical 파티션 0)
-      * **<span style="color:#F26C6C">primary 파티션 3</span>**, **<span style="color:#F26C6C">extended 파티션 1</span>** (<span style="color:#F26C6C">**logical 파티션 2**</span>)
-      * **<span style="color:#F26C6C">primary 파티션 3</span>**, **<span style="color:#F26C6C">extended 파티션 1</span>** (<span style="color:#F26C6C">**logical 파티션 5**</span>)      
+* 하나의 하드 디스크에는 <span style="color:#F26C6C">**최대 3개의 primary**와 **1개의 extended 파티션** 생성 가능</span>    
+  ![image](/assets/img/linux/disk-2.jpg)   
+      **<span style="color:#F26C6C">primary 파티션 1</span>**, extended 파티션 0 (logical 파티션 0)  
+      **<span style="color:#F26C6C">primary 파티션 2</span>**, extended 파티션 0 (logical 파티션 0)  
+      **<span style="color:#F26C6C">primary 파티션 3</span>**, extended 파티션 0 (logical 파티션 0)  
+      **<span style="color:#F26C6C">primary 파티션 3</span>**, **<span style="color:#F26C6C">extended 파티션 1</span>** (<span style="color:#F26C6C">**logical 파티션 2**</span>)    
+      **<span style="color:#F26C6C">primary 파티션 3</span>**, **<span style="color:#F26C6C">extended 파티션 1</span>** (<span style="color:#F26C6C">**logical 파티션 5**</span>)      
 
 ### **primary 파티션**
 * 기본 파티션
@@ -106,7 +106,7 @@ mermaid: true
 
 <br/><br/>
 
-# Linux Disk와 Filesystem
+# Linux Disk와 FileSystem
 ---
 ### **File System**
 * 파일 다루거나 조작 할 때 관리하기 편하게 파일이 운용되는 방식(틀) 
