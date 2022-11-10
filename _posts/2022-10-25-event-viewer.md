@@ -23,14 +23,14 @@ mermaid: true
     ```powershell
     eventvwr.msc
     ``` 
-    ![image](/assets/img/windows/event-viewer-1.jpg)
-2. 확인할 로그 선택 → 우클릭 → 현재 로그 필터링
+    ![image](/assets/img/windows/event-viewer-1.jpg)  
+2. 확인할 로그 선택 → 우클릭 → 현재 로그 필터링  
     ![image](/assets/img/windows/event-viewer-2.jpg)
-3. 필터링 구성 입력 → 확인
+3. 필터링 구성 입력 → 확인  
     ![image](/assets/img/windows/event-viewer-3.jpg)
     * **로그 기간**
     * **이벤트 수준**
-4. 이벤트 뷰어 로그 확인  
+4. 이벤트 뷰어 로그 확인   
     ![image](/assets/img/windows/event-viewer-4.jpg)  
     ![image](/assets/img/windows/event-viewer-5.jpg)
     * `일반`
@@ -51,7 +51,7 @@ mermaid: true
         * 이벤트가 발생한 스레드의 ID
 
 ### **이벤트 로그 추출**
-1. 확인할 로그 선택 → 필터링 된 로그파일을 다른이름으로 저장
+1. 확인할 로그 선택 → 필터링 된 로그파일을 다른이름으로 저장  
     ![image](/assets/img/windows/event-viewer-6.jpg)
 2. 파일 이름 입력후 이벤트 파일 저장
 <br/><br/>
