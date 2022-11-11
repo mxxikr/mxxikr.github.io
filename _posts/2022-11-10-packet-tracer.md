@@ -171,7 +171,7 @@ mermaid: true
   ```
 
 ### **Router 고급 복구 모드(설정 유지 = 비번만 없애기)**
--  라우터 재부팅 하면서 `ctrl + c` 버튼으로 Rommon 모드 진입
+-  라우터 재부팅 하면서 `ctrl + c` 버튼으로 **<span style="color:#F26C6C">Rommon 모드</span>** 진입
   ```shell
   confreg 0x2142 # reg 값 복구 모드로 변경
   reset # 장비 재부팅 
@@ -274,7 +274,7 @@ shut # 비활성화
 #  Router Console 설정
 ---
 ### **CDP(Cisco Discovery Protocol) 명령어**
-- CDP
+- **CDP**
   - 시스코 장비들이 동일 링크 상에 있는 다른 장비 등을 찾는 시스코 독점 프로토콜 (표준 프로토콜 : LLDP)  
   ```shell
   # privilege mode
