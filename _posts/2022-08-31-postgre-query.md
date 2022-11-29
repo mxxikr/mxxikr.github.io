@@ -11,8 +11,16 @@ tags:
 math: true
 mermaid: true
 ---
-# Table 생성 및 파티셔닝 설정
+# 스키마, Table 생성 및 파티셔닝 설정
 ---
+### **스키마 생성**
+* 현재 연결된 데이터베이스에 스키마 생성
+    ```sql
+    CREATE SCHEMA {SCHEMA_NAME}
+    ```
+    * `pg_`로 시작하는 스키마명 사용 불가
+    * CREATE 권한이거나 슈퍼 유저일 경우 스키마 생성 가능
+
 ### **table 생성**
 * `timestamp` 기준으로 partition 설정한 table 생성
   ```sql
@@ -47,16 +55,16 @@ mermaid: true
     ```
 3. partition 적용 - Index 생성
     ```sql
-    CREATE INDEX ON public.{TABLE_ID} (idx, timestamp); 
+    CREATE INDEX ON {SCHEMA_NAME}.{TABLE_ID} (idx, timestamp); 
     ```
     * 추후 생성되는 partition에 자동 적용
 4. partition 적용 - table에 partition 적용
     ```sql
-    SELECT public.create_parent('public.{TABLE_ID}', 'timestamp', 'native', 'daily', p_template_table:= 'public.{TABLE_ID}', p_premake := 15, p_start_partition := (CURRENT_TIMESTAMP)::text);
+    SELECT {SCHEMA_NAME}.create_parent('{SCHEMA_NAME}.{TABLE_ID}', 'timestamp', 'native', 'daily', p_template_table:= '{SCHEMA_NAME}.{TABLE_ID}', p_premake := 15, p_start_partition := (CURRENT_TIMESTAMP)::text);
 
-    UPDATE public.part_config SET retention_keep_table = false, retention = '6 month' WHERE parent_table = 'public.{TABLE_ID}';
+    UPDATE {SCHEMA_NAME}.part_config SET retention_keep_table = false, retention = '6 month' WHERE parent_table = '{SCHEMA_NAME}.{TABLE_ID}';
     ```
-    - `public.{TABLE_ID}`
+    - `{SCHEMA_NAME}.{TABLE_ID}`
         - partition 기준 table
     - `timestamp`
         - partition 기준 column
@@ -75,24 +83,24 @@ mermaid: true
         - partition 시작지점
 5. partition 적용 - partition table 생성
     ```sql
-    CREATE TABLE public.{TABLE_ID}_p2022_09_01 PARTITION OF public.{TABLE_ID} FOR VALUES FROM ('2022-09-01 00:00:00') TO ('2022-09-02 00:00:00');
+    CREATE TABLE {SCHEMA_NAME}.{TABLE_ID}_p2022_09_01 PARTITION OF {SCHEMA_NAME}.{TABLE_ID} FOR VALUES FROM ('2022-09-01 00:00:00') TO ('2022-09-02 00:00:00');
     ```
     * 하루 단위로 partition 테이블 생성  
 6. partition 자동 관리 설정
     * partition 자동 관리, 특정 Table 지정 가능
       ```sql
       SELECT run_maintenance();
-      SELECT run_maintenance('public.{TABLE_ID}');
+      SELECT run_maintenance('{SCHEMA_NAME}.{TABLE_ID}');
       ```
       * 특정 table 지정 가능 (PostgreSQL 직접 실행, GCP CloudSQL 적용 안됨)
     * time 기준 table 자동 생성
       ```sql
-      SELECT partition_data_time('public.{TABLE_ID}');
+      SELECT partition_data_time('{SCHEMA_NAME}.{TABLE_ID}');
       ```
       * 데이터 없으면 table 생성 불가, GCP CloudSQL 적용 가능)
     * time 기준 table 자동 삭제
       ```sql
-      SELECT drop_partition_time('public.{TABLE_ID}')
+      SELECT drop_partition_time('{SCHEMA_NAME}.{TABLE_ID}')
       ```
       * `retention` 옵션 값으로 table 삭제, GCP CloudSQL 적용 가능)
 
@@ -107,27 +115,27 @@ mermaid: true
     ```
 * table 명 변경
     ```sql
-    ALTER TABLE public.{SRC_TABLE_ID} RENAME TO {TGT_TABLE_ID};
+    ALTER TABLE {SCHEMA_NAME}.{SRC_TABLE_ID} RENAME TO {TGT_TABLE_ID};
     ```
 * coulmn 데이터 타입 변경
     ```sql
-    ALTER TABLE public.{TABLE_ID} ALTER COLUMN {COLUMN_NAME} TYPE {DATA_TYPE};
+    ALTER TABLE {SCHEMA_NAME}.{TABLE_ID} ALTER COLUMN {COLUMN_NAME} TYPE {DATA_TYPE};
     ```
 * coulmn 추가
     ```sql
-    ALTER TABLE public.{TABLE_ID} ADD {COLUMN_NAME} {DATA_TYPE} NULL;
-    ALTER TABLE public.{TABLE_ID} ADD {COLUMN_NAME} {DATA_TYPE} NULL, ADD {COLUMN_NAME} {DATA_TYPE} NULL;
+    ALTER TABLE {SCHEMA_NAME}.{TABLE_ID} ADD {COLUMN_NAME} {DATA_TYPE} NULL;
+    ALTER TABLE {SCHEMA_NAME}.{TABLE_ID} ADD {COLUMN_NAME} {DATA_TYPE} NULL, ADD {COLUMN_NAME} {DATA_TYPE} NULL;
     ```  
 
 ### **table 및 coulmn 삭제**
 * coulmn 삭제 
     ```sql
-    ALTER TABLE public.{TABLE_ID} DROP COLUMN {COLUMN_NAME};
-    ALTER TABLE public.{TABLE_ID} DROP COLUMN {COLUMN_NAME}, DROP COLUMN {COLUMN_NAME};
+    ALTER TABLE {SCHEMA_NAME}.{TABLE_ID} DROP COLUMN {COLUMN_NAME};
+    ALTER TABLE {SCHEMA_NAME}.{TABLE_ID} DROP COLUMN {COLUMN_NAME}, DROP COLUMN {COLUMN_NAME};
     ```
 * table 데이터 삭제
     ```sql
-    TRUNCATE TABLE public.{TABLE_ID};
+    TRUNCATE TABLE {SCHEMA_NAME}.{TABLE_ID};
     ```  
 <br/><br/>
 
@@ -156,7 +164,7 @@ mermaid: true
     ```
 * 유저 생성 확인
     ```sql
-    SELECT * FROM pg_user WHERE {USER_ID} IN ('{USER_ID}');
+    SELECT * FROM pg_user WHERE usename IN ('{USER_ID}');
     ```  
 
 ### **계정 및 비밀번호 수정**
@@ -198,7 +206,11 @@ mermaid: true
 ### **schema 권한 설정**
 * schema 모든 권한 할당
     ```sql
-    GRANT ALL ON SCHEMA {SCHEMA_NAME} to {USER_ID};
+    GRANT ALL ON SCHEMA {SCHEMA_NAME} TO {USER_ID};
+    ```
+* schema 엑세스 권한 할당
+    ```sql
+    GRANT USAGE ON SCHEMA {SCHEMA_NAME} TO {USER_ID};
     ```
 * schema SELECT 권한 할당
     ```sql
@@ -216,7 +228,7 @@ mermaid: true
     ```
 * table SELECT 권한 할당
     ```sql
-    GRANT SELECT ON TABLE public.{TABLE_ID} TO {USER_ID};
+    GRANT SELECT ON TABLE {SCHEMA_NAME}.{TABLE_ID} TO {USER_ID};
     ```
 * 앞으로 생길 table에 SELECT 권한
     ```sql
@@ -226,7 +238,7 @@ mermaid: true
     ```
 * 특정 table 권한
     ```sql
-    GRANT ALL ON TABLE public.{TABLE_NAME} TO {USER_ID};
+    GRANT ALL ON TABLE {SCHEMA_NAME}.{TABLE_NAME} TO {USER_ID};
     ```
 
 ### **전체 권한 설정**
