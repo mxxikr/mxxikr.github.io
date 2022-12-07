@@ -106,6 +106,20 @@ mermaid: true
 
 <br/><br/>
 
+# 인덱싱 설정
+---
+### **btree 인덱싱**
+* single coulmn 인덱싱 설정
+  ```sql
+  CREATE INDEX {INDEX_NAME} ON only {SCHEMA_NAME}.{TABLE_ID} USING btree({COLUMN_NAME});
+  ```
+* 인덱싱 삭제
+  ```sql
+  DROP INDEX {INDEX_NAME};
+  ```
+
+<br/><br/>
+
 # Table 및 Coulmn 수정/삭제
 ---
 ### **table 및 coulmn 변경**
@@ -147,7 +161,11 @@ mermaid: true
     SELECT * FROM {TABLE_ID} LIMIT 100; -- 해당 테이블 데이터 100개 조회
     SELECT * FROM {TABLE_ID} ORDER BY {COLUMN_NAME} DESC -- 정렬 기준 칼럼에 대해 내림차순 조회
     SELECT * FROM {TABLE_ID} ORDER BY {COLUMN_NAME} ASC -- 정렬 기준 칼럼에 대해 오름차순 조회
-    ```  
+    ```
+  * 테이블 인덱스 정보 조회
+    ```sql
+    SELECT * FROM pg_catalog.pg_indexes WHERE tablename = '{TABLE_ID}';
+    ```
 
 <br/><br/>
 
