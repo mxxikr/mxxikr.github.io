@@ -1,0 +1,395 @@
+<!DOCTYPE html><html lang="en" data-mode="dark" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="prefer-datetime-locale" content="ko"><meta name="generator" content="Jekyll v4.4.1" /><meta property="og:title" content="[파이썬 프로그래밍 기초] 10강 - 객체 지향" /><meta name="author" content="mxxikr" /><meta property="og:locale" content="en" /><meta name="description" content="💡해당 게시글은 방송통신대학교 정재화 교수님의 &#39;파이썬 프로그래밍 기초&#39; 강의를 개인 공부 목적으로 메모하였습니다." /><meta property="og:description" content="💡해당 게시글은 방송통신대학교 정재화 교수님의 &#39;파이썬 프로그래밍 기초&#39; 강의를 개인 공부 목적으로 메모하였습니다." /><link rel="canonical" href="https://mxxikr.github.io/posts/knou-python-10/" /><meta property="og:url" content="https://mxxikr.github.io/posts/knou-python-10/" /><meta property="og:site_name" content="MXXI.kr" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2025-04-29T00:00:00+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="[파이썬 프로그래밍 기초] 10강 - 객체 지향" /><meta name="twitter:site" content="@twitter_username" /><meta name="twitter:creator" content="@mxxikr" /><meta name="google-site-verification" content="jrB0ZGRmhAQ9sqzUNV-C9QdF0brDTEBfkBb9o7loUxc" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"mxxikr"},"dateModified":"2025-06-15T03:05:49+09:00","datePublished":"2025-04-29T00:00:00+09:00","description":"💡해당 게시글은 방송통신대학교 정재화 교수님의 &#39;파이썬 프로그래밍 기초&#39; 강의를 개인 공부 목적으로 메모하였습니다.","headline":"[파이썬 프로그래밍 기초] 10강 - 객체 지향","mainEntityOfPage":{"@type":"WebPage","@id":"https://mxxikr.github.io/posts/knou-python-10/"},"url":"https://mxxikr.github.io/posts/knou-python-10/"}</script><title>[파이썬 프로그래밍 기초] 10강 - 객체 지향 | MXXI.kr</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="MXXI.kr"><meta name="application-name" content="MXXI.kr"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://cdn.jsdelivr.net" ><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" ><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script><body data-spy="scroll" data-target="#toc" data-topbar-visible="true"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src=" /assets/img/profile.jpg " alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">MXXI.kr</a></div><div class="site-subtitle font-italic">Server Developer</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center"> <a href="https://github.com/mxxikr" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['mxxikr','gmail.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Home </a> </span> <span>[파이썬 프로그래밍 기초] 10강 - 객체 지향</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper" class="d-flex justify-content-center"><div id="main" class="container pl-xl-4 pr-xl-4"><div class="row"><div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pr-xl-4"><div class="post pl-1 pr-1 pl-md-2 pr-md-2"><h1 data-toc-skip>[파이썬 프로그래밍 기초] 10강 - 객체 지향</h1><div class="post-meta text-muted"> <span> Posted <em class="" data-ts="1745852400" data-df="ll" data-toggle="tooltip" data-placement="bottom"> Apr 29, 2025 </em> </span> <span> Updated <em class="" data-ts="1749924349" data-df="ll" data-toggle="tooltip" data-placement="bottom"> Jun 15, 2025 </em> </span><div class="d-flex justify-content-between"> <span> By <em> mxxikr </em> </span><div> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="4388 words"> read <em>24 min</em> </span></div></div></div><div class="post-content"><p><strong><center>💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. </center></strong></p><p><br /><br /></p><h1 id="학습-목표">학습 목표</h1><hr /><ul><li><strong>객체 지향의 개념</strong>에 대해 설명할 수 있음<li>객체 유사성을 도출하여 <strong>추상화</strong>할 수 있음<li><strong>클래스</strong>와 <strong>인스턴스</strong>를 정의할 수 있음</ul><p><br /><br /></p><h1 id="주요-용어">주요 용어</h1><hr /><ul><li><strong>객체 지향</strong><ul><li>객체와 객체 사이의 상호 작용으로 프로그램을 구성하는 프로그래밍 패러다임</ul><li><strong>클래스</strong><ul><li>실 세계의 객체에 대한 데이터와 연산을 표현한 단위</ul><li><strong>초기자</strong><ul><li>객체의 상태를 초기화하는 특수 메소드</ul><li><strong>객체 멤버 접근 연산자</strong><ul><li>객체의 데이터 필드 접근 및 메소드 호출에 사용되는 연산자</ul></ul><p><br /><br /></p><h1 id="강의록">강의록</h1><hr /><h2 id="객체-지향의-이해"><span class="mr-2">객체 지향의 이해</span><a href="#객체-지향의-이해" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2><h3 id="유사성"><span class="mr-2">유사성</span><a href="#유사성" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p><img data-src="/assets/img/knou/python/2025-04-29-knou-python-10/image.png" alt="image.png" data-proofer-ignore></p><ul><li><strong>공통적인 것</strong>은 미리 만들어 놓고 <strong>서로 다른 점</strong>만 따로 구현한다면 훨씬 더 효과적인 대형의 프로그램을 개발할 수 있음<li>하나의 프로그램 내부에서도 서로 다른 객체 사이의 공통점을 또 찾아내 구현하고 다른 점만 별도로 구현</ul><h2 id="객체-지향의-이해-1"><span class="mr-2">객체 지향의 이해</span><a href="#객체-지향의-이해-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2><h3 id="객체-지향의-개념"><span class="mr-2">객체 지향의 개념</span><a href="#객체-지향의-개념" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li>객체와 객체 사이의 상호 작용으로 프로그램을 구성하는 프로그래밍 패러다임<li>프로그램을 유연하고 변경을 쉽게 만들어 대규모 소프트웨어 개발에 사용<li><strong>객체 지향 패러다임의 특징</strong><ul><li><strong>추상화</strong><ul><li>공통의 속성이나 기능을 도출</ul><li><strong>캡슐화</strong><ul><li>데이터 구조와 데이터의 연산을 결합</ul><li><strong>상속</strong><ul><li>상위 개념의 특징이 하위 개념에 전달</ul><li><strong>다형성</strong><ul><li>유사 객체의 사용성을 그대로 유지</ul></ul></ul><h3 id="객체와-클래스"><span class="mr-2">객체와 클래스</span><a href="#객체와-클래스" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li>객체는 추상화와 캡슐화의 결과<li>실 세계의 사물에 대한 상태(데이터)와 연산(메소드)을 표현한 단위<ul><li>멤버(데이터 필드, 메소드)는 클래스에 의해 결정</ul><p><img data-src="/assets/img/knou/python/2025-04-29-knou-python-10/image1.png" alt="image.png" data-proofer-ignore></p><ul><li>클래스를 통해 어떠한 객체를 만들어서 실제 사물을 만들 경우 initializer가 동작하면서 초기화시켜주고 기본 값으로 만들어 주는 역할을 함</ul></ul><h3 id="클래스-정의"><span class="mr-2">클래스 정의</span><a href="#클래스-정의" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p>구문 형식</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>  <span class="k">class</span> <span class="nc">클래스_이름</span><span class="p">:</span>
+      <span class="c1"># 초기자 정의 (__init__)
+</span>      <span class="c1"># 메소드 정의
+</span></pre></table></code></div></div><ul><li>함수와 동일하게 정의 되는 메소드</ul><li><strong>메소드(method)</strong><ul><li>객체에 대한 행동(연산)을 정의<li>함수의 정의 및 사용 방법과 동일</ul><li><strong>초기자(initializer)</strong><ul><li>객체의 상태를 초기화하는 특수 메소드<li>항상 <code class="language-plaintext highlighter-rouge">__init__</code> 으로 명명</ul></ul><h3 id="메소드의-정의"><span class="mr-2">메소드의 정의</span><a href="#메소드의-정의" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p>구문 형식</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>  <span class="k">class</span> <span class="nc">클래스_이름</span><span class="p">:</span>
+      <span class="k">def</span> <span class="nf">메소드_이름</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">매개</span> <span class="n">변수_리스트</span><span class="p">):</span>
+          <span class="c1"># 코드 블럭
+</span></pre></table></code></div></div><li><p><strong>self 매개 변수</strong></p><ul><li>모든 메소드의 첫번째 매개 변수<li>메소드의 구현에 사용되지만 메소드 호출 시 사용되지 않음<li>객체 자신을 참조하여 클래스 정의에 포함된 멤버에 접근 시 사용<li>클래스 내부의 변수에 접근할 때 데이터 필드임을 알려줌</ul></ul><h3 id="원뿔-계산-프로그램-개선"><span class="mr-2">원뿔 계산 프로그램 개선</span><a href="#원뿔-계산-프로그램-개선" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p>객체 지향 개념이 적용 된 원뿔 클래스</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre>  <span class="c1"># 원뿔 겉넓이 계산 함수 정의
+</span>  <span class="k">def</span> <span class="nf">rtn_cone_surf</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+    
+  <span class="c1"># 원뿔 부피 계산 함수 정의
+</span>  <span class="k">def</span> <span class="nf">rtn_cone_vol</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+    
+  <span class="c1"># 원기둥 부피 계산 함수 정의
+</span>  <span class="k">def</span> <span class="nf">rtn_cylinder_vol</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+    
+  <span class="c1"># 사각형 넓이 계산 함수 정의
+</span>  <span class="k">def</span> <span class="nf">rtn_rect_area</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+</pre></table></code></div></div><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre><td class="rouge-code"><pre>  <span class="c1"># 원뿔 클래스 정의
+</span>  <span class="k">class</span> <span class="nc">Cone</span><span class="p">:</span>
+      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">30</span><span class="p">):</span> <span class="c1"># 초기자 지정
+</span>          <span class="c1"># 변수 r과 h의 스코프는 __init__ 메소드 내부
+</span>          <span class="c1"># 지역 변수
+</span>          <span class="n">r</span> <span class="o">=</span> <span class="n">radius</span> 
+          <span class="n">h</span> <span class="o">=</span> <span class="n">height</span>
+    
+      <span class="k">def</span> <span class="nf">get_vol</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+          <span class="c1"># 원뿔 부피 계산: 1 / 3 * pi * r^2 * h
+</span>          <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">h</span>
+    
+      <span class="k">def</span> <span class="nf">get_surf</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+          <span class="c1"># 원뿔 겉넓이 계산: pi * r^2 + pi * r * h
+</span>          <span class="k">return</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">h</span> <span class="c1"># 데이터 필드의 r과 h라는 것을 알려주기 위해 꼭 self.를 앞에 표시해주어야 함
+</span></pre></table></code></div></div><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre><td class="rouge-code"><pre>  <span class="c1"># 원뿔 클래스 정의
+</span>  <span class="k">class</span> <span class="nc">Cone</span><span class="p">:</span>
+      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">30</span><span class="p">):</span> <span class="c1"># 초기자 지정
+</span>          <span class="c1"># self.r, self.h의 스코프는 클래스 전역
+</span>          <span class="c1"># self.r, self.h는 인스턴스 변수 (클래스 내 다른 메소드에서도 접근 가능)
+</span>          <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">radius</span>
+          <span class="n">self</span><span class="p">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">height</span>
+    
+      <span class="k">def</span> <span class="nf">get_vol</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+          <span class="c1"># 원뿔 부피 계산: 1 / 3 * pi * r^2 * h
+</span>          <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">h</span>
+    
+      <span class="k">def</span> <span class="nf">get_surf</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+          <span class="c1"># 원뿔 겉넓이 계산: pi * r^2 + pi * r * h
+</span>          <span class="k">return</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">h</span>
+</pre></table></code></div></div></ul><h3 id="클래스-설계"><span class="mr-2">클래스 설계</span><a href="#클래스-설계" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li>UML 클래스 다이어그램 통해 데이터 필드, 생성자, 메소드 표현 방법 표준화<ul><li>데이터 필드 이름: 데이터 필드 타입<li>클래스 이름(매개 변수 이름: 매개 변수 타입)<li>메소드 이름(매개 변수 이름: 매개 변수 타입): 반환 값 타입<li>Unified Modeling Langauage 의 약어로, <strong>표준화 된 모델링 언어</strong>를 의미<ul><li>클래스가 어떻게 구성되어 있는 지를 알 수 있는 표기</ul></ul></ul><h3 id="원뿔-클래스의-표현"><span class="mr-2"><strong>원뿔 클래스의 표현</strong></span><a href="#원뿔-클래스의-표현" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p>UML 클래스 다이어그램</p><p><img data-src="/assets/img/knou/python/2025-04-29-knou-python-10/image2.png" alt="image.png" data-proofer-ignore></p><ul><li>Cone 데이터 필드와 타입<li>Cone 클래스 이름으로 된 메소드, 생성자, 객체를 생성하려고 할 때 자연스럽게 불러지는 함수</ul></ul><h3 id="bmi-계산-프로그램"><span class="mr-2"><strong>BMI 계산 프로그램</strong></span><a href="#bmi-계산-프로그램" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p>이름, 나이, 몸무게, 키를 사용하여 BMI 수치 및 상태를 반환하는 BMI 클래스를 정의</p><p><img data-src="/assets/img/knou/python/2025-04-29-knou-python-10/image3.png" alt="image.png" data-proofer-ignore></p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre><td class="rouge-code"><pre>  <span class="k">class</span> <span class="nc">BMI</span><span class="p">:</span>
+      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span> <span class="c1"># 초기자 지정
+</span>          <span class="n">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="c1"># 입력 파라미터에 들어온 값들을 데이터 필드에 넣어주는 작업
+</span>          <span class="n">self</span><span class="p">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+          <span class="n">self</span><span class="p">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+          <span class="n">self</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+            
+      <span class="k">def</span> <span class="nf">get_BMI</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+          <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">weight</span> <span class="o">/</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">**</span> <span class="mi">2</span>
+        
+      <span class="k">def</span> <span class="nf">get_status</span><span class="p">(</span><span class="n">self</span><span class="p">):</span> <span class="c1"># 위에서 반환 된 BMI 값을 가지고 판정하는 부분
+</span>          <span class="n">BMI</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">get_BMI</span><span class="p">()</span>
+            
+          <span class="k">if</span> <span class="n">BMI</span> <span class="o">&gt;=</span> <span class="mi">25</span><span class="p">:</span>
+              <span class="k">return</span> <span class="sh">"</span><span class="s">비만</span><span class="sh">"</span>
+          <span class="k">elif</span> <span class="n">BMI</span> <span class="o">&gt;=</span> <span class="mi">23</span> <span class="ow">and</span> <span class="n">BMI</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
+              <span class="k">return</span> <span class="sh">"</span><span class="s">과체중</span><span class="sh">"</span>
+          <span class="k">elif</span> <span class="n">BMI</span> <span class="o">&gt;=</span> <span class="mf">18.5</span> <span class="ow">and</span> <span class="n">BMI</span> <span class="o">&lt;</span> <span class="mi">23</span><span class="p">:</span>
+              <span class="k">return</span> <span class="sh">"</span><span class="s">정상</span><span class="sh">"</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="k">return</span> <span class="sh">"</span><span class="s">저체중</span><span class="sh">"</span>
+</pre></table></code></div></div><ul><li>get_BMI에서 반환 된 값을 부르는 방법<ol><li><p>내부의 메소드를 직접 호출</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre> <span class="k">def</span> <span class="nf">get_status</span><span class="p">(</span><span class="n">self</span><span class="p">):</span> <span class="c1"># 위에서 반환 된 BMI 값을 가지고 판정하는 부분
+</span>     <span class="k">if</span> <span class="n">self</span><span class="p">.</span><span class="nf">get_BMI</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">25</span><span class="p">:</span>
+         <span class="k">return</span> <span class="sh">"</span><span class="s">비만</span><span class="sh">"</span>
+     <span class="k">elif</span> <span class="n">self</span><span class="p">.</span><span class="nf">get_BMI</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">23</span> <span class="ow">and</span> <span class="n">self</span><span class="p">.</span><span class="nf">get_BMI</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
+         <span class="k">return</span> <span class="sh">"</span><span class="s">과체중</span><span class="sh">"</span>
+     <span class="k">elif</span> <span class="n">self</span><span class="p">.</span><span class="nf">get_BMI</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mf">18.5</span> <span class="ow">and</span> <span class="n">self</span><span class="p">.</span><span class="nf">get_BMI</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">23</span><span class="p">:</span>
+         <span class="k">return</span> <span class="sh">"</span><span class="s">정상</span><span class="sh">"</span>
+     <span class="k">else</span><span class="p">:</span>
+         <span class="k">return</span> <span class="sh">"</span><span class="s">저체중</span><span class="sh">"</span>
+</pre></table></code></div></div><li><p>변수에 메소드 반환 값을 저장해 놓고 해당 변수를 호출</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre> <span class="k">def</span> <span class="nf">get_status</span><span class="p">(</span><span class="n">self</span><span class="p">):</span> <span class="c1"># 위에서 반환 된 BMI 값을 가지고 판정하는 부분
+</span>     <span class="n">BMI</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">get_BMI</span><span class="p">()</span>
+                
+     <span class="k">if</span> <span class="n">BMI</span> <span class="o">&gt;=</span> <span class="mi">25</span><span class="p">:</span>
+         <span class="k">return</span> <span class="sh">"</span><span class="s">비만</span><span class="sh">"</span>
+     <span class="k">elif</span> <span class="n">BMI</span> <span class="o">&gt;=</span> <span class="mi">23</span> <span class="ow">and</span> <span class="n">BMI</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
+         <span class="k">return</span> <span class="sh">"</span><span class="s">과체중</span><span class="sh">"</span>
+     <span class="k">elif</span> <span class="n">BMI</span> <span class="o">&gt;=</span> <span class="mf">18.5</span> <span class="ow">and</span> <span class="n">BMI</span> <span class="o">&lt;</span> <span class="mi">23</span><span class="p">:</span>
+         <span class="k">return</span> <span class="sh">"</span><span class="s">정상</span><span class="sh">"</span>
+     <span class="k">else</span><span class="p">:</span>
+         <span class="k">return</span> <span class="sh">"</span><span class="s">저체중</span><span class="sh">"</span>
+</pre></table></code></div></div></ol></ul></ul><h2 id="클래스와-인스턴스"><span class="mr-2">클래스와 인스턴스</span><a href="#클래스와-인스턴스" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2><h3 id="원뿔-클래스-활용"><span class="mr-2">원뿔 클래스 활용</span><a href="#원뿔-클래스-활용" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p>원뿔 클래스를 사용하려면?</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre>  <span class="c1"># 원뿔 클래스 정의
+</span>  <span class="k">class</span> <span class="nc">Cone</span> <span class="p">:</span>
+      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">30</span><span class="p">):</span>
+          <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">radius</span>
+          <span class="n">self</span><span class="p">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">height</span>
+    
+      <span class="k">def</span> <span class="nf">get_vol</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">:</span>
+          <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">h</span>
+    
+      <span class="k">def</span> <span class="nf">get_surf</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">:</span>
+          <span class="k">return</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">h</span>
+</pre></table></code></div></div></ul><h3 id="객체와-인스턴스"><span class="mr-2">객체와 인스턴스</span><a href="#객체와-인스턴스" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p>구문 형식</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>  <span class="n">클래스_이름</span><span class="p">(</span><span class="n">초기자_파라미터</span><span class="p">)</span>
+</pre></table></code></div></div><ul><li>클래스의 생성자(constructor)를 통해 클래스의 인스턴스를 생성<ul><li>생성자 호출</ul><li>객체와 인스턴스는 동일 개념<li>클래스의 생성자는 클래스의 이름과 동일<li>클래스의 이름과 초기자의 매개 변수를 사용하여 생성자를 호출<ul><li>정의했던 설계 도면대로 실제 객체 생성 됨<li>실체화 된 대상이기 때문에 값 저장, 변형 등이 가능</ul></ul></ul><h3 id="객체의-생성-과정"><span class="mr-2">객체의 생성 과정</span><a href="#객체의-생성-과정" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="nc">Cone</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</pre></table></code></div></div><p><img data-src="/assets/img/knou/python/2025-04-29-knou-python-10/image4.png" alt="image.png" data-proofer-ignore></p><ol><li>클래스에 해당하는 객체 생성<li><code class="language-plaintext highlighter-rouge">__init__()</code> 메소드 호출하여 객체 초기화<ul><li><code class="language-plaintext highlighter-rouge">Cone(20, 30)</code> 호출 시 <code class="language-plaintext highlighter-rouge">r=20</code>, <code class="language-plaintext highlighter-rouge">h=30</code> 으로 설정<ul><li>초기자에 있었던 반지름과 높이 값</ul><li>메모리에 객체가 저장될 수 있는 저장 영역을 만들게 되고 그 다음에 초기자가 실제 처음으로 객체가 만들어졌을 때 기본적으로 실행되어야 하는 여러가지 행동들을 정의하며 세팅</ul></ol><h3 id="객체의-사용"><span class="mr-2">객체의 사용</span><a href="#객체의-사용" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li>객체의 데이터 필드 접근 및 메소드 호출<ul><li>객체 멤버 접근 연산자 (<code class="language-plaintext highlighter-rouge">.</code>) 사용<ul><li>객체로 조작, 연산을 하고 싶다면 객체 참조 변수에 점(<code class="language-plaintext highlighter-rouge">.</code>)만 찍으면 됨</ul></ul><li><p>객체 접근</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre>  <span class="n">객체_참조변수</span><span class="p">.</span><span class="n">데이터_필드</span>
+  <span class="n">객체_참조변수</span><span class="p">.</span><span class="n">메소드</span><span class="p">(</span><span class="n">파라미터</span><span class="p">)</span>
+</pre></table></code></div></div><ul><li>객체 참조 변수를 사용하여 객체를 생성하고 접근<ul><li>생성자를 통해 만들어진 객체에 접근할 수 있는 지칭 도구</ul></ul><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>  <span class="n">객체_참조변수</span> <span class="o">=</span> <span class="n">클래스_이름</span><span class="p">(</span><span class="n">초기자_파라미터</span><span class="p">)</span> <span class="c1"># 생성자를 통해 만들어진 객체 
+</span></pre></table></code></div></div></ul><h3 id="원뿔-클래스-활용-1"><span class="mr-2">원뿔 클래스 활용</span><a href="#원뿔-클래스-활용-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p>단위 원뿔과 반지름과 높이가 각각 50, 100인 원뿔의 부피와 겉넓이를 출력하는 프로그램</p><p><img data-src="/assets/img/knou/python/2025-04-29-knou-python-10/image5.png" alt="image.png" data-proofer-ignore></p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre>  <span class="n">unit_cone</span> <span class="o">=</span> <span class="nc">Cone</span><span class="p">()</span> <span class="c1"># 객체 참조 변수 = 클래스명(초기자 파라미터), 별도로 정의해주지 않으면 위에서 정의한 기본 값이 적용
+</span>  <span class="n">big_cone</span> <span class="o">=</span> <span class="nc">Cone</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    
+  <span class="c1"># 멤버에 접근하기 위해서는 연산자 .을 사용
+</span>  <span class="n">unit_cone</span><span class="p">.</span><span class="nf">get_vol</span><span class="p">()</span> <span class="c1"># 부피 구하는 메소드 호출
+</span>  <span class="n">unit_cone</span><span class="p">.</span><span class="nf">get_surf</span><span class="p">()</span> <span class="c1"># 겉넓이 구하는 메소드 호출
+</span>    
+  <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">단위 원뿔의 겉넓이와 부피는</span><span class="sh">"</span><span class="p">,</span> <span class="n">unit_cone</span><span class="p">.</span><span class="nf">get_surf</span><span class="p">(),</span> <span class="n">unit_cone</span><span class="p">.</span><span class="nf">get_vol</span><span class="p">(),</span> <span class="sh">"</span><span class="s">입니다.</span><span class="sh">"</span><span class="p">)</span>
+  <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">큰 원뿔의 겉넓이와 부피는</span><span class="sh">"</span><span class="p">,</span> <span class="n">big_cone</span><span class="p">.</span><span class="nf">get_surf</span><span class="p">(),</span> <span class="n">big_cone</span><span class="p">.</span><span class="nf">get_vol</span><span class="p">(),</span> <span class="sh">"</span><span class="s">입니다.</span><span class="sh">"</span><span class="p">)</span>
+</pre></table></code></div></div></ul><h3 id="bmi-클래스-활용"><span class="mr-2">BMI 클래스 활용</span><a href="#bmi-클래스-활용" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p>가상의 이름, 나이, 몸무게, 키를 사용하여 BMI 객체를 사용하는 프로그램</p><p><img data-src="/assets/img/knou/python/2025-04-29-knou-python-10/image6.png" alt="image.png" data-proofer-ignore></p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre>  <span class="n">person1</span> <span class="o">=</span> <span class="nc">BMI</span><span class="p">(</span><span class="sh">"</span><span class="s">홍길동</span><span class="sh">"</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">182</span><span class="p">)</span> <span class="c1"># 객체 참조 변수를 만들고 BMI 객체를 호출함
+</span>    
+  <span class="nf">print</span><span class="p">(</span><span class="n">person1</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span> <span class="sh">"</span><span class="s">님(</span><span class="sh">"</span> <span class="o">+</span> <span class="nf">str</span><span class="p">(</span><span class="n">person1</span><span class="p">.</span><span class="n">age</span><span class="p">)</span> <span class="o">+</span> <span class="sh">"</span><span class="s">세)의 BMI 수치는</span><span class="sh">"</span><span class="p">,</span> <span class="n">person1</span><span class="p">.</span><span class="nf">get_BMI</span><span class="p">(),</span> <span class="sh">"</span><span class="s">결과는</span><span class="sh">"</span><span class="p">,</span> <span class="n">person1</span><span class="p">.</span><span class="nf">get_status</span><span class="p">(),</span> <span class="sh">"</span><span class="s">입니다.</span><span class="sh">"</span><span class="p">)</span>
+</pre></table></code></div></div></ul><h2 id="객체-지향의-활용"><span class="mr-2">객체 지향의 활용</span><a href="#객체-지향의-활용" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2><h3 id="데이터-타입과-객체"><span class="mr-2">데이터 타입과 객체</span><a href="#데이터-타입과-객체" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre><span class="sh">"</span><span class="s">Korea National Open University</span><span class="sh">"</span><span class="p">.</span><span class="nf">lower</span><span class="p">()</span> <span class="c1"># 소문자로 변형 되어서 문자열 출력
+</span></pre></table></code></div></div><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="n">number</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">type</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>  <span class="c1"># &lt;class 'int'&gt;
+</span><span class="nf">print</span><span class="p">(</span><span class="nf">id</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>    <span class="c1"># id: 1403902********28
+</span></pre></table></code></div></div><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre><td class="rouge-code"><pre><span class="n">symbol</span> <span class="o">=</span> <span class="sh">"</span><span class="s">파이썬</span><span class="sh">"</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">type</span><span class="p">(</span><span class="n">symbol</span><span class="p">))</span>  <span class="c1"># &lt;class 'str'&gt;
+</span><span class="nf">print</span><span class="p">(</span><span class="nf">id</span><span class="p">(</span><span class="n">symbol</span><span class="p">))</span>    <span class="c1"># id: 1403892********08
+</span></pre></table></code></div></div><ul><li>파이썬의 기본 데이터 타입 (int, str 등)도 객체임<ul><li>모든 변수는 객체<li>객체 지향형 프로그래밍 언어에서는 모든 것은 다 객체를 통해 이루어짐</ul><li><code class="language-plaintext highlighter-rouge">type()</code> 함수<ul><li>객체의 타입 확인할 수 있음</ul><li><code class="language-plaintext highlighter-rouge">id()</code> 함수<ul><li>객체의 고유 식별자(메모리 주소)를 확인할 수 있음</ul></ul><h3 id="str-메소드"><span class="mr-2">str 메소드</span><a href="#str-메소드" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><code class="language-plaintext highlighter-rouge">.upper()</code>, <code class="language-plaintext highlighter-rouge">.lower()</code> 메소드<ul><li>대/소문자로 변경</ul><li><code class="language-plaintext highlighter-rouge">.title()</code> 메소드<ul><li>각 단어의 첫 글자를 대문자로 변경</ul><li><code class="language-plaintext highlighter-rouge">.strip()</code>, <code class="language-plaintext highlighter-rouge">.rstrip()</code>, <code class="language-plaintext highlighter-rouge">.lstrip()</code> 메소드<ul><li>양쪽/오른쪽/왼쪽의 특정 문자를 제거</ul><li><code class="language-plaintext highlighter-rouge">.replace()</code> 메소드<ul><li>문자열 특정 부분을 대체</ul><li><code class="language-plaintext highlighter-rouge">.split()</code><ul><li>구분자로 분할하여 리스트로 반환</ul></ul><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="sh">"</span><span class="s">I love python</span><span class="sh">"</span><span class="p">.</span><span class="nf">upper</span><span class="p">()</span> <span class="c1"># "I LOVE PYTHON"
+</span><span class="sh">"</span><span class="s">I love python</span><span class="sh">"</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sh">"</span><span class="s">o</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">i</span><span class="sh">"</span><span class="p">)</span> <span class="c1"># "I live pythin"
+</span><span class="n">isymbol</span> <span class="o">=</span> <span class="sh">"</span><span class="s">I love python</span><span class="sh">"</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sh">"</span><span class="s">o</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">i</span><span class="sh">"</span><span class="p">)</span>
+<span class="c1"># dir(str) # str 객체가 가진 모든 메소드와 속성 확인
+</span></pre></table></code></div></div><h3 id="원뿔-클래스-개선"><span class="mr-2">원뿔 클래스 개선</span><a href="#원뿔-클래스-개선" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p>멤버 r 또는 h에 음수를 입력하면?</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre>  <span class="c1"># 원뿔 클래스 정의
+</span>  <span class="k">class</span> <span class="nc">Cone</span><span class="p">:</span>
+      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span> <span class="c1"># 초기자 지정
+</span>          <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">radius</span>
+          <span class="n">self</span><span class="p">.</span><span class="n">h</span> <span class="o">=</span> <span class="n">height</span>
+            
+      <span class="k">def</span> <span class="nf">get_vol</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+          <span class="k">return</span> <span class="n">vol</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">h</span> <span class="c1">#데이터 필드의 r과 h라는 것을 알려주기 위해 꼭 self.를 앞에 표시해주어야 함
+</span>            
+      <span class="k">def</span> <span class="nf">get_surf</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+          <span class="k">return</span> <span class="n">suf</span> <span class="o">=</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">r</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">h</span>
+            
+  <span class="n">unitcone</span> <span class="o">=</span> <span class="nc">Cone</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+  <span class="n">unitcone</span><span class="p">.</span><span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="mi">50</span>  <span class="c1"># 외부에서 데이터 필드에 직접 접근하여 음수 값을 할당하는 것이 가능 -&gt; 부피/겉넓이 계산에 문제 일으킴
+</span></pre></table></code></div></div><ul><li><strong>악의적인 사용자</strong>가 Cone 클래스에 접근하지 못하도로 <strong>제약</strong>을 줄 필요가 있음<ul><li>나이, 몸무게, 키는 <code class="language-plaintext highlighter-rouge">private</code>로 지정해 변경 방지</ul></ul></ul><h3 id="데이터-필드-감추기"><span class="mr-2">데이터 필드 감추기</span><a href="#데이터-필드-감추기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li>데이터 은닉(Data Hiding)<ul><li>데이터 필드의 직접 변경을 방지하기 위해 사용자의 직접적 접근을 차단<li><code class="language-plaintext highlighter-rouge">public</code>과 다른 <code class="language-plaintext highlighter-rouge">private</code> 데이터 필드로 정의</ul><li><code class="language-plaintext highlighter-rouge">private</code> 데이터 필드<ul><li>클래스 내부에서만 접근 가능<li><p>앞 두 밑줄(<code class="language-plaintext highlighter-rouge">__</code>)로 정의</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>   <span class="n">self</span><span class="p">.</span><span class="n">__r</span>
+</pre></table></code></div></div><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre>  <span class="n">self</span><span class="p">.</span><span class="n">__h</span>
+</pre></table></code></div></div></ul></ul><h3 id="접근자와-변경자"><span class="mr-2">접근자와 변경자</span><a href="#접근자와-변경자" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p><code class="language-plaintext highlighter-rouge">private</code>으로 정의된 데이터 필드는 객체 외부에서 직접 접근 불가능</p><div class="language-bash highlighter-rouge"><div class="code-header"> <span data-label-text="Shell"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre>  File <span class="s2">"&lt;ipython-input-7-a73e9d167542&gt;"</span>, line 13
+  		print<span class="o">(</span>unitcone.__r <span class="o">=</span> - 50<span class="o">)</span>
+  					^
+  SyntaxError: expression cannot contain assignment,
+  perhaps you meant <span class="s2">"=="</span>?
+</pre></table></code></div></div><ul><li><code class="language-plaintext highlighter-rouge">print(unitcone.__r)</code> 와 같은 접근 시 에러 발생</ul><li><code class="language-plaintext highlighter-rouge">private</code> 데이터 필드에 접근하기 위한 메소드<ul><li><strong>접근자(Accessor)</strong><ul><li>데이터 필드 반환 (Getter)</ul><li><strong>변경자(Mutator)</strong><ul><li>데이터 필드 설정 (Setter)</ul></ul><li>잘못 된 값으로 객체가 만들어지는 것을 막기 위한 <strong>접근자</strong>와 <strong>변경자</strong></ul><h3 id="원뿔-클래스-개선-1"><span class="mr-2">원뿔 클래스 개선</span><a href="#원뿔-클래스-개선-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p>멤버 __r과 __h에 대한 접근자와 변경자 정의</p><p><img data-src="/assets/img/knou/python/2025-04-29-knou-python-10/image7.png" alt="image.png" data-proofer-ignore></p><ol><li>클래스에 잘못 된 접근 차단하기<li>접근자와 변경자 통한 <code class="language-plaintext highlighter-rouge">private</code> 데이터 필드 접근<ul><li>만들어진 객체들이 정상 범위 내에서 동작하도록 해야함<li>데이터 필드 값 접근 막아야 함</ul></ol><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre><td class="rouge-code"><pre>  <span class="k">class</span> <span class="nc">pCone</span><span class="p">:</span>
+      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">30</span><span class="p">):</span> <span class="c1"># 초기자 지정
+</span>          <span class="k">if</span> <span class="n">radius</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+              <span class="n">self</span><span class="p">.</span><span class="n">__r</span> <span class="o">=</span> <span class="n">radius</span> <span class="c1"># private 선언 -&gt; 객체 외부에서는 접근이 불가능한 반지름과 높이 값
+</span>              <span class="n">self</span><span class="p">.</span><span class="n">__h</span> <span class="o">=</span> <span class="n">height</span>
+    
+      <span class="k">def</span> <span class="nf">get_vol</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+          <span class="n">vol</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">__r</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">__h</span> <span class="c1">#데이터 필드의 r과 h라는 것을 알려주기 위해 꼭 self.를 앞에 표시해주어야 함
+</span>          <span class="k">return</span> <span class="n">vol</span>
+        
+      <span class="k">def</span> <span class="nf">get_surf</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+          <span class="n">suf</span> <span class="o">=</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">__r</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">3.14</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">__r</span> <span class="o">*</span> <span class="n">self</span><span class="p">.</span><span class="n">__h</span>
+          <span class="k">return</span> <span class="n">suf</span>
+        
+      <span class="k">def</span> <span class="nf">get_radius</span><span class="p">(</span><span class="n">self</span><span class="p">):</span> <span class="c1"># 접근자 통한 데이터 필드 반환
+</span>          <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">__r</span>
+    
+      <span class="k">def</span> <span class="nf">set_radius</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span> <span class="c1"># 변경자 통한 데이터 필드 설정
+</span>          <span class="k">if</span> <span class="n">radius</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span><span class="c1"># 음수 값이 입력되지 않도록 if문으로 제어
+</span>              <span class="n">self</span><span class="p">.</span><span class="n">__r</span> <span class="o">=</span> <span class="n">radius</span>
+</pre></table></code></div></div><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre>  <span class="n">perfect_cone</span> <span class="o">=</span> <span class="nf">pCone</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+    
+  <span class="n">perfect_cone</span><span class="p">.</span><span class="nf">get_vol</span><span class="p">()</span> <span class="c1"># 기존에 보였던 데이터 필드 r, h가 보이지 않음
+</span>    
+  <span class="n">perfect_cone</span><span class="p">.</span><span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="mi">50</span>
+    
+  <span class="nf">print</span><span class="p">(</span><span class="n">perfect_cone</span><span class="p">.</span><span class="nf">get_surf</span><span class="p">())</span>
+</pre></table></code></div></div></ul><h3 id="bmi-클래스-활용-1"><span class="mr-2">BMI 클래스 활용</span><a href="#bmi-클래스-활용-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><ul><li><p>가상의 이름, 나이, 몸무게, 키를 사용하여 BMI 객체를 사용하는 프로그램</p><p><img data-src="/assets/img/knou/python/2025-04-29-knou-python-10/image8.png" alt="image.png" data-proofer-ignore></p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre><td class="rouge-code"><pre>  <span class="k">class</span> <span class="nc">BMI</span><span class="p">:</span>
+      <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span> <span class="c1"># 초기자 지정
+</span>          <span class="n">self</span><span class="p">.</span><span class="n">__name</span> <span class="o">=</span> <span class="n">name</span> <span class="c1"># 입력 파라미터에 들어온 값들을 데이터 필드에 넣어주는 작업
+</span>          <span class="n">self</span><span class="p">.</span><span class="n">__age</span> <span class="o">=</span> <span class="n">age</span>
+          <span class="n">self</span><span class="p">.</span><span class="n">__weight</span> <span class="o">=</span> <span class="n">weight</span>
+          <span class="n">self</span><span class="p">.</span><span class="n">__height</span> <span class="o">=</span> <span class="n">height</span>
+            
+      <span class="k">def</span> <span class="nf">get_BMI</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+          <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">__weight</span> <span class="o">/</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">__height</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">**</span> <span class="mi">2</span>
+        
+      <span class="k">def</span> <span class="nf">get_status</span><span class="p">(</span><span class="n">self</span><span class="p">):</span> <span class="c1"># 위에서 반환 된 BMI 값을 가지고 판정하는 부분
+</span>          <span class="n">BMI</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">get_BMI</span><span class="p">()</span>
+            
+          <span class="k">if</span> <span class="n">BMI</span> <span class="o">&gt;=</span> <span class="mi">25</span><span class="p">:</span>            
+              <span class="k">return</span> <span class="sh">"</span><span class="s">비만</span><span class="sh">"</span>
+          <span class="k">elif</span> <span class="n">BMI</span> <span class="o">&gt;=</span> <span class="mi">23</span> <span class="ow">and</span> <span class="n">BMI</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
+              <span class="k">return</span> <span class="sh">"</span><span class="s">과체중</span><span class="sh">"</span>
+          <span class="k">elif</span> <span class="n">BMI</span> <span class="o">&gt;=</span> <span class="mf">18.5</span> <span class="ow">and</span> <span class="n">BMI</span> <span class="o">&lt;</span> <span class="mi">23</span><span class="p">:</span>
+              <span class="k">return</span> <span class="sh">"</span><span class="s">정상</span><span class="sh">"</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="k">return</span> <span class="sh">"</span><span class="s">저체중</span><span class="sh">"</span>
+</pre></table></code></div></div></ul><p><br /><br /></p><h1 id="연습-문제">연습 문제</h1><hr /><ol><li><p>다음 중 객체 지향 패러다임의 특징이라고 할 수 없는 것은?</p><p>a. 개방화</p><ul><li>객체 지향 패러다임의 특징<ul><li>추상화<li>캡슐화<li>상속</ul></ul><li><p>다음 코드의 빈 칸에 공통으로 들어가야 하는 것은?</p><p><img data-src="/assets/img/knou/python/2025-04-29-knou-python-10/image9.png" alt="image.png" data-proofer-ignore></p><p>a. <code class="language-plaintext highlighter-rouge">self</code></p><li><p>다음 코드의 실행 결과는?</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre><td class="rouge-code"><pre> <span class="sh">"</span><span class="s">I love python</span><span class="sh">"</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sh">"</span><span class="s">o</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">i</span><span class="sh">"</span><span class="p">).</span><span class="nf">upper</span><span class="p">()</span>
+</pre></table></code></div></div><p>a. <code class="language-plaintext highlighter-rouge">"I LIVE PYTHIN"</code></p></ol><p><br /><br /></p><h1 id="학습-정리">학습 정리</h1><hr /><ul><li>객체와 객체 사이의 상호작용으로 프로그램을 구성하는 프로그래밍 패러다임을 <strong>객체 지향</strong>이라고 함<li><strong>객체 지향 패러다임의 특징</strong>에는 추상화, 캡슐화, 상속, 다형성이 있음<li><strong>클래스는 실 세계의 사물에 대한 상태(데이터)와 연산(메소드)을 표현한 단위임</strong><li>클래스는 객체의 행동을 정의하는 메소드와 객체의 상태를 초기화하는 특수 메소드로 구성 됨<li>모든 메소드의 첫 번째 매개 변수는 <strong>self</strong> 임<li><strong>클래스의 생성자</strong>(<strong>constructor</strong>)호출을 통해 클래스의 인스턴스인 객체가 생성 됨<ul><li>클래스의 생성자는 클래스의 이름과 동일하며 초기자의 매개 변수를 사용함</ul><li>객체의 데이터 필드 접근 및 메소드 호출에 <strong>객체 멤버 접근 연산자</strong>(<code class="language-plaintext highlighter-rouge">.</code>)를 사용함<li>객체의 데이터 필드의 직접 변경을 방지하기 위해 사용자의 직접적 접근을 차단하기 위해 <strong>데이터 은닉</strong>을 사용함<li><code class="language-plaintext highlighter-rouge">private</code> 데이터 필드는 클래스 내부에서만 접근 가능하며 <strong>앞 두 밑줄</strong>(<code class="language-plaintext highlighter-rouge">__</code>)로 정의함<li><code class="language-plaintext highlighter-rouge">private</code> 데이터 필드에 대해 접근하기 위한 <strong>접근자</strong>와 <strong>변경자</strong> 메소드가 정의되어야 함</ul></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/knou/'>Knou</a>, <a href='/categories/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EA%B8%B0%EC%B4%88/'>파이썬 프로그래밍 기초</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/knou/" class="post-tag no-text-decoration" >knou</a> <a href="/tags/python/" class="post-tag no-text-decoration" >python</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"></div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=[파이썬 프로그래밍 기초] 10강 - 객체 지향 - MXXI.kr&amp;url=https://mxxikr.github.io/posts/knou-python-10/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=[파이썬 프로그래밍 기초] 10강 - 객체 지향 - MXXI.kr&amp;u=https://mxxikr.github.io/posts/knou-python-10/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://t.me/share/url?url=https://mxxikr.github.io/posts/knou-python-10/&amp;text=[파이썬 프로그래밍 기초] 10강 - 객체 지향 - MXXI.kr" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i id="copy-link" class="fa-fw fas fa-link small" data-toggle="tooltip" data-placement="top" title="Copy link" data-title-succeed="Link copied successfully!"> </i> </span></div></div></div><script src="https://utteranc.es/client.js" repo="mxxikr/mxxikr.github.io" issue-term="pathname" label="comments" theme="github-dark" crossorigin="anonymous" async> </script></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted"><div class="access"><div id="access-lastmod" class="post"><div class="panel-heading">Recently Updated</div><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/knou-dbs-3/">[데이터베이스 시스템] 3강 - 관계형 모델</a><li><a href="/posts/knou-dbs-5/">[데이터베이스 시스템] 5강 - SQL</a><li><a href="/posts/knou-dbs-1/">[데이터베이스 시스템] 1강 - 데이터의 이해</a><li><a href="/posts/knou-dbs-7/">[데이터베이스 시스템] 7강 - SQL</a><li><a href="/posts/knou-dbs-4/">[데이터베이스 시스템] 4강 - SQL</a></ul></div><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/knou/">knou</a> <a class="post-tag" href="/tags/database/">database</a> <a class="post-tag" href="/tags/python/">python</a> <a class="post-tag" href="/tags/java/">java</a> <a class="post-tag" href="/tags/linux/">linux</a> <a class="post-tag" href="/tags/network/">network</a> <a class="post-tag" href="/tags/alicloud/">alicloud</a> <a class="post-tag" href="/tags/gcp/">gcp</a> <a class="post-tag" href="/tags/google/">google</a> <a class="post-tag" href="/tags/query/">query</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"><div class="panel-heading pl-3 pt-2 mb-2">Contents</div><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 pl-3 pr-3 pr-xl-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/knou-python-11/"><div class="card-body"> <em class="timeago small" data-ts="1746457200" > 2025-05-06 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[파이썬 프로그래밍 기초] 11강 - 모듈</h3><div class="text-muted small"><p> 💡해당 게시글은 방송통신대학교 정재화 교수님의 &#39;파이썬 프로그래밍 기초&#39; 강의를 개인 공부 목적으로 메모하였습니다. 학습 목표 모듈, 패키지, 라이브러리를 구분할 수 있음 모듈을 등록할 수 있음 모듈의 메소드 및 변수를 사용할 수 있음 주요 용어 모듈 함수, 상수 또는 클래스를 모아 놓은 ...</p></div></div></a></div><div class="card"> <a href="/posts/knou-python-12/"><div class="card-body"> <em class="timeago small" data-ts="1746802800" > 2025-05-10 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[파이썬 프로그래밍 기초] 12강 - 파일</h3><div class="text-muted small"><p> 💡해당 게시글은 방송통신대학교 정재화 교수님의 &#39;파이썬 프로그래밍 기초&#39; 강의를 개인 공부 목적으로 메모하였습니다. 학습 목표 파일의 역할에 대해 설명할 수 있음 파일 함수를 통해 데이터를 읽고 쓰고 추가할 수 있음 딕셔너리를 사용할 수 있음 주요 용어 파일 이름 파일 경로를 내포하는 파일...</p></div></div></a></div><div class="card"> <a href="/posts/knou-python-13/"><div class="card-body"> <em class="timeago small" data-ts="1746889200" > 2025-05-11 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[파이썬 프로그래밍 기초] 13강 - 실전 프로그래밍</h3><div class="text-muted small"><p> 💡해당 게시글은 방송통신대학교 정재화 교수님의 &#39;파이썬 프로그래밍 기초&#39; 강의를 개인 공부 목적으로 메모하였습니다. 학습 목표 소프트웨어 개발 라이프사이클의 진행 단계를 나열할 수 있음 배치 프로그램과 이벤트 기반 프로그램의 구조적 차이를 설명할 수 있음 소프트웨어 개발 라이프사이클을 적용할 수 있음 주요 용어 ...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/knou-dbs-9/" class="btn btn-outline-primary" prompt="Older"><p>[데이터베이스 시스템] 9강 - 저장 객체</p></a> <a href="/posts/knou-dbs-10/" class="btn btn-outline-primary" prompt="Newer"><p>[데이터베이스 시스템] 10강 - 데이터 저장과 파일</p></a></div></div></div><footer class="card-footer"><div class="align-items-center text-muted"><div class="footer-left"><p class="mb-0"> © 2025 <a href="https://github.com/mxxikr">mxxikr</a>.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/knou/">knou</a> <a class="post-tag" href="/tags/database/">database</a> <a class="post-tag" href="/tags/python/">python</a> <a class="post-tag" href="/tags/java/">java</a> <a class="post-tag" href="/tags/linux/">linux</a> <a class="post-tag" href="/tags/network/">network</a> <a class="post-tag" href="/tags/alicloud/">alicloud</a> <a class="post-tag" href="/tags/gcp/">gcp</a> <a class="post-tag" href="/tags/google/">google</a> <a class="post-tag" href="/tags/query/">query</a></div></div></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js"></script> <script> $(function() { function updateMermaid(event) { if (event.source === window && event.data && event.data.direction === ModeToggle.ID) { const mode = event.data.message; if (typeof mermaid === "undefined") { return; } let expectedTheme = (mode === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* Re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } let initTheme = "default"; if ($("html[data-mode=dark]").length > 0 || ($("html[data-mode]").length == 0 && window.matchMedia("(prefers-color-scheme: dark)").matches ) ) { initTheme = "dark"; } let mermaidConf = { theme: initTheme /* <default|dark|forest|neutral> */ }; /* Markdown converts to HTML */ $("pre").has("code.language-mermaid").each(function() { let svgCode = $(this).children().html(); $(this).addClass("unloaded"); $(this).after(`<div class=\"mermaid\">${svgCode}</div>`); }); mermaid.initialize(mermaidConf); window.addEventListener("message", updateMermaid); }); </script><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a><div id="notification" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-animation="true" data-autohide="false"><div class="toast-header"> <button type="button" class="ml-2 ml-auto close" data-dismiss="toast" aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div><div class="toast-body text-center pt-0"><p class="pl-2 pr-2 mb-3">A new version of content is available.</p><button type="button" class="btn btn-primary" aria-label="Update"> Update </button></div></div><script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No results found.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script> <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script> <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/ko.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script> /* see: <https://docs.mathjax.org/en/latest/options/input/tex.html#tex-options> */ MathJax = { tex: { inlineMath: [ /* start/end delimiter pairs for in-line math */ ['$','$'], ['\\(','\\)'] ], displayMath: [ /* start/end delimiter pairs for display math */ ['$$', '$$'], ['\\[', '\\]'] ] } }; </script> <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> </script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id=G-G1QMP111QH"></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-G1QMP111QH'); }); </script>
