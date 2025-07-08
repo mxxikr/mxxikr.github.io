@@ -213,10 +213,10 @@ prt_cone_vol(rad, hei)
     ![image.png](/assets/img/knou/python/2025-04-25-knou-python-9/image1.png)
     
 - 실행 후 결과 값을 남기는 함수
-    - return 명령어와 반환 값을 열거
-    - 함수 내부에 여러 개의 return 사용 가능
+    - `return` 명령어와 반환 값을 열거
+    - 함수 내부에 여러 개의 `return` 사용 가능
 
-### format 함수
+### `format` 함수
 
 - 실수 데이터 형식화
     - 형식 지정자

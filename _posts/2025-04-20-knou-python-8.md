@@ -75,7 +75,7 @@ mermaid: true
     
     ![image.png](/assets/img/knou/python/2025-04-20-knou-python-8/image1.png)
     
-    a. odd = range(1, 10, 2)
+    a. `odd = range(1, 10, 2)`
     - range의 두 번째 매개 변수 값보다 하나 작은 값으로 시퀀스가 생성 됨
 7. 파이썬 프로그램 실행 과정에서 다음 밑줄 친 (가)에 들어갈 알맞은 말은?
     
@@ -111,7 +111,7 @@ mermaid: true
     - 인덱스는 0부터 시작함
 11. 다음 중 식별자로 사용할 수 없는 것은?
 
-    a. or
+    a. `or`
     - 예약어와 겹쳐서 사용 불가능
     - 식별자로 사용할 수 있는 것
         - `blue456`
@@ -238,7 +238,7 @@ mermaid: true
 2. 파이썬은 히도 판로쉼이 주도하여 발전하고 있다. 
 
     a. X
-3. print(hei_list[2])의 실행 결과값은 14이다.
+3. `print(hei_list[2])`의 실행 결과값은 14이다.
     
     ![image.png](/assets/img/knou/python/2025-04-20-knou-python-8/image5.png)
     
