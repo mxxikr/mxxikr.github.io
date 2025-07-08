@@ -1,0 +1,551 @@
+<!DOCTYPE html><html lang="en" data-mode="dark" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="prefer-datetime-locale" content="ko"><meta name="generator" content="Jekyll v4.4.1" /><meta property="og:title" content="[데이터 정보 처리 입문] 15강 - 파이썬을 활용한 자료 분석 2" /><meta name="author" content="mxxikr" /><meta property="og:locale" content="en" /><meta name="description" content="💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 &#39;데이터 정보 처리 입문&#39; 강의를 개인 공부 목적으로 메모하였습니다." /><meta property="og:description" content="💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 &#39;데이터 정보 처리 입문&#39; 강의를 개인 공부 목적으로 메모하였습니다." /><link rel="canonical" href="https://mxxikr.github.io/posts/knou-dip-15/" /><meta property="og:url" content="https://mxxikr.github.io/posts/knou-dip-15/" /><meta property="og:site_name" content="MXXI.kr" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2025-05-30T00:00:00+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="[데이터 정보 처리 입문] 15강 - 파이썬을 활용한 자료 분석 2" /><meta name="twitter:site" content="@twitter_username" /><meta name="twitter:creator" content="@mxxikr" /><meta name="google-site-verification" content="jrB0ZGRmhAQ9sqzUNV-C9QdF0brDTEBfkBb9o7loUxc" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"mxxikr"},"dateModified":"2025-05-30T00:00:00+09:00","datePublished":"2025-05-30T00:00:00+09:00","description":"💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 &#39;데이터 정보 처리 입문&#39; 강의를 개인 공부 목적으로 메모하였습니다.","headline":"[데이터 정보 처리 입문] 15강 - 파이썬을 활용한 자료 분석 2","mainEntityOfPage":{"@type":"WebPage","@id":"https://mxxikr.github.io/posts/knou-dip-15/"},"url":"https://mxxikr.github.io/posts/knou-dip-15/"}</script><title>[데이터 정보 처리 입문] 15강 - 파이썬을 활용한 자료 분석 2 | MXXI.kr</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="MXXI.kr"><meta name="application-name" content="MXXI.kr"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://cdn.jsdelivr.net" ><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" ><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="anonymous"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script><body data-spy="scroll" data-target="#toc" data-topbar-visible="true"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" alt="avatar" class="mx-auto"> <img src=" /assets/img/profile.jpg " alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">MXXI.kr</a></div><div class="site-subtitle font-italic">Server Developer</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center"> <a href="https://github.com/mxxikr" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['mxxikr','gmail.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Home </a> </span> <span>[데이터 정보 처리 입문] 15강 - 파이썬을 활용한 자료 분석 2</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper" class="d-flex justify-content-center"><div id="main" class="container pl-xl-4 pr-xl-4"><div class="row"><div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pr-xl-4"><div class="post pl-1 pr-1 pl-md-2 pr-md-2"><h1 data-toc-skip>[데이터 정보 처리 입문] 15강 - 파이썬을 활용한 자료 분석 2</h1><div class="post-meta text-muted"> <span> Posted <em class="" data-ts="1748530800" data-df="ll" data-toggle="tooltip" data-placement="bottom"> May 30, 2025 </em> </span><div class="d-flex justify-content-between"> <span> By <em> mxxikr </em> </span><div> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="3716 words"> read <em>20 min</em> </span></div></div></div><div class="post-content"><p><strong><center>💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. </center></strong></p><p><br /><br /></p><h1 id="학습-개요">학습 개요</h1><hr /><ul><li>파이썬은 객체 지향 프로그래밍 언어로 문법이 쉽고, 확장성이 좋아 데이터 과학 분야에서 R과 더불어 널리 이용되고있는 프로그램 언어임<li>파이썬을 이용하여 데이터를 읽고, 처리하는 방법을 알아보고, 기술 통계량을 구하는 법, 히스토그램 등 기본적인 통계 그래프를 그리는 방법을 알아봄</ul><p><br /><br /></p><h1 id="학습-목표">학습 목표</h1><hr /><ul><li>파이썬을 이용하여 데이터를 읽을 수 잇음<li>파이썬을 이용하여 기술 통계 량을 구할 수 있음<li>파이썬을 이용하여 통계 그래프를 그릴 수 있음</ul><p><br /><br /></p><h1 id="강의록">강의록</h1><hr /><h2 id="자료-읽기"><span class="mr-2">자료 읽기</span><a href="#자료-읽기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2><h3 id="자료-파일-nex8-1csv-nex8-1xlsx"><span class="mr-2">자료 파일 (nex8-1.csv, nex8-1.xlsx)</span><a href="#자료-파일-nex8-1csv-nex8-1xlsx" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/image.png" alt="image.png" data-proofer-ignore></p><ul><li>자료 읽기<li>기술 통계량 및 빈도표<li>그래프 그리기</ul><h3 id="py-9-3-텍스트-자료-읽기"><span class="mr-2">&lt;Py 9-3&gt; 텍스트 자료 읽기</span><a href="#py-9-3-텍스트-자료-읽기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span> <span class="c1"># pandas 라이브러리를 pd라는 이름으로 불러옴
+</span><span class="n">nex8</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="sh">"</span><span class="s">D:/01_KNOU/2025년도 1학기/데이터 정보 처리 입문/dataintro/nex8-1.csv</span><span class="sh">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># CSV 파일을 읽어 DataFrame으로 저장 (첫 번째 행을 헤더로 사용)
+</span><span class="n">nex8</span><span class="p">.</span><span class="nf">head</span><span class="p">()</span> <span class="c1"># DataFrame의 첫 5행을 출력
+#   id  sex  age  edu    salary
+# 0  1   m   21   high     150
+# 1  2   f   22   middle   100
+# 2  3   m   33   high     200
+# 4  5   m   28   high     170
+</span><span class="n">nex8</span><span class="p">.</span><span class="nf">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># DataFrame의 첫 3행을 출력
+#   id  sex  age  edu    salary
+# 0  1   m   21   high     150
+# 1  2   f   22   middle   100
+# 2  3   m   33   high     200
+</span><span class="n">nex8</span><span class="p">.</span><span class="nf">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># DataFrame의 마지막 3행을 출력
+#   id   sex  age   edu   salary
+# 7  8   m    32    univ    220
+# 8  9   f    44    middle  370
+# 9 10   m    55    univ    410
+</span><span class="nf">type</span><span class="p">(</span><span class="n">nex8</span><span class="p">)</span> <span class="c1"># nex8 객체의 타입을 확인
+# pandas.core.frame.DataFrame 
+</span><span class="n">nex8</span><span class="p">.</span><span class="n">shape</span> <span class="c1"># DataFrame의 행과 열의 개수를 확인 (10행, 5열)
+# (10, 5)
+</span></pre></table></code></div></div><h3 id="py-9-4-엑셀-파일-읽기"><span class="mr-2">&lt;Py 9-4&gt; 엑셀 파일 읽기</span><a href="#py-9-4-엑셀-파일-읽기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span> <span class="c1"># pandas 라이브러리를 pd라는 이름으로 불러옴
+</span><span class="n">nex8_2</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_excel</span><span class="p">(</span><span class="sh">"</span><span class="s">D:/01_KNOU/2025년도 1학기/데이터 정보 처리 입문/dataintro/nex8-1.xlsx</span><span class="sh">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 엑셀 파일을 읽어 DataFrame으로 저장 (첫 번째 행을 헤더로 사용)
+</span><span class="n">nex8_2</span><span class="p">.</span><span class="nf">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># DataFrame의 첫 3행을 출력
+#   id sex  age    edu salary
+# 0  1   m   21   high    150
+# 1  2   f   22 middle    100
+# 2  3   m  33   high    200
+</span></pre></table></code></div></div><ul><li><p>변수 선택</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre><td class="rouge-code"><pre>  <span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">age</span><span class="sh">"</span><span class="p">]</span> <span class="c1"># age 열 선택
+</span>  <span class="n">nex8</span><span class="p">.</span><span class="n">age</span> <span class="c1"># age 열 선택
+</span>  <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">sex</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">age</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">edu</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">salary</span><span class="sh">'</span><span class="p">]</span> <span class="c1"># 선택할 여러 열의 이름을 리스트로 저장
+</span>  <span class="n">nex8</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span> <span class="c1"># 리스트에 지정 된 여러 열 선택
+</span>  <span class="n">nex8</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="c1"># 모든 행과 두 번째 열부터 끝까지의 모든 열 선택 (첫 번째 열 제외)
+</span>  <span class="n">nex8</span> <span class="o">=</span> <span class="n">nex8</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="c1"># 첫 번째 열을 제외한 결과를 다시 nex8에 저장
+</span></pre></table></code></div></div></ul><h2 id="기술-통계량-및-빈도-표"><span class="mr-2">기술 통계량 및 빈도 표</span><a href="#기술-통계량-및-빈도-표" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2></h2><h3 id="py-9-5-기술-통계량-구하기"><span class="mr-2">&lt;Py 9-5&gt; 기술 통계량 구하기</span><a href="#py-9-5-기술-통계량-구하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span> <span class="c1"># pandas 라이브러리를 pd라는 이름으로 불러옴
+</span><span class="n">nex8</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="sh">"</span><span class="s">D:/01_KNOU/2025년도 1학기/데이터 정보 처리 입문/dataintro/nex8-1.csv</span><span class="sh">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># CSV 파일을 읽어 DataFrame으로 저장 (첫 번째 행을 헤더로 사용)
+</span><span class="n">nex8</span><span class="p">.</span><span class="nf">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># DataFrame의 첫 2행을 출력
+#   id sex  age     edu  salary
+# 0  1   m   21    high     150
+# 1  2   f   22  middle     100
+</span><span class="n">nex8</span> <span class="o">=</span> <span class="n">nex8</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="c1"># 첫 번째 id 열을 제외
+</span><span class="n">nex8</span><span class="p">.</span><span class="nf">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 변경된 DataFrame의 첫 2행을 출력 (id 열 없음)
+#    sex  age     edu  salary
+# 0  m   21    high     150
+# 1  f   22  middle     100
+</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">salary</span><span class="sh">"</span><span class="p">].</span><span class="nf">mean</span><span class="p">()</span> <span class="c1"># salary 열의 평균 계산
+# Out[15]: 243.0
+</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">salary</span><span class="sh">"</span><span class="p">].</span><span class="nf">std</span><span class="p">()</span> <span class="c1"># salary 열의 표준편차 계산
+# Out[16]: 98.21178929006209
+</span><span class="n">nex8</span><span class="p">.</span><span class="n">salary</span><span class="p">.</span><span class="nf">median</span><span class="p">()</span> <span class="c1"># salary 열의 중앙값 계산
+# Out[17]: 220.0
+</span><span class="n">nex8</span><span class="p">.</span><span class="n">salary</span><span class="p">.</span><span class="nf">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span> <span class="c1"># salary 열의 3사분위수 (75%) 계산
+# Out[18]: 297.5
+</span><span class="n">nex8</span><span class="p">.</span><span class="nf">describe</span><span class="p">()</span> <span class="c1"># 숫자형 열들의 기술통계량 요약 (개수, 평균, 표준편차, 최소값, 사분위수, 최대값)
+# Out[19]:
+#              age      salary
+# count  10.000000   10.000000
+# mean   34.800000  243.000000
+# std    10.347302   98.211789
+# min    21.000000  100.000000
+# 25%    29.000000  177.500000
+# 50%    33.000000  220.000000
+# 75%    40.500000  297.500000
+# max    55.000000  410.000000
+</span></pre></table></code></div></div><h3 id="참고--py-9-5-기술-통계량-구하기--범주형-변수로-바꾸기"><span class="mr-2">참고 : &lt;Py 9-5&gt; 기술 통계량 구하기 – 범주형 변수로 바꾸기</span><a href="#참고--py-9-5-기술-통계량-구하기--범주형-변수로-바꾸기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre><td class="rouge-code"><pre><span class="n">ex8</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="sh">"</span><span class="s">D:/01_KNOU/2025년도 1학기/데이터 정보 처리 입문/dataintro/nex8-1.csv</span><span class="sh">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># ex8-1.csv 파일을 읽어 DataFrame으로 저장 (첫 번째 행을 헤더로 사용)
+</span><span class="n">ex8</span><span class="p">.</span><span class="nf">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># DataFrame의 첫 3행을 출력
+#    id sex age edu salary
+# 0   1   1  21   2    150 
+# 1   2   2  22   1    100
+# 2   3   1  33   2    200
+</span><span class="n">ex8</span><span class="p">.</span><span class="nf">describe</span><span class="p">()</span> <span class="c1"># 숫자형 열들의 기술통계량 요약 (범주형 변환 전)
+# Out[20]
+#              sex        age        edu      salary
+# count  10.000000  10.000000  10.000000   10.000000
+# mean    1.400000  34.800000   2.200000  243.000000
+# std     0.516398  10.347302   0.788811   98.211789
+# min     1.000000  21.000000   1.000000  100.000000
+# 25%     1.000000  29.000000   2.000000  177.500000
+# 50%     1.000000  33.000000   2.000000  220.000000
+# 75%     2.000000  40.500000   3.000000  297.500000
+# max     2.000000  55.000000   3.000000  410.000000
+</span>
+<span class="c1"># ? sex, edu : 범주형 변수로 바꾸기
+</span><span class="n">ex8</span><span class="p">[</span><span class="sh">"</span><span class="s">sex</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ex8</span><span class="p">[</span><span class="sh">"</span><span class="s">sex</span><span class="sh">"</span><span class="p">].</span><span class="nf">astype</span><span class="p">(</span><span class="sh">"</span><span class="s">category</span><span class="sh">"</span><span class="p">)</span> <span class="c1"># sex 열을 범주형(category) 데이터 타입으로 변경
+</span><span class="n">ex8</span><span class="p">[</span><span class="sh">"</span><span class="s">edu</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ex8</span><span class="p">[</span><span class="sh">"</span><span class="s">edu</span><span class="sh">"</span><span class="p">].</span><span class="nf">astype</span><span class="p">(</span><span class="sh">"</span><span class="s">category</span><span class="sh">"</span><span class="p">)</span> <span class="c1"># edu 열을 범주형(category) 데이터 타입으로 변경
+</span><span class="n">ex8</span><span class="p">.</span><span class="nf">describe</span><span class="p">()</span> <span class="c1"># 기술통계량 요약 (범주형으로 변환된 sex, edu는 기본적으로 포함 안 됨)
+# Out[31]: 
+#              age      salary
+# count  10.000000   10.000000
+# mean   34.800000  243.000000
+# std    10.347302   98.211789
+# min    21.000000  100.000000
+# 25%    29.000000  177.500000
+# 50%    33.000000  220.000000
+# 75%    40.500000  297.500000
+# max    55.000000  410.000000
+</span></pre></table></code></div></div><h3 id="py-9-6-그룹-별-기술-통계량-구하기"><span class="mr-2">&lt;Py 9-6&gt; 그룹 별 기술 통계량 구하기</span><a href="#py-9-6-그룹-별-기술-통계량-구하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span> <span class="c1"># pandas 라이브러리를 pd라는 이름으로 불러옴
+</span><span class="n">nex8</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="sh">"</span><span class="s">D:/01_KNOU/2025년도 1학기/데이터 정보 처리 입문/dataintro/nex8-1.csv</span><span class="sh">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># CSV 파일을 읽어 DataFrame으로 저장
+</span><span class="n">nex8</span> <span class="o">=</span> <span class="n">nex8</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="c1"># 첫 번째 'id' 열을 제외
+</span><span class="n">group_stat_by_sex</span> <span class="o">=</span> <span class="n">nex8</span><span class="p">.</span><span class="nf">groupby</span><span class="p">(</span><span class="sh">"</span><span class="s">sex</span><span class="sh">"</span><span class="p">)[</span><span class="sh">"</span><span class="s">salary</span><span class="sh">"</span><span class="p">].</span><span class="nf">describe</span><span class="p">()</span> <span class="c1"># 'sex' 열을 기준으로 그룹화한 후, 각 그룹의 'salary'에 대한 기술통계량 계산
+</span><span class="n">group_stat_by_sex</span> <span class="c1"># 결과 출력
+# Out[62]:
+#      count        mean         std    min     25%    50%     75%    max
+# sex
+# f      4.0  245.000000  114.455231  100.0  190.00  255.0  310.00  370.0
+# m      6.0  241.666667   97.450842  150.0  177.50  210.0  280.00  410.0
+</span>
+<span class="n">group_stat_by_sex</span><span class="p">[</span><span class="sh">"</span><span class="s">mean</span><span class="sh">"</span><span class="p">]</span> <span class="c1"># 그룹별 기술통계량 중 'mean'(평균) 값만 선택하여 출력
+# Out[95]:
+# sex
+# f    245.000000
+# m    241.666667
+</span>
+<span class="n">group_stat_by_sex</span><span class="p">[</span><span class="sh">"</span><span class="s">std</span><span class="sh">"</span><span class="p">]</span> <span class="c1"># 그룹별 기술통계량 중 'std'(표준편차) 값만 선택하여 출력
+# Out[96]:
+# sex
+# f    114.455231
+# m     97.450842
+</span>
+<span class="n">group_stat_by_sex</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="sh">"</span><span class="s">m</span><span class="sh">"</span><span class="p">]</span> <span class="c1"># 'sex'가 'm'인 그룹의 기술통계량 출력
+</span><span class="n">group_stat_by_sex</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="sh">"</span><span class="s">f</span><span class="sh">"</span><span class="p">]</span> <span class="c1"># 'sex'가 'f'인 그룹의 기술통계량 출력
+# Out[98]
+# count      4.000000
+# mean     245.000000
+# std      114.455231
+# min      100.000000
+# 25%      190.000000
+# 50%      255.000000
+# 75%      310.000000
+# max      370.000000
+# Name: f, dtype: float64
+</span></pre></table></code></div></div><h3 id="py-9-7-빈도-표-및-분할-표-구하기"><span class="mr-2">&lt;Py 9-7&gt; 빈도 표 및 분할 표 구하기</span><a href="#py-9-7-빈도-표-및-분할-표-구하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span> <span class="c1"># pandas 라이브러리를 pd라는 이름으로 불러옴
+</span><span class="n">nex8</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="sh">"</span><span class="s">D:/01_KNOU/2025년도 1학기/데이터 정보 처리 입문/dataintro/nex8-1.csv</span><span class="sh">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># CSV 파일을 읽어 DataFrame으로 저장
+</span>
+<span class="n">sex_freq</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">crosstab</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">sex</span><span class="sh">"</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="sh">"</span><span class="s">count</span><span class="sh">"</span><span class="p">)</span> <span class="c1"># 'sex' 열의 빈도표 생성
+</span><span class="n">sex_freq</span> <span class="c1"># 결과 출력
+# Out[100]:
+# col_0  count
+# sex
+# f          4
+# m          6
+</span>
+<span class="n">edu_freq</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">crosstab</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">edu</span><span class="sh">"</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="sh">"</span><span class="s">count</span><span class="sh">"</span><span class="p">)</span> <span class="c1"># 'edu' 열의 빈도표 생성
+</span><span class="n">edu_freq</span> <span class="c1"># 결과 출력
+# Out[102]:
+# col_0   count
+# edu
+# high        4
+# middle      2
+# univ        4
+</span>
+<span class="n">sex_edu_table</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">crosstab</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">sex</span><span class="sh">"</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">edu</span><span class="sh">"</span><span class="p">])</span> <span class="c1"># 'sex'와 'edu' 열 간의 분할표(교차표) 생성
+</span><span class="n">sex_edu_table</span> <span class="c1"># 결과 출력
+# Out[104]:
+# edu   high  middle  univ
+# sex
+# f        1       2     1
+# m        3       0     3
+</span>
+<span class="kn">from</span> <span class="n">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2_contingency</span> <span class="c1"># scipy.stats 모듈에서 카이제곱 검정 함수 불러옴
+</span><span class="nf">chi2_contingency</span><span class="p">(</span><span class="n">sex_edu_table</span><span class="p">)</span> <span class="c1"># 분할표에 대해 카이제곱 독립성 검정 수행 (통계량, p-value, 자유도, 기대빈도 반환)
+# Out[106]:
+# (3.7499999999999996,       # 카이제곱 통계량
+#  0.1533549668449285,       # p-value
+#  2,                        # 자유도
+#  array([[1.6, 0.8, 1.6],   # 기대빈도
+#         [2.4, 1.2, 2.4]]))
+</span></pre></table></code></div></div><h3 id="py-9-8-막대-그림-원-그림-겹친-막대-그림"><span class="mr-2">&lt;Py 9-8&gt; 막대 그림, 원 그림, 겹친 막대 그림</span><a href="#py-9-8-막대-그림-원-그림-겹친-막대-그림" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span> <span class="c1"># pandas 라이브러리를 pd라는 이름으로 불러옴
+</span><span class="n">nex8</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="sh">"</span><span class="s">D:/01_KNOU/2025년도 1학기/데이터 정보 처리 입문/dataintro/nex8-1.csv</span><span class="sh">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># CSV 파일을 읽어 DataFrame으로 저장
+</span><span class="n">nex8</span> <span class="o">=</span> <span class="n">nex8</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="c1"># 첫 번째 'id' 컬럼 제외
+</span>
+<span class="n">sex_freq</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">crosstab</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">sex</span><span class="sh">"</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="sh">"</span><span class="s">count</span><span class="sh">"</span><span class="p">)</span> <span class="c1"># 'sex' 열의 빈도표 생성
+</span><span class="n">edu_freq</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">crosstab </span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">edu</span><span class="sh">"</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="sh">"</span><span class="s">count</span><span class="sh">"</span><span class="p">)</span> <span class="c1"># 'edu' 열의 빈도표 생성
+</span>
+<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># matplotlib.pyplot 라이브러리를 plt라는 이름으로 불러옴 (시각화용)
+</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">bar</span><span class="p">(</span><span class="n">sex_freq</span><span class="p">.</span><span class="n">index</span><span class="p">,</span> <span class="n">sex_freq</span><span class="p">[</span><span class="sh">"</span><span class="s">count</span><span class="sh">"</span><span class="p">])</span> <span class="c1"># 'sex' 빈도에 대한 막대그래프 생성
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">bar</span><span class="p">(</span><span class="n">edu_freq</span><span class="p">.</span><span class="n">index</span><span class="p">,</span> <span class="n">edu_freq</span><span class="p">[</span><span class="sh">"</span><span class="s">count</span><span class="sh">"</span><span class="p">])</span> <span class="c1"># 'edu' 빈도에 대한 막대그래프 생성
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">pie</span><span class="p">(</span><span class="n">edu_freq</span><span class="p">[</span><span class="sh">"</span><span class="s">count</span><span class="sh">"</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="n">edu_freq</span><span class="p">.</span><span class="n">index</span><span class="p">)</span> <span class="c1"># 'edu' 빈도에 대한 원그래프 생성 (각 항목의 레이블 지정)
+</span><span class="n">sex_edu_table</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">crosstab</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">sex</span><span class="sh">"</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">edu</span><span class="sh">"</span><span class="p">])</span> <span class="c1"># 'sex'와 'edu'의 분할표 생성
+</span><span class="n">sex_edu_table</span><span class="p">.</span><span class="n">plot</span><span class="p">.</span><span class="nf">bar</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c1"># 분할표를 이용해 겹친 막대그래프 생성
+</span></pre></table></code></div></div><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/image1.png" alt="image.png" data-proofer-ignore></p><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/9a141cb6-e35a-4424-bdbd-da0fda8e257a.png" alt="image.png" data-proofer-ignore></p><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/image2.png" alt="image.png" data-proofer-ignore></p><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/image3.png" alt="image.png" data-proofer-ignore></p><h3 id="py-9-9-히스토그램-줄기-잎-그림-상자-그림"><span class="mr-2">&lt;Py 9-9&gt; 히스토그램, 줄기-잎 그림, 상자 그림</span><a href="#py-9-9-히스토그램-줄기-잎-그림-상자-그림" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span> <span class="c1"># pandas 라이브러리를 pd라는 이름으로 불러옴
+</span><span class="n">nex8</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="sh">"</span><span class="s">D:/01_KNOU/2025년도 1학기/데이터 정보 처리 입문/dataintro/nex8-1.csv</span><span class="sh">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># CSV 파일을 읽어 DataFrame으로 저장
+</span><span class="n">nex8</span> <span class="o">=</span> <span class="n">nex8</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="c1"># 첫 번째 'id' 컬럼 제외
+</span>
+<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># matplotlib.pyplot 라이브러리를 plt라는 이름으로 불러옴
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">hist</span><span class="p">(</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">salary</span><span class="sh">"</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># 'salary' 열에 대한 히스토그램 생성 (구간(bin) 개수는 4개)
+# Out[113]:
+# (array([3., 3., 2., 2.]), # 각 구간의 빈도수
+#  array([100. , 177.5, 255. , 332.5, 410. ]), # 각 구간의 경계값
+#  &lt;BarContainer object of 4 artists&gt;)
+</span>
+<span class="c1"># pip install stemgraphic (in DOS) # stemgraphic 라이브러리 설치 명령어
+</span><span class="kn">import</span> <span class="n">stemgraphic</span> <span class="c1"># stemgraphic 라이브러리 불러옴 (줄기-잎 그림용)
+</span><span class="n">stemgraphic</span><span class="p">.</span><span class="nf">stem_graphic</span><span class="p">(</span><span class="n">nex8</span><span class="p">.</span><span class="n">salary</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># 'salary' 열에 대한 줄기-잎 그림 생성 (scale은 줄기의 단위를 조절)
+</span>
+<span class="kn">import</span> <span class="n">seaborn</span> <span class="k">as</span> <span class="n">sns</span> <span class="c1"># seaborn 라이브러리를 sns라는 이름으로 불러옴 (시각화용)
+</span><span class="n">sns</span><span class="p">.</span><span class="nf">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="sh">"</span><span class="s">sex</span><span class="sh">"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="sh">"</span><span class="s">salary</span><span class="sh">"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">nex8</span><span class="p">)</span> <span class="c1"># 'sex'별 'salary'에 대한 상자 그림 생성
+# [그래프 출력됨: 성별에 따른 급여 상자그림]
+</span></pre></table></code></div></div><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/image4.png" alt="image.png" data-proofer-ignore></p><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/9f2dd627-8aff-4efa-a084-b7348fc4b4c4.png" alt="image.png" data-proofer-ignore></p><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/image5.png" alt="image.png" data-proofer-ignore></p><h3 id="py-9-10-산점도-그리기"><span class="mr-2">&lt;Py 9-10&gt; 산점도 그리기</span><a href="#py-9-10-산점도-그리기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span> <span class="c1"># pandas 라이브러리를 pd라는 이름으로 불러옴
+</span><span class="n">nex8</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">read_csv</span><span class="p">(</span><span class="sh">"</span><span class="s">D:/01_KNOU/2025년도 1학기/데이터 정보 처리 입문/dataintro/nex8-1.csv</span><span class="sh">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># CSV 파일을 읽어 DataFrame으로 저장
+</span><span class="n">nex8</span> <span class="o">=</span> <span class="n">nex8</span><span class="p">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span> <span class="c1"># 첫 번째 'id' 컬럼 제외
+</span>
+<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># matplotlib.pyplot 라이브러리를 plt라는 이름으로 불러옴
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">scatter</span><span class="p">(</span><span class="n">nex8</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">nex8</span><span class="p">.</span><span class="n">salary</span><span class="p">)</span> <span class="c1"># 'age'와 'salary' 간의 산점도 생성
+</span>
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span> <span class="c1"># numpy 라이브러리를 np라는 이름으로 불러옴 (배열/수치 연산용)
+</span><span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">sex</span><span class="sh">"</span><span class="p">]</span><span class="o">==</span><span class="sh">'</span><span class="s">m</span><span class="sh">'</span><span class="p">,</span><span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">,</span><span class="sh">'</span><span class="s">b</span><span class="sh">'</span><span class="p">)</span> <span class="c1"># 'sex' 열의 값이 'm'이면 'r'(빨강), 아니면 'b'(파랑)으로 색상 지정
+</span><span class="n">colors</span> <span class="c1"># 생성된 색상 배열 확인
+# Out[122]: array(['r', 'b', 'r', 'b', 'r', 'r', 'b', 'r', 'b', 'r'], dtype='&lt;U1')
+</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">scatter</span><span class="p">(</span><span class="n">nex8</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">nex8</span><span class="p">.</span><span class="n">salary</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span> <span class="c1"># 'age'와 'salary' 산점도에 성별에 따른 색상 적용
+</span></pre></table></code></div></div><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/image6.png" alt="image.png" data-proofer-ignore></p><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/image7.png" alt="image.png" data-proofer-ignore></p><h3 id="py-9-10-산점도-그리기--범례-추가"><span class="mr-2">&lt;Py 9-10&gt; 산점도 그리기 – 범례 추가</span><a href="#py-9-10-산점도-그리기--범례-추가" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3></h3><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre><td class="rouge-code"><pre><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span> <span class="c1"># matplotlib.pyplot 라이브러리를 plt라는 이름으로 불러옴
+</span><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span> <span class="c1"># numpy 라이브러리를 np라는 이름으로 불러옴
+</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">sex</span><span class="sh">"</span><span class="p">]</span><span class="o">==</span><span class="sh">'</span><span class="s">m</span><span class="sh">'</span><span class="p">,</span><span class="sh">'</span><span class="s">r</span><span class="sh">'</span><span class="p">,</span><span class="sh">'</span><span class="s">b</span><span class="sh">'</span><span class="p">)</span> <span class="c1"># 'sex' 열의 값이 'm'이면 'r', 아니면 'b'로 색상 지정
+</span><span class="n">colors</span> <span class="c1"># 생성된 색상 배열 확인
+# Out[122]: array(['r', 'b', 'r', 'b', 'r', 'r', 'b', 'r', 'b', 'r'], dtype='&lt;U1')
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">scatter</span><span class="p">(</span><span class="n">nex8</span><span class="p">.</span><span class="n">age</span><span class="p">,</span> <span class="n">nex8</span><span class="p">.</span><span class="n">salary</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span> <span class="c1"># 이전에 실행한 색상 구분 산점도 
+</span>
+<span class="n">mage</span> <span class="o">=</span> <span class="n">nex8</span><span class="p">.</span><span class="n">age</span><span class="p">[</span><span class="n">nex8</span><span class="p">.</span><span class="n">sex</span> <span class="o">==</span> <span class="sh">'</span><span class="s">m</span><span class="sh">'</span><span class="p">]</span> <span class="c1"># 성별이 'm'인 데이터의 'age' 선택
+</span><span class="n">fage</span> <span class="o">=</span> <span class="n">nex8</span><span class="p">.</span><span class="n">age</span><span class="p">[</span><span class="n">nex8</span><span class="p">.</span><span class="n">sex</span> <span class="o">==</span> <span class="sh">'</span><span class="s">f</span><span class="sh">'</span><span class="p">]</span> <span class="c1"># 성별이 'f'인 데이터의 'age' 선택
+</span><span class="n">msalary</span> <span class="o">=</span> <span class="n">nex8</span><span class="p">.</span><span class="n">salary</span><span class="p">[</span><span class="n">nex8</span><span class="p">.</span><span class="n">sex</span> <span class="o">==</span> <span class="sh">'</span><span class="s">m</span><span class="sh">'</span><span class="p">]</span> <span class="c1"># 성별이 'm'인 데이터의 'salary' 선택
+</span><span class="n">fsalary</span> <span class="o">=</span> <span class="n">nex8</span><span class="p">.</span><span class="n">salary</span><span class="p">[</span><span class="n">nex8</span><span class="p">.</span><span class="n">sex</span> <span class="o">==</span> <span class="sh">'</span><span class="s">f</span><span class="sh">'</span><span class="p">]</span> <span class="c1"># 성별이 'f'인 데이터의 'salary' 선택
+</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">()</span> <span class="c1"># 새로운 그림(figure) 영역 생성 (이전 그래프와 분리)
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">scatter</span><span class="p">(</span><span class="n">mage</span><span class="p">,</span> <span class="n">msalary</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="sh">"</span><span class="s">x</span><span class="sh">"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sh">"</span><span class="s">r</span><span class="sh">"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sh">'</span><span class="s">Male</span><span class="sh">'</span><span class="p">)</span> <span class="c1"># 남성 데이터 산점도 (마커 'x', 색상 빨강, 레이블 'Male')
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">scatter</span><span class="p">(</span><span class="n">fage</span><span class="p">,</span> <span class="n">fsalary</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="sh">"</span><span class="s">o</span><span class="sh">"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sh">"</span><span class="s">b</span><span class="sh">"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sh">'</span><span class="s">Female</span><span class="sh">'</span><span class="p">)</span> <span class="c1"># 여성 데이터 산점도 (마커 'o', 색상 파랑, 레이블 'Female')
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">legend</span><span class="p">()</span> <span class="c1"># 범례 표시
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span> <span class="c1"># 그래프 출력
+</span></pre></table></code></div></div><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/image8.png" alt="image.png" data-proofer-ignore></p><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/image9.png" alt="image.png" data-proofer-ignore></p><p><br /><br /></p><h1 id="연습-문제">연습 문제</h1><hr /><ol><li><p>파이썬에서 csv 텍스트 파일을 읽기 위한 명령 ( )는 ? </p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre> <span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+ <span class="n">nex8</span> <span class="o">=</span> <span class="p">(</span>      <span class="p">)(</span><span class="sh">"</span><span class="s">D:/01_KNOU/2025년도 1학기/데이터 정보 처리 입문/dataintro/nex8-1.csv</span><span class="sh">"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></table></code></div></div><p>a. <code class="language-plaintext highlighter-rouge">pd.read_csv</code></p><li><p>다음 출력 결과와 같이 데이터 객체 nex8의 각 변수의 기술 통계량 을 구하고자 한다. ( ) 명령은 ?</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre><td class="rouge-code"><pre> <span class="n">nex8</span><span class="p">.</span><span class="nf">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+ <span class="c1"># Out: 
+</span> <span class="c1">#      id  sex  age  edu  salary
+</span> <span class="c1"># 
+</span> <span class="c1">#   0   1    1   21    2     150
+</span> <span class="c1"># 
+</span> <span class="c1">#   1   2    2   22    1     100
+</span> <span class="c1"># 
+</span> <span class="c1">#   2   3    1   33    2     200
+</span> <span class="c1">#  (              )
+</span> <span class="c1">#  Out: 
+</span> <span class="c1">#              sex        age        edu      salary
+</span> <span class="c1"># count  10.000000  10.000000  10.000000   10.000000
+</span> <span class="c1"># mean    1.400000  34.800000   2.200000  243.000000
+</span> <span class="c1"># std     0.516398  10.347302   0.788811   98.211789
+</span> <span class="c1"># min     1.000000  21.000000   1.000000  100.000000
+</span> <span class="c1"># 25%     1.000000  29.000000   2.000000  177.500000
+</span> <span class="c1"># 50%     1.000000  33.000000   2.000000  220.000000
+</span> <span class="c1"># 75%     2.000000  40.500000   3.000000  297.500000
+</span> <span class="c1"># max     2.000000  55.000000   3.000000  410.000000
+</span></pre></table></code></div></div><p>a. <code class="language-plaintext highlighter-rouge">nex8.describe()</code></p><li><p>파이썬에서 엑셀 파일을 읽기 위한 명령 ( )는 ? </p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre><td class="rouge-code"><pre> <span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+ <span class="n">nex8</span> <span class="o">=</span> <span class="c1"># ( )("c:/data/dataintro/nex8-1.xlsx, header=0)
+</span></pre></table></code></div></div><p>a. <code class="language-plaintext highlighter-rouge">pd.read_excel</code></p><li><p>파이썬에서 nex8.head( ) 의 결과가 다음과 같다. 여기서 변수 id를 제거하고 나머지 변수를 가져오기 위한 명령 ( )은 ?</p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre><td class="rouge-code"><pre> <span class="n">nex8</span><span class="p">.</span><span class="nf">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+ <span class="c1"># Out: 
+</span> <span class="c1">#    id   sex  age  edu  salary
+</span> <span class="c1"># 0   1    1   21    2     150
+</span> <span class="c1"># 1   2    2   22    1     100
+</span> <span class="n">nex8</span> <span class="o">=</span> <span class="p">(</span>             <span class="p">)</span> 
+ <span class="n">nex8</span><span class="p">.</span><span class="nf">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+ <span class="c1"># Out: 
+</span> <span class="c1">#    sex   age  edu  salary
+</span> <span class="c1"># 0    1   21    2     150
+</span> <span class="c1"># 1    2   22    1     100
+</span></pre></table></code></div></div><p>a. <code class="language-plaintext highlighter-rouge">nex8.iloc[:, 1:]</code></p><li><p>변수 edu 의 막대 그림을 그리고자 한다. ( ) 안의 명령은 ? </p><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre> <span class="n">nex8</span><span class="p">.</span><span class="nf">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+ <span class="c1"># Out: 
+</span> <span class="c1">#      id  sex  age  edu  salary
+</span> <span class="c1">#   0   1    1   21    2     150
+</span> <span class="c1">#   1   2    2   22    1     100
+</span> <span class="c1">#   2   3    1   33    2     200
+</span> <span class="n">edu_freq</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">crosstab</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">nex8</span><span class="p">[</span><span class="sh">"</span><span class="s">edu</span><span class="sh">"</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="sh">"</span><span class="s">count</span><span class="sh">"</span><span class="p">)</span>
+ <span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+ <span class="c1"># ( )(edu_freq.index, edu_freq["count"] )
+</span></pre></table></code></div></div><p><img data-src="/assets/img/knou/dip/2025-05-30-knou-dip-15/image10.png" alt="image.png" data-proofer-ignore></p><p>a. <code class="language-plaintext highlighter-rouge">plt.bar</code></p></ol></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/knou/'>Knou</a>, <a href='/categories/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%95%EB%B3%B4-%EC%B2%98%EB%A6%AC-%EC%9E%85%EB%AC%B8/'>데이터 정보 처리 입문</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/knou/" class="post-tag no-text-decoration" >knou</a> <a href="/tags/data-information-processing/" class="post-tag no-text-decoration" >data information processing</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"></div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=[데이터 정보 처리 입문] 15강 - 파이썬을 활용한 자료 분석 2 - MXXI.kr&amp;url=https://mxxikr.github.io/posts/knou-dip-15/" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=[데이터 정보 처리 입문] 15강 - 파이썬을 활용한 자료 분석 2 - MXXI.kr&amp;u=https://mxxikr.github.io/posts/knou-dip-15/" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://t.me/share/url?url=https://mxxikr.github.io/posts/knou-dip-15/&amp;text=[데이터 정보 처리 입문] 15강 - 파이썬을 활용한 자료 분석 2 - MXXI.kr" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i id="copy-link" class="fa-fw fas fa-link small" data-toggle="tooltip" data-placement="top" title="Copy link" data-title-succeed="Link copied successfully!"> </i> </span></div></div></div><script src="https://utteranc.es/client.js" repo="mxxikr/mxxikr.github.io" issue-term="pathname" label="comments" theme="github-dark" crossorigin="anonymous" async> </script></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted"><div class="access"><div id="access-lastmod" class="post"><div class="panel-heading">Recently Updated</div><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/knou-dip-10/">[데이터 정보 처리 입문] 10강 - 엑셀 활용</a><li><a href="/posts/knou-dip-12/">[데이터 정보 처리 입문] 12강 - R을 활용한 자료 분석</a><li><a href="/posts/knou-dip-13/">[데이터 정보 처리 입문] 13강 - R을 활용한 자료 분석 2</a><li><a href="/posts/knou-dip-14/">[데이터 정보 처리 입문] 14강 - 파이썬을 활용한 자료 분석</a><li><a href="/posts/knou-dip-9/">[데이터 정보 처리 입문] 9강 - 엑셀을 이용한 그래프 그리기 2</a></ul></div><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/knou/">knou</a> <a class="post-tag" href="/tags/os/">os</a> <a class="post-tag" href="/tags/cpp/">cpp</a> <a class="post-tag" href="/tags/data-information-processing/">data information processing</a> <a class="post-tag" href="/tags/database/">database</a> <a class="post-tag" href="/tags/java/">java</a> <a class="post-tag" href="/tags/python/">python</a> <a class="post-tag" href="/tags/ubiquitous-computing/">ubiquitous computing</a> <a class="post-tag" href="/tags/linux/">linux</a> <a class="post-tag" href="/tags/network/">network</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"><div class="panel-heading pl-3 pt-2 mb-2">Contents</div><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div id="tail-wrapper" class="col-12 col-lg-11 col-xl-9 pl-3 pr-3 pr-xl-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/knou-dip-2/"><div class="card-body"> <em class="timeago small" data-ts="1741878000" > 2025-03-14 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[데이터 정보 처리 입문] 2강 - 데이터 입력과 점검</h3><div class="text-muted small"><p> 💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 &#39;데이터 정보 처리 입문&#39; 강의를 개인 공부 목적으로 메모하였습니다. 학습 개요 엑셀이나 R, 파이썬 등을 이용한 데이터 분석 방법을 공부하기에 앞서 데이터에 대한 개념과 정의, 데이터 입력, 점검 등에 대하여 학습한다. 데이터란 관심 있는 어떤 주제에 대해서 수집 된 구조화...</p></div></div></a></div><div class="card"> <a href="/posts/knou-dip-3/"><div class="card-body"> <em class="timeago small" data-ts="1742828400" > 2025-03-25 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[데이터 정보 처리 입문] 3강 - 통계 정보의 검색 및 활용</h3><div class="text-muted small"><p> 💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 &#39;데이터 정보 처리 입문&#39; 강의를 개인 공부 목적으로 메모하였습니다. 학습 개요 인터넷은 전 세계 수많은 컴퓨터가 연결되어 있는 지구촌 네트워크를 일컫는 말임 인터넷은 전자 우편, 인터넷 전화 등을 통해 효율적인 통신 수단의 역할을 하고 있으며, 연결된 데이터베이스의 증가와 ...</p></div></div></a></div><div class="card"> <a href="/posts/knou-dip-4/"><div class="card-body"> <em class="timeago small" data-ts="1743519600" > 2025-04-02 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>[데이터 정보 처리 입문] 4강 - 통계 정보의 검색 및 활용 2</h3><div class="text-muted small"><p> 💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 &#39;데이터 정보 처리 입문&#39; 강의를 개인 공부 목적으로 메모하였습니다. 학습 개요 데이터의 특성을 요약할 때 기본적으로 이용되는 기술통계량과 그래프들을 알아보고, 웹을 활용한 데이터분석 예를 알아봄 학습 목표 기술 통계량을 이해할 수 있음 연속인 자료에 이용되...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/knou-uqc-15/" class="btn btn-outline-primary" prompt="Older"><p>[유비쿼터스 컴퓨팅 개론] 15강 - 인공 지능</p></a> <a href="/posts/knou-cpp-1/" class="btn btn-outline-primary" prompt="Newer"><p>[C++ 프로그래밍] 1강 - C++ 언어의 소개</p></a></div></div></div><footer class="card-footer"><div class="align-items-center text-muted"><div class="footer-left"><p class="mb-0"> © 2025 <a href="https://github.com/mxxikr">mxxikr</a>.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/knou/">knou</a> <a class="post-tag" href="/tags/os/">os</a> <a class="post-tag" href="/tags/cpp/">cpp</a> <a class="post-tag" href="/tags/data-information-processing/">data information processing</a> <a class="post-tag" href="/tags/database/">database</a> <a class="post-tag" href="/tags/java/">java</a> <a class="post-tag" href="/tags/python/">python</a> <a class="post-tag" href="/tags/ubiquitous-computing/">ubiquitous computing</a> <a class="post-tag" href="/tags/linux/">linux</a> <a class="post-tag" href="/tags/network/">network</a></div></div></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><script src="https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js"></script> <script> $(function() { function updateMermaid(event) { if (event.source === window && event.data && event.data.direction === ModeToggle.ID) { const mode = event.data.message; if (typeof mermaid === "undefined") { return; } let expectedTheme = (mode === ModeToggle.DARK_MODE? "dark" : "default"); let config = { theme: expectedTheme }; /* Re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */ $(".mermaid").each(function() { let svgCode = $(this).prev().children().html(); $(this).removeAttr("data-processed"); $(this).html(svgCode); }); mermaid.initialize(config); mermaid.init(undefined, ".mermaid"); } } let initTheme = "default"; if ($("html[data-mode=dark]").length > 0 || ($("html[data-mode]").length == 0 && window.matchMedia("(prefers-color-scheme: dark)").matches ) ) { initTheme = "dark"; } let mermaidConf = { theme: initTheme /* <default|dark|forest|neutral> */ }; /* Markdown converts to HTML */ $("pre").has("code.language-mermaid").each(function() { let svgCode = $(this).children().html(); $(this).addClass("unloaded"); $(this).after(`<div class=\"mermaid\">${svgCode}</div>`); }); mermaid.initialize(mermaidConf); window.addEventListener("message", updateMermaid); }); </script><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a><div id="notification" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-animation="true" data-autohide="false"><div class="toast-header"> <button type="button" class="ml-2 ml-auto close" data-dismiss="toast" aria-label="Close"> <span aria-hidden="true">&times;</span> </button></div><div class="toast-body text-center pt-0"><p class="pl-2 pr-2 mb-3">A new version of content is available.</p><button type="button" class="btn btn-primary" aria-label="Update"> Update </button></div></div><script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No results found.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script> <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script> <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/ko.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script> /* see: <https://docs.mathjax.org/en/latest/options/input/tex.html#tex-options> */ MathJax = { tex: { inlineMath: [ /* start/end delimiter pairs for in-line math */ ['$','$'], ['\\(','\\)'] ], displayMath: [ /* start/end delimiter pairs for display math */ ['$$', '$$'], ['\\[', '\\]'] ] } }; </script> <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> </script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script> <script defer src="/app.js"></script> <script defer src="https://www.googletagmanager.com/gtag/js?id=G-G1QMP111QH"></script> <script> document.addEventListener("DOMContentLoaded", function(event) { window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-G1QMP111QH'); }); </script>
