@@ -5,7 +5,8 @@ order: 4
 ---
 
 ## 📌 Introduction
-이 블로그는 개인 학습 및 실습한 내용을 기록하는 공간입니다.
+이 블로그는 개인 학습 및 실습한 내용을 기록하는 공간입니다.  
+
 주로 **백엔드, 데이터베이스, 클라우드 인프라** 관련 주제를 다룹니다. 
 
 <br/><br/>
@@ -44,7 +45,7 @@ order: 4
 ## 🏆 **Certificate**
 ---
 ### **Cloud**
-- AWS Certified Solutions Architect – Associate (CSAA)
+- AWS Certified Solutions Architect – Associate (ACSAA)
 - VMware Certified Professional (VCP)
 
 ### **Linux & System**
