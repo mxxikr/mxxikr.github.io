@@ -5,9 +5,9 @@ author:
   link: https://github.com/mxxikr"
 date: 2022-09-01 23:30:00 +0900
 category:
-  - [Database, SQL]
+  - [Database, PostgreSQL]
 tags:
-  - [postgre, query, sql]
+  - [postgre, sql]
 math: true
 mermaid: true
 ---
