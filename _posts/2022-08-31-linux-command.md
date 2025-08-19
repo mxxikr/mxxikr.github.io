@@ -7,7 +7,7 @@ date: 2022-08-31 19:27:00 +0900
 category:
   - [OS, Linux]
 tags:
-  - [linux, bash, shell script, shell]
+  - [linux]
 math: true
 mermaid: true
 ---

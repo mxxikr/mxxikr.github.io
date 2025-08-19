@@ -5,7 +5,7 @@ author:
   link: https://github.com/mxxikr"
 date: 2025-04-14 00:00:00 +0900
 category:
-  - [Knou, 파이썬 프로그래밍 기초]
+  - [Language, Python]
 tags:
   - [knou, python]
 math: true

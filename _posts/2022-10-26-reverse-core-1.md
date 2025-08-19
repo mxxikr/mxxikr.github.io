@@ -5,7 +5,7 @@ author:
   link: https://github.com/mxxikr"
 date: 2022-10-26 23:55:00 +0900
 category:
-  - [Reversing]
+  - [Security, Reversing]
 tags:
   - [reversing]
 math: true

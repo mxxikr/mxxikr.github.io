@@ -5,9 +5,9 @@ author:
   link: https://github.com/mxxikr"
 date: 2022-10-04 23:55:00 +0900
 category:
-  - [Database, SQL]
+  - [Database, MySQL]
 tags:
-  - [alicloud, query, sql, mysql]
+  - [alicloud, mysql]
 math: true
 mermaid: true
 ---

@@ -7,7 +7,7 @@ date: 2022-08-26 00:24:00 +0900
 category:
   - Network
 tags:
-  - [ip, subnet, subnetting, supernetting, supernet, broadcast, multicast, unicast, anycast]
+  - [ip, network]
 math: true
 mermaid: true
 ---

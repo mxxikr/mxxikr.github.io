@@ -5,9 +5,9 @@ author:
   link: https://github.com/mxxikr"
 date: 2022-10-25 05:50:00 +0900
 category:
-  - [Open Source, Docker]
+  - [Infrastructure, Docker]
 tags:
-  - [docker, docker-compose, linux, docker build, docker image, docker container, docker file, docker hub]
+  - [docker, docker-compose]
 math: true
 mermaid: true
 ---

@@ -5,7 +5,7 @@ author:
   link: https://github.com/mxxikr"
 date: 2023-08-18 23:28:00 +0900
 category:
-  - [Knou, 멀티미디어 시스템]
+  - [Computer Science, CS Theory]
 tags:
   - [knou, multimedia]
 math: true
