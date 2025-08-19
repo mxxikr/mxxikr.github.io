@@ -5,9 +5,9 @@ author:
   link: https://github.com/mxxikr"
 date: 2022-10-19 12:25:00 +0900
 category:
-  - [Database, SQL]
+  - [Database, Data Warehouse]
 tags:
-  - [alicloud, query, sql, maxcompute]
+  - [alicloud, maxcompute, sql, ddl, dml]
 math: true
 mermaid: true
 ---

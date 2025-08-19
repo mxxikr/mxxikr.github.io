@@ -7,7 +7,7 @@ date: 2022-10-19 14:30:00 +0900
 category:
   - [Cloud, GCP]
 tags:
-  - [compute engine, vm, firewall, google, gcp]
+  - [compute engine, gcp]
 math: true
 mermaid: true
 ---
