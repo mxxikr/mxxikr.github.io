@@ -45,7 +45,7 @@ order: 4
 ## 🏆 **Certificate**
 ---
 ### **Cloud**
-- AWS Certified Solutions Architect – Associate (CSAA)
+- AWS Certified Solutions Architect – Associate (ACSAA)
 - VMware Certified Professional (VCP)
 
 ### **Linux & System**
