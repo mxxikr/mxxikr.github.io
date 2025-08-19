@@ -7,7 +7,7 @@ date: 2022-10-31 22:55:00 +0900
 category:
   - [OS, Linux]
 tags:
-  - [linux, disk, partition, fdisk, mkfs, mount]
+  - [os, linux, mount]
 math: true
 mermaid: true
 ---
