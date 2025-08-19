@@ -7,7 +7,7 @@ date: 2022-10-20 04:30:00 +0900
 category:
   - [Cloud, Alicloud]
 tags:
-  - [alicloud, ali, maxcompute, db]
+  - [alicloud, maxcompute, intellij, plugin]
 math: true
 mermaid: true
 ---

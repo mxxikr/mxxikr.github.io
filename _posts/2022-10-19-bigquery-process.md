@@ -7,7 +7,7 @@ date: 2022-10-19 12:40:00 +0900
 category:
   - [Cloud, GCP]
 tags:
-  - [bigquery, google, gcp]
+  - [bigquery, gcp]
 math: true
 mermaid: true
 ---
