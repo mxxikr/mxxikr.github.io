@@ -7,7 +7,7 @@ date: 2022-10-25 04:00:00 +0900
 category:
   - [OS, Windows]
 tags:
-  - [windows, os, event viewer]
+  - [os, windows, event viewer]
 math: true
 mermaid: true
 ---

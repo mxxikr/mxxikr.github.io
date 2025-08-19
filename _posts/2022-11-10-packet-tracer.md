@@ -7,7 +7,7 @@ date: 2022-11-10 23:40:00 +0900
 category:
   - Network
 tags:
-  - [network, cisco, packet tracer, router]
+  - [network, packet tracer]
 math: true
 mermaid: true
 ---
