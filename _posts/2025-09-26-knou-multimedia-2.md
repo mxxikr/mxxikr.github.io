@@ -86,7 +86,7 @@ mermaid: true
 
 ### 멀티미디어 시스템 환경 구조
 
-![image.png](image.png)
+![image.png](/assets/img/knou/multi/2025-09-26-knou-multimedia-2/image.png)
 
 - 멀티미디어 컴퓨터 시스템
     - 하드웨어
@@ -266,7 +266,7 @@ mermaid: true
 
 - 멀티미디어 정보를 종합적으로 생성, 저장, 전송, 재생하는데 사용되는 각종 기술과 제품으로 두 가지 이상의 미디어를 동일한 시스템에서 동시에 대화형으로 필요한 정보를 제공하는 것
     
-    ![image.png](/assets/img/knoumulti/2025-09-26-knou-multimedia-2//image1.png)
+    ![image.png](/assets/img/knou/multi/2025-09-26-knou-multimedia-2/image1.png)
     
 
 ### 멀티미디어 서비스를 위한 통신 시스템
