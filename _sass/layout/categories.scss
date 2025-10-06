@@ -19,6 +19,13 @@
     box-shadow: none;
   }
 
+  /* 카테고리 페이지 제목 색상 개선 */
+  h1, h2, h3, h4, h5, h6,
+  .page-title, .section-title, .main-title,
+  .category-title, .folder-title {
+    color: #424245 !important;
+  }
+
   i {
     @extend %category-icon-color;
     font-size: 86%; // fontawesome icons
@@ -147,6 +154,13 @@
       background: linear-gradient(135deg, rgba(161, 161, 166, 0.15) 0%, rgba(196, 190, 226, 0.08) 100%);
       border-color: rgba(161, 161, 166, 0.4);
       box-shadow: 0 4px 16px rgba(161, 161, 166, 0.2);
+    }
+
+    /* 다크 모드 카테고리 페이지 제목 색상 개선 */
+    h1, h2, h3, h4, h5, h6,
+    .page-title, .section-title, .main-title,
+    .category-title, .folder-title {
+      color: #424245 !important;
     }
   }
   

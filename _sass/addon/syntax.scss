@@ -34,7 +34,7 @@ html {
 $code-radius: 6px;
 
 %code-snippet-bg {
-  background: var(--highlight-bg-color);
+  background: #f0ebf8 !important;
 }
 
 %code-snippet-radius {
@@ -50,7 +50,7 @@ $code-radius: 6px;
   @extend %code-snippet-bg;
   @extend %code-snippet-radius;
 
-  color: var(--highlighter-rouge-color);
+  color: rgb(153, 134, 179) !important;
   margin-top: 0.5rem;
   margin-bottom: 1.2em; /* Override BS Inline-code style */
 }
@@ -112,7 +112,8 @@ code {
     padding: 3px 5px;
     word-break: break-word;
     border-radius: 4px;
-    background-color: var(--inline-code-bg);
+    background-color: #f0ebf8 !important;
+    color: rgb(153, 134, 179) !important;
   }
 
   &.filepath {
@@ -136,7 +137,7 @@ code {
   }
 
   .highlight > & {
-    color: transparent;
+    color: rgb(153, 134, 179) !important;
   }
 }
 
