@@ -2,6 +2,15 @@
   Styles for Tab Tags
 */
 
+/* 태그 페이지 제목 색상 개선 */
+.tags {
+  h1, h2, h3, h4, h5, h6,
+  .page-title, .section-title, .main-title,
+  .tag-title {
+    color: #424245 !important;
+  }
+}
+
 .tag {
   border-radius: 50px;
   padding: 0.5rem 1.25rem;
@@ -53,6 +62,15 @@
 
 /* 다크 모드 대응 - Apple Liquid Glass */
 @media (prefers-color-scheme: dark) {
+  .tags {
+    /* 다크 모드 태그 페이지 제목 색상 개선 */
+    h1, h2, h3, h4, h5, h6,
+    .page-title, .section-title, .main-title,
+    .tag-title {
+      color: #424245 !important;
+    }
+  }
+
   .tag {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(196, 190, 226, 0.08) 100%);
     border-color: rgba(196, 190, 226, 0.4) !important;

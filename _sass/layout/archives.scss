@@ -5,6 +5,13 @@
 #archives {
   letter-spacing: 0.03rem;
 
+  /* 아카이브 페이지 제목 색상 개선 */
+  h1, h2, h3, h4, h5, h6,
+  .page-title, .section-title, .main-title,
+  .archive-title {
+    color: #424245 !important;
+  }
+
   $timeline-width: 4px;
 
   %timeline {
