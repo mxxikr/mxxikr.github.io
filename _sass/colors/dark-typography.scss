@@ -476,20 +476,20 @@
     margin: 0.25rem !important; // 0.5rem에서 더 줄임
   }
   
-  /* 네비게이션 버튼들 여백 조절 - 양옆 여백 더 줄이기 */
+  /* 네비게이션 버튼들 여백 조절 - 내부 패딩 더 줄이기 */
   .nav-link, .sidebar-nav-item {
     margin: 2px 0 !important; // 기존 4px에서 절반으로
-    padding: 8px 12px !important; // 16px에서 12px로 더 줄임
+    padding: 6px 4px !important; // 8px 6px에서 더 줄임
   }
   
   /* 사이드바 네비게이션 버튼들의 좌우 여백 더 줄이기 */
   .sidebar .nav-link, .sidebar .sidebar-nav-item, 
   .sidebar-wrapper .nav-link, .sidebar-wrapper .sidebar-nav-item,
   .sidebar-panel .nav-link, .sidebar-panel .sidebar-nav-item {
-    margin-left: 0.25rem !important; // 좌측 여백 더 줄임
-    margin-right: 0.25rem !important; // 우측 여백 더 줄임
-    padding-left: 8px !important; // 좌측 패딩 더 줄임
-    padding-right: 8px !important; // 우측 패딩 더 줄임
+    margin-left: 0.125rem !important; // 0.25rem에서 절반으로 줄임
+    margin-right: 0.125rem !important; // 0.25rem에서 절반으로 줄임
+    padding-left: 2px !important; // 4px에서 더 줄임
+    padding-right: 2px !important; // 4px에서 더 줄임
   }
 
   /* 최상단 Home 링크를 더 왼쪽으로 이동 */
@@ -502,8 +502,69 @@
     padding-left: 0.5rem !important; // Home 링크를 더 왼쪽으로
   }
 
+  /* 네비게이션 메뉴 기본 리퀴드 글라스 효과 */
+  .nav-link, .sidebar-nav-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(196, 190, 226, 0.25) 50%, rgba(255, 255, 255, 0.3) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    box-shadow: 
+      0 8px 24px rgba(153, 134, 179, 0.3),
+      0 2px 8px rgba(255, 255, 255, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -2px 0 rgba(153, 134, 179, 0.2) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+  }
+
+  .nav-link::before, .sidebar-nav-item::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+    transition: left 0.6s ease !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+  }
+
   /* Liquid Glass 호버 효과 */
-  .card:hover, .post-card:hover, .category-card:hover, .tag:hover, .btn:hover, .nav-link:hover, .sidebar-nav-item:hover {
+  .nav-link:hover, .sidebar-nav-item:hover {
+    backdrop-filter: blur(35px) !important;
+    -webkit-backdrop-filter: blur(35px) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(196, 190, 226, 0.4) 50%, rgba(255, 255, 255, 0.5) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.7) !important;
+    box-shadow: 
+      0 12px 32px rgba(153, 134, 179, 0.4),
+      0 4px 12px rgba(255, 255, 255, 0.3),
+      inset 0 3px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -3px 0 rgba(153, 134, 179, 0.3) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+  }
+
+  .nav-link:hover::before, .sidebar-nav-item:hover::before {
+    left: 100% !important;
+  }
+
+  /* 활성 상태 리퀴드 글라스 효과 */
+  .nav-link.active, .sidebar-nav-item.active {
+    background: linear-gradient(135deg, rgba(153, 134, 179, 0.6) 0%, rgba(196, 190, 226, 0.4) 50%, rgba(153, 134, 179, 0.5) 100%) !important;
+    border: 1px solid rgba(153, 134, 179, 0.7) !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    box-shadow: 
+      0 8px 24px rgba(153, 134, 179, 0.5),
+      0 2px 8px rgba(255, 255, 255, 0.3),
+      inset 0 2px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -2px 0 rgba(153, 134, 179, 0.4) !important;
+  }
+
+  /* 다른 요소들의 호버 효과 */
+  .card:hover, .post-card:hover, .category-card:hover, .tag:hover, .btn:hover {
     backdrop-filter: blur(25px) !important;
     -webkit-backdrop-filter: blur(25px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(196, 190, 226, 0.25) 100%) !important;
@@ -668,18 +729,19 @@
   }
 
   .pagination .disabled .page-link {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(196, 190, 226, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    color: rgba(66, 66, 69, 0.4) !important;
+    background: transparent !important;
+    border: none !important;
+    color: rgba(66, 66, 69, 0.3) !important;
     cursor: not-allowed !important;
-    opacity: 0.6 !important;
-    box-shadow: 0 2px 8px rgba(153, 134, 179, 0.1) !important;
+    opacity: 0.4 !important;
+    box-shadow: none !important;
   }
 
   .pagination .disabled .page-link:hover {
     transform: none !important;
-    box-shadow: 0 2px 8px rgba(153, 134, 179, 0.1) !important;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(196, 190, 226, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%) !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    border: none !important;
   }
 
   /* 프로필 이미지 완전히 숨기기 */
@@ -778,6 +840,15 @@
     padding: 0 !important;
     border: none !important;
     background: none !important;
+  }
+
+  /* Recently Updated 목록 텍스트 잘림 문제 해결 */
+  #access-lastmod li {
+    height: auto !important; // 고정 높이 제거
+    min-height: 1.8rem !important; // 최소 높이 설정
+    -webkit-line-clamp: 2 !important; // 2줄까지 표시
+    line-height: 1.4 !important; // 줄 간격 조정
+    padding: 0.2rem 0 !important; // 상하 패딩 추가
   }
 
   /* 프로필 텍스트는 유지하고 스타일링만 조정 */
