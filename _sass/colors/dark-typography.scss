@@ -609,27 +609,10 @@
     border-radius: 18px !important;
   }
 
-  /* 페이지네이션 강화된 리퀴드 글라스 */
-  .pagination, .post-pagination {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    margin: 2.5rem 0 !important;
-  }
-
-  .pagination a, .post-pagination a,
-  .pagination span, .post-pagination span,
-  .pagination .page-link, .post-pagination .page-link {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-width: 2.5rem !important;
-    height: 2.5rem !important;
-    padding: 0.5rem !important;
+  /* 페이지네이션 기존 모양 유지하면서 리퀴드 글라스 효과만 적용 */
+  .pagination .page-link {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(196, 190, 226, 0.25) 50%, rgba(255, 255, 255, 0.3) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
-    border-radius: 20px !important;
     backdrop-filter: blur(25px) !important;
     -webkit-backdrop-filter: blur(25px) !important;
     box-shadow: 
@@ -640,14 +623,9 @@
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     position: relative !important;
     overflow: hidden !important;
-    color: #424245 !important;
-    font-size: 0.875rem !important;
-    font-weight: 500 !important;
-    text-decoration: none !important;
   }
 
-  .pagination a::before, .post-pagination a::before,
-  .pagination .page-link::before, .post-pagination .page-link::before {
+  .pagination .page-link::before {
     content: '' !important;
     position: absolute !important;
     top: 0 !important;
@@ -660,13 +638,11 @@
     z-index: 1 !important;
   }
 
-  .pagination a:hover::before, .post-pagination a:hover::before,
-  .pagination .page-link:hover::before, .post-pagination .page-link:hover::before {
+  .pagination .page-link:hover::before {
     left: 100% !important;
   }
 
-  .pagination a:hover, .post-pagination a:hover,
-  .pagination .page-link:hover, .post-pagination .page-link:hover {
+  .pagination .page-link:hover {
     backdrop-filter: blur(35px) !important;
     -webkit-backdrop-filter: blur(35px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(196, 190, 226, 0.4) 50%, rgba(255, 255, 255, 0.5) 100%) !important;
@@ -677,11 +653,9 @@
       inset 0 3px 0 rgba(255, 255, 255, 0.8),
       inset 0 -3px 0 rgba(153, 134, 179, 0.3) !important;
     transform: translateY(-2px) scale(1.05) !important;
-    color: rgb(153, 134, 179) !important;
   }
 
-  .pagination .current, .post-pagination .current,
-  .pagination .active .page-link, .post-pagination .active .page-link {
+  .pagination .active .page-link {
     background: linear-gradient(135deg, rgba(153, 134, 179, 0.6) 0%, rgba(196, 190, 226, 0.4) 50%, rgba(153, 134, 179, 0.5) 100%) !important;
     border: 1px solid rgba(153, 134, 179, 0.7) !important;
     color: #ffffff !important;
@@ -693,8 +667,7 @@
       inset 0 -2px 0 rgba(153, 134, 179, 0.4) !important;
   }
 
-  .pagination .disabled, .post-pagination .disabled,
-  .pagination .disabled .page-link, .post-pagination .disabled .page-link {
+  .pagination .disabled .page-link {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(196, 190, 226, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     color: rgba(66, 66, 69, 0.4) !important;
@@ -703,8 +676,7 @@
     box-shadow: 0 2px 8px rgba(153, 134, 179, 0.1) !important;
   }
 
-  .pagination .disabled:hover, .post-pagination .disabled:hover,
-  .pagination .disabled .page-link:hover, .post-pagination .disabled .page-link:hover {
+  .pagination .disabled .page-link:hover {
     transform: none !important;
     box-shadow: 0 2px 8px rgba(153, 134, 179, 0.1) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(196, 190, 226, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%) !important;
