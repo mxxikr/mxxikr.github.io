@@ -1,0 +1,305 @@
+/*
+  Apple Liquid Glass Animations
+  Apple의 새로운 Liquid Glass 디자인을 위한 애니메이션 효과
+*/
+
+/* Liquid Glass 기본 애니메이션 */
+@keyframes liquid-glass-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    filter: blur(0px);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.02);
+    filter: blur(0.5px);
+  }
+}
+
+@keyframes liquid-glass-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(153, 134, 179, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(153, 134, 179, 0.6), 0 0 30px rgba(153, 134, 179, 0.4);
+  }
+}
+
+@keyframes liquid-glass-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes liquid-glass-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Liquid Glass 호버 효과 */
+.liquid-glass-hover {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+  
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(153, 134, 179, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:active {
+    transform: translateY(0) scale(0.98);
+    animation: liquid-glass-ripple 0.6s ease-out;
+  }
+}
+
+/* Liquid Glass 카드 효과 */
+.liquid-glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+  }
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(153, 134, 179, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    
+    &::before {
+      animation: liquid-glass-shimmer 1.5s ease-in-out;
+    }
+  }
+}
+
+/* Liquid Glass 버튼 효과 */
+.liquid-glass-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  color: #1d1d1f;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(153, 134, 179, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+    
+    &::after {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  
+  &:active {
+    transform: translateY(0) scale(0.95);
+  }
+}
+
+/* Liquid Glass 네비게이션 효과 */
+.liquid-glass-nav {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, rgb(153, 134, 179), rgba(153, 134, 179, 0.5));
+    transition: width 0.3s ease;
+  }
+  
+  &:hover {
+    color: rgb(153, 134, 179);
+    transform: translateY(-1px);
+    
+    &::before {
+      width: 100%;
+    }
+  }
+  
+  &.active {
+    color: rgb(153, 134, 179);
+    font-weight: 600;
+    
+    &::before {
+      width: 100%;
+      background: rgb(153, 134, 179);
+    }
+  }
+}
+
+/* Liquid Glass 태그 효과 */
+.liquid-glass-tag {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  color: #1d1d1f;
+  font-size: 0.8rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+  
+  &:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(153, 134, 179, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Liquid Glass 입력 필드 효과 */
+.liquid-glass-input {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  color: #1d1d1f;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &:focus {
+    outline: none;
+    border-color: rgba(153, 134, 179, 0.5);
+    box-shadow: 0 0 0 3px rgba(153, 134, 179, 0.1);
+    transform: translateY(-1px);
+  }
+  
+  &::placeholder {
+    color: rgba(29, 29, 31, 0.6);
+  }
+}
+
+/* Liquid Glass 모달/오버레이 효과 */
+.liquid-glass-modal {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  animation: liquid-glass-float 3s ease-in-out infinite;
+}
+
+/* 반응형 애니메이션 조정 */
+@media (prefers-reduced-motion: reduce) {
+  .liquid-glass-hover,
+  .liquid-glass-card,
+  .liquid-glass-button,
+  .liquid-glass-nav,
+  .liquid-glass-tag,
+  .liquid-glass-input,
+  .liquid-glass-modal {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* 다크 모드 대응 */
+@media (prefers-color-scheme: dark) {
+  .liquid-glass-card,
+  .liquid-glass-button,
+  .liquid-glass-tag,
+  .liquid-glass-input,
+  .liquid-glass-modal {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Generator</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f7;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .preview {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .favicon-item {
+            text-align: center;
+        }
+        .favicon {
+            border-radius: 12px;
+            background: rgb(196, 190, 226);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            box-shadow: 0 4px 12px rgba(196, 190, 226, 0.3);
+            position: relative;
+        }
+        .download-btn {
+            background: rgb(196, 190, 226);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.2s ease;
+        }
+        .download-btn:hover {
+            background: rgb(180, 174, 210);
+            transform: translateY(-2px);
+        }
+        .generate-all {
+            background: #4a5568;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 20px;
+            transition: all 0.2s ease;
+        }
+        .generate-all:hover {
+            background: #2d3748;
+            transform: translateY(-2px);
+        }
+        canvas {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MXXI.kr Favicon Generator</h1>
+        <p>티스토리 스타일의 도트 M favicon을 생성합니다</p>
+        
+        <div class="preview">
+            <div class="favicon-item">
+                <div class="favicon" style="width: 64px; height: 64px;" id="preview-64">
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(5, 1fr); gap: 2px; width: 100%; height: 100%; padding: 8px;">
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                    </div>
+                </div>
+                <p>64x64</p>
+            </div>
+            <div class="favicon-item">
+                <div class="favicon" style="width: 32px; height: 32px;" id="preview-32">
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(5, 1fr); gap: 1px; width: 100%; height: 100%; padding: 4px;">
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                    </div>
+                </div>
+                <p>32x32</p>
+            </div>
+            <div class="favicon-item">
+                <div class="favicon" style="width: 16px; height: 16px;" id="preview-16">
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(5, 1fr); gap: 0.5px; width: 100%; height: 100%; padding: 2px;">
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 0;"></div>
+                        <div style="background: white; border-radius: 50%; opacity: 1;"></div>
+                    </div>
+                </div>
+                <p>16x16</p>
+            </div>
+        </div>
+        
+        <button class="generate-all" onclick="generateAllFavicons()">모든 Favicon 생성</button>
+        
+        <div>
+            <button class="download-btn" onclick="generateFavicon(16, 'favicon-16x16.png')">16x16 다운로드</button>
+            <button class="download-btn" onclick="generateFavicon(32, 'favicon-32x32.png')">32x32 다운로드</button>
+            <button class="download-btn" onclick="generateFavicon(64, 'favicon-64x64.png')">64x64 다운로드</button>
+            <button class="download-btn" onclick="generateFavicon(180, 'apple-touch-icon.png')">Apple Touch Icon</button>
+            <button class="download-btn" onclick="generateFavicon(192, 'android-chrome-192x192.png')">Android Chrome 192x192</button>
+            <button class="download-btn" onclick="generateFavicon(512, 'android-chrome-512x512.png')">Android Chrome 512x512</button>
+        </div>
+        
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script>
+        function drawDotPattern(ctx, size) {
+            // 티스토리 스타일의 더 큰 도트와 적절한 간격
+            const dotSize = size * 0.15; // 도트 크기 증가
+            const spacing = size * 0.18; // 간격 조정
+            const startX = size * 0.2;
+            const startY = size * 0.2;
+            
+            // 티스토리 스타일 M 패턴 (더 명확한 M 모양)
+            const mPattern = [
+                [1,0,0,0,1],
+                [1,1,0,1,1],
+                [1,1,1,1,1],
+                [1,1,0,1,1],
+                [1,1,0,1,1]
+            ];
+            
+            ctx.fillStyle = 'white';
+            
+            // 도트에 그림자 효과 추가
+            for (let row = 0; row < 5; row++) {
+                for (let col = 0; col < 5; col++) {
+                    if (mPattern[row][col] === 1) {
+                        const x = startX + col * spacing;
+                        const y = startY + row * spacing;
+                        
+                        // 그림자
+                        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+                        ctx.beginPath();
+                        ctx.arc(x + 1, y + 1, dotSize / 2, 0, 2 * Math.PI);
+                        ctx.fill();
+                        
+                        // 메인 도트
+                        ctx.fillStyle = 'white';
+                        ctx.beginPath();
+                        ctx.arc(x, y, dotSize / 2, 0, 2 * Math.PI);
+                        ctx.fill();
+                        
+                        // 하이라이트
+                        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                        ctx.beginPath();
+                        ctx.arc(x - dotSize/4, y - dotSize/4, dotSize/4, 0, 2 * Math.PI);
+                        ctx.fill();
+                    }
+                }
+            }
+        }
+
+        function generateFavicon(size, filename) {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = size;
+            canvas.height = size;
+            
+            // 배경 그리기
+            ctx.fillStyle = 'rgb(196, 190, 226)';
+            ctx.fillRect(0, 0, size, size);
+            
+            // 둥근 모서리 적용
+            ctx.globalCompositeOperation = 'destination-in';
+            ctx.beginPath();
+            const radius = size * 0.2;
+            ctx.roundRect(0, 0, size, size, radius);
+            ctx.fill();
+            
+            // M 도트 패턴 그리기
+            ctx.globalCompositeOperation = 'source-over';
+            drawDotPattern(ctx, size);
+            
+            // 다운로드
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        function generateAllFavicons() {
+            const sizes = [
+                {size: 16, name: 'favicon-16x16.png'},
+                {size: 32, name: 'favicon-32x32.png'},
+                {size: 64, name: 'favicon-64x64.png'},
+                {size: 180, name: 'apple-touch-icon.png'},
+                {size: 192, name: 'android-chrome-192x192.png'},
+                {size: 512, name: 'android-chrome-512x512.png'}
+            ];
+            
+            sizes.forEach((item, index) => {
+                setTimeout(() => {
+                    generateFavicon(item.size, item.name);
+                }, index * 500); // 0.5초 간격으로 다운로드
+            });
+        }
+
+        function updatePreviews() {
+            [16, 32, 64].forEach(size => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = size;
+                canvas.height = size;
+                
+                // 배경 그리기
+                ctx.fillStyle = 'rgb(196, 190, 226)';
+                ctx.fillRect(0, 0, size, size);
+                
+                // 둥근 모서리 적용
+                ctx.globalCompositeOperation = 'destination-in';
+                ctx.beginPath();
+                const radius = size * 0.2;
+                ctx.roundRect(0, 0, size, size, radius);
+                ctx.fill();
+                
+                // M 도트 패턴 그리기
+                ctx.globalCompositeOperation = 'source-over';
+                drawDotPattern(ctx, size);
+                
+                // 미리보기 업데이트
+                const preview = document.getElementById(`preview-${size}`);
+                preview.style.backgroundImage = `url(${canvas.toDataURL()})`;
+                preview.style.backgroundSize = 'cover';
+            });
+        }
+
+        // CanvasRenderingContext2D.roundRect polyfill
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function(x, y, width, height, radius) {
+                this.beginPath();
+                this.moveTo(x + radius, y);
+                this.lineTo(x + width - radius, y);
+                this.quadraticCurveTo(x + width, y, x + width, y + radius);
+                this.lineTo(x + width, y + height - radius);
+                this.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+                this.lineTo(x + radius, y + height);
+                this.quadraticCurveTo(x, y + height, x, y + height - radius);
+                this.lineTo(x, y + radius);
+                this.quadraticCurveTo(x, y, x + radius, y);
+                this.closePath();
+            };
+        }
+
+        // 페이지 로드 시 미리보기 업데이트
+        window.onload = updatePreviews;
+    </script>
+</body>
+</html>

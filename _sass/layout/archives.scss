@@ -45,11 +45,12 @@
       width: 12px;
       height: 12px;
       left: 14.5px;
-      border: 3px solid;
-      background-color: var(--timeline-year-dot-color);
-      border-color: var(--timeline-node-bg);
-      box-shadow: 0 0 2px 0 #c2c6cc;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      background-color: rgb(153, 134, 179);
+      box-shadow: 0 0 12px rgba(153, 134, 179, 0.4);
       z-index: 1;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
     }
 
   }
@@ -61,21 +62,52 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      border-radius: 8px;
+      margin: 0.25rem 0;
+      padding: 0.5rem 0;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      background: rgb(224, 219, 239) !important;
+
+      /* 모든 nth-child 선택자 강제 덮어쓰기 */
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6),
+      &:nth-child(7),
+      &:nth-child(8),
+      &:nth-child(9),
+      &:nth-child(10),
+      &:nth-child(odd),
+      &:nth-child(even) {
+        background: rgb(224, 219, 239) !important;
+        background-color: rgb(224, 219, 239) !important;
+      }
+
+      &:hover {
+        background: rgb(224, 219, 239) !important;
+        background-color: rgb(224, 219, 239) !important;
+        transform: translateX(4px);
+        box-shadow: 0 4px 16px rgba(153, 134, 179, 0.15);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
 
       a {
         /* post title in Archvies */
         margin-left: 2.5rem;
         position: relative;
         top: 0.1rem;
+        color: #424245 !important;
+        text-decoration: none;
 
         &:hover {
           border-bottom: none;
+          color: #424245 !important;
         }
-      }
-
-      &:nth-child(odd) {
-        background-color: var(--main-wrapper-bg, #fff);
-        background-image: linear-gradient(to left, #fff, #fbfbfb, #fbfbfb, #fbfbfb, #fff);
       }
 
       &::before {
@@ -84,6 +116,8 @@
         top: 0;
         left: 68px;
         height: 3rem;
+        background-color: rgb(153, 134, 179);
+        border-radius: 2px;
       }
     }
 
@@ -101,6 +135,7 @@
     &.month {
       width: 1.4rem;
       text-align: center;
+      color: var(--archive-month-color, rgb(153, 134, 179));
 
       ~ a::before {
         /* A dot for Month and Day */
@@ -115,9 +150,10 @@
         float: left;
         top: 1.35rem;
         right: 21.5px;
-        background-color: var(--timeline-node-bg);
-        box-shadow: 0 0 3px 0 #c2c6cc;
+        background-color: rgb(153, 134, 179);
+        box-shadow: 0 0 8px rgba(153, 134, 179, 0.3);
         z-index: 1;
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
     }
 
@@ -129,6 +165,7 @@
       width: 1.2rem;
       position: relative;
       left: -0.15rem;
+      color: var(--archive-date-color, rgb(153, 134, 179));
     }
   } // #archives .date
 

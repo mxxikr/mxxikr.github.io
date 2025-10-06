@@ -26,16 +26,84 @@
   color: var(--text-color);
 }
 
+/* 포스트 본문 텍스트 색상 강제 적용 */
+.post-content {
+  color: #424245 !important;
+  
+  p, li, span, div {
+    color: #424245 !important;
+  }
+  
+  /* 링크는 보라색 유지 */
+  a {
+    color: rgb(153, 134, 179) !important;
+    
+    &:hover, &:active, &:focus {
+      color: #ffffff !important;
+      background: rgba(153, 134, 179, 0.2);
+      border-radius: 4px;
+      padding: 2px 4px;
+      transition: all 0.2s ease;
+    }
+  }
+  
+  /* 제목은 진한 회색 유지 */
+  h1, h2, h3, h4, h5, h6 {
+    color: #424245 !important;
+  }
+}
+
 h1 + .post-meta {
   span + span::before {
     @include dot;
   }
 
   em {
-    @extend %text-color;
+    color: rgb(153, 134, 179) !important;
 
     a {
-      @extend %text-color;
+      color: rgb(153, 134, 179) !important;
+      
+      &:hover, &:active, &:focus {
+        color: #ffffff !important;
+        background: rgba(153, 134, 179, 0.2);
+        border-radius: 4px;
+        padding: 2px 4px;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+  
+  span {
+    color: rgb(153, 134, 179) !important;
+    
+    a {
+      color: rgb(153, 134, 179) !important;
+      
+      &:hover, &:active, &:focus {
+        color: #ffffff !important;
+        background: rgba(153, 134, 179, 0.2);
+        border-radius: 4px;
+        padding: 2px 4px;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+  
+  /* 모든 메타데이터 텍스트 통일 */
+  * {
+    color: rgb(153, 134, 179) !important;
+    
+    a {
+      color: rgb(153, 134, 179) !important;
+      
+      &:hover, &:active, &:focus {
+        color: #ffffff !important;
+        background: rgba(153, 134, 179, 0.2);
+        border-radius: 4px;
+        padding: 2px 4px;
+        transition: all 0.2s ease;
+      }
     }
   }
 }
@@ -138,19 +206,85 @@ img.preview-img {
 }
 
 #toc-wrapper {
-  border-left: 1px solid rgba(158, 158, 158, 0.17);
+  border: none;
   position: -webkit-sticky;
   position: sticky;
   top: 4rem;
   transition: top 0.2s ease-in-out;
   animation: fade-up 0.8s;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 
 #toc li a {
   font-size: 0.8rem;
+  color: #1d1d1f;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  border-radius: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(66, 66, 69, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  &:hover {
+    background: transparent;
+    transform: translateX(4px);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-color: transparent;
+    color: #1d1d1f;
+    font-weight: 600;
+  }
 
   &.nav-link:not(.active) {
-    color: inherit;
+    color: #1d1d1f;
+  }
+
+  &.nav-link.active {
+    background: transparent;
+    color: #1d1d1f;
+    font-weight: 700;
+    box-shadow: none;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 1rem;
+      background: #1d1d1f;
+      border-radius: 2px;
+    }
   }
 
 }
@@ -177,21 +311,36 @@ nav[data-toggle=toc] {
   }
 
   .card {
-    border-color: var(--card-border-color);
-    background-color: var(--card-bg);
-    box-shadow: 0 0 5px 0 var(--card-box-shadow);
+    border: none;
+    background: transparent;
+    box-shadow: none;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
     h3 {
       @extend %text-color;
     }
 
+    a {
+      color: var(--link-color) !important;
+      text-decoration: none !important;
+      border-bottom: none !important;
+    }
+
+    a:hover {
+      color: var(--link-color) !important;
+      text-decoration: none !important;
+      border-bottom: none !important;
+    }
+
     &:hover {
       -webkit-transform: translate3d(0, -3px, 0);
       transform: translate3d(0, -3px, 0);
-      box-shadow: 0 10px 15px -4px rgba(0, 0, 0, 0.15);
+      box-shadow: none;
+      background: transparent;
     }
   }
 
@@ -365,5 +514,52 @@ nav[data-toggle=toc] {
   .preview-img[data-src] {
     max-width: 100vw;
     border-radius: 0;
+  }
+}
+
+/* 다크 모드 대응 - Apple Liquid Glass */
+@media (prefers-color-scheme: dark) {
+  #toc-wrapper {
+    background: transparent;
+    border: none;
+  }
+  
+  #toc li a {
+    background: transparent;
+    border: none;
+    color: #1d1d1f;
+  }
+  
+  #toc li a:hover {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: #1d1d1f;
+    font-weight: 600;
+  }
+  
+  #toc li a.nav-link:not(.active) {
+    color: #1d1d1f;
+  }
+  
+  #toc li a.nav-link.active {
+    background: transparent;
+    color: #1d1d1f;
+    border: none;
+    box-shadow: none;
+    font-weight: 700;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 1rem;
+      background: #1d1d1f;
+      border-radius: 2px;
+    }
   }
 }

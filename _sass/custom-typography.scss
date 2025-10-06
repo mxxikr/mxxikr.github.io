@@ -1,0 +1,677 @@
+/*!
+ * Apple Liquid Glass Design System
+ * 애플의 새로운 Liquid Glass 디자인을 구현한 커스텀 스타일
+ * 참고: https://www.apple.com/kr/newsroom/2025/06/apple-introduces-a-delightful-and-elegant-new-software-design/
+ */
+
+/* Apple Liquid Glass 기본 설정 */
+:root {
+  --apple-blue: #A8A8A8;
+  --apple-gray: #1d1d1f;
+  --apple-gray-light: #6e6e73;
+  --apple-warning: #ff9500;
+  --apple-danger: #ff3b30;
+  --apple-success: #34c759;
+  
+  /* Liquid Glass 효과 */
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(196, 190, 226, 0.4);
+  --glass-shadow: rgba(196, 190, 226, 0.15);
+  --glass-blur: 24px;
+}
+
+/* Apple 시스템 폰트 적용 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-ligatures: common-ligatures;
+  line-height: 1.6;
+}
+
+/* Apple 스타일 제목 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+  color: var(--apple-gray);
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h5, h6 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+/* Apple Liquid Glass 본문 텍스트 */
+.post-content {
+  line-height: 1.7;
+  font-size: 1.125rem;
+  color: var(--apple-gray);
+}
+
+.post-content p {
+  margin-bottom: 1.75rem;
+  text-align: justify;
+  hyphens: auto;
+  word-break: keep-all;
+}
+
+/* Apple Liquid Glass 코드 블록 */
+.highlight {
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  overflow: hidden;
+  position: relative;
+  margin: 2rem 0;
+  background: var(--glass-bg);
+}
+
+.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0.3;
+}
+
+.highlight pre {
+  padding: 2rem;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  background: transparent;
+  margin: 0;
+  overflow-x: auto;
+}
+
+/* Apple Liquid Glass 인라인 코드 */
+code:not(.highlight code) {
+  background: transparent;
+  color: #A8A8A8;
+  padding: 0.25em 0.5em;
+  border-radius: 8px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 0.875em;
+  font-weight: 500;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Apple Liquid Glass 인용문 */
+blockquote {
+  border-left: 4px solid var(--apple-blue);
+  background: transparent;
+  padding: 2rem 2.5rem;
+  margin: 2.5rem 0;
+  border-radius: 16px;
+  font-style: italic;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 16px var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+blockquote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0.2;
+}
+
+blockquote p {
+  margin-bottom: 1rem;
+  color: var(--apple-gray);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Apple Liquid Glass 목록 */
+ul, ol {
+  padding-left: 2rem;
+  margin-bottom: 1.75rem;
+}
+
+li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Apple Liquid Glass 테이블 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2.5rem 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  position: relative;
+}
+
+table::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0.3;
+}
+
+th, td {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+th {
+  background: transparent;
+  font-weight: 600;
+  color: var(--apple-gray);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Apple Liquid Glass 링크 - 밑줄 효과 제거 */
+a {
+  color: var(--link-color) !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-weight: 500;
+}
+
+a:hover {
+  border-bottom: none !important;
+  color: var(--link-color) !important;
+  opacity: 0.8;
+}
+
+/* Apple Liquid Glass 카드 */
+.card {
+  border-radius: 16px;
+  border: 1px solid rgba(196, 190, 226, 0.4);
+  box-shadow: 0 4px 16px rgba(196, 190, 226, 0.15);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0.3;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(196, 190, 226, 0.25);
+  transform: translateY(-2px);
+  border-color: rgba(196, 190, 226, 0.5);
+}
+
+/* Apple Liquid Glass 태그 */
+.tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  background: transparent;
+  color: #A8A8A8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px var(--glass-shadow);
+}
+
+.tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.tag:hover::before {
+  left: 100%;
+}
+
+.tag:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Apple Liquid Glass 사이드바 */
+.sidebar {
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: 0 20px 20px 0;
+  border-right: 1px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--glass-shadow);
+  background: var(--glass-bg);
+}
+
+/* Apple Liquid Glass 버튼 */
+.btn, button {
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 2px 8px var(--glass-shadow);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  position: relative;
+  overflow: hidden;
+  color: var(--apple-gray);
+}
+
+.btn::before, button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before, button:hover::before {
+  left: 100%;
+}
+
+.btn:hover, button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Apple Liquid Glass 입력 필드 */
+input, textarea, select {
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  padding: 0.75rem 1rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s ease;
+  background: var(--glass-bg);
+  box-shadow: 0 2px 8px var(--glass-shadow);
+  color: var(--apple-gray);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--apple-blue);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+/* Apple Liquid Glass 네비게이션 */
+.nav-link, .sidebar-nav-item, .topbar-nav-item {
+  position: relative;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin: 0.25rem 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  overflow: hidden;
+  color: #1d1d1f;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link::after, .sidebar-nav-item::after, .topbar-nav-item::after {
+  display: none !important;
+}
+
+.nav-link::before, .sidebar-nav-item::before, .topbar-nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav-link:hover::before, .sidebar-nav-item:hover::before, .topbar-nav-item:hover::before {
+  left: 100%;
+}
+
+.nav-link:hover, .sidebar-nav-item:hover, .topbar-nav-item:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #1d1d1f !important;
+  border-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+.nav-link.active, .sidebar-nav-item.active, .topbar-nav-item.active {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 10px;
+  color: #1d1d1f !important;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+/* 네비게이션 커서 효과 제거 */
+.nav-cursor {
+  display: none !important;
+}
+
+/* Apple Liquid Glass 페이지네이션 */
+.pagination, .post-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2.5rem 0;
+}
+
+.pagination a, .post-pagination a,
+.pagination span, .post-pagination span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  background: rgba(60, 60, 60, 0.8);
+  color: #A8A8A8;
+  border: 1px solid rgba(168, 168, 168, 0.3);
+  border-radius: 20px !important;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pagination a::before, .post-pagination a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.pagination a:hover::before, .post-pagination a:hover::before {
+  left: 100%;
+}
+
+.pagination a:hover, .post-pagination a:hover {
+  background: rgba(60, 60, 60, 0.8);
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: rgba(168, 168, 168, 0.5);
+  color: #A8A8A8;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.pagination .current, .post-pagination .current {
+  background: rgba(100, 100, 100, 0.9);
+  color: #A8A8A8;
+  border-color: rgba(168, 168, 168, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+}
+
+.pagination .disabled, .post-pagination .disabled {
+  background: rgba(40, 40, 40, 0.6);
+  color: rgba(168, 168, 168, 0.4);
+  border-color: rgba(168, 168, 168, 0.2);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination .disabled:hover, .post-pagination .disabled:hover {
+  transform: none;
+  box-shadow: none;
+  background: rgba(40, 40, 40, 0.6);
+}
+
+/* Apple Liquid Glass 알림 박스 */
+.prompt-tip {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.prompt-info {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.prompt-warning {
+  background: rgba(255, 149, 0, 0.1) !important;
+  border: 1px solid rgba(255, 149, 0, 0.2) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.prompt-danger {
+  background: rgba(255, 59, 48, 0.1) !important;
+  border: 1px solid rgba(255, 59, 48, 0.2) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .post-content {
+    font-size: 1rem;
+  }
+  
+  h1 {
+    font-size: 2.25rem;
+  }
+  
+  h2 {
+    font-size: 1.875rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  .highlight pre {
+    padding: 1.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .card {
+    margin: 1rem 0;
+  }
+  
+  table {
+    font-size: 0.875rem;
+  }
+  
+  th, td {
+    padding: 1rem;
+  }
+}
+
+/* 다크 모드 대응 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --glass-bg: rgba(0, 0, 0, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: rgba(0, 0, 0, 0.3);
+  }
+  
+  .card {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 24px rgba(196, 190, 226, 0.25);
+  }
+}
+
+/* 애니메이션 최적화 */
+* {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Trending Tags 연한 보라색 Liquid Glass */
+.tag-cloud, .tag-list, #access-tags .d-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tag-cloud a, .tag-list a, .post-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #A8A8A8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+}
+
+.tag-cloud a::before, .tag-list a::before, .post-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.tag-cloud a:hover::before, .tag-list a:hover::before, .post-tag:hover::before {
+  left: 100%;
+}
+
+.tag-cloud a:hover, .tag-list a:hover, .post-tag:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #A8A8A8;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+}
+
+/* 스크롤바 스타일링 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(224, 219, 239, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(224, 219, 239, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(224, 219, 239, 0.6);
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MXXI.kr Favicon Generator</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f7;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .favicon-preview {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .favicon-item {
+            text-align: center;
+        }
+        .favicon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background: rgb(196, 190, 226);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto 10px;
+            box-shadow: 0 4px 12px rgba(196, 190, 226, 0.3);
+        }
+        .favicon-32 {
+            width: 32px;
+            height: 32px;
+            font-size: 16px;
+        }
+        .favicon-16 {
+            width: 16px;
+            height: 16px;
+            font-size: 8px;
+        }
+        .download-btn {
+            background: rgb(196, 190, 226);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.2s ease;
+        }
+        .download-btn:hover {
+            background: rgb(180, 174, 210);
+            transform: translateY(-2px);
+        }
+        canvas {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MXXI.kr Favicon Generator</h1>
+        <p>티스토리 스타일의 M favicon을 생성합니다</p>
+        
+        <div class="favicon-preview">
+            <div class="favicon-item">
+                <div class="favicon favicon-64">M</div>
+                <p>64x64</p>
+            </div>
+            <div class="favicon-item">
+                <div class="favicon favicon-32">M</div>
+                <p>32x32</p>
+            </div>
+            <div class="favicon-item">
+                <div class="favicon favicon-16">M</div>
+                <p>16x16</p>
+            </div>
+        </div>
+        
+        <button class="download-btn" onclick="generateFavicon(64)">64x64 다운로드</button>
+        <button class="download-btn" onclick="generateFavicon(32)">32x32 다운로드</button>
+        <button class="download-btn" onclick="generateFavicon(16)">16x16 다운로드</button>
+        
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script>
+        function generateFavicon(size) {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = size;
+            canvas.height = size;
+            
+            // 배경 그리기
+            ctx.fillStyle = 'rgb(196, 190, 226)';
+            ctx.fillRect(0, 0, size, size);
+            
+            // 둥근 모서리 적용
+            ctx.globalCompositeOperation = 'destination-in';
+            ctx.beginPath();
+            const radius = size * 0.2; // 20% 둥글기
+            ctx.roundRect(0, 0, size, size, radius);
+            ctx.fill();
+            
+            // M 텍스트 그리기
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${size * 0.6}px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('M', size / 2, size / 2);
+            
+            // 다운로드
+            const link = document.createElement('a');
+            link.download = `favicon-${size}x${size}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // CanvasRenderingContext2D.roundRect polyfill
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function(x, y, width, height, radius) {
+                this.beginPath();
+                this.moveTo(x + radius, y);
+                this.lineTo(x + width - radius, y);
+                this.quadraticCurveTo(x + width, y, x + width, y + radius);
+                this.lineTo(x + width, y + height - radius);
+                this.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+                this.lineTo(x + radius, y + height);
+                this.quadraticCurveTo(x, y + height, x, y + height - radius);
+                this.lineTo(x, y + radius);
+                this.quadraticCurveTo(x, y, x + radius, y);
+                this.closePath();
+            };
+        }
+    </script>
+</body>
+</html>

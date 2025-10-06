@@ -3,7 +3,7 @@
 */
 
 %category-icon-color {
-  color: gray;
+  color: #424245;
 }
 
 .categories {
@@ -11,24 +11,58 @@
 
   .card-header {
     padding-right: 12px;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   i {
     @extend %category-icon-color;
-
     font-size: 86%; // fontawesome icons
   }
 
   .list-group-item {
-    border-left: none;
-    border-right: none;
+    border: none;
     padding-left: 2rem;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    margin: 0;
 
     &:first-child {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }
 
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(66, 66, 69, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    &:hover::before {
+      left: 100%;
+    }
+
+    &:hover {
+      background: transparent;
+      transform: translateX(4px);
+      box-shadow: none;
+      border: none;
+      font-weight: 600;
+    }
   }
 
 } // .categories
@@ -38,11 +72,42 @@
   height: 1.7rem;
   border-radius: 50%;
   text-align: center;
-  color: #6c757d !important;
+  color: #1d1d1f !important;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(66, 66, 69, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
   &:hover {
+    background: transparent;
+    transform: scale(1.1);
+    box-shadow: none;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    &::before {
+      opacity: 1;
+    }
+
     i {
-      color: var(--categories-icon-hover-color);
+      color: #1d1d1f;
     }
   }
 
@@ -50,13 +115,7 @@
     position: relative;
     height: 0.7rem;
     width: 1rem;
-    transition: transform 300ms ease;
-  }
-}
-
-@media (hover: hover) { // only works on desktop
-  .category-trigger:hover {
-    background-color: var(--categories-hover-bg);
+    transition: all 300ms ease;
   }
 }
 
@@ -64,4 +123,46 @@
   -ms-transform: rotate(-90deg); /* IE 9 */
   -webkit-transform: rotate(-90deg); /* Safari 3-8 */
   transform: rotate(-90deg);
+}
+
+/* 다크 모드 대응 - Apple Liquid Glass */
+@media (prefers-color-scheme: dark) {
+  %category-icon-color {
+    color: #a1a1a6;
+  }
+  
+  .categories {
+    .card-header {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(196, 190, 226, 0.1) 100%);
+      border-color: rgba(196, 190, 226, 0.4);
+    }
+    
+    .list-group-item {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(196, 190, 226, 0.05) 100%);
+      border-color: rgba(196, 190, 226, 0.3);
+      color: #f5f5f7;
+    }
+    
+    .list-group-item:hover {
+      background: linear-gradient(135deg, rgba(161, 161, 166, 0.15) 0%, rgba(196, 190, 226, 0.08) 100%);
+      border-color: rgba(161, 161, 166, 0.4);
+      box-shadow: 0 4px 16px rgba(161, 161, 166, 0.2);
+    }
+  }
+  
+  .category-trigger {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(196, 190, 226, 0.1) 100%);
+    border-color: rgba(196, 190, 226, 0.4);
+    color: #a1a1a6 !important;
+  }
+  
+  .category-trigger:hover {
+    background: linear-gradient(135deg, rgba(161, 161, 166, 0.2) 0%, rgba(196, 190, 226, 0.1) 100%);
+    border-color: rgba(161, 161, 166, 0.5);
+    box-shadow: 0 4px 16px rgba(161, 161, 166, 0.25);
+  }
+  
+  .category-trigger:hover i {
+    color: #a1a1a6;
+  }
 }
