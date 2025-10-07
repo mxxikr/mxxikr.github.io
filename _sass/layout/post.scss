@@ -326,10 +326,7 @@ nav[data-toggle=toc] {
 
   .card {
     border: none !important;
-    background: 
-      radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.01) 0%, transparent 80%),
-      radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.005) 0%, transparent 80%),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.002) 0%, rgba(196, 190, 226, 0.001) 100%) !important;
+    background: transparent !important;
     box-shadow: 
       0 2px 8px rgba(128, 102, 153, 0.02),
       0 1px 4px rgba(255, 255, 255, 0.02),
