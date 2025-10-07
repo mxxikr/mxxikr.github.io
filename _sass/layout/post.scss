@@ -278,6 +278,22 @@ img.preview-img {
       display: none !important;
     }
   }
+  
+  /* Bootstrap TOC 기본 활성화 스타일 복원 */
+  &.active {
+    background: transparent;
+    color: #1d1d1f;
+    font-weight: 700;
+    box-shadow: none;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    position: relative;
+    
+    &::after {
+      display: none !important;
+    }
+  }
 
 }
 
@@ -576,6 +592,20 @@ nav[data-toggle=toc] {
   }
   
   #toc li a.nav-link.active {
+    background: transparent;
+    color: #1d1d1f;
+    border: none;
+    box-shadow: none;
+    font-weight: 700;
+    position: relative;
+    
+    &::after {
+      display: none !important;
+    }
+  }
+  
+  /* Bootstrap TOC 기본 활성화 스타일 복원 - 다크 모드 */
+  #toc li a.active {
     background: transparent;
     color: #1d1d1f;
     border: none;
