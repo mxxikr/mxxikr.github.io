@@ -151,7 +151,8 @@
   nav[data-toggle=toc] .nav > li > a:focus,
   nav[data-toggle=toc] .nav > li > a:hover {
     color: #424245 !important;
-    border-left-color: #424245 !important;
+    border-left: none !important;
+    border-left-color: transparent !important;
   }
 
   /* categories */
