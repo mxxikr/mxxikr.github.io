@@ -275,15 +275,7 @@ img.preview-img {
     position: relative;
     
     &::after {
-      content: '';
-      position: absolute;
-      left: -1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 3px;
-      height: 1rem;
-      background: #1d1d1f;
-      border-radius: 2px;
+      display: none !important;
     }
   }
 
@@ -592,15 +584,7 @@ nav[data-toggle=toc] {
     position: relative;
     
     &::after {
-      content: '';
-      position: absolute;
-      left: -1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 3px;
-      height: 1rem;
-      background: #1d1d1f;
-      border-radius: 2px;
+      display: none !important;
     }
   }
 }
