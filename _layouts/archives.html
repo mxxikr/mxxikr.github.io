@@ -5,13 +5,8 @@ layout: page
 
 {% include lang.html %}
 
-{% if site.prefer_datetime_locale == 'en' or lang == 'en' %}
-  {% assign df_strftime_m = '%b' %}
-  {% assign df_dayjs_m = 'MMM' %}
-{% else %}
-  {% assign df_strftime_m = '/ %m' %}
-  {% assign df_dayjs_m = '/ MM' %}
-{% endif %}
+{% assign df_strftime_m = '%b' %}
+{% assign df_dayjs_m = 'MMM' %}
 
 <div id="archives" class="pl-xl-3 archives-liquid-glass">
 
