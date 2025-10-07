@@ -171,7 +171,14 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 0.5rem !important;
+  width: 140px !important;
+  min-width: 140px !important;
+  max-width: 140px !important;
+  text-align: center !important;
+  display: block !important;
+  margin-bottom: 20px !important;
+  margin-left: 50px !important;
   margin: 0.25rem 0;
   /* Apple 공식 스펙: 완벽한 동심원 형태 */
   border-radius: 50px;
@@ -1559,4 +1566,36 @@ div.year-liquid-glass,
   height: auto !important;
   z-index: 1 !important;
   position: relative !important;
+}
+
+/* 강제로 모든 네비게이션 버튼 크기 통일 - 최종 강제 적용 */
+.sidebar .nav-link,
+.sidebar .sidebar-nav-item,
+.sidebar-wrapper .nav-link,
+.sidebar-wrapper .sidebar-nav-item,
+.sidebar-panel .nav-link,
+.sidebar-panel .sidebar-nav-item,
+.nav-link,
+.sidebar-nav-item,
+.topbar-nav-item,
+.nav-item-apple,
+.navbar-nav .nav-link,
+.navbar .nav-link,
+.nav-item,
+.nav-item .nav-link,
+.navbar .nav-item .nav-link,
+.sidebar .nav-item .nav-link,
+.navbar .nav-item,
+.sidebar .nav-item {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+  margin-left: 50px !important;
+  margin-right: 0.02rem !important;
+  width: 140px !important;
+  min-width: 140px !important;
+  max-width: 140px !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  margin-bottom: 20px !important;
 }
