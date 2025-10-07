@@ -23,18 +23,22 @@
   }
 
   .year {
-    height: 3.5rem;
+    height: auto;
     font-size: 1.5rem;
-    margin-left: -$timeline-width;
+    margin-left: calc(-#{$timeline-width} - 18px);
     color: rgb(153, 134, 179);
     font-weight: 600;
-    background: rgba(153, 134, 179, 0.1);
-    border: 1px solid rgba(153, 134, 179, 0.2);
-    border-radius: 25px;
-    padding: 0.5rem 1.5rem;
-    box-shadow: 0 2px 8px rgba(153, 134, 179, 0.1);
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
     display: inline-block;
-    margin: 2rem 0 1rem 0;
+    margin: calc(2rem - 33px) 0 1rem 0;
+    z-index: 1 !important;
+    position: relative !important;
 
     &::before {
       display: none;
@@ -51,6 +55,10 @@
   }
 
   ul {
+    margin-top: -5px;
+    position: relative;
+    z-index: 2;
+    
     li {
       font-size: 1.1rem;
       line-height: 3rem;
