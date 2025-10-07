@@ -244,7 +244,11 @@ a:hover {
   box-shadow: 0 4px 16px rgba(196, 190, 226, 0.15);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   backdrop-filter: blur(20px);
-  background: transparent !important;
+  /* 버튼과 동일한 그라데이션 세기 */
+  background: 
+    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%) !important;
   -webkit-backdrop-filter: blur(20px);
   background: transparent;
   position: relative;
