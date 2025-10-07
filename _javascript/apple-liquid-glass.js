@@ -64,7 +64,7 @@
   // Liquid Glass 효과 초기화
   function initLiquidGlassEffects() {
     // Liquid Glass 반사 효과 - 실시간 마우스 추적
-    const glassElements = document.querySelectorAll('.btn-apple, .card-apple, .nav-item-apple, .tag-apple, .year-liquid-glass');
+    const glassElements = document.querySelectorAll('.btn-apple, .card-apple, .nav-item-apple, .tag-apple, .btn, .tag, .post-tag, .nav-link, .nav-item');
     
     glassElements.forEach(element => {
       element.classList.add('liquid-reflection');
@@ -106,7 +106,7 @@
     });
 
     // Liquid Glass 굴절 효과
-    const refractionElements = document.querySelectorAll('.highlight, blockquote, .archive-item-liquid-glass');
+    const refractionElements = document.querySelectorAll('.highlight, blockquote, .archive-item-liquid-glass, input, textarea, select, .form-control, #search-wrapper, #breadcrumb');
     refractionElements.forEach(element => {
       element.classList.add('liquid-refraction');
       
