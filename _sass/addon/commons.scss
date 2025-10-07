@@ -761,16 +761,7 @@ $sidebar-display: "sidebar-display";
         }
 
         &::after { /* the cursor */
-          display: table;
-          visibility: hidden;
-          content: "";
-          position: relative;
-          right: 1px;
-          width: $cursor-width;
-          height: $tab-cursor-height;
-          border-radius: 1px;
-          background-color: var(--nav-cursor-color);
-          pointer-events: none;
+          display: none !important;
         }
       }
     } /* li */
