@@ -384,7 +384,7 @@ input:focus, textarea:focus, select:focus {
 .nav-link, .sidebar-nav-item, .topbar-nav-item {
   position: relative;
   border-radius: 10px;
-  padding: 0.75rem 0.5rem !important;
+  padding: 0.75rem 0.75rem !important;
   margin: 0.25rem 0;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   backdrop-filter: blur(30px);
@@ -393,13 +393,13 @@ input:focus, textarea:focus, select:focus {
   color: #1d1d1f;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 140px !important;
-  min-width: 140px !important;
-  max-width: 140px !important;
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
   text-align: center !important;
   display: block !important;
   margin-bottom: 20px !important;
-  margin-left: 50px !important;
+  margin-left: 45px !important;
 }
 
 .nav-link::after, .sidebar-nav-item::after, .topbar-nav-item::after {
@@ -464,13 +464,13 @@ input:focus, textarea:focus, select:focus {
 .nav-item .nav-link,
 .navbar .nav-item .nav-link,
 .sidebar .nav-item .nav-link {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-  margin-left: 50px !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  margin-left: 45px !important;
   margin-right: 0.02rem !important;
-  width: 140px !important;
-  min-width: 140px !important;
-  max-width: 140px !important;
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
   text-align: center !important;
   box-sizing: border-box !important;
   display: block !important;
@@ -483,13 +483,13 @@ input:focus, textarea:focus, select:focus {
 *[class*="sidebar-nav"],
 *[class*="topbar-nav"],
 *[class*="navbar-nav"] {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-  margin-left: 50px !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  margin-left: 45px !important;
   margin-right: 0.02rem !important;
-  width: 140px !important;
-  min-width: 140px !important;
-  max-width: 140px !important;
+  width: 150px !important;
+  min-width: 150px !important;
+  max-width: 150px !important;
   text-align: center !important;
   box-sizing: border-box !important;
   display: block !important;
