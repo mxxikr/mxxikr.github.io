@@ -326,7 +326,11 @@ nav[data-toggle=toc] {
 
   .card {
     border: none !important;
-    background: transparent !important;
+    /* 버튼과 동일한 그라데이션 세기 */
+    background: 
+      radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%) !important;
     box-shadow: 
       0 2px 8px rgba(128, 102, 153, 0.02),
       0 1px 4px rgba(255, 255, 255, 0.02),
