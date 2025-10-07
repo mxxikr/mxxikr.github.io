@@ -1,0 +1,201 @@
+<!-- Apple Liquid Glass 실시간 렌더링 엔진 -->
+<script src="{{ '/assets/js/apple-liquid-glass.js' | relative_url }}" defer></script>
+
+<!-- Apple Liquid Glass 시스템 통합 스크립트 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 시스템 레벨 컴포넌트에 Liquid Glass 클래스 자동 적용
+  const systemComponents = {
+    // 헤더
+    'header': '.header-liquid-glass',
+    'nav': '.nav-liquid-glass', 
+    'sidebar': '.sidebar-liquid-glass',
+    'footer': '.footer-liquid-glass',
+    'main': '.main-content-liquid-glass'
+  };
+  
+  // 각 시스템 컴포넌트에 클래스 적용
+  Object.entries(systemComponents).forEach(([tag, className]) => {
+    const elements = document.querySelectorAll(tag);
+    elements.forEach(element => {
+      if (!element.classList.contains(className.replace('.', ''))) {
+        element.classList.add(className.replace('.', ''));
+      }
+    });
+  });
+  
+  // 기존 네비게이션 요소들에 Apple 스타일 적용
+  const navElements = document.querySelectorAll('nav a, .nav-link, .navbar-nav a');
+  navElements.forEach(element => {
+    if (!element.classList.contains('nav-item-apple')) {
+      element.classList.add('nav-item-apple');
+    }
+  });
+  
+  // 기존 버튼들에 Apple 스타일 적용
+  const buttons = document.querySelectorAll('button:not(.btn-apple), .btn:not(.btn-apple)');
+  buttons.forEach(button => {
+    if (!button.classList.contains('btn-apple')) {
+      button.classList.add('btn-apple');
+    }
+  });
+  
+  // 기존 카드들에 Apple 스타일 적용
+  const cards = document.querySelectorAll('.card:not(.card-apple), .post:not(.card-apple)');
+  cards.forEach(card => {
+    if (!card.classList.contains('card-apple')) {
+      card.classList.add('card-apple');
+    }
+  });
+  
+  // 기존 태그들에 Apple 스타일 적용
+  const tags = document.querySelectorAll('.tag:not(.tag-apple), .badge:not(.tag-apple)');
+  tags.forEach(tag => {
+    if (!tag.classList.contains('tag-apple')) {
+      tag.classList.add('tag-apple');
+    }
+  });
+  
+  // 기존 입력 필드들에 Apple 스타일 적용
+  const inputs = document.querySelectorAll('input:not(.input-apple), textarea:not(.input-apple)');
+  inputs.forEach(input => {
+    if (!input.classList.contains('input-apple')) {
+      input.classList.add('input-apple');
+    }
+  });
+  
+  // 시스템 알림 기능
+  window.showLiquidGlassNotification = function(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = 'system-notification-liquid-glass';
+    notification.textContent = message;
+    
+    // 타입별 색상 조정
+    if (type === 'success') {
+      notification.style.setProperty('--ambient-hue', '120deg');
+    } else if (type === 'warning') {
+      notification.style.setProperty('--ambient-hue', '60deg');
+    } else if (type === 'error') {
+      notification.style.setProperty('--ambient-hue', '0deg');
+    }
+    
+    document.body.appendChild(notification);
+    
+    // 애니메이션 트리거
+    setTimeout(() => {
+      notification.classList.add('show');
+    }, 100);
+    
+    // 자동 제거
+    setTimeout(() => {
+      notification.classList.remove('show');
+      setTimeout(() => {
+        document.body.removeChild(notification);
+      }, 400);
+    }, 3000);
+  };
+  
+  // 시스템 모달 기능
+  window.showLiquidGlassModal = function(content) {
+    const modal = document.createElement('div');
+    modal.className = 'system-modal-liquid-glass';
+    
+    const modalContent = document.createElement('div');
+    modalContent.className = 'system-modal-content-liquid-glass';
+    modalContent.innerHTML = content;
+    
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+    // 애니메이션 트리거
+    setTimeout(() => {
+      modal.classList.add('active');
+    }, 100);
+    
+    // 닫기 기능
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        setTimeout(() => {
+          document.body.removeChild(modal);
+        }, 300);
+      }
+    });
+  };
+  
+  // 프로그레스 바 기능
+  window.createLiquidGlassProgress = function(container, progress = 0) {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'system-progress-liquid-glass';
+    progressBar.style.setProperty('--progress', `${progress}%`);
+    
+    container.appendChild(progressBar);
+    
+    // 프로그레스 업데이트 함수
+    progressBar.updateProgress = function(newProgress) {
+      this.style.setProperty('--progress', `${newProgress}%`);
+    };
+    
+    return progressBar;
+  };
+  
+  // 성능 모니터링
+  if (window.AppleLiquidGlass) {
+    setInterval(() => {
+      const metrics = window.AppleLiquidGlass.getPerformanceMetrics();
+      if (metrics.elementCount > 100) {
+        console.warn('Apple Liquid Glass: 많은 요소가 감지되어 성능에 영향을 줄 수 있습니다.');
+      }
+    }, 5000);
+  }
+});
+</script>
+
+<!-- Apple Liquid Glass 성능 최적화 -->
+<style>
+/* prefers-reduced-motion 지원 */
+@media (prefers-reduced-motion: reduce) {
+  .btn-apple,
+  .card-apple,
+  .nav-item-apple,
+  .tag-apple,
+  .input-apple,
+  .year-liquid-glass,
+  .archive-item-liquid-glass,
+  .header-liquid-glass,
+  .nav-liquid-glass,
+  .sidebar-liquid-glass,
+  .footer-liquid-glass,
+  .main-content-liquid-glass,
+  .system-notification-liquid-glass,
+  .system-modal-liquid-glass,
+  .system-dropdown-liquid-glass,
+  .system-progress-liquid-glass {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* GPU 가속 최적화 */
+.btn-apple,
+.card-apple,
+.nav-item-apple,
+.tag-apple,
+.input-apple,
+.year-liquid-glass,
+.archive-item-liquid-glass {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 시스템 레벨 최적화 */
+.header-liquid-glass,
+.nav-liquid-glass,
+.sidebar-liquid-glass,
+.footer-liquid-glass,
+.main-content-liquid-glass {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+</style>

@@ -3,7 +3,7 @@
  * 애플의 동심원 형태와 고급 Liquid Glass 효과 구현
  */
 
-/* Apple Liquid Glass 동심원 형태 버튼 - 향상된 리퀴드 글라스 */
+/* Apple Liquid Glass 동심원 형태 버튼 - 성능 최적화된 리퀴드 글라스 */
 .btn-apple {
   position: relative;
   display: inline-flex;
@@ -11,46 +11,32 @@
   justify-content: center;
   padding: 0.875rem 2rem;
   border-radius: 50px;
+  /* 최적화된 배경 - 단순화된 그라데이션 */
   background: 
-    /* 실시간 반사 레이어 */
-    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 50%, rgba(224, 217, 237, 0.3) 0%, transparent 70%),
-    /* 동심원 형태 - Apple 공식 스펙 */
-    conic-gradient(from 0deg at 50% 50%, 
-      rgba(255, 255, 255, 0.2) 0deg,
-      rgba(196, 190, 226, 0.15) 90deg,
-      rgba(255, 255, 255, 0.25) 180deg,
-      rgba(224, 217, 237, 0.2) 270deg,
-      rgba(255, 255, 255, 0.2) 360deg);
+    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: #424245;
   font-weight: 500;
   font-size: 0.875rem;
   text-decoration: none;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  backdrop-filter: blur(30px) saturate(1.2) brightness(1.1);
-  -webkit-backdrop-filter: blur(30px) saturate(1.2) brightness(1.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* 최적화된 backdrop-filter */
+  backdrop-filter: blur(20px) saturate(1.1);
+  -webkit-backdrop-filter: blur(20px) saturate(1.1);
+  /* 최적화된 box-shadow */
   box-shadow: 
-    /* 실시간 굴절 효과 - 향상된 깊이감 */
-    0 12px 40px rgba(128, 102, 153, 0.25),
-    0 6px 20px rgba(255, 255, 255, 0.35),
-    0 3px 10px rgba(196, 190, 226, 0.2),
-    0 1px 3px rgba(128, 102, 153, 0.1),
-    /* 거울 반사 inset - 정교한 반사 효과 */
-    inset 0 2px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -2px 0 rgba(128, 102, 153, 0.15),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
-    /* 실시간 반사 하이라이트 - 다층 반사 */
-    inset 0 0 20px rgba(255, 255, 255, 0.15),
-    inset 0 0 40px rgba(196, 190, 226, 0.08),
-    /* 거울 반사 경계선 */
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1px 0 rgba(128, 102, 153, 0.2);
+    0 8px 25px rgba(128, 102, 153, 0.2),
+    0 4px 12px rgba(255, 255, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(128, 102, 153, 0.1);
   overflow: hidden;
   position: relative;
   z-index: 1;
   transform-origin: center center;
+  /* GPU 가속 최적화 */
+  will-change: transform, box-shadow;
 }
 
 .btn-apple::before {
@@ -61,31 +47,39 @@
   width: 100%;
   height: 100%;
   background: 
-    /* Apple의 실시간 거울 반사 - 마우스 위치 기반 */
+    /* 강화된 실시간 거울 반사 - 마우스 위치 기반 */
     radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-      rgba(255, 255, 255, 0.8) 0%, 
-      rgba(196, 190, 226, 0.6) 30%, 
-      transparent 70%),
-    /* 동적 굴절 효과 - 실시간 반응 */
+      rgba(255, 255, 255, 0.9) 0%, 
+      rgba(196, 190, 226, 0.7) 25%, 
+      rgba(224, 217, 237, 0.5) 50%,
+      transparent 75%),
+    /* 강화된 동적 굴절 효과 - 실시간 반응 */
     conic-gradient(from var(--mouse-angle, 0deg) at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-      rgba(255, 255, 255, 0.4) 0deg,
-      rgba(196, 190, 226, 0.3) 90deg,
-      rgba(255, 255, 255, 0.5) 180deg,
-      rgba(224, 217, 237, 0.35) 270deg,
-      rgba(255, 255, 255, 0.4) 360deg),
-    /* 실시간 웨이브 반사 */
+      rgba(255, 255, 255, 0.6) 0deg,
+      rgba(196, 190, 226, 0.5) 90deg,
+      rgba(255, 255, 255, 0.7) 180deg,
+      rgba(224, 217, 237, 0.55) 270deg,
+      rgba(255, 255, 255, 0.6) 360deg),
+    /* 강화된 실시간 웨이브 반사 */
     linear-gradient(45deg, 
       transparent 0%, 
-      rgba(255, 255, 255, 0.6) 25%, 
-      rgba(196, 190, 226, 0.4) 50%, 
-      rgba(255, 255, 255, 0.7) 75%, 
-      transparent 100%);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      rgba(255, 255, 255, 0.8) 20%, 
+      rgba(196, 190, 226, 0.6) 40%,
+      rgba(255, 255, 255, 0.9) 60%, 
+      rgba(224, 217, 237, 0.7) 80%,
+      transparent 100%),
+    /* 주변 환경 반사 레이어 */
+    radial-gradient(ellipse at var(--reflection-x, 50%) var(--reflection-y, 50%), 
+      hsla(var(--ambient-hue, 0), 30%, 80%, 0.3) 0%, 
+      transparent 60%);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   pointer-events: none;
   z-index: 2;
   border-radius: 50px;
-  /* Apple의 실시간 렌더링 애니메이션 */
-  animation: appleLiquidReflection 4s ease-in-out infinite;
+  /* 실시간 렌더링 애니메이션 */
+  animation: appleLiquidReflection 3s ease-in-out infinite;
+  /* 반사 강도 조절 */
+  opacity: var(--reflection-intensity, 0.3);
 }
 
 .btn-apple:hover::before {
@@ -94,60 +88,48 @@
 }
 
 .btn-apple:hover {
-  backdrop-filter: blur(40px) saturate(1.4) brightness(1.2);
-  -webkit-backdrop-filter: blur(40px) saturate(1.4) brightness(1.2);
+  /* 최적화된 hover 효과 */
+  backdrop-filter: blur(25px) saturate(1.2);
+  -webkit-backdrop-filter: blur(25px) saturate(1.2);
   background: 
-    /* Apple의 동적 반응 - 주변 환경 반사 */
-    radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 0.9) 0%, transparent 70%),
-    radial-gradient(ellipse at 85% 95%, rgba(196, 190, 226, 0.6) 0%, transparent 70%),
-    radial-gradient(ellipse at 50% 50%, rgba(224, 217, 237, 0.4) 0%, transparent 80%),
-    /* 실시간 굴절 - Apple 공식 스펙 */
-    conic-gradient(from 45deg at 50% 50%, 
-      rgba(255, 255, 255, 0.4) 0deg,
-      rgba(196, 190, 226, 0.3) 90deg,
-      rgba(255, 255, 255, 0.5) 180deg,
-      rgba(224, 217, 237, 0.35) 270deg,
-      rgba(255, 255, 255, 0.4) 360deg);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+    radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 0.7) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 95%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(196, 190, 226, 0.15) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 
-    /* Apple의 실시간 렌더링 굴절 - 향상된 깊이감 */
-    0 16px 50px rgba(128, 102, 153, 0.35),
-    0 8px 25px rgba(255, 255, 255, 0.45),
-    0 4px 12px rgba(196, 190, 226, 0.25),
-    0 2px 6px rgba(128, 102, 153, 0.15),
-    /* 거울 반사 강화 - 정교한 다층 반사 */
-    inset 0 3px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -3px 0 rgba(128, 102, 153, 0.25),
-    inset 0 0 0 2px rgba(255, 255, 255, 0.4),
-    /* 실시간 반사 하이라이트 - 다층 반사 */
-    inset 0 0 25px rgba(255, 255, 255, 0.2),
-    inset 0 0 50px rgba(196, 190, 226, 0.1),
-    /* 거울 반사 경계선 - 정교한 경계 */
-    inset 0 2px 0 rgba(255, 255, 255, 0.7),
-    inset 0 -2px 0 rgba(128, 102, 153, 0.3),
-    /* 내부 반사 하이라이트 */
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    inset 0 -1px 0 rgba(128, 102, 153, 0.2);
-  transform: translateY(-3px) scale(1.02);
+    0 12px 35px rgba(128, 102, 153, 0.3),
+    0 6px 18px rgba(255, 255, 255, 0.35),
+    inset 0 2px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -2px 0 rgba(128, 102, 153, 0.15);
+  transform: translateY(-2px) scale(1.01);
   color: rgb(153, 134, 179);
-  animation: appleLiquidHover 0.6s ease-out;
 }
 
 .btn-apple:active {
   transform: translateY(0) scale(0.98);
 }
 
-/* Apple Liquid Glass 카드 - 동심원 형태 */
+/* Apple Liquid Glass 카드 - 완벽한 동심원 형태 */
 .card-apple {
   position: relative;
+  /* Apple 공식 스펙: 완벽한 동심원 형태 */
   border-radius: 50px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(196, 190, 226, 0.05) 100%);
+  background: 
+    /* 내부 동심원 레이어 */
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
+    /* 외부 동심원 레이어 */
+    radial-gradient(circle at 30% 30%, rgba(196, 190, 226, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
+    /* 기본 배경 */
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(196, 190, 226, 0.05) 100%);
   border: 1px solid rgba(196, 190, 226, 0.3);
   box-shadow: 0 8px 32px rgba(196, 190, 226, 0.15);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* 동심원 형태 강화 */
+  will-change: transform, box-shadow;
 }
 
 .card-apple::before {
@@ -184,16 +166,23 @@
   background: linear-gradient(135deg, rgba(0, 122, 255, 0.08) 0%, rgba(196, 190, 226, 0.05) 100%);
 }
 
-/* Apple Liquid Glass 네비게이션 아이템 */
+/* Apple Liquid Glass 네비게이션 아이템 - 완벽한 동심원 */
 .nav-item-apple {
-  @extend .liquid-glass-hover;
   position: relative;
   display: flex;
   align-items: center;
   padding: 0.75rem 1.25rem;
   margin: 0.25rem 0;
+  /* Apple 공식 스펙: 완벽한 동심원 형태 */
   border-radius: 50px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.08) 100%);
+  background: 
+    /* 내부 동심원 */
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+    /* 외부 동심원 레이어들 */
+    radial-gradient(circle at 25% 25%, rgba(196, 190, 226, 0.1) 0%, transparent 60%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+    /* 기본 배경 */
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.08) 100%);
   color: #1d1d1f;
   text-decoration: none;
   backdrop-filter: blur(20px);
@@ -201,6 +190,8 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 16px rgba(153, 134, 179, 0.1);
   overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
 }
 
 .nav-item-apple::before {
@@ -1164,5 +1155,227 @@ div.year-liquid-glass,
   }
 }
 
-/* 통일된 라벤더 디자인 - 라이트/다크 모드 구분 없음 */
-/* 모든 모드에서 동일한 라벤더 Liquid Glass 효과 적용 */
+
+/* 헤더 시스템 통합 */
+.header-liquid-glass {
+  position: relative;
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(196, 190, 226, 0.03) 100%);
+  backdrop-filter: blur(30px) saturate(1.1);
+  -webkit-backdrop-filter: blur(30px) saturate(1.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 20px rgba(128, 102, 153, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
+}
+
+/* 네비게이션 시스템 통합 */
+.nav-liquid-glass {
+  position: relative;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(196, 190, 226, 0.02) 100%);
+  backdrop-filter: blur(25px) saturate(1.05);
+  -webkit-backdrop-filter: blur(25px) saturate(1.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 8px 32px rgba(128, 102, 153, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
+}
+
+/* 사이드바 시스템 통합 */
+.sidebar-liquid-glass {
+  position: relative;
+  background: 
+    radial-gradient(ellipse at 0% 50%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0%, rgba(196, 190, 226, 0.01) 100%);
+  backdrop-filter: blur(20px) saturate(1.03);
+  -webkit-backdrop-filter: blur(20px) saturate(1.03);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 
+    4px 0 20px rgba(128, 102, 153, 0.06),
+    inset 1px 0 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
+}
+
+/* 푸터 시스템 통합 */
+.footer-liquid-glass {
+  position: relative;
+  background: 
+    radial-gradient(ellipse at 50% 100%, rgba(255, 255, 255, 0.08) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(196, 190, 226, 0.02) 100%);
+  backdrop-filter: blur(25px) saturate(1.05);
+  -webkit-backdrop-filter: blur(25px) saturate(1.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 -4px 20px rgba(128, 102, 153, 0.08),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
+}
+
+/* 메인 콘텐츠 영역 통합 */
+.main-content-liquid-glass {
+  position: relative;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 80%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.01) 0%, rgba(196, 190, 226, 0.005) 100%);
+  backdrop-filter: blur(15px) saturate(1.02);
+  -webkit-backdrop-filter: blur(15px) saturate(1.02);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 
+    0 4px 16px rgba(128, 102, 153, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, box-shadow;
+}
+
+/* 시스템 알림/토스트 통합 */
+.system-notification-liquid-glass {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(196, 190, 226, 0.08) 100%);
+  backdrop-filter: blur(30px) saturate(1.2);
+  -webkit-backdrop-filter: blur(30px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 12px 40px rgba(128, 102, 153, 0.2),
+    0 6px 20px rgba(255, 255, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  color: #424245;
+  font-weight: 500;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.system-notification-liquid-glass.show {
+  transform: translateX(0);
+}
+
+/* 시스템 모달 통합 */
+.system-modal-liquid-glass {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.system-modal-liquid-glass.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.system-modal-content-liquid-glass {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  box-shadow: 
+    0 20px 60px rgba(128, 102, 153, 0.3),
+    0 10px 30px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(40px) saturate(1.3);
+  -webkit-backdrop-filter: blur(40px) saturate(1.3);
+  overflow: hidden;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.system-modal-liquid-glass.active .system-modal-content-liquid-glass {
+  transform: scale(1) translateY(0);
+}
+
+/* 시스템 드롭다운 통합 */
+.system-dropdown-liquid-glass {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(196, 190, 226, 0.08) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  box-shadow: 
+    0 12px 40px rgba(128, 102, 153, 0.2),
+    0 6px 20px rgba(255, 255, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(30px) saturate(1.2);
+  -webkit-backdrop-filter: blur(30px) saturate(1.2);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+
+.system-dropdown-liquid-glass.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* 시스템 프로그레스 바 통합 */
+.system-progress-liquid-glass {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(196, 190, 226, 0.01) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.system-progress-liquid-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 70%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(196, 190, 226, 0.1));
+  border-radius: 4px;
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 
+    0 0 8px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  will-change: width;
+}
