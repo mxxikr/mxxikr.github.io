@@ -1,4 +1,53 @@
 /*
   Appending custom SCSS variables will override the default ones in `_sass/addon/variables.scsss`
 */
-.text-muted { color:rgb(203, 171, 237) !important; }
+
+/* 라벤더 + 리퀴드 글라스 색상 팔레트 */
+:root {
+  /* 라벤더 기본 색상 */
+  --lavender-primary: #9986B3;      /* 메인 라벤더 */
+  --lavender-light: #C4BEE2;        /* 연한 라벤더 */
+  --lavender-lighter: #E0DBEF;      /* 가장 연한 라벤더 */
+  --lavender-accent: #B8A9D9;       /* 액센트 라벤더 */
+  --lavender-deep: #7A6B96;         /* 진한 라벤더 */
+  
+  /* 리퀴드 글라스 효과 색상 */
+  --glass-white: rgba(255, 255, 255, 0.8);
+  --glass-lavender: rgba(196, 190, 226, 0.4);
+  --glass-lavender-light: rgba(224, 219, 239, 0.3);
+  --glass-shadow: rgba(128, 102, 153, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  
+  /* 텍스트 색상 */
+  --text-primary: #424245;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+}
+
+/* 전역 라벤더 색상 적용 */
+.text-muted { 
+  color: var(--lavender-primary) !important; 
+}
+
+/* 라벤더 그라데이션 유틸리티 */
+.lavender-gradient {
+  background: linear-gradient(135deg, 
+    var(--lavender-lighter) 0%, 
+    var(--lavender-light) 50%, 
+    var(--lavender-primary) 100%);
+}
+
+.lavender-glass {
+  background: 
+    radial-gradient(ellipse at 20% 10%, var(--glass-white) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 90%, var(--glass-lavender) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 50%, var(--glass-lavender-light) 0%, transparent 70%);
+  backdrop-filter: blur(30px) saturate(1.2) brightness(1.1);
+  -webkit-backdrop-filter: blur(30px) saturate(1.2) brightness(1.1);
+  border: 1px solid var(--glass-border);
+  box-shadow: 
+    0 8px 32px var(--glass-shadow),
+    0 4px 16px var(--glass-white),
+    inset 0 1px 0 var(--glass-white),
+    inset 0 -1px 0 var(--glass-shadow);
+}
