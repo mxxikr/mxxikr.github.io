@@ -32,16 +32,21 @@
   backdrop-filter: blur(30px) saturate(1.2) brightness(1.1);
   -webkit-backdrop-filter: blur(30px) saturate(1.2) brightness(1.1);
   box-shadow: 
-    /* 실시간 굴절 효과 */
-    0 8px 32px rgba(128, 102, 153, 0.2),
-    0 4px 16px rgba(255, 255, 255, 0.3),
-    0 2px 8px rgba(196, 190, 226, 0.15),
-    /* 거울 반사 inset */
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    inset 0 -1px 0 rgba(128, 102, 153, 0.1),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-    /* 실시간 반사 하이라이트 */
-    inset 0 0 15px rgba(255, 255, 255, 0.1);
+    /* 실시간 굴절 효과 - 향상된 깊이감 */
+    0 12px 40px rgba(128, 102, 153, 0.25),
+    0 6px 20px rgba(255, 255, 255, 0.35),
+    0 3px 10px rgba(196, 190, 226, 0.2),
+    0 1px 3px rgba(128, 102, 153, 0.1),
+    /* 거울 반사 inset - 정교한 반사 효과 */
+    inset 0 2px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -2px 0 rgba(128, 102, 153, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+    /* 실시간 반사 하이라이트 - 다층 반사 */
+    inset 0 0 20px rgba(255, 255, 255, 0.15),
+    inset 0 0 40px rgba(196, 190, 226, 0.08),
+    /* 거울 반사 경계선 */
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(128, 102, 153, 0.2);
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -56,17 +61,26 @@
   width: 100%;
   height: 100%;
   background: 
-    /* Apple의 실시간 거울 반사 */
+    /* Apple의 실시간 거울 반사 - 마우스 위치 기반 */
+    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+      rgba(255, 255, 255, 0.8) 0%, 
+      rgba(196, 190, 226, 0.6) 30%, 
+      transparent 70%),
+    /* 동적 굴절 효과 - 실시간 반응 */
+    conic-gradient(from var(--mouse-angle, 0deg) at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+      rgba(255, 255, 255, 0.4) 0deg,
+      rgba(196, 190, 226, 0.3) 90deg,
+      rgba(255, 255, 255, 0.5) 180deg,
+      rgba(224, 217, 237, 0.35) 270deg,
+      rgba(255, 255, 255, 0.4) 360deg),
+    /* 실시간 웨이브 반사 */
     linear-gradient(45deg, 
       transparent 0%, 
       rgba(255, 255, 255, 0.6) 25%, 
       rgba(196, 190, 226, 0.4) 50%, 
       rgba(255, 255, 255, 0.7) 75%, 
-      transparent 100%),
-    /* 동적 굴절 효과 */
-    radial-gradient(ellipse at 30% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 70%, rgba(224, 217, 237, 0.2) 0%, transparent 50%);
-  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transparent 100%);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   pointer-events: none;
   z-index: 2;
   border-radius: 50px;
@@ -96,16 +110,24 @@
       rgba(255, 255, 255, 0.4) 360deg);
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 
-    /* Apple의 실시간 렌더링 굴절 */
-    0 12px 40px rgba(128, 102, 153, 0.3),
-    0 6px 20px rgba(255, 255, 255, 0.4),
-    0 3px 10px rgba(196, 190, 226, 0.2),
-    /* 거울 반사 강화 */
-    inset 0 2px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -2px 0 rgba(128, 102, 153, 0.2),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
-    /* 실시간 반사 하이라이트 */
-    inset 0 0 20px rgba(255, 255, 255, 0.15);
+    /* Apple의 실시간 렌더링 굴절 - 향상된 깊이감 */
+    0 16px 50px rgba(128, 102, 153, 0.35),
+    0 8px 25px rgba(255, 255, 255, 0.45),
+    0 4px 12px rgba(196, 190, 226, 0.25),
+    0 2px 6px rgba(128, 102, 153, 0.15),
+    /* 거울 반사 강화 - 정교한 다층 반사 */
+    inset 0 3px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -3px 0 rgba(128, 102, 153, 0.25),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.4),
+    /* 실시간 반사 하이라이트 - 다층 반사 */
+    inset 0 0 25px rgba(255, 255, 255, 0.2),
+    inset 0 0 50px rgba(196, 190, 226, 0.1),
+    /* 거울 반사 경계선 - 정교한 경계 */
+    inset 0 2px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -2px 0 rgba(128, 102, 153, 0.3),
+    /* 내부 반사 하이라이트 */
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(128, 102, 153, 0.2);
   transform: translateY(-3px) scale(1.02);
   color: rgb(153, 134, 179);
   animation: appleLiquidHover 0.6s ease-out;
@@ -118,7 +140,7 @@
 /* Apple Liquid Glass 카드 - 동심원 형태 */
 .card-apple {
   position: relative;
-  border-radius: 24px;
+  border-radius: 50px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(196, 190, 226, 0.05) 100%);
   border: 1px solid rgba(196, 190, 226, 0.3);
   box-shadow: 0 8px 32px rgba(196, 190, 226, 0.15);
@@ -170,7 +192,7 @@
   align-items: center;
   padding: 0.75rem 1.25rem;
   margin: 0.25rem 0;
-  border-radius: 16px;
+  border-radius: 50px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.08) 100%);
   color: #1d1d1f;
   text-decoration: none;
@@ -284,7 +306,7 @@
   position: relative;
   width: 100%;
   padding: 0.875rem 1.25rem;
-  border-radius: 16px;
+  border-radius: 50px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(224, 219, 239, 0.4) 100%);
   border: 1px solid rgba(224, 219, 239, 0.3);
   color: #1d1d1f;
@@ -338,7 +360,7 @@
   max-height: 90vh;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(248, 246, 255, 0.3) 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
+  border-radius: 50px;
   box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -357,7 +379,7 @@
   top: 2rem;
   right: 2rem;
   padding: 1rem 1.5rem;
-  border-radius: 16px;
+  border-radius: 50px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(248, 246, 255, 0.3) 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
@@ -454,16 +476,21 @@
   backdrop-filter: blur(30px) saturate(1.2) brightness(1.1);
   -webkit-backdrop-filter: blur(30px) saturate(1.2) brightness(1.1);
   box-shadow: 
-    /* 실시간 굴절 효과 */
-    0 12px 40px rgba(128, 102, 153, 0.25),
-    0 6px 20px rgba(255, 255, 255, 0.3),
-    0 3px 10px rgba(196, 190, 226, 0.15),
-    /* 거울 반사 inset */
-    inset 0 2px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -2px 0 rgba(128, 102, 153, 0.1),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
-    /* 실시간 반사 하이라이트 */
-    inset 0 0 20px rgba(255, 255, 255, 0.1);
+    /* 실시간 굴절 효과 - 향상된 깊이감 */
+    0 15px 45px rgba(128, 102, 153, 0.3),
+    0 8px 25px rgba(255, 255, 255, 0.35),
+    0 4px 12px rgba(196, 190, 226, 0.2),
+    0 2px 6px rgba(128, 102, 153, 0.12),
+    /* 거울 반사 inset - 정교한 반사 효과 */
+    inset 0 3px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -3px 0 rgba(128, 102, 153, 0.15),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.4),
+    /* 실시간 반사 하이라이트 - 다층 반사 */
+    inset 0 0 25px rgba(255, 255, 255, 0.15),
+    inset 0 0 45px rgba(196, 190, 226, 0.08),
+    /* 거울 반사 경계선 */
+    inset 0 2px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -2px 0 rgba(128, 102, 153, 0.2);
   color: rgb(153, 134, 179);
   font-weight: 600;
   font-size: 1.5rem;
@@ -483,17 +510,26 @@
   width: 100%;
   height: 100%;
   background: 
-    /* Apple의 실시간 거울 반사 */
+    /* Apple의 실시간 거울 반사 - 마우스 위치 기반 */
+    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+      rgba(255, 255, 255, 0.9) 0%, 
+      rgba(196, 190, 226, 0.7) 30%, 
+      transparent 70%),
+    /* 동적 굴절 효과 - 실시간 반응 */
+    conic-gradient(from var(--mouse-angle, 0deg) at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+      rgba(255, 255, 255, 0.5) 0deg,
+      rgba(196, 190, 226, 0.4) 90deg,
+      rgba(255, 255, 255, 0.6) 180deg,
+      rgba(224, 217, 237, 0.45) 270deg,
+      rgba(255, 255, 255, 0.5) 360deg),
+    /* 실시간 웨이브 반사 */
     linear-gradient(45deg, 
       transparent 0%, 
-      rgba(255, 255, 255, 0.6) 25%, 
-      rgba(196, 190, 226, 0.4) 50%, 
-      rgba(255, 255, 255, 0.7) 75%, 
-      transparent 100%),
-    /* 동적 굴절 효과 */
-    radial-gradient(ellipse at 30% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 70%, rgba(224, 217, 237, 0.2) 0%, transparent 50%);
-  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      rgba(255, 255, 255, 0.7) 25%, 
+      rgba(196, 190, 226, 0.5) 50%, 
+      rgba(255, 255, 255, 0.8) 75%, 
+      transparent 100%);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   pointer-events: none;
   z-index: 2;
   border-radius: 25px;
@@ -520,11 +556,20 @@
   backdrop-filter: blur(20px) saturate(1.1);
   -webkit-backdrop-filter: blur(20px) saturate(1.1);
   box-shadow: 
-    0 6px 24px rgba(128, 102, 153, 0.15),
-    0 3px 12px rgba(255, 255, 255, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1px 0 rgba(128, 102, 153, 0.08),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    /* 향상된 깊이감 */
+    0 8px 30px rgba(128, 102, 153, 0.2),
+    0 4px 15px rgba(255, 255, 255, 0.25),
+    0 2px 8px rgba(196, 190, 226, 0.15),
+    /* 정교한 거울 반사 inset */
+    inset 0 2px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -2px 0 rgba(128, 102, 153, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    /* 다층 반사 하이라이트 */
+    inset 0 0 15px rgba(255, 255, 255, 0.1),
+    inset 0 0 30px rgba(196, 190, 226, 0.05),
+    /* 거울 반사 경계선 */
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(128, 102, 153, 0.1);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   overflow: hidden;
   z-index: 1;
@@ -557,11 +602,20 @@
     linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%);
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 
-    0 8px 32px rgba(128, 102, 153, 0.25),
-    0 4px 16px rgba(255, 255, 255, 0.3),
+    /* 향상된 깊이감 */
+    0 10px 35px rgba(128, 102, 153, 0.3),
+    0 5px 18px rgba(255, 255, 255, 0.35),
+    0 3px 10px rgba(196, 190, 226, 0.2),
+    /* 정교한 거울 반사 inset */
+    inset 0 3px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -3px 0 rgba(128, 102, 153, 0.15),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.3),
+    /* 다층 반사 하이라이트 */
+    inset 0 0 20px rgba(255, 255, 255, 0.15),
+    inset 0 0 40px rgba(196, 190, 226, 0.08),
+    /* 거울 반사 경계선 */
     inset 0 2px 0 rgba(255, 255, 255, 0.8),
-    inset 0 -2px 0 rgba(128, 102, 153, 0.12),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    inset 0 -2px 0 rgba(128, 102, 153, 0.15);
   transform: translateY(-2px);
 }
 
@@ -621,7 +675,7 @@
   min-width: 200px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(248, 246, 255, 0.3) 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
+  border-radius: 50px;
   box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -644,7 +698,7 @@
   color: var(--apple-gray);
   text-decoration: none;
   transition: all 0.2s ease;
-  border-radius: 12px;
+  border-radius: 50px;
   margin: 0.25rem;
 }
 
@@ -711,10 +765,13 @@
     backdrop-filter: blur(25px) saturate(1.1) brightness(1.05);
     -webkit-backdrop-filter: blur(25px) saturate(1.1) brightness(1.05);
     box-shadow: 
-      0 8px 32px rgba(128, 102, 153, 0.2),
-      0 4px 16px rgba(255, 255, 255, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.08);
+      0 10px 35px rgba(128, 102, 153, 0.25),
+      0 5px 18px rgba(255, 255, 255, 0.3),
+      0 3px 10px rgba(196, 190, 226, 0.15),
+      inset 0 2px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -2px 0 rgba(128, 102, 153, 0.12),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+      inset 0 0 15px rgba(255, 255, 255, 0.1);
   }
   
   .archive-item-liquid-glass {
@@ -723,10 +780,13 @@
     backdrop-filter: blur(18px) saturate(1.05);
     -webkit-backdrop-filter: blur(18px) saturate(1.05);
     box-shadow: 
-      0 4px 20px rgba(128, 102, 153, 0.12),
-      0 2px 8px rgba(255, 255, 255, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.5),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.06);
+      0 6px 25px rgba(128, 102, 153, 0.15),
+      0 3px 12px rgba(255, 255, 255, 0.2),
+      0 2px 6px rgba(196, 190, 226, 0.1),
+      inset 0 2px 0 rgba(255, 255, 255, 0.7),
+      inset 0 -2px 0 rgba(128, 102, 153, 0.08),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+      inset 0 0 10px rgba(255, 255, 255, 0.08);
   }
   
   .date-liquid-glass {
@@ -752,10 +812,13 @@
     backdrop-filter: blur(25px) saturate(1.1) brightness(1.05);
     -webkit-backdrop-filter: blur(25px) saturate(1.1) brightness(1.05);
     box-shadow: 
-      0 6px 24px rgba(128, 102, 153, 0.15),
-      0 3px 12px rgba(255, 255, 255, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.7),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.08);
+      0 8px 30px rgba(128, 102, 153, 0.2),
+      0 4px 15px rgba(255, 255, 255, 0.3),
+      0 2px 8px rgba(196, 190, 226, 0.15),
+      inset 0 2px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -2px 0 rgba(128, 102, 153, 0.1),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.25),
+      inset 0 0 12px rgba(255, 255, 255, 0.1);
   }
   
   .card-apple {
@@ -764,9 +827,13 @@
     backdrop-filter: blur(20px) saturate(1.1);
     -webkit-backdrop-filter: blur(20px) saturate(1.1);
     box-shadow: 
-      0 6px 24px rgba(128, 102, 153, 0.12),
-      0 3px 12px rgba(255, 255, 255, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      0 8px 30px rgba(128, 102, 153, 0.15),
+      0 4px 15px rgba(255, 255, 255, 0.25),
+      0 2px 8px rgba(196, 190, 226, 0.1),
+      inset 0 2px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -2px 0 rgba(128, 102, 153, 0.08),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+      inset 0 0 10px rgba(255, 255, 255, 0.08);
   }
   
   .nav-item-apple {
