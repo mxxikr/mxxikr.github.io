@@ -3,24 +3,70 @@
   Apple의 새로운 Liquid Glass 디자인을 위한 애니메이션 효과
 */
 
-/* Liquid Glass 기본 애니메이션 */
+/* Liquid Glass 기본 애니메이션 - 향상된 리퀴드 글라스 */
 @keyframes liquid-glass-float {
   0%, 100% {
-    transform: translateY(0px) scale(1);
-    filter: blur(0px);
+    transform: translateY(0px) scale(1) rotate(0deg);
+    filter: blur(0px) brightness(1) saturate(1);
+    box-shadow: 
+      0 8px 32px rgba(128, 102, 153, 0.2),
+      0 4px 16px rgba(255, 255, 255, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.1);
+  }
+  25% {
+    transform: translateY(-1px) scale(1.01) rotate(0.5deg);
+    filter: blur(0.2px) brightness(1.05) saturate(1.1);
+    box-shadow: 
+      0 10px 36px rgba(128, 102, 153, 0.25),
+      0 5px 18px rgba(255, 255, 255, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.12);
   }
   50% {
-    transform: translateY(-2px) scale(1.02);
-    filter: blur(0.5px);
+    transform: translateY(-2px) scale(1.02) rotate(0deg);
+    filter: blur(0.3px) brightness(1.1) saturate(1.2);
+    box-shadow: 
+      0 12px 40px rgba(128, 102, 153, 0.3),
+      0 6px 20px rgba(255, 255, 255, 0.4),
+      inset 0 2px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -2px 0 rgba(128, 102, 153, 0.15);
+  }
+  75% {
+    transform: translateY(-1px) scale(1.01) rotate(-0.5deg);
+    filter: blur(0.2px) brightness(1.05) saturate(1.1);
+    box-shadow: 
+      0 10px 36px rgba(128, 102, 153, 0.25),
+      0 5px 18px rgba(255, 255, 255, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.12);
   }
 }
 
 @keyframes liquid-glass-glow {
   0%, 100% {
-    box-shadow: 0 0 5px rgba(153, 134, 179, 0.3);
+    box-shadow: 
+      0 0 5px rgba(153, 134, 179, 0.3),
+      0 0 10px rgba(196, 190, 226, 0.2),
+      0 0 15px rgba(224, 219, 239, 0.1);
+  }
+  25% {
+    box-shadow: 
+      0 0 10px rgba(153, 134, 179, 0.4),
+      0 0 20px rgba(196, 190, 226, 0.3),
+      0 0 30px rgba(224, 219, 239, 0.2);
   }
   50% {
-    box-shadow: 0 0 20px rgba(153, 134, 179, 0.6), 0 0 30px rgba(153, 134, 179, 0.4);
+    box-shadow: 
+      0 0 20px rgba(153, 134, 179, 0.6), 
+      0 0 30px rgba(196, 190, 226, 0.4),
+      0 0 40px rgba(224, 219, 239, 0.3);
+  }
+  75% {
+    box-shadow: 
+      0 0 15px rgba(153, 134, 179, 0.5),
+      0 0 25px rgba(196, 190, 226, 0.35),
+      0 0 35px rgba(224, 219, 239, 0.25);
   }
 }
 
@@ -41,6 +87,53 @@
   100% {
     transform: scale(4);
     opacity: 0;
+  }
+}
+
+/* 새로운 리퀴드 글라스 애니메이션 */
+@keyframes liquid-glass-wave {
+  0% {
+    transform: translateX(-100%) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(0%) rotate(180deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100%) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes liquid-glass-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.2) saturate(1.3);
+  }
+}
+
+@keyframes liquid-glass-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes liquid-glass-breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
   }
 }
 
@@ -278,6 +371,45 @@
   animation: liquid-glass-float 3s ease-in-out infinite;
 }
 
+/* 새로운 리퀴드 글라스 클래스들 */
+.liquid-glass-wave {
+  animation: liquid-glass-wave 3s ease-in-out infinite;
+}
+
+.liquid-glass-pulse {
+  animation: liquid-glass-pulse 2s ease-in-out infinite;
+}
+
+.liquid-glass-rotate {
+  animation: liquid-glass-rotate 4s linear infinite;
+}
+
+.liquid-glass-breathe {
+  animation: liquid-glass-breathe 3s ease-in-out infinite;
+}
+
+.liquid-glass-float-enhanced {
+  animation: liquid-glass-float 4s ease-in-out infinite;
+}
+
+.liquid-glass-glow-enhanced {
+  animation: liquid-glass-glow 3s ease-in-out infinite;
+}
+
+/* 리퀴드 글라스 조합 효과 */
+.liquid-glass-magic {
+  animation: 
+    liquid-glass-float 4s ease-in-out infinite,
+    liquid-glass-glow 3s ease-in-out infinite,
+    liquid-glass-breathe 2s ease-in-out infinite;
+}
+
+.liquid-glass-dynamic {
+  animation: 
+    liquid-glass-wave 3s ease-in-out infinite,
+    liquid-glass-pulse 2s ease-in-out infinite;
+}
+
 /* 반응형 애니메이션 조정 */
 @media (prefers-reduced-motion: reduce) {
   .liquid-glass-hover,
@@ -286,7 +418,15 @@
   .liquid-glass-nav,
   .liquid-glass-tag,
   .liquid-glass-input,
-  .liquid-glass-modal {
+  .liquid-glass-modal,
+  .liquid-glass-wave,
+  .liquid-glass-pulse,
+  .liquid-glass-rotate,
+  .liquid-glass-breathe,
+  .liquid-glass-float-enhanced,
+  .liquid-glass-glow-enhanced,
+  .liquid-glass-magic,
+  .liquid-glass-dynamic {
     animation: none;
     transition: none;
   }
