@@ -404,6 +404,11 @@
   .text-muted, .muted, .secondary, .light, .faded, .text-secondary, .text-light {
     color: #424245 !important;
   }
+  
+  /* 텍스트 배경 투명화 */
+  h1, h2, h3, h4, h5, h6, p, span, a, div, li, td, th {
+    background: transparent !important;
+  }
 
   /* 아카이브 항목 배경 강제 통일 */
   #archives ul li,
