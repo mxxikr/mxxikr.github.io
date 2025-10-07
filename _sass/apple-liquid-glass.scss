@@ -670,23 +670,23 @@
   height: 2.5rem;
   border-radius: 50%;
   background: 
-    radial-gradient(circle at center, rgba(153, 134, 179, 0.8) 0%, rgba(196, 190, 226, 0.6) 30%, rgba(153, 134, 179, 0.4) 70%, rgba(196, 190, 226, 0.2) 100%);
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, rgba(240, 240, 240, 0.1) 30%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #ffffff;
+  color: #424245;
   font-weight: 600;
   font-size: 0.9rem;
   margin-right: 1rem;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   box-shadow: 
-    0 4px 16px rgba(153, 134, 179, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1px 0 rgba(153, 134, 179, 0.3);
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
 .month-liquid-glass {
-  color: rgb(153, 134, 179) !important;
+  color: #666666 !important;
   font-weight: 500;
   margin-right: 1rem;
   min-width: 3rem;
@@ -837,6 +837,13 @@
     height: 2rem;
     font-size: 0.8rem;
     margin-right: 0.75rem;
+    background: 
+      radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, rgba(240, 240, 240, 0.1) 30%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
+    color: #424245;
+    box-shadow: 
+      0 3px 12px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   }
   
   .month-liquid-glass {
@@ -948,6 +955,13 @@
     height: 2.25rem;
     font-size: 0.85rem;
     margin-right: 0.875rem;
+    background: 
+      radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, rgba(240, 240, 240, 0.1) 30%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
+    color: #424245;
+    box-shadow: 
+      0 4px 14px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   }
   
   .month-liquid-glass {
@@ -1020,10 +1034,13 @@
     margin-right: 1.25rem;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    background: 
+      radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, rgba(240, 240, 240, 0.1) 30%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
+    color: #424245;
     box-shadow: 
-      0 6px 20px rgba(153, 134, 179, 0.4),
+      0 6px 20px rgba(0, 0, 0, 0.1),
       inset 0 2px 0 rgba(255, 255, 255, 0.7),
-      inset 0 -2px 0 rgba(153, 134, 179, 0.4);
+      inset 0 -2px 0 rgba(0, 0, 0, 0.1);
   }
   
   .month-liquid-glass {
