@@ -907,6 +907,8 @@ $sidebar-display: "sidebar-display";
     font-size: 1rem;
     color: rgb(203, 171, 237);
     padding-left: 0.5rem;
+    margin-left: -30px !important;
+    transform: translateX(-30px) !important;
 
     a:hover {
       @extend %link-hover;
