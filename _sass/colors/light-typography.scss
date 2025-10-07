@@ -277,16 +277,32 @@
     background: #e0dbef !important;
   }
   
-  /* 모든 요소의 배경색 강제 덮어쓰기 */
-  div[style*="background"],
-  section[style*="background"],
-  article[style*="background"],
-  main[style*="background"],
-  .container[style*="background"],
-  .row[style*="background"],
-  .col[style*="background"] {
+  /* 텍스트 영역이 아닌 구조적 요소만 배경색 적용 */
+  .main-wrapper,
+  .sidebar,
+  .sidebar-wrapper,
+  .sidebar-panel {
     background-color: #e0dbef !important;
     background: #e0dbef !important;
+  }
+  
+  /* 모든 텍스트 영역을 완전히 투명하게 유지 */
+  .card,
+  .post-preview,
+  .post-content,
+  .related-posts,
+  #related-posts,
+  .post-card,
+  .category-card,
+  .tag,
+  .btn,
+  .nav-link,
+  .sidebar-nav-item,
+  div[class*="card"],
+  div[class*="post"],
+  div[class*="related"] {
+    background: transparent !important;
+    background-color: transparent !important;
   }
 
   /* 연한 보라색 텍스트 제거 및 통일 */
@@ -380,40 +396,23 @@
     background-color: rgb(224, 219, 239) !important;
   }
 
-  /* Apple Liquid Glass - 실시간 렌더링 거울 반사 효과 */
+  /* Apple Liquid Glass - 완전히 투명한 글라스 효과 */
   .card, .post-card, .category-card, .tag, .btn, .nav-link, .sidebar-nav-item {
-    backdrop-filter: blur(40px) saturate(1.4) brightness(1.1) !important;
-    -webkit-backdrop-filter: blur(40px) saturate(1.4) brightness(1.1) !important;
-    background: 
-      /* 실시간 반사 레이어 */
-      radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.9) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.6) 0%, transparent 60%),
-      radial-gradient(ellipse at 50% 50%, rgba(224, 217, 237, 0.4) 0%, transparent 70%),
-      /* 동심원 형태 - Apple 공식 스펙 */
-      conic-gradient(from 0deg at 50% 50%, 
-        rgba(255, 255, 255, 0.3) 0deg,
-        rgba(196, 190, 226, 0.2) 90deg,
-        rgba(255, 255, 255, 0.4) 180deg,
-        rgba(224, 217, 237, 0.3) 270deg,
-        rgba(255, 255, 255, 0.3) 360deg) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    border-radius: 24px !important; // Apple의 더 둥근 모서리
+    backdrop-filter: blur(30px) saturate(1.2) brightness(1.05) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(1.2) brightness(1.05) !important;
+    background: transparent !important; /* 완전히 투명한 배경 */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 20px !important;
     box-shadow: 
-      /* 실시간 굴절 효과 */
-      0 20px 60px rgba(128, 102, 153, 0.3),
-      0 8px 24px rgba(255, 255, 255, 0.4),
-      0 4px 12px rgba(196, 190, 226, 0.2),
-      /* 거울 반사 inset */
-      inset 0 2px 0 rgba(255, 255, 255, 0.9),
-      inset 0 -2px 0 rgba(128, 102, 153, 0.2),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.3),
-      /* 실시간 반사 하이라이트 */
-      inset 0 0 20px rgba(255, 255, 255, 0.1) !important;
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+      /* 미묘한 그림자 효과만 */
+      0 8px 32px rgba(128, 102, 153, 0.1),
+      0 4px 16px rgba(255, 255, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     position: relative !important;
     overflow: hidden !important;
     z-index: 1 !important;
-    /* Apple의 실시간 렌더링을 위한 transform-origin */
     transform-origin: center center !important;
   }
 
