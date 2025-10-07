@@ -524,20 +524,17 @@
 div.year-liquid-glass,
 .lead.year-liquid-glass {
   background: 
-    radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 0.6) 0%, transparent 40%),
-    radial-gradient(ellipse at 85% 95%, rgba(196, 190, 226, 0.4) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 50%, rgba(224, 217, 237, 0.3) 0%, transparent 50%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(196, 190, 226, 0.2) 100%) !important;
-  border: 2px solid rgba(255, 255, 255, 0.4) !important;
-  backdrop-filter: blur(30px) saturate(1.5) brightness(1.3) !important;
-  -webkit-backdrop-filter: blur(30px) saturate(1.5) brightness(1.3) !important;
+    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(20px) saturate(1.1) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
   box-shadow: 
-    0 12px 40px rgba(128, 102, 153, 0.3),
-    0 6px 20px rgba(255, 255, 255, 0.4),
-    0 3px 12px rgba(196, 190, 226, 0.2),
-    inset 0 3px 0 rgba(255, 255, 255, 0.5),
-    inset 0 -3px 0 rgba(128, 102, 153, 0.2),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.3) !important;
+    0 8px 25px rgba(128, 102, 153, 0.2),
+    0 4px 12px rgba(255, 255, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(128, 102, 153, 0.1) !important;
   color: rgb(153, 134, 179) !important;
   font-weight: 700 !important;
   font-size: 1.5rem !important;
@@ -602,25 +599,20 @@ div.year-liquid-glass,
 }
 
 .year-liquid-glass:hover {
-  transform: translateY(-3px) scale(1.02);
-  backdrop-filter: blur(50px) saturate(1.6) brightness(1.3);
-  -webkit-backdrop-filter: blur(50px) saturate(1.6) brightness(1.3);
+  backdrop-filter: blur(25px) saturate(1.2);
+  -webkit-backdrop-filter: blur(25px) saturate(1.2);
+  background: 
+    radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 0.7) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 95%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(196, 190, 226, 0.15) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 
-    0 25px 80px rgba(128, 102, 153, 0.5),
-    0 15px 45px rgba(255, 255, 255, 0.6),
-    0 8px 25px rgba(196, 190, 226, 0.4),
-    0 4px 12px rgba(128, 102, 153, 0.3),
-    inset 0 5px 0 rgba(255, 255, 255, 0.99),
-    inset 0 -5px 0 rgba(128, 102, 153, 0.25),
-    inset 0 0 0 4px rgba(255, 255, 255, 0.6),
-    inset 0 0 45px rgba(255, 255, 255, 0.25),
-    inset 0 0 80px rgba(196, 190, 226, 0.15),
-    inset 0 0 100px rgba(224, 217, 237, 0.1),
-    inset 0 4px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -4px 0 rgba(128, 102, 153, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  color: rgb(128, 102, 153);
-  text-shadow: 0 3px 6px rgba(128, 102, 153, 0.4);
+    0 12px 35px rgba(128, 102, 153, 0.3),
+    0 6px 18px rgba(255, 255, 255, 0.35),
+    inset 0 2px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -2px 0 rgba(128, 102, 153, 0.15);
+  transform: translateY(-2px) scale(1.01);
+  color: rgb(153, 134, 179);
 }
 
 .year-liquid-glass:hover::before {
@@ -1255,7 +1247,7 @@ div.year-liquid-glass,
     0 12px 40px rgba(128, 102, 153, 0.2),
     0 6px 20px rgba(255, 255, 255, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  color: #424245;
+    color: #424245;
   font-weight: 500;
   z-index: 1000;
   transform: translateX(100%);
@@ -1378,4 +1370,144 @@ div.year-liquid-glass,
     0 0 8px rgba(255, 255, 255, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   will-change: width;
+}
+
+/* Further Reading (Related Posts) - 다른 UI 요소들과 동일한 디자인 */
+#related-posts {
+  .card {
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    /* 버튼과 동일한 그라데이션 세기 */
+    background: 
+      radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 20px !important;
+    backdrop-filter: blur(20px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.2) !important;
+    box-shadow: 
+      0 8px 32px rgba(196, 190, 226, 0.12),
+      0 2px 8px rgba(196, 190, 226, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(196, 190, 226, 0.1) !important;
+  }
+  
+  .card:hover {
+    transform: translateY(-2px);
+    background: 
+      radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 0.7) 0%, transparent 60%),
+      radial-gradient(ellipse at 85% 95%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(196, 190, 226, 0.15) 100%) !important;
+    box-shadow: 
+      0 12px 40px rgba(196, 190, 226, 0.18),
+      0 4px 12px rgba(196, 190, 226, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -1px 0 rgba(196, 190, 226, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+  }
+  
+  a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    /* 완전히 투명한 배경 */
+    background: transparent !important;
+    border: none !important;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: inherit;
+    background: transparent !important;
+  }
+  
+  .card-body {
+    padding: 0;
+  }
+  
+  .card-body h3 {
+    color: #424245;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-body .small {
+    color: #666666;
+    font-size: 0.85rem;
+  }
+}
+
+/* Further Reading (Related Posts) - 다른 UI 요소들과 동일한 디자인 */
+#related-posts {
+  .card-apple {
+    margin-bottom: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* 카드와 동일한 디자인 */
+    background: 
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
+      radial-gradient(circle at 30% 30%, rgba(196, 190, 226, 0.08) 0%, transparent 60%),
+      radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(196, 190, 226, 0.05) 100%);
+    border: 1px solid rgba(196, 190, 226, 0.3);
+    border-radius: 50px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 8px 32px rgba(196, 190, 226, 0.15);
+  }
+  
+  .card-apple:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 16px 48px rgba(196, 190, 226, 0.2);
+    border-color: rgba(196, 190, 226, 0.4);
+  }
+  
+  .nav-item-apple {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* 네비게이션과 동일한 배경 */
+    background: 
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+      radial-gradient(circle at 25% 25%, rgba(196, 190, 226, 0.1) 0%, transparent 60%),
+      radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.08) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 16px rgba(153, 134, 179, 0.1);
+  }
+  
+  .nav-item-apple:hover {
+    text-decoration: none;
+    color: inherit;
+    transform: translateY(-2px);
+    background: 
+      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
+      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.5) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(196, 190, 226, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(153, 134, 179, 0.2);
+  }
+  
+  .card-body {
+    padding: 0;
+  }
+  
+  .card-body h3 {
+    color: #424245;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-body .small {
+    color: #666666;
+    font-size: 0.85rem;
+  }
 }
