@@ -26,40 +26,27 @@
     height: 3.5rem;
     font-size: 1.5rem;
     margin-left: -$timeline-width;
+    color: rgb(153, 134, 179);
+    font-weight: 600;
+    background: rgba(153, 134, 179, 0.1);
+    border: 1px solid rgba(153, 134, 179, 0.2);
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(153, 134, 179, 0.1);
+    display: inline-block;
+    margin: 2rem 0 1rem 0;
 
     &::before {
-      @extend %timeline;
-
-      height: 72px;
-      left: 72px;
-      bottom: 16px;
+      display: none;
     }
 
     &:first-child::before {
-      @extend %timeline;
-
-      height: 32px;
-      top: 24px;
+      display: none;
     }
 
     &::after { /* Year dot */
-      content: "";
-      display: inline-block;
-      position: relative;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      border-radius: 50%;
-      width: 12px;
-      height: 12px;
-      left: 14.5px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      background-color: rgb(153, 134, 179);
-      box-shadow: 0 0 12px rgba(153, 134, 179, 0.4);
-      z-index: 1;
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
+      display: none;
     }
-
   }
 
   ul {

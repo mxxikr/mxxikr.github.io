@@ -63,21 +63,33 @@
 
   // Liquid Glass 효과 초기화
   function initLiquidGlassEffects() {
-    // Liquid Glass 반사 효과
-    const glassElements = document.querySelectorAll('.card, .btn, .tag, .nav-link');
+    // Liquid Glass 반사 효과 - 실시간 마우스 추적
+    const glassElements = document.querySelectorAll('.btn-apple, .card-apple, .nav-item-apple, .tag-apple, .btn, .tag, .post-tag, .nav-link, .nav-item');
     
     glassElements.forEach(element => {
       element.classList.add('liquid-reflection');
       
-      // 마우스 움직임에 따른 반사 효과
+      // 실시간 마우스 위치 추적 및 CSS 변수 업데이트
       element.addEventListener('mousemove', function(e) {
         const rect = element.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         
+        // 마우스 위치를 퍼센트로 변환
+        const mouseX = (x / rect.width) * 100;
+        const mouseY = (y / rect.height) * 100;
+        
+        // 마우스 각도 계산 (0-360도)
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
+        const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI) + 180;
         
+        // CSS 변수로 실시간 반사 효과 적용
+        element.style.setProperty('--mouse-x', mouseX + '%');
+        element.style.setProperty('--mouse-y', mouseY + '%');
+        element.style.setProperty('--mouse-angle', angle + 'deg');
+        
+        // 3D 변형 효과
         const rotateX = (y - centerY) / 10;
         const rotateY = (centerX - x) / 10;
         
@@ -85,14 +97,31 @@
       });
       
       element.addEventListener('mouseleave', function() {
+        // 마우스가 벗어나면 기본값으로 리셋
+        element.style.setProperty('--mouse-x', '50%');
+        element.style.setProperty('--mouse-y', '50%');
+        element.style.setProperty('--mouse-angle', '0deg');
         element.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
       });
     });
 
     // Liquid Glass 굴절 효과
-    const refractionElements = document.querySelectorAll('.highlight, blockquote');
+    const refractionElements = document.querySelectorAll('.highlight, blockquote, .archive-item-liquid-glass, input, textarea, select, .form-control, #search-wrapper, #breadcrumb');
     refractionElements.forEach(element => {
       element.classList.add('liquid-refraction');
+      
+      // 굴절 효과를 위한 마우스 추적
+      element.addEventListener('mousemove', function(e) {
+        const rect = element.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const mouseX = (x / rect.width) * 100;
+        const mouseY = (y / rect.height) * 100;
+        
+        element.style.setProperty('--mouse-x', mouseX + '%');
+        element.style.setProperty('--mouse-y', mouseY + '%');
+      });
     });
   }
 

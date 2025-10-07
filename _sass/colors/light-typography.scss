@@ -85,12 +85,15 @@
   --post-description-color: rgb(153, 134, 179); // 포스트 설명 색상 보라색으로 변경
 
   /* Comments Widget - Apple Liquid Glass */
-  --comment-widget-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.08) 100%);
-  --comment-widget-border: rgba(255, 255, 255, 0.2);
+  --comment-widget-bg: 
+    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(196, 190, 226, 0.7) 100%);
+  --comment-widget-border: rgba(255, 255, 255, 0.4);
   --comment-widget-text: #424245;
-  --comment-widget-placeholder: #424245; // 진한 회색으로 통일
-  --comment-tab-bg: rgba(255, 255, 255, 0.1);
-  --comment-tab-active-bg: rgba(255, 255, 255, 0.2);
+  --comment-widget-placeholder: #6e6e73;
+  --comment-tab-bg: rgba(255, 255, 255, 0.2);
+  --comment-tab-active-bg: rgba(255, 255, 255, 0.4);
   --comment-tab-text: #424245;
   --comment-button-bg: rgb(153, 134, 179);
   --comment-button-text: #ffffff;
@@ -99,24 +102,48 @@
   .utterances {
     background: var(--comment-widget-bg) !important;
     border: 1px solid var(--comment-widget-border) !important;
-    border-radius: 12px !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    box-shadow: 0 8px 32px rgba(153, 134, 179, 0.15) !important;
+    border-radius: 50px !important;
+    backdrop-filter: blur(30px) saturate(1.2) brightness(1.1) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(1.2) brightness(1.1) !important;
+    box-shadow: 
+      0 12px 40px rgba(128, 102, 153, 0.25),
+      0 6px 20px rgba(255, 255, 255, 0.3),
+      0 3px 10px rgba(196, 190, 226, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.1),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+      inset 0 0 20px rgba(255, 255, 255, 0.15) !important;
+    position: relative;
+    overflow: hidden;
     
     iframe {
       background: transparent !important;
-      border-radius: 12px !important;
+      border-radius: 50px !important;
     }
+  }
+
+  .utterances::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 50px;
   }
 
   /* Utterances 위젯 내부 스타일링 */
   .utterances-frame {
-    background: var(--comment-widget-bg) !important;
-    border: 1px solid var(--comment-widget-border) !important;
-    border-radius: 12px !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 50px !important;
+    backdrop-filter: blur(30px) saturate(1.2) brightness(1.1) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(1.2) brightness(1.1) !important;
   }
 
   [class^=prompt-] {
@@ -396,24 +423,44 @@
     background-color: rgb(224, 219, 239) !important;
   }
 
-  /* Apple Liquid Glass - 완전히 투명한 글라스 효과 */
+  /* Apple Liquid Glass - 극도로 투명한 글라스 효과 */
   .card, .post-card, .category-card, .tag, .btn, .nav-link, .sidebar-nav-item {
-    backdrop-filter: blur(30px) saturate(1.2) brightness(1.05) !important;
-    -webkit-backdrop-filter: blur(30px) saturate(1.2) brightness(1.05) !important;
-    background: transparent !important; /* 완전히 투명한 배경 */
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(2px) saturate(1.01) brightness(1.005) !important;
+    -webkit-backdrop-filter: blur(2px) saturate(1.01) brightness(1.005) !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.03) !important;
     border-radius: 20px !important;
     box-shadow: 
-      /* 미묘한 그림자 효과만 */
-      0 8px 32px rgba(128, 102, 153, 0.1),
-      0 4px 16px rgba(255, 255, 255, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.05) !important;
+      /* 극도로 미묘한 그림자 효과 */
+      0 1px 4px rgba(128, 102, 153, 0.01),
+      0 1px 2px rgba(255, 255, 255, 0.01),
+      inset 0 1px 0 rgba(255, 255, 255, 0.02),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.002) !important;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     position: relative !important;
     overflow: hidden !important;
     z-index: 1 !important;
     transform-origin: center center !important;
+  }
+  
+  /* Related Posts 전용 강제 투명 효과 */
+  #related-posts .card,
+  #related-posts .post-card,
+  #related-posts .related-card,
+  .related-posts .card,
+  .related-posts .post-card,
+  .related-posts .related-card {
+    background: transparent !important;
+    background-color: transparent !important;
+    backdrop-filter: blur(1px) saturate(1.005) !important;
+    -webkit-backdrop-filter: blur(1px) saturate(1.005) !important;
+    box-shadow: 
+      0 1px 2px rgba(128, 102, 153, 0.005),
+      0 1px 1px rgba(255, 255, 255, 0.005),
+      inset 0 1px 0 rgba(255, 255, 255, 0.01),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.001) !important;
+    border: 1px solid rgba(255, 255, 255, 0.02) !important;
   }
 
   /* 양옆 여백 줄이기 - 사이드바와 메인 콘텐츠 영역 */
