@@ -523,8 +523,8 @@
   .sidebar-panel .nav-link, .sidebar-panel .sidebar-nav-item {
     margin-left: 0.125rem !important; // 0.25rem에서 절반으로 줄임
     margin-right: 0.125rem !important; // 0.25rem에서 절반으로 줄임
-    padding-left: 2px !important; // 4px에서 더 줄임
-    padding-right: 2px !important; // 4px에서 더 줄임
+    padding-left: 0.05rem !important; // 좌우 패딩을 더 줄임
+    padding-right: 0.05rem !important; // 좌우 패딩을 더 줄임
   }
 
   /* 최상단 Home 링크를 더 왼쪽으로 이동 */
