@@ -1,0 +1,81 @@
+<!-- Optimized Scripts -->
+<script>
+  // Critical JavaScript inline for immediate execution
+  (function() {
+    'use strict';
+    
+    // Performance optimization: defer non-critical scripts
+    function loadScript(src, callback) {
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = true;
+      if (callback) script.onload = callback;
+      document.head.appendChild(script);
+    }
+    
+    // Load non-critical scripts after page load
+    window.addEventListener('load', function() {
+      // Load Apple Liquid Glass effects
+      loadScript('{{ "/assets/js/apple-liquid-glass.js" | relative_url }}');
+      
+      // Load other utilities
+      loadScript('{{ "/assets/js/commons/back-to-top.js" | relative_url }}');
+      loadScript('{{ "/assets/js/commons/mode-toggle.js" | relative_url }}');
+      loadScript('{{ "/assets/js/commons/sidebar.js" | relative_url }}');
+    });
+    
+    // Immediate critical functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Basic Liquid Glass initialization
+      const glassElements = document.querySelectorAll('.btn-apple, .card-apple, .nav-item-apple, .tag-apple, .btn, .tag, .post-tag, .nav-link, .nav-item');
+      glassElements.forEach(element => {
+        element.addEventListener('mousemove', function(e) {
+          const rect = element.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const mouseX = (x / rect.width) * 100;
+          const mouseY = (y / rect.height) * 100;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const angle = Math.atan2(y - centerY, x - centerX) * (180 / Math.PI) + 180;
+          
+          element.style.setProperty('--mouse-x', mouseX + '%');
+          element.style.setProperty('--mouse-y', mouseY + '%');
+          element.style.setProperty('--mouse-angle', angle + 'deg');
+          
+          const rotateX = (y - centerY) / 10;
+          const rotateY = (centerX - x) / 10;
+          element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(0)`;
+        });
+        
+        element.addEventListener('mouseleave', function() {
+          element.style.setProperty('--mouse-x', '50%');
+          element.style.setProperty('--mouse-y', '50%');
+          element.style.setProperty('--mouse-angle', '0deg');
+          element.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+        });
+      });
+    });
+  })();
+</script>
+
+<!-- Analytics (load after page interaction) -->
+<script>
+  // Defer analytics loading
+  setTimeout(function() {
+    if (typeof gtag !== 'undefined') {
+      gtag('config', '{{ site.google_analytics }}', {
+        'page_title': document.title,
+        'page_location': window.location.href
+      });
+    }
+  }, 2000);
+</script>
+
+<!-- Error handling -->
+<script>
+  window.addEventListener('error', function(e) {
+    console.error('JavaScript error:', e.error);
+    // Optional: send error to analytics
+  });
+</script>

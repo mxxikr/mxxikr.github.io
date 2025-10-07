@@ -1,0 +1,66 @@
+<!-- Optimized Layout Structure -->
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'ko' }}" class="no-js">
+<head>
+  {% include optimized-head.html %}
+  {% include optimized-styles.html %}
+</head>
+
+<body class="{% if page.layout %}layout-{{ page.layout }}{% endif %} {% if page.classes %}{{ page.classes | join: ' ' }}{% endif %}">
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+  
+  <!-- Loading indicator -->
+  <div id="loading-indicator" class="loading-indicator">
+    <div class="loading-spinner"></div>
+  </div>
+  
+  <!-- Main layout container -->
+  <div id="main-wrapper" class="main-wrapper">
+    <!-- Topbar -->
+    <header id="topbar-wrapper" class="topbar-wrapper">
+      {% include topbar.html %}
+    </header>
+    
+    <!-- Main content area -->
+    <main id="main-content" class="main-content" role="main">
+      <div class="container">
+        {{ content }}
+      </div>
+    </main>
+    
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar" role="complementary">
+      {% include sidebar.html %}
+    </aside>
+  </div>
+  
+  <!-- Footer -->
+  <footer id="footer" class="footer" role="contentinfo">
+    {% include footer.html %}
+  </footer>
+  
+  <!-- Back to top button -->
+  <button id="back-to-top" class="back-to-top btn-apple" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2l8 8h-6v12h-4V10H4l8-8z"/>
+    </svg>
+  </button>
+  
+  <!-- Scripts -->
+  {% include optimized-scripts.html %}
+  
+  <!-- Remove loading indicator -->
+  <script>
+    window.addEventListener('load', function() {
+      const loadingIndicator = document.getElementById('loading-indicator');
+      if (loadingIndicator) {
+        loadingIndicator.style.opacity = '0';
+        setTimeout(() => {
+          loadingIndicator.remove();
+        }, 300);
+      }
+    });
+  </script>
+</body>
+</html>
