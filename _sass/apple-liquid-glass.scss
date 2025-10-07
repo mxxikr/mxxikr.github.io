@@ -444,6 +444,7 @@
   padding: 1rem 2rem !important;
   margin: 2rem 0 1rem 0 !important;
   border-radius: 25px !important;
+  text-indent: 3px !important; /* 텍스트를 오른쪽으로 3px 이동 */
   background: 
     /* 극강화된 실시간 반사 레이어 */
     radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 0.98) 0%, transparent 40%),
