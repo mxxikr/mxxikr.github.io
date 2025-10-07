@@ -565,8 +565,8 @@ div.year-liquid-glass,
   width: auto !important;
   max-width: 120px !important;
   padding: 0.625rem 0.75rem 0.625rem 1.5rem !important;
-  margin: 2rem 0 1rem 0 !important;
-  transform: translateX(9px) !important;
+  margin: calc(2rem - 80px + 10px) 0 1rem 0 !important;
+  transform: translateX(1px) !important;
 }
 
 .year-liquid-glass::before {
@@ -640,7 +640,7 @@ div.year-liquid-glass,
 
 .archive-list-liquid-glass {
   position: relative;
-  margin: 1rem 0;
+  margin: calc(1rem - 80px + 70px) 0 1rem 0;
   padding: 0;
 }
 
