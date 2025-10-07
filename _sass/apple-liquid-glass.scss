@@ -1516,3 +1516,47 @@ div.year-liquid-glass,
     font-size: 0.85rem;
   }
 }
+
+/* 연도 태그 배경만 제거 - 위치와 크기는 유지 */
+.year-liquid-glass {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  margin-left: calc(-4px - 18px) !important; /* timeline-width(4px) + 18px 왼쪽 이동 */
+  margin-top: -33px !important; /* 위로 33px 이동 */
+  transform: translate(22px, 0px) !important; /* 오른쪽으로 22px 이동 */
+}
+
+/* 아카이브 리스트 위로 5px 이동 */
+.archive-list-liquid-glass {
+  margin-top: -5px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* 모든 연도 태그에 강제 적용 - 배경 완전 제거 */
+.year,
+.year-liquid-glass,
+div.year,
+div.year-liquid-glass,
+.lead.year,
+.lead.year-liquid-glass {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transform: translate(22px, 0px) !important;
+  margin-left: calc(-4px - 18px) !important;
+  margin-top: -33px !important;
+  padding: 0 !important;
+  height: auto !important;
+  z-index: 1 !important;
+  position: relative !important;
+}
