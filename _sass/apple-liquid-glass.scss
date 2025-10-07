@@ -194,6 +194,43 @@
   will-change: transform, box-shadow;
 }
 
+/* 반응형 네비게이션 - Apple Liquid Glass */
+@media (max-width: 1200px) {
+  .nav-item-apple {
+    margin-left: 25px !important;
+    width: 135px !important;
+    min-width: 135px !important;
+    max-width: 135px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-item-apple {
+    margin-left: 15px !important;
+    width: 125px !important;
+    min-width: 125px !important;
+    max-width: 125px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-item-apple {
+    margin-left: 8px !important;
+    width: 115px !important;
+    min-width: 115px !important;
+    max-width: 115px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-item-apple {
+    margin-left: 3px !important;
+    width: 105px !important;
+    min-width: 105px !important;
+    max-width: 105px !important;
+  }
+}
+
 .nav-item-apple::before {
   content: '';
   position: absolute;
@@ -1598,4 +1635,109 @@ div.year-liquid-glass,
   box-sizing: border-box !important;
   display: block !important;
   margin-bottom: 20px !important;
+}
+
+/* 반응형 네비게이션 - 모든 셀렉터에 적용 */
+@media (max-width: 1200px) {
+  .sidebar .nav-link,
+  .sidebar .sidebar-nav-item,
+  .sidebar-wrapper .nav-link,
+  .sidebar-wrapper .sidebar-nav-item,
+  .sidebar-panel .nav-link,
+  .sidebar-panel .sidebar-nav-item,
+  .nav-link,
+  .sidebar-nav-item,
+  .topbar-nav-item,
+  .nav-item-apple,
+  .navbar-nav .nav-link,
+  .navbar .nav-link,
+  .nav-item,
+  .nav-item .nav-link,
+  .navbar .nav-item .nav-link,
+  .sidebar .nav-item .nav-link,
+  .navbar .nav-item,
+  .sidebar .nav-item {
+    margin-left: 25px !important;
+    width: 135px !important;
+    min-width: 135px !important;
+    max-width: 135px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar .nav-link,
+  .sidebar .sidebar-nav-item,
+  .sidebar-wrapper .nav-link,
+  .sidebar-wrapper .sidebar-nav-item,
+  .sidebar-panel .nav-link,
+  .sidebar-panel .sidebar-nav-item,
+  .nav-link,
+  .sidebar-nav-item,
+  .topbar-nav-item,
+  .nav-item-apple,
+  .navbar-nav .nav-link,
+  .navbar .nav-link,
+  .nav-item,
+  .nav-item .nav-link,
+  .navbar .nav-item .nav-link,
+  .sidebar .nav-item .nav-link,
+  .navbar .nav-item,
+  .sidebar .nav-item {
+    margin-left: 15px !important;
+    width: 125px !important;
+    min-width: 125px !important;
+    max-width: 125px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar .nav-link,
+  .sidebar .sidebar-nav-item,
+  .sidebar-wrapper .nav-link,
+  .sidebar-wrapper .sidebar-nav-item,
+  .sidebar-panel .nav-link,
+  .sidebar-panel .sidebar-nav-item,
+  .nav-link,
+  .sidebar-nav-item,
+  .topbar-nav-item,
+  .nav-item-apple,
+  .navbar-nav .nav-link,
+  .navbar .nav-link,
+  .nav-item,
+  .nav-item .nav-link,
+  .navbar .nav-item .nav-link,
+  .sidebar .nav-item .nav-link,
+  .navbar .nav-item,
+  .sidebar .nav-item {
+    margin-left: 8px !important;
+    width: 115px !important;
+    min-width: 115px !important;
+    max-width: 115px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar .nav-link,
+  .sidebar .sidebar-nav-item,
+  .sidebar-wrapper .nav-link,
+  .sidebar-wrapper .sidebar-nav-item,
+  .sidebar-panel .nav-link,
+  .sidebar-panel .sidebar-nav-item,
+  .nav-link,
+  .sidebar-nav-item,
+  .topbar-nav-item,
+  .nav-item-apple,
+  .navbar-nav .nav-link,
+  .navbar .nav-link,
+  .nav-item,
+  .nav-item .nav-link,
+  .navbar .nav-item .nav-link,
+  .sidebar .nav-item .nav-link,
+  .navbar .nav-item,
+  .sidebar .nav-item {
+    margin-left: 3px !important;
+    width: 105px !important;
+    min-width: 105px !important;
+    max-width: 105px !important;
+  }
 }
