@@ -1,0 +1,54 @@
+<!-- Optimized Styles -->
+<!-- Critical CSS (inline for above-the-fold content) -->
+<style>
+  /* Critical Liquid Glass styles */
+  .btn-apple{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:0.875rem 2rem;border-radius:50px;background:radial-gradient(ellipse at 20% 10%,rgba(255,255,255,0.8) 0%,transparent 60%),radial-gradient(ellipse at 80% 90%,rgba(196,190,226,0.4) 0%,transparent 60%),conic-gradient(from 0deg at 50% 50%,rgba(255,255,255,0.2) 0deg,rgba(196,190,226,0.15) 90deg,rgba(255,255,255,0.25) 180deg,rgba(224,217,237,0.2) 270deg,rgba(255,255,255,0.2) 360deg);border:1px solid rgba(255,255,255,0.3);color:#424245;font-weight:500;font-size:0.875rem;text-decoration:none;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);backdrop-filter:blur(30px) saturate(1.2) brightness(1.1);-webkit-backdrop-filter:blur(30px) saturate(1.2) brightness(1.1);box-shadow:0 12px 40px rgba(128,102,153,0.25),0 6px 20px rgba(255,255,255,0.35),0 3px 10px rgba(196,190,226,0.2),0 1px 3px rgba(128,102,153,0.1),inset 0 2px 0 rgba(255,255,255,0.9),inset 0 -2px 0 rgba(128,102,153,0.15),inset 0 0 0 1px rgba(255,255,255,0.3),inset 0 0 20px rgba(255,255,255,0.15),inset 0 0 40px rgba(196,190,226,0.08),inset 0 1px 0 rgba(255,255,255,0.6),inset 0 -1px 0 rgba(128,102,153,0.2);overflow:hidden;position:relative;z-index:1;transform-origin:center center}
+  
+  .card-apple{position:relative;border-radius:50px;background:linear-gradient(135deg,rgba(255,255,255,0.1) 0%,rgba(196,190,226,0.05) 100%);border:1px solid rgba(196,190,226,0.3);box-shadow:0 8px 32px rgba(196,190,226,0.15);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);overflow:hidden;transition:all 0.4s cubic-bezier(0.25,0.46,0.45,0.94)}
+  
+  .nav-item-apple{position:relative;display:flex;align-items:center;padding:0.75rem 1.25rem;margin:0.25rem 0;border-radius:50px;background:linear-gradient(135deg,rgba(255,255,255,0.15) 0%,rgba(196,190,226,0.08) 100%);color:#1d1d1f;text-decoration:none;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.2);box-shadow:0 4px 16px rgba(153,134,179,0.1);overflow:hidden}
+  
+  .tag-apple{display:inline-flex;align-items:center;padding:0.5rem 1.25rem;margin:0.25rem;border-radius:50px;background:linear-gradient(135deg,rgba(255,255,255,0.2) 0%,rgba(196,190,226,0.1) 100%);border:1px solid rgba(255,255,255,0.3);color:#1d1d1f;font-size:0.8rem;font-weight:500;text-decoration:none;backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);box-shadow:0 4px 16px rgba(153,134,179,0.15);position:relative;overflow:hidden}
+  
+  /* Basic layout */
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6;color:#333;margin:0;padding:0;background:linear-gradient(135deg,rgba(203,171,237,0.1) 0%,rgba(196,190,226,0.05) 100%)}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+  .sidebar{background:linear-gradient(135deg,rgba(203,171,237,0.95) 0%,rgba(196,190,226,0.9) 100%);backdrop-filter:blur(30px) saturate(1.2) brightness(1.1);-webkit-backdrop-filter:blur(30px) saturate(1.2) brightness(1.1);border-right:1px solid rgba(255,255,255,0.2)}
+  .topbar{background:linear-gradient(135deg,rgba(0,0,0,0.4) 0%,rgba(196,190,226,0.2) 100%);backdrop-filter:blur(30px) saturate(1.2) brightness(1.1);-webkit-backdrop-filter:blur(30px) saturate(1.2) brightness(1.1);border-bottom:1px solid rgba(255,255,255,0.2)}
+</style>
+
+<!-- Non-critical CSS (load asynchronously) -->
+<link rel="preload" href="{{ '/assets/css/main.css' | relative_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}"></noscript>
+
+<!-- Font optimization -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"></noscript>
+
+<!-- CSS custom properties for theming -->
+<style>
+  :root {
+    --lavender-primary: #9986B3;
+    --lavender-light: #C4BEE2;
+    --lavender-lighter: #E0DBEF;
+    --lavender-accent: #B8A9D9;
+    --lavender-dark: #7A6B96;
+    --glass-white: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --text-primary: #424245;
+    --text-secondary: #6e6e73;
+    --apple-blue: #007AFF;
+    --apple-success: #34C759;
+    --apple-warning: #FF9500;
+    --apple-danger: #FF3B30;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --text-primary: #1d1d1f;
+      --text-secondary: #424245;
+      --glass-white: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(196, 190, 226, 0.4);
+    }
+  }
+</style>

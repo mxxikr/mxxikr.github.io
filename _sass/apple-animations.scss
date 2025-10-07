@@ -1,9 +1,4 @@
-/*
-  Apple Liquid Glass Animations
-  Apple의 새로운 Liquid Glass 디자인을 위한 애니메이션 효과
-*/
-
-/* Liquid Glass 기본 애니메이션 - 향상된 리퀴드 글라스 */
+/* Apple Liquid Glass Animations */
 @keyframes liquid-glass-float {
   0%, 100% {
     transform: translateY(0px) scale(1) rotate(0deg);
@@ -90,7 +85,7 @@
   }
 }
 
-/* 새로운 리퀴드 글라스 애니메이션 */
+/* New Liquid Glass Animations */
 @keyframes liquid-glass-wave {
   0% {
     transform: translateX(-100%) rotate(0deg);
@@ -137,7 +132,7 @@
   }
 }
 
-/* Liquid Glass 호버 효과 */
+/* Liquid Glass Hover Effects */
 .liquid-glass-hover {
   position: relative;
   overflow: hidden;
@@ -176,7 +171,7 @@
   }
 }
 
-/* Liquid Glass 카드 효과 */
+/* Liquid Glass Card Effects */
 .liquid-glass-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
@@ -213,7 +208,7 @@
   }
 }
 
-/* Liquid Glass 버튼 효과 */
+/* Liquid Glass Button Effects */
 .liquid-glass-button {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
@@ -256,7 +251,7 @@
   }
 }
 
-/* Liquid Glass 네비게이션 효과 */
+/* Liquid Glass Navigation Effects */
 .liquid-glass-nav {
   position: relative;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -292,7 +287,7 @@
   }
 }
 
-/* Liquid Glass 태그 효과 */
+/* Liquid Glass Tag Effects */
 .liquid-glass-tag {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -337,7 +332,7 @@
   }
 }
 
-/* Liquid Glass 입력 필드 효과 */
+/* Liquid Glass Input Field Effects */
 .liquid-glass-input {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
@@ -360,7 +355,7 @@
   }
 }
 
-/* Liquid Glass 모달/오버레이 효과 */
+/* Liquid Glass Modal/Overlay Effects */
 .liquid-glass-modal {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
@@ -371,7 +366,7 @@
   animation: liquid-glass-float 3s ease-in-out infinite;
 }
 
-/* 새로운 리퀴드 글라스 클래스들 */
+/* New Liquid Glass Classes */
 .liquid-glass-wave {
   animation: liquid-glass-wave 3s ease-in-out infinite;
 }
@@ -396,7 +391,7 @@
   animation: liquid-glass-glow 3s ease-in-out infinite;
 }
 
-/* 리퀴드 글라스 조합 효과 */
+/* Liquid Glass Combination Effects */
 .liquid-glass-magic {
   animation: 
     liquid-glass-float 4s ease-in-out infinite,
@@ -410,7 +405,7 @@
     liquid-glass-pulse 2s ease-in-out infinite;
 }
 
-/* 반응형 애니메이션 조정 */
+/* Responsive Animation Adjustments */
 @media (prefers-reduced-motion: reduce) {
   .liquid-glass-hover,
   .liquid-glass-card,
@@ -432,7 +427,7 @@
   }
 }
 
-/* 다크 모드 대응 */
+/* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
   .liquid-glass-card,
   .liquid-glass-button,
