@@ -13,4 +13,142 @@
   <div class="panel-heading pl-3 pt-2 mb-2">{{- site.data.locales[lang].panel.toc -}}</div>
   <nav id="toc" data-toggle="toc"></nav>
 </div>
+
+<script>
+$(document).ready(function() {
+  // Bootstrap TOC 초기화
+  if ($('#toc').length) {
+    $('#toc').toc({
+      'selectors': 'h1,h2',
+      'container': '.post-content',
+      'smoothScrolling': true,
+      'highlightOffset': 100,
+      'scrollSpy': true,
+      'scrollSpyOffset': 100
+    });
+    
+    // TOC 스타일 적용 함수
+    function applyTOCStyles() {
+      $('#toc .nav-link').each(function() {
+        var $link = $(this);
+        var href = $link.attr('href');
+        
+        // H1, H2 구분
+        if (href) {
+          var targetElement = $(href);
+          if (targetElement.length > 0) {
+            var tagName = targetElement.prop('tagName');
+            
+            if (tagName === 'H1') {
+              $link.addClass('toc-h1');
+            } else if (tagName === 'H2') {
+              $link.addClass('toc-h2');
+            }
+          }
+        }
+      });
+    }
+    
+     // TOC 높이 동적 조정 함수
+     function adjustTOCHeight() {
+       var toc = $('#toc');
+       if (toc.length === 0) return;
+       
+       // 먼저 모든 제한을 제거하고 자연스러운 높이로 설정
+       toc.css({
+         'max-height': 'none',
+         'overflow-y': 'visible',
+         'overflow-x': 'visible'
+       });
+       
+       // 잠시 기다린 후 실제 내용 높이 측정
+       setTimeout(function() {
+         var contentHeight = toc[0].scrollHeight;
+         var screenHeight = $(window).height();
+         var maxHeight = screenHeight * 0.8; // 화면의 80%로 증가
+         
+         console.log('TOC content height:', contentHeight, 'Screen height:', screenHeight, 'Max height:', maxHeight);
+         
+         if (contentHeight > maxHeight) {
+           // 내용이 화면보다 크면 제한하고 스크롤 추가
+           toc.css({
+             'max-height': maxHeight + 'px',
+             'overflow-y': 'auto',
+             'overflow-x': 'hidden'
+           });
+           console.log('TOC height limited to', maxHeight + 'px with scroll');
+         } else {
+           console.log('TOC using natural height:', contentHeight + 'px');
+         }
+       }, 50);
+     }
+     
+     // 스타일 적용
+     setTimeout(applyTOCStyles, 100);
+     setTimeout(applyTOCStyles, 500);
+     
+     // TOC 높이 조정 - 여러 시점에서 실행
+     setTimeout(adjustTOCHeight, 200);
+     setTimeout(adjustTOCHeight, 500);
+     setTimeout(adjustTOCHeight, 1000);
+     setTimeout(adjustTOCHeight, 2000);
+     
+     // 창 크기 변경 시 높이 재조정
+     $(window).on('resize', function() {
+       setTimeout(adjustTOCHeight, 100);
+     });
+     
+     // 페이지 로드 완료 후에도 실행
+     $(window).on('load', function() {
+       setTimeout(adjustTOCHeight, 500);
+     });
+     
+     // TOC 자동 스크롤 기능 (스크롤 박스가 있을 때만)
+     var lastActiveItem = '';
+     function scrollToActiveTOCItem() {
+       var activeItem = $('#toc .nav-link.active');
+       if (activeItem.length > 0) {
+         var activeText = activeItem.text().trim();
+         
+         // 같은 항목이면 스크롤하지 않음
+         if (lastActiveItem === activeText) {
+           return;
+         }
+         
+         lastActiveItem = activeText;
+         var tocContainer = $('#toc');
+         
+         if (tocContainer.length > 0) {
+           var containerHeight = tocContainer.height();
+           var contentHeight = tocContainer[0].scrollHeight;
+           
+           // 스크롤이 필요한 경우에만 자동 스크롤
+           if (contentHeight > containerHeight) {
+             var activeItemTop = activeItem.position().top;
+             var activeItemHeight = activeItem.outerHeight();
+             
+             var targetScrollTop = activeItemTop - (containerHeight / 2) + (activeItemHeight / 2);
+             var maxScrollTop = contentHeight - containerHeight;
+             targetScrollTop = Math.max(0, Math.min(targetScrollTop, maxScrollTop));
+             
+             tocContainer.animate({
+               scrollTop: targetScrollTop
+             }, 300);
+             
+             console.log('TOC auto-scrolled to:', activeText);
+           }
+         }
+       }
+     }
+     
+     // 스크롤 이벤트로 자동 스크롤 실행
+     $(window).on('scroll', function() {
+       setTimeout(scrollToActiveTOCItem, 150);
+     });
+     
+     // 초기 실행
+     setTimeout(scrollToActiveTOCItem, 1500);
+  }
+});
+</script>
 {% endif %}

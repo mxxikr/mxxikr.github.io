@@ -298,9 +298,142 @@ img.preview-img {
 }
 
 nav[data-toggle=toc] {
+  /* 동적 높이 조정 - 필요시에만 스크롤 */
+  
+  /* 스크롤바 투명하게 만들기 (동적으로 스크롤이 필요할 때) */
+  &::-webkit-scrollbar {
+    width: 6px !important;
+    background: transparent !important;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: transparent !important;
+    border-radius: 3px !important;
+    
+    &:hover {
+      background: rgba(128, 102, 153, 0.2) !important;
+    }
+  }
+  
+  /* Firefox에서 스크롤바 투명하게 */
+  scrollbar-width: thin !important;
+  scrollbar-color: transparent transparent !important;
+  
+  /* IE/Edge에서 스크롤바 투명하게 */
+  -ms-overflow-style: auto !important;
+  
   .nav {
     .nav > li > a.active {
       font-weight: 600 !important;
+    }
+  }
+  
+  /* TOC 버튼을 오른쪽으로 20px 이동 (5px + 10px + 5px) */
+  .nav {
+    margin-left: 10px !important;
+  }
+  
+  /* TOC 버튼 간격 통일 및 heading 레벨별 들여쓰기 */
+  .nav-link {
+    margin-bottom: 0.5rem !important; /* 버튼 간 위아래 간격 통일 */
+    white-space: nowrap !important; /* 텍스트 줄바꿈 방지 */
+    overflow: hidden !important; /* 오버플로우 숨김 */
+    text-overflow: ellipsis !important; /* ... 처리 */
+    
+    /* H1 항목 (최상위 레벨) */
+    &.toc-h1 {
+      padding-left: 0 !important;
+      font-weight: 600 !important;
+    }
+    
+    /* H2 항목 (하위 레벨) - 30px 들여쓰기 */
+    &.toc-h2 {
+      padding-left: 30px !important;
+    }
+  }
+  
+  /* 반응형 TOC 스타일 - 점진적 변화 */
+  
+  /* 태블릿 크기 (1024px 이하) */
+  @media (max-width: 1024px) {
+    .nav {
+      margin-left: 8px !important; /* 약간 줄임 */
+    }
+    
+    .nav-link {
+      &.toc-h2 {
+        padding-left: 25px !important; /* 약간 줄임 */
+      }
+    }
+  }
+  
+  /* 중간 태블릿 크기 (768px 이하) */
+  @media (max-width: 768px) {
+    .nav {
+      margin-left: 5px !important; /* 더 줄임 */
+    }
+    
+    .nav-link {
+      font-size: 0.9rem !important; /* 약간 줄임 */
+      padding: 0.45rem 0.9rem !important; /* 약간 줄임 */
+      
+      &.toc-h2 {
+        padding-left: 20px !important; /* 더 줄임 */
+      }
+    }
+  }
+  
+  /* 작은 태블릿/큰 모바일 (640px 이하) */
+  @media (max-width: 640px) {
+    .nav {
+      margin-left: 2px !important; /* 거의 중앙 */
+    }
+    
+    .nav-link {
+      font-size: 0.85rem !important; /* 더 줄임 */
+      padding: 0.4rem 0.8rem !important; /* 더 줄임 */
+      
+      &.toc-h2 {
+        padding-left: 18px !important; /* 더 줄임 */
+      }
+    }
+  }
+  
+  /* 모바일 크기 (480px 이하) */
+  @media (max-width: 480px) {
+    .nav {
+      margin-left: 0 !important; /* 중앙 정렬 */
+    }
+    
+    .nav-link {
+      font-size: 0.8rem !important; /* 모바일 폰트 */
+      padding: 0.35rem 0.7rem !important; /* 모바일 패딩 */
+      margin-bottom: 0.4rem !important; /* 간격 약간 줄임 */
+      
+      &.toc-h2 {
+        padding-left: 15px !important; /* 모바일 들여쓰기 */
+      }
+    }
+  }
+  
+  /* 작은 모바일 크기 (360px 이하) */
+  @media (max-width: 360px) {
+    .nav {
+      margin-left: -2px !important; /* 약간 왼쪽 */
+    }
+    
+    .nav-link {
+      font-size: 0.75rem !important; /* 작은 폰트 */
+      padding: 0.3rem 0.6rem !important; /* 작은 패딩 */
+      margin-bottom: 0.3rem !important; /* 간격 줄임 */
+      
+      &.toc-h2 {
+        padding-left: 12px !important; /* 작은 들여쓰기 */
+      }
     }
   }
 }
@@ -618,3 +751,4 @@ nav[data-toggle=toc] {
     }
   }
 }
+
