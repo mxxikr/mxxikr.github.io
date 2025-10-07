@@ -402,6 +402,43 @@ input:focus, textarea:focus, select:focus {
   margin-left: 45px !important;
 }
 
+/* 반응형 네비게이션 - 작은 화면에서 중앙 정렬 유지 */
+@media (max-width: 1200px) {
+  .nav-link, .sidebar-nav-item, .topbar-nav-item {
+    margin-left: 25px !important;
+    width: 135px !important;
+    min-width: 135px !important;
+    max-width: 135px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-link, .sidebar-nav-item, .topbar-nav-item {
+    margin-left: 15px !important;
+    width: 125px !important;
+    min-width: 125px !important;
+    max-width: 125px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-link, .sidebar-nav-item, .topbar-nav-item {
+    margin-left: 8px !important;
+    width: 115px !important;
+    min-width: 115px !important;
+    max-width: 115px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-link, .sidebar-nav-item, .topbar-nav-item {
+    margin-left: 3px !important;
+    width: 105px !important;
+    min-width: 105px !important;
+    max-width: 105px !important;
+  }
+}
+
 .nav-link::after, .sidebar-nav-item::after, .topbar-nav-item::after {
   display: none !important;
 }
@@ -477,6 +514,103 @@ input:focus, textarea:focus, select:focus {
   margin-bottom: 20px !important;
 }
 
+/* 반응형 네비게이션 - 모든 셀렉터에 적용 */
+@media (max-width: 1200px) {
+  .sidebar .nav-link,
+  .sidebar .sidebar-nav-item,
+  .sidebar-wrapper .nav-link,
+  .sidebar-wrapper .sidebar-nav-item,
+  .sidebar-panel .nav-link,
+  .sidebar-panel .sidebar-nav-item,
+  .nav-link,
+  .sidebar-nav-item,
+  .topbar-nav-item,
+  .nav-item-apple,
+  .navbar-nav .nav-link,
+  .navbar .nav-link,
+  .nav-item,
+  .nav-item .nav-link,
+  .navbar .nav-item .nav-link,
+  .sidebar .nav-item .nav-link {
+    margin-left: 25px !important;
+    width: 135px !important;
+    min-width: 135px !important;
+    max-width: 135px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .sidebar .nav-link,
+  .sidebar .sidebar-nav-item,
+  .sidebar-wrapper .nav-link,
+  .sidebar-wrapper .sidebar-nav-item,
+  .sidebar-panel .nav-link,
+  .sidebar-panel .sidebar-nav-item,
+  .nav-link,
+  .sidebar-nav-item,
+  .topbar-nav-item,
+  .nav-item-apple,
+  .navbar-nav .nav-link,
+  .navbar .nav-link,
+  .nav-item,
+  .nav-item .nav-link,
+  .navbar .nav-item .nav-link,
+  .sidebar .nav-item .nav-link {
+    margin-left: 15px !important;
+    width: 125px !important;
+    min-width: 125px !important;
+    max-width: 125px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar .nav-link,
+  .sidebar .sidebar-nav-item,
+  .sidebar-wrapper .nav-link,
+  .sidebar-wrapper .sidebar-nav-item,
+  .sidebar-panel .nav-link,
+  .sidebar-panel .sidebar-nav-item,
+  .nav-link,
+  .sidebar-nav-item,
+  .topbar-nav-item,
+  .nav-item-apple,
+  .navbar-nav .nav-link,
+  .navbar .nav-link,
+  .nav-item,
+  .nav-item .nav-link,
+  .navbar .nav-item .nav-link,
+  .sidebar .nav-item .nav-link {
+    margin-left: 8px !important;
+    width: 115px !important;
+    min-width: 115px !important;
+    max-width: 115px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar .nav-link,
+  .sidebar .sidebar-nav-item,
+  .sidebar-wrapper .nav-link,
+  .sidebar-wrapper .sidebar-nav-item,
+  .sidebar-panel .nav-link,
+  .sidebar-panel .sidebar-nav-item,
+  .nav-link,
+  .sidebar-nav-item,
+  .topbar-nav-item,
+  .nav-item-apple,
+  .navbar-nav .nav-link,
+  .navbar .nav-link,
+  .nav-item,
+  .nav-item .nav-link,
+  .navbar .nav-item .nav-link,
+  .sidebar .nav-item .nav-link {
+    margin-left: 3px !important;
+    width: 105px !important;
+    min-width: 105px !important;
+    max-width: 105px !important;
+  }
+}
+
 /* 최종 강제 네비게이션 크기 통일 - 모든 셀렉터 포함 */
 *[class*="nav-link"],
 *[class*="nav-item"],
@@ -494,6 +628,59 @@ input:focus, textarea:focus, select:focus {
   box-sizing: border-box !important;
   display: block !important;
   margin-bottom: 20px !important;
+}
+
+/* 반응형 네비게이션 - 모든 셀렉터에 적용 */
+@media (max-width: 1200px) {
+  *[class*="nav-link"],
+  *[class*="nav-item"],
+  *[class*="sidebar-nav"],
+  *[class*="topbar-nav"],
+  *[class*="navbar-nav"] {
+    margin-left: 25px !important;
+    width: 135px !important;
+    min-width: 135px !important;
+    max-width: 135px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  *[class*="nav-link"],
+  *[class*="nav-item"],
+  *[class*="sidebar-nav"],
+  *[class*="topbar-nav"],
+  *[class*="navbar-nav"] {
+    margin-left: 15px !important;
+    width: 125px !important;
+    min-width: 125px !important;
+    max-width: 125px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  *[class*="nav-link"],
+  *[class*="nav-item"],
+  *[class*="sidebar-nav"],
+  *[class*="topbar-nav"],
+  *[class*="navbar-nav"] {
+    margin-left: 8px !important;
+    width: 115px !important;
+    min-width: 115px !important;
+    max-width: 115px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  *[class*="nav-link"],
+  *[class*="nav-item"],
+  *[class*="sidebar-nav"],
+  *[class*="topbar-nav"],
+  *[class*="navbar-nav"] {
+    margin-left: 3px !important;
+    width: 105px !important;
+    min-width: 105px !important;
+    max-width: 105px !important;
+  }
 }
 
 /* Apple Liquid Glass 페이지네이션 */
