@@ -1,0 +1,36 @@
+<!-- Safe Performance Optimization -->
+<!-- 기존 테마를 건드리지 않는 안전한 최적화 -->
+
+<!-- DNS 프리페치 -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+
+<!-- 리소스 프리로드 -->
+<link rel="preload" href="{{ '/assets/css/style.css' | relative_url }}" as="style">
+<link rel="preload" href="{{ '/assets/js/apple-liquid-glass.js' | relative_url }}" as="script">
+
+<!-- 간단한 성능 모니터링 -->
+<script>
+  // 개발 환경에서만 로딩 시간 체크
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    window.addEventListener('load', () => {
+      if ('performance' in window) {
+        const perfData = performance.getEntriesByType('navigation')[0];
+        const loadTime = perfData.loadEventEnd - perfData.loadEventStart;
+        console.log('📊 Page loaded in:', loadTime + 'ms');
+      }
+    });
+  }
+</script>
+
+<!-- Service Worker 등록 -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => console.log('SW registered'))
+        .catch(error => console.log('SW registration failed'));
+    });
+  }
+</script>

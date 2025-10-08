@@ -12,6 +12,12 @@
     "url": "https://github.com/cotes2020/jekyll-theme-chirpy/issues"
   },
   "homepage": "https://github.com/cotes2020/jekyll-theme-chirpy#readme",
+  "scripts": {
+    "build": "gulp build",
+    "dev": "gulp dev",
+    "optimize-images": "node optimize-images-safe.js",
+    "test": "echo 'Testing blog functionality...'"
+  },
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
