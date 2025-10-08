@@ -209,7 +209,10 @@ img.preview-img {
   border: none;
   position: -webkit-sticky;
   position: sticky;
-  top: 4rem;
+  top: 80px !important; /* topbar 높이 + 여백 */
+  max-height: calc(100vh - 100px) !important;
+  overflow-y: auto !important;
+  z-index: 10 !important;
   transition: top 0.2s ease-in-out;
   animation: fade-up 0.8s;
   background: transparent;
