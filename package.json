@@ -16,6 +16,8 @@
     "build": "gulp build",
     "dev": "gulp dev",
     "optimize-images": "node optimize-images-safe.js",
+    "auto-optimize": "node auto-optimize-images.js",
+    "watch-images": "node watch-images.js",
     "test": "echo 'Testing blog functionality...'"
   },
   "devDependencies": {
