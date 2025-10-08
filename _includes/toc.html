@@ -1,3 +1,5 @@
+{% assign origin = 'cross_origin' %}
+
 {% assign enable_toc = false %}
 {% if site.toc and page.toc %}
   {% if page.content contains '<h2' or page.content contains '<h3' %}
@@ -22,9 +24,9 @@ $(document).ready(function() {
       'selectors': 'h1,h2',
       'container': '.post-content',
       'smoothScrolling': true,
-      'highlightOffset': 100,
+      'highlightOffset': 50,
       'scrollSpy': true,
-      'scrollSpyOffset': 100
+      'scrollSpyOffset': 50
     });
     
     // TOC 스타일 적용 함수
@@ -126,25 +128,82 @@ $(document).ready(function() {
            if (contentHeight > containerHeight) {
              var activeItemTop = activeItem.position().top;
              var activeItemHeight = activeItem.outerHeight();
+             var currentScrollTop = tocContainer.scrollTop();
              
-             var targetScrollTop = activeItemTop - (containerHeight / 2) + (activeItemHeight / 2);
-             var maxScrollTop = contentHeight - containerHeight;
-             targetScrollTop = Math.max(0, Math.min(targetScrollTop, maxScrollTop));
+             // 활성 아이템이 보이는 영역에 있는지 확인
+             var itemTop = activeItemTop + currentScrollTop;
+             var itemBottom = itemTop + activeItemHeight;
+             var visibleTop = currentScrollTop;
+             var visibleBottom = currentScrollTop + containerHeight;
              
-             tocContainer.animate({
-               scrollTop: targetScrollTop
-             }, 300);
-             
-             console.log('TOC auto-scrolled to:', activeText);
+             // 아이템이 보이지 않으면 스크롤
+             if (itemTop < visibleTop || itemBottom > visibleBottom) {
+               var targetScrollTop = activeItemTop - (containerHeight / 2) + (activeItemHeight / 2);
+               var maxScrollTop = contentHeight - containerHeight;
+               targetScrollTop = Math.max(0, Math.min(targetScrollTop, maxScrollTop));
+               
+               tocContainer.animate({
+                 scrollTop: targetScrollTop
+               }, 200);
+               
+               console.log('TOC auto-scrolled to:', activeText);
+             }
            }
          }
        }
      }
      
-     // 스크롤 이벤트로 자동 스크롤 실행
-     $(window).on('scroll', function() {
-       setTimeout(scrollToActiveTOCItem, 150);
-     });
+     
+    // 스크롤 스파이 개선
+    function initScrollSpy() {
+      var $toc = $('#toc');
+      var $links = $toc.find('.nav-link');
+      var $sections = $('.post-content h1, .post-content h2');
+      
+      // 스크롤 이벤트 최적화를 위한 throttle
+      var scrollTimeout;
+      
+      $(window).on('scroll', function() {
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
+        }
+        
+        scrollTimeout = setTimeout(function() {
+          var scrollTop = $(window).scrollTop();
+          var windowHeight = $(window).height();
+          var current = '';
+          var currentOffset = 0;
+          
+          $sections.each(function() {
+            var $section = $(this);
+            var sectionTop = $section.offset().top;
+            var sectionHeight = $section.outerHeight();
+            
+            // 섹션의 상단이 화면 상단에서 150px 이내에 있으면 활성화
+            if (scrollTop + 150 >= sectionTop && scrollTop + 150 < sectionTop + sectionHeight + 200) {
+              current = $section.attr('id');
+              currentOffset = sectionTop;
+            }
+          });
+          
+          // 활성 링크 업데이트
+          $links.removeClass('active');
+          if (current) {
+            var $activeLink = $links.filter('[href="#' + current + '"]');
+            $activeLink.addClass('active');
+            
+            // TOC 자동 스크롤
+            scrollToActiveTOCItem();
+          }
+        }, 10);
+      });
+      
+      // 초기 활성화
+      $(window).trigger('scroll');
+    }
+     
+     // 스크롤 스파이 초기화
+     setTimeout(initScrollSpy, 200);
      
      // 초기 실행
      setTimeout(scrollToActiveTOCItem, 1500);
