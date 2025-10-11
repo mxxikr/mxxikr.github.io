@@ -5,7 +5,7 @@ author:
   link: https://github.com/mxxikr"
 date: 2025-10-08 18:50:00 +0900
 category:
-  - [Web Development, Frontend]
+  - [Blog]
 tags:
   - [jekyll, performance, automation]
 math: true
