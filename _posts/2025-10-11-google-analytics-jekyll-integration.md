@@ -1,5 +1,5 @@
 ---
-title: "Jekyll 블로그 Google Analytics 연동 가이드"
+title: "Jekyll 블로그 Google Analytics 연동"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
