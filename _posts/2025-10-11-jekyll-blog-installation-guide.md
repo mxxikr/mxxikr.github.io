@@ -14,7 +14,7 @@ mermaid: true
 
 ## 개요
 
-- Jekyll 기반 GitHub Pages 블로그를 처음부터 설치하고 로컬에서 실행하는 과정을 설명합니다.
+- Jekyll 기반 GitHub Pages 블로그를 처음부터 설치하고 로컬에서 실행하는 과정을 설명함
 
 ## 사전 준비사항
 
