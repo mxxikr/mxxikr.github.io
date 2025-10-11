@@ -12,10 +12,6 @@ math: true
 mermaid: true
 ---
 
-# Jekyll 블로그 Google Analytics 연동 가이드
-
----
-
 ## 개요
 
 - Jekyll 블로그에 Google Analytics를 연동하여 방문자 통계를 추적하는 방법을 설명합니다.
