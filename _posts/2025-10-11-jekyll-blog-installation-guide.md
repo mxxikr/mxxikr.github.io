@@ -5,7 +5,7 @@ author:
   link: https://github.com/mxxikr
 date: 2025-10-11 18:50:00 +0900
 category:
-  - [Version Control, Git]
+  - [Blog]
 tags:
   - [jekyll, git blog]
 math: true
