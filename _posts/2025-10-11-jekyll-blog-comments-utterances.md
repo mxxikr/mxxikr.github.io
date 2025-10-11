@@ -14,7 +14,7 @@ mermaid: true
 
 ## 개요
 
-- Jekyll 블로그에 Utterances 댓글 시스템을 추가하는 방법을 설명합니다.
+- Jekyll 블로그에 Utterances 댓글 시스템을 추가하는 방법을 설명함
 
 ## Utterances란
 
