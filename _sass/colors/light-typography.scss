@@ -468,10 +468,10 @@
     border: 1px solid rgba(255, 255, 255, 0.02) !important;
   }
 
-  /* 양옆 여백 줄이기 - 사이드바와 메인 콘텐츠 영역 */
+  /* 양옆 여백 제거 - 사이드바와 메인 콘텐츠 영역 */
   .sidebar, .sidebar-wrapper, .sidebar-panel {
-    padding-left: 0.5rem !important; // 1rem에서 더 줄임
-    padding-right: 0.5rem !important; // 1rem에서 더 줄임
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     z-index: 1 !important; // 사이드바 레이어 순서
   }
   
@@ -482,13 +482,13 @@
   }
   
   .main-wrapper, .main-content, .content-wrapper {
-    padding-left: 0.5rem !important; // 1rem에서 더 줄임
-    padding-right: 0.5rem !important; // 1rem에서 더 줄임
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   
   .container, .container-fluid {
-    padding-left: 0.5rem !important; // 1rem에서 더 줄임
-    padding-right: 0.5rem !important; // 1rem에서 더 줄임
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   
   /* 프로필 카드 여백 조절 */
@@ -513,14 +513,15 @@
     padding-right: 0.05rem !important; // 좌우 패딩을 더 줄임
   }
 
-  /* 최상단 Home 링크를 더 왼쪽으로 이동 */
+  /* 최상단 Home 링크를 왼쪽 끝으로 이동 */
   .topbar, .topbar-wrapper, .topbar-nav, .navbar, .navbar-nav {
-    padding-left: 0.5rem !important; // 기존 1rem에서 더 줄임
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   
   .topbar .nav-link, .topbar-nav .nav-link, .navbar .nav-link {
     margin-left: 0 !important;
-    padding-left: 0.5rem !important; // Home 링크를 더 왼쪽으로
+    padding-left: 0 !important;
   }
 
   /* Apple Liquid Glass 네비게이션 메뉴 - 리퀴드 글라스 복원 */
