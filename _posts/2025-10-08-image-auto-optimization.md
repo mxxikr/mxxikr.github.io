@@ -1,5 +1,5 @@
 ---
-title:  "Jekyll 블로그 이미지 자동 최적화 시스템 구축"
+title:  "Jekyll 블로그 이미지 자동 최적화"
 author:
   name: mxxikr
   link: https://github.com/mxxikr"
@@ -10,10 +10,6 @@ tags:
   - [jekyll, performance, automation]
 math: true
 mermaid: true
----
-
-# Jekyll 블로그 이미지 자동 최적화
-
 ---
 
 ## 개요
