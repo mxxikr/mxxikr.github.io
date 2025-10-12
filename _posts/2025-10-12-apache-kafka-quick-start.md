@@ -63,6 +63,7 @@ mermaid: true
 
 ### 시스템 아키텍처
 
+{% raw %}
 <div class="mermaid">
 graph TB
     subgraph "데이터 생산"
