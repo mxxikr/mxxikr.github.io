@@ -3,7 +3,7 @@ title: "Apache Kafka 개념과 아키텍처"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
-date: 2025-10-12 10:00:00 +0900
+date: 2025-10-12 01:00:00 +0900
 category:
   - [Messaging, Kafka]
 tags:
