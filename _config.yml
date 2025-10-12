@@ -37,6 +37,9 @@ github:
 twitter:
   username: twitter_username            # change to your twitter username
 
+# Mermaid 다이어그램 활성화
+mermaid: true
+
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
