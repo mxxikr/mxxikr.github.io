@@ -64,10 +64,15 @@ mermaid: true
 ### 시스템 아키텍처
 ```mermaid
 graph TB
-    subgraph "데이터 생산"
-        P1[Producer 1\n정상: 1000/s\n피크: 2000/s] -->|160B 데이터\n40B 헤더| T1
-        P2[Producer 2\n정상: 1000/s\n피크: 2000/s] -->|160B 데이터\n40B 헤더| T1
-        P3[Producer 3\n정상: 1000/s\n피크: 2000/s] -->|160B 데이터\n40B 헤더| T2
+    %% 데이터 생산자 정의
+    P1["Producer 1<br>정상: 1000/s<br>피크: 2000/s"]
+    P2["Producer 2<br>정상: 1000/s<br>피크: 2000/s"]
+    P3["Producer 3<br>정상: 1000/s<br>피크: 2000/s"]
+
+    %% 데이터 흐름
+    P1-->|"160B 데이터<br>40B 헤더"|T1
+    P2-->|"160B 데이터<br>40B 헤더"|T1
+    P3-->|"160B 데이터<br>40B 헤더"|T2 
         
         subgraph "Spring Boot 프로듀서"
             P1
@@ -254,7 +259,8 @@ graph TB
 ## Kafka 클러스터 구성 
 
 ### 토픽 초기화 스크립트
-- `scripts/kafka-init.sh` 파일 생성
+- `scripts/kafka-init.sh` 파일 생성  
+
   ```bash
   #!/bin/bash
   
@@ -280,7 +286,8 @@ graph TB
   ```
 
 ### Docker Compose 설정
-- `docker-compose.yml` 파일 생성
+- `docker-compose.yml` 파일 생성  
+
   ```yaml
   version: '3.8'
   services:
@@ -493,7 +500,8 @@ graph TB
   ```
 
 ### 모니터링 설정
-- Prometheus 설정 (`prometheus/prometheus.yml`)
+- Prometheus 설정 (`prometheus/prometheus.yml`)  
+
   ```yaml
   global:
     scrape_interval: 15s     # 메트릭 수집 주기
@@ -527,7 +535,8 @@ graph TB
           - 'node-exporter:9100'  # 시스템 메트릭
   ```
 
-- Alert Manager 설정 (`alertmanager/alertmanager.yml`)
+- Alert Manager 설정 (`alertmanager/alertmanager.yml`)  
+
   ```yaml
   global:
     resolve_timeout: 5m
@@ -557,14 +566,15 @@ graph TB
           parse_mode: 'HTML'
           api_url: 'https://api.telegram.org'
           message: |-
-            🚨 <b>{{ .GroupLabels.alertname }}</b>
-            심각도: {{ .Labels.severity }}
-            컨슈머 그룹: {{ .Labels.consumer_group }}
-            {{ .Annotations.description }}
+            🚨 <b>{% raw %}{{ .GroupLabels.alertname }}{% endraw %}</b>
+            심각도: {% raw %}{{ .Labels.severity }}{% endraw %}
+            컨슈머 그룹: {% raw %}{{ .Labels.consumer_group }}{% endraw %}
+            {% raw %}{{ .Annotations.description }}{% endraw %}
   ```
 
 ### 클러스터 실행
-- 도커 컴포즈로 시작
+- 도커 컴포즈로 시작  
+
   ```bash
   # 컨테이너 실행
   docker-compose up -d
@@ -579,7 +589,8 @@ graph TB
 ## Spring Boot 애플리케이션 개발
 
 ### Gradle 의존성
-- `build.gradle` 설정
+- `build.gradle` 설정  
+
   ```groovy
   plugins {
       id 'java'
@@ -621,8 +632,9 @@ graph TB
   }
   ```
 
-### 애플리케이션 설정
-- `application.yml` 설정
+  ### 애플리케이션 설정
+  - `application.yml` 설정
+
   ```yaml
   spring:
     # Kafka 설정
@@ -715,18 +727,20 @@ graph TB
   ```
 
 ### 데이터 모델
-- `SensorDataRepository.java` - 센서 데이터 레포지토리
+- `SensorDataRepository.java` - 센서 데이터 레포지토리  
+
   ```java
   /**
    * 센서 데이터 영속성을 관리하는 리포지토리 인터페이스
-   * JpaRepository를 상속하여 기본적인 CRUD 작업과 페이징 기능을 제공
-   */
+  * JpaRepository를 상속하여 기본적인 CRUD 작업과 페이징 기능을 제공
+  */
   @Repository 
   public interface SensorDataRepository extends JpaRepository<SensorData, Long> {
   }
   ```
 
-- `SensorData.java` - 센서 데이터 모델
+- `SensorData.java` - 센서 데이터 모델   
+
   ```java
   @Data
   @Entity
@@ -761,12 +775,13 @@ graph TB
   ```
 
 ### 메시지 생산자
-- `KafkaProducerConfig.java` - 생산자 설정
+- `KafkaProducerConfig.java` - 생산자 설정  
+
   ```java
   /**
    * Kafka 프로듀서 관련 설정을 담당하는 설정 클래스
-   * 메시지 직렬화, 브로커 연결 등 프로듀서의 핵심 설정을 정의
-   */
+  * 메시지 직렬화, 브로커 연결 등 프로듀서의 핵심 설정을 정의
+  */
   @Configuration  // 스프링 설정 클래스임을 표시
   public class KafkaProducerConfig {
       
@@ -800,12 +815,13 @@ graph TB
   }
   ```
 
-- `SensorDataProducer.java` - 센서 데이터 생산
+- `SensorDataProducer.java` - 센서 데이터 생산   
+
   ```java
   /**
    * 센서 데이터를 생성하고 Kafka로 전송하는 서비스 클래스
-   * 실시간으로 센서 데이터를 시뮬레이션하고 Kafka 토픽으로 전송
-   */
+  * 실시간으로 센서 데이터를 시뮬레이션하고 Kafka 토픽으로 전송
+  */
   @Service 
   @Slf4j 
   @RequiredArgsConstructor
@@ -844,12 +860,13 @@ graph TB
   ```
 
 ### 메시지 소비자
-- `KafkaConsumerConfig.java` - 소비자 설정
+- `KafkaConsumerConfig.java` - 소비자 설정  
+
   ```java
   /**
    * Kafka 컨슈머 관련 설정을 담당하는 설정 클래스
-   * 메시지 역직렬화, 컨슈머 그룹, 배치 처리 등 컨슈머의 핵심 설정을 정의
-   */
+  * 메시지 역직렬화, 컨슈머 그룹, 배치 처리 등 컨슈머의 핵심 설정을 정의
+  */
   @Configuration 
   public class KafkaConsumerConfig {
       
@@ -891,12 +908,13 @@ graph TB
   }
   ```
 
-- `SensorDataConsumer.java` - 센서 데이터 소비
+- `SensorDataConsumer.java` - 센서 데이터 소비  
+
   ```java
   /**
    * 센서 데이터를 소비하고 처리하는 서비스 클래스
-   * Kafka에서 메시지를 배치로 수신하여 데이터베이스에 저장하고 이상 징후를 모니터링
-   */
+  * Kafka에서 메시지를 배치로 수신하여 데이터베이스에 저장하고 이상 징후를 모니터링
+  */
   @Service 
   @Slf4j
   @RequiredArgsConstructor 
@@ -952,7 +970,8 @@ graph TB
   - 리소스 사용: CPU/메모리 사용률, 디스크 I/O
 
 ### 알림 규칙
-- `rules/kafka_alerts.yml` 설정
+- `rules/kafka_alerts.yml` 설정   
+  
   ```yaml
   groups:
     - name: kafka_system_alerts # 브로커 및 시스템 상태 모니터링
@@ -964,7 +983,7 @@ graph TB
             severity: critical
           annotations:
             summary: "Kafka 브로커 다운"
-            description: "브로커 {{ $labels.instance }}가 응답하지 않습니다"
+            description: "브로커 {% raw %}{{ $labels.instance }}{% endraw %}가 응답하지 않습니다"
             
         - alert: KafkaUnderReplicatedPartitions
           expr: kafka_server_replicamanager_underreplicated_partitions > 0
@@ -973,7 +992,7 @@ graph TB
             severity: warning
           annotations:
             summary: "복제 파티션 부족"
-            description: "브로커 {{ $labels.instance }}에 복제가 부족한 파티션이 있습니다"
+            description: "브로커 {% raw %}{{ $labels.instance }}{% endraw %}에 복제가 부족한 파티션이 있습니다"
             
         - alert: KafkaHighCPU
           expr: rate(process_cpu_seconds_total[5m]) > 0.8
@@ -982,7 +1001,7 @@ graph TB
             severity: warning
           annotations:
             summary: "높은 CPU 사용률"
-            description: "인스턴스 {{ $labels.instance }}의 CPU 사용률이 80%를 초과했습니다"
+            description: "인스턴스 {% raw %}{{ $labels.instance }}{% endraw %}의 CPU 사용률이 80%를 초과했습니다"
 
     - name: kafka_consumer_alerts # 컨슈머 그룹별 처리 지연 모니터링
       rules:
@@ -1035,7 +1054,7 @@ graph TB
 ## 테스트 및 운영
 
 ### 성능 테스트
-- `KafkaLoadTest.java` - 부하 테스트
+- `KafkaLoadTest.java` - 부하 테스트  
   ```java
   @SpringBootTest
   public class KafkaLoadTest {
