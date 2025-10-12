@@ -36,6 +36,38 @@
 
   {% include favicons.html %}
 
+  <!-- Mermaid -->
+  {% if page.mermaid %}
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        mermaid.initialize({
+          startOnLoad: true,
+          theme: 'neutral',
+          securityLevel: 'loose',
+          flowchart: {
+            curve: 'basis',
+            padding: 15,
+            nodeSpacing: 30,
+            rankSpacing: 50,
+            htmlLabels: true
+          }
+        });
+
+        // Mermaid 다이어그램 렌더링 후 스타일 적용
+        setTimeout(function() {
+          document.querySelectorAll('.mermaid').forEach(function(element) {
+            element.style.background = '#f8f9fa';
+            element.style.padding = '15px';
+            element.style.borderRadius = '8px';
+            element.style.marginTop = '10px';
+            element.style.marginBottom = '20px';
+          });
+        }, 1000);
+      });
+    </script>
+  {% endif %}
+
   {% if site.resources.ignore_env != jekyll.environment and site.resources.self_hosted %}
 
     <link href="{{ site.data.assets[origin].webfonts | relative_url }}" rel="stylesheet">

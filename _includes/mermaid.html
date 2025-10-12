@@ -6,60 +6,55 @@
 
 <script>
   $(function() {
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'default',
-      flowchart: {
-        htmlLabels: true,
-        curve: 'basis'
-      },
-      securityLevel: 'loose'
-    });
+    let theme = $("html[data-mode=dark]").length > 0 || 
+                ($("html[data-mode]").length == 0 && 
+                 window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "default";
 
-        /* Re-render the SVG › <https://github.com/mermaid-js/mermaid/issues/311#issuecomment-332557344> */
-        $(".mermaid").each(function() {
-          let svgCode = $(this).prev().children().html();
-          $(this).removeAttr("data-processed");
-          $(this).html(svgCode);
-        });
-
-        mermaid.initialize(config);
-        mermaid.init(undefined, ".mermaid");
-      }
-    }
-
-    let initTheme = "default";
-
-    if ($("html[data-mode=dark]").length > 0
-      || ($("html[data-mode]").length == 0
-        && window.matchMedia("(prefers-color-scheme: dark)").matches ) ) {
-      initTheme = "dark";
-    }
-
-    let mermaidConf = {
-      theme: initTheme,  /* <default|dark|forest|neutral> */
+    let config = {
+      theme: theme,
       startOnLoad: true,
       securityLevel: 'loose',
       flowchart: {
         useMaxWidth: true,
         htmlLabels: true,
-        curve: 'basis'
+        curve: 'basis',
+        fontFamily: 'Arial, sans-serif'
       },
       sequence: {
         useMaxWidth: true,
         showSequenceNumbers: true
+      },
+      themeVariables: {
+        fontFamily: 'Arial, sans-serif',
+        fontSize: '16px',
+        primaryColor: '#326ce5',
+        primaryTextColor: '#fff',
+        primaryBorderColor: '#285eb4',
+        lineColor: '#285eb4',
+        secondaryColor: '#f9f9f9',
+        tertiaryColor: '#fff'
       }
     };
 
-    /* Markdown converts to HTML */
+    mermaid.initialize(config);
+
+    /* Convert Markdown to HTML */
     $("pre").has("code.language-mermaid").each(function() {
       let svgCode = $(this).children().html();
       $(this).addClass("unloaded");
-      $(this).after(`<div class=\"mermaid\">${svgCode}</div>`);
+      $(this).after(`<div class="mermaid">${svgCode}</div>`);
     });
 
-    mermaid.initialize(mermaidConf);
+    /* Re-render when needed */
+    $(".mermaid").each(function() {
+      if ($(this).prev().children().length > 0) {
+        let svgCode = $(this).prev().children().html();
+        $(this).removeAttr("data-processed");
+        $(this).html(svgCode);
+      }
+    });
 
-    window.addEventListener("message", updateMermaid);
+    /* Initialize mermaid with config */
+    mermaid.init(undefined, ".mermaid");
   });
 </script>

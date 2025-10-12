@@ -62,17 +62,13 @@ mermaid: true
   - 모니터링: Prometheus, Grafana
 
 ### 시스템 아키텍처
+
 ```mermaid
 graph TB
-    %% 데이터 생산자 정의
-    P1["Producer 1<br>정상: 1000/s<br>피크: 2000/s"]
-    P2["Producer 2<br>정상: 1000/s<br>피크: 2000/s"]
-    P3["Producer 3<br>정상: 1000/s<br>피크: 2000/s"]
-
-    %% 데이터 흐름
-    P1-->|"160B 데이터<br>40B 헤더"|T1
-    P2-->|"160B 데이터<br>40B 헤더"|T1
-    P3-->|"160B 데이터<br>40B 헤더"|T2 
+    subgraph "데이터 생산"
+        P1[Producer 1\n정상: 1000/s\n피크: 2000/s] -->|160B 데이터\n40B 헤더| T1
+        P2[Producer 2\n정상: 1000/s\n피크: 2000/s] -->|160B 데이터\n40B 헤더| T1
+        P3[Producer 3\n정상: 1000/s\n피크: 2000/s] -->|160B 데이터\n40B 헤더| T2
         
         subgraph "Spring Boot 프로듀서"
             P1
@@ -1016,9 +1012,9 @@ graph TB
             summary: "실시간 처리 지연 발생"
             description: |
               실시간 처리 그룹에서 처리 지연이 발생했습니다.
-              - 컨슈머 그룹: {{ $labels.group }}
-              - 토픽: {{ $labels.topic }}
-              - 현재 Lag: {{ $value | printf "%.0f" }}건
+              - 컨슈머 그룹: {% raw %}{{ $labels.group }}{% endraw %}
+              - 토픽: {% raw %}{{ $labels.topic }}{% endraw %}
+              - 현재 Lag: {% raw %}{{ $value | printf "%.0f" }}{% endraw %}건
               
         # DB 저장 그룹 (일반 처리)
         - alert: KafkaDatabaseProcessorLag
@@ -1031,9 +1027,9 @@ graph TB
             summary: "DB 저장 처리 지연 발생"
             description: |
               DB 저장 그룹에서 처리 지연이 발생했습니다.
-              - 컨슈머 그룹: {{ $labels.group }}
-              - 토픽: {{ $labels.topic }}
-              - 현재 Lag: {{ $value | printf "%.0f" }}건
+              - 컨슈머 그룹: {% raw %}{{ $labels.group }}{% endraw %}
+              - 토픽: {% raw %}{{ $labels.topic }}{% endraw %}
+              - 현재 Lag: {% raw %}{{ $value | printf "%.0f" }}{% endraw %}건
               
         # 분석 처리 그룹 (배치 처리)
         - alert: KafkaAnalyticsProcessorLag
@@ -1046,9 +1042,9 @@ graph TB
             summary: "분석 처리 지연 발생"
             description: |
               분석 처리 그룹에서 배치 처리 지연이 발생했습니다.
-              - 컨슈머 그룹: {{ $labels.group }}
-              - 토픽: {{ $labels.topic }}
-              - 현재 Lag: {{ $value | printf "%.0f" }}건
+              - 컨슈머 그룹: {% raw %}{{ $labels.group }}{% endraw %}
+              - 토픽: {% raw %}{{ $labels.topic }}{% endraw %}
+              - 현재 Lag: {% raw %}{{ $value | printf "%.0f" }}{% endraw %}건
   ```
 
 ## 테스트 및 운영
