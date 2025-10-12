@@ -1,60 +1,18 @@
-<!--
-  mermaid-js loader
--->
-
-<script src="{{ site.data.assets[origin].mermaid.js }}"></script>
-
+<!-- Mermaid.js loader -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
-  $(function() {
-    let theme = $("html[data-mode=dark]").length > 0 || 
-                ($("html[data-mode]").length == 0 && 
-                 window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "default";
-
-    let config = {
-      theme: theme,
+  document.addEventListener('DOMContentLoaded', function() {
+    mermaid.initialize({
       startOnLoad: true,
+      theme: 'default',
       securityLevel: 'loose',
+      maxTextSize: 90000,
       flowchart: {
-        useMaxWidth: true,
         htmlLabels: true,
-        curve: 'basis',
-        fontFamily: 'Arial, sans-serif'
-      },
-      sequence: {
         useMaxWidth: true,
-        showSequenceNumbers: true
-      },
-      themeVariables: {
-        fontFamily: 'Arial, sans-serif',
-        fontSize: '16px',
-        primaryColor: '#326ce5',
-        primaryTextColor: '#fff',
-        primaryBorderColor: '#285eb4',
-        lineColor: '#285eb4',
-        secondaryColor: '#f9f9f9',
-        tertiaryColor: '#fff'
-      }
-    };
-
-    mermaid.initialize(config);
-
-    /* Convert Markdown to HTML */
-    $("pre").has("code.language-mermaid").each(function() {
-      let svgCode = $(this).children().html();
-      $(this).addClass("unloaded");
-      $(this).after(`<div class="mermaid">${svgCode}</div>`);
-    });
-
-    /* Re-render when needed */
-    $(".mermaid").each(function() {
-      if ($(this).prev().children().length > 0) {
-        let svgCode = $(this).prev().children().html();
-        $(this).removeAttr("data-processed");
-        $(this).html(svgCode);
+        curve: 'cardinal',
+        padding: 8
       }
     });
-
-    /* Initialize mermaid with config */
-    mermaid.init(undefined, ".mermaid");
   });
 </script>
