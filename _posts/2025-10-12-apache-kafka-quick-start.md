@@ -7,7 +7,7 @@ date: 2025-10-12 09:00:00 +0900
 category:
   - [Messaging, Kafka]
 tags:
-  - [kafka, apache, monitoring]
+  - [kafka, apache, monitoring, spring boot]
 math: false
 mermaid: true
 ---
