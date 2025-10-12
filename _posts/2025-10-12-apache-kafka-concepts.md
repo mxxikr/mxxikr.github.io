@@ -31,12 +31,12 @@ mermaid: true
 ### 메시지 전달 구성 요소
 - 카프카를 우체국에 비유하면 다음과 같음
 
-    ```mermaid
+    <div class="mermaid">
     graph LR
         A[편지 작성자<br>Producer] -->|편지 전송| B[우체국<br>Kafka Broker]
         B -->|편지 분류| C[우편함<br>Topic]
         C -->|편지 수령| D[수령인<br>Consumer]
-    ```
+    </div>
 
 - **Producer(생산자)**
   - 편지를 쓰는 사람
@@ -69,7 +69,7 @@ mermaid: true
   - 커밋된 오프셋을 통해 처리 진행상황 파악
   - 장애 발생 시 마지막 커밋 오프셋부터 재시작
 
-```mermaid
+<div class="mermaid">
 sequenceDiagram
     participant C as Consumer
     participant K as Kafka
@@ -88,13 +88,13 @@ sequenceDiagram
     C->>K: 오프셋 5부터 메시지 요청
     K->>C: 오프셋 5 이후 메시지 전달
     Note over C,K: 장애 지점부터 재시작
-```
+</div>
 
 ### 전체 아키텍처
 
 - Kafka의 전체 구조를 이해하면 데이터가 어떻게 흐르는지 파악할 수 있음
 
-    ```mermaid
+    <div class="mermaid">
     graph TB
         subgraph Producers[데이터 생산자들]
             P1[웹서버]
@@ -125,7 +125,7 @@ sequenceDiagram
         P1 & P2 & P3 --> Brokers
         Brokers <--> Topics
         Topics --> C1 & C2 & C3
-    ```
+    </div>
 
 ### 주요 특징
 
@@ -148,12 +148,12 @@ sequenceDiagram
 
 - 데이터를 만들어서 Kafka로 보내는 프로그램
 
-    ```mermaid
+    <div class="mermaid">
     graph LR
         A[웹서버] -->|주문 데이터| B[카프카]
         C[모바일앱] -->|로그 데이터| B
         D[센서] -->|측정 데이터| B
-    ```
+    </div>
 
 - ex)
     - 쇼핑몰의 주문 처리 시스템
@@ -164,12 +164,12 @@ sequenceDiagram
 
 - Kafka에서 데이터를 가져와서 처리하는 프로그램
 
-```mermaid
-graph LR
-    A[카프카] -->|주문 데이터| B[결제 시스템]
-    A -->|로그 데이터| C[분석 시스템]
-    A -->|측정 데이터| D[모니터링]
-```
+    <div class="mermaid">
+    graph LR
+        A[카프카] -->|주문 데이터| B[결제 시스템]
+        A -->|로그 데이터| C[분석 시스템]
+        A -->|측정 데이터| D[모니터링]
+    </div>
 
 - ex)
     - 주문 데이터를 받아서 배송 처리하는 시스템
@@ -181,18 +181,18 @@ graph LR
 - Kafka 서버를 브로커라고 부름
 - 데이터를 저장하고 관리하는 창고와 같음
 
-```mermaid
-graph TB
-    subgraph 카프카_클러스터
-        B1[브로커1<br>주 서버]
-        B2[브로커2<br>백업 서버1]
-        B3[브로커3<br>백업 서버2]
-        
-        B1 <--> B2
-        B2 <--> B3
-        B3 <--> B1
-    end
-```
+    <div class="mermaid">
+    graph TB
+        subgraph 카프카_클러스터
+            B1[브로커1<br>주 서버]
+            B2[브로커2<br>백업 서버1]
+            B3[브로커3<br>백업 서버2]
+            
+            B1 <--> B2
+            B2 <--> B3
+            B3 <--> B1
+        end
+    </div>
 
 - 특징
     - 여러 서버가 협력하여 작동 (마치 여러 지점을 가진 은행처럼)
@@ -204,22 +204,22 @@ graph TB
 - 토픽은 같은 종류의 메시지를 모아두는 공간임
 - 도서관의 서가나 우체국의 우편함과 비슷함
 
-```mermaid
-graph TB
-    subgraph 토픽들
-        T1[주문 토픽]
-        T2[로그 토픽]
-        T3[알림 토픽]
-    end
-    
-    P1[주문 시스템] --> T1
-    P2[앱/웹서버] --> T2
-    P3[알림 서버] --> T3
-    
-    T1 --> C1[결제 처리]
-    T2 --> C2[로그 분석]
-    T3 --> C3[푸시 발송]
-```
+<div class="mermaid">
+    graph TB
+        subgraph 토픽들
+            T1[주문 토픽]
+            T2[로그 토픽]
+            T3[알림 토픽]
+        end
+        
+        P1[주문 시스템] --> T1
+        P2[앱/웹서버] --> T2
+        P3[알림 서버] --> T3
+        
+        T1 --> C1[결제 처리]
+        T2 --> C2[로그 분석]
+        T3 --> C3[푸시 발송]
+    </div>
 
 - ex)
     - 주문 토픽: 모든 주문 관련 데이터 저장
@@ -231,14 +231,14 @@ graph TB
 - 각 토픽은 여러 개의 파티션으로 나뉘어 저장됨
 - 하나의 큰 책을 여러 장으로 나누어 보관하는 것과 같음
 
-```mermaid
-graph LR
-    subgraph 주문_토픽
-        P1[파티션1<br>주문 1-1000]
-        P2[파티션2<br>주문 1001-2000]
-        P3[파티션3<br>주문 2001-3000]
-    end
-```
+    <div class="mermaid">
+    graph LR
+        subgraph 주문_토픽
+            P1[파티션1<br>주문 1-1000]
+            P2[파티션2<br>주문 1001-2000]
+            P3[파티션3<br>주문 2001-3000]
+        end
+    </div>
 
 - 장점
     - 대량의 데이터를 나눠서 처리 가능
@@ -249,7 +249,7 @@ graph LR
 
 ### 메시지가 전달되는 과정
 
-```mermaid
+<div class="mermaid">
 sequenceDiagram
     participant P as 생산자(Producer)
     participant B as 브로커(Broker)
@@ -261,7 +261,7 @@ sequenceDiagram
     C->>+B: 4. 메시지 요청
     B->>-C: 5. 메시지 전달
     Note over C: 6. 메시지 처리
-```
+</div>
 - ex)
     1. 사용자가 온라인 쇼핑몰에서 주문 버튼 클릭
     2. 주문 시스템(Producer)이 주문 데이터를 Kafka로 전송
@@ -271,7 +271,7 @@ sequenceDiagram
 
 ### 데이터 처리 방식
 
-```mermaid
+<div class="mermaid">
 graph TB
     subgraph 데이터_저장소
         T1[토픽 1]
@@ -291,7 +291,7 @@ graph TB
     
     T1 & T2 & T3 --> C1 & C2
     T1 & T2 & T3 --> C3 & C4
-```
+</div>
 
 
 - **병렬 처리**
@@ -448,7 +448,7 @@ graph TB
      - 소비자는 HW까지의 메시지만 읽을 수 있음
      - 리더 변경 시에도 HW 이후 메시지는 롤백되어 데이터 일관성 유지
    
-    ```mermaid
+    <div class="mermaid">
     graph LR
         A[리더] -->|복제| B[ISR 팔로워1]
         A -->|복제| C[ISR 팔로워2]
@@ -458,7 +458,7 @@ graph TB
             E[커밋된 메시지<br>HW까지]
             F[언커밋 메시지<br>HW 이후]
         end
-    ```
+    </div>
 
 ## 운영 관리
 
@@ -693,7 +693,7 @@ graph TB
         }
         ```
 
-```mermaid
+<div class="mermaid">
 sequenceDiagram
     participant C1 as Consumer1
     participant C2 as Consumer2
@@ -714,7 +714,7 @@ sequenceDiagram
     GC->>C3: 새로운 파티션 할당
     
     Note over C1,C3: 파티션 재분배 완료
-```
+</div>
 
 - **파티션 배치 전략**
    - 리더 파티션 분산  
