@@ -395,21 +395,21 @@ graph TB
      - 모든 복제본이 메시지 수신 확인 시 성공
      - 가장 안전하지만 속도는 느림
 
-   ```java
-   // 프로듀서 설정
-   Properties props = new Properties();
-   
-   // 빠른 처리 속도 우선
-   props.put("acks", "0");
-   
-   // 안정성과 속도의 균형
-   props.put("acks", "1");
-   
-   // 데이터 안정성 우선
-   props.put("acks", "all");
-   
-   KafkaProducer<String, String> producer = new KafkaProducer<>(props);
-   ```
+    ```java
+    // 프로듀서 설정
+    Properties props = new Properties();
+
+    // 빠른 처리 속도 우선
+    props.put("acks", "0");
+
+    // 안정성과 속도의 균형
+    props.put("acks", "1");
+
+    // 데이터 안정성 우선
+    props.put("acks", "all");
+
+    KafkaProducer<String, String> producer = new KafkaProducer<>(props);
+    ```
 
 - **복제 설정**
    - `replication.factor`
@@ -421,17 +421,17 @@ graph TB
      - 이 수보다 적으면 쓰기 거부
      - 데이터 안정성 보장을 위한 중요 설정
 
-   ```bash
-   # 토픽 생성 시 복제 설정
-   kafka-topics.sh --create \               # 토픽 생성 명령
-     --bootstrap-server localhost:9092 \    # Kafka 브로커 주소
-     --topic my-topic \                     # 생성할 토픽 이름
-     --partitions 3 \                       # 파티션 수 (병렬 처리 단위)
-     --replication-factor 3                 # 복제본 수 (데이터 안정성)
+    ```bash
+    # 토픽 생성 시 복제 설정
+    kafka-topics.sh --create \               # 토픽 생성 명령
+        --bootstrap-server localhost:9092 \    # Kafka 브로커 주소
+        --topic my-topic \                     # 생성할 토픽 이름
+        --partitions 3 \                       # 파티션 수 (병렬 처리 단위)
+        --replication-factor 3                 # 복제본 수 (데이터 안정성)
 
-   # 브로커 설정 파일에서 최소 동기화 복제본 설정
-   min.insync.replicas=2
-   ```
+    # 브로커 설정 파일에서 최소 동기화 복제본 설정
+    min.insync.replicas=2
+    ```
 
 - **데이터 정합성 보장**
    - ISR(In-Sync Replicas)
@@ -448,17 +448,17 @@ graph TB
      - 소비자는 HW까지의 메시지만 읽을 수 있음
      - 리더 변경 시에도 HW 이후 메시지는 롤백되어 데이터 일관성 유지
    
-   ```mermaid
-   graph LR
-       A[리더] -->|복제| B[ISR 팔로워1]
-       A -->|복제| C[ISR 팔로워2]
-       A -->|복제 지연| D[비ISR 팔로워]
-       
-       subgraph 메시지_상태
-           E[커밋된 메시지<br>HW까지]
-           F[언커밋 메시지<br>HW 이후]
-       end
-   ```
+    ```mermaid
+    graph LR
+        A[리더] -->|복제| B[ISR 팔로워1]
+        A -->|복제| C[ISR 팔로워2]
+        A -->|복제 지연| D[비ISR 팔로워]
+        
+        subgraph 메시지_상태
+            E[커밋된 메시지<br>HW까지]
+            F[언커밋 메시지<br>HW 이후]
+        end
+    ```
 
 ## 운영 관리
 
@@ -486,22 +486,22 @@ graph TB
      - 영향도: 메모리 사용량 ↑, 동시성 ↑
      - 실제 사례: 고성능 환경에서 5로 설정 시 최적의 처리량 달성
 
-   ```java
-   // 프로듀서 성능 최적화 설정
-   Properties props = new Properties();
-   
-   // 처리량 우선 설정
-   props.put("batch.size", 262144);         // 256KB
-   props.put("linger.ms", 100);             // 100ms
-   props.put("compression.type", "snappy");  // 압축 활성화
-   
-   // 안정성 우선 설정
-   props.put("max.in.flight.requests.per.connection", 3);
-   props.put("retries", 3);
-   props.put("acks", "all");
-   
-   KafkaProducer<String, String> producer = new KafkaProducer<>(props);
-   ```
+    ```java
+    // 프로듀서 성능 최적화 설정
+    Properties props = new Properties();
+
+    // 처리량 우선 설정
+    props.put("batch.size", 262144);         // 256KB
+    props.put("linger.ms", 100);             // 100ms
+    props.put("compression.type", "snappy");  // 압축 활성화
+
+    // 안정성 우선 설정
+    props.put("max.in.flight.requests.per.connection", 3);
+    props.put("retries", 3);
+    props.put("acks", "all");
+
+    KafkaProducer<String, String> producer = new KafkaProducer<>(props);
+    ```
 
 - **컨슈머 성능 설정**
    - `fetch.min.bytes`
@@ -522,22 +522,22 @@ graph TB
      - 권장값: session.timeout.ms의 1/3
      - 영향도: 네트워크 트래픽 ↑, 리밸런싱 감지 속도 ↑
 
-   ```java
-   // 컨슈머 성능 최적화 설정
-   Properties props = new Properties();
-   
-   // 대용량 처리 설정
-   props.put("fetch.min.bytes", 65536);      // 64KB
-   props.put("max.poll.records", 500);
-   props.put("fetch.max.bytes", 52428800);   // 50MB
-   
-   // 안정성 설정
-   props.put("session.timeout.ms", 45000);   // 45초
-   props.put("heartbeat.interval.ms", 15000); // 15초
-   props.put("enable.auto.commit", "false");  // 수동 커밋
-   
-   KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-   ```
+    ```java
+    // 컨슈머 성능 최적화 설정
+    Properties props = new Properties();
+
+    // 대용량 처리 설정
+    props.put("fetch.min.bytes", 65536);      // 64KB
+    props.put("max.poll.records", 500);
+    props.put("fetch.max.bytes", 52428800);   // 50MB
+
+    // 안정성 설정
+    props.put("session.timeout.ms", 45000);   // 45초
+    props.put("heartbeat.interval.ms", 15000); // 15초
+    props.put("enable.auto.commit", "false");  // 수동 커밋
+
+    KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
+    ```
 
 - **브로커 성능 설정**
    - `num.io.threads`
@@ -594,100 +594,104 @@ graph TB
         - 동일 키의 메시지는 같은 파티션에 할당되어 순서 보장
    
    - 파티션 수 산정 공식
-     ```
-     필요 파티션 수 = MAX(
-         처리량 기준: (예상 최대 처리량 * (1 + 성장률)) / (단일 파티션 처리량 * 0.7),
-         컨슈머 기준: 목표 최대 컨슈머 수 * 2,
-         보관 기준: (일일 데이터량 * 보관일수 * (1 + 성장률)) / (단일 파티션 최대 크기 * 0.7)
-     )
-     ```
-     - 성장률
-        - 예상 연간 데이터 증가율 (예: 0.3 = 30%)
-     - 단일 파티션 처리량
-        - 보통 10MB/s
-     - 단일 파티션 최대 크기
-        - 권장 25GB
-     - 0.7
-        - 안전율 (70% 활용도 기준)
+    ```
+    필요 파티션 수 = MAX(
+        처리량 기준: (예상 최대 처리량 * (1 + 성장률)) / (단일 파티션 처리량 * 0.7),
+        컨슈머 기준: 목표 최대 컨슈머 수 * 2,
+        보관 기준: (일일 데이터량 * 보관일수 * (1 + 성장률)) / (단일 파티션 최대 크기 * 0.7)
+    )
+    ```
+    - 성장률
+    - 예상 연간 데이터 증가율 (예: 0.3 = 30%)
+    - 단일 파티션 처리량
+    - 보통 10MB/s
+    - 단일 파티션 최대 크기
+    - 권장 25GB
+    - 0.7
+    - 안전율 (70% 활용도 기준)
    - 파티션 수 조정 시 고려사항
-     - 파티션 수는 감소시킬 수 없음
-     - 파티션당 최소 50MB/일 데이터량 권장
-     - 브로커당 4000-6000개 파티션 제한
-     - 파티션 수와 메모리 사용량은 비례
-     - 단일 파티션 최대 크기는 리더 선출 시간에 영향을 미침
+    - 파티션 수는 감소시킬 수 없음
+    - 파티션당 최소 50MB/일 데이터량 권장
+    - 브로커당 4000-6000개 파티션 제한
+    - 파티션 수와 메모리 사용량은 비례
+    - 단일 파티션 최대 크기는 리더 선출 시간에 영향을 미침
 
    - 파티션 확장 전략
-     ```bash
-     # 토픽의 파티션 수 증가
-     kafka-topics.sh --bootstrap-server localhost:9092 \
-                    --alter \
-                    --topic my-topic \
-                    --partitions 6
+    ```bash
+    # 토픽의 파티션 수 증가
+    kafka-topics.sh --bootstrap-server localhost:9092 \
+                --alter \
+                --topic my-topic \
+                --partitions 6
 
-     # 파티션 재할당 계획 생성
-     cat > reassign.json << EOF
-     {
-       "version": 1,
-       "partitions": [
-         {"topic": "my-topic", "partition": 0, "replicas": [0,1,2]},
-         {"topic": "my-topic", "partition": 1, "replicas": [1,2,3]}
-       ]
-     }
-     EOF
+    # 파티션 재할당 계획 생성
+    cat > reassign.json << EOF
+    {
+    "version": 1,
+    "partitions": [
+        {"topic": "my-topic", "partition": 0, "replicas": [0,1,2]},
+        {"topic": "my-topic", "partition": 1, "replicas": [1,2,3]}
+    ]
+    }
+    EOF
 
-     # 파티션 재할당 실행
-     kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
-                                 --reassignment-json-file reassign.json \
-                                 --execute
-     ```
+    # 파티션 재할당 실행
+    kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
+                                --reassignment-json-file reassign.json \
+                                --execute
+    ```
 
    - 리밸런싱 전략
-     - RoundRobinAssignor (권장 기본 전략)
-       ```java
-       // 컨슈머 설정
-       props.put("partition.assignment.strategy", 
-                "org.apache.kafka.clients.consumer.RoundRobinAssignor");
-       ```
+     - RoundRobinAssignor (권장 기본 전략)  
+
+        ```java
+        // 컨슈머 설정
+        props.put("partition.assignment.strategy", 
+                    "org.apache.kafka.clients.consumer.RoundRobinAssignor");
+        ```
        - 파티션을 컨슈머에 균등하게 분배
        - 더 나은 부하 분산 효과
        - 확장성이 우수함
      
-     - Cooperative Rebalancing (점진적 리밸런싱)
-       ```java
-       // 컨슈머 설정
-       props.put("partition.assignment.strategy", 
-                "org.apache.kafka.clients.consumer.CooperativeStickyAssignor");
-       ```
+     - Cooperative Rebalancing (점진적 리밸런싱)  
+
+        ```java
+        // 컨슈머 설정
+        props.put("partition.assignment.strategy", 
+                    "org.apache.kafka.clients.consumer.CooperativeStickyAssignor");
+        ```
        - 리밸런싱 중에도 파티션 소비 가능
        - 서비스 중단 최소화
        - 대규모 클러스터에 적합
      
-     - StickyAssignor (특수 케이스)
-       ```java
-       // 컨슈머 설정
-       props.put("partition.assignment.strategy", 
-                "org.apache.kafka.clients.consumer.StickyAssignor");
-       ```
+     - StickyAssignor (특수 케이스)  
+     ㄴ
+        ```java
+        // 컨슈머 설정
+        props.put("partition.assignment.strategy", 
+                    "org.apache.kafka.clients.consumer.StickyAssignor");
+        ```
        - 리밸런싱 시 기존 할당 유지 최대화
        - 불필요한 파티션 재할당 최소화
        - 캐시 효율성 향상
 
-     - 커스텀 할당 전략
-       ```java
-       // 사용자 정의 파티션 할당 전략
-       public class CustomAssignor implements ConsumerPartitionAssignor {
-           @Override
-           public Map<String, List<TopicPartition>> assign(Map<String, Integer> partitionsPerTopic, 
-                                                         Map<String, Subscription> subscriptions) {
-               // 커스텀 로직 구현
-           }
+     - 커스텀 할당 전략  
 
-           @Override
-           public void onAssignment(Assignment assignment, ConsumerGroupMetadata metadata) {
-               // 할당 후 처리 로직
-           }
-       }
-       ```
+        ```java
+        // 사용자 정의 파티션 할당 전략
+        public class CustomAssignor implements ConsumerPartitionAssignor {
+            @Override
+            public Map<String, List<TopicPartition>> assign(Map<String, Integer> partitionsPerTopic, 
+                                                            Map<String, Subscription> subscriptions) {
+                // 커스텀 로직 구현
+            }
+
+            @Override
+            public void onAssignment(Assignment assignment, ConsumerGroupMetadata metadata) {
+                // 할당 후 처리 로직
+            }
+        }
+        ```
 
 ```mermaid
 sequenceDiagram
@@ -713,41 +717,44 @@ sequenceDiagram
 ```
 
 - **파티션 배치 전략**
-   - 리더 파티션 분산
-     ```properties
-     # 브로커 설정 (server.properties)
-     
-     # 데이터 무손실을 위한 필수 설정
-     min.insync.replicas=2                    # 최소 동기화 복제본 수
-     unclean.leader.election.enable=false     # 데이터 일관성 우선
-     
-     # 자동 리더 재균형 설정
-     auto.leader.rebalance.enable=true
-     leader.imbalance.per.broker.percentage=20
-     leader.imbalance.check.interval.seconds=300
-     ```
+   - 리더 파티션 분산  
 
-   - 리플리케이션 배치
-     ```properties
-     # 랙 인식 배치 설정
-     broker.rack=rack1  # 브로커1의 랙 정보
-     
-     # 복제본 배치 제한
-     replica.selector.class=org.apache.kafka.common.replica.RackAwareReplicaSelector
-     ```
+    ```properties
+    # 브로커 설정 (server.properties)
+    
+    # 데이터 무손실을 위한 필수 설정
+    min.insync.replicas=2                    # 최소 동기화 복제본 수
+    unclean.leader.election.enable=false     # 데이터 일관성 우선
+    
+    # 자동 리더 재균형 설정
+    auto.leader.rebalance.enable=true
+    leader.imbalance.per.broker.percentage=20
+    leader.imbalance.check.interval.seconds=300
+    ```
 
-   - 파티션 리더십 관리
-     ```bash
-     # 선호 리더 선출 실행
-     kafka-leader-election.sh --bootstrap-server localhost:9092 \
-                            --topic my-topic \
-                            --partition 1 \
-                            --election-type PREFERRED
-     
-     # 리더십 상태 확인
-     kafka-topics.sh --bootstrap-server localhost:9092 \
-                    --describe --topic my-topic
-     ```
+   - 리플리케이션 배치  
+
+    ```properties
+    # 랙 인식 배치 설정
+    broker.rack=rack1  # 브로커1의 랙 정보
+    
+    # 복제본 배치 제한
+    replica.selector.class=org.apache.kafka.common.replica.RackAwareReplicaSelector
+    ```
+
+   - 파티션 리더십 관리  
+
+    ```bash
+    # 선호 리더 선출 실행
+    kafka-leader-election.sh --bootstrap-server localhost:9092 \
+                        --topic my-topic \
+                        --partition 1 \
+                        --election-type PREFERRED
+    
+    # 리더십 상태 확인
+    kafka-topics.sh --bootstrap-server localhost:9092 \
+                --describe --topic my-topic
+    ```
    
    - 고가용성을 위한 배치 규칙
      - 브로커 간 균등 분배
@@ -756,48 +763,50 @@ sequenceDiagram
 
 - **스케일링 방안**
    - 수직적 확장 (Scale Up)
-     - 하드웨어 리소스 증설
-       ```properties
-       # 메모리 설정
-       # 브로커당 4GB가 표준적인 설정
-       heap.opts=-Xms4g -Xmx4g  # JVM 힙 크기
-       
-       # GC 설정
-       KAFKA_JVM_PERFORMANCE_OPTS="-server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+ExplicitGCInvokesConcurrent -XX:G1HeapRegionSize=16M"
-       
-       # 디스크 설정
-       log.dirs=/data/kafka-logs-1,/data/kafka-logs-2  # 다중 디스크 사용
-       
-       # 네트워크 설정
-       socket.send.buffer.bytes=10485760    # 소켓 버퍼 크기 증가
-       socket.receive.buffer.bytes=10485760
-       ```
+     - 하드웨어 리소스 증설  
 
-   - 수평적 확장 (Scale Out)
-     ```bash
-     # 새 브로커 추가를 위한 단계별 프로세스
-     
-     # 1. 새 브로커 설정
-     broker.id=4
-     zookeeper.connect=zk1:2181,zk2:2181,zk3:2181
-     
-     # 2. 파티션 재분배 계획 생성
-     cat > expand-cluster-reassignment.json << EOF
-     {
-       "version": 1,
-       "partitions": [
-         {"topic": "my-topic", "partition": 0, "replicas": [1,2,4]},
-         {"topic": "my-topic", "partition": 1, "replicas": [2,3,4]},
-         {"topic": "my-topic", "partition": 2, "replicas": [3,4,1]}
-       ]
-     }
-     EOF
-     
-     # 3. 재분배 실행 및 모니터링
-     kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
-                                 --reassignment-json-file expand-cluster-reassignment.json \
-                                 --execute
-     ```
+        ```properties
+        # 메모리 설정
+        # 브로커당 4GB가 표준적인 설정
+        heap.opts=-Xms4g -Xmx4g  # JVM 힙 크기
+        
+        # GC 설정
+        KAFKA_JVM_PERFORMANCE_OPTS="-server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+ExplicitGCInvokesConcurrent -XX:G1HeapRegionSize=16M"
+        
+        # 디스크 설정
+        log.dirs=/data/kafka-logs-1,/data/kafka-logs-2  # 다중 디스크 사용
+        
+        # 네트워크 설정
+        socket.send.buffer.bytes=10485760    # 소켓 버퍼 크기 증가
+        socket.receive.buffer.bytes=10485760
+        ```
+
+   - 수평적 확장 (Scale Out)  
+
+    ```bash
+    # 새 브로커 추가를 위한 단계별 프로세스
+    
+    # 1. 새 브로커 설정
+    broker.id=4
+    zookeeper.connect=zk1:2181,zk2:2181,zk3:2181
+    
+    # 2. 파티션 재분배 계획 생성
+    cat > expand-cluster-reassignment.json << EOF
+    {
+    "version": 1,
+    "partitions": [
+        {"topic": "my-topic", "partition": 0, "replicas": [1,2,4]},
+        {"topic": "my-topic", "partition": 1, "replicas": [2,3,4]},
+        {"topic": "my-topic", "partition": 2, "replicas": [3,4,1]}
+    ]
+    }
+    EOF
+    
+    # 3. 재분배 실행 및 모니터링
+    kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
+                                --reassignment-json-file expand-cluster-reassignment.json \
+                                --execute
+    ```
 
    - 클러스터 조정 전략
      - 단계적 확장 프로세스
@@ -806,41 +815,43 @@ sequenceDiagram
           - 예상 성장률 계산 (6-12개월)
           - 필요 리소스 산정 (N+2 여유도 확보)
 
-       2. 브로커 확장 준비
-          ```properties
-          # 신규 브로커 설정 (server.properties)
-          broker.id=4
-          zookeeper.connect=zk1:2181,zk2:2181,zk3:2181
-          log.dirs=/kafka/broker-4/logs
-          listeners=PLAINTEXT://broker4:9092
-          # 랙 인식 설정
-          broker.rack=rack2
-          ```
+       2. 브로커 확장 준비  
 
-       3. 데이터 재분배 수행
-          ```bash
-          # 재분배 계획 생성
-          cat > reassign.json << EOF
-          {
-            "version": 1,
-            "partitions": [
-              {"topic": "my-topic", "partition": 0, "replicas": [1,2,4]},
-              {"topic": "my-topic", "partition": 1, "replicas": [2,3,4]},
-              {"topic": "my-topic", "partition": 2, "replicas": [3,4,1]}
-            ]
-          }
-          EOF
-          
-          # 재분배 실행 및 모니터링
-          kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
-                                      --reassignment-json-file reassign.json \
-                                      --execute --throttle 50000000  # 50MB/s 제한
+        ```properties
+        # 신규 브로커 설정 (server.properties)
+        broker.id=4
+        zookeeper.connect=zk1:2181,zk2:2181,zk3:2181
+        log.dirs=/kafka/broker-4/logs
+        listeners=PLAINTEXT://broker4:9092
+        # 랙 인식 설정
+        broker.rack=rack2
+        ```
 
-          # 재분배 진행 상태 확인
-          kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
-                                      --reassignment-json-file reassign.json \
-                                      --verify
-          ```
+       3. 데이터 재분배 수행  
+
+        ```bash
+        # 재분배 계획 생성
+        cat > reassign.json << EOF
+        {
+        "version": 1,
+        "partitions": [
+            {"topic": "my-topic", "partition": 0, "replicas": [1,2,4]},
+            {"topic": "my-topic", "partition": 1, "replicas": [2,3,4]},
+            {"topic": "my-topic", "partition": 2, "replicas": [3,4,1]}
+        ]
+        }
+        EOF
+        
+        # 재분배 실행 및 모니터링
+        kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
+                                    --reassignment-json-file reassign.json \
+                                    --execute --throttle 50000000  # 50MB/s 제한
+
+        # 재분배 진행 상태 확인
+        kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
+                                    --reassignment-json-file reassign.json \
+                                    --verify
+        ```
 
        4. 성능 모니터링
           - 브로커 레벨 메트릭
@@ -860,37 +871,39 @@ sequenceDiagram
           - 제거할 브로커의 파티션 목록 확인
           - 데이터 마이그레이션 계획 수립
           - 리소스 여유도 검증
+        
+       2. 데이터 마이그레이션  
+
+        ```bash
+        # 제거할 브로커의 파티션 이동 계획
+        cat > remove-broker.json << EOF
+        {
+        "topics": [
+            {"topic": "my-topic"}
+        ],
+        "version": 1
+        }
+        EOF
+        
+        # 파티션 재할당 계획 생성
+        kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
+                                    --generate \
+                                    --topics-to-move-json-file remove-broker.json \
+                                    --broker-list "1,2,3"
+        ```
        
-       2. 데이터 마이그레이션
-          ```bash
-          # 제거할 브로커의 파티션 이동 계획
-          cat > remove-broker.json << EOF
-          {
-            "topics": [
-              {"topic": "my-topic"}
-            ],
-            "version": 1
-          }
-          EOF
-          
-          # 파티션 재할당 계획 생성
-          kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
-                                      --generate \
-                                      --topics-to-move-json-file remove-broker.json \
-                                      --broker-list "1,2,3"
-          ```
-       
-       3. 단계적 종료
-          ```bash
-          # 리더십 이전 (Preferred Replica Election)
-          kafka-preferred-replica-election.sh --bootstrap-server localhost:9092
-          
-          # 브로커 상태 확인
-          kafka-broker-api-versions.sh --bootstrap-server localhost:9092
-          
-          # 브로커 종료 전 마지막 점검
-          kafka-topics.sh --bootstrap-server localhost:9092 --describe
-          ```
+       3. 단계적 종료  
+
+        ```bash
+        # 리더십 이전 (Preferred Replica Election)
+        kafka-preferred-replica-election.sh --bootstrap-server localhost:9092
+        
+        # 브로커 상태 확인
+        kafka-broker-api-versions.sh --bootstrap-server localhost:9092
+        
+        # 브로커 종료 전 마지막 점검
+        kafka-topics.sh --bootstrap-server localhost:9092 --describe
+        ```
      
      - 모니터링 및 경보 설정
        1. 핵심 메트릭
@@ -933,41 +946,43 @@ sequenceDiagram
      - 메모리 사용량: 중간
      - 압축률과 성능 균형이 필요한 경우
 
-- **압축 설정**
-   ```java
-   // 프로듀서 압축 설정 예시
-   Properties props = new Properties();
-   
-   // 메시지 압축 알고리즘 선택
-   props.put("compression.type", "snappy");  // gzip, snappy, lz4, zstd
-   
-   // 압축 전 최소 메시지 크기 (바이트)
-   // 이 크기보다 작은 메시지는 압축하지 않음
-   props.put("compression.min.bytes", "1024");
-   
-   // zstd 압축 레벨 설정 (1-22, 기본값: 3)
-   // 높을수록 압축률은 높아지지만 CPU 사용량 증가
-   props.put("compression.level", "3");
-   
-   // 배치 크기를 증가시켜 압축 효율 향상
-   props.put("batch.size", "131072");  // 128KB
-   
-   KafkaProducer<String, String> producer = new KafkaProducer<>(props);
-   ```
+- **압축 설정**  
 
-- **브로커 압축 설정**
-   ```properties
-   # 브로커 압축 설정 (server.properties)
-   
-   # 로그 세그먼트 압축 정책
-   log.compression.type=producer  # producer(기본값), uncompressed, lz4, snappy, gzip, zstd
-   
-   # 압축 관련 스레드 풀 크기
-   compression.threads=4
-   
-   # 압축된 로그 세그먼트 최대 크기
-   max.compressed.log.segment.bytes=536870912  # 512MB
-   ```
+    ```java
+    // 프로듀서 압축 설정 예시
+    Properties props = new Properties();
+
+    // 메시지 압축 알고리즘 선택
+    props.put("compression.type", "snappy");  // gzip, snappy, lz4, zstd
+
+    // 압축 전 최소 메시지 크기 (바이트)
+    // 이 크기보다 작은 메시지는 압축하지 않음
+    props.put("compression.min.bytes", "1024");
+
+    // zstd 압축 레벨 설정 (1-22, 기본값: 3)
+    // 높을수록 압축률은 높아지지만 CPU 사용량 증가
+    props.put("compression.level", "3");
+
+    // 배치 크기를 증가시켜 압축 효율 향상
+    props.put("batch.size", "131072");  // 128KB
+
+    KafkaProducer<String, String> producer = new KafkaProducer<>(props);
+    ```
+
+- **브로커 압축 설정**  
+
+    ```properties
+    # 브로커 압축 설정 (server.properties)
+
+    # 로그 세그먼트 압축 정책
+    log.compression.type=producer  # producer(기본값), uncompressed, lz4, snappy, gzip, zstd
+
+    # 압축 관련 스레드 풀 크기
+    compression.threads=4
+
+    # 압축된 로그 세그먼트 최대 크기
+    max.compressed.log.segment.bytes=536870912  # 512MB
+    ```
 
 - **성능 고려사항**
    - 네트워크 대역폭 영향
@@ -1001,27 +1016,30 @@ sequenceDiagram
 ### 메시지 보관
 
 - **보관 정책 상세**
-   - 시간 기반 정책
-     ```properties
-     # 토픽별 보관 기간 설정
-     retention.ms=604800000        # 7일
-     retention.ms=86400000         # 1일
-     retention.ms=3600000          # 1시간
-     ```
+   - 시간 기반 정책  
+
+    ```properties
+    # 토픽별 보관 기간 설정
+    retention.ms=604800000        # 7일
+    retention.ms=86400000         # 1일
+    retention.ms=3600000          # 1시간
+    ```
    
-   - 크기 기반 정책
-     ```properties
-     # 토픽별 최대 크기 설정
-     retention.bytes=1073741824    # 1GB
-     retention.bytes=5368709120    # 5GB
-     ```
+   - 크기 기반 정책  
+
+    ```properties
+    # 토픽별 최대 크기 설정
+    retention.bytes=1073741824    # 1GB
+    retention.bytes=5368709120    # 5GB
+    ```
    
-   - 혼합 정책 예시
-     ```properties
-     # 두 조건 중 하나라도 충족 시 삭제
-     retention.ms=604800000        # 7일
-     retention.bytes=1073741824    # 1GB
-     ```
+   - 혼합 정책 예시  
+
+    ```properties
+    # 두 조건 중 하나라도 충족 시 삭제
+    retention.ms=604800000        # 7일
+    retention.bytes=1073741824    # 1GB
+    ```
 
 - **정책 유형별 특징**
    - `Delete`
@@ -1032,28 +1050,30 @@ sequenceDiagram
    - `Compact`
      - 키별로 최신 메시지만 유지
      - 상태 기반 처리에 적합
-     - 디스크 사용량 최적화
-     ```properties
-     # 압축 정책 설정
-     cleanup.policy=compact
+     - 디스크 사용량 최적화  
      
-     # 압축 주기 설정 (밀리초)
-     min.cleanable.dirty.ratio=0.5
-     delete.retention.ms=86400000
-     ```
+    ```properties
+    # 압축 정책 설정
+    cleanup.policy=compact
+    
+    # 압축 주기 설정 (밀리초)
+    min.cleanable.dirty.ratio=0.5
+    delete.retention.ms=86400000
+    ```
 
-- **고급 보관 설정**
-   ```properties
-   # 세그먼트 관리
-   segment.bytes=1073741824        # 세그먼트 크기
-   segment.ms=604800000           # 세그먼트 롤링 주기
-   
-   # 인덱스 관리
-   segment.index.bytes=10485760   # 인덱스 크기
-   
-   # 정리 스케줄링
-   log.cleanup.interval.ms=300000  # 정리 검사 주기
-   ```
+- **고급 보관 설정**  
+
+    ```properties
+    # 세그먼트 관리
+    segment.bytes=1073741824        # 세그먼트 크기
+    segment.ms=604800000           # 세그먼트 롤링 주기
+
+    # 인덱스 관리
+    segment.index.bytes=10485760   # 인덱스 크기
+
+    # 정리 스케줄링
+    log.cleanup.interval.ms=300000  # 정리 검사 주기
+    ```
 
 
 ### 모니터링 지표
@@ -1121,25 +1141,26 @@ sequenceDiagram
      - `NetworkOutboundRate`: 네트워크 송신률
      - `DiskUtilization`: 디스크 사용률
 
-- **알림 설정 권장값**
-   ```properties
-   # 브로커 알림 임계값
-   under_replicated_partitions.threshold=0
-   request_queue_size.threshold=100
-   page_cache_hit_ratio.min=0.8
-   log_flush_latency.max=500
+- **알림 설정 권장값**  
 
-   # 컨슈머 알림 임계값
-   consumer_lag.max=10000
-   consumer_lag_minutes.max=30
-   fetch_latency.max=1000
+    ```properties
+    # 브로커 알림 임계값
+    under_replicated_partitions.threshold=0
+    request_queue_size.threshold=100
+    page_cache_hit_ratio.min=0.8
+    log_flush_latency.max=500
 
-   # 시스템 알림 임계값
-   cpu_utilization.max=0.85
-   heap_memory_usage.max=0.8
-   disk_usage.max=0.85
-   gc_time.max=100
-   ```
+    # 컨슈머 알림 임계값
+    consumer_lag.max=10000
+    consumer_lag_minutes.max=30
+    fetch_latency.max=1000
+
+    # 시스템 알림 임계값
+    cpu_utilization.max=0.85
+    heap_memory_usage.max=0.8
+    disk_usage.max=0.85
+    gc_time.max=100
+    ```
 
 ### 커밋과 오프셋 관리
 
@@ -1164,33 +1185,33 @@ sequenceDiagram
      - `commitAsync()`: 비동기식 커밋
        - 성능은 좋지만 실패 시 재시도 없음
 
-   ```java
-   // 자동 커밋 설정
-   Properties autoCommitProps = new Properties();
-   autoCommitProps.put("enable.auto.commit", "true");
-   autoCommitProps.put("auto.commit.interval.ms", "5000");
-   
-   // 수동 커밋 예시
-   Properties manualCommitProps = new Properties();
-   manualCommitProps.put("enable.auto.commit", "false");
-   KafkaConsumer<String, String> consumer = new KafkaConsumer<>(manualCommitProps);
-   
-   // 동기식 커밋
-   try {
-       ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
-       processRecords(records); // 레코드 처리
-       consumer.commitSync(); // 동기식 커밋
-   } catch (Exception e) {
-       // 에러 처리
-   }
-   
-   // 비동기식 커밋
-   consumer.commitAsync((offsets, exception) -> {
-       if (exception != null) {
-           System.err.println("Commit failed for offsets: " + offsets);
-       }
-   });
-   ```
+    ```java
+    // 자동 커밋 설정
+    Properties autoCommitProps = new Properties();
+    autoCommitProps.put("enable.auto.commit", "true");
+    autoCommitProps.put("auto.commit.interval.ms", "5000");
+
+    // 수동 커밋 예시
+    Properties manualCommitProps = new Properties();
+    manualCommitProps.put("enable.auto.commit", "false");
+    KafkaConsumer<String, String> consumer = new KafkaConsumer<>(manualCommitProps);
+
+    // 동기식 커밋
+    try {
+        ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
+        processRecords(records); // 레코드 처리
+        consumer.commitSync(); // 동기식 커밋
+    } catch (Exception e) {
+        // 에러 처리
+    }
+
+    // 비동기식 커밋
+    consumer.commitAsync((offsets, exception) -> {
+        if (exception != null) {
+            System.err.println("Commit failed for offsets: " + offsets);
+        }
+    });
+    ```
    - 커밋 정책
      - `at-most-once`: 메시지 유실 가능성
      - `at-least-once`: 중복 처리 가능성
