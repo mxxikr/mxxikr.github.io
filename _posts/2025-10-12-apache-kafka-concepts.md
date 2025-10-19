@@ -1234,10 +1234,11 @@ sequenceDiagram
         }
     });
     ```
-   - 커밋 정책
-     - `at-most-once`: 메시지 유실 가능성
-     - `at-least-once`: 중복 처리 가능성
+   - 처리 시맨틱
+     - `at-most-once`: 메시지 유실 가능성, 자동 커밋 사용 시 해당
+     - `at-least-once`: 중복 처리 가능성, 수동 커밋 사용 시 일반적인 방식
      - `exactly-once`: 정확히 한 번 처리 보장
+        - 트랜잭션과 멱등성 프로듀를 함께 사용하여 달성하는 엔드투엔드 처리 보장 방식
 
 - **오프셋 리셋**
    - `auto.offset.reset` 설정
