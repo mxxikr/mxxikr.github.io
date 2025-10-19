@@ -5,7 +5,7 @@ author:
   link: https://github.com/mxxikr
 date: 2025-10-19 09:00:00 +0900
 category:
-  - [Data Science, Analysis]
+  - [Data Science, Data Analysis]
 tags:
   - [data, colab, python, 시각화]
 math: false
