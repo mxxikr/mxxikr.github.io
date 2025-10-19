@@ -32,7 +32,7 @@ mermaid: true
 - 카프카를 우체국에 비유하면 다음과 같음
 
     {% raw %}
-    <div class="mermaid">
+    <div class="mermaid" markdown="0">
     graph TD
         A[편지 작성자<br>Producer] -->|편지 전송| B[우체국<br>Kafka Broker]
         B -->|편지 분류| C[우편함<br>Topic]
@@ -72,7 +72,7 @@ mermaid: true
   - 장애 발생 시 마지막 커밋 오프셋부터 재시작
 
 {% raw %}
-<div class="mermaid">
+<div class="mermaid" markdown="0">
 sequenceDiagram
     participant C as Consumer
     participant K as Kafka
@@ -99,7 +99,7 @@ sequenceDiagram
 - Kafka의 전체 구조를 이해하면 데이터가 어떻게 흐르는지 파악할 수 있음
 
     {% raw %}
-    <div class="mermaid">
+    <div class="mermaid" markdown="0">
     graph TB
         subgraph Producers[데이터 생산자들]
             P1[웹서버]
@@ -155,7 +155,7 @@ sequenceDiagram
 - 데이터를 만들어서 Kafka로 보내는 프로그램
 
     {% raw %}
-    <div class="mermaid">
+    <div class="mermaid" markdown="0">
     graph LR
         A[웹서버] -->|주문 데이터| B[카프카]
         C[모바일앱] -->|로그 데이터| B
@@ -173,7 +173,7 @@ sequenceDiagram
 - Kafka에서 데이터를 가져와서 처리하는 프로그램
 
     {% raw %}
-    <div class="mermaid">
+    <div class="mermaid" markdown="0">
     graph LR
         A[카프카] -->|주문 데이터| B[결제 시스템]
         A -->|로그 데이터| C[분석 시스템]
@@ -192,7 +192,7 @@ sequenceDiagram
 - 데이터를 저장하고 관리하는 창고와 같음
 
     {% raw %}
-    <div class="mermaid">
+    <div class="mermaid" markdown="0">
     graph TB
         subgraph 카프카_클러스터
             B1[브로커1<br>주 서버]
@@ -217,7 +217,7 @@ sequenceDiagram
 - 도서관의 서가나 우체국의 우편함과 비슷함
 
 {% raw %}
-<div class="mermaid">
+<div class="mermaid" markdown="0">
     graph TB
         subgraph 토픽들
             T1[주문 토픽]
@@ -232,7 +232,7 @@ sequenceDiagram
         T1 --> C1[결제 처리]
         T2 --> C2[로그 분석]
         T3 --> C3[푸시 발송]
-    </div>
+</div>
 {% endraw %}
 
 - ex)
@@ -246,7 +246,7 @@ sequenceDiagram
 - 하나의 큰 책을 여러 장으로 나누어 보관하는 것과 같음
 
     {% raw %}
-    <div class="mermaid">
+    <div class="mermaid" markdown="0">
     graph LR
         subgraph 주문_토픽
             P1[파티션1<br>주문 1-1000]
@@ -266,7 +266,7 @@ sequenceDiagram
 ### 메시지가 전달되는 과정
 
 {% raw %}
-<div class="mermaid">
+<div class="mermaid" markdown="0">
 sequenceDiagram
     participant P as 생산자(Producer)
     participant B as 브로커(Broker)
@@ -290,7 +290,7 @@ sequenceDiagram
 ### 데이터 처리 방식
 
 {% raw %}
-<div class="mermaid">
+<div class="mermaid" markdown="0">
 graph TB
     subgraph 데이터_저장소
         T1[토픽 1]
@@ -469,7 +469,7 @@ graph TB
      - 리더 변경 시에도 HW 이후 메시지는 롤백되어 데이터 일관성 유지
    
     {% raw %}
-    <div class="mermaid">
+    <div class="mermaid" markdown="0">
     graph LR
         A[리더] -->|복제| B[ISR 팔로워1]
         A -->|복제| C[ISR 팔로워2]
@@ -715,7 +715,7 @@ graph TB
         }
         ```
 
-<div class="mermaid">
+<div class="mermaid" markdown="0">
 sequenceDiagram
     participant C1 as Consumer1
     participant C2 as Consumer2
