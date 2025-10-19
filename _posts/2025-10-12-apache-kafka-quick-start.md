@@ -64,7 +64,7 @@ mermaid: true
 ### 시스템 아키텍처
 
 {% raw %}
-<div class="mermaid">
+<div class="mermaid" markdown="0">
 graph TB
     subgraph "데이터 생산"
         P1[Producer 1\n정상: 1000/s\n피크: 2000/s] -->|160B 데이터\n40B 헤더| T1
@@ -128,6 +128,7 @@ graph TB
         end
     end
 </div>
+{% endraw %}
 
 ### 상세 아키텍처 설계
 
