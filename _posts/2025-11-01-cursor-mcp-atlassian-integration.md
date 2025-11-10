@@ -142,23 +142,23 @@ docker --version
 
 ### 환경 변수 설정
 
-= 실제 값으로 다음 항목들을 교체해야 함
+- 실제 값으로 다음 항목들을 교체해야 함
 
-- `JIRA_URL`
-  - Jira 인스턴스 URL
-  - ex) `https://yourcompany.atlassian.net`
-- `JIRA_USERNAME`
-  - Jira 로그인에 사용하는 이메일 주소
-  - ex) `mxxikr@example.com`
-- `JIRA_API_TOKEN`
-  - 앞서 생성한 API 토큰
-- `CONFLUENCE_URL`
-  - Confluence 인스턴스 URL
-  - 보통 Jira URL과 동일함
-- `CONFLUENCE_USERNAME`
-  - Confluence 로그인에 사용하는 이메일 주소
-- `CONFLUENCE_API_TOKEN`
-  - Confluence API 토큰 (Jira와 동일한 토큰 사용 가능)
+    - `JIRA_URL`
+    - Jira 인스턴스 URL
+    - ex) `https://yourcompany.atlassian.net`
+    - `JIRA_USERNAME`
+    - Jira 로그인에 사용하는 이메일 주소
+    - ex) `mxxikr@example.com`
+    - `JIRA_API_TOKEN`
+    - 앞서 생성한 API 토큰
+    - `CONFLUENCE_URL`
+    - Confluence 인스턴스 URL
+    - 보통 Jira URL과 동일함
+    - `CONFLUENCE_USERNAME`
+    - Confluence 로그인에 사용하는 이메일 주소
+    - `CONFLUENCE_API_TOKEN`
+    - Confluence API 토큰 (Jira와 동일한 토큰 사용 가능)
 
 ## Docker 이미지 준비
 
