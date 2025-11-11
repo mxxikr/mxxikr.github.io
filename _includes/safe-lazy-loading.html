@@ -72,8 +72,11 @@
 <!-- Lazy Loading Styles -->
 <style>
 img[data-src] {
-  opacity: 0;
+  /* 이미지가 로드되기 전에도 보이도록 opacity 1로 설정 */
+  opacity: 1;
   transition: opacity 0.3s ease-in-out;
+  /* 로딩 중 배경색 표시 */
+  background: #f5f5f5;
 }
 
 img.loaded {
@@ -90,7 +93,7 @@ img.error {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
+  from { opacity: 0.8; }
   to { opacity: 1; }
 }
 
