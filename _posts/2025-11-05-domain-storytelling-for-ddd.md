@@ -14,6 +14,8 @@ mermaid: true
 
 ## 개요
 
+> 이 포스팅은 DDD 시리즈의 첫 번째 글입니다. **도메인 스토리텔링(DST)이란? → [도메인 주도 설계(DDD)란?](https://mxxikr.github.io/posts/domain-driven-design-introduction/) → [DDD와 마이크로서비스 아키텍처](https://mxxikr.github.io/posts/ddd-and-microservices/)** 순서로 읽는 것을 권장합니다.
+
 - 최근 팀이 더 나은 설계를 위해 도메인 주도 설계(DDD) 도입을 결정하고 R&D를 진행함
 - DDD 이론을 학습하면서 유비쿼터스 언어, 바운디드 컨텍스트 같은 개념은 이해했지만 막상 "우리 비즈니스의 경계는 어디인가?"라는 질문 앞에서 막막함을 느낌
 - 구체적인 비즈니스 프로세스를 시각화해서 모두가 같은 그림을 보고 이야기할 필요가 있다고 판단
@@ -28,7 +30,7 @@ mermaid: true
 
 ### DDD와의 관계
 
-- 도메인 주도 설계(DDD)를 도입할 때 가장 어려운 점은 "우리 비즈니스의 경계는 어디인가?"라는 추상적인 질문에 답하는 것
+- 도메인 주도 설계(DDD)를 도입할 때 가장 어려운 점은 "비즈니스의 경계는 어디인가?"라는 추상적인 질문에 답하는 것
 - DST는 구체적인 업무 시나리오를 그려내는 과정에서 자연스럽게 다음을 발견하게 함
   - **유비쿼터스 언어(Ubiquitous Language)**
     - 스토리에서 사용된 액터, 작업 객체, 활동의 이름
@@ -40,36 +42,35 @@ mermaid: true
 
 - 아래 픽토그램은 Egon.io와 오프라인 워크숍 모두에서 공통으로 사용하는 시각 언어
 
-![image](/assets/img/dst/image.png)
+![image](/assets/img/design/dst/image.png)
 
 - **액터(Actor)**
   - 업무를 수행하는 주체 (사람, 조직, 시스템)
   - 사람 형태 아이콘 사용
   - 색상으로 책임 영역 구분 가능
-  - ![image](/assets/img/dst/actor.svg)
+  - ![image](/assets/img/design/dst/actor.svg)
 - **작업 객체(Work Object)**
   - 액터가 생성/사용하는 대상 (문서, 데이터, 물건)
   - 사각형 카드 형태
   - CRUD 작업의 대상
-  - ![image](/assets/img/dst/workobject.svg)
+  - ![image](/assets/img/design/dst/workobject.svg)
 - **활동(Activity)**
   - 액터가 수행하는 동작 (동사)
   - 화살표로 표현
   - 동사형으로 간결하게 작성
-  - ![image](/assets/img/dst/activity.svg)
+  - ![image](/assets/img/design/dst/activity.svg)
 - **순번(Sequence Number)**
   - 활동의 발생 순서 (1), (2), ...
   - 스토리의 시간 흐름 표현
-  - ![image](/assets/img/dst/actor.svg)
 - **주석(Annotation)**
   - 비즈니스 규칙, 제약 조건, 질문
   - 중요한 규칙 기록
   - 미해결 항목을 백로그로 관리
-  - ![image](/assets/img/dst/annotation.svg)
+  - ![image](/assets/img/design/dst/annotation.svg)
 - **그룹/경계(Group/Boundary)**
   - 동일 책임 영역의 시각적 묶음
   - 바운디드 컨텍스트 후보 식별
-  - ![image](/assets/img/dst/group.svg)
+  - ![image](/assets/img/design/dst/group.svg)
 
 ## DST 워크숍 진행 방법
 
@@ -119,13 +120,6 @@ mermaid: true
   - 이 그룹들이 바운디드 컨텍스트의 후보
   - 스토리에서 사용된 용어들을 유비쿼터스 언어로 정리
 
-## 시작하기
-
-- DST는 특별한 도구 없이도 화이트보드 하나로 시작 가능
-- 가장 중요한 것은 도메인 전문가와 개발자가 함께 모여 구체적인 이야기를 나누는 것
-- 작은 시나리오 하나부터 시작해 점진적으로 확장
-- [Egon.io](https://egon.io)에서 무료로 연습해볼 수 있음
-
 ## 예시 시나리오 - 온라인 강의 플랫폼 수강 신청 흐름
 
 - 온라인 강의 플랫폼의 수강 신청부터 수료증 발급까지의 전체 프로세스를 DST로 모델링
@@ -138,7 +132,7 @@ mermaid: true
 - (3) 수강생 액터가 `강의`를 `수강 바구니`에 담음
 - (4) 수강생 액터가 `수강 바구니`에서 `수강 신청서`를 작성함
 
-  ![image](/assets/img/dst/image1.png)
+  ![image](/assets/img/design/dst/image1.png)
 
   - 수강생 1명이 순차적으로 4가지 활동을 수행
   - 모든 활동이 수강생 액터에서 시작하여 각 작업 객체로 연결
@@ -149,7 +143,7 @@ mermaid: true
 - (5) 수강생 액터가 `수강 신청서`를 결제 시스템에 전송함
 - (6) 결제 시스템 액터가 `결제 완료 정보`를 수강 관리 시스템에 전달함
 
-  ![image](/assets/img/dst/image2.png)
+  ![image](/assets/img/design/dst/image2.png)
 
   - 수강생, 결제시스템, 수강관리시스템 3개 액터가 등장
   - 수강신청서가 결제시스템으로 전달되고, 결제완료정보가 수강관리시스템으로 전달되는 흐름
@@ -162,7 +156,7 @@ mermaid: true
 - (7) 수강 관리 시스템 액터가 `확정 수강` 정보를 바탕으로 `수강권`을 생성함
 - (8) 수강 관리 담당자 액터가 `수강권`을 수강생에게 발급함
 
-  ![image](/assets/img/dst/image3.png)
+  ![image](/assets/img/design/dst/image3.png)
 
   - 수강관리시스템과 수강관리담당자가 각각 독립적인 활동 수행
   - "확정수강"이라는 유비쿼터스 언어가 작업 객체로 등장
@@ -176,7 +170,7 @@ mermaid: true
 - (11) 수강생 액터가 `강의 영상`을 시청함
 - (12) 강의 제공 시스템 액터가 `학습 진도`를 업데이트함
 
-  ![image](/assets/img/dst/image4.png)
+  ![image](/assets/img/design/dst/image4.png)
 
   - 3개 독립적인 활동 흐름으로 구성
   - (9) → (10): 수강권정보 전달 및 학습진도 초기화
@@ -191,7 +185,7 @@ mermaid: true
 - (15) 수강 관리 담당자 액터가 `수료증`을 발급함
 - (16) 수강생 액터가 `수료증`을 다운로드함
 
-  ![image](/assets/img/dst/image5.png)
+  ![image](/assets/img/design/dst/image5.png)
 
   - 3단계 구조로 수료 프로세스 표현
   - (13) → (14): 신청 및 검증 (시스템이 학습진도와 수료조건 2가지 확인)
@@ -204,7 +198,7 @@ mermaid: true
 - 위 5개 영역을 하나의 다이어그램으로 통합한 전체 플로우
 - 수강 신청부터 수료증 다운로드까지의 완전한 흐름을 한눈에 확인 가능
 
-  ![image](/assets/img/dst/domain_storytelling_full.svg)
+  ![image](/assets/img/design/dst/domain_storytelling_full.svg)
 
   - 16개 순차적 활동으로 전체 프로세스 표현
   - 5개 영역(수강생 → 결제 → 수강권 발급 → 강의 제공 → 수료 처리)의 자연스러운 연결
@@ -234,35 +228,21 @@ mermaid: true
 ### 바운디드 컨텍스트 후보
 
 - 도메인 스토리를 그리는 과정에서 자연스럽게 3개의 컨텍스트 경계가 드러남
-- 각 컨텍스트는 서로 다른 핵심 책임과 액터, 작업 객체를 가짐
+- 각 컨텍스트는 서로 다른 핵심 책임을 가짐
 
 - **수강 관리 컨텍스트**
-  - 핵심 책임
-    - 수강 신청, 결제, 수강권 발급
-  - 주요 액터
-    - 수강생, 수강 관리 담당자, 결제 시스템
-  - 작업 객체
-    - 수강 신청서, 결제 완료 정보, 확정 수강, 수강권
-  - 특징
-    - 수강생의 등록과 권한 관리에 집중
+  - 수강 신청, 결제, 수강권 발급 담당
+  - 수강생의 등록과 권한 관리에 집중
+  
 - **강의 제공 컨텍스트**
-  - 핵심 책임
-    - 강의 시청, 학습 진도 관리, 수료증 발급
-  - 주요 액터
-    - 수강생, 강의 제공 시스템
-  - 작업 객체
-    - 수강권 정보, 학습 진도, 강의 영상, 수료 조건, 수료증
-  - 특징
-    - 실제 학습 활동과 진도 추적에 집중
+  - 강의 시청, 학습 진도 관리, 수료증 발급 담당
+  - 실제 학습 활동과 진도 추적에 집중
+  
 - **결제 컨텍스트**
-  - 핵심 책임
-    - 결제 처리
-  - 주요 액터
-    - 결제 시스템
-  - 작업 객체
-    - 수강 신청서, 결제 완료 정보
-  - 특징
-    - 외부 시스템으로 독립적인 영역
+  - 결제 처리 담당
+  - 외부 시스템으로 독립적인 영역
+
+> 이 컨텍스트들을 DDD 전략적/전술적 설계로 구체화하는 방법은 [도메인 주도 설계(DDD)란?](https://mxxikr.github.io/posts/domain-driven-design-introduction/)의 '온라인 강의 플랫폼 설계 예시' 섹션을 참고하세요.
 
 ### 컨텍스트 간 상호작용
 
@@ -299,4 +279,4 @@ mermaid: true
 
 - [Domain Storytelling 공식 사이트](https://domainstorytelling.org/)
 - [Egon.io - DST 온라인 도구](https://egon.io)
-- Stefan Hofer, Henning Schwentner. (2021). *Domain Storytelling: A Collaborative Modeling Method*
+- Stefan Hofer, Henning Schwentner. (2021). Domain Storytelling: A Collaborative Modeling Method
