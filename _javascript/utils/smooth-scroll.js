@@ -1,15 +1,7 @@
-/*
-  Safari doesn't support CSS `scroll-behavior: smooth`,
-  so here is a compatible solution for all browser to smooth scrolling
-
-  See: <https://css-tricks.com/snippets/jquery/smooth-scrolling/>
-
-  Warning: It must be called after all `<a>` tags (e.g., the dynamic TOC) are ready.
-*/
 
 $(function() {
   const $topbarTitle = $("#topbar-title");
-  const REM = 16; // in pixels
+  const REM = 16;
   const ATTR_SCROLL_FOCUS = "scroll-focus";
 
   $("a[href*='#']")
