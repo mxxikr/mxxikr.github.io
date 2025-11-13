@@ -1114,35 +1114,76 @@ $sidebar-display: "sidebar-display";
   @include ml-mr(0);
 }
 
-/* --- button back-to-top --- */
+/* --- Navigation Buttons - 항상 표시 --- */
 
+#go-to-bottom,
 #back-to-top {
-  $size: 2.7em;
-
-  display: none;
-  z-index: 1;
-  cursor: pointer;
-  position: fixed;
-  background: var(--button-bg);
-  color : var(--btn-backtotop-color);
-  padding: 0;
-  width: $size;
-  height: $size;
-  border-radius: 50%;
-  border: 1px solid var(--btn-backtotop-border-color);
-  transition: transform 0.2s ease-out;
-  -webkit-transition: transform 0.2s ease-out;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: fixed !important;
+  width: 50px !important;
+  height: 50px !important;
+  background: var(--button-bg) !important;
+  color: var(--btn-backtotop-color) !important;
+  border: 1px solid var(--btn-backtotop-border-color) !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: all 0.3s ease !important;
+  box-sizing: border-box !important;
+  pointer-events: auto !important;
+  transform: none !important;
 
   i {
-    line-height: $size;
-    position: relative;
-    bottom: 2px;
+    font-size: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }
 
-#back-to-top:hover {
-  transform: translate3d(0, -5px, 0);
-  -webkit-transform: translate3d(0, -5px, 0);
+/* 모든 미디어 쿼리와 상태에서 강제 표시 */
+#go-to-bottom {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#back-to-top {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#go-to-bottom {
+  bottom: 150px !important;
+  left: 40px !important;
+  z-index: 10000 !important;
+
+  &:hover {
+    transform: translateY(3px) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+  }
+}
+
+#back-to-top {
+  bottom: 90px !important;
+  left: 40px !important;
+  z-index: 9999 !important;
+
+  &:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+  }
 }
 
 #notification {
@@ -1200,6 +1241,21 @@ $sidebar-display: "sidebar-display";
 */
 
 @media all and (max-width: 576px) {
+  /* 작은 모바일 화면에서 버튼 크기 조정 */
+  #go-to-bottom {
+    width: 45px !important;
+    height: 45px !important;
+    bottom: 140px !important;
+    left: 35px !important;
+  }
+
+  #back-to-top {
+    width: 45px !important;
+    height: 45px !important;
+    bottom: 85px !important;
+    left: 35px !important;
+  }
+
   footer {
     height: $footer-height-mobile;
 
@@ -1271,6 +1327,7 @@ $sidebar-display: "sidebar-display";
       transition: $basic;
     }
   }
+
 
   html,
   body {
@@ -1404,11 +1461,6 @@ $sidebar-display: "sidebar-display";
     min-width: 70%;
   }
 
-  /* button 'back-to-Top' position */
-  #back-to-top {
-    bottom: 5.5rem;
-    right: 5%;
-  }
 
   #topbar {
     @include pl-pr(0);
@@ -1501,10 +1553,6 @@ $sidebar-display: "sidebar-display";
 /* --- desktop mode, both sidebar and panel are visible --- */
 
 @media all and (min-width: 1200px) {
-  #back-to-top {
-    bottom: 6.5rem;
-  }
-
   #search-wrapper {
     margin-right: 0;
   }
@@ -1542,9 +1590,6 @@ $sidebar-display: "sidebar-display";
 }
 
 @media all and (min-width: 1400px) {
-  #back-to-top {
-    right: calc((100vw - #{$sidebar-width} - 1140px) / 2 + 3rem);
-  }
 }
 
 @media all and (min-width: 1650px) {
@@ -1570,9 +1615,6 @@ $sidebar-display: "sidebar-display";
     padding-right: 4.5rem !important;
   }
 
-  #back-to-top {
-    right: calc((100vw - #{$sidebar-width-large} - #{$main-content-max-width}) / 2 + 2rem);
-  }
 
   #sidebar {
     width: $sidebar-width-large;
@@ -1695,3 +1737,56 @@ $sidebar-display: "sidebar-display";
   } /* #sidebar */
 
 } /* min-width: 1650px */
+
+/* === 네비게이션 버튼 최종 강제 표시 규칙 === */
+#go-to-bottom,
+#back-to-top {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: fixed !important;
+  z-index: 999999 !important;
+}
+
+/* 모든 상황에서 버튼 표시 보장 */
+body #go-to-bottom,
+body #back-to-top,
+html #go-to-bottom,
+html #back-to-top,
+* #go-to-bottom,
+* #back-to-top {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* 스크롤 위치와 관계없이 항상 표시 */
+@media screen {
+  #go-to-bottom,
+  #back-to-top {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* 모든 가능한 선택자로 강제 표시 */
+#go-to-bottom[style],
+#back-to-top[style] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* 테마의 기존 스타일 무력화 */
+#go-to-bottom.hide,
+#back-to-top.hide,
+#go-to-bottom.d-none,
+#back-to-top.d-none,
+#go-to-bottom[hidden],
+#back-to-top[hidden] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}

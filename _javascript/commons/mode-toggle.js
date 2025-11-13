@@ -1,6 +1,3 @@
-/*
- * Listener for theme mode toggle
- */
 $(function() {
   $(".mode-toggle").click((e) => {
     const $target = $(e.target);
