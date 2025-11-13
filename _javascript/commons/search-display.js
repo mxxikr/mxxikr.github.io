@@ -1,6 +1,3 @@
-/*
-* This script make #search-result-wrapper switch to unloaded or shown automatically.
-*/
 
 $(function() {
   const btnSbTrigger = $("#sidebar-trigger");
