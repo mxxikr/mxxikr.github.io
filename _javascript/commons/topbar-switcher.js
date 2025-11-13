@@ -1,6 +1,3 @@
-/*
- * Hide Header on scroll down
- */
 
 $(function() {
   const $searchInput = $("#search-input");

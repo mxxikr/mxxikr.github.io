@@ -1,12 +1,9 @@
-/**
- * A tool for smooth scrolling and topbar switcher
- */
 const ScrollHelper = (function () {
   const $body = $("body");
   const ATTR_TOPBAR_VISIBLE = "data-topbar-visible";
   const topbarHeight = $("#topbar-wrapper").outerHeight();
 
-  let scrollUpCount = 0; // the number of times the scroll up was triggered by ToC or anchor
+  let scrollUpCount = 0;
   let topbarLocked = false;
   let orientationLocked = false;
 

@@ -1,6 +1,3 @@
-/**
- * Expand or close the sidebar in mobile screens.
- */
 
 $(function() {
 

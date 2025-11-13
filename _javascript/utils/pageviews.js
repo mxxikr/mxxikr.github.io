@@ -1,10 +1,3 @@
-/*
- * Count page views form GA or local cache file.
- *
- * Dependencies:
- *   - jQuery
- *   - countUp.js <https://github.com/inorganik/countUp.js>
- */
 
 const getInitStatus = (function () {
   let hasInit = false;

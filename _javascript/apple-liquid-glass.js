@@ -1,7 +1,3 @@
-/*!
- * Apple Liquid Glass 실시간 렌더링 엔진
- * 주변 환경 반사 효과 및 실시간 마우스 추적
- */
 
 class AppleLiquidGlassRenderer {
   constructor() {
@@ -15,7 +11,6 @@ class AppleLiquidGlassRenderer {
   }
   
   init() {
-    // 마우스 이벤트 리스너 등록
     document.addEventListener('mousemove', this.handleMouseMove.bind(this));
     document.addEventListener('mouseenter', this.handleMouseEnter.bind(this));
     document.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
@@ -232,12 +227,9 @@ class AppleLiquidGlassRenderer {
   }
 }
 
-// 전역 인스턴스 생성
 window.AppleLiquidGlass = new AppleLiquidGlassRenderer();
 
-// DOM 로드 완료 후 초기화
 document.addEventListener('DOMContentLoaded', () => {
-  // 동적으로 추가되는 요소들을 위한 MutationObserver
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       mutation.addedNodes.forEach((node) => {
@@ -257,7 +249,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// 성능 최적화: prefers-reduced-motion 지원
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   // 애니메이션 비활성화
   document.documentElement.style.setProperty('--animation-duration', '0s');
