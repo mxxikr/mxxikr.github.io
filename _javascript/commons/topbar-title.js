@@ -1,6 +1,3 @@
-/*
- * Top bar title auto change while scrolling up/down in mobile screens.
-*/
 
 $(function() {
   const titleSelector = "div.post>h1:first-of-type";
