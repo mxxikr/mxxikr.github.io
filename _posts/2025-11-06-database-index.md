@@ -182,32 +182,32 @@ mermaid: true
 ## 복합 인덱스
 
 - 여러 컬럼에 대해 생성되는 인덱스로 MySQL에서는 최대 16개 컬럼까지 지정 가능함
-- 컬럼 순서가 매우 중요하며 "leftmost prefix" 원칙을 따름
+- 컬럼 순서가 매우 중요하며 leftmost prefix 원칙을 따름
 
 ### Leftmost Prefix 원칙
 
 - 인덱스가 `(A, B, C)` 순서로 생성된 경우
-- `(A)`, `(A, B)`, `(A, B, C)` 조건을 사용하는 쿼리에서 인덱스 활용 가능
-- `(B)`, `(C)`, `(B, C)` 조건만으로는 인덱스 사용 불가
+  - `(A)`, `(A, B)`, `(A, B, C)` 조건을 사용하는 쿼리에서 인덱스 활용 가능
+  - `(B)`, `(C)`, `(B, C)` 조건만으로는 인덱스 사용 불가
 
-```sql
--- 인덱스 - last_name, first_name, age
+  ```sql
+  -- 인덱스 - last_name, first_name, age
 
--- 인덱스 사용 가능
-SELECT * FROM users WHERE last_name = 'Kim';
-SELECT * FROM users WHERE last_name = 'Kim' AND first_name = 'John';
-SELECT * FROM users WHERE last_name = 'Kim' AND first_name = 'John' AND age = 30;
+  -- 인덱스 사용 가능
+  SELECT * FROM users WHERE last_name = 'Kim';
+  SELECT * FROM users WHERE last_name = 'Kim' AND first_name = 'John';
+  SELECT * FROM users WHERE last_name = 'Kim' AND first_name = 'John' AND age = 30;
 
--- 인덱스 사용 가능하지만 효율성 차이
-SELECT * FROM users WHERE last_name = 'Kim' AND age = 30;
--- last_name으로 인덱스 스캔은 가능하지만age 조건은 인덱스 필터링 단계에서 처리됨
--- MySQL 8.0 이전 버전에서는 Index Skip Scan이 없어 first_name을 건너뛰지 못해 효율이 떨어질 수 있음
+  -- 인덱스 사용 가능하지만 효율성 차이
+  SELECT * FROM users WHERE last_name = 'Kim' AND age = 30;
+  -- last_name으로 인덱스 스캔은 가능하지만 age 조건은 인덱스 필터링 단계에서 처리됨
+  -- MySQL 8.0 이전 버전에서는 Index Skip Scan이 없어 first_name을 건너뛰지 못해 효율이 떨어질 수 있음
 
--- 인덱스 사용 불가
-SELECT * FROM users WHERE first_name = 'John';
-SELECT * FROM users WHERE age = 30;
-SELECT * FROM users WHERE first_name = 'John' AND age = 30;
-```
+  -- 인덱스 사용 불가
+  SELECT * FROM users WHERE first_name = 'John';
+  SELECT * FROM users WHERE age = 30;
+  SELECT * FROM users WHERE first_name = 'John' AND age = 30;
+  ```
 
 ### 복합 인덱스 동작 원리
 
@@ -229,10 +229,10 @@ SELECT * FROM users WHERE first_name = 'John' AND age = 30;
   - 컬럼의 distinct 값의 개수
 - 높은 카디널리티
   - 거의 고유한 값
-    - 예: 이메일, 주민등록번호
+  - ex) 이메일, 주민등록번호
 - 낮은 카디널리티
   - 적은 distinct 값
-    - 예: 성별, 상태 코드
+  - ex) 성별, 상태 코드
 - 인덱스 효과
   - 높은 카디널리티 컬럼이 앞에 있을수록 효과적
 - 이유
@@ -240,14 +240,24 @@ SELECT * FROM users WHERE first_name = 'John' AND age = 30;
 
 ## 커버링 인덱스
 
-- 쿼리에 필요한 모든 컬럼을 인덱스에 포함시켜 테이블 접근 없이 인덱스만으로 쿼리를 처리할 수 있게 하는 기법임
+- 쿼리에 필요한 모든 컬럼을 인덱스에 포함시켜 테이블 접근 없이 인덱스만으로 쿼리를 처리할 수 있게 하는 기법
 - Index-Only Scan을 가능하게 하여 디스크 I/O를 크게 줄이고 쿼리 성능을 향상시킴
 
-### 특징
+- 특징
 
-- 테이블 접근 없이 인덱스만으로 쿼리 처리
-- 디스크 I/O 감소로 성능 향상
-- 인덱스 크기 증가로 인한 트레이드오프 존재
+  - 테이블 접근 없이 인덱스만으로 쿼리 처리
+  - 디스크 I/O 감소로 성능 향상
+  - 인덱스 크기 증가로 인한 트레이드오프 존재
+
+- 장점
+
+  - 테이블 랜덤 액세스 제거로 성능 향상
+  - 특히 읽기 중심 워크로드에서 효과적
+
+- 단점
+
+  - 인덱스 크기 증가
+  - 인덱스 유지 비용 증가
 
 ### PostgreSQL의 INCLUDE 구문
 
@@ -261,16 +271,6 @@ SELECT * FROM users WHERE first_name = 'John' AND age = 30;
   -- 테이블 접근 없이 인덱스만으로 처리 가능
   SELECT email, name FROM users WHERE user_id = 123;
   ```
-
-### 장점
-
-- 테이블 랜덤 액세스 제거로 성능 향상
-- 특히 읽기 중심 워크로드에서 효과적
-
-### 단점
-
-- 인덱스 크기 증가
-- 인덱스 유지 비용 증가
 
 ### 커버링 인덱스 동작 비교
 
@@ -304,17 +304,21 @@ SELECT * FROM users WHERE first_name = 'John' AND age = 30;
 
 - `INSERT`
   - 새로운 키를 적절한 위치에 삽입
-  - B+Tree에서 삽입 위치 탐색 - `O(log n)`
+  - B+Tree에서 삽입 위치 탐색
+    - `O(log n)`
   - 노드가 가득 차면 노드 분할(split) 발생
   - 상위 노드까지 분할이 전파될 수 있음
 - `UPDATE`
   - 키 값 변경 시 인덱스 재정렬 필요
-  - 기존 키 삭제 - `O(log n)`
-  - 새로운 키 삽입 - `O(log n)`
+  - 기존 키 삭제
+    - `O(log n)`
+  - 새로운 키 삽입
+    - `O(log n)`
   - 인덱스 컬럼이 변경되지 않아도 테이블 데이터 변경으로 인덱스 업데이트 필요할 수 있음
 - `DELETE`
   - 인덱스에서 키 제거
-  - 삭제할 키 탐색 - `O(log n)`
+  - 삭제할 키 탐색
+    - `O(log n)`
   - 키 삭제 후 노드가 비면 병합(merge) 작업 발생
 - 인덱스가 많을수록 쓰기 성능 저하
   - 테이블에 인덱스가 5개면 `INSERT` 시 5번의 인덱스 삽입 작업 필요
@@ -350,9 +354,9 @@ SELECT * FROM users WHERE first_name = 'John' AND age = 30;
   - `ANALYZE` 명령 실행
 - 인덱스 병합
   - 여러 인덱스를 하나로 통합 고려
-- 파티션된 테이블의 경우 파티션별 인덱스 고려
+- 파티션 된 테이블의 경우 파티션별 인덱스 고려
 
-### 주의사항
+### 주의 사항
 
 - 와일드카드 패턴
   - `LIKE 'value%'`
@@ -362,7 +366,7 @@ SELECT * FROM users WHERE first_name = 'John' AND age = 30;
 - 함수나 연산
   - `WHERE salary * 1.1 > 100` 처럼 컬럼을 가공하면 인덱스 사용 불가
 - `NULL` 값
-  - DBMS에 따라 인덱스 포함 여부가 다르지만일반적으로 인덱스 효율이 떨어짐
+  - DBMS에 따라 인덱스 포함 여부가 다르지만 일반적으로 인덱스 효율이 떨어짐
 - 작은 테이블
   - 인덱스 오버헤드가 더 클 수 있음
 
