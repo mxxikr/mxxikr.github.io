@@ -152,6 +152,52 @@
   // 매우 자주 버튼 표시 확인 (다른 스크립트 간섭 방지)
   setInterval(makeButtonsAlwaysVisible, 200);
   
+  // MutationObserver로 버튼 변경 감지 및 강제 표시
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'attributes' || mutation.type === 'childList') {
+        makeButtonsAlwaysVisible();
+      }
+    });
+  });
+  
+  // DOM 준비 후 Observer 시작
+  function startObserver() {
+    const backToTopBtn = document.getElementById('back-to-top');
+    const goToBottomBtn = document.getElementById('go-to-bottom');
+    
+    if (backToTopBtn) {
+      observer.observe(backToTopBtn, {
+        attributes: true,
+        attributeFilter: ['style', 'class', 'hidden'],
+        childList: false,
+        subtree: false
+      });
+    }
+    
+    if (goToBottomBtn) {
+      observer.observe(goToBottomBtn, {
+        attributes: true,
+        attributeFilter: ['style', 'class', 'hidden'],
+        childList: false,
+        subtree: false
+      });
+    }
+  }
+  
+  // Observer 시작
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(startObserver, 100);
+    });
+  } else {
+    setTimeout(startObserver, 100);
+  }
+  
+  // 스크롤 이벤트에서도 버튼 표시 보장
+  window.addEventListener('scroll', makeButtonsAlwaysVisible, { passive: true });
+  window.addEventListener('resize', makeButtonsAlwaysVisible, { passive: true });
+  
   console.log('🎯 Always visible navigation buttons script loaded');
   
 })();
