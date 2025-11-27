@@ -58,6 +58,16 @@
     imageObserver.observe(img);
   });
   
+  // 즉시 모든 이미지 로드 (lazy loading 비활성화)
+  const allLazyImages = document.querySelectorAll('img[data-src]');
+  allLazyImages.forEach(img => {
+    const src = img.dataset.src;
+    if (src) {
+      img.src = src;
+      img.removeAttribute('data-src');
+    }
+  });
+  
   // 페이지 로드 완료 후 남은 이미지들 처리
   window.addEventListener('load', () => {
     const remainingImages = document.querySelectorAll('img[data-src]');
