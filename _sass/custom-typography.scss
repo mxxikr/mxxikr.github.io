@@ -107,18 +107,15 @@ h5, h6 {
   overflow-x: auto;
 }
 
-/* Apple Liquid Glass 인라인 코드 */
+/* 인라인 코드 */
 code:not(.highlight code) {
-  background: transparent;
-  color: #A8A8A8;
+  background-color: var(--inline-code-bg);
+  color: var(--highlighter-rouge-color);
   padding: 0.25em 0.5em;
-  border-radius: 8px;
+  border-radius: 4px;
   font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
   font-size: 0.875em;
   font-weight: 500;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Apple Liquid Glass 인용문 */
