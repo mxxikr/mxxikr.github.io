@@ -108,7 +108,7 @@
           {% assign _src_prefix = _src_prefix | append: _path %}
         {% endif %}
 
-        {% assign _final_src = _src_prefix | append: _src %}
+        {% capture _final_src %}{{ _src_prefix | append: _src | relative_url }}{% endcapture %}
         {% assign _left = _left | replace: _src, _final_src %}
 
       {% endunless %}
