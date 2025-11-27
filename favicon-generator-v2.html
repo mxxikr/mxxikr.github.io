@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이폰 스타일 Favicon 생성기</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0812 0%, #1a1625 100%);
+            color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            background: linear-gradient(135deg, #a855f7, #c4b5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .favicon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        .favicon-item {
+            text-align: center;
+            background: rgba(26, 22, 37, 0.8);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+        .favicon-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
+        }
+        .favicon-canvas {
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 16px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+        .favicon-canvas:hover {
+            transform: scale(1.1);
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #a855f7, #7c3aed);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3);
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(168, 85, 247, 0.4);
+        }
+        .size-info {
+            font-size: 0.9rem;
+            color: #c4b5fd;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍇 아이폰 스타일 Favicon</h1>
+            <p>연보라색과 어울리는 둥글둥글한 브라우저 탭 아이콘</p>
+        </div>
+        
+        <div class="favicon-grid">
+            <div class="favicon-item">
+                <h3>둥근 M</h3>
+                <canvas id="favicon-rounded-m" class="favicon-canvas" width="32" height="32"></canvas>
+                <div class="size-info">32x32px</div>
+                <button class="download-btn" onclick="downloadFavicon('favicon-rounded-m', 'favicon-rounded-m')">다운로드</button>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>그라데이션 원</h3>
+                <canvas id="favicon-gradient-circle" class="favicon-canvas" width="32" height="32"></canvas>
+                <div class="size-info">32x32px</div>
+                <button class="download-btn" onclick="downloadFavicon('favicon-gradient-circle', 'favicon-gradient-circle')">다운로드</button>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>둥근 코드</h3>
+                <canvas id="favicon-rounded-code" class="favicon-canvas" width="32" height="32"></canvas>
+                <div class="size-info">32x32px</div>
+                <button class="download-btn" onclick="downloadFavicon('favicon-rounded-code', 'favicon-rounded-code')">다운로드</button>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>블러 원</h3>
+                <canvas id="favicon-blur-circle" class="favicon-canvas" width="32" height="32"></canvas>
+                <div class="size-info">32x32px</div>
+                <button class="download-btn" onclick="downloadFavicon('favicon-blur-circle', 'favicon-blur-circle')">다운로드</button>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>둥근 다이아몬드</h3>
+                <canvas id="favicon-rounded-diamond" class="favicon-canvas" width="32" height="32"></canvas>
+                <div class="size-info">32x32px</div>
+                <button class="download-btn" onclick="downloadFavicon('favicon-rounded-diamond', 'favicon-rounded-diamond')">다운로드</button>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>글래스모피즘</h3>
+                <canvas id="favicon-glass" class="favicon-canvas" width="32" height="32"></canvas>
+                <div class="size-info">32x32px</div>
+                <button class="download-btn" onclick="downloadFavicon('favicon-glass', 'favicon-glass')">다운로드</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 연보라색 팔레트
+        const colors = {
+            primary: '#a855f7',
+            secondary: '#7c3aed',
+            accent: '#c4b5fd',
+            background: '#0a0812',
+            light: '#f8fafc'
+        };
+
+        // 둥근 M 아이콘 생성
+        function createRoundedM(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = 32;
+            
+            // 배경
+            ctx.fillStyle = colors.background;
+            ctx.fillRect(0, 0, size, size);
+            
+            // 둥근 배경
+            ctx.fillStyle = colors.primary;
+            ctx.beginPath();
+            ctx.roundRect(4, 4, 24, 24, 12);
+            ctx.fill();
+            
+            // M 모양
+            ctx.fillStyle = colors.light;
+            ctx.font = 'bold 16px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('M', size/2, size/2);
+        }
+
+        // 그라데이션 원 생성
+        function createGradientCircle(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = 32;
+            
+            // 배경
+            ctx.fillStyle = colors.background;
+            ctx.fillRect(0, 0, size, size);
+            
+            // 그라데이션 원
+            const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+            gradient.addColorStop(0, colors.primary);
+            gradient.addColorStop(0.7, colors.secondary);
+            gradient.addColorStop(1, colors.accent);
+            
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(16, 16, 14, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // 내부 하이라이트
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.beginPath();
+            ctx.arc(12, 12, 4, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        // 둥근 코드 아이콘 생성
+        function createRoundedCode(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = 32;
+            
+            // 배경
+            ctx.fillStyle = colors.background;
+            ctx.fillRect(0, 0, size, size);
+            
+            // 둥근 배경
+            ctx.fillStyle = colors.primary;
+            ctx.beginPath();
+            ctx.roundRect(4, 4, 24, 24, 12);
+            ctx.fill();
+            
+            // 코드 기호
+            ctx.strokeStyle = colors.light;
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            
+            // < >
+            ctx.beginPath();
+            ctx.moveTo(10, 16);
+            ctx.lineTo(14, 12);
+            ctx.lineTo(14, 20);
+            ctx.closePath();
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.moveTo(22, 16);
+            ctx.lineTo(18, 12);
+            ctx.lineTo(18, 20);
+            ctx.closePath();
+            ctx.stroke();
+            
+            // 중간 점들
+            ctx.fillStyle = colors.light;
+            ctx.beginPath();
+            ctx.arc(16, 12, 1.5, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(16, 20, 1.5, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        // 블러 원 생성
+        function createBlurCircle(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = 32;
+            
+            // 배경
+            ctx.fillStyle = colors.background;
+            ctx.fillRect(0, 0, size, size);
+            
+            // 외부 원
+            ctx.fillStyle = colors.primary;
+            ctx.beginPath();
+            ctx.arc(16, 16, 16, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // 내부 원 (블러 효과)
+            ctx.fillStyle = colors.accent;
+            ctx.beginPath();
+            ctx.arc(16, 16, 12, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // 중심 원
+            ctx.fillStyle = colors.light;
+            ctx.beginPath();
+            ctx.arc(16, 16, 6, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        // 둥근 다이아몬드 생성
+        function createRoundedDiamond(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = 32;
+            
+            // 배경
+            ctx.fillStyle = colors.background;
+            ctx.fillRect(0, 0, size, size);
+            
+            // 둥근 다이아몬드
+            ctx.fillStyle = colors.primary;
+            ctx.beginPath();
+            ctx.moveTo(16, 6);
+            ctx.lineTo(26, 16);
+            ctx.lineTo(16, 26);
+            ctx.lineTo(6, 16);
+            ctx.closePath();
+            ctx.fill();
+            
+            // 내부 하이라이트
+            ctx.fillStyle = colors.accent;
+            ctx.beginPath();
+            ctx.moveTo(16, 10);
+            ctx.lineTo(22, 16);
+            ctx.lineTo(16, 22);
+            ctx.lineTo(10, 16);
+            ctx.closePath();
+            ctx.fill();
+            
+            // 중심 점
+            ctx.fillStyle = colors.light;
+            ctx.beginPath();
+            ctx.arc(16, 16, 3, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        // 글래스모피즘 생성
+        function createGlass(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = 32;
+            
+            // 배경
+            ctx.fillStyle = colors.background;
+            ctx.fillRect(0, 0, size, size);
+            
+            // 글래스 효과
+            ctx.fillStyle = 'rgba(168, 85, 247, 0.2)';
+            ctx.beginPath();
+            ctx.roundRect(4, 4, 24, 24, 12);
+            ctx.fill();
+            
+            // 테두리
+            ctx.strokeStyle = 'rgba(168, 85, 247, 0.4)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.roundRect(4, 4, 24, 24, 12);
+            ctx.stroke();
+            
+            // 내부 텍스트
+            ctx.fillStyle = colors.primary;
+            ctx.font = 'bold 14px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('M', size/2, size/2);
+        }
+
+        // 다운로드 함수
+        function downloadFavicon(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename + '.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        // 페이지 로드 시 아이콘 생성
+        window.onload = function() {
+            createRoundedM(document.getElementById('favicon-rounded-m'));
+            createGradientCircle(document.getElementById('favicon-gradient-circle'));
+            createRoundedCode(document.getElementById('favicon-rounded-code'));
+            createBlurCircle(document.getElementById('favicon-blur-circle'));
+            createRoundedDiamond(document.getElementById('favicon-rounded-diamond'));
+            createGlass(document.getElementById('favicon-glass'));
+        };
+    </script>
+</body>
+</html>
