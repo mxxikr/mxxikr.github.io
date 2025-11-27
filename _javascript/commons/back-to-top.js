@@ -4,68 +4,62 @@
   
   console.log('🚀 Always Visible Navigation Buttons Starting...');
   
-  // 버튼을 항상 표시하는 함수 (스크롤과 무관)
+  // 버튼을 항상 표시하는 함수 (스크롤과 무관) - 최대 강도
   function makeButtonsAlwaysVisible() {
     const backToTopBtn = document.getElementById('back-to-top');
     const goToBottomBtn = document.getElementById('go-to-bottom');
     
     if (backToTopBtn) {
-      // 완전히 강제로 표시
-      backToTopBtn.style.cssText = `
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: fixed !important;
-        bottom: 90px !important;
-        left: 40px !important;
-        z-index: 999999 !important;
-        width: 50px !important;
-        height: 50px !important;
-        background: var(--button-bg) !important;
-        color: var(--btn-backtotop-color) !important;
-        border: 1px solid var(--btn-backtotop-border-color) !important;
-        border-radius: 50% !important;
-        cursor: pointer !important;
-        text-decoration: none !important;
-        box-sizing: border-box !important;
-        pointer-events: auto !important;
-        transform: none !important;
-      `;
+      // 모든 스타일 속성 직접 설정
+      backToTopBtn.style.setProperty('display', 'block', 'important');
+      backToTopBtn.style.setProperty('visibility', 'visible', 'important');
+      backToTopBtn.style.setProperty('opacity', '1', 'important');
+      backToTopBtn.style.setProperty('position', 'fixed', 'important');
+      backToTopBtn.style.setProperty('bottom', '90px', 'important');
+      backToTopBtn.style.setProperty('left', '40px', 'important');
+      backToTopBtn.style.setProperty('z-index', '999999', 'important');
+      backToTopBtn.style.setProperty('width', '50px', 'important');
+      backToTopBtn.style.setProperty('height', '50px', 'important');
+      backToTopBtn.style.setProperty('cursor', 'pointer', 'important');
+      backToTopBtn.style.setProperty('pointer-events', 'auto', 'important');
+      backToTopBtn.style.setProperty('transform', 'none', 'important');
       
       // 모든 숨김 관련 속성 제거
-      backToTopBtn.classList.remove('hide', 'd-none', 'invisible', 'hidden');
+      backToTopBtn.classList.remove('hide', 'd-none', 'invisible', 'hidden', 'fade-out');
       backToTopBtn.removeAttribute('hidden');
-      backToTopBtn.removeAttribute('style-display');
+      backToTopBtn.removeAttribute('aria-hidden');
+      
+      // DOM에서 직접 표시
+      if (backToTopBtn.parentNode) {
+        backToTopBtn.parentNode.style.display = '';
+      }
     }
     
     if (goToBottomBtn) {
-      goToBottomBtn.style.cssText = `
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: fixed !important;
-        bottom: 150px !important;
-        left: 40px !important;
-        z-index: 999999 !important;
-        width: 50px !important;
-        height: 50px !important;
-        background: var(--button-bg) !important;
-        color: var(--btn-backtotop-color) !important;
-        border: 1px solid var(--btn-backtotop-border-color) !important;
-        border-radius: 50% !important;
-        cursor: pointer !important;
-        text-decoration: none !important;
-        box-sizing: border-box !important;
-        pointer-events: auto !important;
-        transform: none !important;
-      `;
+      // 모든 스타일 속성 직접 설정
+      goToBottomBtn.style.setProperty('display', 'block', 'important');
+      goToBottomBtn.style.setProperty('visibility', 'visible', 'important');
+      goToBottomBtn.style.setProperty('opacity', '1', 'important');
+      goToBottomBtn.style.setProperty('position', 'fixed', 'important');
+      goToBottomBtn.style.setProperty('bottom', '150px', 'important');
+      goToBottomBtn.style.setProperty('left', '40px', 'important');
+      goToBottomBtn.style.setProperty('z-index', '999999', 'important');
+      goToBottomBtn.style.setProperty('width', '50px', 'important');
+      goToBottomBtn.style.setProperty('height', '50px', 'important');
+      goToBottomBtn.style.setProperty('cursor', 'pointer', 'important');
+      goToBottomBtn.style.setProperty('pointer-events', 'auto', 'important');
+      goToBottomBtn.style.setProperty('transform', 'none', 'important');
       
-      goToBottomBtn.classList.remove('hide', 'd-none', 'invisible', 'hidden');
+      // 모든 숨김 관련 속성 제거
+      goToBottomBtn.classList.remove('hide', 'd-none', 'invisible', 'hidden', 'fade-out');
       goToBottomBtn.removeAttribute('hidden');
-      goToBottomBtn.removeAttribute('style-display');
+      goToBottomBtn.removeAttribute('aria-hidden');
+      
+      // DOM에서 직접 표시
+      if (goToBottomBtn.parentNode) {
+        goToBottomBtn.parentNode.style.display = '';
+      }
     }
-    
-    console.log('✅ Buttons forced to be visible');
   }
   
   // 클릭 이벤트 설정
@@ -149,8 +143,8 @@
     setTimeout(init, 100);
   });
   
-  // 매우 자주 버튼 표시 확인 (다른 스크립트 간섭 방지)
-  setInterval(makeButtonsAlwaysVisible, 200);
+  // 매우 자주 버튼 표시 확인 (다른 스크립트 간섭 방지) - 더 자주 체크
+  setInterval(makeButtonsAlwaysVisible, 100);
   
   // MutationObserver로 버튼 변경 감지 및 강제 표시
   const observer = new MutationObserver(function(mutations) {

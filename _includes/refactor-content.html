@@ -116,17 +116,27 @@
           {% capture _final_src %}{{ _src_prefix | append: _src | relative_url }}{% endcapture %}
         {% endif %}
 
-        {% assign _left = _left | replace: _src, _final_src %}
-        
-        <!-- src 속성이 없으면 추가 -->
-        {% unless _left contains 'src=' %}
-          {% assign _left = _left | prepend: 'src="' | append: '"' %}
-        {% endunless %}
-        
-        <!-- data-src가 있으면 src로 변환 -->
-        {% if _left contains 'data-src=' %}
+        <!-- src 속성을 명시적으로 설정 -->
+        {% if _left contains 'src=' %}
+          <!-- 기존 src 속성 값 교체: src="원본경로" -> src="최종경로" -->
+          {% assign _src_quoted = _src | prepend: '"' | append: '"' %}
+          {% assign _final_src_quoted = _final_src | prepend: '"' | append: '"' %}
+          {% assign _left = _left | replace: _src_quoted, _final_src_quoted %}
+        {% elsif _left contains 'data-src=' %}
+          <!-- data-src를 src로 변환하고 값 교체 -->
           {% assign _left = _left | replace: 'data-src=', 'src=' %}
+          {% assign _src_quoted = _src | prepend: '"' | append: '"' %}
+          {% assign _final_src_quoted = _final_src | prepend: '"' | append: '"' %}
+          {% assign _left = _left | replace: _src_quoted, _final_src_quoted %}
+        {% else %}
+          <!-- src 속성이 없으면 추가 -->
+          {% assign _left = _left | prepend: 'src="' | append: _final_src | append: '" ' %}
         {% endif %}
+        
+        <!-- 최종 확인: src 속성이 반드시 있어야 함 -->
+        {% unless _left contains 'src=' %}
+          {% assign _left = _left | prepend: 'src="' | append: _final_src | append: '" ' %}
+        {% endunless %}
 
       {% endunless %}
 
