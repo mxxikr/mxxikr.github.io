@@ -88,36 +88,21 @@ h5, h6 {
   word-break: keep-all;
 }
 
-/* Apple Liquid Glass 코드 블록 */
+/* 코드 블록 - 라이트 모드 배경 사용 */
 .highlight {
-  border-radius: 16px;
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px var(--glass-shadow);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  background: var(--highlight-bg-color) !important;
+  border-radius: 6px;
   overflow: hidden;
   position: relative;
   margin: 2rem 0;
-  background: var(--glass-bg);
-}
-
-.highlight::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  opacity: 0.3;
 }
 
 .highlight pre {
-  padding: 2rem;
+  padding: 1rem 1.5rem;
   font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
   font-size: 0.875rem;
   line-height: 1.6;
-  background: transparent;
+  background: transparent !important;
   margin: 0;
   overflow-x: auto;
 }
