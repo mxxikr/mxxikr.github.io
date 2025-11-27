@@ -36,6 +36,9 @@
 
   {% include favicons.html %}
 
+  <!-- 리디바탕 폰트 Preload -->
+  <link rel="preload" href="{{ '/assets/fonts/RIDIBatang.otf' | relative_url }}" as="font" type="font/otf" crossorigin="anonymous">
+
   <!-- Mermaid -->
   {% if page.mermaid %}
     <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"></script>
