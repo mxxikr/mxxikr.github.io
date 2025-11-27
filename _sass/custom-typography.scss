@@ -20,9 +20,18 @@
   --glass-blur: 24px;
 }
 
-/* Apple 시스템 폰트 적용 */
+/* 리디바탕 폰트 정의 */
+@font-face {
+  font-family: 'RIDIBatang';
+  src: url('/assets/fonts/RIDIBatang.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 리디바탕 폰트 적용 */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'RIDIBatang', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
