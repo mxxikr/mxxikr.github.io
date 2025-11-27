@@ -89,26 +89,37 @@
     {% if _src %}
       {% unless _src contains '://' %}
 
-        <!-- Add CDN URL -->
-        {% if site.img_cdn %}
-          {% assign _src_prefix = site.img_cdn %}
+        {% assign _first_char = _src | slice: 0, 1 %}
+        {% if _first_char == '/' %}
+          <!-- 절대 경로: baseurl 추가 (빈 문자열이면 그대로 사용) -->
+          {% if site.baseurl and site.baseurl != '' %}
+            {% capture _final_src %}{{ site.baseurl }}{{ _src }}{% endcapture %}
+          {% else %}
+            {% assign _final_src = _src %}
+          {% endif %}
         {% else %}
-          {% assign _src_prefix = site.baseurl %}
+          <!-- 상대 경로: CDN URL 및 image path 추가 -->
+          {% if site.img_cdn %}
+            {% assign _src_prefix = site.img_cdn %}
+          {% else %}
+            {% assign _src_prefix = site.baseurl %}
+          {% endif %}
+
+          <!-- Add image path -->
+          {% if page.img_path %}
+            {% assign _path = page.img_path %}
+            {% assign last_char = _path | slice: -1 %}
+
+            {% unless last_char == '/' %}
+              {% assign _path = _path | append: '/' %}
+            {% endunless %}
+
+            {% assign _src_prefix = _src_prefix | append: _path %}
+          {% endif %}
+
+          {% capture _final_src %}{{ _src_prefix | append: _src | relative_url }}{% endcapture %}
         {% endif %}
 
-        <!-- Add image path -->
-        {% if page.img_path %}
-          {% assign _path = page.img_path %}
-          {% assign last_char = _path | slice: -1 %}
-
-          {% unless last_char == '/' %}
-            {% assign _path = _path | append: '/' %}
-          {% endunless %}
-
-          {% assign _src_prefix = _src_prefix | append: _path %}
-        {% endif %}
-
-        {% capture _final_src %}{{ _src_prefix | append: _src | relative_url }}{% endcapture %}
         {% assign _left = _left | replace: _src, _final_src %}
 
       {% endunless %}
