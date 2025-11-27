@@ -2,7 +2,7 @@
 title: AWS S3 Presigned URL
 date: 2025-11-25 00:00:00 +0900
 category:
-  - [Infrastructure, AWS]
+  - [Cloud, AWS]
 tags: [aws, s3, presigned-url, security]
 math: false
 mermaid: true
@@ -11,33 +11,31 @@ mermaid: true
 ## 개요
 
 - Presigned URL은 AWS 서명 V4 알고리즘으로 서명된 URL임
-- 서버의 비밀 키로 생성된 보안 토큰으로, 클라이언트가 직접 S3에 접근할 수 있게 해줌
+- 서버의 비밀 키로 생성된 보안 토큰으로 클라이언트가 직접 S3에 접근할 수 있게 해줌
 - 서버 부하 없이 대용량 파일을 안전하게 업로드하거나 다운로드할 수 있음
 
 ## 핵심 개념
 
 ### Presigned URL의 본질
 
-- AWS 서명 V4로 서명된 URL로, 다음 요소들을 조합해 만든 보안 토큰임
+- AWS 서명 V4로 서명된 URL로 다음 요소들을 조합해 만든 보안 토큰임
   - 클라이언트 요청 정보 (HTTP 메서드, 버킷, 키, 헤더)
   - 서버의 비밀 키 (Secret Access Key)
   - 타임스탬프 및 만료 시간
   - 암호화 서명 (HMAC-SHA256)
 
 ### Presigned URL 구조
+- Presigned URL = Base URL + Query Parameters (서명)
 
-```
-Presigned URL = Base URL + Query Parameters (서명)
-
-예시:
-https://mybucket.s3.amazonaws.com/myfile.jpg?
-  X-Amz-Algorithm=AWS4-HMAC-SHA256
-  &X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F...
-  &X-Amz-Date=20240101T000000Z
-  &X-Amz-Expires=3600
-  &X-Amz-SignedHeaders=host
-  &X-Amz-Signature=fe5f80f77d5fa3beca5917323676bcd2...
-```
+    ```
+    https://mybucket.s3.amazonaws.com/myfile.jpg?
+    X-Amz-Algorithm=AWS4-HMAC-SHA256
+    &X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F...
+    &X-Amz-Date=20240101T000000Z
+    &X-Amz-Expires=3600
+    &X-Amz-SignedHeaders=host
+    &X-Amz-Signature=fe5f80f77d5fa3beca5917323676bcd2...
+    ```
 
 - S3가 요청을 받으면 서명을 검증하여 AWS 인증 정보를 가진 서버가 생성한 URL인지 확인함
 
@@ -45,26 +43,7 @@ https://mybucket.s3.amazonaws.com/myfile.jpg?
 
 ### 전체 흐름
 
-```mermaid
-sequenceDiagram
-    participant Client as 클라이언트
-    participant Server as 서버
-    participant SDK as AWS SDK
-    participant S3 as S3
-    
-    Client->>Server: GET /api/presigned-url?fileName=profile.jpg
-    Server->>SDK: GeneratePresignedUrlRequest 생성
-    SDK->>SDK: 서명 생성 (HMAC-SHA256)
-    SDK->>Server: Presigned URL 반환
-    Server->>Client: Presigned URL 응답
-    
-    Client->>S3: PUT Presigned URL로 파일 업로드
-    S3->>S3: 서명 검증
-    S3->>S3: 만료 시간 확인
-    S3->>Client: 파일 저장 완료
-```
-
-### 각 단계 설명
+![image.png](/assets/img/cloud/aws/2025-11-25-presigned-url/image.png)
 
 1. **클라이언트 → 서버**
    - Presigned URL 요청
@@ -122,14 +101,15 @@ sequenceDiagram
   - 현재 시간 + 만료 시간 = 타임스탬프 저장
 - S3에서 요청 받을 때
   - 현재 시간 > 요청 시간 + 만료 시간이면 거부
-- 예시
-  - 5분 유효기간이라면, 만료 시각 이후 요청은 무조건 실패함
+- ex)
+  - 5분 유효 기간이라면 만료 시각 이후 요청은 무조건 실패함
 
 ## Spring Boot 구현
 
-- 참고: 본 예제는 AWS SDK for Java v1 (`com.amazonaws.services.s3`)을 기준으로 작성됨
-- AWS는 현재 SDK v2 (`software.amazon.awssdk`) 사용을 권장하지만, v1도 여전히 널리 사용되고 있음
-- SDK v2의 경우 `S3Presigner` 클래스를 사용하며, API가 다소 상이함
+- 참고
+    본 예제는 AWS SDK for Java v1 (`com.amazonaws.services.s3`)을 기준으로 작성됨
+- AWS는 현재 SDK v2 (`software.amazon.awssdk`) 사용을 권장하지만 v1도 여전히 널리 사용되고 있음
+- SDK v2의 경우 `S3Presigner` 클래스를 사용하며 API가 다소 상이함
 
 ### 기본 설정
 
@@ -169,7 +149,7 @@ public class S3PresignedService {
      * PUT (업로드) Presigned URL 생성
      * 
      * 이 방식은 PUT 메서드를 사용하여 단일 파일을 덮어쓰거나 생성할 때 사용함
-     * Presigned POST와는 다르며, PUT은 단일 파일 업로드에 최적화됨
+     * Presigned POST와는 다르며 PUT은 단일 파일 업로드에 최적화됨
      * 
      * @param fileName 저장될 파일명
      * @param expirationMinutes 유효 기간 (분)
@@ -326,7 +306,7 @@ record UploadCompleteRequest(
 ```javascript
 // 올바른 방식
 async function uploadWithPresignedUrl(file) {
-    // 1. 서버에서 Presigned URL 받기
+    // 서버에서 Presigned URL 받기
     const response = await fetch('/api/files/presigned-upload-url', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -338,13 +318,13 @@ async function uploadWithPresignedUrl(file) {
     
     const { presignedUrl, fileName, expiresAt } = await response.json();
     
-    // 2. 유효성 확인
+    // 유효성 확인
     if (Date.now() > expiresAt) {
         console.error('URL 이미 만료됨');
         return;
     }
     
-    // 3. Presigned URL로 직접 S3 업로드
+    // Presigned URL로 직접 S3 업로드
     const s3Response = await fetch(presignedUrl, {
         method: 'PUT',
         headers: {
@@ -358,7 +338,7 @@ async function uploadWithPresignedUrl(file) {
         return;
     }
     
-    // 4. 서버에 업로드 완료 알림
+    // 서버에 업로드 완료 알림
     await fetch('/api/files/upload-complete', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -369,7 +349,7 @@ async function uploadWithPresignedUrl(file) {
 }
 ```
 
-### React Hook 예시
+### React Hook
 
 ```jsx
 import { useState } from 'react';
@@ -382,7 +362,7 @@ function FileUpload() {
         setLoading(true);
         
         try {
-            // 1. Presigned URL 요청
+            // Presigned URL 요청
             const urlResponse = await fetch('/api/files/presigned-upload-url', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -394,10 +374,10 @@ function FileUpload() {
             
             const { presignedUrl, fileName } = await urlResponse.json();
             
-            // 2. XMLHttpRequest로 진행률 추적
+            // XMLHttpRequest로 진행률 추적
             await uploadToS3WithProgress(presignedUrl, file);
             
-            // 3. 완료 알림
+            // 완료 알림
             await fetch('/api/files/upload-complete', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -451,32 +431,31 @@ function FileUpload() {
 export default FileUpload;
 ```
 
-## 주의사항 및 함정
+## 주의 사항
 
 ### Content-Type 서명 문제
 
 - 가장 흔한 오류 중 하나임
 - 서버에서 생성한 Presigned URL의 Content-Type과 클라이언트가 보내는 Content-Type이 일치해야 함
 
-```java
-// 올바른 예
-String contentType = "image/jpeg";
-GeneratePresignedUrlRequest request = 
-    new GeneratePresignedUrlRequest(bucket, key)
-        .withMethod(HttpMethod.PUT)
-        .withContentType(contentType)
-        .withExpiration(expiration);
+    ```java
+    String contentType = "image/jpeg";
+    GeneratePresignedUrlRequest request = 
+        new GeneratePresignedUrlRequest(bucket, key)
+            .withMethod(HttpMethod.PUT)
+            .withContentType(contentType)
+            .withExpiration(expiration);
 
-// 클라이언트는 같은 Content-Type 사용
-fetch(presignedUrl, {
-    method: 'PUT',
-    headers: { 'Content-Type': contentType },
-    body: file
-});
-```
+    // 클라이언트는 같은 Content-Type 사용
+    fetch(presignedUrl, {
+        method: 'PUT',
+        headers: { 'Content-Type': contentType },
+        body: file
+    });
+    ```
 
-- Content-Type이 서명에 포함되지 않으면 클라이언트가 다른 Content-Type을 보낼 수 있어 보안 위험이 있음
-- Content-Type이 서명에 포함되면 반드시 일치해야 하므로 서명 검증 실패 시 403 Forbidden 발생
+    - Content-Type이 서명에 포함되지 않으면 클라이언트가 다른 Content-Type을 보낼 수 있어 보안 위험이 있음
+    - Content-Type이 서명에 포함되면 반드시 일치해야 하므로 서명 검증 실패 시 403 Forbidden 발생
 
 ### 시간 동기화 문제
 
@@ -488,9 +467,13 @@ fetch(presignedUrl, {
 ### Path-style vs Virtual-hosted-style
 
 - Path-style (LocalStack/호환 서비스)
-  - `https://localhost:4566/mybucket/myfile.jpg`
+    ```plaintext
+    https://localhost:4566/mybucket/myfile.jpg
+    ```
 - Virtual-hosted-style (AWS 기본)
-  - `https://mybucket.s3.amazonaws.com/myfile.jpg`
+    ```plaintext
+    https://mybucket.s3.amazonaws.com/myfile.jpg
+    ```
 
 - LocalStack은 Path-style만 지원하므로 반드시 `.withPathStyleAccessEnabled(true)` 설정 필요
 
@@ -500,64 +483,64 @@ fetch(presignedUrl, {
 - 브라우저에서 S3로 직접 요청을 보낼 때, S3 버킷에 CORS 설정이 없으면 브라우저가 요청을 차단함
 - 브라우저 콘솔에서 `Access to fetch at '...' from origin '...' has been blocked by CORS policy` 오류 발생
 
-#### AWS S3 CORS 설정
+### AWS S3 CORS 설정
 
 - AWS 콘솔에서 버킷 → 권한 → CORS 구성으로 설정 가능
 
-```json
-[
-    {
-        "AllowedHeaders": ["*"],
-        "AllowedMethods": ["PUT", "GET", "DELETE"],
-        "AllowedOrigins": ["http://localhost:3000", "https://example.com"],
-        "ExposeHeaders": ["ETag"],
-        "MaxAgeSeconds": 3000
-    }
-]
-```
-
-#### LocalStack CORS 설정
-
-- AWS CLI 또는 초기화 스크립트로 설정 가능
-
-```bash
-# AWS CLI로 CORS 설정
-awslocal s3api put-bucket-cors \
-    --bucket my-bucket \
-    --cors-configuration file://cors-config.json
-
-# cors-config.json
-{
-    "CORSRules": [
+    ```json
+    [
         {
             "AllowedHeaders": ["*"],
             "AllowedMethods": ["PUT", "GET", "DELETE"],
-            "AllowedOrigins": ["*"],
-            "ExposeHeaders": ["ETag"]
+            "AllowedOrigins": ["http://localhost:3000", "https://example.com"],
+            "ExposeHeaders": ["ETag"],
+            "MaxAgeSeconds": 3000
         }
     ]
-}
-```
+    ```
+
+### LocalStack CORS 설정
+
+- AWS CLI 또는 초기화 스크립트로 설정 가능
+
+    ```bash
+    # AWS CLI로 CORS 설정
+    awslocal s3api put-bucket-cors \
+        --bucket my-bucket \
+        --cors-configuration file://cors-config.json
+
+    # cors-config.json
+    {
+        "CORSRules": [
+            {
+                "AllowedHeaders": ["*"],
+                "AllowedMethods": ["PUT", "GET", "DELETE"],
+                "AllowedOrigins": ["*"],
+                "ExposeHeaders": ["ETag"]
+            }
+        ]
+    }
+    ```
 
 - 또는 초기화 스크립트에 포함
 
-```bash
-#!/bin/bash
-# init-scripts/setup-cors.sh
+    ```bash
+    #!/bin/bash
+    # init-scripts/setup-cors.sh
 
-awslocal s3api put-bucket-cors \
-    --bucket my-bucket \
-    --cors-configuration '{
-        "CORSRules": [{
-            "AllowedHeaders": ["*"],
-            "AllowedMethods": ["PUT", "GET", "DELETE"],
-            "AllowedOrigins": ["*"],
-            "ExposeHeaders": ["ETag"]
-        }]
-    }'
-```
+    awslocal s3api put-bucket-cors \
+        --bucket my-bucket \
+        --cors-configuration '{
+            "CORSRules": [{
+                "AllowedHeaders": ["*"],
+                "AllowedMethods": ["PUT", "GET", "DELETE"],
+                "AllowedOrigins": ["*"],
+                "ExposeHeaders": ["ETag"]
+            }]
+        }'
+    ```
 
-- 주의사항
+- 주의 사항
   - `AllowedOrigins`에 `"*"`를 사용하면 모든 도메인에서 접근 가능하므로 프로덕션 환경에서는 특정 도메인만 명시하는 것이 보안상 안전함
   - `AllowedMethods`에는 실제로 사용하는 HTTP 메서드만 포함하는 것이 좋음
   - `ExposeHeaders`는 클라이언트에서 읽을 수 있는 응답 헤더를 지정함
@@ -569,122 +552,96 @@ awslocal s3api put-bucket-cors \
 - 매번 생성하는 방식은 불필요한 오버헤드가 발생함
 - URL 캐싱을 통해 성능 개선 가능
 
-```java
-@Service
-public class S3CachedPresignedService {
-    private final S3PresignedService presignedService;
-    private final Map<String, CachedUrl> urlCache = new ConcurrentHashMap<>();
-    
-    public String getOrGenerateUrl(String key, int expirationMinutes) {
-        CachedUrl cached = urlCache.get(key);
+    ```java
+    @Service
+    public class S3CachedPresignedService {
+        private final S3PresignedService presignedService;
+        private final Map<String, CachedUrl> urlCache = new ConcurrentHashMap<>();
         
-        // 캐시된 URL이 아직 유효한가?
-        if (cached != null && cached.expiresAt > System.currentTimeMillis()) {
-            return cached.url;
+        public String getOrGenerateUrl(String key, int expirationMinutes) {
+            CachedUrl cached = urlCache.get(key);
+            
+            // 캐시된 URL이 아직 유효한가?
+            if (cached != null && cached.expiresAt > System.currentTimeMillis()) {
+                return cached.url;
+            }
+            
+            // 새로 생성
+            S3PresignedService.PresignedUrlResult result = 
+                presignedService.generatePresignedUploadUrl(
+                    key, expirationMinutes, "image/jpeg"
+                );
+            
+            urlCache.put(key, new CachedUrl(
+                result.url(),
+                result.expiresAt()
+            ));
+            
+            return result.url();
         }
         
-        // 새로 생성
-        S3PresignedService.PresignedUrlResult result = 
-            presignedService.generatePresignedUploadUrl(
-                key, expirationMinutes, "image/jpeg"
-            );
-        
-        urlCache.put(key, new CachedUrl(
-            result.url(),
-            result.expiresAt()
-        ));
-        
-        return result.url();
+        record CachedUrl(String url, long expiresAt) {}
     }
-    
-    record CachedUrl(String url, long expiresAt) {}
-}
-```
+    ```
 
 ### 배치 URL 생성
 
 - 여러 파일에 대한 Presigned URL을 한 번에 생성할 때 병렬 처리 고려
 
-```java
-@PostMapping("/batch-presigned-urls")
-public ResponseEntity<Map<String, String>> getBatchUrls(
-    @RequestBody List<String> fileNames
-) {
-    Map<String, String> urls = fileNames.parallelStream()
-        .collect(Collectors.toMap(
-            fileName -> fileName,
-            fileName -> presignedService.generatePresignedUploadUrl(
-                fileName, 5, "image/jpeg"
-            ).url()
-        ));
-    
-    return ResponseEntity.ok(urls);
-}
-```
+    ```java
+    @PostMapping("/batch-presigned-urls")
+    public ResponseEntity<Map<String, String>> getBatchUrls(
+        @RequestBody List<String> fileNames
+    ) {
+        Map<String, String> urls = fileNames.parallelStream()
+            .collect(Collectors.toMap(
+                fileName -> fileName,
+                fileName -> presignedService.generatePresignedUploadUrl(
+                    fileName, 5, "image/jpeg"
+                ).url()
+            ));
+        
+        return ResponseEntity.ok(urls);
+    }
+    ```
 
 ## LocalStack에서의 Presigned URL
 
 - LocalStack도 동일한 방식으로 동작함
 - 시간 기반 검증을 완전히 지원함
 
-```yaml
-# docker-compose.yml
-services:
-  localstack:
-    environment:
-      - SERVICES=s3
-      - AWS_ACCESS_KEY_ID=test
-      - AWS_SECRET_ACCESS_KEY=test
-```
+    ```yaml
+    # docker-compose.yml
+    services:
+    localstack:
+        environment:
+        - SERVICES=s3
+        - AWS_ACCESS_KEY_ID=test
+        - AWS_SECRET_ACCESS_KEY=test
+    ```
 
-```java
-@Bean
-public AmazonS3 amazonS3() {
-    return AmazonS3ClientBuilder.standard()
-        .withEndpointConfiguration(new EndpointConfiguration(
-            "http://localhost:4566", "us-east-1"
-        ))
-        .withCredentials(new AWSStaticCredentialsProvider(
-            new BasicAWSCredentials("test", "test")
-        ))
-        .withPathStyleAccessEnabled(true)
-        .build();
-}
-```
+    ```java
+    @Bean
+    public AmazonS3 amazonS3() {
+        return AmazonS3ClientBuilder.standard()
+            .withEndpointConfiguration(new EndpointConfiguration(
+                "http://localhost:4566", "us-east-1"
+            ))
+            .withCredentials(new AWSStaticCredentialsProvider(
+                new BasicAWSCredentials("test", "test")
+            ))
+            .withPathStyleAccessEnabled(true)
+            .build();
+    }
+    ```
 
-- 생성된 URL: `http://localhost:4566/mybucket/file.jpg?X-Amz-Signature=...`
-
-## 요약
-
-### 핵심 정리
-
-- **서명 알고리즘**
-  - AWS Signature Version 4 (HMAC-SHA256)
-- **유효 시간**
-  - IAM User의 영구 자격 증명 사용 시 최대 7일 가능
-  - IAM Role(임시 자격 증명) 사용 시 최대 유효 기간은 세션 만료 시간에 종속됨 (보통 1시간~36시간)
-  - 실무에서는 보안을 위해 5분~1시간 권장
-- **재사용**
-  - 유효시간 내 재사용 가능
-- **보안**
-  - URL 자체가 토큰이므로 짧은 만료시간 필수
-- **Content-Type**
-  - 서명에 포함되므로 일치해야 함
-- **HTTP 메서드**
-  - PUT, GET, DELETE 구분 필수
-- **Path-style**
-  - LocalStack은 필수 설정
-- **CORS 설정**
-  - 브라우저에서 직접 S3 접근 시 필수
-  - 버킷 CORS 정책에 클라이언트 도메인 포함 필요
-- **시간 동기화**
-  - NTP로 동기화 필요
+    - 생성된 URL
+        - `http://localhost:4566/mybucket/file.jpg?X-Amz-Signature=...`
 
 ## 결론
 
-- Presigned URL은 서버 부하 없이 대용량 파일을 안전하게 처리할 수 있는 강력한 기능임
-- AWS 서명 V4 알고리즘을 통해 보안을 보장하며, 시간 기반 만료로 추가 보안을 제공함
-- 서버와 클라이언트 간 Content-Type 일치가 중요하며, 시간 동기화도 주의해야 함
+- Presigned URL은 서버 부하 없이 대용량 파일을 안전하게 처리할 수 있는 기능임
+- AWS 서명 V4 알고리즘을 통해 보안을 보장하며 시간 기반 만료로 추가 보안을 제공함
+- 서버와 클라이언트 간 Content-Type 일치가 중요하며 시간 동기화도 주의해야 함
 - LocalStack에서도 동일하게 동작하므로 로컬 개발 환경에서도 테스트 가능함
 - 올바르게 사용하면 성능을 크게 향상시킬 수 있음
-

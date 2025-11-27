@@ -25,7 +25,7 @@ mermaid: true
 
 ### 기존 방식 vs LocalStack 방식
 
-![image.png](/assets/img/cloud/aws/image.png)
+![image.png](/assets/img/cloud/aws/2025-11-25-localstack/image.png)
 
 ## 지원 서비스
 
@@ -566,7 +566,7 @@ environment:
 
 ## 개발 워크플로우
 
-![image.png](/assets/img/cloud/aws/image1.png)
+![image.png](/assets/img/cloud/aws/2025-11-25-localstack/image1.png)
 
 - LocalStack을 사용하면 개발 속도를 크게 향상시킬 수 있음
 - 로컬에서 마음껏 실험하고 DB 상태도 원할 때마다 초기화할 수 있음
