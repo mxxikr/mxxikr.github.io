@@ -4,7 +4,7 @@
 
 @mixin light-syntax {
   /* see: <https://raw.githubusercontent.com/jwarby/pygments-css/master/github.css> */
-  .highlight .hll { background-color: #f6f8fa !important; }
+  .highlight .hll { background-color: #f6f8fa !important; } /* Highlighted line (rarely used) */
   .highlight .c { color: #999988 !important; font-style: italic !important; } /* Comment */
   .highlight .err { color: #a61717 !important; background-color: #e3d2d2 !important; } /* Error */
   .highlight .k { color: #000000 !important; font-weight: bold !important; } /* Keyword */
