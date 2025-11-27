@@ -121,11 +121,20 @@
         {% endif %}
 
         {% assign _left = _left | replace: _src, _final_src %}
+        
+        <!-- src 속성이 없으면 추가 -->
+        {% unless _left contains 'src=' %}
+          {% assign _left = _left | prepend: 'src="' | append: '"' %}
+        {% endunless %}
+        
+        <!-- data-src가 있으면 src로 변환 -->
+        {% if _left contains 'data-src=' %}
+          {% assign _left = _left | replace: 'data-src=', 'src=' %}
+        {% endif %}
 
       {% endunless %}
 
-      <!-- lazy-load images <https://github.com/ApoorvSaxena/lozad.js#usage> -->
-      <!-- 주석 처리: 이미지가 안보이는 문제 해결 -->
+      <!-- lazy-load images 비활성화: 이미지가 즉시 로드되도록 src 속성 유지 -->
       <!-- {% assign _left = _left | replace: 'src=', 'data-src=' %} -->
 
     {% endif %}
