@@ -67,13 +67,13 @@
   .highlight .il { color: #009999; } /* Literal.Number.Integer.Long */
 
   /* --- custom light colors --- */
-  --highlight-bg-color: #f0ebf8;
-  --highlighter-rouge-color: rgb(153, 134, 179);
-  --highlight-lineno-color: #c2c6cc;
-  --inline-code-bg: #f0ebf8;
-  --code-header-text-color: #a3a3b1;
-  --code-header-muted-color: #ebebeb;
-  --code-header-icon-color: #d1d1d1;
+  --highlight-bg-color: #f6f8fa;
+  --highlighter-rouge-color: #24292e;
+  --highlight-lineno-color: #6a737d;
+  --inline-code-bg: #f6f8fa;
+  --code-header-text-color: #6a737d;
+  --code-header-muted-color: #e1e4e8;
+  --code-header-icon-color: #959da5;
   --clipboard-checked-color: #43c743;
 
   [class^=prompt-] {
