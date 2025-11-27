@@ -183,7 +183,7 @@ compress_html:
     envs: [development]
 
 # Safe Performance Optimization
-incremental: true
+incremental: false
 future: false
 safe: false
 
