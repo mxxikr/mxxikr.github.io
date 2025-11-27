@@ -26,7 +26,7 @@
   src: url('/assets/fonts/RIDIBatang.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: swap; /* preload와 함께 사용하여 FOUT 최소화 */
 }
 
 /* 리디바탕 폰트 적용 */
