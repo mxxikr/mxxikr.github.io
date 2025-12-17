@@ -5,7 +5,9 @@
 @mixin btn-sharing-color($light-color, $important: false) {
   @if $important {
     color: var(--btn-share-color, $light-color) !important;
-  } @else {
+  }
+
+  @else {
     color: var(--btn-share-color, $light-color);
   }
 }
@@ -29,16 +31,21 @@
 /* 포스트 본문 텍스트 색상 강제 적용 */
 .post-content {
   color: #424245 !important;
-  
-  p, li, span, div {
+
+  p,
+  li,
+  span,
+  div {
     color: #424245 !important;
   }
-  
+
   /* 링크는 보라색 유지 */
   a {
     color: rgb(153, 134, 179) !important;
-    
-    &:hover, &:active, &:focus {
+
+    &:hover,
+    &:active,
+    &:focus {
       color: #ffffff !important;
       background: rgba(153, 134, 179, 0.2);
       border-radius: 4px;
@@ -46,15 +53,20 @@
       transition: all 0.2s ease;
     }
   }
-  
+
   /* 제목은 진한 회색 유지 */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: #424245 !important;
   }
 }
 
-h1 + .post-meta {
-  span + span::before {
+h1+.post-meta {
+  span+span::before {
     @include dot;
   }
 
@@ -63,8 +75,10 @@ h1 + .post-meta {
 
     a {
       color: rgb(153, 134, 179) !important;
-      
-      &:hover, &:active, &:focus {
+
+      &:hover,
+      &:active,
+      &:focus {
         color: #ffffff !important;
         background: rgba(153, 134, 179, 0.2);
         border-radius: 4px;
@@ -73,14 +87,16 @@ h1 + .post-meta {
       }
     }
   }
-  
+
   span {
     color: rgb(153, 134, 179) !important;
-    
+
     a {
       color: rgb(153, 134, 179) !important;
-      
-      &:hover, &:active, &:focus {
+
+      &:hover,
+      &:active,
+      &:focus {
         color: #ffffff !important;
         background: rgba(153, 134, 179, 0.2);
         border-radius: 4px;
@@ -89,15 +105,17 @@ h1 + .post-meta {
       }
     }
   }
-  
+
   /* 모든 메타데이터 텍스트 통일 */
   * {
     color: rgb(153, 134, 179) !important;
-    
+
     a {
       color: rgb(153, 134, 179) !important;
-      
-      &:hover, &:active, &:focus {
+
+      &:hover,
+      &:active,
+      &:focus {
         color: #ffffff !important;
         background: rgba(153, 134, 179, 0.2);
         border-radius: 4px;
@@ -190,7 +208,9 @@ img.preview-img {
     white-space: normal;
   }
 
-} /* .post-navigation */
+}
+
+/* .post-navigation */
 
 @keyframes fade-up {
   from {
@@ -198,6 +218,7 @@ img.preview-img {
     position: relative;
     top: 2rem;
   }
+
   to {
     opacity: 1;
     position: relative;
@@ -209,7 +230,8 @@ img.preview-img {
   border: none;
   position: -webkit-sticky;
   position: sticky;
-  top: 80px !important; /* topbar 높이 + 여백 */
+  top: 80px !important;
+  /* topbar 높이 + 여백 */
   max-height: calc(100vh - 100px) !important;
   overflow-y: auto !important;
   z-index: 10 !important;
@@ -270,29 +292,35 @@ img.preview-img {
   &.nav-link.active {
     background: transparent;
     color: #1d1d1f;
-    font-weight: 700;
+    font-weight: 600;
+    /* hover와 동일 */
     box-shadow: none;
     border: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     position: relative;
-    
+    transform: translateX(4px);
+    /* hover와 동일한 효과 */
+
     &::after {
       display: none !important;
     }
   }
-  
+
   /* Bootstrap TOC 기본 활성화 스타일 복원 */
   &.active {
     background: transparent;
     color: #1d1d1f;
-    font-weight: 700;
+    font-weight: 600;
+    /* hover와 동일 */
     box-shadow: none;
     border: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     position: relative;
-    
+    transform: translateX(4px);
+    /* hover와 동일한 효과 */
+
     &::after {
       display: none !important;
     }
@@ -302,140 +330,164 @@ img.preview-img {
 
 nav[data-toggle=toc] {
   /* 동적 높이 조정 - 필요시에만 스크롤 */
-  
+
   /* 스크롤바 투명하게 만들기 (동적으로 스크롤이 필요할 때) */
   &::-webkit-scrollbar {
     width: 6px !important;
     background: transparent !important;
   }
-  
+
   &::-webkit-scrollbar-track {
     background: transparent !important;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: transparent !important;
     border-radius: 3px !important;
-    
+
     &:hover {
       background: rgba(128, 102, 153, 0.2) !important;
     }
   }
-  
+
   /* Firefox에서 스크롤바 투명하게 */
   scrollbar-width: thin !important;
   scrollbar-color: transparent transparent !important;
-  
+
   /* IE/Edge에서 스크롤바 투명하게 */
   -ms-overflow-style: auto !important;
-  
+
   .nav {
-    .nav > li > a.active {
+    .nav>li>a.active {
       font-weight: 600 !important;
     }
   }
-  
+
   /* TOC 버튼을 오른쪽으로 20px 이동 (5px + 10px + 5px) */
   .nav {
     margin-left: 10px !important;
   }
-  
+
   /* TOC 버튼 간격 통일 및 heading 레벨별 들여쓰기 */
   .nav-link {
-    margin-bottom: 0.5rem !important; /* 버튼 간 위아래 간격 통일 */
-    white-space: nowrap !important; /* 텍스트 줄바꿈 방지 */
-    overflow: hidden !important; /* 오버플로우 숨김 */
-    text-overflow: ellipsis !important; /* ... 처리 */
-    
+    margin-bottom: 0.5rem !important;
+    /* 버튼 간 위아래 간격 통일 */
+    white-space: nowrap !important;
+    /* 텍스트 줄바꿈 방지 */
+    overflow: hidden !important;
+    /* 오버플로우 숨김 */
+    text-overflow: ellipsis !important;
+    /* ... 처리 */
+
     /* H1 항목 (최상위 레벨) */
     &.toc-h1 {
       padding-left: 0 !important;
       font-weight: 600 !important;
     }
-    
+
     /* H2 항목 (하위 레벨) - 30px 들여쓰기 */
     &.toc-h2 {
       padding-left: 30px !important;
     }
   }
-  
+
   /* 반응형 TOC 스타일 - 점진적 변화 */
-  
+
   /* 태블릿 크기 (1024px 이하) */
   @media (max-width: 1024px) {
     .nav {
-      margin-left: 8px !important; /* 약간 줄임 */
+      margin-left: 8px !important;
+      /* 약간 줄임 */
     }
-    
+
     .nav-link {
       &.toc-h2 {
-        padding-left: 25px !important; /* 약간 줄임 */
+        padding-left: 25px !important;
+        /* 약간 줄임 */
       }
     }
   }
-  
+
   /* 중간 태블릿 크기 (768px 이하) */
   @media (max-width: 768px) {
     .nav {
-      margin-left: 5px !important; /* 더 줄임 */
+      margin-left: 5px !important;
+      /* 더 줄임 */
     }
-    
+
     .nav-link {
-      font-size: 0.9rem !important; /* 약간 줄임 */
-      padding: 0.45rem 0.9rem !important; /* 약간 줄임 */
-      
+      font-size: 0.9rem !important;
+      /* 약간 줄임 */
+      padding: 0.45rem 0.9rem !important;
+      /* 약간 줄임 */
+
       &.toc-h2 {
-        padding-left: 20px !important; /* 더 줄임 */
+        padding-left: 20px !important;
+        /* 더 줄임 */
       }
     }
   }
-  
+
   /* 작은 태블릿/큰 모바일 (640px 이하) */
   @media (max-width: 640px) {
     .nav {
-      margin-left: 2px !important; /* 거의 중앙 */
+      margin-left: 2px !important;
+      /* 거의 중앙 */
     }
-    
+
     .nav-link {
-      font-size: 0.85rem !important; /* 더 줄임 */
-      padding: 0.4rem 0.8rem !important; /* 더 줄임 */
-      
+      font-size: 0.85rem !important;
+      /* 더 줄임 */
+      padding: 0.4rem 0.8rem !important;
+      /* 더 줄임 */
+
       &.toc-h2 {
-        padding-left: 18px !important; /* 더 줄임 */
+        padding-left: 18px !important;
+        /* 더 줄임 */
       }
     }
   }
-  
+
   /* 모바일 크기 (480px 이하) */
   @media (max-width: 480px) {
     .nav {
-      margin-left: 0 !important; /* 중앙 정렬 */
+      margin-left: 0 !important;
+      /* 중앙 정렬 */
     }
-    
+
     .nav-link {
-      font-size: 0.8rem !important; /* 모바일 폰트 */
-      padding: 0.35rem 0.7rem !important; /* 모바일 패딩 */
-      margin-bottom: 0.4rem !important; /* 간격 약간 줄임 */
-      
+      font-size: 0.8rem !important;
+      /* 모바일 폰트 */
+      padding: 0.35rem 0.7rem !important;
+      /* 모바일 패딩 */
+      margin-bottom: 0.4rem !important;
+      /* 간격 약간 줄임 */
+
       &.toc-h2 {
-        padding-left: 15px !important; /* 모바일 들여쓰기 */
+        padding-left: 15px !important;
+        /* 모바일 들여쓰기 */
       }
     }
   }
-  
+
   /* 작은 모바일 크기 (360px 이하) */
   @media (max-width: 360px) {
     .nav {
-      margin-left: -2px !important; /* 약간 왼쪽 */
+      margin-left: -2px !important;
+      /* 약간 왼쪽 */
     }
-    
+
     .nav-link {
-      font-size: 0.75rem !important; /* 작은 폰트 */
-      padding: 0.3rem 0.6rem !important; /* 작은 패딩 */
-      margin-bottom: 0.3rem !important; /* 간격 줄임 */
-      
+      font-size: 0.75rem !important;
+      /* 작은 폰트 */
+      padding: 0.3rem 0.6rem !important;
+      /* 작은 패딩 */
+      margin-bottom: 0.3rem !important;
+      /* 간격 줄임 */
+
       &.toc-h2 {
-        padding-left: 12px !important; /* 작은 들여쓰기 */
+        padding-left: 12px !important;
+        /* 작은 들여쓰기 */
       }
     }
   }
@@ -444,17 +496,19 @@ nav[data-toggle=toc] {
 /* --- Related Posts --- */
 
 #related-posts {
-  > h3 {
+  >h3 {
     @include label(1.1rem, 600);
   }
-  
+
   /* 강제로 투명한 배경 적용 */
-  .card, .post-card, .related-card {
+  .card,
+  .post-card,
+  .related-card {
     background: transparent !important;
     background-color: transparent !important;
     backdrop-filter: blur(2px) saturate(1.01) !important;
     -webkit-backdrop-filter: blur(2px) saturate(1.01) !important;
-    box-shadow: 
+    box-shadow:
       0 1px 4px rgba(128, 102, 153, 0.01),
       0 1px 2px rgba(255, 255, 255, 0.01),
       inset 0 1px 0 rgba(255, 255, 255, 0.02),
@@ -471,11 +525,11 @@ nav[data-toggle=toc] {
   .card {
     border: none !important;
     /* 버튼과 동일한 그라데이션 세기 */
-    background: 
+    background:
       radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
       radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%) !important;
-    box-shadow: 
+    box-shadow:
       0 2px 8px rgba(128, 102, 153, 0.02),
       0 1px 4px rgba(255, 255, 255, 0.02),
       inset 0 1px 0 rgba(255, 255, 255, 0.03),
@@ -491,7 +545,8 @@ nav[data-toggle=toc] {
 
     h3 {
       @extend %text-color;
-      color: #424245 !important; /* 텍스트 가독성 향상 */
+      color: #424245 !important;
+      /* 텍스트 가독성 향상 */
     }
 
     a {
@@ -514,11 +569,11 @@ nav[data-toggle=toc] {
       transform: translate3d(0, -3px, 0);
       backdrop-filter: blur(12px) saturate(1.05) brightness(1.01);
       -webkit-backdrop-filter: blur(12px) saturate(1.05) brightness(1.01);
-      background: 
+      background:
         radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.05) 0%, transparent 70%),
         radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.03) 0%, transparent 70%),
         linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(196, 190, 226, 0.01) 100%) !important;
-      box-shadow: 
+      box-shadow:
         0 8px 24px rgba(128, 102, 153, 0.06),
         0 4px 12px rgba(255, 255, 255, 0.08),
         inset 0 2px 0 rgba(255, 255, 255, 0.1),
@@ -534,9 +589,11 @@ nav[data-toggle=toc] {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    line-clamp: 2; /* 표준 속성 추가 */
+    line-clamp: 2;
+    /* 표준 속성 추가 */
     -webkit-box-orient: vertical;
-    color: #424245 !important; /* 텍스트 가독성 향상 */
+    color: #424245 !important;
+    /* 텍스트 가독성 향상 */
   }
 
   a:hover {
@@ -547,7 +604,7 @@ nav[data-toggle=toc] {
     list-style-type: none;
     padding-inline-start: 1.5rem;
 
-    > li::before {
+    >li::before {
       background: #c2c9d4;
       width: 5px;
       height: 5px;
@@ -564,7 +621,7 @@ nav[data-toggle=toc] {
 #tail-wrapper {
   min-height: 2rem;
 
-  > div:last-of-type {
+  >div:last-of-type {
     margin-bottom: 2rem;
   }
 
@@ -597,13 +654,13 @@ nav[data-toggle=toc] {
       &:hover {
         text-decoration: none;
 
-        > i {
+        >i {
           @extend %btn-share-hovor;
         }
       }
     }
 
-    > i {
+    >i {
       position: relative;
       bottom: 1px;
 
@@ -632,13 +689,17 @@ nav[data-toggle=toc] {
       }
     }
 
-  } /* .share-icons */
+  }
+
+  /* .share-icons */
 
   .fas.fa-link {
     @include btn-sharing-color(rgb(171, 171, 171));
   }
 
-} /* .share-wrapper */
+}
+
+/* .share-wrapper */
 
 .share-label {
   @include label(inherit, 400, inherit);
@@ -651,7 +712,7 @@ nav[data-toggle=toc] {
 .license-wrapper {
   line-height: 1.2rem;
 
-  > a {
+  >a {
     color: var(--text-color);
 
     &:hover {
@@ -663,7 +724,9 @@ nav[data-toggle=toc] {
     font-size: 0.85rem;
   }
 
-} /* .license-wrapper */
+}
+
+/* .license-wrapper */
 
 @media all and (max-width: 576px) {
   .preview-img[data-src] {
@@ -674,7 +737,7 @@ nav[data-toggle=toc] {
     -ms-flex-wrap: wrap-reverse !important;
     flex-wrap: wrap-reverse !important;
 
-    > div:first-child {
+    >div:first-child {
       width: 100%;
       margin-top: 1rem;
     }
@@ -682,7 +745,7 @@ nav[data-toggle=toc] {
 }
 
 @media all and (max-width: 768px) {
-  .post-content > p > img {
+  .post-content>p>img {
     max-width: calc(100% + 1rem);
   }
 }
@@ -708,13 +771,13 @@ nav[data-toggle=toc] {
     background: transparent;
     border: none;
   }
-  
+
   #toc li a {
     background: transparent;
     border: none;
     color: #1d1d1f;
   }
-  
+
   #toc li a:hover {
     background: transparent;
     border: none;
@@ -722,11 +785,11 @@ nav[data-toggle=toc] {
     color: #1d1d1f;
     font-weight: 600;
   }
-  
+
   #toc li a.nav-link:not(.active) {
     color: #1d1d1f;
   }
-  
+
   #toc li a.nav-link.active {
     background: transparent;
     color: #1d1d1f;
@@ -734,12 +797,12 @@ nav[data-toggle=toc] {
     box-shadow: none;
     font-weight: 700;
     position: relative;
-    
+
     &::after {
       display: none !important;
     }
   }
-  
+
   /* Bootstrap TOC 기본 활성화 스타일 복원 - 다크 모드 */
   #toc li a.active {
     background: transparent;
@@ -748,10 +811,9 @@ nav[data-toggle=toc] {
     box-shadow: none;
     font-weight: 700;
     position: relative;
-    
+
     &::after {
       display: none !important;
     }
   }
 }
-
