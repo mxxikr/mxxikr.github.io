@@ -17,7 +17,7 @@ mermaid: true
 - 복잡한 문제를 관리 가능한 작은 부분으로 분해함으로써 해결 과정을 단순화함
 - 재귀적 접근 방식을 활용하여 문제를 효율적으로 해결함
 
-</br>
+<br/><br/>
 
 ## 분할 정복의 기본 개념
 
@@ -41,7 +41,7 @@ mermaid: true
 ![image](/assets/img/algorithm/image.png)
 
 
-</br>
+<br/><br/>
 
 ## 분할 정복의 조건
 
@@ -65,7 +65,7 @@ mermaid: true
 - 문제가 충분히 작아졌을 때 직접 해결할 수 있어야 함
 - 기저 조건이 없으면 무한 재귀에 빠질 수 있음
 
-</br>
+<br/><br/>
 
 ## 분할 정복 vs 동적계획법
 
@@ -85,7 +85,7 @@ mermaid: true
 - **동적계획법** 
   - 부분 문제들이 중복되므로 한 번 계산한 결과를 저장하여 재사용함
 
-</br>
+<br/><br/>
 
 ## 분할 정복의 장점
 
@@ -113,7 +113,7 @@ mermaid: true
 - 문제 해결 과정이 단순화됨
 - 재귀적 구조로 인해 코드가 간결하고 이해하기 쉬움
 
-</br>
+<br/><br/>
 
 ## 분할 정복의 시간 복잡도 분석
 
@@ -148,7 +148,7 @@ mermaid: true
     - 최종 시간 복잡도
       - $O(\log n)$
 
-</br>
+<br/><br/>
 
 ## 병합 정렬
 
@@ -210,7 +210,7 @@ void merge(int[] array, int left, int mid, int right) {
 }
 ```
 
-</br>
+<br/><br/>
 
 ## 퀵 정렬
 
@@ -281,7 +281,7 @@ void swap(int[] array, int i, int j) {
 }
 ```
 
-</br>
+<br/><br/>
 
 ## 이진 탐색
 
@@ -350,7 +350,7 @@ int binarySearchIterative(int[] array, int target) {
 }
 ```
 
-</br>
+<br/><br/>
 
 ## 거듭제곱 연산
 
@@ -389,7 +389,7 @@ long power(long base, int exp) {
 }
 ```
 
-</br>
+<br/><br/>
 
 ## 최대 부분 배열 합
 
@@ -448,7 +448,7 @@ int maxCrossingSum(int[] array, int left, int mid, int right) {
 }
 ```
 
-</br>
+<br/><br/>
 
 ## 분할 정복 구현 시 주의사항
 
@@ -520,7 +520,7 @@ int factorialIterative(int n) {
 - 마스터 정리를 사용하여 시간 복잡도를 정확히 분석해야 함
 - 분할 횟수와 각 단계의 작업량을 고려해야 함
 
-</br>
+<br/><br/>
 
 ## 정리
 
@@ -529,7 +529,7 @@ int factorialIterative(int n) {
 - 동적계획법과 달리 부분 문제들이 독립적이어서 중복 계산이 발생하지 않음
 - 대표적인 예시로 병합 정렬($O(n \log n)$), 퀵 정렬(평균 $O(n \log n)$), 이진 탐색($O(\log n)$)이 있음
 
-</br>
+<br/><br/>
 
 ## Reference
 - [Do it! 알고리즘 코딩 테스트 - 자바 편](https://www.yes24.com/product/goods/148122935)
