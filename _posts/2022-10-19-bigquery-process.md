@@ -2,7 +2,7 @@
 title:  "GCP BigQuery 프로세스 관리"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2022-10-19 12:40:00 +0900
 category:
   - [Cloud, GCP]
