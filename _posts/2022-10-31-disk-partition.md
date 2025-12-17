@@ -2,7 +2,7 @@
 title:  "Disk와 Partition"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2022-10-31 22:55:00 +0900
 category:
   - [OS, Linux]

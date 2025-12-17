@@ -2,7 +2,7 @@
 title:  "Linux 명령어"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2022-08-31 19:27:00 +0900
 category:
   - [OS, Linux]

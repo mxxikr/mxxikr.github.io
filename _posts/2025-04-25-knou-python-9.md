@@ -2,7 +2,7 @@
 title:  "[파이썬 프로그래밍 기초] 9강 - 함수"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2025-04-25 00:00:00 +0900
 category:
   - [Language, Python]

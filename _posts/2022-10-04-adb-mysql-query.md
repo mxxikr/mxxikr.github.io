@@ -2,7 +2,7 @@
 title:  "Alicloud AnalyticDB MySQL Query"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2022-10-04 23:55:00 +0900
 category:
   - [Database, MySQL]
