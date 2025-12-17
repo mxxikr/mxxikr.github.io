@@ -1,9 +1,9 @@
 ---
-title: ㄴ시간 복잡도란?
+title: 시간 복잡도란?
 date: 2025-12-17 00:00:00 +0900
 category:
   - [Computer Science, Algorithm]
-tags: [algorithm, time complexity, big-o]
+tags: [algorithm, big-o]
 math: true
 mermaid: true
 ---
