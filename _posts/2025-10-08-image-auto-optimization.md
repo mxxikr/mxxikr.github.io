@@ -2,7 +2,7 @@
 title:  "Jekyll 블로그 이미지 자동 최적화"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2025-10-08 18:50:00 +0900
 category:
   - [Blog]

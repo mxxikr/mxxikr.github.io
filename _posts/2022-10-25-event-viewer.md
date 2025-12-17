@@ -2,7 +2,7 @@
 title:  "Windows Event Viewer"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2022-10-25 04:00:00 +0900
 category:
   - [OS, Windows]
