@@ -2,7 +2,7 @@
 title:  "[멀티미디어 시스템] 2강 - 멀티미디어 시스템 환경"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2025-09-26 00:00:00 +0900
 category:
   - [Computer Science, CS Theory]

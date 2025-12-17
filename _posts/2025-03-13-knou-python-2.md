@@ -2,7 +2,7 @@
 title:  "[파이썬 프로그래밍 기초] 2강 - 컴퓨터의 구성"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2025-03-13 00:00:00 +0900
 category:
   - [Language, Python]

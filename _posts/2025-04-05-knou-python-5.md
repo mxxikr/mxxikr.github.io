@@ -2,7 +2,7 @@
 title:  "[파이썬 프로그래밍 기초] 5강 - 순차 구조"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2025-04-05 00:00:00 +0900
 category:
   - [Language, Python]

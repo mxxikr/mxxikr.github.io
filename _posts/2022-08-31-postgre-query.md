@@ -2,7 +2,7 @@
 title:  "PostgreSQL Query"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2022-09-01 23:30:00 +0900
 category:
   - [Database, PostgreSQL]

@@ -2,7 +2,7 @@
 title:  "Cisco Packet Tracer 설정 및 CLI 명령어"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2022-11-10 23:40:00 +0900
 category:
   - Network

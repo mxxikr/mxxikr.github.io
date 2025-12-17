@@ -2,7 +2,7 @@
 title:  "Docker, Docker-Compose 설치"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2022-10-25 05:50:00 +0900
 category:
   - [Infrastructure, Docker]

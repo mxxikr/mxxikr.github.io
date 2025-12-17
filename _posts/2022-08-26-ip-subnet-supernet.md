@@ -2,7 +2,7 @@
 title:  "IP 주소 체계와 Subnet, Supernet"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2022-08-26 00:24:00 +0900
 category:
   - Network

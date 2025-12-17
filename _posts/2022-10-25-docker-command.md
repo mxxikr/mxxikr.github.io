@@ -2,7 +2,7 @@
 title:  "Docker 명령어"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2022-10-25 05:55:00 +0900
 category:
   - [Infrastructure, Docker]

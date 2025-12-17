@@ -2,7 +2,7 @@
 title:  "[파이썬 프로그래밍 기초] 3강 - 파이썬의 이해"
 author:
   name: mxxikr
-  link: https://github.com/mxxikr"
+  link: https://github.com/mxxikr
 date: 2025-03-21 00:00:00 +0900
 category:
   - [Language, Python]
