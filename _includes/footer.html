@@ -9,8 +9,8 @@
         © {{ 'now' | date: "%Y" }}
         <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
         {% if site.data.locales[lang].copyright.brief %}
-        <span data-toggle="tooltip" data-placement="top"
-          title="{{ site.data.locales[lang].copyright.verbose }}">{{ site.data.locales[lang].copyright.brief }}</span>
+        <span data-toggle="tooltip" data-placement="top" title="{{ site.data.locales[lang].copyright.verbose }}">{{
+          site.data.locales[lang].copyright.brief }}</span>
         {% endif %}
       </p>
     </div>
@@ -35,3 +35,69 @@
 
   </div> <!-- div.d-flex -->
 </footer>
+
+<script>
+  (function () {
+    'use strict';
+    function fixFloatingButtons() {
+      const backToTop = document.getElementById('back-to-top');
+      const goToBottom = document.getElementById('go-to-bottom');
+
+      if (!backToTop || !goToBottom) return;
+
+      // 1. 버튼을 강제로 <body>로 이동 (사이드바 탈출)
+      if (backToTop.parentElement !== document.body) {
+        document.body.appendChild(backToTop);
+        document.body.appendChild(goToBottom);
+      }
+
+      // 2. 강력한 스타일 강제 주입 (기존 CSS 덮어쓰기)
+      const css = `
+      #back-to-top, #go-to-bottom {
+        position: fixed !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 2147483647 !important;
+        left: 2rem !important;
+        width: 2.7rem !important;
+        height: 2.7rem !important;
+        border-radius: 50% !important;
+        background-color: #8a76e7 !important;
+        color: #fff !important;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
+        transform: none !important;
+        transition: all 0.3s ease !important;
+      }
+      #back-to-top { bottom: 5.5rem !important; }
+      #go-to-bottom { bottom: 2rem !important; }
+      #back-to-top i, #go-to-bottom i { line-height: 1 !important; margin: 0 !important; }
+    `;
+
+      // 스타일이 없으면 새로 만듦
+      let styleTag = document.getElementById('floating-btn-style');
+      if (!styleTag) {
+        styleTag = document.createElement('style');
+        styleTag.id = 'floating-btn-style';
+        document.head.appendChild(styleTag);
+      }
+      styleTag.innerHTML = css;
+
+      // 3. 기존 이벤트 리스너 복제하여 초기화 (옛날 스크롤 감지 로직 무력화)
+      // (버튼을 새로 복제해서 기존에 붙어있던 숨김 처리 이벤트들을 다 날려버림)
+      const newBackToTop = backToTop.cloneNode(true);
+      const newGoToBottom = goToBottom.cloneNode(true);
+
+      backToTop.parentNode.replaceChild(newBackToTop, backToTop);
+      goToBottom.parentNode.replaceChild(newGoToBottom, goToBottom);
+
+      // 4. 클릭 이벤트 재설정
+      newBackToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      newGoToBottom.addEventListener('click', () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }));
+    }
+
+    // 페이지 로드 시, 그리고 페이지 이동 시(Turbolinks 등) 실행
+    window.addEventListener('load', fixFloatingButtons);
+    document.addEventListener('DOMContentLoaded', fixFloatingButtons);
+  })();
+</script>
