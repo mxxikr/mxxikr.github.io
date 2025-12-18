@@ -1,197 +1,81 @@
-// 항상 표시되는 네비게이션 버튼 - 단순하고 확실한 방법
-(function() {
+/*
+ * Navigation Buttons Fix (Move to Body & Force Fixed)
+ * 1. Inject Force CSS
+ * 2. Move buttons to <body> to avoid parent transform issues
+ */
+(function () {
   'use strict';
-  
-  console.log('🚀 Always Visible Navigation Buttons Starting...');
-  
-  // 버튼을 항상 표시하는 함수 (스크롤과 무관) - 최대 강도
-  function makeButtonsAlwaysVisible() {
-    const backToTopBtn = document.getElementById('back-to-top');
-    const goToBottomBtn = document.getElementById('go-to-bottom');
-    
-    if (backToTopBtn) {
-      // 모든 스타일 속성 직접 설정
-      backToTopBtn.style.setProperty('display', 'block', 'important');
-      backToTopBtn.style.setProperty('visibility', 'visible', 'important');
-      backToTopBtn.style.setProperty('opacity', '1', 'important');
-      backToTopBtn.style.setProperty('position', 'fixed', 'important');
-      backToTopBtn.style.setProperty('bottom', '90px', 'important');
-      backToTopBtn.style.setProperty('left', '40px', 'important');
-      backToTopBtn.style.setProperty('z-index', '999999', 'important');
-      backToTopBtn.style.setProperty('width', '50px', 'important');
-      backToTopBtn.style.setProperty('height', '50px', 'important');
-      backToTopBtn.style.setProperty('cursor', 'pointer', 'important');
-      backToTopBtn.style.setProperty('pointer-events', 'auto', 'important');
-      backToTopBtn.style.setProperty('transform', 'none', 'important');
+
+  // 1. 강제 스타일 주입 (디자인 및 위치 고정)
+  const style = document.createElement('style');
+  style.innerHTML = `
+    /* 버튼 공통 스타일 */
+    #back-to-top, #go-to-bottom {
+      position: fixed !important; /* 스크롤 무시하고 화면 전체 기준 고정 */
+      left: 2rem !important;      /* 왼쪽에서 2rem */
+      z-index: 2147483647 !important; /* 모든 요소보다 위에 표시 */
       
-      // 모든 숨김 관련 속성 제거
-      backToTopBtn.classList.remove('hide', 'd-none', 'invisible', 'hidden', 'fade-out');
-      backToTopBtn.removeAttribute('hidden');
-      backToTopBtn.removeAttribute('aria-hidden');
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
       
-      // DOM에서 직접 표시
-      if (backToTopBtn.parentNode) {
-        backToTopBtn.parentNode.style.display = '';
-      }
+      width: 2.7rem !important;
+      height: 2.7rem !important;
+      border-radius: 50% !important;
+      background-color: var(--sidebar-btn-bg, #8a76e7) !important; /* 테마 색상 또는 보라색 */
+      color: #ffffff !important;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
+      
+      visibility: visible !important; /* 무조건 보이게 */
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      text-decoration: none !important;
+      transform: none !important; /* 부모 영향 제거 */
     }
     
-    if (goToBottomBtn) {
-      // 모든 스타일 속성 직접 설정
-      goToBottomBtn.style.setProperty('display', 'block', 'important');
-      goToBottomBtn.style.setProperty('visibility', 'visible', 'important');
-      goToBottomBtn.style.setProperty('opacity', '1', 'important');
-      goToBottomBtn.style.setProperty('position', 'fixed', 'important');
-      goToBottomBtn.style.setProperty('bottom', '150px', 'important');
-      goToBottomBtn.style.setProperty('left', '40px', 'important');
-      goToBottomBtn.style.setProperty('z-index', '999999', 'important');
-      goToBottomBtn.style.setProperty('width', '50px', 'important');
-      goToBottomBtn.style.setProperty('height', '50px', 'important');
-      goToBottomBtn.style.setProperty('cursor', 'pointer', 'important');
-      goToBottomBtn.style.setProperty('pointer-events', 'auto', 'important');
-      goToBottomBtn.style.setProperty('transform', 'none', 'important');
-      
-      // 모든 숨김 관련 속성 제거
-      goToBottomBtn.classList.remove('hide', 'd-none', 'invisible', 'hidden', 'fade-out');
-      goToBottomBtn.removeAttribute('hidden');
-      goToBottomBtn.removeAttribute('aria-hidden');
-      
-      // DOM에서 직접 표시
-      if (goToBottomBtn.parentNode) {
-        goToBottomBtn.parentNode.style.display = '';
-      }
-    }
-  }
-  
-  // 클릭 이벤트 설정
-  function setupClickEvents() {
-    const backToTopBtn = document.getElementById('back-to-top');
-    const goToBottomBtn = document.getElementById('go-to-bottom');
+    /* 개별 위치 설정 */
+    #back-to-top { bottom: 5.5rem !important; }
+    #go-to-bottom { bottom: 2rem !important; }
     
-    if (backToTopBtn) {
-      // 기존 이벤트 제거
-      backToTopBtn.onclick = null;
-      
-      // 새로운 클릭 이벤트
-      backToTopBtn.addEventListener('click', function(e) {
+    /* 아이콘 크기 및 정렬 */
+    #back-to-top i, #go-to-bottom i {
+      line-height: 1 !important;
+      font-size: 1.1rem !important;
+      margin: 0 !important;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // 2. 버튼 초기화 함수
+  function initButtons() {
+    const backToTop = document.getElementById('back-to-top');
+    const goToBottom = document.getElementById('go-to-bottom');
+
+    // [핵심] 버튼을 사이드바에서 꺼내서 <body> 바로 아래로 이동
+    if (backToTop) {
+      document.body.appendChild(backToTop);
+      // 기존 이벤트 제거를 위해 새로 복제하거나 리스너만 추가 (여기선 리스너 추가만)
+      backToTop.onclick = function (e) {
         e.preventDefault();
-        e.stopPropagation();
-        console.log('🔝 Going to top');
-        
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-        
-        return false;
-      }, true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
     }
-    
-    if (goToBottomBtn) {
-      // 기존 이벤트 제거
-      goToBottomBtn.onclick = null;
-      
-      // 새로운 클릭 이벤트
-      goToBottomBtn.addEventListener('click', function(e) {
+
+    if (goToBottom) {
+      document.body.appendChild(goToBottom);
+      goToBottom.onclick = function (e) {
         e.preventDefault();
-        e.stopPropagation();
-        console.log('🔽 Going to bottom');
-        
-        window.scrollTo({
-          top: document.documentElement.scrollHeight,
-          behavior: 'smooth'
-        });
-        
-        return false;
-      }, true);
+        window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+      };
     }
-    
-    console.log('✅ Click events setup complete');
   }
-  
-  // 초기화 함수
-  function init() {
-    console.log('🔧 Initializing always visible buttons...');
-    
-    const backToTopBtn = document.getElementById('back-to-top');
-    const goToBottomBtn = document.getElementById('go-to-bottom');
-    
-    if (!backToTopBtn || !goToBottomBtn) {
-      console.log('⏳ Buttons not found, retrying in 100ms...');
-      setTimeout(init, 100);
-      return;
-    }
-    
-    // 버튼 항상 표시
-    makeButtonsAlwaysVisible();
-    
-    // 클릭 이벤트 설정
-    setupClickEvents();
-    
-    console.log('🎉 Navigation buttons ready!');
-  }
-  
-  // 즉시 시작
-  init();
-  
-  // DOM 준비 후에도 실행
+
+  // DOM 로드 시 실행
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  }
-  
-  // 페이지 로드 후에도 실행
-  window.addEventListener('load', function() {
-    setTimeout(init, 100);
-  });
-  
-  // 매우 자주 버튼 표시 확인 (다른 스크립트 간섭 방지) - 더 자주 체크
-  setInterval(makeButtonsAlwaysVisible, 100);
-  
-  // MutationObserver로 버튼 변경 감지 및 강제 표시
-  const observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-      if (mutation.type === 'attributes' || mutation.type === 'childList') {
-        makeButtonsAlwaysVisible();
-      }
-    });
-  });
-  
-  // DOM 준비 후 Observer 시작
-  function startObserver() {
-    const backToTopBtn = document.getElementById('back-to-top');
-    const goToBottomBtn = document.getElementById('go-to-bottom');
-    
-    if (backToTopBtn) {
-      observer.observe(backToTopBtn, {
-        attributes: true,
-        attributeFilter: ['style', 'class', 'hidden'],
-        childList: false,
-        subtree: false
-      });
-    }
-    
-    if (goToBottomBtn) {
-      observer.observe(goToBottomBtn, {
-        attributes: true,
-        attributeFilter: ['style', 'class', 'hidden'],
-        childList: false,
-        subtree: false
-      });
-    }
-  }
-  
-  // Observer 시작
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(startObserver, 100);
-    });
+    document.addEventListener('DOMContentLoaded', initButtons);
   } else {
-    setTimeout(startObserver, 100);
+    initButtons();
   }
-  
-  // 스크롤 이벤트에서도 버튼 표시 보장
-  window.addEventListener('scroll', makeButtonsAlwaysVisible, { passive: true });
-  window.addEventListener('resize', makeButtonsAlwaysVisible, { passive: true });
-  
-  console.log('🎯 Always visible navigation buttons script loaded');
-  
+
 })();
