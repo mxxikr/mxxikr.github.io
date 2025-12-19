@@ -1,29 +1,22 @@
 /**
-  Lazy load images (https://github.com/ApoorvSaxena/lozad.js)
-  and popup when clicked (https://github.com/dimsemenov/Magnific-Popup)
+  Popup images when clicked (https://github.com/dimsemenov/Magnific-Popup)
 */
 
-$(function() {
+$(function () {
 
   const IMG_SCOPE = '#main > div.row:first-child > div:first-child';
 
-  if ($(`${IMG_SCOPE} img`).length <= 0 ) {
+  if ($(`${IMG_SCOPE} img`).length <= 0) {
     return;
   }
 
-  /* lazy loading */
-
-  const imgList = document.querySelectorAll(`${IMG_SCOPE} img[data-src]`);
-  const observer = lozad(imgList);
-  observer.observe();
-
   /* popup */
 
-  $(`${IMG_SCOPE} p > img[data-src],${IMG_SCOPE} img[data-src].preview-img`).each(
-    function() {
+  $(`${IMG_SCOPE} p > img,${IMG_SCOPE} img.preview-img`).each(
+    function () {
       let nextTag = $(this).next();
       const title = nextTag.prop('tagName') === 'EM' ? nextTag.text() : '';
-      const src = $(this).attr('data-src'); // created by lozad.js
+      const src = $(this).attr('src'); // use standard src attribute
 
       $(this).wrap(`<a href="${src}" title="${title}" class="popup"></a>`);
     }
