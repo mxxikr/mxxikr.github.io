@@ -27,7 +27,6 @@ mermaid: true
 String[] studentNames = {"학생1", "학생2"};
 int[] studentAges = {15, 16};
 int[] studentGrades = {90, 80};
-
 ```
 
 ### 클래스의 등장
@@ -42,12 +41,11 @@ int[] studentGrades = {90, 80};
       int age;
       int grade;
   }
-
   ```
 
 <br/><br/>
 
-## 핵심 용어 정리
+## 용어 정리
 
 ### 클래스 (Class)
 
@@ -57,8 +55,8 @@ int[] studentGrades = {90, 80};
 
 
 * 멤버 변수 (Member Variable)
-* 클래스 내부에 정의된 변수
-* 데이터베이스의 필드와 유사한 개념
+  * 클래스 내부에 정의된 변수
+  * 데이터베이스의 필드와 유사한 개념
 
 
 ### 객체 (Object)와 인스턴스 (Instance)
@@ -88,7 +86,6 @@ int[] studentGrades = {90, 80};
   Student student1 = new Student();
   // 참조값을 통해 접근
   student1.name = "학생1";
-
   ```
 
 ### 참조값의 이해
@@ -118,7 +115,6 @@ int[] studentGrades = {90, 80};
   Student[] students = new Student[2];
   // student1의 참조값(x001)이 복사되어 들어감
   students[0] = student1;
-
   ```
 
 ### 리팩토링 효과
@@ -139,7 +135,7 @@ int[] studentGrades = {90, 80};
 <br/><br/>
 
 
-## 강의 핵심 요약
+## 요약 정리
 
 ### 데이터 관리의 진화
 
