@@ -1,5 +1,5 @@
 ---
-title:  "GCP Compute Engine 생성 및 설정"
+title: "GCP Compute Engine 생성 및 설정"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

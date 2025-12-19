@@ -1,5 +1,5 @@
 ---
-title:  "Disk와 Partition"
+title: "Disk와 Partition"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

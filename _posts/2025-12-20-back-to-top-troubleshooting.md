@@ -1,11 +1,14 @@
 ---
-title: Jekyll 블로그 플로팅 버튼 고정 실패(position: fixed 속성) 트러블 슈팅
+title: "Jekyll 블로그 플로팅 버튼 고정 실패(position: fixed 속성) 트러블 슈팅"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
-date: 2025-12-20 08:08:00 +0900
-categories: [Blog]
-tags: [jekyll, troubleshooting, css, optimization]
+date: 2025-12-20 08:20:00 +0900
+category:
+  - [Blog]
+tags: [jekyll, troubleshooting, css]
+math: false
+mermaid: false
 ---
 
 ## 문제 상황

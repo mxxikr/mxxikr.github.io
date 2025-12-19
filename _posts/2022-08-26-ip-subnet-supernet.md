@@ -1,5 +1,5 @@
 ---
-title:  "IP 주소 체계와 Subnet, Supernet"
+title: "IP 주소 체계와 Subnet, Supernet"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

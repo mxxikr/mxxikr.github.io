@@ -1,5 +1,5 @@
 ---
-title:  "GCP BigQuery 프로세스 관리"
+title: "GCP BigQuery 프로세스 관리"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

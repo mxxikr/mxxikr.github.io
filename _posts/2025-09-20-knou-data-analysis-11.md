@@ -1,5 +1,5 @@
 ---
-title:  "[오픈 소스 기반 데이터 분석] 11강 - 데이터 시각화"
+title: "[오픈 소스 기반 데이터 분석] 11강 - 데이터 시각화"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

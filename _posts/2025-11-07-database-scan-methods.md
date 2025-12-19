@@ -1,5 +1,8 @@
 ---
-title: 데이터베이스 스캔 방식
+title: "데이터베이스 스캔 방식"
+author:
+  name: mxxikr
+  link: https://github.com/mxxikr
 date: 2025-11-07 00:00:00 +0900
 category:
   - [Database, Theory]

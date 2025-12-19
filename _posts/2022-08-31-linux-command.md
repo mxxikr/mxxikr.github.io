@@ -1,5 +1,5 @@
 ---
-title:  "Linux 명령어"
+title: "Linux 명령어"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

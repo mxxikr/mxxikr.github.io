@@ -1,5 +1,8 @@
 ---
-title: 데이터베이스 정규화
+title: "데이터베이스 정규화"
+author:
+  name: mxxikr
+  link: https://github.com/mxxikr
 date: 2025-11-04 00:00:00 +0900
 category:
   - [Database, Theory]

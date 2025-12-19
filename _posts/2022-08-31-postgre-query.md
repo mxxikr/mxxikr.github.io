@@ -1,5 +1,5 @@
 ---
-title:  "PostgreSQL Query"
+title: "PostgreSQL Query"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

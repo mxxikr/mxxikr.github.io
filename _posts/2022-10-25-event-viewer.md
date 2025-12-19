@@ -1,5 +1,5 @@
 ---
-title:  "Windows Event Viewer"
+title: "Windows Event Viewer"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

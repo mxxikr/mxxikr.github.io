@@ -1,11 +1,14 @@
 ---
-title: Jekyll 블로그 레이아웃 깨짐 및 이미지 미표시 트러블 슈팅
+title: "Jekyll 블로그 레이아웃 깨짐 및 이미지 미표시 트러블 슈팅"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
-date: 2025-12-20 08:10:00 +0900
-categories: [Blog]
-tags: [jekyll, troubleshooting, optimization]
+date: 2025-12-20 08:25:00 +0900
+category:
+  - [Blog]
+tags: [jekyll, troubleshooting]
+math: false
+mermaid: false
 ---
 
 ## 문제 상황

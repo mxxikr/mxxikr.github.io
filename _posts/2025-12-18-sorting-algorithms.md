@@ -1,5 +1,8 @@
 ---
-title: 정렬 알고리즘이란?
+title: "정렬 알고리즘이란?"
+author:
+  name: mxxikr
+  link: https://github.com/mxxikr
 date: 2025-12-18 00:00:00 +0900
 category:
   - [Computer Science, Algorithm]

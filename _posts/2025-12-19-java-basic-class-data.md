@@ -1,5 +1,8 @@
 ---
-title: 김영한의 실전 자바 - 클래스와 데이터
+title: "김영한의 실전 자바 - 클래스와 데이터"
+author:
+  name: mxxikr
+  link: https://github.com/mxxikr
 date: 2025-12-19 14:01:00 +0900
 category:
   - [Language, Java]

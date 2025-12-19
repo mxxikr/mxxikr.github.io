@@ -1,5 +1,5 @@
 ---
-title:  "[오픈 소스 기반 데이터 분석] 3강 - 데이터 분석을 위한 파이썬 프로그래밍"
+title: "[오픈 소스 기반 데이터 분석] 3강 - 데이터 분석을 위한 파이썬 프로그래밍"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

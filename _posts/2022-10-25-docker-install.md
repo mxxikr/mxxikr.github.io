@@ -1,5 +1,5 @@
 ---
-title:  "Docker, Docker-Compose 설치"
+title: "Docker, Docker-Compose 설치"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

@@ -1,5 +1,5 @@
 ---
-title:  "[파이썬 프로그래밍 기초] 5강 - 순차 구조"
+title: "[파이썬 프로그래밍 기초] 5강 - 순차 구조"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
