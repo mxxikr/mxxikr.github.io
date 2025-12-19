@@ -16,7 +16,7 @@ const SUPPORTED_EXTENSIONS = ['.jpg', '.jpeg', '.png'];
 // 백업 생성
 function createBackup() {
   if (!fs.existsSync(BACKUP_DIR)) {
-    console.log('📦 백업 생성 중...');
+    
     execSync(`cp -r ${IMAGE_DIR} ${BACKUP_DIR}`, { stdio: 'inherit' });
     console.log('✅ 백업 완료:', BACKUP_DIR);
   } else {
@@ -71,7 +71,7 @@ function scanDirectory(dir) {
 }
 
 // 메인 실행
-console.log('🖼️  안전한 이미지 최적화를 시작합니다...');
+
 console.log('📁 대상 디렉토리:', IMAGE_DIR);
 console.log('⚙️  품질 설정:', QUALITY + '%');
 console.log('🛡️  파비콘 보호:', SKIP_FAVICONS ? '활성화' : '비활성화');
@@ -82,7 +82,7 @@ try {
   execSync('which pngquant', { stdio: 'ignore' });
   execSync('which jpegoptim', { stdio: 'ignore' });
 } catch (error) {
-  console.log('❌ 필요한 이미지 최적화 도구가 설치되지 않았습니다.');
+  
   console.log('다음 명령어로 설치하세요:');
   console.log('brew install pngquant jpegoptim');
   process.exit(1);
@@ -93,10 +93,10 @@ createBackup();
 
 // 이미지 최적화 실행
 if (fs.existsSync(IMAGE_DIR)) {
-  console.log('🚀 이미지 최적화 시작...');
+  
   scanDirectory(IMAGE_DIR);
   console.log('');
-  console.log('✅ 이미지 최적화가 완료되었습니다!');
+  
   console.log('📊 최적화 결과를 확인하려면 다음 명령어를 실행하세요:');
   console.log('du -sh assets/img');
 } else {
