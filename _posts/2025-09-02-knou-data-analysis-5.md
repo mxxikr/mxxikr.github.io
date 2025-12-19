@@ -1,5 +1,5 @@
 ---
-title:  "[오픈 소스 기반 데이터 분석] 5강 - 데이터 저장"
+title: "[오픈 소스 기반 데이터 분석] 5강 - 데이터 저장"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

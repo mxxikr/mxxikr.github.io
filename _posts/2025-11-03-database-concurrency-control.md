@@ -1,5 +1,8 @@
 ---
-title: 데이터베이스 동시성 제어
+title: "데이터베이스 동시성 제어"
+author:
+  name: mxxikr
+  link: https://github.com/mxxikrㄴ
 date: 2025-11-03 00:00:00 +0900
 category:
   - [Database, Theory]

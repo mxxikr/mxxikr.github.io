@@ -1,5 +1,5 @@
 ---
-title: Jekyll 블로그 플로팅 버튼 고정 실패(position: fixed 속성) 트러블 슈팅
+title: "Jekyll 블로그 플로팅 버튼 고정 실패(position: fixed 속성) 트러블 슈팅"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

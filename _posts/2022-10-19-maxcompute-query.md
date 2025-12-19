@@ -1,5 +1,5 @@
 ---
-title:  "Alicloud MaxCompute Query"
+title: "Alicloud MaxCompute Query"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
