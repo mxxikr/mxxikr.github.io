@@ -1,6 +1,6 @@
 ---
 title: "Git Push 실패: RPC failed HTTP 400 에러 해결하기"
-date: 2025-12-19 00:00:00 +0900
+date: 2025-12-19 14:03:00 +0900
 category:
   - [Version Control, Git]
 tags: [git, vscode, troubleshooting]
