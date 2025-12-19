@@ -1,3 +1,11 @@
+// 즉시 data-src를 src로 변환하여 이미지 표시
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('img[data-src]').forEach(img => {
+    img.src = img.dataset.src;
+    img.removeAttribute('data-src');
+  });
+});
+
 /**
   Popup images when clicked (https://github.com/dimsemenov/Magnific-Popup)
 */
