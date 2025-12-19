@@ -7,6 +7,7 @@
 
 html {
   @media (prefers-color-scheme: light) {
+
     &:not([data-mode]),
     &[data-mode=light] {
       @include light-syntax;
@@ -18,6 +19,7 @@ html {
   }
 
   @media (prefers-color-scheme: dark) {
+
     &:not([data-mode]),
     &[data-mode=dark] {
       @include light-syntax;
@@ -52,7 +54,8 @@ $code-radius: 6px;
 
   color: var(--highlighter-rouge-color);
   margin-top: 0.5rem;
-  margin-bottom: 1.2em; /* Override BS Inline-code style */
+  margin-bottom: 1.2em;
+  /* Override BS Inline-code style */
 }
 
 .highlight {
@@ -71,18 +74,21 @@ $code-radius: 6px;
     margin-bottom: 0;
     font-size: $code-font-size;
     line-height: 1.4rem;
-    word-wrap: normal; /* Fixed Safari overflow-x */
+    word-wrap: normal;
+    /* Fixed Safari overflow-x */
   }
 
   table {
     td pre {
-      overflow: visible;  /* Fixed iOS safari overflow-x */
-      word-break: normal; /* Fixed iOS safari linenos code break */
+      overflow: visible;
+      /* Fixed iOS safari overflow-x */
+      word-break: normal;
+      /* Fixed iOS safari linenos code break */
     }
   }
 
   .lineno {
-    padding-right: 0.5rem;
+    padding-right: 1.5rem;
     min-width: 2.2rem;
     text-align: right;
     color: var(--highlight-lineno-color);
@@ -99,7 +105,9 @@ $code-radius: 6px;
     user-select: none;
   }
 
-} /* .highlight */
+}
+
+/* .highlight */
 
 code {
   -webkit-hyphens: none;
@@ -123,12 +131,13 @@ code {
     padding: 0;
   }
 
-  a > &.highlighter-rouge {
-    padding-bottom: 0; /* show link's underlinke */
+  a>&.highlighter-rouge {
+    padding-bottom: 0;
+    /* show link's underlinke */
     color: inherit;
   }
 
-  a:hover > &.highlighter-rouge {
+  a:hover>&.highlighter-rouge {
     border-bottom: none;
   }
 
@@ -136,28 +145,37 @@ code {
     color: inherit;
   }
 
-  .highlight > & {
+  .highlight>& {
     color: var(--highlighter-rouge-color);
   }
 }
 
+/* Higher specificity to override potential defaults without !important */
+.post-content .highlighter-rouge .highlight table td,
+.highlighter-rouge .highlight table td,
 td.rouge-code {
-  @extend %code-snippet-padding;
+  padding-left: 0;
+  padding-right: 1.5rem;
+
+  pre,
+  code {
+    padding-left: 0;
+  }
 
   /*
     Prevent some browser extends from
     changing the URL string of code block.
   */
   a {
-    color: inherit !important;
-    border-bottom: none !important;
+    color: inherit;
+    border-bottom: none;
     pointer-events: none;
   }
-
 }
 
 /* Hide line numbers for default, console, and terminal code snippets */
 div {
+
   &[class^='highlighter-rouge'],
   &.language-plaintext.highlighter-rouge,
   &.language-console.highlighter-rouge,
@@ -203,6 +221,7 @@ div {
 
   /* the label block */
   span {
+
     /* label icon */
     i {
       font-size: 1rem;
@@ -214,9 +233,10 @@ div {
       }
     }
 
-    @at-root [file] #{&} > i {
+    @at-root [file] #{&}>i {
       position: relative;
-      top: 1px; /* center the file icon */
+      top: 1px;
+      /* center the file icon */
     }
 
     /* label text */
@@ -271,7 +291,7 @@ div {
 
 @media all and (max-width: 576px) {
   .post-content {
-    > div[class^='language-'] {
+    >div[class^='language-'] {
       @include ml-mr(-1.25rem);
 
       border-radius: 0;
