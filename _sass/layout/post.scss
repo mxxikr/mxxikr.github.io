@@ -729,7 +729,7 @@ nav[data-toggle=toc] {
 /* .license-wrapper */
 
 @media all and (max-width: 576px) {
-  .preview-img[data-src] {
+  .preview-img {
     margin-top: 2.2rem;
   }
 
@@ -759,7 +759,7 @@ nav[data-toggle=toc] {
     margin-right: -0.5rem;
   }
 
-  .preview-img[data-src] {
+  .preview-img {
     max-width: 100vw;
     border-radius: 0;
   }
