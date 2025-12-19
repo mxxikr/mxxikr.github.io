@@ -1,6 +1,6 @@
 ---
 title: 정렬 알고리즘이란?
-date: 2025-12-17 00:00:00 +0900
+date: 2025-12-18 00:00:00 +0900
 category:
   - [Computer Science, Algorithm]
 tags: [algorithm, sorting, bubble sort, selection sort, insertion sort, merge sort, quick sort, heap sort]
