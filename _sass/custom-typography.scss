@@ -4,7 +4,6 @@
  * 참고: https://www.apple.com/kr/newsroom/2025/06/apple-introduces-a-delightful-and-elegant-new-software-design/
  */
 
-/* Apple Liquid Glass 기본 설정 */
 :root {
   --apple-blue: #A8A8A8;
   --apple-gray: #1d1d1f;
@@ -13,7 +12,6 @@
   --apple-danger: #ff3b30;
   --apple-success: #34c759;
 
-  /* Liquid Glass 효과 */
   --glass-bg: rgba(255, 255, 255, 0.4);
   --glass-border: rgba(196, 190, 226, 0.4);
   --glass-shadow: rgba(196, 190, 226, 0.15);
@@ -90,7 +88,6 @@ h6 {
   letter-spacing: -0.015em;
 }
 
-/* Apple Liquid Glass 본문 텍스트 */
 .post-content {
   line-height: 1.7;
   font-size: 1.125rem;
@@ -134,7 +131,6 @@ code:not(.highlight code) {
   font-weight: 500;
 }
 
-/* Apple Liquid Glass 인용문 */
 blockquote {
   border-left: 4px solid var(--apple-blue);
   background: transparent;
@@ -169,7 +165,6 @@ blockquote p:last-child {
   margin-bottom: 0;
 }
 
-/* Apple Liquid Glass 목록 */
 ul,
 ol {
   padding-left: 2rem;
@@ -181,7 +176,6 @@ li {
   line-height: 1.6;
 }
 
-/* Apple Liquid Glass 테이블 */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -222,29 +216,26 @@ th {
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Apple Liquid Glass 링크 - 밑줄 효과 제거 */
 a {
-  color: var(--link-color) !important;
-  text-decoration: none !important;
-  border-bottom: none !important;
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: none;
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   font-weight: 500;
 }
 
 a:hover {
-  border-bottom: none !important;
-  color: var(--link-color) !important;
+  border-bottom: none;
+  color: var(--link-color);
   opacity: 0.8;
 }
 
-/* Apple Liquid Glass 카드 */
 .card {
   border-radius: 16px;
   border: 1px solid rgba(196, 190, 226, 0.4);
   box-shadow: 0 4px 16px rgba(196, 190, 226, 0.15);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   backdrop-filter: blur(20px);
-  /* 버튼과 동일한 그라데이션 세기 */
   background:
     radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
@@ -272,7 +263,6 @@ a:hover {
   border-color: rgba(196, 190, 226, 0.5);
 }
 
-/* Apple Liquid Glass 태그 */
 .tag {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -313,7 +303,6 @@ a:hover {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Apple Liquid Glass 사이드바 */
 .sidebar {
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
@@ -323,7 +312,6 @@ a:hover {
   background: var(--glass-bg);
 }
 
-/* Apple Liquid Glass 버튼 */
 .btn,
 button {
   border-radius: 12px;
@@ -364,7 +352,6 @@ button:hover {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Apple Liquid Glass 입력 필드 */
 input,
 textarea,
 select {
@@ -388,7 +375,6 @@ select:focus {
   transform: translateY(-1px);
 }
 
-/* Apple Liquid Glass 네비게이션 */
 .nav-link,
 .sidebar-nav-item,
 .topbar-nav-item {
@@ -403,16 +389,16 @@ select:focus {
   color: #1d1d1f;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 170px !important;
-  min-width: 170px !important;
-  max-width: 170px !important;
-  text-align: center !important;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin-bottom: 20px !important;
-  white-space: nowrap !important;
+  width: 170px;
+  min-width: 170px;
+  max-width: 170px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  white-space: nowrap;
 
   i {
     margin-right: 0.5rem !important;
@@ -662,7 +648,6 @@ select:focus {
   }
 }
 
-/* Apple Liquid Glass 페이지네이션 */
 .pagination,
 .post-pagination {
   display: flex;
@@ -750,7 +735,6 @@ select:focus {
   background: rgba(40, 40, 40, 0.6);
 }
 
-/* Apple Liquid Glass 알림 박스 */
 .prompt-tip {
   background: rgba(255, 255, 255, 0.05) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -855,7 +839,6 @@ button,
 }
 
 
-/* Trending Tags 연한 보라색 Liquid Glass */
 .tag-cloud,
 .tag-list,
 #access-tags .d-flex {
