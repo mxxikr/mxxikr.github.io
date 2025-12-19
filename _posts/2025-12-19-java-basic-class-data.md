@@ -1,6 +1,6 @@
 ---
 title: 김영한의 실전 자바 - 클래스와 데이터
-date: 2025-12-17 00:00:00 +0900
+date: 2025-12-19 14:01:00 +0900
 category:
   - [Language, Java]
 tags: [java, class, object]
