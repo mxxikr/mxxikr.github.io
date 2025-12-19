@@ -1,5 +1,5 @@
 ---
-title:  "[파이썬 프로그래밍 기초] 3강 - 파이썬의 이해"
+title: "[파이썬 프로그래밍 기초] 3강 - 파이썬의 이해"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

@@ -1,5 +1,5 @@
 ---
-title:  "[파이썬 프로그래밍 기초] 2강 - 컴퓨터의 구성"
+title: "[파이썬 프로그래밍 기초] 2강 - 컴퓨터의 구성"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

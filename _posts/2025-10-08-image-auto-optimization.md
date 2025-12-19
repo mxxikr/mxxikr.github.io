@@ -1,5 +1,5 @@
 ---
-title:  "Jekyll 블로그 이미지 자동 최적화"
+title: "Jekyll 블로그 이미지 자동 최적화"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

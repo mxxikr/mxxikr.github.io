@@ -1,5 +1,8 @@
 ---
-title: 데이터베이스 인덱스
+title: "데이터베이스 인덱스"
+author:
+  name: mxxikr
+  link: https://github.com/mxxikr
 date: 2025-11-06 00:00:00 +0900
 category:
   - [Database, Theory]

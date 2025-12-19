@@ -1,5 +1,5 @@
 ---
-title:  "[리버싱 핵심 원리] 기초 리버싱"
+title: "[리버싱 핵심 원리] 기초 리버싱"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

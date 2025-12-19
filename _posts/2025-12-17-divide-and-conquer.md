@@ -1,5 +1,5 @@
 ---
-title: 분할 정복 알고리즘이란?
+title: "분할 정복 알고리즘이란?"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

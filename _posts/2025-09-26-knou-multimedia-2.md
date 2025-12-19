@@ -1,5 +1,5 @@
 ---
-title:  "[멀티미디어 시스템] 2강 - 멀티미디어 시스템 환경"
+title: "[멀티미디어 시스템] 2강 - 멀티미디어 시스템 환경"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

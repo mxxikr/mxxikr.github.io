@@ -1,5 +1,5 @@
 ---
-title:  "[파이썬 프로그래밍 기초] 9강 - 함수"
+title: "[파이썬 프로그래밍 기초] 9강 - 함수"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

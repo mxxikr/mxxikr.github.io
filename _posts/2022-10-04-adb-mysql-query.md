@@ -1,5 +1,5 @@
 ---
-title:  "Alicloud AnalyticDB MySQL Query"
+title: "Alicloud AnalyticDB MySQL Query"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
