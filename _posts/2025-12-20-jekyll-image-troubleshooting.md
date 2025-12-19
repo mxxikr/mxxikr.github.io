@@ -3,8 +3,8 @@ title: Jekyll 블로그 레이아웃 깨짐 및 이미지 미표시 트러블 �
 author:
   name: mxxikr
   link: https://github.com/mxxikr
-date: 2025-12-20 07:55:00 +0900
-categories: [CS]
+date: 2025-12-20 08:10:00 +0900
+categories: [Blog]
 tags: [jekyll, troubleshooting, optimization]
 ---
 
