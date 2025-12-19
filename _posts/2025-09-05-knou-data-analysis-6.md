@@ -1,5 +1,5 @@
 ---
-title:  "[오픈 소스 기반 데이터 분석] 6강 - 데이터 전처리"
+title: "[오픈 소스 기반 데이터 분석] 6강 - 데이터 전처리"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

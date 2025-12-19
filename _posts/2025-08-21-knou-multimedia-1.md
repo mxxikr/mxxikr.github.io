@@ -1,5 +1,5 @@
 ---
-title:  "[멀티미디어 시스템] 1강 - 멀티미디어 개요"
+title: "[멀티미디어 시스템] 1강 - 멀티미디어 개요"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

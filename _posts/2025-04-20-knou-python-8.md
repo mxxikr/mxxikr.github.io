@@ -1,5 +1,5 @@
 ---
-title:  "[파이썬 프로그래밍 기초] 8강 - 체크 포인트"
+title: "[파이썬 프로그래밍 기초] 8강 - 체크 포인트"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

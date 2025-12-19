@@ -1,5 +1,8 @@
 ---
-title: 데이터베이스 트랜잭션과 ACID 속성
+title: "데이터베이스 트랜잭션과 ACID 속성"
+author:
+  name: mxxikr
+  link: https://github.com/mxxikr
 date: 2025-11-02 00:00:00 +0900
 category:
   - [Database, Theory]

@@ -1,5 +1,5 @@
 ---
-title:  "IntelliJ MaxCompute Plugin 설치 및 사용"
+title: "IntelliJ MaxCompute Plugin 설치 및 사용"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

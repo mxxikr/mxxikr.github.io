@@ -1,5 +1,8 @@
 ---
-title: 데이터베이스 파티셔닝
+title: "데이터베이스 파티셔닝"
+author:
+  name: mxxikr
+  link: https://github.com/mxxikr
 date: 2025-11-08 00:00:00 +0900
 category:
   - [Database, Theory]
