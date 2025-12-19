@@ -56,12 +56,12 @@ function getNewImages() {
 
 // 메인 실행
 function main() {
-    console.log('🖼️  자동 이미지 최적화 시작...');
+    
     
     const newImages = getNewImages();
     
     if (newImages.length === 0) {
-        console.log('📝 최적화할 새 이미지가 없습니다.');
+        
         return;
     }
     
@@ -85,10 +85,10 @@ function main() {
     console.log(`\n📊 최적화 완료: ${optimized}개 성공, ${failed}개 실패`);
     
     if (optimized > 0) {
-        console.log('🔄 최적화된 파일들을 Git에 다시 추가합니다...');
+        
         try {
             execSync(`git add ${newImages.join(' ')}`, { stdio: 'ignore' });
-            console.log('✅ Git에 추가 완료!');
+            
         } catch (error) {
             console.log('⚠️  Git 추가 실패:', error.message);
         }
