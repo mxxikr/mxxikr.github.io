@@ -204,10 +204,10 @@ i {
   }
 }
 
-img[data-src] {
+img {
   margin: 0.5rem 0;
 
-  &[data-loaded=true] {
+  &.loaded {
     animation: fade-in linear 0.5s;
   }
 
@@ -429,7 +429,7 @@ img[data-src] {
     &.popup {
       cursor: zoom-in;
 
-      >img[data-src]:not(.normal):not(.left):not(.right) {
+      >img:not(.normal):not(.left):not(.right) {
         @include align-center;
       }
     }
