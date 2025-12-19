@@ -5,7 +5,7 @@ author:
   link: https://github.com/mxxikr
 date: 2025-08-21 00:00:00 +0900
 category:
-  - [KNOU, Data Analysis]
+  - [Data Science, Data Analysis]
 tags:
   - [knou, data analysis]
 math: true
