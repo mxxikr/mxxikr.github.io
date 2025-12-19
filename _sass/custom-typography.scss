@@ -12,7 +12,7 @@
   --apple-warning: #ff9500;
   --apple-danger: #ff3b30;
   --apple-success: #34c759;
-  
+
   /* Liquid Glass 효과 */
   --glass-bg: rgba(255, 255, 255, 0.4);
   --glass-border: rgba(196, 190, 226, 0.4);
@@ -26,7 +26,8 @@
   src: url('/assets/fonts/RIDIBatang.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
-  font-display: swap; /* preload와 함께 사용하여 FOUT 최소화 */
+  font-display: swap;
+  /* preload와 함께 사용하여 FOUT 최소화 */
 }
 
 /* 리디바탕 폰트 적용 */
@@ -41,7 +42,12 @@ body {
 }
 
 /* Apple 스타일 제목 */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.022em;
@@ -77,7 +83,8 @@ h4 {
   letter-spacing: -0.02em;
 }
 
-h5, h6 {
+h5,
+h6 {
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -0.015em;
@@ -163,7 +170,8 @@ blockquote p:last-child {
 }
 
 /* Apple Liquid Glass 목록 */
-ul, ol {
+ul,
+ol {
   padding-left: 2rem;
   margin-bottom: 1.75rem;
 }
@@ -199,7 +207,8 @@ table::before {
   opacity: 0.3;
 }
 
-th, td {
+th,
+td {
   padding: 1.25rem 1.5rem;
   text-align: left;
   border-bottom: 1px solid var(--glass-border);
@@ -236,7 +245,7 @@ a:hover {
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   backdrop-filter: blur(20px);
   /* 버튼과 동일한 그라데이션 세기 */
-  background: 
+  background:
     radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%) !important;
@@ -315,7 +324,8 @@ a:hover {
 }
 
 /* Apple Liquid Glass 버튼 */
-.btn, button {
+.btn,
+button {
   border-radius: 12px;
   padding: 0.75rem 1.5rem;
   font-weight: 500;
@@ -330,7 +340,8 @@ a:hover {
   color: var(--apple-gray);
 }
 
-.btn::before, button::before {
+.btn::before,
+button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -341,18 +352,22 @@ a:hover {
   transition: left 0.5s ease;
 }
 
-.btn:hover::before, button:hover::before {
+.btn:hover::before,
+button:hover::before {
   left: 100%;
 }
 
-.btn:hover, button:hover {
+.btn:hover,
+button:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Apple Liquid Glass 입력 필드 */
-input, textarea, select {
+input,
+textarea,
+select {
   border-radius: 12px;
   border: 1px solid var(--glass-border);
   padding: 0.75rem 1rem;
@@ -364,7 +379,9 @@ input, textarea, select {
   color: var(--apple-gray);
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   border-color: var(--apple-blue);
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
   outline: none;
@@ -372,7 +389,9 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* Apple Liquid Glass 네비게이션 */
-.nav-link, .sidebar-nav-item, .topbar-nav-item {
+.nav-link,
+.sidebar-nav-item,
+.topbar-nav-item {
   position: relative;
   border-radius: 10px;
   padding: 0.75rem 0.75rem !important;
@@ -394,7 +413,7 @@ input:focus, textarea:focus, select:focus {
   justify-content: center !important;
   margin-bottom: 20px !important;
   white-space: nowrap !important;
-  
+
   i {
     margin-right: 0.5rem !important;
     margin-left: 0 !important;
@@ -412,7 +431,10 @@ input:focus, textarea:focus, select:focus {
 
 /* 반응형 네비게이션 - 매우 작은 화면에서만 작동 */
 @media (max-width: 768px) {
-  .nav-link, .sidebar-nav-item, .topbar-nav-item {
+
+  .nav-link,
+  .sidebar-nav-item,
+  .topbar-nav-item {
     margin-left: auto !important;
     margin-right: auto !important;
     width: 150px !important;
@@ -422,7 +444,10 @@ input:focus, textarea:focus, select:focus {
 }
 
 @media (max-width: 576px) {
-  .nav-link, .sidebar-nav-item, .topbar-nav-item {
+
+  .nav-link,
+  .sidebar-nav-item,
+  .topbar-nav-item {
     margin-left: auto !important;
     margin-right: auto !important;
     width: 140px !important;
@@ -431,11 +456,15 @@ input:focus, textarea:focus, select:focus {
   }
 }
 
-.nav-link::after, .sidebar-nav-item::after, .topbar-nav-item::after {
+.nav-link::after,
+.sidebar-nav-item::after,
+.topbar-nav-item::after {
   display: none !important;
 }
 
-.nav-link::before, .sidebar-nav-item::before, .topbar-nav-item::before {
+.nav-link::before,
+.sidebar-nav-item::before,
+.topbar-nav-item::before {
   content: '';
   position: absolute;
   top: 0;
@@ -446,11 +475,15 @@ input:focus, textarea:focus, select:focus {
   transition: left 0.5s ease;
 }
 
-.nav-link:hover::before, .sidebar-nav-item:hover::before, .topbar-nav-item:hover::before {
+.nav-link:hover::before,
+.sidebar-nav-item:hover::before,
+.topbar-nav-item:hover::before {
   left: 100%;
 }
 
-.nav-link:hover, .sidebar-nav-item:hover, .topbar-nav-item:hover {
+.nav-link:hover,
+.sidebar-nav-item:hover,
+.topbar-nav-item:hover {
   background: rgba(255, 255, 255, 0.1) !important;
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
@@ -461,7 +494,9 @@ input:focus, textarea:focus, select:focus {
   -webkit-backdrop-filter: blur(40px);
 }
 
-.nav-link.active, .sidebar-nav-item.active, .topbar-nav-item.active {
+.nav-link.active,
+.sidebar-nav-item.active,
+.topbar-nav-item.active {
   background: rgba(255, 255, 255, 0.15) !important;
   border-radius: 10px;
   color: #1d1d1f !important;
@@ -508,7 +543,7 @@ input:focus, textarea:focus, select:focus {
   justify-content: center !important;
   margin-bottom: 20px !important;
   white-space: nowrap !important;
-  
+
   i {
     margin-right: 0.5rem !important;
     margin-left: 0 !important;
@@ -517,6 +552,7 @@ input:focus, textarea:focus, select:focus {
 
 /* 반응형 네비게이션 - 매우 작은 화면에서만 작동 */
 @media (max-width: 768px) {
+
   .sidebar .nav-link,
   .sidebar .sidebar-nav-item,
   .sidebar-wrapper .nav-link,
@@ -542,6 +578,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 @media (max-width: 576px) {
+
   .sidebar .nav-link,
   .sidebar .sidebar-nav-item,
   .sidebar-wrapper .nav-link,
@@ -587,7 +624,7 @@ input:focus, textarea:focus, select:focus {
   justify-content: center !important;
   margin-bottom: 20px !important;
   white-space: nowrap !important;
-  
+
   i {
     margin-right: 0.5rem !important;
     margin-left: 0 !important;
@@ -596,6 +633,7 @@ input:focus, textarea:focus, select:focus {
 
 /* 반응형 네비게이션 - 매우 작은 화면에서만 작동 */
 @media (max-width: 768px) {
+
   *[class*="nav-link"],
   *[class*="nav-item"],
   *[class*="sidebar-nav"],
@@ -610,6 +648,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 @media (max-width: 576px) {
+
   *[class*="nav-link"],
   *[class*="nav-item"],
   *[class*="sidebar-nav"],
@@ -624,7 +663,8 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* Apple Liquid Glass 페이지네이션 */
-.pagination, .post-pagination {
+.pagination,
+.post-pagination {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -632,8 +672,10 @@ input:focus, textarea:focus, select:focus {
   margin: 2.5rem 0;
 }
 
-.pagination a, .post-pagination a,
-.pagination span, .post-pagination span {
+.pagination a,
+.post-pagination a,
+.pagination span,
+.post-pagination span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -655,7 +697,8 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.pagination a::before, .post-pagination a::before {
+.pagination a::before,
+.post-pagination a::before {
   content: '';
   position: absolute;
   top: 0;
@@ -666,11 +709,13 @@ input:focus, textarea:focus, select:focus {
   transition: left 0.5s ease;
 }
 
-.pagination a:hover::before, .post-pagination a:hover::before {
+.pagination a:hover::before,
+.post-pagination a:hover::before {
   left: 100%;
 }
 
-.pagination a:hover, .post-pagination a:hover {
+.pagination a:hover,
+.post-pagination a:hover {
   background: rgba(60, 60, 60, 0.8);
   transform: translateY(-1px) scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -680,7 +725,8 @@ input:focus, textarea:focus, select:focus {
   -webkit-backdrop-filter: blur(24px);
 }
 
-.pagination .current, .post-pagination .current {
+.pagination .current,
+.post-pagination .current {
   background: rgba(100, 100, 100, 0.9);
   color: #A8A8A8;
   border-color: rgba(168, 168, 168, 0.5);
@@ -688,7 +734,8 @@ input:focus, textarea:focus, select:focus {
   font-weight: 600;
 }
 
-.pagination .disabled, .post-pagination .disabled {
+.pagination .disabled,
+.post-pagination .disabled {
   background: rgba(40, 40, 40, 0.6);
   color: rgba(168, 168, 168, 0.4);
   border-color: rgba(168, 168, 168, 0.2);
@@ -696,7 +743,8 @@ input:focus, textarea:focus, select:focus {
   opacity: 0.6;
 }
 
-.pagination .disabled:hover, .post-pagination .disabled:hover {
+.pagination .disabled:hover,
+.post-pagination .disabled:hover {
   transform: none;
   box-shadow: none;
   background: rgba(40, 40, 40, 0.6);
@@ -740,33 +788,34 @@ input:focus, textarea:focus, select:focus {
   .post-content {
     font-size: 1rem;
   }
-  
+
   h1 {
     font-size: 2.25rem;
   }
-  
+
   h2 {
     font-size: 1.875rem;
   }
-  
+
   h3 {
     font-size: 1.5rem;
   }
-  
+
   .highlight pre {
     padding: 1.5rem;
     font-size: 0.8rem;
   }
-  
+
   .card {
     margin: 1rem 0;
   }
-  
+
   table {
     font-size: 0.875rem;
   }
-  
-  th, td {
+
+  th,
+  td {
     padding: 1rem;
   }
 }
@@ -778,31 +827,47 @@ input:focus, textarea:focus, select:focus {
     --glass-border: rgba(255, 255, 255, 0.2);
     --glass-shadow: rgba(0, 0, 0, 0.3);
   }
-  
+
   .card {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   }
-  
+
   .card:hover {
     box-shadow: 0 8px 24px rgba(196, 190, 226, 0.25);
   }
 }
 
-/* 애니메이션 최적화 */
-* {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+/* GPU 가속 최적화 - 애니메이션이 있는 요소에만 적용 */
+/* will-change를 사용하여 브라우저에게 변경될 속성을 미리 알림 */
+.card,
+.btn,
+button,
+.tag,
+.nav-link,
+.sidebar-nav-item,
+.topbar-nav-item,
+.pagination a,
+.post-pagination a,
+.tag-cloud a,
+.tag-list a,
+.post-tag {
+  will-change: transform;
 }
 
+
 /* Trending Tags 연한 보라색 Liquid Glass */
-.tag-cloud, .tag-list, #access-tags .d-flex {
+.tag-cloud,
+.tag-list,
+#access-tags .d-flex {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin: 1rem 0;
 }
 
-.tag-cloud a, .tag-list a, .post-tag {
+.tag-cloud a,
+.tag-list a,
+.post-tag {
   display: inline-block;
   padding: 0.5rem 1rem;
   background: rgba(255, 255, 255, 0.05);
@@ -820,7 +885,9 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
 }
 
-.tag-cloud a::before, .tag-list a::before, .post-tag::before {
+.tag-cloud a::before,
+.tag-list a::before,
+.post-tag::before {
   content: '';
   position: absolute;
   top: 0;
@@ -831,11 +898,15 @@ input:focus, textarea:focus, select:focus {
   transition: left 0.5s ease;
 }
 
-.tag-cloud a:hover::before, .tag-list a:hover::before, .post-tag:hover::before {
+.tag-cloud a:hover::before,
+.tag-list a:hover::before,
+.post-tag:hover::before {
   left: 100%;
 }
 
-.tag-cloud a:hover, .tag-list a:hover, .post-tag:hover {
+.tag-cloud a:hover,
+.tag-list a:hover,
+.post-tag:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
