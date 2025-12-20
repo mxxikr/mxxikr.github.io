@@ -72,64 +72,35 @@
       src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 {{ _width }} {{ _height }}'%3E%3C/svg%3E"
       {%- endcapture -%} {% assign _left=_svg | append: ' ' | append: _left %} {% endif %} {% assign _left=_left |
       append: ' data-proofer-ignore' %} {% assign _img_content=_img_content | append: IMG_TAG | append: _left |
-      append: '>' | append: _right %} {% endfor %} {% assign _content=_img_content %} {% endif %} <!-- Add header for
-      code snippets -->
+      append: '>' | append: _right %} {% endfor %} {% assign _content=_img_content %} {% endif %} <!-- Create heading
+      anchors -->
 
-      {% if _content contains '<div class="highlight' %}
-  {% assign _code_snippets = _content | split: '<div class=" highlight' %} {% assign _new_content='' %} {% for _snippet
-        in _code_snippets %} {% if forloop.first %} {% assign _new_content=_snippet %} {% continue %} {% endif %} {%
-        assign _tag_attributes=_snippet | split: '>' | first %} {% assign _tag_end_len=_tag_attributes.size | plus: 1 %}
-        {% assign _snippet_body=_snippet | slice: _tag_end_len, _snippet.size %} {% assign _left_parts=_new_content |
-        split: '<div' %} {% assign _left=_left_parts | last %} {% assign _label_text=nil %} {% assign
-        _label_icon='fas fa-code small' %} {% if _left contains 'language-' %} {% assign _lang=_left |
-        split: 'language-' | last | split: ' ' | first | split: '"' | first | split: '>' | first %} {% if _lang and
-        _lang !="" %} {% capture _label_text %}{% include language-alias.html language=_lang %}{% endcapture %} {% endif
-        %} {% elsif _left contains 'file="' %} {% assign _label_text=_left | split: 'file="' | last | split: '"' | first
-        %} {% assign _label_icon='far fa-file-code' %} {% endif %} {% if _label_text and _label_text !="" %} {% assign
-        _label_text=_label_text | strip %} {% capture _header %} <div class="code-header">
-        <span data-label-text="{{ _label_text | escape }}"><i class="{{ _label_icon }}"></i></span>
-        <button aria-label="copy"
-          data-title-succeed="{{ site.data.locales[lang].post.button.copy_code.succeed | strip | escape }}">
-          <i class="far fa-clipboard"></i>
-        </button>
-      </div>
-      {% endcapture %}
-      {% assign _new_content = _new_content | append: _header %}
-      {% endif %}
+      {% assign heading_levels = '2,3,4,5' | split: ',' %}
+      {% assign _heading_content = _content %}
 
-      {% capture _rebuilt_div %}<div class="highlight{{ _tag_attributes }}>{% endcapture %}
-    {% assign _new_content = _new_content | append: _rebuilt_div | append: _snippet_body %}
-  {% endfor %}
-  {% assign _content = _new_content %}
-{% endif %}
+      {% for level in heading_levels %}
+      {% capture mark_start %}<h{{ level }} id=" {% endcapture %} {% capture mark_end %}</h{{ level }}>{% endcapture %}
 
-<!-- Create heading anchors -->
+            {% if _heading_content contains mark_start %}
+            {% assign _new_content = nil %}
+            {% assign heading_snippets = _heading_content | split: mark_start %}
 
-{% assign heading_levels = '2,3,4,5' | split: ',' %}
-{% assign _heading_content = _content %}
+            {% for snippet in heading_snippets %}
+            {% if forloop.first %}
+            {% assign _new_content = snippet %}
+            {% continue %}
+            {% endif %}
 
-{% for level in heading_levels %}
-  {% capture mark_start %}<h{{ level }} id=" {% endcapture %} {% capture mark_end %}</h{{ level }}>{% endcapture %}
+            {% assign id = snippet | split: '"' | first %}
+            {% capture anchor %}<a href="#{{ id }}" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>{%
+            endcapture %}
 
-        {% if _heading_content contains mark_start %}
-        {% assign _new_content = nil %}
-        {% assign heading_snippets = _heading_content | split: mark_start %}
+            {% assign left = snippet | split: mark_end | first %}
+            {% assign right = snippet | slice: left.size, snippet.size %}
+            {% assign left = left | replace: '">', '"><span class="mr-2">' | append: '</span>' %}
 
-        {% for snippet in heading_snippets %}
-        {% if forloop.first %}
-        {% assign _new_content = snippet %}
-        {% continue %}
-        {% endif %}
-
-        {% assign id = snippet | split: '"' | first %}
-        {% capture anchor %}<a href="#{{ id }}" class="anchor text-muted"><i class="fas fa-hashtag"></i></a>{%
-        endcapture %}
-
-        {% assign left = snippet | split: mark_end | first %}
-        {% assign right = snippet | slice: left.size, snippet.size %}
-        {% assign left = left | replace: '">', '"><span class="mr-2">' | append: '</span>' %}
-
-        {% assign _new_content = _new_content | append: mark_start | append: left | append: anchor | append: mark_end |
+        {% assign _new_content = _new_content | append: mark_start | append: left | append: anchor | append:
+        mark_end |
         append: right %}
         {% endfor %}
         {% assign _heading_content = _new_content %}
