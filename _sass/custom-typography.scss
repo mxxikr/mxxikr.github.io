@@ -39,6 +39,18 @@ body {
   line-height: 1.6;
 }
 
+/* 제목 폰트 강제 적용 (테마 기본 스타일 덮어쓰기) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.card-title,
+.post-title {
+  font-family: 'RIDIBatang', 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+}
+
 /* Apple 스타일 제목 */
 h1,
 h2,
@@ -88,11 +100,20 @@ h6 {
   letter-spacing: -0.015em;
 }
 
+@font-face {
+  font-family: 'MapoGoldenPier';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoGoldenPierA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0020-007E;
+  /* Basic Latin (영문/숫자/기호)만 적용 */
+}
+
 .post-content {
   line-height: 1.7;
   font-size: 1.125rem;
   color: var(--apple-gray);
-  font-family: 'Consolas', 'Monaco', 'Menlo', 'RIDIBatang', sans-serif;
+  font-family: 'MapoGoldenPier', 'RIDIBatang', sans-serif;
 }
 
 .post-content p {
