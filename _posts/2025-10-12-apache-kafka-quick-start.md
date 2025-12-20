@@ -197,6 +197,9 @@ graph TB
      - 비동기 처리
 
 
+
+<br/><br/>
+
 ## 환경 구성
 
 ### Ubuntu 서버 준비
@@ -253,6 +256,9 @@ graph TB
   sudo usermod -aG docker $USER
   newgrp docker
   ```
+
+
+<br/><br/>
 
 ## Kafka 클러스터 구성 
 
@@ -583,6 +589,9 @@ graph TB
   # 로그 확인
   docker-compose logs -f
   ```
+
+
+<br/><br/>
 
 ## Spring Boot 애플리케이션 개발
 
@@ -957,6 +966,9 @@ graph TB
   }
   ```
 
+
+<br/><br/>
+
 ## 모니터링 대시보드
 
 ### Grafana 대시보드
@@ -1049,6 +1061,9 @@ graph TB
               - 현재 Lag: {% raw %}{{ $value | printf "%.0f" }}{% endraw %}건
   ```
 
+
+<br/><br/>
+
 ## 테스트 및 운영
 
 ### 성능 테스트
@@ -1117,6 +1132,9 @@ graph TB
       }
   }
   ```
+
+
+<br/><br/>
 
 ## Reference
 

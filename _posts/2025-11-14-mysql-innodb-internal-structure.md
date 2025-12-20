@@ -19,6 +19,9 @@ mermaid: true
 - 이 포스팅에서는 MySQL과 InnoDB의 관계, 그리고 InnoDB의 내부 구조와 동작 원리를 상세히 살펴봄
 - 이전 포스팅([MySQL 트랜잭션 격리 수준과 다른 DBMS와의 차이점](/(https://mxxikr.github.io/posts/2025-11-13-mysql-transaction-isolation-levels/))에서 다룬 MVCC와 트랜잭션 격리 수준이 InnoDB 내부에서 어떻게 구현되는지 설명함
 
+
+<br/><br/>
+
 ## MySQL과 스토리지 엔진
 
 ### MySQL의 구조
@@ -34,6 +37,9 @@ mermaid: true
 - MySQL 서버는 SQL 파싱, 쿼리 최적화 등을 수행하고 실제 데이터 접근은 스토리지 엔진에 위임함
 - 이로 인해 MySQL은 다양한 스토리지 엔진을 지원할 수 있으며 각 엔진의 특성에 맞는 최적화가 가능함
 - 스토리지 엔진은 플러그인 방식으로 동작하여 필요에 따라 교체하거나 추가할 수 있음
+
+
+<br/><br/>
 
 ## InnoDB란?
 
@@ -58,6 +64,9 @@ mermaid: true
 - **버퍼 풀(Buffer Pool)**
   - 데이터와 인덱스를 메모리에 캐싱하여 디스크 I/O 감소
 
+
+<br/><br/>
+
 ## MySQL과 InnoDB의 관계
 
 ### 역할과 책임
@@ -72,6 +81,9 @@ mermaid: true
 - InnoDB는 MySQL에서 데이터를 "어떻게" 저장/관리할지 정하는 모듈임
 - MySQL은 데이터베이스 시스템 전체이고 InnoDB는 테이블 레벨의 저장소/처리 담당자라고 할 수 있음
 - InnoDB 덕분에 MySQL이 신뢰성 높은 트랜잭션 및 동시성 제어, 외래키 등 다양한 고급 기능을 제공할 수 있음
+
+
+<br/><br/>
 
 ## MySQL 내부 처리 흐름
 
@@ -91,6 +103,9 @@ mermaid: true
 
     - MySQL은 InnoDB 등 스토리지 엔진을 통해 실제 데이터 저장/수정/검색을 수행함
     - 쿼리 실행 엔진이 스토리지 엔진에 데이터에 접근하라고 명령함
+
+
+<br/><br/>
 
 ## InnoDB 엔진 내부 동작
 
@@ -187,6 +202,9 @@ mermaid: true
   - 참조 무결성 보장
   - CASCADE, SET NULL 등의 옵션 지원
 
+
+<br/><br/>
+
 ## MySQL 서버 레벨 기능
 
 ### Binary Log(바이너리 로그)
@@ -199,6 +217,9 @@ mermaid: true
   - Two-Phase Commit을 통해 바이너리 로그와 Redo Log의 동기화를 보장하여 장애복구 및 복제에 필수적임
 - **InnoDB와의 관계**
   - InnoDB의 Redo Log와 함께 Two-Phase Commit으로 동작하여 데이터 일관성 보장
+
+
+<br/><br/>
 
 ## 동작 순서 요약
 
@@ -216,6 +237,9 @@ mermaid: true
 
 5. **체크포인트 발생**
    - 체크포인트 발생 시 Dirty Page를 디스크에 동기화
+
+
+<br/><br/>
 
 ## Reference
 

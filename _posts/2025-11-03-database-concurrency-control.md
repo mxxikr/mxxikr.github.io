@@ -15,6 +15,9 @@ mermaid: true
 
 - 여러 트랜잭션이 동시에 데이터에 접근할 때 충돌을 방지하고 일관성을 보장하는 기법임
 
+
+<br/><br/>
+
 ## 락 기반 동시성 제어
 
 ### 비관적 락(Pessimistic Locking)
@@ -92,6 +95,9 @@ mermaid: true
 
 ![image.png](/assets/img/database/theory/2025-11-03-database-concurrency-control/image.png)
 
+
+<br/><br/>
+
 ## 2PL
 
 - 트랜잭션의 락 연산을 두 단계로 나누는 프로토콜
@@ -135,6 +141,9 @@ mermaid: true
 
 - 모든 락을 트랜잭션 종료까지 유지
 - 더 강력한 격리 제공
+
+
+<br/><br/>
 
 ## MVCC
 
@@ -214,6 +223,9 @@ mermaid: true
 | S Lock | 허용 | 거부 |
 | X Lock | 거부 | 거부 |
 
+
+<br/><br/>
+
 ## 데드락
 
 - 두 개 이상의 트랜잭션이 서로가 점유한 자원을 기다리며 무한 대기 상태에 빠지는 현상
@@ -292,6 +304,9 @@ mermaid: true
 - 트랜잭션 크기 최소화
   - 트랜잭션 실행 시간 단축
 
+
+<br/><br/>
+
 ## 동시성 제어 방식 선택 가이드
 
 ### MVCC 선택 시
@@ -313,6 +328,9 @@ mermaid: true
 - 읽기는 MVCC, 쓰기는 락 사용
 - 워크로드 특성에 따라 조합
 - 대부분의 현대 DBMS가 채택
+
+
+<br/><br/>
 
 ## 결론
 

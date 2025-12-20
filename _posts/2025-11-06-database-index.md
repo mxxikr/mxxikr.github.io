@@ -17,6 +17,9 @@ mermaid: true
 - 책의 색인과 유사하게 특정 데이터를 빠르게 찾을 수 있도록 정렬된 구조를 제공함
 - 인덱스는 읽기 성능을 향상시키지만 쓰기 성능에는 오버헤드를 발생시킴
 
+
+<br/><br/>
+
 ## 인덱스의 기본 원리
 
 ### 인덱스가 필요한 이유
@@ -50,6 +53,9 @@ mermaid: true
 - `JOIN` 조건으로 사용되는 컬럼
 - `ORDER BY`, `GROUP BY`에 사용되는 컬럼
 - `UNIQUE` 제약이 필요한 컬럼
+
+
+<br/><br/>
 
 ## 주요 인덱스 타입
 
@@ -123,6 +129,9 @@ mermaid: true
   - 주로 Oracle, Enterprise급 DB, 또는 특정 분석용 엔진에서 지원됨
   - 데이터 웨어하우스나 엔터프라이즈 DB 환경에서 주로 사용됨
 
+
+<br/><br/>
+
 ## 클러스터드 vs 논클러스터드 인덱스
 
 ![image.png](/assets/img/database/theory/2025-11-06-database-index/image2.png)
@@ -181,6 +190,9 @@ mermaid: true
   - 데이터 접근 시 추가 조회 단계 필요 (MySQL InnoDB는 Double Lookup)
   - 추가 저장 공간 필요
   - 클러스터드 인덱스보다 범위 쿼리 성능 낮음
+
+
+<br/><br/>
 
 ## 복합 인덱스
 
@@ -241,6 +253,9 @@ mermaid: true
 - 이유
   - 필터링 효과가 크기 때문
 
+
+<br/><br/>
+
 ## 커버링 인덱스
 
 - 쿼리에 필요한 모든 컬럼을 인덱스에 포함시켜 테이블 접근 없이 인덱스만으로 쿼리를 처리할 수 있게 하는 기법
@@ -278,6 +293,9 @@ mermaid: true
 ### 커버링 인덱스 동작 비교
 
 ![image.png](/assets/img/database/theory/2025-11-06-database-index/image3.png)
+
+
+<br/><br/>
 
 ## 인덱스 선택도와 성능
 
@@ -331,6 +349,9 @@ mermaid: true
 
 ![image.png](/assets/img/database/theory/2025-11-06-database-index/image4.png)
 
+
+<br/><br/>
+
 ## 인덱스 설계 가이드
 
 ### 인덱스 생성 전략
@@ -372,6 +393,9 @@ mermaid: true
   - DBMS에 따라 인덱스 포함 여부가 다르지만 일반적으로 인덱스 효율이 떨어짐
 - 작은 테이블
   - 인덱스 오버헤드가 더 클 수 있음
+
+
+<br/><br/>
 
 ## 결론
 
