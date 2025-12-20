@@ -9,20 +9,111 @@
 .categories {
   margin-bottom: 2rem;
 
-  .card-header {
-    padding-right: 12px;
-    background: transparent;
-    border: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-radius: 0;
-    box-shadow: none;
+  /* 우선순위를 높이기 위해 body 태그 포함 */
+  body & {
+
+    /* 부모 컨테이너 배경 제거 */
+    .card,
+    .collapse,
+    .list-group {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    .card-header {
+      padding: 0.75rem 1rem;
+      /* 상위 카테고리 배경색 - 더 진하게, 글라스 효과 복구 */
+      background: rgba(203, 171, 237, 0.25) !important;
+      border: none !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      margin-bottom: 0;
+      /* 하위 카테고리와의 간격 제거 */
+
+      &:hover {
+        background: rgba(203, 171, 237, 0.35) !important;
+      }
+
+      /* 글씨 뒤 배경 제거 */
+      span,
+      a {
+        background: transparent !important;
+      }
+    }
+
+    .list-group-item {
+      border: none !important;
+      padding: 0.75rem 1rem;
+      padding-left: 2rem;
+      /* 하위 카테고리 배경색 - 상위와 완벽하게 동일 */
+      background: rgba(203, 171, 237, 0.25) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+      border-radius: 0 !important;
+      margin: 0 !important;
+      /* 박스 사이 간격 제거 */
+      box-shadow: none !important;
+
+      &:first-child {
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+      }
+
+      &:hover::before {
+        left: 100%;
+      }
+
+      &:hover {
+        background: rgba(203, 171, 237, 0.35) !important;
+        transform: translateX(4px);
+        box-shadow: none !important;
+        border: none !important;
+        font-weight: 600;
+
+        span,
+        a {
+          background: transparent !important;
+        }
+      }
+
+      /* 글씨 뒤 배경 제거 */
+      span,
+      a {
+        background: transparent !important;
+      }
+    }
   }
 
   /* 카테고리 페이지 제목 색상 개선 */
-  h1, h2, h3, h4, h5, h6,
-  .page-title, .section-title, .main-title,
-  .category-title, .folder-title {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .page-title,
+  .section-title,
+  .main-title,
+  .category-title,
+  .folder-title {
     color: #424245 !important;
   }
 
@@ -31,104 +122,58 @@
     font-size: 86%; // fontawesome icons
   }
 
-  .list-group-item {
-    border: none;
-    padding-left: 2rem;
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    overflow: hidden;
-    border-radius: 0;
-    margin: 0;
+}
 
-    &:first-child {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
+// .categories
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(66, 66, 69, 0.1), transparent);
-      transition: left 0.5s ease;
-    }
-
-    &:hover::before {
-      left: 100%;
-    }
-
-    &:hover {
-      background: transparent;
-      transform: translateX(4px);
-      box-shadow: none;
-      border: none;
-      font-weight: 600;
-    }
-  }
-
-} // .categories
-
-.category-trigger {
-  width: 1.7rem;
-  height: 1.7rem;
-  border-radius: 50%;
+/* 카테고리 트리거 버튼 스타일 오버라이드 (강력하게) */
+.categories .card-header .category-trigger {
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
   text-align: center;
   color: #1d1d1f !important;
-  background: transparent;
-  border: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  box-shadow: none;
+  background: transparent !important;
+  border: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
-  overflow: hidden;
+  overflow: visible !important;
+  padding: 0 !important;
 
+  /* 배경 효과 제거 */
   &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, rgba(66, 66, 69, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    display: none !important;
   }
 
   &:hover {
-    background: transparent;
-    transform: scale(1.1);
-    box-shadow: none;
-    border: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-
-    &::before {
-      opacity: 1;
-    }
+    background: transparent !important;
+    transform: scale(1.2);
+    box-shadow: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 
     i {
-      color: #1d1d1f;
+      color: #1d1d1f !important;
     }
   }
 
   i {
     position: relative;
-    height: 0.7rem;
-    width: 1rem;
+    height: auto;
+    width: auto;
     transition: all 300ms ease;
   }
 }
 
 .rotate {
-  -ms-transform: rotate(-90deg); /* IE 9 */
-  -webkit-transform: rotate(-90deg); /* Safari 3-8 */
+  -ms-transform: rotate(-90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-90deg);
+  /* Safari 3-8 */
   transform: rotate(-90deg);
 }
 
@@ -137,46 +182,64 @@
   %category-icon-color {
     color: #a1a1a6;
   }
-  
-  .categories {
+
+  /* body 태그로 우선순위 높임 */
+  body .categories {
     .card-header {
-      background: transparent !important;
-      border-color: rgba(196, 190, 226, 0.4);
+      background: rgba(203, 171, 237, 0.08) !important;
+      border: none !important;
+
+      &:hover {
+        background: rgba(203, 171, 237, 0.12) !important;
+      }
     }
-    
+
     .list-group-item {
-      background: transparent !important;
-      border-color: rgba(196, 190, 226, 0.3);
+      background: rgba(203, 171, 237, 0.08) !important;
+      border: none !important;
       color: #f5f5f7;
-    }
-    
-    .list-group-item:hover {
-      background: transparent !important;
-      border-color: rgba(161, 161, 166, 0.4);
-      box-shadow: 0 4px 16px rgba(161, 161, 166, 0.2);
+
+      &:hover {
+        background: rgba(203, 171, 237, 0.12) !important;
+      }
     }
 
     /* 다크 모드 카테고리 페이지 제목 색상 개선 */
-    h1, h2, h3, h4, h5, h6,
-    .page-title, .section-title, .main-title,
-    .category-title, .folder-title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .page-title,
+    .section-title,
+    .main-title,
+    .category-title,
+    .folder-title {
       color: #424245 !important;
     }
+
+    /* 텍스트 배경 제거 */
+    .text-muted,
+    .small,
+    a,
+    span {
+      background: transparent !important;
+    }
   }
-  
-  .category-trigger {
+
+  .categories .card-header .category-trigger {
     background: transparent !important;
-    border-color: rgba(196, 190, 226, 0.4);
+    border: none !important;
     color: #a1a1a6 !important;
-  }
-  
-  .category-trigger:hover {
-    background: transparent !important;
-    border-color: rgba(161, 161, 166, 0.5);
-    box-shadow: 0 4px 16px rgba(161, 161, 166, 0.25);
-  }
-  
-  .category-trigger:hover i {
-    color: #a1a1a6;
+
+    &:hover {
+      background: transparent !important;
+      box-shadow: none !important;
+
+      i {
+        color: #a1a1a6 !important;
+      }
+    }
   }
 }
