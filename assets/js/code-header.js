@@ -1,5 +1,5 @@
 /**
- * Code Block Header Injection (Replaces broken Liquid Logic)
+ * Code Block Header Injection + Cleanup
  */
 document.addEventListener('DOMContentLoaded', function () {
     const codeBlocks = document.querySelectorAll('div.highlighter-rouge');
@@ -7,63 +7,45 @@ document.addEventListener('DOMContentLoaded', function () {
     if (codeBlocks.length === 0) return;
 
     const languageMap = {
-        'actionscript': 'ActionScript',
-        'as': 'ActionScript',
-        'as3': 'ActionScript',
+        'actionscript': 'ActionScript', 'as': 'ActionScript', 'as3': 'ActionScript',
         'applescript': 'AppleScript',
-        'bash': 'Shell',
-        'sh': 'Shell',
-        'zsh': 'Shell',
-        'cpp': 'C++',
-        'c': 'C',
-        'cs': 'C#',
-        'csharp': 'C#',
+        'bash': 'Shell', 'sh': 'Shell', 'zsh': 'Shell',
+        'cpp': 'C++', 'c': 'C',
+        'cs': 'C#', 'csharp': 'C#',
         'css': 'CSS',
         'coffeescript': 'CoffeeScript',
         'dockerfile': 'Dockerfile',
-        'go': 'Go',
-        'golang': 'Go',
+        'go': 'Go', 'golang': 'Go',
         'html': 'HTML',
         'java': 'Java',
-        'javascript': 'JavaScript',
-        'js': 'JavaScript',
+        'javascript': 'JavaScript', 'js': 'JavaScript',
         'json': 'JSON',
-        'kotlin': 'Kotlin',
-        'kt': 'Kotlin',
+        'kotlin': 'Kotlin', 'kt': 'Kotlin',
         'latex': 'LaTeX',
         'lua': 'Lua',
-        'markdown': 'Markdown',
-        'md': 'Markdown',
+        'markdown': 'Markdown', 'md': 'Markdown',
         'matlab': 'Matlab',
-        'objc': 'Objective-C',
-        'objective-c': 'Objective-C',
+        'objc': 'Objective-C', 'objective-c': 'Objective-C',
         'php': 'PHP',
-        'perl': 'Perl',
-        'pl': 'Perl',
-        'python': 'Python',
-        'py': 'Python',
+        'perl': 'Perl', 'pl': 'Perl',
+        'python': 'Python', 'py': 'Python',
         'r': 'R',
-        'ruby': 'Ruby',
-        'rb': 'Ruby',
-        'rust': 'Rust',
-        'rs': 'Rust',
+        'ruby': 'Ruby', 'rb': 'Ruby',
+        'rust': 'Rust', 'rs': 'Rust',
         'scala': 'Scala',
         'scss': 'SCSS',
         'sql': 'SQL',
         'swift': 'Swift',
-        'typescript': 'TypeScript',
-        'ts': 'TypeScript',
-        'vb': 'Visual Basic',
-        'visualbasic': 'Visual Basic',
+        'typescript': 'TypeScript', 'ts': 'TypeScript',
+        'vb': 'Visual Basic', 'visualbasic': 'Visual Basic',
         'xml': 'XML',
-        'yaml': 'YAML',
-        'yml': 'YAML'
+        'yaml': 'YAML', 'yml': 'YAML'
     };
 
-    const copySucceedTitle = document.documentElement.getAttribute('data-copy-succeed-title') || 'Copied!';
+    const copySucceedTitle = 'Copied!';
 
     codeBlocks.forEach(block => {
-        // Check if header already exists (prevent duplicate)
+        // Check if header already exists
         if (block.querySelector('.code-header')) return;
 
         // Get language class
@@ -76,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        if (!lang) return; // No language detected
+        if (!lang) return;
 
         // Map language to display name
         let label = languageMap[lang.toLowerCase()];
@@ -84,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
             label = lang.charAt(0).toUpperCase() + lang.slice(1);
         }
 
-        // Icon
         let iconClass = 'fas fa-code small';
         if (block.hasAttribute('file')) {
             iconClass = 'far fa-file-code';
@@ -104,14 +85,55 @@ document.addEventListener('DOMContentLoaded', function () {
       </button>
     `;
 
-        // Insert before the highlight container
-        // Structure: <div class="language-xyz..."><div class="highlight">...</div></div>
-        // We want to insert 'header' inside the outer div, BEFORE the inner 'highlight' div.
+        // Add copy functionality
+        const copyButton = header.querySelector('button');
+        copyButton.addEventListener('click', function () {
+            const highlightDiv = block.querySelector('.highlight');
+            if (!highlightDiv) return;
+
+            // Find the code content
+            const codeElement = highlightDiv.querySelector('pre code, .rouge-code pre, code');
+            if (!codeElement) return;
+
+            // Get text content
+            const code = codeElement.textContent || codeElement.innerText;
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(code).then(() => {
+                // Visual feedback
+                const originalIcon = copyButton.querySelector('i');
+                originalIcon.className = 'fas fa-check';
+                copyButton.classList.add('copied');
+
+                setTimeout(() => {
+                    originalIcon.className = 'far fa-clipboard';
+                    copyButton.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = code;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                const originalIcon = copyButton.querySelector('i');
+                originalIcon.className = 'fas fa-check';
+                setTimeout(() => {
+                    originalIcon.className = 'far fa-clipboard';
+                }, 2000);
+            });
+        });
+
+        // Insert header
         const highlightDiv = block.querySelector('.highlight');
         if (highlightDiv) {
             block.insertBefore(header, highlightDiv);
         } else {
-            // Fallback if no .highlight div (e.g. simple pre)
             block.prepend(header);
         }
     });
