@@ -181,8 +181,6 @@ compress_html:
   blanklines: false
   ignore:
     envs: []
-  startings: []
-  endings: ["</code>"]  
 
 # Safe Performance Optimization
 incremental: false
