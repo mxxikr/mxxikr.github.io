@@ -55,9 +55,9 @@ mermaid: false
     git config --global http.postBuffer 524288000
     ```
 
-        - `524288000`은 약 500MB를 의미함
-        - `--global` 옵션으로 전역 설정함
-        - 이후 모든 Git 저장소에 적용됨
+    - `524288000`은 약 500MB를 의미함
+    - `--global` 옵션으로 전역 설정함
+    - 이후 모든 Git 저장소에 적용됨
 
 <br/><br/>
 
