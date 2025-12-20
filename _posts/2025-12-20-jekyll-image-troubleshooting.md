@@ -49,7 +49,7 @@ mermaid: false
 ### Liquid 주석 처리
 
 - 문제의 원인은 `_includes/refactor-content.html` 파일에 남아있던 **잘못된 주석 처리**였음
-- HTML 주석(`<!-- -->`)으로 Liquid 코드(`{% replace ... %}`)를 감쌌으나, Jekyll 빌드 시스템은 이를 무시하지 않고 실행함
+- HTML 주석(`<!-- -->`)으로 Liquid 코드(`{% raw %}{% replace ... %}{% endraw %}`)를 감쌌으나, Jekyll 빌드 시스템은 이를 무시하지 않고 실행함
 - **발견된 원인**
   - 코드상으로는 주석 처리되어 보이지만 실제로는 서버에서 코드가 실행되어 `src`를 `data-src`로 바꾸고 있었음
   - JavaScript 문제나 플러그인 충돌이 아닌, **Liquid 템플릿 엔진의 작동 방식에 대한 오해**가 원인
