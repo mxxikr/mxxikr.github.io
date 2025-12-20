@@ -85,7 +85,7 @@
   --post-description-color: rgb(153, 134, 179); // 포스트 설명 색상 보라색으로 변경
 
   /* Comments Widget - Apple Liquid Glass */
-  --comment-widget-bg: 
+  --comment-widget-bg:
     radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(196, 190, 226, 0.7) 100%);
@@ -105,7 +105,7 @@
     border-radius: 50px !important;
     backdrop-filter: blur(30px) saturate(1.2) brightness(1.1) !important;
     -webkit-backdrop-filter: blur(30px) saturate(1.2) brightness(1.1) !important;
-    box-shadow: 
+    box-shadow:
       0 12px 40px rgba(128, 102, 153, 0.25),
       0 6px 20px rgba(255, 255, 255, 0.3),
       0 3px 10px rgba(196, 190, 226, 0.2),
@@ -115,7 +115,7 @@
       inset 0 0 20px rgba(255, 255, 255, 0.15) !important;
     position: relative;
     overflow: hidden;
-    
+
     iframe {
       background: transparent !important;
       border-radius: 50px !important;
@@ -129,7 +129,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
       radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.08) 0%, transparent 50%);
     pointer-events: none;
@@ -196,7 +196,7 @@
   .nav-wrapper {
     background-color: #e0dbef !important;
   }
-  
+
   /* 전역 배경 강제 적용 - 모든 요소 */
   *,
   html,
@@ -213,15 +213,45 @@
   .container-fluid,
   .row,
   .col,
-  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
-  .col-7, .col-8, .col-9, .col-10, .col-11, .col-12,
-  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6,
-  .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12,
-  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6,
-  .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12,
+  .col-lg-1,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12,
+  .col-md-1,
+  .col-md-2,
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  .col-md-6,
+  .col-md-7,
+  .col-md-8,
+  .col-md-9,
+  .col-md-10,
+  .col-md-11,
+  .col-md-12 {
     background-color: #e0dbef !important;
   }
-  
+
   /* 모든 요소를 가장 연한 라이트 퍼플로 통합 + Liquid Glass 효과 */
   .main-wrapper,
   .post-content,
@@ -272,7 +302,7 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
-  
+
   /* 모든 색상 변화 강제 덮어쓰기 - 가장 연한 라이트 퍼플로 통합 */
   [style*="background-color: rgb(26, 26, 30)"],
   [style*="background-color: rgb(39, 39, 45)"],
@@ -303,7 +333,7 @@
     background-color: #e0dbef !important;
     background: #e0dbef !important;
   }
-  
+
   /* 텍스트 영역이 아닌 구조적 요소만 배경색 적용 */
   .main-wrapper,
   .sidebar,
@@ -312,7 +342,7 @@
     background-color: #e0dbef !important;
     background: #e0dbef !important;
   }
-  
+
   /* 모든 텍스트 영역을 완전히 투명하게 유지 */
   .card,
   .post-preview,
@@ -333,15 +363,21 @@
   }
 
   /* 연한 보라색 텍스트 제거 및 통일 */
-  .text-muted, .muted, .secondary, .light, .faded {
+  .text-muted,
+  .muted,
+  .secondary,
+  .light,
+  .faded {
     color: #424245 !important;
   }
-  
+
   /* 모든 링크의 기본 상태를 보라색으로, 호버/활성화 상태를 화이트로 */
   a {
     color: rgb(153, 134, 179) !important;
-    
-    &:hover, &:active, &:focus {
+
+    &:hover,
+    &:active,
+    &:focus {
       color: #ffffff !important;
       background: rgba(153, 134, 179, 0.2);
       border-radius: 4px;
@@ -351,21 +387,31 @@
   }
 
   /* 브레드크럼 색상 통일 */
-  .breadcrumb, .breadcrumb-item, .breadcrumb-item a {
+  .breadcrumb,
+  .breadcrumb-item,
+  .breadcrumb-item a {
     color: rgb(153, 134, 179) !important;
   }
-  
+
   .breadcrumb-item.active {
     color: #424245 !important;
   }
 
   /* 포스트 정보 텍스트 색상 통일 */
-  .post-info, .post-description, .post-summary, .post-excerpt {
+  .post-info,
+  .post-description,
+  .post-summary,
+  .post-excerpt {
     color: #424245 !important;
   }
-  
+
   /* 모든 텍스트 요소 강제 색상 적용 */
-  p, span, div, em, strong, small {
+  p,
+  span,
+  div,
+  em,
+  strong,
+  small {
     color: #424245 !important;
   }
 
@@ -373,40 +419,61 @@
   h1 {
     font-size: 1.5rem !important; // 1.75rem에서 더 줄임
   }
-  
+
   h2 {
     font-size: 1.25rem !important; // 1.5rem에서 더 줄임
   }
-  
+
   h3 {
     font-size: 1.125rem !important; // 1.25rem에서 더 줄임
   }
-  
+
   h4 {
     font-size: 1rem !important; // 1.125rem에서 더 줄임
   }
-  
+
   h5 {
     font-size: 0.875rem !important; // 1rem에서 더 줄임
   }
-  
+
   h6 {
     font-size: 0.75rem !important; // 0.875rem에서 더 줄임
   }
 
   /* 홈 화면 포스트 제목 크기 조절 */
-  .post-title, .post-title a, .post-link, .post-link a {
+  .post-title,
+  .post-title a,
+  .post-link,
+  .post-link a {
     font-size: 1.25rem !important; // 포스트 제목 크기 조절
     line-height: 1.4 !important; // 줄 간격 조절
   }
-  
+
   /* 특정 클래스들 색상 통일 */
-  .text-muted, .muted, .secondary, .light, .faded, .text-secondary, .text-light {
+  .text-muted,
+  .muted,
+  .secondary,
+  .light,
+  .faded,
+  .text-secondary,
+  .text-light {
     color: #424245 !important;
   }
-  
+
   /* 텍스트 배경 투명화 */
-  h1, h2, h3, h4, h5, h6, p, span, a, div, li, td, th {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  a,
+  div,
+  li,
+  td,
+  th {
     background: transparent !important;
   }
 
@@ -429,14 +496,20 @@
   }
 
   /* Apple Liquid Glass - 극도로 투명한 글라스 효과 */
-  .card, .post-card, .category-card, .tag, .btn, .nav-link, .sidebar-nav-item {
+  .card,
+  .post-card,
+  .category-card,
+  .tag,
+  .btn,
+  .nav-link,
+  .sidebar-nav-item {
     backdrop-filter: blur(2px) saturate(1.01) brightness(1.005) !important;
     -webkit-backdrop-filter: blur(2px) saturate(1.01) brightness(1.005) !important;
     background: transparent !important;
     background-color: transparent !important;
     border: 1px solid rgba(255, 255, 255, 0.03) !important;
     border-radius: 20px !important;
-    box-shadow: 
+    box-shadow:
       /* 극도로 미묘한 그림자 효과 */
       0 1px 4px rgba(128, 102, 153, 0.01),
       0 1px 2px rgba(255, 255, 255, 0.01),
@@ -448,7 +521,7 @@
     z-index: 1 !important;
     transform-origin: center center !important;
   }
-  
+
   /* Related Posts 전용 강제 투명 효과 */
   #related-posts .card,
   #related-posts .post-card,
@@ -460,7 +533,7 @@
     background-color: transparent !important;
     backdrop-filter: blur(1px) saturate(1.005) !important;
     -webkit-backdrop-filter: blur(1px) saturate(1.005) !important;
-    box-shadow: 
+    box-shadow:
       0 1px 2px rgba(128, 102, 153, 0.005),
       0 1px 1px rgba(255, 255, 255, 0.005),
       inset 0 1px 0 rgba(255, 255, 255, 0.01),
@@ -469,44 +542,57 @@
   }
 
   /* 양옆 여백 제거 - 사이드바와 메인 콘텐츠 영역 */
-  .sidebar, .sidebar-wrapper, .sidebar-panel {
+  .sidebar,
+  .sidebar-wrapper,
+  .sidebar-panel {
     padding-left: 0 !important;
     padding-right: 0 !important;
     z-index: 1 !important; // 사이드바 레이어 순서
   }
-  
+
   /* 메인 콘텐츠 영역 레이어 순서 조정 */
-  .main, .main-wrapper, .content, .content-wrapper {
+  .main,
+  .main-wrapper,
+  .content,
+  .content-wrapper {
     z-index: 0 !important; // 메인 콘텐츠는 사이드바보다 낮은 레이어
     position: relative !important;
   }
-  
-  .main-wrapper, .main-content, .content-wrapper {
+
+  .main-wrapper,
+  .main-content,
+  .content-wrapper {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
-  
-  .container, .container-fluid {
+
+  .container,
+  .container-fluid {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
-  
+
   /* 프로필 카드 여백 조절 */
-  .profile-wrapper, .profile-card {
+  .profile-wrapper,
+  .profile-card {
     padding: 0.5rem !important; // 1rem에서 더 줄임
     margin: 0.25rem !important; // 0.5rem에서 더 줄임
   }
-  
+
   /* 네비게이션 버튼들 여백 조절 - 내부 패딩 더 줄이기 */
-  .nav-link, .sidebar-nav-item {
+  .nav-link,
+  .sidebar-nav-item {
     margin: 2px 0 !important; // 기존 4px에서 절반으로
     padding: 6px 4px !important; // 8px 6px에서 더 줄임
   }
-  
+
   /* 사이드바 네비게이션 버튼들의 좌우 여백 더 줄이기 */
-  .sidebar .nav-link, .sidebar .sidebar-nav-item, 
-  .sidebar-wrapper .nav-link, .sidebar-wrapper .sidebar-nav-item,
-  .sidebar-panel .nav-link, .sidebar-panel .sidebar-nav-item {
+  .sidebar .nav-link,
+  .sidebar .sidebar-nav-item,
+  .sidebar-wrapper .nav-link,
+  .sidebar-wrapper .sidebar-nav-item,
+  .sidebar-panel .nav-link,
+  .sidebar-panel .sidebar-nav-item {
     margin-left: 0.125rem !important; // 0.25rem에서 절반으로 줄임
     margin-right: 0.125rem !important; // 0.25rem에서 절반으로 줄임
     padding-left: 0.05rem !important; // 좌우 패딩을 더 줄임
@@ -514,26 +600,33 @@
   }
 
   /* 최상단 Home 링크를 왼쪽 끝으로 이동 */
-  .topbar, .topbar-wrapper, .topbar-nav, .navbar, .navbar-nav {
+  .topbar,
+  .topbar-wrapper,
+  .topbar-nav,
+  .navbar,
+  .navbar-nav {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
-  
-  .topbar .nav-link, .topbar-nav .nav-link, .navbar .nav-link {
+
+  .topbar .nav-link,
+  .topbar-nav .nav-link,
+  .navbar .nav-link {
     margin-left: 0 !important;
     padding-left: 0 !important;
   }
 
   /* Apple Liquid Glass 네비게이션 메뉴 - 리퀴드 글라스 복원 */
-  .nav-link, .sidebar-nav-item {
-    background: 
+  .nav-link,
+  .sidebar-nav-item {
+    background:
       radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 50%),
       radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.4) 0%, transparent 50%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     backdrop-filter: blur(30px) saturate(1.2) !important;
     -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
-    box-shadow: 
+    box-shadow:
       0 12px 32px rgba(128, 102, 153, 0.2),
       0 4px 16px rgba(255, 255, 255, 0.3),
       inset 0 1px 0 rgba(255, 255, 255, 0.8),
@@ -547,20 +640,21 @@
   }
 
   /* Apple Liquid Glass - 실시간 렌더링 거울 반사 */
-  .nav-link::before, .sidebar-nav-item::before {
+  .nav-link::before,
+  .sidebar-nav-item::before {
     content: '' !important;
     position: absolute !important;
     top: 0 !important;
     left: -100% !important;
     width: 100% !important;
     height: 100% !important;
-    background: 
+    background:
       /* Apple의 실시간 거울 반사 */
-      linear-gradient(45deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.8) 25%, 
-        rgba(196, 190, 226, 0.6) 50%, 
-        rgba(255, 255, 255, 0.9) 75%, 
+      linear-gradient(45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.8) 25%,
+        rgba(196, 190, 226, 0.6) 50%,
+        rgba(255, 255, 255, 0.9) 75%,
         transparent 100%),
       /* 동적 굴절 효과 */
       radial-gradient(ellipse at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
@@ -574,27 +668,31 @@
   }
 
   @keyframes appleLiquidReflection {
-    0% { 
+    0% {
       opacity: 0.2;
       transform: translateX(-100%) scale(1) rotate(0deg);
       filter: brightness(1) saturate(1);
     }
-    25% { 
+
+    25% {
       opacity: 0.6;
       transform: translateX(-50%) scale(1.05) rotate(1deg);
       filter: brightness(1.2) saturate(1.3);
     }
-    50% { 
+
+    50% {
       opacity: 0.8;
       transform: translateX(0%) scale(1.1) rotate(0deg);
       filter: brightness(1.4) saturate(1.5);
     }
-    75% { 
+
+    75% {
       opacity: 0.6;
       transform: translateX(50%) scale(1.05) rotate(-1deg);
       filter: brightness(1.2) saturate(1.3);
     }
-    100% { 
+
+    100% {
       opacity: 0.2;
       transform: translateX(100%) scale(1) rotate(0deg);
       filter: brightness(1) saturate(1);
@@ -602,23 +700,24 @@
   }
 
   /* Apple Liquid Glass - 움직임에 동적 반응 */
-  .nav-link:hover, .sidebar-nav-item:hover {
+  .nav-link:hover,
+  .sidebar-nav-item:hover {
     backdrop-filter: blur(60px) saturate(1.8) brightness(1.3) !important;
     -webkit-backdrop-filter: blur(60px) saturate(1.8) brightness(1.3) !important;
-    background: 
+    background:
       /* Apple의 동적 반응 - 주변 환경 반사 */
       radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 1) 0%, transparent 70%),
       radial-gradient(ellipse at 85% 95%, rgba(196, 190, 226, 0.8) 0%, transparent 70%),
       radial-gradient(ellipse at 50% 50%, rgba(224, 217, 237, 0.6) 0%, transparent 80%),
       /* 실시간 굴절 - Apple 공식 스펙 */
-      conic-gradient(from 45deg at 50% 50%, 
+      conic-gradient(from 45deg at 50% 50%,
         rgba(255, 255, 255, 0.6) 0deg,
         rgba(196, 190, 226, 0.4) 90deg,
         rgba(255, 255, 255, 0.8) 180deg,
         rgba(224, 217, 237, 0.5) 270deg,
         rgba(255, 255, 255, 0.6) 360deg) !important;
     border: 2px solid rgba(255, 255, 255, 0.6) !important;
-    box-shadow: 
+    box-shadow:
       /* Apple의 실시간 렌더링 굴절 */
       0 30px 80px rgba(128, 102, 153, 0.4),
       0 12px 32px rgba(255, 255, 255, 0.6),
@@ -635,42 +734,54 @@
   }
 
   @keyframes appleLiquidHover {
-    0% { 
+    0% {
       transform: translateY(0) scale(1);
       filter: brightness(1) saturate(1);
     }
-    50% { 
+
+    50% {
       transform: translateY(-6px) scale(1.05);
       filter: brightness(1.2) saturate(1.4);
     }
-    100% { 
+
+    100% {
       transform: translateY(-4px) scale(1.02);
       filter: brightness(1.1) saturate(1.2);
     }
   }
 
   @keyframes liquidHoverSubtle {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
-    100% { transform: translateY(-2px); }
+    0% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-3px);
+    }
+
+    100% {
+      transform: translateY(-2px);
+    }
   }
 
-  .nav-link:hover::before, .sidebar-nav-item:hover::before {
+  .nav-link:hover::before,
+  .sidebar-nav-item:hover::before {
     left: 100% !important;
     background: radial-gradient(circle at center, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%) !important;
   }
 
   /* Apple Liquid Glass - 활성 상태 동심원 형태 */
-  .nav-link.active, .sidebar-nav-item.active {
+  .nav-link.active,
+  .sidebar-nav-item.active {
     backdrop-filter: blur(70px) saturate(2) brightness(1.5) !important;
     -webkit-backdrop-filter: blur(70px) saturate(2) brightness(1.5) !important;
-    background: 
+    background:
       /* Apple의 동심원 형태 - 모던한 하드웨어에 맞춘 형태 */
       radial-gradient(ellipse at 30% 20%, rgba(153, 134, 179, 0.9) 0%, transparent 60%),
       radial-gradient(ellipse at 70% 80%, rgba(196, 190, 226, 0.7) 0%, transparent 60%),
       radial-gradient(ellipse at 50% 50%, rgba(224, 217, 237, 0.5) 0%, transparent 70%),
       /* Apple 공식 동심원 conic-gradient */
-      conic-gradient(from 0deg at 50% 50%, 
+      conic-gradient(from 0deg at 50% 50%,
         rgba(153, 134, 179, 0.8) 0deg,
         rgba(196, 190, 226, 0.6) 90deg,
         rgba(153, 134, 179, 0.9) 180deg,
@@ -679,7 +790,7 @@
     border: 2px solid rgba(153, 134, 179, 0.7) !important;
     color: #ffffff !important;
     font-weight: 600 !important;
-    box-shadow: 
+    box-shadow:
       /* Apple의 실시간 렌더링 활성 상태 */
       0 25px 70px rgba(153, 134, 179, 0.7),
       0 10px 25px rgba(255, 255, 255, 0.5),
@@ -696,15 +807,19 @@
   }
 
   /* 다른 요소들의 Apple Liquid Glass 호버 효과 - 리퀴드 글라스 강화 */
-  .card:hover, .post-card:hover, .category-card:hover, .tag:hover, .btn:hover {
+  .card:hover,
+  .post-card:hover,
+  .category-card:hover,
+  .tag:hover,
+  .btn:hover {
     backdrop-filter: blur(35px) saturate(1.3) !important;
     -webkit-backdrop-filter: blur(35px) saturate(1.3) !important;
-    background: 
+    background:
       radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.7) 0%, transparent 50%),
       radial-gradient(circle at 75% 75%, rgba(196, 190, 226, 0.4) 0%, transparent 50%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(224, 217, 237, 0.3) 50%, rgba(255, 255, 255, 0.2) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    box-shadow: 
+    box-shadow:
       0 16px 48px rgba(128, 102, 153, 0.3),
       0 6px 20px rgba(255, 255, 255, 0.3),
       inset 0 2px 0 rgba(255, 255, 255, 0.6),
@@ -714,13 +829,19 @@
   }
 
   /* Apple Liquid Glass 활성 상태 - 리퀴드 글라스 강화 */
-  .card:active, .post-card:active, .category-card:active, .tag:active, .btn:active, .nav-link:active, .sidebar-nav-item:active {
+  .card:active,
+  .post-card:active,
+  .category-card:active,
+  .tag:active,
+  .btn:active,
+  .nav-link:active,
+  .sidebar-nav-item:active {
     backdrop-filter: blur(40px) saturate(1.4) !important;
     -webkit-backdrop-filter: blur(40px) saturate(1.4) !important;
-    background: 
+    background:
       radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, rgba(196, 190, 226, 0.5) 30%, rgba(255, 255, 255, 0.4) 70%, rgba(153, 134, 179, 0.2) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.6) !important;
-    box-shadow: 
+    box-shadow:
       0 8px 32px rgba(128, 102, 153, 0.4),
       inset 0 4px 8px rgba(255, 255, 255, 0.7),
       inset 0 -4px 8px rgba(128, 102, 153, 0.3),
@@ -729,14 +850,18 @@
   }
 
   /* Apple Liquid Glass 반사 효과 - 모든 요소 */
-  .card::before, .post-card::before, .category-card::before, .tag::before, .btn::before {
+  .card::before,
+  .post-card::before,
+  .category-card::before,
+  .tag::before,
+  .btn::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: 
+    background:
       linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%),
       radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -745,35 +870,75 @@
     border-radius: 20px;
   }
 
-  .card:hover::before, .post-card:hover::before, .category-card:hover::before, .tag:hover::before, .btn:hover::before {
+  .card:hover::before,
+  .post-card:hover::before,
+  .category-card:hover::before,
+  .tag:hover::before,
+  .btn:hover::before {
     left: 100%;
     background: radial-gradient(circle at center, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
   }
 
-  /* 네비게이션 버튼 특별 스타일링 - 통일된 둥근 모서리 */
-  .nav-link, .sidebar-nav-item {
+  /* 네비게이션 버튼 특별 스타일링 - 통일된 둥근 모서리 및 리퀴드 글라스 */
+  .nav-link,
+  .sidebar-nav-item,
+  .post-navigation .btn-outline-primary {
     border-radius: 20px !important;
     padding: 12px 20px !important;
     margin: 4px 0 !important;
+    backdrop-filter: blur(20px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.2) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(224, 217, 237, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow:
+      0 4px 12px rgba(128, 102, 153, 0.05),
+      0 2px 8px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    color: #424245 !important;
+  }
+
+  .post-navigation .btn-outline-primary:hover {
+    backdrop-filter: blur(30px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    box-shadow:
+      0 8px 24px rgba(128, 102, 153, 0.2),
+      0 4px 12px rgba(255, 255, 255, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -4px 0 rgba(128, 102, 153, 0.15),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px) !important;
+    color: rgb(153, 134, 179) !important;
   }
 
   /* 태그 Apple Liquid Glass - 리퀴드 글라스 복원 */
-  .tag, .post-tag {
+  .tag,
+  .post-tag {
     border-radius: 20px !important;
     padding: 8px 16px !important;
-    background: 
-      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 50%),
-      radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.4) 0%, transparent 50%),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    backdrop-filter: blur(30px) saturate(1.2) !important;
-    -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
-    box-shadow: 
-      0 12px 32px rgba(128, 102, 153, 0.2),
-      0 4px 16px rgba(255, 255, 255, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.1),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.2) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(224, 217, 237, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(20px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
+    box-shadow:
+      0 4px 12px rgba(128, 102, 153, 0.05),
+      0 2px 8px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     position: relative !important;
     overflow: hidden !important;
@@ -781,65 +946,70 @@
     font-weight: 500 !important;
   }
 
-  .tag::before, .post-tag::before {
+  .tag::before,
+  .post-tag::before {
     content: '' !important;
     position: absolute !important;
     top: 0 !important;
     left: -100% !important;
     width: 100% !important;
     height: 100% !important;
-    background: 
-      linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%),
-      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 70%) !important;
+    background:
+      linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%),
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%) !important;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     pointer-events: none !important;
     z-index: 1 !important;
     border-radius: 20px !important;
   }
 
-  .tag:hover::before, .post-tag:hover::before {
+  .tag:hover::before,
+  .post-tag:hover::before {
     left: 100% !important;
     background: radial-gradient(circle at center, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) !important;
   }
 
-  .tag:hover, .post-tag:hover {
-    backdrop-filter: blur(45px) saturate(1.4) !important;
-    -webkit-backdrop-filter: blur(45px) saturate(1.4) !important;
-    background: 
-      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.9) 0%, transparent 60%),
-      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.6) 0%, transparent 60%),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(224, 217, 237, 0.3) 50%, rgba(255, 255, 255, 0.2) 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.5) !important;
-    box-shadow: 
-      0 16px 40px rgba(128, 102, 153, 0.4),
-      0 8px 16px rgba(255, 255, 255, 0.4),
-      inset 0 4px 0 rgba(255, 255, 255, 0.9),
-      inset 0 -4px 0 rgba(128, 102, 153, 0.3),
-      inset 0 0 0 2px rgba(255, 255, 255, 0.2) !important;
+  .tag:hover,
+  .post-tag:hover {
+    backdrop-filter: blur(30px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    box-shadow:
+      0 8px 24px rgba(128, 102, 153, 0.2),
+      0 4px 12px rgba(255, 255, 255, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -2px 0 rgba(128, 102, 153, 0.15),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
     transform: translateY(-2px) !important; // scale 제거하여 확대 방지
     color: rgb(153, 134, 179) !important;
   }
 
   /* 카드들 통일된 둥근 모서리 */
-  .card, .post-card, .category-card {
+  .card,
+  .post-card,
+  .category-card {
     border-radius: 20px !important;
   }
 
   /* Apple Liquid Glass 페이지네이션 - 리퀴드 글라스 복원 */
   .pagination .page-link {
-    background: 
-      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.7) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(224, 217, 237, 0.15) 50%, rgba(255, 255, 255, 0.1) 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    backdrop-filter: blur(30px) saturate(1.1) !important;
-    -webkit-backdrop-filter: blur(30px) saturate(1.1) !important;
-    box-shadow: 
-      0 10px 30px rgba(128, 102, 153, 0.2),
-      0 3px 10px rgba(255, 255, 255, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.7),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.1),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+    background:
+      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(196, 190, 226, 0.2) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(224, 217, 237, 0.08) 50%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(20px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
+    box-shadow:
+      0 4px 12px rgba(128, 102, 153, 0.1),
+      0 2px 8px rgba(255, 255, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     position: relative !important;
     overflow: hidden !important;
@@ -847,16 +1017,19 @@
   }
 
   @keyframes liquidPulse {
-    0%, 100% { 
-      box-shadow: 
+
+    0%,
+    100% {
+      box-shadow:
         0 10px 30px rgba(128, 102, 153, 0.2),
         0 3px 10px rgba(255, 255, 255, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.7),
         inset 0 -1px 0 rgba(128, 102, 153, 0.1),
         inset 0 0 0 1px rgba(255, 255, 255, 0.2);
     }
-    50% { 
-      box-shadow: 
+
+    50% {
+      box-shadow:
         0 15px 40px rgba(128, 102, 153, 0.3),
         0 5px 15px rgba(255, 255, 255, 0.4),
         inset 0 2px 0 rgba(255, 255, 255, 0.8),
@@ -883,29 +1056,29 @@
   }
 
   .pagination .page-link:hover {
-    backdrop-filter: blur(40px) saturate(1.3) !important;
-    -webkit-backdrop-filter: blur(40px) saturate(1.3) !important;
-    background: 
-      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.9) 0%, transparent 60%),
-      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.6) 0%, transparent 60%),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(224, 217, 237, 0.3) 50%, rgba(255, 255, 255, 0.2) 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.5) !important;
-    box-shadow: 
-      0 20px 50px rgba(128, 102, 153, 0.4),
-      0 8px 20px rgba(255, 255, 255, 0.4),
-      inset 0 4px 0 rgba(255, 255, 255, 0.9),
-      inset 0 -4px 0 rgba(128, 102, 153, 0.3),
-      inset 0 0 0 2px rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(30px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    box-shadow:
+      0 8px 24px rgba(128, 102, 153, 0.2),
+      0 4px 12px rgba(255, 255, 255, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -4px 0 rgba(128, 102, 153, 0.15),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
     transform: translateY(-2px) !important; // scale 제거하여 확대 방지
   }
 
   .pagination .active .page-link {
-    background: 
+    background:
       radial-gradient(circle at center, rgba(153, 134, 179, 0.7) 0%, rgba(196, 190, 226, 0.5) 30%, rgba(153, 134, 179, 0.4) 70%, rgba(196, 190, 226, 0.2) 100%) !important;
     border: 1px solid rgba(153, 134, 179, 0.5) !important;
     color: #ffffff !important;
     font-weight: 600 !important;
-    box-shadow: 
+    box-shadow:
       0 12px 32px rgba(153, 134, 179, 0.6),
       0 4px 12px rgba(255, 255, 255, 0.4),
       inset 0 3px 0 rgba(255, 255, 255, 0.9),
@@ -932,11 +1105,27 @@
   }
 
   /* 프로필 이미지 완전히 숨기기 */
-  .profile-img, .avatar, .profile-picture, .sidebar-avatar, .site-avatar,
-  .profile-img img, .avatar img, .profile-picture img, .sidebar-avatar img, .site-avatar img,
-  .profile-wrapper img, .profile-card img, .sidebar img, .profile img,
-  img[alt*="profile"], img[alt*="avatar"], img[alt*="사진"], img[alt*="프로필"],
-  .profile-img-wrapper, .avatar-wrapper, .profile-picture-wrapper {
+  .profile-img,
+  .avatar,
+  .profile-picture,
+  .sidebar-avatar,
+  .site-avatar,
+  .profile-img img,
+  .avatar img,
+  .profile-picture img,
+  .sidebar-avatar img,
+  .site-avatar img,
+  .profile-wrapper img,
+  .profile-card img,
+  .sidebar img,
+  .profile img,
+  img[alt*="profile"],
+  img[alt*="avatar"],
+  img[alt*="사진"],
+  img[alt*="프로필"],
+  .profile-img-wrapper,
+  .avatar-wrapper,
+  .profile-picture-wrapper {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
@@ -947,51 +1136,143 @@
   }
 
   /* 프로필 원형 영역 완전히 제거 - 모든 가능한 선택자 */
-  .profile-img-circle, .avatar-circle, .profile-picture-circle,
-  .profile-img-border, .avatar-border, .profile-picture-border,
-  .profile-img-frame, .avatar-frame, .profile-picture-frame,
-  .profile-img-container, .avatar-container, .profile-picture-container,
-  .profile-img-section, .avatar-section, .profile-picture-section,
-  .profile-img-area, .avatar-area, .profile-picture-area,
-  .profile-img-box, .avatar-box, .profile-picture-box,
-  .profile-img-div, .avatar-div, .profile-picture-div,
-  .profile-img-wrapper, .avatar-wrapper, .profile-picture-wrapper,
-  .profile-img-placeholder, .avatar-placeholder, .profile-picture-placeholder,
-  .profile-img, .avatar, .profile-picture, .sidebar-avatar, .site-avatar,
-  .profile-img img, .avatar img, .profile-picture img, .sidebar-avatar img, .site-avatar img,
-  .profile-wrapper img, .profile-card img, .sidebar img, .profile img,
-  img[alt*="profile"], img[alt*="avatar"], img[alt*="사진"], img[alt*="프로필"],
-  .profile-img-container *, .avatar-container *, .profile-picture-container *,
-  .profile-img-section *, .avatar-section *, .profile-picture-section *,
-  .profile-img-area *, .avatar-area *, .profile-picture-area *,
-  .profile-img-box *, .avatar-box *, .profile-picture-box *,
-  .profile-img-div *, .avatar-div *, .profile-picture-div *,
-  .profile-img-wrapper *, .avatar-wrapper *, .profile-picture-wrapper *,
-  .profile-img-placeholder *, .avatar-placeholder *, .profile-picture-placeholder *,
-  .profile-img-circle *, .avatar-circle *, .profile-picture-circle *,
-  .profile-img-border *, .avatar-border *, .profile-picture-border *,
-  .profile-img-frame *, .avatar-frame *, .profile-picture-frame *,
+  .profile-img-circle,
+  .avatar-circle,
+  .profile-picture-circle,
+  .profile-img-border,
+  .avatar-border,
+  .profile-picture-border,
+  .profile-img-frame,
+  .avatar-frame,
+  .profile-picture-frame,
+  .profile-img-container,
+  .avatar-container,
+  .profile-picture-container,
+  .profile-img-section,
+  .avatar-section,
+  .profile-picture-section,
+  .profile-img-area,
+  .avatar-area,
+  .profile-picture-area,
+  .profile-img-box,
+  .avatar-box,
+  .profile-picture-box,
+  .profile-img-div,
+  .avatar-div,
+  .profile-picture-div,
+  .profile-img-wrapper,
+  .avatar-wrapper,
+  .profile-picture-wrapper,
+  .profile-img-placeholder,
+  .avatar-placeholder,
+  .profile-picture-placeholder,
+  .profile-img,
+  .avatar,
+  .profile-picture,
+  .sidebar-avatar,
+  .site-avatar,
+  .profile-img img,
+  .avatar img,
+  .profile-picture img,
+  .sidebar-avatar img,
+  .site-avatar img,
+  .profile-wrapper img,
+  .profile-card img,
+  .sidebar img,
+  .profile img,
+  img[alt*="profile"],
+  img[alt*="avatar"],
+  img[alt*="사진"],
+  img[alt*="프로필"],
+  .profile-img-container *,
+  .avatar-container *,
+  .profile-picture-container *,
+  .profile-img-section *,
+  .avatar-section *,
+  .profile-picture-section *,
+  .profile-img-area *,
+  .avatar-area *,
+  .profile-picture-area *,
+  .profile-img-box *,
+  .avatar-box *,
+  .profile-picture-box *,
+  .profile-img-div *,
+  .avatar-div *,
+  .profile-picture-div *,
+  .profile-img-wrapper *,
+  .avatar-wrapper *,
+  .profile-picture-wrapper *,
+  .profile-img-placeholder *,
+  .avatar-placeholder *,
+  .profile-picture-placeholder *,
+  .profile-img-circle *,
+  .avatar-circle *,
+  .profile-picture-circle *,
+  .profile-img-border *,
+  .avatar-border *,
+  .profile-picture-border *,
+  .profile-img-frame *,
+  .avatar-frame *,
+  .profile-picture-frame *,
   /* 추가 선택자들 */
-  .sidebar .profile-img, .sidebar .avatar, .sidebar .profile-picture,
-  .sidebar .profile-img-circle, .sidebar .avatar-circle, .sidebar .profile-picture-circle,
-  .sidebar .profile-img-border, .sidebar .avatar-border, .sidebar .profile-picture-border,
-  .sidebar .profile-img-frame, .sidebar .avatar-frame, .sidebar .profile-picture-frame,
-  .sidebar .profile-img-container, .sidebar .avatar-container, .sidebar .profile-picture-container,
-  .sidebar .profile-img-section, .sidebar .avatar-section, .sidebar .profile-picture-section,
-  .sidebar .profile-img-area, .sidebar .avatar-area, .sidebar .profile-picture-area,
-  .sidebar .profile-img-box, .sidebar .avatar-box, .sidebar .profile-picture-box,
-  .sidebar .profile-img-div, .sidebar .avatar-div, .sidebar .profile-picture-div,
-  .sidebar .profile-img-wrapper, .sidebar .avatar-wrapper, .sidebar .profile-picture-wrapper,
-  .sidebar .profile-img-placeholder, .sidebar .avatar-placeholder, .sidebar .profile-picture-placeholder,
+  .sidebar .profile-img,
+  .sidebar .avatar,
+  .sidebar .profile-picture,
+  .sidebar .profile-img-circle,
+  .sidebar .avatar-circle,
+  .sidebar .profile-picture-circle,
+  .sidebar .profile-img-border,
+  .sidebar .avatar-border,
+  .sidebar .profile-picture-border,
+  .sidebar .profile-img-frame,
+  .sidebar .avatar-frame,
+  .sidebar .profile-picture-frame,
+  .sidebar .profile-img-container,
+  .sidebar .avatar-container,
+  .sidebar .profile-picture-container,
+  .sidebar .profile-img-section,
+  .sidebar .avatar-section,
+  .sidebar .profile-picture-section,
+  .sidebar .profile-img-area,
+  .sidebar .avatar-area,
+  .sidebar .profile-picture-area,
+  .sidebar .profile-img-box,
+  .sidebar .avatar-box,
+  .sidebar .profile-picture-box,
+  .sidebar .profile-img-div,
+  .sidebar .avatar-div,
+  .sidebar .profile-picture-div,
+  .sidebar .profile-img-wrapper,
+  .sidebar .avatar-wrapper,
+  .sidebar .profile-picture-wrapper,
+  .sidebar .profile-img-placeholder,
+  .sidebar .avatar-placeholder,
+  .sidebar .profile-picture-placeholder,
   /* 더 강력한 선택자들 */
-  div[class*="profile"], div[class*="avatar"], div[class*="circle"],
-  span[class*="profile"], span[class*="avatar"], span[class*="circle"],
-  section[class*="profile"], section[class*="avatar"], section[class*="circle"],
-  article[class*="profile"], article[class*="avatar"], article[class*="circle"],
-  .sidebar div[class*="profile"], .sidebar div[class*="avatar"], .sidebar div[class*="circle"],
-  .sidebar span[class*="profile"], .sidebar span[class*="avatar"], .sidebar span[class*="circle"],
-  .sidebar section[class*="profile"], .sidebar section[class*="avatar"], .sidebar section[class*="circle"],
-  .sidebar article[class*="profile"], .sidebar article[class*="avatar"], .sidebar article[class*="circle"] {
+  div[class*="profile"],
+  div[class*="avatar"],
+  div[class*="circle"],
+  span[class*="profile"],
+  span[class*="avatar"],
+  span[class*="circle"],
+  section[class*="profile"],
+  section[class*="avatar"],
+  section[class*="circle"],
+  article[class*="profile"],
+  article[class*="avatar"],
+  article[class*="circle"],
+  .sidebar div[class*="profile"],
+  .sidebar div[class*="avatar"],
+  .sidebar div[class*="circle"],
+  .sidebar span[class*="profile"],
+  .sidebar span[class*="avatar"],
+  .sidebar span[class*="circle"],
+  .sidebar section[class*="profile"],
+  .sidebar section[class*="avatar"],
+  .sidebar section[class*="circle"],
+  .sidebar article[class*="profile"],
+  .sidebar article[class*="avatar"],
+  .sidebar article[class*="circle"] {
     width: 0 !important;
     height: 0 !important;
     border: none !important;
@@ -1009,11 +1290,21 @@
   }
 
   /* 프로필 이미지 영역 자체를 완전히 제거 */
-  .profile-img-container, .avatar-container, .profile-picture-container,
-  .profile-img-section, .avatar-section, .profile-picture-section,
-  .profile-img-area, .avatar-area, .profile-picture-area,
-  .profile-img-box, .avatar-box, .profile-picture-box,
-  .profile-img-div, .avatar-div, .profile-picture-div {
+  .profile-img-container,
+  .avatar-container,
+  .profile-picture-container,
+  .profile-img-section,
+  .avatar-section,
+  .profile-picture-section,
+  .profile-img-area,
+  .avatar-area,
+  .profile-picture-area,
+  .profile-img-box,
+  .avatar-box,
+  .profile-picture-box,
+  .profile-img-div,
+  .avatar-div,
+  .profile-picture-div {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
@@ -1026,11 +1317,21 @@
   }
 
   /* 프로필 이미지 플레이스홀더와 원형 영역도 제거 */
-  .profile-img-placeholder, .avatar-placeholder, .profile-picture-placeholder,
-  .profile-img-circle, .avatar-circle, .profile-picture-circle,
-  .profile-img-border, .avatar-border, .profile-picture-border,
-  .profile-img-wrapper, .avatar-wrapper, .profile-picture-wrapper,
-  .profile-img-frame, .avatar-frame, .profile-picture-frame {
+  .profile-img-placeholder,
+  .avatar-placeholder,
+  .profile-picture-placeholder,
+  .profile-img-circle,
+  .avatar-circle,
+  .profile-picture-circle,
+  .profile-img-border,
+  .avatar-border,
+  .profile-picture-border,
+  .profile-img-wrapper,
+  .avatar-wrapper,
+  .profile-picture-wrapper,
+  .profile-img-frame,
+  .avatar-frame,
+  .profile-picture-frame {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
@@ -1043,11 +1344,21 @@
   }
 
   /* 프로필 이미지 영역 자체를 완전히 제거 */
-  .profile-img-container, .avatar-container, .profile-picture-container,
-  .profile-img-section, .avatar-section, .profile-picture-section,
-  .profile-img-area, .avatar-area, .profile-picture-area,
-  .profile-img-box, .avatar-box, .profile-picture-box,
-  .profile-img-div, .avatar-div, .profile-picture-div {
+  .profile-img-container,
+  .avatar-container,
+  .profile-picture-container,
+  .profile-img-section,
+  .avatar-section,
+  .profile-picture-section,
+  .profile-img-area,
+  .avatar-area,
+  .profile-picture-area,
+  .profile-img-box,
+  .avatar-box,
+  .profile-picture-box,
+  .profile-img-div,
+  .avatar-div,
+  .profile-picture-div {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
@@ -1060,11 +1371,21 @@
   }
 
   /* 프로필 이미지 플레이스홀더와 원형 영역도 제거 */
-  .profile-img-placeholder, .avatar-placeholder, .profile-picture-placeholder,
-  .profile-img-circle, .avatar-circle, .profile-picture-circle,
-  .profile-img-border, .avatar-border, .profile-picture-border,
-  .profile-img-wrapper, .avatar-wrapper, .profile-picture-wrapper,
-  .profile-img-frame, .avatar-frame, .profile-picture-frame {
+  .profile-img-placeholder,
+  .avatar-placeholder,
+  .profile-picture-placeholder,
+  .profile-img-circle,
+  .avatar-circle,
+  .profile-picture-circle,
+  .profile-img-border,
+  .avatar-border,
+  .profile-picture-border,
+  .profile-img-wrapper,
+  .avatar-wrapper,
+  .profile-picture-wrapper,
+  .profile-img-frame,
+  .avatar-frame,
+  .profile-picture-frame {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
@@ -1087,8 +1408,14 @@
   }
 
   /* 프로필 텍스트는 유지하고 스타일링만 조정 */
-  .profile-name, .profile-title, .profile-description, .profile-bio,
-  .profile-text, .profile-label, .profile-subtitle, .profile-caption {
+  .profile-name,
+  .profile-title,
+  .profile-description,
+  .profile-bio,
+  .profile-text,
+  .profile-label,
+  .profile-subtitle,
+  .profile-caption {
     color: rgb(153, 134, 179) !important; // 보라색으로 설정
     font-weight: 500 !important;
     margin: 0.5rem 0 !important;
@@ -1106,39 +1433,53 @@
   }
 
   /* 카테고리 제목 크기 조절 - 더 작게 */
-  .post-meta, .post-categories, .post-tags, .categories, .tags {
+  .post-meta,
+  .post-categories,
+  .post-tags,
+  .categories,
+  .tags {
     font-size: 0.75rem !important; // 카테고리 텍스트 크기 더 줄임
   }
-  
-  .post-meta a, .post-categories a, .post-tags a, .categories a, .tags a {
+
+  .post-meta a,
+  .post-categories a,
+  .post-tags a,
+  .categories a,
+  .tags a {
     font-size: 0.75rem !important; // 카테고리 링크 크기 더 줄임
   }
 
   /* 카테고리 Liquid Glass 효과 */
-  .post-categories a, .post-tags a, .categories a, .tags a {
+  .post-categories a,
+  .post-tags a,
+  .categories a,
+  .tags a {
     display: inline-block !important;
     padding: 4px 8px !important;
     margin: 2px 4px !important;
     border-radius: 12px !important;
-    backdrop-filter: blur(15px) !important;
-    -webkit-backdrop-filter: blur(15px) !important;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(196, 190, 226, 0.1) 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.25) !important;
-    box-shadow: 
-      0 4px 16px rgba(153, 134, 179, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow:
+      0 2px 8px rgba(153, 134, 179, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     text-decoration: none !important;
     color: rgb(153, 134, 179) !important;
   }
 
   /* 카테고리 호버 효과 */
-  .post-categories a:hover, .post-tags a:hover, .categories a:hover, .tags a:hover {
+  .post-categories a:hover,
+  .post-tags a:hover,
+  .categories a:hover,
+  .tags a:hover {
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(196, 190, 226, 0.2) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.35) !important;
-    box-shadow: 
+    box-shadow:
       0 6px 20px rgba(153, 134, 179, 0.25),
       inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
     transform: translateY(-1px) !important;
@@ -1146,12 +1487,15 @@
   }
 
   /* 카테고리 활성 효과 */
-  .post-categories a:active, .post-tags a:active, .categories a:active, .tags a:active {
+  .post-categories a:active,
+  .post-tags a:active,
+  .categories a:active,
+  .tags a:active {
     backdrop-filter: blur(25px) !important;
     -webkit-backdrop-filter: blur(25px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(196, 190, 226, 0.25) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    box-shadow: 
+    box-shadow:
       0 2px 8px rgba(153, 134, 179, 0.3),
       inset 0 2px 4px rgba(255, 255, 255, 0.5) !important;
     transform: translateY(1px) !important;
@@ -1159,7 +1503,10 @@
   }
 
   /* 카테고리 반사 효과 */
-  .post-categories a::before, .post-tags a::before, .categories a::before, .tags a::before {
+  .post-categories a::before,
+  .post-tags a::before,
+  .categories a::before,
+  .tags a::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1173,18 +1520,25 @@
     border-radius: 12px;
   }
 
-  .post-categories a:hover::before, .post-tags a:hover::before, .categories a:hover::before, .tags a:hover::before {
+  .post-categories a:hover::before,
+  .post-tags a:hover::before,
+  .categories a:hover::before,
+  .tags a:hover::before {
     left: 100%;
   }
 
   /* 검색창 Liquid Glass 효과 강화 */
-  .search-wrapper, .search-input, .search-box, input[type="search"], input[type="text"] {
+  .search-wrapper,
+  .search-input,
+  .search-box,
+  input[type="search"],
+  input[type="text"] {
     backdrop-filter: blur(30px) !important;
     -webkit-backdrop-filter: blur(30px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(196, 190, 226, 0.25) 50%, rgba(255, 255, 255, 0.3) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
     border-radius: 25px !important;
-    box-shadow: 
+    box-shadow:
       0 12px 40px rgba(153, 134, 179, 0.3),
       0 4px 16px rgba(255, 255, 255, 0.2),
       inset 0 2px 0 rgba(255, 255, 255, 0.6),
@@ -1198,8 +1552,11 @@
   }
 
   /* 검색창 반사 효과 */
-  .search-wrapper::before, .search-input::before, .search-box::before, 
-  input[type="search"]::before, input[type="text"]::before {
+  .search-wrapper::before,
+  .search-input::before,
+  .search-box::before,
+  input[type="search"]::before,
+  input[type="text"]::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1215,11 +1572,23 @@
 
   /* 카테고리 페이지 특정 요소들 Liquid Glass 효과 완전 제거 */
   /* 1. 폴더 아이콘 */
-  .fa-folder, .fa-folder-open, .folder-icon, .category-icon,
-  .post-categories i, .post-tags i, .categories i, .tags i,
-  .category-list i, .category-item i, .folder i,
-  .category-list .fa-folder, .category-item .fa-folder, .folder .fa-folder,
-  .category-list .fa-folder-open, .category-item .fa-folder-open, .folder .fa-folder-open {
+  .fa-folder,
+  .fa-folder-open,
+  .folder-icon,
+  .category-icon,
+  .post-categories i,
+  .post-tags i,
+  .categories i,
+  .tags i,
+  .category-list i,
+  .category-item i,
+  .folder i,
+  .category-list .fa-folder,
+  .category-item .fa-folder,
+  .folder .fa-folder,
+  .category-list .fa-folder-open,
+  .category-item .fa-folder-open,
+  .folder .fa-folder-open {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background: transparent !important;
@@ -1231,12 +1600,25 @@
   }
 
   /* 2. 카테고리 라벨 (Cloud 등) */
-  .post-categories a, .post-tags a, .categories a, .tags a,
-  .category-list a, .category-item a, .folder a,
-  .category-list .category-name, .category-item .category-name, .folder .category-name,
-  .category-list .folder-name, .category-item .folder-name, .folder .folder-name,
-  .category-list .category-title, .category-item .category-title, .folder .category-title,
-  .category-list .folder-title, .category-item .folder-title, .folder .folder-title {
+  .post-categories a,
+  .post-tags a,
+  .categories a,
+  .tags a,
+  .category-list a,
+  .category-item a,
+  .folder a,
+  .category-list .category-name,
+  .category-item .category-name,
+  .folder .category-name,
+  .category-list .folder-name,
+  .category-item .folder-name,
+  .folder .folder-name,
+  .category-list .category-title,
+  .category-item .category-title,
+  .folder .category-title,
+  .category-list .folder-title,
+  .category-item .folder-title,
+  .folder .folder-title {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background: transparent !important;
@@ -1248,14 +1630,34 @@
   }
 
   /* 3. 드롭다운 아이콘 */
-  .dropdown-toggle, .btn-dropdown, .toggle-btn, .dropdown-btn,
-  .chevron, .chevron-down, .chevron-up, .arrow, .arrow-down, .arrow-up,
-  .expand-icon, .collapse-icon, .toggle-icon,
-  .category-list .dropdown-toggle, .category-item .dropdown-toggle, .folder .dropdown-toggle,
-  .category-list .chevron, .category-item .chevron, .folder .chevron,
-  .category-list .chevron-down, .category-item .chevron-down, .folder .chevron-down,
-  .category-list .arrow, .category-item .arrow, .folder .arrow,
-  .category-list .arrow-down, .category-item .arrow-down, .folder .arrow-down {
+  .dropdown-toggle,
+  .btn-dropdown,
+  .toggle-btn,
+  .dropdown-btn,
+  .chevron,
+  .chevron-down,
+  .chevron-up,
+  .arrow,
+  .arrow-down,
+  .arrow-up,
+  .expand-icon,
+  .collapse-icon,
+  .toggle-icon,
+  .category-list .dropdown-toggle,
+  .category-item .dropdown-toggle,
+  .folder .dropdown-toggle,
+  .category-list .chevron,
+  .category-item .chevron,
+  .folder .chevron,
+  .category-list .chevron-down,
+  .category-item .chevron-down,
+  .folder .chevron-down,
+  .category-list .arrow,
+  .category-item .arrow,
+  .folder .arrow,
+  .category-list .arrow-down,
+  .category-item .arrow-down,
+  .folder .arrow-down {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background: transparent !important;
@@ -1266,12 +1668,29 @@
     text-decoration: none !important;
   }
 
-  .post-categories a:hover, .post-tags a:hover, .categories a:hover, .tags a:hover,
-  .post-categories a:active, .post-tags a:active, .categories a:active, .tags a:active,
-  .post-categories a:focus, .post-tags a:focus, .categories a:focus, .tags a:focus,
-  .category-list a:hover, .category-item a:hover, .folder a:hover,
-  .category-btn:hover, .category-button:hover, .folder-btn:hover, .folder-button:hover,
-  .dropdown-toggle:hover, .btn-dropdown:hover, .toggle-btn:hover, .dropdown-btn:hover {
+  .post-categories a:hover,
+  .post-tags a:hover,
+  .categories a:hover,
+  .tags a:hover,
+  .post-categories a:active,
+  .post-tags a:active,
+  .categories a:active,
+  .tags a:active,
+  .post-categories a:focus,
+  .post-tags a:focus,
+  .categories a:focus,
+  .tags a:focus,
+  .category-list a:hover,
+  .category-item a:hover,
+  .folder a:hover,
+  .category-btn:hover,
+  .category-button:hover,
+  .folder-btn:hover,
+  .folder-button:hover,
+  .dropdown-toggle:hover,
+  .btn-dropdown:hover,
+  .toggle-btn:hover,
+  .dropdown-btn:hover {
     background: transparent !important;
     color: #ffffff !important;
     box-shadow: none !important;
@@ -1280,9 +1699,17 @@
   }
 
   /* 폴더 아이콘 Liquid Glass 효과 제거 */
-  .fa-folder, .fa-folder-open, .folder-icon, .category-icon,
-  .post-categories i, .post-tags i, .categories i, .tags i,
-  .category-list i, .category-item i, .folder i {
+  .fa-folder,
+  .fa-folder-open,
+  .folder-icon,
+  .category-icon,
+  .post-categories i,
+  .post-tags i,
+  .categories i,
+  .tags i,
+  .category-list i,
+  .category-item i,
+  .folder i {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background: transparent !important;
@@ -1292,9 +1719,15 @@
   }
 
   /* 카테고리 폴더명 Liquid Glass 효과 제거 */
-  .category-name, .folder-name, .category-title, .folder-title,
-  .post-categories .category-name, .categories .category-name,
-  .category-list a, .category-item a, .folder a {
+  .category-name,
+  .folder-name,
+  .category-title,
+  .folder-title,
+  .post-categories .category-name,
+  .categories .category-name,
+  .category-list a,
+  .category-item a,
+  .folder a {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background: transparent !important;
@@ -1305,8 +1738,14 @@
   }
 
   /* 카테고리 버튼 Liquid Glass 효과 제거 */
-  .category-btn, .category-button, .folder-btn, .folder-button,
-  .category-link, .folder-link, .category-item, .folder-item {
+  .category-btn,
+  .category-button,
+  .folder-btn,
+  .folder-button,
+  .category-link,
+  .folder-link,
+  .category-item,
+  .folder-item {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background: transparent !important;
@@ -1317,10 +1756,23 @@
   }
 
   /* 하단바/드롭다운 아이콘 Liquid Glass 효과 제거 */
-  .dropdown-toggle, .btn-dropdown, .toggle-btn, .dropdown-btn,
-  .bottom-bar, .footer-bar, .bottom-nav, .footer-nav,
-  .chevron, .chevron-down, .chevron-up, .arrow, .arrow-down, .arrow-up,
-  .expand-icon, .collapse-icon, .toggle-icon {
+  .dropdown-toggle,
+  .btn-dropdown,
+  .toggle-btn,
+  .dropdown-btn,
+  .bottom-bar,
+  .footer-bar,
+  .bottom-nav,
+  .footer-nav,
+  .chevron,
+  .chevron-down,
+  .chevron-up,
+  .arrow,
+  .arrow-down,
+  .arrow-up,
+  .expand-icon,
+  .collapse-icon,
+  .toggle-icon {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background: transparent !important;
@@ -1330,23 +1782,45 @@
     color: #424245 !important; // 진한 회색으로 복원
   }
 
-  .dropdown-toggle:hover, .dropdown-toggle:active, .dropdown-toggle:focus,
-  .btn-dropdown:hover, .btn-dropdown:active, .btn-dropdown:focus,
-  .toggle-btn:hover, .toggle-btn:active, .toggle-btn:focus,
-  .dropdown-btn:hover, .dropdown-btn:active, .dropdown-btn:focus,
-  .bottom-bar:hover, .bottom-bar:active, .bottom-bar:focus,
-  .footer-bar:hover, .footer-bar:active, .footer-bar:focus,
-  .chevron:hover, .chevron-down:hover, .chevron-up:hover,
-  .arrow:hover, .arrow-down:hover, .arrow-up:hover,
-  .expand-icon:hover, .collapse-icon:hover, .toggle-icon:hover {
+  .dropdown-toggle:hover,
+  .dropdown-toggle:active,
+  .dropdown-toggle:focus,
+  .btn-dropdown:hover,
+  .btn-dropdown:active,
+  .btn-dropdown:focus,
+  .toggle-btn:hover,
+  .toggle-btn:active,
+  .toggle-btn:focus,
+  .dropdown-btn:hover,
+  .dropdown-btn:active,
+  .dropdown-btn:focus,
+  .bottom-bar:hover,
+  .bottom-bar:active,
+  .bottom-bar:focus,
+  .footer-bar:hover,
+  .footer-bar:active,
+  .footer-bar:focus,
+  .chevron:hover,
+  .chevron-down:hover,
+  .chevron-up:hover,
+  .arrow:hover,
+  .arrow-down:hover,
+  .arrow-up:hover,
+  .expand-icon:hover,
+  .collapse-icon:hover,
+  .toggle-icon:hover {
     background: transparent !important;
     color: #424245 !important; // 활성화 시 진한 회색 유지
     box-shadow: none !important;
   }
 
   /* 카테고리 리스트 전체 Liquid Glass 효과 제거 */
-  .category-list, .category-tree, .category-hierarchy,
-  .folder-list, .folder-tree, .folder-hierarchy {
+  .category-list,
+  .category-tree,
+  .category-hierarchy,
+  .folder-list,
+  .folder-tree,
+  .folder-hierarchy {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background: transparent !important;
@@ -1355,8 +1829,12 @@
   }
 
   /* 카테고리 리스트 아이템 Liquid Glass 효과 제거 */
-  .category-list li, .category-tree li, .category-hierarchy li,
-  .folder-list li, .folder-tree li, .folder-hierarchy li {
+  .category-list li,
+  .category-tree li,
+  .category-hierarchy li,
+  .folder-list li,
+  .folder-tree li,
+  .folder-hierarchy li {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background: transparent !important;
@@ -1366,12 +1844,16 @@
 
 
   /* 검색창 호버 효과 */
-  .search-wrapper:hover, .search-input:hover, .search-box:hover, input[type="search"]:hover, input[type="text"]:hover {
+  .search-wrapper:hover,
+  .search-input:hover,
+  .search-box:hover,
+  input[type="search"]:hover,
+  input[type="text"]:hover {
     backdrop-filter: blur(35px) !important;
     -webkit-backdrop-filter: blur(35px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(196, 190, 226, 0.35) 50%, rgba(255, 255, 255, 0.4) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.6) !important;
-    box-shadow: 
+    box-shadow:
       0 16px 48px rgba(153, 134, 179, 0.4),
       0 6px 20px rgba(255, 255, 255, 0.3),
       inset 0 3px 0 rgba(255, 255, 255, 0.7),
@@ -1381,18 +1863,25 @@
     transform: translateY(-3px) !important;
   }
 
-  .search-wrapper:hover::before, .search-input:hover::before, .search-box:hover::before, 
-  input[type="search"]:hover::before, input[type="text"]:hover::before {
+  .search-wrapper:hover::before,
+  .search-input:hover::before,
+  .search-box:hover::before,
+  input[type="search"]:hover::before,
+  input[type="text"]:hover::before {
     left: 100%;
   }
 
   /* 검색창 포커스 효과 */
-  .search-wrapper:focus-within, .search-input:focus, .search-box:focus, input[type="search"]:focus, input[type="text"]:focus {
+  .search-wrapper:focus-within,
+  .search-input:focus,
+  .search-box:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus {
     backdrop-filter: blur(40px) !important;
     -webkit-backdrop-filter: blur(40px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(196, 190, 226, 0.4) 50%, rgba(255, 255, 255, 0.5) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.7) !important;
-    box-shadow: 
+    box-shadow:
       0 20px 56px rgba(153, 134, 179, 0.5),
       0 8px 24px rgba(255, 255, 255, 0.4),
       inset 0 4px 0 rgba(255, 255, 255, 0.8),
@@ -1402,18 +1891,25 @@
     transform: translateY(-4px) !important;
   }
 
-  .search-wrapper:focus-within::before, .search-input:focus::before, .search-box:focus::before, 
-  input[type="search"]:focus::before, input[type="text"]:focus::before {
+  .search-wrapper:focus-within::before,
+  .search-input:focus::before,
+  .search-box:focus::before,
+  input[type="search"]:focus::before,
+  input[type="text"]:focus::before {
     left: 100%;
   }
 
   /* 검색창 호버 효과 */
-  .search-wrapper:hover, .search-input:hover, .search-box:hover, input[type="search"]:hover, input[type="text"]:hover {
+  .search-wrapper:hover,
+  .search-input:hover,
+  .search-box:hover,
+  input[type="search"]:hover,
+  input[type="text"]:hover {
     backdrop-filter: blur(22px) !important;
     -webkit-backdrop-filter: blur(22px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(196, 190, 226, 0.2) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.35) !important;
-    box-shadow: 
+    box-shadow:
       0 10px 36px rgba(153, 134, 179, 0.25),
       inset 0 1px 0 rgba(255, 255, 255, 0.45),
       inset 0 -1px 0 rgba(153, 134, 179, 0.12) !important;
@@ -1421,19 +1917,27 @@
   }
 
   /* 검색창 플레이스홀더 색상 */
-  .search-wrapper input::placeholder, .search-input::placeholder, .search-box::placeholder, input[type="search"]::placeholder, input[type="text"]::placeholder {
+  .search-wrapper input::placeholder,
+  .search-input::placeholder,
+  .search-box::placeholder,
+  input[type="search"]::placeholder,
+  input[type="text"]::placeholder {
     color: #666666 !important;
     opacity: 0.8 !important;
   }
 
   /* 검색 아이콘 Liquid Glass 효과 강화 */
-  .search-icon, .search-btn, .search-button, .fa-search, .search-icon i {
+  .search-icon,
+  .search-btn,
+  .search-button,
+  .fa-search,
+  .search-icon i {
     backdrop-filter: blur(25px) !important;
     -webkit-backdrop-filter: blur(25px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(196, 190, 226, 0.25) 50%, rgba(255, 255, 255, 0.3) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
     border-radius: 50% !important;
-    box-shadow: 
+    box-shadow:
       0 8px 24px rgba(153, 134, 179, 0.3),
       0 2px 8px rgba(255, 255, 255, 0.2),
       inset 0 2px 0 rgba(255, 255, 255, 0.6),
@@ -1456,7 +1960,10 @@
   }
 
   /* 검색 아이콘 강제 표시 */
-  .search-icon, .search-btn, .search-button, .fa-search {
+  .search-icon,
+  .search-btn,
+  .search-button,
+  .fa-search {
     display: inline-flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -1478,10 +1985,19 @@
   }
 
   /* 검색창을 하나의 통합된 요소로 만들기 - 모든 검색 관련 요소 */
-  #search-wrapper, .search-wrapper, .search-input, .search-box,
-  .search-form, .search-container, .search-bar,
-  .navbar-search, .topbar-search, .header-search,
-  form[class*="search"], div[class*="search"], section[class*="search"] {
+  #search-wrapper,
+  .search-wrapper,
+  .search-input,
+  .search-box,
+  .search-form,
+  .search-container,
+  .search-bar,
+  .navbar-search,
+  .topbar-search,
+  .header-search,
+  form[class*="search"],
+  div[class*="search"],
+  section[class*="search"] {
     display: flex !important;
     align-items: center !important;
     position: relative !important;
@@ -1494,7 +2010,7 @@
     -webkit-backdrop-filter: blur(25px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(196, 190, 226, 0.25) 50%, rgba(255, 255, 255, 0.3) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
-    box-shadow: 
+    box-shadow:
       0 8px 24px rgba(153, 134, 179, 0.3),
       0 2px 8px rgba(255, 255, 255, 0.2),
       inset 0 2px 0 rgba(255, 255, 255, 0.6),
@@ -1502,11 +2018,20 @@
   }
 
   /* 검색창 내부 입력 필드 - 모든 input 요소 */
-  .search-wrapper input, .search-input input, .search-box input,
-  .search-form input, .search-container input, .search-bar input,
-  .navbar-search input, .topbar-search input, .header-search input,
-  form[class*="search"] input, div[class*="search"] input, section[class*="search"] input,
-  input[type="search"], input[type="text"] {
+  .search-wrapper input,
+  .search-input input,
+  .search-box input,
+  .search-form input,
+  .search-container input,
+  .search-bar input,
+  .navbar-search input,
+  .topbar-search input,
+  .header-search input,
+  form[class*="search"] input,
+  div[class*="search"] input,
+  section[class*="search"] input,
+  input[type="search"],
+  input[type="text"] {
     flex: 1 !important;
     border: none !important;
     background: transparent !important;
@@ -1519,19 +2044,38 @@
   }
 
   /* 검색창 내부 돋보기 아이콘 - 모든 아이콘 요소 */
-  #search-wrapper .fa-search, .search-wrapper .search-icon, .search-wrapper .fa-search,
-  .search-input .search-icon, .search-input .fa-search,
-  .search-box .search-icon, .search-box .fa-search,
-  .search-form .search-icon, .search-form .fa-search,
-  .search-container .search-icon, .search-container .fa-search,
-  .search-bar .search-icon, .search-bar .fa-search,
-  .navbar-search .search-icon, .navbar-search .fa-search,
-  .topbar-search .search-icon, .topbar-search .fa-search,
-  .header-search .search-icon, .header-search .fa-search,
-  #search-wrapper i, .search-wrapper i, .search-input i, .search-box i,
-  .search-form i, .search-container i, .search-bar i,
-  .navbar-search i, .topbar-search i, .header-search i,
-  form[class*="search"] i, div[class*="search"] i, section[class*="search"] i {
+  #search-wrapper .fa-search,
+  .search-wrapper .search-icon,
+  .search-wrapper .fa-search,
+  .search-input .search-icon,
+  .search-input .fa-search,
+  .search-box .search-icon,
+  .search-box .fa-search,
+  .search-form .search-icon,
+  .search-form .fa-search,
+  .search-container .search-icon,
+  .search-container .fa-search,
+  .search-bar .search-icon,
+  .search-bar .fa-search,
+  .navbar-search .search-icon,
+  .navbar-search .fa-search,
+  .topbar-search .search-icon,
+  .topbar-search .fa-search,
+  .header-search .search-icon,
+  .header-search .fa-search,
+  #search-wrapper i,
+  .search-wrapper i,
+  .search-input i,
+  .search-box i,
+  .search-form i,
+  .search-container i,
+  .search-bar i,
+  .navbar-search i,
+  .topbar-search i,
+  .header-search i,
+  form[class*="search"] i,
+  div[class*="search"] i,
+  section[class*="search"] i {
     position: absolute !important;
     left: 12px !important;
     width: 16px !important;
@@ -1552,11 +2096,26 @@
   }
 
   /* 검색창 내부의 돋보기 아이콘만 표시 */
-  .search-wrapper .search-icon, .search-wrapper .search-btn, .search-wrapper .search-button, .search-wrapper .fa-search,
-  .search-input .search-icon, .search-input .search-btn, .search-input .search-button, .search-input .fa-search,
-  .search-box .search-icon, .search-box .search-btn, .search-box .search-button, .search-box .fa-search,
-  input[type="search"] + .search-icon, input[type="search"] + .search-btn, input[type="search"] + .search-button, input[type="search"] + .fa-search,
-  input[type="text"] + .search-icon, input[type="text"] + .search-btn, input[type="text"] + .search-button, input[type="text"] + .fa-search {
+  .search-wrapper .search-icon,
+  .search-wrapper .search-btn,
+  .search-wrapper .search-button,
+  .search-wrapper .fa-search,
+  .search-input .search-icon,
+  .search-input .search-btn,
+  .search-input .search-button,
+  .search-input .fa-search,
+  .search-box .search-icon,
+  .search-box .search-btn,
+  .search-box .search-button,
+  .search-box .fa-search,
+  input[type="search"]+.search-icon,
+  input[type="search"]+.search-btn,
+  input[type="search"]+.search-button,
+  input[type="search"]+.fa-search,
+  input[type="text"]+.search-icon,
+  input[type="text"]+.search-btn,
+  input[type="text"]+.search-button,
+  input[type="text"]+.fa-search {
     display: inline-flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -1565,7 +2124,10 @@
   }
 
   /* 검색 아이콘 반사 효과 */
-  .search-icon::before, .search-btn::before, .search-button::before, .fa-search::before {
+  .search-icon::before,
+  .search-btn::before,
+  .search-button::before,
+  .fa-search::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1580,12 +2142,15 @@
   }
 
   /* 검색 아이콘 호버 효과 */
-  .search-icon:hover, .search-btn:hover, .search-button:hover, .fa-search:hover {
+  .search-icon:hover,
+  .search-btn:hover,
+  .search-button:hover,
+  .fa-search:hover {
     backdrop-filter: blur(35px) !important;
     -webkit-backdrop-filter: blur(35px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(196, 190, 226, 0.4) 50%, rgba(255, 255, 255, 0.5) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.7) !important;
-    box-shadow: 
+    box-shadow:
       0 12px 32px rgba(153, 134, 179, 0.4),
       0 4px 12px rgba(255, 255, 255, 0.3),
       inset 0 3px 0 rgba(255, 255, 255, 0.8),
@@ -1596,17 +2161,23 @@
     color: rgb(153, 134, 179) !important;
   }
 
-  .search-icon:hover::before, .search-btn:hover::before, .search-button:hover::before, .fa-search:hover::before {
+  .search-icon:hover::before,
+  .search-btn:hover::before,
+  .search-button:hover::before,
+  .fa-search:hover::before {
     left: 100%;
   }
 
   /* 검색 아이콘 활성화 효과 */
-  .search-icon:active, .search-btn:active, .search-button:active, .fa-search:active {
+  .search-icon:active,
+  .search-btn:active,
+  .search-button:active,
+  .fa-search:active {
     backdrop-filter: blur(40px) !important;
     -webkit-backdrop-filter: blur(40px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(196, 190, 226, 0.5) 50%, rgba(255, 255, 255, 0.6) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.8) !important;
-    box-shadow: 
+    box-shadow:
       0 16px 40px rgba(153, 134, 179, 0.5),
       0 6px 16px rgba(255, 255, 255, 0.4),
       inset 0 4px 0 rgba(255, 255, 255, 0.9),
@@ -1617,4 +2188,45 @@
     color: #ffffff !important;
   }
 
-} /* light-scheme */
+  /* 스크롤 버튼 Apple Liquid Glass - 극도로 투명한 효과 */
+  #back-to-top,
+  #go-to-bottom {
+    backdrop-filter: blur(20px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.2) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(224, 217, 237, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow:
+      0 4px 12px rgba(128, 102, 153, 0.05),
+      0 2px 8px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    color: rgb(153, 134, 179) !important;
+  }
+
+  #back-to-top:hover,
+  #go-to-bottom:hover {
+    backdrop-filter: blur(30px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    box-shadow:
+      0 8px 24px rgba(128, 102, 153, 0.2),
+      0 4px 12px rgba(255, 255, 255, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -4px 0 rgba(128, 102, 153, 0.15),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px) !important;
+    color: rgb(153, 134, 179) !important;
+  }
+
+}
+
+/* light-scheme */
