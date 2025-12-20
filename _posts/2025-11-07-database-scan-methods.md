@@ -19,6 +19,9 @@ mermaid: true
   - 이 포스팅의 용어는 엔터프라이즈 DB(`Oracle`)에서 주로 사용되는 표준 용어를 기준으로 설명하지만 개념은 대부분의 RDBMS에 통용됨
   - ex) `MySQL 8.0+`의 `Skip Scan Range Access` 등
 
+
+<br/><br/>
+
 ## Full Table Scan
 
 - 테이블의 모든 데이터를 처음부터 끝까지 순차적으로 읽는 방식임
@@ -66,6 +69,9 @@ mermaid: true
 - 파티셔닝을 통한 파티션 프루닝
 - 병렬 처리 활용
 - 테이블 통계 정보 최신화
+
+
+<br/><br/>
 
 ## Index Range Scan
 
@@ -115,6 +121,9 @@ mermaid: true
 
   ![image.png](/assets/img/database/theory/2025-11-07-database-scan-methods/image3.png)
 
+
+<br/><br/>
+
 ## Index Full Scan
 
 - 인덱스 전체를 처음부터 끝까지 읽는 방식으로 테이블이 아닌 인덱스를 스캔함
@@ -134,6 +143,9 @@ mermaid: true
 - 인덱스 컬럼만 조회하는 경우
 - `ORDER BY`가 인덱스 순서와 일치하는 경우
 - 인덱스 선행 컬럼이 `WHERE` 절에 없는 경우
+
+
+<br/><br/>
 
 ## Index Fast Full Scan
 
@@ -163,6 +175,9 @@ mermaid: true
 ### Index Fast Full Scan vs Index Full Scan 비교
 
 ![image.png](/assets/img/database/theory/2025-11-07-database-scan-methods/image4.png)
+
+
+<br/><br/>
 
 ## Index Skip Scan
 
@@ -205,6 +220,9 @@ mermaid: true
       -- EXPLAIN 결과 - type=range, key=idx_gender_age_name, Extra=Using where; Using index for skip scan
       ```
 
+
+<br/><br/>
+
 ## Index-Only Scan
 
 - 테이블 접근 없이 인덱스만으로 쿼리를 처리하는 방식임
@@ -246,6 +264,9 @@ mermaid: true
 - `PostgreSQL`의 경우 `Visibility Map`을 통한 힙 접근 최소화
 - `MySQL InnoDB`의 경우 커버링 인덱스만으로도 가능
 
+
+<br/><br/>
+
 ## 스캔 방식 선택 기준
 
 - 옵티마이저가 쿼리 비용을 계산하여 최적의 스캔 방식을 선택함
@@ -282,6 +303,9 @@ mermaid: true
 - 인덱스 사용 여부 모니터링
 - 불필요한 인덱스 제거
 - 커버링 인덱스 설계로 Index-Only Scan 유도
+
+
+<br/><br/>
 
 ## 결론
 

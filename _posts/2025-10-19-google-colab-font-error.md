@@ -17,6 +17,9 @@ mermaid: true
   - Google Colab 환경에서 `matplotlib` 라이브러리 사용 시 한글 폰트가 네모(ㅁㅁㅁ) 형태로 깨지는 현상 해결 방법을 설명함
   - 폰트 설치, `matplotlib` 폰트 캐시 갱신, 런타임 자동 재시작을 통해 문제를 해결함
 
+
+<br/><br/>
+
 ## 문제 현상
 
   - `matplotlib`을 사용한 시각화 시 그래프의 제목, 축 라벨 등 한글 텍스트가 네모(ㅁㅁㅁ)로 표시됨
@@ -26,6 +29,9 @@ mermaid: true
     # WARNING:matplotlib.font_manager:findfont: Font family 'NanumGothic' not found.
     # UserWarning: Glyph 54620 (한) missing from font(s) DejaVu Sans.
     ```
+
+
+<br/><br/>
 
 ## 핵심 원인
 
@@ -40,6 +46,9 @@ mermaid: true
   - `matplotlib`은 라이브러리를 처음 `import` 하는 시점에 시스템에 설치된 폰트 목록을 스캔하여 캐시(임시 저장) 파일을 생성함
   - 런타임 도중 `apt-get` 명령어를 사용해 새 폰트를 설치하더라도 `matplotlib`은 이미 생성된 캐시 파일을 참조하기 때문에 새로 설치된 폰트를 인식하지 못함
   - 이로 인해 사용자가 직접 '런타임 다시 시작'을 해야 하는 번거로움이 발생하며 때로는 캐시가 꼬여 재시작만으로 해결되지 않는 경우도 있음
+
+
+<br/><br/>
 
 ## 해결 방법
 
@@ -95,6 +104,9 @@ mermaid: true
     plt.grid(True)
     plt.show()
     ```
+
+
+<br/><br/>
 
 ## Reference
 
