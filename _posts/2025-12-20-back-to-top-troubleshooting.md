@@ -51,15 +51,16 @@ mermaid: false
     - 모든 요소에 적용되던 `transform: translateZ(0)` 코드 삭제
     - 애니메이션이 실제로 필요한 요소(버튼, 카드, 태그 등)만 선별
     - 애니메이션이 필요한 요소만 선별하여 `will-change` 적용
-        ```css
-        .card,
-        .btn,
-        .nav-link,
-        .topbar-nav-item,
-        .pagination a {
-        /* 브라우저에게 최적화 힌트만 제공 */
-        will-change: transform;
-        }
+
+      ```css
+      .card,
+      .btn,
+      .nav-link,
+      .topbar-nav-item,
+      .pagination a {
+      /* 브라우저에게 최적화 힌트만 제공 */
+      will-change: transform;
+      }
 
 <br/><br/>
 
