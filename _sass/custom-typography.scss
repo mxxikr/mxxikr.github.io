@@ -103,7 +103,7 @@ h6 {
 
 /* 코드 블록 - 라이트 모드 배경 사용 */
 .highlight {
-  background: var(--highlight-bg-color) !important;
+  background: var(--highlight-bg-color);
   border-radius: 6px;
   overflow: hidden;
   position: relative;
@@ -111,11 +111,11 @@ h6 {
 }
 
 .highlight pre {
-  padding: 1rem 1.5rem;
+  padding: 0.55rem 0.8rem;
   font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
   font-size: 0.875rem;
   line-height: 1.6;
-  background: transparent !important;
+  background: transparent;
   margin: 0;
   overflow-x: auto;
 }
@@ -239,7 +239,7 @@ a:hover {
   background:
     radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%) !important;
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%);
   -webkit-backdrop-filter: blur(20px);
   background: transparent;
   position: relative;
@@ -380,7 +380,7 @@ select:focus {
 .topbar-nav-item {
   position: relative;
   border-radius: 10px;
-  padding: 0.75rem 0.75rem !important;
+  padding: 0.75rem 0.75rem;
   margin: 0.25rem auto;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   backdrop-filter: blur(30px);
@@ -401,8 +401,8 @@ select:focus {
   white-space: nowrap;
 
   i {
-    margin-right: 0.5rem !important;
-    margin-left: 0 !important;
+    margin-right: 0.5rem;
+    margin-left: 0;
   }
 }
 
@@ -411,8 +411,8 @@ select:focus {
 .nav-link i.mr-xl-3,
 .sidebar-nav-item i.ml-xl-3,
 .sidebar-nav-item i.mr-xl-3 {
-  margin-left: 0 !important;
-  margin-right: 0.5rem !important;
+  margin-left: 0;
+  margin-right: 0.5rem;
 }
 
 /* 반응형 네비게이션 - 매우 작은 화면에서만 작동 */
@@ -421,11 +421,11 @@ select:focus {
   .nav-link,
   .sidebar-nav-item,
   .topbar-nav-item {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 150px !important;
-    min-width: 150px !important;
-    max-width: 150px !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
   }
 }
 
@@ -434,18 +434,18 @@ select:focus {
   .nav-link,
   .sidebar-nav-item,
   .topbar-nav-item {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 140px !important;
-    min-width: 140px !important;
-    max-width: 140px !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 140px;
+    min-width: 140px;
+    max-width: 140px;
   }
 }
 
 .nav-link::after,
 .sidebar-nav-item::after,
 .topbar-nav-item::after {
-  display: none !important;
+  display: none;
 }
 
 .nav-link::before,
@@ -470,11 +470,11 @@ select:focus {
 .nav-link:hover,
 .sidebar-nav-item:hover,
 .topbar-nav-item:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
   border-radius: 10px;
-  color: #1d1d1f !important;
+  color: #1d1d1f;
   border-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
@@ -483,9 +483,9 @@ select:focus {
 .nav-link.active,
 .sidebar-nav-item.active,
 .topbar-nav-item.active {
-  background: rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 10px;
-  color: #1d1d1f !important;
+  color: #1d1d1f;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(40px);
@@ -494,7 +494,7 @@ select:focus {
 
 /* 네비게이션 커서 효과 제거 */
 .nav-cursor {
-  display: none !important;
+  display: none;
 }
 
 /* 강제로 모든 네비게이션 버튼 크기 통일 - CATEGORIES에 맞춤 */
@@ -514,25 +514,25 @@ select:focus {
 .nav-item .nav-link,
 .navbar .nav-item .nav-link,
 .sidebar .nav-item .nav-link {
-  padding-left: 0.75rem !important;
-  padding-right: 0.75rem !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  width: 170px !important;
-  min-width: 170px !important;
-  max-width: 170px !important;
-  text-align: center !important;
-  box-sizing: border-box !important;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin-bottom: 20px !important;
-  white-space: nowrap !important;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 170px;
+  min-width: 170px;
+  max-width: 170px;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  white-space: nowrap;
 
   i {
-    margin-right: 0.5rem !important;
-    margin-left: 0 !important;
+    margin-right: 0.5rem;
+    margin-left: 0;
   }
 }
 
@@ -555,11 +555,11 @@ select:focus {
   .nav-item .nav-link,
   .navbar .nav-item .nav-link,
   .sidebar .nav-item .nav-link {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 150px !important;
-    min-width: 150px !important;
-    max-width: 150px !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
   }
 }
 
@@ -581,11 +581,11 @@ select:focus {
   .nav-item .nav-link,
   .navbar .nav-item .nav-link,
   .sidebar .nav-item .nav-link {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 140px !important;
-    min-width: 140px !important;
-    max-width: 140px !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 140px;
+    min-width: 140px;
+    max-width: 140px;
   }
 }
 
@@ -595,25 +595,25 @@ select:focus {
 *[class*="sidebar-nav"],
 *[class*="topbar-nav"],
 *[class*="navbar-nav"] {
-  padding-left: 0.75rem !important;
-  padding-right: 0.75rem !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  width: 170px !important;
-  min-width: 170px !important;
-  max-width: 170px !important;
-  text-align: center !important;
-  box-sizing: border-box !important;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin-bottom: 20px !important;
-  white-space: nowrap !important;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 170px;
+  min-width: 170px;
+  max-width: 170px;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  white-space: nowrap;
 
   i {
-    margin-right: 0.5rem !important;
-    margin-left: 0 !important;
+    margin-right: 0.5rem;
+    margin-left: 0;
   }
 }
 
@@ -625,11 +625,11 @@ select:focus {
   *[class*="sidebar-nav"],
   *[class*="topbar-nav"],
   *[class*="navbar-nav"] {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 150px !important;
-    min-width: 150px !important;
-    max-width: 150px !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
   }
 }
 
@@ -640,11 +640,11 @@ select:focus {
   *[class*="sidebar-nav"],
   *[class*="topbar-nav"],
   *[class*="navbar-nav"] {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    width: 140px !important;
-    min-width: 140px !important;
-    max-width: 140px !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 140px;
+    min-width: 140px;
+    max-width: 140px;
   }
 }
 
@@ -670,7 +670,7 @@ select:focus {
   background: rgba(60, 60, 60, 0.8);
   color: #A8A8A8;
   border: 1px solid rgba(168, 168, 168, 0.3);
-  border-radius: 20px !important;
+  border-radius: 20px;
   font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
@@ -736,35 +736,35 @@ select:focus {
 }
 
 .prompt-tip {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 12px !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .prompt-info {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 12px !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .prompt-warning {
-  background: rgba(255, 149, 0, 0.1) !important;
-  border: 1px solid rgba(255, 149, 0, 0.2) !important;
-  border-radius: 12px !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  background: rgba(255, 149, 0, 0.1);
+  border: 1px solid rgba(255, 149, 0, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .prompt-danger {
-  background: rgba(255, 59, 48, 0.1) !important;
-  border: 1px solid rgba(255, 59, 48, 0.2) !important;
-  border-radius: 12px !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  background: rgba(255, 59, 48, 0.1);
+  border: 1px solid rgba(255, 59, 48, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 /* 반응형 디자인 */
@@ -916,4 +916,36 @@ button,
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(224, 219, 239, 0.6);
+}
+
+/* 코드 블록 헤더와 본문 사이 간격 조정 */
+.code-header {
+  margin-top: 1.5rem;
+  /* 상단 여백 축소 */
+  margin-bottom: 0 !important;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  height: 1.8rem;
+  /* 헤더 높이 축소 */
+}
+
+/* 헤더 내 장식 점(dots) 좌측 여백 축소 */
+.code-header::before {
+  margin-left: 0.5rem;
+}
+
+/* 헤더 내 복사 버튼 크기 축소 */
+.code-header button {
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+.code-header+.highlight {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.code-header+.highlight pre {
+  padding-top: 0.3rem;
 }
