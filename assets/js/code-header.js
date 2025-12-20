@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const header = document.createElement('div');
         header.className = 'code-header';
         header.innerHTML = `
-      <span data-label-text="${label}">
-        <i class="${iconClass}"></i>
+      <span>
+        <i class="${iconClass}"></i>${label}
       </span>
       <button aria-label="copy" data-title-succeed="${copySucceedTitle}">
         <i class="far fa-clipboard"></i>
