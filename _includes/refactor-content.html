@@ -140,44 +140,42 @@
           {% assign _new_content = '' %}
 
           {% for _snippet in _code_snippets %}
-
           {% if forloop.last %}
           {% assign _new_content = _new_content | append: _snippet %}
-
           {% else %}
-
-          {% assign _left = _snippet | split: '<div' | last %} {% if _left contains 'file="' %} {% assign
-            _label_text=_left | split: 'file="' | last | split: '"' | first %} {% assign _label_icon='far fa-file-code'
-            %} {% else %} {% assign _lang=_left | split: 'language-' | last | split: ' ' | first | split: '"' | first %}
-            {% capture _label_text %}{% include language-alias.html language=_lang %}{% endcapture %} {% assign
-            _label_icon='fas fa-code small' %} {% endif %} {% capture _label %} <span
-            data-label-text="{{ _label_text | strip }}"><i class="{{ _label_icon }}"></i></span>
+          {% assign _left = _snippet | split: '<div' | last %} {% assign _label_text=nil %} {% assign _label_icon=nil %}
+            {% if _left contains 'file="' %} {% assign _label_text=_left | split: 'file="' | last | split: '"' | first
+            %} {% assign _label_icon='far fa-file-code' %} {% elsif _left contains 'language-' %} {% assign _lang=_left
+            | split: 'language-' | last | split: ' ' | first | split: '"' | first %} {% if _lang %} {% capture
+            _label_text %}{% include language-alias.html language=_lang %}{% endcapture %} {% assign
+            _label_icon='fas fa-code small' %} {% endif %} {% endif %} {% if _label_text %} {% capture _label %} <span
+            data-label-text="{{ _label_text | strip | escape }}"><i class="{{ _label_icon }}"></i></span>
             {% endcapture %}
 
             {% assign _new_content = _new_content | append: _snippet
             | append: '<div class="code-header">'
               | append: _label
               | append: '<button aria-label="copy" data-title-succeed="'
-                | append: site.data.locales[lang].post.button.copy_code.succeed
-                | append: '"><i class="far fa-clipboard"></i></button></div>'
+                  | append: site.data.locales[lang].post.button.copy_code.succeed
+                  | append: '"><i class="far fa-clipboard"></i></button></div>'
             | append: '<div class="highlight">'
               %}
+              {% else %}
+              {% assign _new_content = _new_content | append: _snippet | append: '<div class="highlight">' %}
+                {% endif %}
 
-              {% endif %}
+                {% endif %}
+                {% endfor %}
+                {% assign _content = _new_content %}
+                {% endif %}
 
-              {% endfor %}
+                <!-- Create heading anchors -->
 
-              {% assign _content = _new_content %}
+                {% assign heading_levels = '2,3,4,5' | split: ',' %}
+                {% assign _heading_content = _content %}
 
-              {% endif %}
-
-              <!-- Create heading anchors -->
-
-              {% assign heading_levels = '2,3,4,5' | split: ',' %}
-              {% assign _heading_content = _content %}
-
-              {% for level in heading_levels %}
-              {% capture mark_start %}<h{{ level }} id="{% endcapture %}
+                {% for level in heading_levels %}
+                {% capture mark_start %}<h{{ level }} id="{% endcapture %}
   {% capture mark_end %}</h{{ level }}>{% endcapture %}
 
   {% if _heading_content contains mark_start %}
@@ -197,59 +195,59 @@
       {% assign right = snippet | slice: left.size, snippet.size %}
       {% assign left = left | replace: '">', '"><span class="mr-2">' | append: '</span>' %}
 
-                {% assign _new_content = _new_content | append: mark_start
-                | append: left | append: anchor | append: mark_end | append: right
-                %}
+                  {% assign _new_content = _new_content | append: mark_start
+                  | append: left | append: anchor | append: mark_end | append: right
+                  %}
 
-                {% endfor %}
+                  {% endfor %}
 
-                {% assign _heading_content = _new_content %}
+                  {% assign _heading_content = _new_content %}
 
-                {% endif %}
-                {% endfor %}
-
-                {% assign _content = _heading_content %}
-
-                <!-- Wrap prompt element of blockquote with the <div> tag -->
-
-                {% assign blockquote_start = '<blockquote class=' %}
-{% assign blockquote_end = ' </blockquote>' %}
-                  {% assign cls_prefix = 'prompt-' %}
-
-                  {% if _content contains blockquote_start %}
-
-                  {% assign _prompt_content = nil %}
-                  {% assign _prompt_snippets = _content | split: blockquote_start %}
-
-                  {% for _snippet in _prompt_snippets %}
-
-                  {% if forloop.first %}
-                  {% assign _prompt_content = _snippet %}
-                  {% continue %}
-                  {% endif %}
-
-                  {% assign left = _snippet | split: blockquote_end | first %}
-                  {% assign right = _snippet | slice: left.size, _snippet.size %}
-
-                  {% assign cls_str = left | split: '>' | first %}
-                  {% assign cls_array = cls_str | remove: '"' | split: ' ' %}
-                  {% assign is_prompt = false %}
-
-                  {% for cls in cls_array %}
-                  {% if cls contains cls_prefix %}
-                  {% assign is_prompt = true %}
-                  {% break %}
                   {% endif %}
                   {% endfor %}
 
-                  {% unless is_prompt %}
-                  {% assign _prompt_content = _prompt_content | append: blockquote_start | append: _snippet %}
-                  {% continue %}
-                  {% endunless %}
+                  {% assign _content = _heading_content %}
 
-                  {% assign left = left | slice: cls_str.size, left.size %}
-                  {% assign left = cls_str | append: '><div' | append: left | append: '</div>' %} {% assign
-                    _prompt_content=_prompt_content | append: blockquote_start | append: left | append: right %} {%
-                    endfor %} {% assign _content=_prompt_content %} {% endif %} <!-- return -->
+                  <!-- Wrap prompt element of blockquote with the <div> tag -->
 
-                    {{ _content }}
+                  {% assign blockquote_start = '<blockquote class=' %}
+{% assign blockquote_end = ' </blockquote>' %}
+                    {% assign cls_prefix = 'prompt-' %}
+
+                    {% if _content contains blockquote_start %}
+
+                    {% assign _prompt_content = nil %}
+                    {% assign _prompt_snippets = _content | split: blockquote_start %}
+
+                    {% for _snippet in _prompt_snippets %}
+
+                    {% if forloop.first %}
+                    {% assign _prompt_content = _snippet %}
+                    {% continue %}
+                    {% endif %}
+
+                    {% assign left = _snippet | split: blockquote_end | first %}
+                    {% assign right = _snippet | slice: left.size, _snippet.size %}
+
+                    {% assign cls_str = left | split: '>' | first %}
+                    {% assign cls_array = cls_str | remove: '"' | split: ' ' %}
+                    {% assign is_prompt = false %}
+
+                    {% for cls in cls_array %}
+                    {% if cls contains cls_prefix %}
+                    {% assign is_prompt = true %}
+                    {% break %}
+                    {% endif %}
+                    {% endfor %}
+
+                    {% unless is_prompt %}
+                    {% assign _prompt_content = _prompt_content | append: blockquote_start | append: _snippet %}
+                    {% continue %}
+                    {% endunless %}
+
+                    {% assign left = left | slice: cls_str.size, left.size %}
+                    {% assign left = cls_str | append: '><div' | append: left | append: '</div>' %} {% assign
+                      _prompt_content=_prompt_content | append: blockquote_start | append: left | append: right %} {%
+                      endfor %} {% assign _content=_prompt_content %} {% endif %} <!-- return -->
+
+                      {{ _content }}
