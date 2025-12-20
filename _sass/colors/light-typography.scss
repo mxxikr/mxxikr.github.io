@@ -172,9 +172,6 @@
   .col-12,
   .col-lg-8,
   .col-lg-4,
-  .card,
-  .post-card,
-  .category-card,
   .post,
   .post-body,
   .article,
@@ -262,9 +259,6 @@
   .col-12,
   .col-lg-8,
   .col-lg-4,
-  .card,
-  .post-card,
-  .category-card,
   .post,
   .post-body,
   .article,
@@ -477,22 +471,10 @@
     background: transparent !important;
   }
 
-  /* 아카이브 항목 배경 강제 통일 */
-  #archives ul li,
-  #archives ul li:nth-child(odd),
-  #archives ul li:nth-child(even),
-  #archives ul li:nth-child(1),
-  #archives ul li:nth-child(2),
-  #archives ul li:nth-child(3),
-  #archives ul li:nth-child(4),
-  #archives ul li:nth-child(5),
-  #archives ul li:nth-child(6),
-  #archives ul li:nth-child(7),
-  #archives ul li:nth-child(8),
-  #archives ul li:nth-child(9),
-  #archives ul li:nth-child(10) {
-    background: rgb(224, 219, 239) !important;
-    background-color: rgb(224, 219, 239) !important;
+  /* 아카이브 항목 배경 투명화 처리 to allow Liquid Glass */
+  #archives ul li {
+    background: transparent !important;
+    background-color: transparent !important;
   }
 
   /* Apple Liquid Glass - 극도로 투명한 글라스 효과 */

@@ -674,7 +674,7 @@ $sidebar-display: "sidebar-display";
   overflow-y: auto;
   width: $sidebar-width;
   z-index: 99;
-  background: rgba(203, 171, 237, 99%);
+  background: rgba(203, 171, 237, 0.70);
 
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
@@ -1192,7 +1192,7 @@ $sidebar-display: "sidebar-display";
 #back-to-top {
   display: block !important;
   visibility: visible !important;
-  opacity: 1 !important;
+  opacity: 0.7 !important;
   position: fixed !important;
   width: 50px !important;
   height: 50px !important;
@@ -1227,13 +1227,13 @@ $sidebar-display: "sidebar-display";
 #go-to-bottom {
   display: block !important;
   visibility: visible !important;
-  opacity: 1 !important;
+  opacity: 0.7 !important;
 }
 
 #back-to-top {
   display: block !important;
   visibility: visible !important;
-  opacity: 1 !important;
+  opacity: 0.7 !important;
 }
 
 #go-to-bottom {
