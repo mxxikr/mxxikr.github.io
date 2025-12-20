@@ -16,6 +16,9 @@ mermaid: true
 
 - Jekyll 블로그에 Google Analytics를 연동하여 방문자 통계를 추적하는 방법을 설명함
 
+
+<br/><br/>
+
 ## Google Analytics란
 
 - Google Analytics 기능
@@ -23,6 +26,9 @@ mermaid: true
   - 방문자 행동 분석
   - 트래픽 소스 파악
   - 실시간 방문자 모니터링
+
+
+<br/><br/>
 
 ## 사전 준비사항
 
@@ -35,6 +41,9 @@ mermaid: true
 - Jekyll 블로그
   - GitHub Pages 또는 다른 호스팅에 배포된 블로그
   - 블로그 URL 필요
+
+
+<br/><br/>
 
 ## Google Analytics 계정 생성
 
@@ -87,6 +96,9 @@ mermaid: true
 - 데이터 스트림 세부정보에서 측정 ID 확인
   - 형식: G-XXXXXXXXXX
   - 이 ID를 블로그에 설정할 예정
+
+
+<br/><br/>
 
 ## Jekyll 블로그에 Google Analytics 연동
 
@@ -155,6 +167,9 @@ mermaid: true
     environment: development
     ```
 
+
+<br/><br/>
+
 ## 변경사항 배포
 
 ### Git 커밋 및 푸시
@@ -180,6 +195,9 @@ mermaid: true
 - 배포 완료 대기
 - 블로그 접속하여 확인
 
+
+<br/><br/>
+
 ## Google Analytics 동작 확인
 
 ### 실시간 보고서 확인
@@ -204,6 +222,9 @@ mermaid: true
   - 실시간 보고서: 즉시
   - 일반 보고서: 24-48시간
 - 처음 설치 시 데이터 누적 필요
+
+
+<br/><br/>
 
 ## 주요 보고서 활용
 
@@ -238,6 +259,9 @@ mermaid: true
   - 가장 많이 조회된 페이지
 - 평균 참여 시간
 - 이벤트 수
+
+
+<br/><br/>
 
 ## 트러블슈팅
 
@@ -301,6 +325,9 @@ mermaid: true
   - 새로운 GA4 속성 만들기
   - 측정 ID (G-XXXXXXXXXX) 사용
 
+
+<br/><br/>
+
 ## 개인정보 보호 고려사항
 
 ### Cookie 동의
@@ -321,6 +348,9 @@ mermaid: true
   - 관리 > 데이터 설정 > 데이터 보관
   - 기본: 14개월
   - 필요시 조정 가능
+
+
+<br/><br/>
 
 ## 추가 설정
 
@@ -358,6 +388,9 @@ mermaid: true
   - Google Analytics와 연결
 - 검색 성능 데이터 확인 가능
 
+
+<br/><br/>
+
 ## 유용한 기능
 
 ### 맞춤 보고서
@@ -382,6 +415,9 @@ mermaid: true
 - 사용자 추가
   - 관리 > 속성 액세스 관리
   - 다른 사용자 초대 가능
+
+
+<br/><br/>
 
 ## 명령어 정리
 
@@ -410,6 +446,9 @@ git commit -m "Add Google Analytics"
 # 푸시
 git push origin main
 ```
+
+
+<br/><br/>
 
 ## Reference
 

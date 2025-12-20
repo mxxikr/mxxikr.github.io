@@ -16,6 +16,9 @@ mermaid: true
 
 - Jekyll 기반 블로그에서 이미지 자동 최적화 시스템을 구축하여 웹 성능을 개선한 과정을 소개함
 
+
+<br/><br/>
+
 ## 문제 상황 분석
 
 ### 초기 성능 문제
@@ -81,6 +84,9 @@ find assets/img -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) |
         - 사용자가 페이지와 처음 상호작용할 때의 응답 시간
         - 좋은 점수: 100ms 이하, 개선 필요: 300ms 초과
         - 대용량 이미지 로딩으로 인한 메인 스레드 블로킹 영향
+
+
+<br/><br/>
 
 ## 자동화 시스템 구성
 
@@ -307,6 +313,9 @@ which pngquant && which jpegoptim
     ```
 
 
+
+<br/><br/>
+
 ## 사용 방법
 
 ### Git 훅 방식
@@ -350,6 +359,9 @@ npm run watch-images
     }
     ```
 
+
+<br/><br/>
+
 ## 성능 최적화 결과
 
 ### 최적화 전후 비교
@@ -389,6 +401,9 @@ npm run watch-images
         - CLS: 0.05 (67% 개선)
         - FID: 95ms (47% 개선)
 
+
+<br/><br/>
+
 ## 최적화 결과 요약
 
 ### 핵심 성과
@@ -412,6 +427,9 @@ npm run watch-images
     - Lighthouse, Chrome DevTools
 - **스크립트**
     - Node.js 기반 최적화 도구
+
+
+<br/><br/>
 
 ## 트러블슈팅
 
@@ -543,6 +561,9 @@ npm run watch-images
         # 원본 이미지 품질 확인
         identify -verbose assets/img/sample-image.jpg
         ```
+
+
+<br/><br/>
 
 ## Reference
 

@@ -17,6 +17,9 @@ mermaid: true
 - 원자성을 보장하여 전체가 성공하거나 전체가 실패함
 - 여러 사용자가 동시에 데이터에 접근할 때 데이터 일관성을 보장하는 핵심 메커니즘임
 
+
+<br/><br/>
+
 ## 트랜잭션의 생명 주기
 
 - 트랜잭션은 시작부터 종료까지 여러 상태를 거침
@@ -37,6 +40,9 @@ mermaid: true
   - 오류가 발생하여 중단된 상태
 - Aborted
   - 롤백이 완료되어 변경사항이 취소된 상태
+
+
+<br/><br/>
 
 ## ACID 속성
 
@@ -121,6 +127,9 @@ mermaid: true
   - `CheckPoint` 시점에 데이터 파일에 변경 사항이 반영됨
   - 시스템 장애 시 `Redo Log`를 통해 커밋 된 트랜잭션을 재실행하여 데이터를 복구함
 
+
+<br/><br/>
+
 ## 격리 수준
 
 ### READ UNCOMMITTED
@@ -172,6 +181,9 @@ mermaid: true
   - 가장 강한 격리 보장
   - 성능 저하로 인해 실무에서 거의 사용하지 않음
   - 읽기 작업에도 공유 락(`Shared Lock`) 필요
+
+
+<br/><br/>
 
 ## 이상 현상
 
@@ -230,6 +242,9 @@ mermaid: true
   SELECT COUNT(*) FROM orders WHERE status = 'pending'; -- 결과: 11 (행 개수 변경됨)
   ```
 
+
+<br/><br/>
+
 ## 격리 수준 비교
 
 - 각 격리 수준별로 허용되는 이상 현상을 비교
@@ -242,6 +257,9 @@ mermaid: true
   | SERIALIZABLE | 불가능 | 불가능 | 불가능 |
 
   - *표준 SQL 스펙상 가능하지만, MySQL InnoDB는 일반 `SELECT` 시 MVCC로 방지하고, `SELECT ... FOR UPDATE` 시 `Gap Lock`으로 대부분 방지함
+
+
+<br/><br/>
 
 ## 트랜잭션 격리 수준 선택 가이드
 
@@ -262,6 +280,9 @@ mermaid: true
 - 매우 높은 일관성이 필요한 경우
 - 동시성이 낮아도 되는 경우
 - 실무에서는 거의 사용하지 않음
+
+
+<br/><br/>
 
 ## 결론
 

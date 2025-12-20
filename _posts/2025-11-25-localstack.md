@@ -14,6 +14,9 @@ mermaid: true
 - 단일 Docker 컨테이너로 실행되며 개발자 머신이나 CI 환경에서 AWS SDK와 AWS CLI를 그대로 사용하되 실제 AWS 서버 대신 로컬에서 모든 요청을 처리함
 - 실제 AWS와 동일한 방식으로 개발하면서 비용 없이 로컬에서 테스트할 수 있음
 
+
+<br/><br/>
+
 ## 핵심 개념
 
 ### 동작 원리
@@ -26,6 +29,9 @@ mermaid: true
 ### 기존 방식 vs LocalStack 방식
 
 ![image.png](/assets/img/cloud/aws/2025-11-25-localstack/image.png)
+
+
+<br/><br/>
 
 ## 지원 서비스
 
@@ -68,6 +74,9 @@ mermaid: true
 - 전사 라이선싱 및 엔터프라이즈 지원
 - 커스텀 기능 개발 가능
 - SLA 보장
+
+
+<br/><br/>
 
 ## 설치 및 실행
 
@@ -172,6 +181,9 @@ mermaid: true
 - 초보자 친화적
 - [다운로드](https://app.localstack.cloud/getting-started)
 
+
+<br/><br/>
+
 ## 핵심 설정값
 
 - **SERVICES**
@@ -198,6 +210,9 @@ mermaid: true
 - **ENFORCE_IAM_POLICIES**
   - IAM 정책 엄격 검증 여부
   - 테스트는 보통 `false`
+
+
+<br/><br/>
 
 ## AWS CLI/SDK 사용
 
@@ -293,6 +308,9 @@ mermaid: true
   aws --endpoint-url=http://localhost:4566 s3 ls
   ```
 
+
+<br/><br/>
+
 ## 초기화 스크립트
 
 - Docker Compose 시작 시 자동으로 S3 버킷, DynamoDB 테이블 등을 생성할 수 있음
@@ -347,6 +365,9 @@ mermaid: true
     - "./init-scripts:/docker-entrypoint-initaws.d"  # 시작 시 자동 실행
   ```
 
+
+<br/><br/>
+
 ## 데이터 영속성
 
 ### 영속성 설정
@@ -384,6 +405,9 @@ mermaid: true
   - `docker-compose down && docker-compose up`하면 데이터 초기화
   - 각 테스트가 깨끗한 상태에서 시작
 
+
+<br/><br/>
+
 ## 성능 팁
 
 ### 리소스 제한
@@ -410,6 +434,9 @@ environment:
 - LocalStack이 실제 AWS보다 빠른 경우가 많음
 - 로컬 네트워크와 컨테이너 오버헤드 최소화로 인한 성능 향상
 - S3 업로드, DynamoDB 쿼리, Lambda 실행 모두 로컬에서 더 빠르게 처리됨
+
+
+<br/><br/>
 
 ## 활용 시나리오
 
@@ -494,6 +521,9 @@ environment:
   ```
 
 
+
+<br/><br/>
+
 ## 주의 사항 및 트러블 슈팅
 
 ### 일반적인 문제
@@ -533,6 +563,9 @@ environment:
   - 해결
     - 데이터를 Linux 경로에 저장
 
+
+<br/><br/>
+
 ## LocalStack vs 다른 선택지
 
 ### 비교
@@ -564,6 +597,9 @@ environment:
     - 높은 비용
     - 느린 개발 사이클
 
+
+<br/><br/>
+
 ## 개발 워크플로우
 
 ![image.png](/assets/img/cloud/aws/2025-11-25-localstack/image1.png)
@@ -571,6 +607,9 @@ environment:
 - LocalStack을 사용하면 개발 속도를 크게 향상시킬 수 있음
 - 로컬에서 마음껏 실험하고 DB 상태도 원할 때마다 초기화할 수 있음
 - 코드 수정 없이 배포 시에만 실제 AWS를 지정하면 됨
+
+
+<br/><br/>
 
 ## 결론
 

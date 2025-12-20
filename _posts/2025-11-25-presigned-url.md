@@ -14,6 +14,9 @@ mermaid: true
 - 서버의 비밀 키로 생성된 보안 토큰으로 클라이언트가 직접 S3에 접근할 수 있게 해줌
 - 서버 부하 없이 대용량 파일을 안전하게 업로드하거나 다운로드할 수 있음
 
+
+<br/><br/>
+
 ## 핵심 개념
 
 ### Presigned URL의 본질
@@ -38,6 +41,9 @@ mermaid: true
     ```
 
 - S3가 요청을 받으면 서명을 검증하여 AWS 인증 정보를 가진 서버가 생성한 URL인지 확인함
+
+
+<br/><br/>
 
 ## 요청-응답 흐름
 
@@ -75,6 +81,9 @@ mermaid: true
 - **X-Amz-Signature**
   - HMAC-SHA256 서명값
 
+
+<br/><br/>
+
 ## 보안 메커니즘
 
 ### 서명 검증 과정
@@ -103,6 +112,9 @@ mermaid: true
   - 현재 시간 > 요청 시간 + 만료 시간이면 거부
 - ex)
   - 5분 유효 기간이라면 만료 시각 이후 요청은 무조건 실패함
+
+
+<br/><br/>
 
 ## Spring Boot 구현
 
@@ -299,6 +311,9 @@ record UploadCompleteRequest(
 ) {}
 ```
 
+
+<br/><br/>
+
 ## 클라이언트 코드
 
 ### JavaScript 기본 업로드
@@ -431,6 +446,9 @@ function FileUpload() {
 export default FileUpload;
 ```
 
+
+<br/><br/>
+
 ## 주의 사항
 
 ### Content-Type 서명 문제
@@ -545,6 +563,9 @@ export default FileUpload;
   - `AllowedMethods`에는 실제로 사용하는 HTTP 메서드만 포함하는 것이 좋음
   - `ExposeHeaders`는 클라이언트에서 읽을 수 있는 응답 헤더를 지정함
 
+
+<br/><br/>
+
 ## 성능 최적화
 
 ### URL 재사용 vs 매번 생성
@@ -605,6 +626,9 @@ export default FileUpload;
     }
     ```
 
+
+<br/><br/>
+
 ## LocalStack에서의 Presigned URL
 
 - LocalStack도 동일한 방식으로 동작함
@@ -637,6 +661,9 @@ export default FileUpload;
 
     - 생성된 URL
         - `http://localhost:4566/mybucket/file.jpg?X-Amz-Signature=...`
+
+
+<br/><br/>
 
 ## 결론
 

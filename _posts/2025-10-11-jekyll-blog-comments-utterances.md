@@ -16,6 +16,9 @@ mermaid: true
 
 - Jekyll 블로그에 Utterances 댓글 시스템을 추가하는 방법을 설명함
 
+
+<br/><br/>
+
 ## Utterances란
 
 ### 특징
@@ -41,6 +44,9 @@ mermaid: true
 - 일반 사용자에게는 진입장벽 존재
 - GitHub Issues를 댓글용으로 사용
 
+
+<br/><br/>
+
 ## 사전 준비사항
 
 ### 필수 요소
@@ -57,6 +63,9 @@ mermaid: true
 - GitHub Issues 활성화 확인
   - Repository > Settings > Features
   - Issues 체크박스 확인
+
+
+<br/><br/>
 
 ## 설정 방법
 
@@ -134,6 +143,9 @@ mermaid: true
   - 새로운 Issue가 자동 생성됨
   - Issue 제목이 포스트 경로로 표시됨
 
+
+<br/><br/>
+
 ## 댓글 관리
 
 - Repository > Issues 탭에서 댓글 관리
@@ -147,6 +159,9 @@ mermaid: true
 - 스팸 차단
   - GitHub 계정이 필요하므로 스팸이 적음
   - 필요시 Issue를 Lock하여 댓글 차단
+
+
+<br/><br/>
 
 ## 트러블슈팅
 
@@ -175,6 +190,9 @@ mermaid: true
 - Utterances는 Public Repository만 지원
 - Settings > General > Danger Zone > Change visibility > Make public
 
+
+<br/><br/>
+
 ## Utterances vs 다른 댓글 시스템
 
 ### Utterances vs Giscus
@@ -201,12 +219,18 @@ mermaid: true
   - 소셜 로그인 지원
   - 더 많은 사용자 접근 가능
 
+
+<br/><br/>
+
 ## 댓글 알림 설정
 
 - GitHub 알림 설정 방법
   - Settings > Notifications
   - Issues 알림 활성화
   - 새 댓글 작성 시 이메일로 알림 수신
+
+
+<br/><br/>
 
 ## Reference
 

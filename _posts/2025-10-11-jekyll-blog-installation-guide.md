@@ -16,6 +16,9 @@ mermaid: true
 
 - Jekyll 기반 GitHub Pages 블로그를 처음부터 설치하고 로컬에서 실행하는 과정을 설명함
 
+
+<br/><br/>
+
 ## 사전 준비사항
 
 ### 필수 도구 확인
@@ -124,6 +127,9 @@ mermaid: true
   bundle -v
   ```
 
+
+<br/><br/>
+
 ## Jekyll 테마 선택 및 설치
 
 ### 테마 찾기
@@ -216,6 +222,9 @@ mermaid: true
         git clone https://github.com/username/username.github.io.git
         cd username.github.io
         ```
+
+
+<br/><br/>
 
 ## Jekyll 블로그 설정
 
@@ -327,6 +336,9 @@ mermaid: true
     - assets/img 디렉토리에 이미지 파일 복사
     - _config.yml의 avatar 경로와 일치하도록 저장
 
+
+<br/><br/>
+
 ## 로컬에서 블로그 실행하기
 
 ### Jekyll 개발 서버 시작
@@ -376,6 +388,9 @@ mermaid: true
   - 브라우저 캐시 강제 새로고침
     - Windows: `Ctrl + Shift + R`
     - Mac: `Cmd + Shift + R`
+
+
+<br/><br/>
 
 ## 첫 번째 포스트 작성하기
 
@@ -467,6 +482,9 @@ mermaid: true
   - 외부 링크
     - [Jekyll 공식 문서](https://jekyllrb.com/)
 
+
+<br/><br/>
+
 ## GitHub Pages에 배포하기
 
 ### Git 설정
@@ -552,6 +570,9 @@ mermaid: true
   - 포스트 확인
   - 기능 테스트
 
+
+<br/><br/>
+
 ## 주요 디렉토리 구조 이해하기
 
 ### Jekyll 프로젝트 구조
@@ -611,6 +632,9 @@ username.github.io/
   - 주의사항
     - 직접 수정하지 말 것
     - 수정 사항은 소스 파일에서
+
+
+<br/><br/>
 
 ## 테마 커스터마이징
 
@@ -704,6 +728,9 @@ username.github.io/
   - 아이콘 변경
     - Font Awesome 아이콘 사용
     - [Font Awesome Icons](https://fontawesome.com/icons) 참고
+
+
+<br/><br/>
 
 ## 트러블슈팅
 
@@ -900,6 +927,9 @@ username.github.io/
   encoding: utf-8
   ```
 
+
+<br/><br/>
+
 ## 성능 최적화 팁
 
 ### 이미지 최적화
@@ -971,6 +1001,9 @@ username.github.io/
     ```bash
     bundle exec jekyll serve --config _config.yml,_config_dev.yml
     ```
+
+
+<br/><br/>
 
 ## 유용한 명령어 정리
 
@@ -1073,6 +1106,9 @@ bundle install
 rm Gemfile.lock
 bundle install
 ```
+
+
+<br/><br/>
 
 ## Reference
 

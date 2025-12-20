@@ -45,6 +45,9 @@ mermaid: true
 - 중복 데이터 제거로 저장 공간 절약
 - 데이터 구조 최적화
 
+
+<br/><br/>
+
 ## 제1정규형
 
 - 각 컬럼이 원자적(atomic) 값만 포함하고 각 행이 고유하게 식별 가능해야 함
@@ -95,6 +98,9 @@ CREATE TABLE order_items (
 );
 ```
 
+
+<br/><br/>
+
 ## 제2정규형
 
 - 1NF를 만족하면서 모든 비주요 속성이 기본 키 전체에 완전 함수 종속되어야 함
@@ -143,6 +149,9 @@ CREATE TABLE order_items (
   );
   ```
 
+
+<br/><br/>
+
 ## 제3정규형
 
 - 2NF를 만족하면서, 이행적 종속(transitive dependency)을 제거함
@@ -179,6 +188,9 @@ CREATE TABLE customers (
     customer_address VARCHAR(200)
 );
 ```
+
+
+<br/><br/>
 
 ## 보이스-코드 정규형
 
@@ -221,11 +233,17 @@ CREATE TABLE class_records (
 );
 ```
 
+
+<br/><br/>
+
 ## 정규화 과정 요약
 
 - 정규화는 단계적으로 진행되며 각 단계마다 특정 이상 현상을 제거함
 
   ![image.png](/assets/img/database/theory/2025-11-04-database-normalization/image2.png)
+
+
+<br/><br/>
 
 ## 정규화 vs 비정규화
 
@@ -296,6 +314,9 @@ CREATE TABLE class_records (
     - 데이터 무결성 확인
     - 성능 목표 달성 여부 확인
     - 유지보수성 검토
+
+
+<br/><br/>
 
 ## 결론
 
