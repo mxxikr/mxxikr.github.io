@@ -12,7 +12,7 @@
   padding: 0.875rem 2rem;
   border-radius: 50px;
   /* 최적화된 배경 - 단순화된 그라데이션 */
-  background: 
+  background:
     radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%);
@@ -26,7 +26,7 @@
   backdrop-filter: blur(20px) saturate(1.1);
   -webkit-backdrop-filter: blur(20px) saturate(1.1);
   /* 최적화된 box-shadow */
-  box-shadow: 
+  box-shadow:
     0 8px 25px rgba(128, 102, 153, 0.2),
     0 4px 12px rgba(255, 255, 255, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.7),
@@ -46,31 +46,31 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     /* 강화된 실시간 거울 반사 - 마우스 위치 기반 */
-    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-      rgba(255, 255, 255, 0.9) 0%, 
-      rgba(196, 190, 226, 0.7) 25%, 
+    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(196, 190, 226, 0.7) 25%,
       rgba(224, 217, 237, 0.5) 50%,
       transparent 75%),
     /* 강화된 동적 굴절 효과 - 실시간 반응 */
-    conic-gradient(from var(--mouse-angle, 0deg) at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    conic-gradient(from var(--mouse-angle, 0deg) at var(--mouse-x, 50%) var(--mouse-y, 50%),
       rgba(255, 255, 255, 0.6) 0deg,
       rgba(196, 190, 226, 0.5) 90deg,
       rgba(255, 255, 255, 0.7) 180deg,
       rgba(224, 217, 237, 0.55) 270deg,
       rgba(255, 255, 255, 0.6) 360deg),
     /* 강화된 실시간 웨이브 반사 */
-    linear-gradient(45deg, 
-      transparent 0%, 
-      rgba(255, 255, 255, 0.8) 20%, 
+    linear-gradient(45deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.8) 20%,
       rgba(196, 190, 226, 0.6) 40%,
-      rgba(255, 255, 255, 0.9) 60%, 
+      rgba(255, 255, 255, 0.9) 60%,
       rgba(224, 217, 237, 0.7) 80%,
       transparent 100%),
     /* 주변 환경 반사 레이어 */
-    radial-gradient(ellipse at var(--reflection-x, 50%) var(--reflection-y, 50%), 
-      hsla(var(--ambient-hue, 0), 30%, 80%, 0.3) 0%, 
+    radial-gradient(ellipse at var(--reflection-x, 50%) var(--reflection-y, 50%),
+      hsla(var(--ambient-hue, 0), 30%, 80%, 0.3) 0%,
       transparent 60%);
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   pointer-events: none;
@@ -91,12 +91,12 @@
   /* 최적화된 hover 효과 */
   backdrop-filter: blur(25px) saturate(1.2);
   -webkit-backdrop-filter: blur(25px) saturate(1.2);
-  background: 
+  background:
     radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 0.7) 0%, transparent 60%),
     radial-gradient(ellipse at 85% 95%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(196, 190, 226, 0.15) 100%);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 
+  box-shadow:
     0 12px 35px rgba(128, 102, 153, 0.3),
     0 6px 18px rgba(255, 255, 255, 0.35),
     inset 0 2px 0 rgba(255, 255, 255, 0.8),
@@ -114,7 +114,7 @@
   position: relative;
   /* Apple 공식 스펙: 완벽한 동심원 형태 */
   border-radius: 50px;
-  background: 
+  background:
     /* 내부 동심원 레이어 */
     radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
     /* 외부 동심원 레이어 */
@@ -278,7 +278,7 @@
   margin: 0.25rem;
   border-radius: 50px;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #1d1d1f;
   font-size: 0.8rem;
   font-weight: 500;
@@ -488,8 +488,9 @@
   padding: 1rem 2rem;
   margin: 2rem 0 1rem 0;
   border-radius: 25px;
-  text-indent: 3px; /* 텍스트를 오른쪽으로 3px 이동 */
-  background: 
+  text-indent: 3px;
+  /* 텍스트를 오른쪽으로 3px 이동 */
+  background:
     /* 극강화된 실시간 반사 레이어 */
     radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 0.98) 0%, transparent 40%),
     radial-gradient(ellipse at 85% 95%, rgba(196, 190, 226, 0.9) 0%, transparent 40%),
@@ -497,7 +498,7 @@
     radial-gradient(ellipse at 30% 70%, rgba(255, 255, 255, 0.7) 0%, transparent 60%),
     radial-gradient(ellipse at 70% 30%, rgba(196, 190, 226, 0.6) 0%, transparent 60%),
     /* 극강화된 동심원 형태 - Apple 공식 스펙 */
-    conic-gradient(from 0deg at 50% 50%, 
+    conic-gradient(from 0deg at 50% 50%,
       rgba(255, 255, 255, 0.7) 0deg,
       rgba(196, 190, 226, 0.6) 60deg,
       rgba(255, 255, 255, 0.8) 120deg,
@@ -506,16 +507,16 @@
       rgba(196, 190, 226, 0.5) 300deg,
       rgba(255, 255, 255, 0.7) 360deg),
     /* 다층 반사 레이어 */
-    linear-gradient(135deg, 
-      rgba(255, 255, 255, 0.5) 0%, 
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.5) 0%,
       rgba(196, 190, 226, 0.4) 20%,
       rgba(255, 255, 255, 0.6) 40%,
       rgba(224, 217, 237, 0.5) 60%,
       rgba(255, 255, 255, 0.7) 80%,
       rgba(196, 190, 226, 0.3) 100%),
     /* 추가 반사 레이어 */
-    linear-gradient(45deg, 
-      rgba(255, 255, 255, 0.3) 0%, 
+    linear-gradient(45deg,
+      rgba(255, 255, 255, 0.3) 0%,
       rgba(196, 190, 226, 0.2) 25%,
       rgba(255, 255, 255, 0.4) 50%,
       rgba(224, 217, 237, 0.3) 75%,
@@ -523,7 +524,7 @@
   border: 3px solid rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(60px) saturate(1.8) brightness(1.4);
   -webkit-backdrop-filter: blur(60px) saturate(1.8) brightness(1.4);
-  box-shadow: 
+  box-shadow:
     /* 극강화된 실시간 굴절 효과 */
     0 30px 80px rgba(128, 102, 153, 0.6),
     0 20px 50px rgba(255, 255, 255, 0.7),
@@ -561,18 +562,15 @@
 .year-liquid-glass,
 div.year-liquid-glass,
 .lead.year-liquid-glass {
-  background: 
-    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(20px) saturate(1.1);
-  -webkit-backdrop-filter: blur(20px) saturate(1.1);
-  box-shadow: 
-    0 8px 25px rgba(128, 102, 153, 0.2),
-    0 4px 12px rgba(255, 255, 255, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    inset 0 -1px 0 rgba(128, 102, 153, 0.1);
+  background: linear-gradient(135deg, rgba(196, 190, 226, 0.9) 0%, rgba(196, 190, 226, 0.8) 100%);
+  border: 1px solid rgba(196, 190, 226, 0.5);
+  backdrop-filter: blur(40px) saturate(1.2);
+  -webkit-backdrop-filter: blur(40px) saturate(1.2);
+  box-shadow:
+    0 8px 32px rgba(128, 102, 153, 0.2),
+    0 2px 8px rgba(255, 255, 255, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
   color: rgb(153, 134, 179);
   font-weight: 700;
   font-size: 1.5rem;
@@ -595,103 +593,21 @@ div.year-liquid-glass,
   transform: translateX(1px);
 }
 
-.year-liquid-glass::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: 
-    /* 강화된 Apple 실시간 거울 반사 */
-    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-      rgba(255, 255, 255, 0.95) 0%, 
-      rgba(196, 190, 226, 0.8) 25%, 
-      rgba(224, 217, 237, 0.6) 50%,
-      transparent 75%),
-    /* 강화된 동적 굴절 효과 */
-    conic-gradient(from var(--mouse-angle, 0deg) at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-      rgba(255, 255, 255, 0.7) 0deg,
-      rgba(196, 190, 226, 0.6) 90deg,
-      rgba(255, 255, 255, 0.8) 180deg,
-      rgba(224, 217, 237, 0.65) 270deg,
-      rgba(255, 255, 255, 0.7) 360deg),
-    /* 강화된 실시간 웨이브 반사 */
-    linear-gradient(45deg, 
-      transparent 0%, 
-      rgba(255, 255, 255, 0.8) 20%, 
-      rgba(196, 190, 226, 0.7) 40%,
-      rgba(255, 255, 255, 0.9) 60%, 
-      rgba(224, 217, 237, 0.6) 80%,
-      transparent 100%),
-    /* 추가 반사 레이어 */
-    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 80%, rgba(196, 190, 226, 0.3) 0%, transparent 60%);
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  pointer-events: none;
-  z-index: 2;
-  border-radius: 25px;
-  /* 강화된 Apple 실시간 렌더링 애니메이션 */
-  animation: appleLiquidReflection 3s ease-in-out infinite;
-  opacity: 0.8;
-}
-
-.year-liquid-glass:hover {
-  backdrop-filter: blur(25px) saturate(1.2);
-  -webkit-backdrop-filter: blur(25px) saturate(1.2);
-  background: 
-    radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 0.7) 0%, transparent 60%),
-    radial-gradient(ellipse at 85% 95%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(196, 190, 226, 0.15) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 
-    0 12px 35px rgba(128, 102, 153, 0.3),
-    0 6px 18px rgba(255, 255, 255, 0.35),
-    inset 0 2px 0 rgba(255, 255, 255, 0.8),
-    inset 0 -2px 0 rgba(128, 102, 153, 0.15);
-  transform: translateY(-2px) scale(1.01);
-  color: rgb(153, 134, 179);
-}
-
-.year-liquid-glass:hover::before {
-  left: 100%;
-  opacity: 1;
-  animation: appleLiquidReflection 2s ease-in-out infinite;
-}
-
-.archive-list-liquid-glass {
-  position: relative;
-  margin: calc(1rem - 80px + 70px) 0 1rem 0;
-  padding: 0;
-}
+/* ... existing before pseudo-element ... */
 
 .archive-item-liquid-glass {
   position: relative;
   padding: 0.75rem 1.5rem;
   margin: 0.5rem 0;
   border-radius: 20px;
-  background: 
-    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
-    radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(224, 217, 237, 0.15) 50%, rgba(255, 255, 255, 0.1) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(20px) saturate(1.1);
-  -webkit-backdrop-filter: blur(20px) saturate(1.1);
-  box-shadow: 
-    /* 향상된 깊이감 */
-    0 8px 30px rgba(128, 102, 153, 0.2),
-    0 4px 15px rgba(255, 255, 255, 0.25),
-    0 2px 8px rgba(196, 190, 226, 0.15),
-    /* 정교한 거울 반사 inset */
-    inset 0 2px 0 rgba(255, 255, 255, 0.8),
-    inset 0 -2px 0 rgba(128, 102, 153, 0.12),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-    /* 다층 반사 하이라이트 */
-    inset 0 0 15px rgba(255, 255, 255, 0.1),
-    inset 0 0 30px rgba(196, 190, 226, 0.05),
-    /* 거울 반사 경계선 */
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    inset 0 -1px 0 rgba(128, 102, 153, 0.1);
+  background: linear-gradient(135deg, rgba(196, 190, 226, 0.9) 0%, rgba(196, 190, 226, 0.8) 100%);
+  border: 1px solid rgba(196, 190, 226, 0.5);
+  backdrop-filter: blur(40px) saturate(1.2);
+  -webkit-backdrop-filter: blur(40px) saturate(1.2);
+  box-shadow:
+    0 8px 32px rgba(128, 102, 153, 0.2),
+    0 2px 8px rgba(255, 255, 255, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   overflow: hidden;
   z-index: 1;
@@ -716,28 +632,11 @@ div.year-liquid-glass,
 }
 
 .archive-item-liquid-glass:hover {
-  backdrop-filter: blur(25px) saturate(1.2);
-  -webkit-backdrop-filter: blur(25px) saturate(1.2);
-  background: 
-    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
-    radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.5) 0%, transparent 60%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 
-    /* 향상된 깊이감 */
-    0 10px 35px rgba(128, 102, 153, 0.3),
-    0 5px 18px rgba(255, 255, 255, 0.35),
-    0 3px 10px rgba(196, 190, 226, 0.2),
-    /* 정교한 거울 반사 inset */
-    inset 0 3px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -3px 0 rgba(128, 102, 153, 0.15),
-    inset 0 0 0 2px rgba(255, 255, 255, 0.3),
-    /* 다층 반사 하이라이트 */
-    inset 0 0 20px rgba(255, 255, 255, 0.15),
-    inset 0 0 40px rgba(196, 190, 226, 0.08),
-    /* 거울 반사 경계선 */
-    inset 0 2px 0 rgba(255, 255, 255, 0.8),
-    inset 0 -2px 0 rgba(128, 102, 153, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: transparent;
+  box-shadow: 0 6px 20px rgba(66, 66, 69, 0.2);
+  border-color: rgba(0, 122, 255, 0.4);
   transform: translateY(-2px);
 }
 
@@ -830,27 +729,31 @@ div.year-liquid-glass,
 
 /* Apple Liquid Glass 애니메이션 키프레임 */
 @keyframes appleLiquidReflection {
-  0% { 
+  0% {
     opacity: 0.2;
     transform: translateX(-100%) scale(1) rotate(0deg);
     filter: brightness(1) saturate(1);
   }
-  25% { 
+
+  25% {
     opacity: 0.6;
     transform: translateX(-50%) scale(1.05) rotate(1deg);
     filter: brightness(1.2) saturate(1.3);
   }
-  50% { 
+
+  50% {
     opacity: 0.8;
     transform: translateX(0%) scale(1.1) rotate(0deg);
     filter: brightness(1.4) saturate(1.5);
   }
-  75% { 
+
+  75% {
     opacity: 0.6;
     transform: translateX(50%) scale(1.05) rotate(-1deg);
     filter: brightness(1.2) saturate(1.3);
   }
-  100% { 
+
+  100% {
     opacity: 0.2;
     transform: translateX(100%) scale(1) rotate(0deg);
     filter: brightness(1) saturate(1);
@@ -858,15 +761,17 @@ div.year-liquid-glass,
 }
 
 @keyframes appleLiquidHover {
-  0% { 
+  0% {
     transform: translateY(0) scale(1);
     filter: brightness(1) saturate(1);
   }
-  50% { 
+
+  50% {
     transform: translateY(-4px) scale(1.05);
     filter: brightness(1.2) saturate(1.4);
   }
-  100% { 
+
+  100% {
     transform: translateY(-3px) scale(1.02);
     filter: brightness(1.1) saturate(1.2);
   }
@@ -874,18 +779,19 @@ div.year-liquid-glass,
 
 /* 반응형 디자인 - 향상된 리퀴드 글라스 */
 @media (max-width: 768px) {
+
   /* 아카이브 페이지 모바일 최적화 */
   .archives-liquid-glass {
     padding: 1rem 0;
   }
-  
+
   .year-liquid-glass {
     padding: 0.75rem 1.5rem;
     font-size: 1.25rem;
     margin: 1.5rem 0 0.75rem 0;
     backdrop-filter: blur(25px) saturate(1.1) brightness(1.05);
     -webkit-backdrop-filter: blur(25px) saturate(1.1) brightness(1.05);
-    box-shadow: 
+    box-shadow:
       0 10px 35px rgba(128, 102, 153, 0.25),
       0 5px 18px rgba(255, 255, 255, 0.3),
       0 3px 10px rgba(196, 190, 226, 0.15),
@@ -902,13 +808,13 @@ div.year-liquid-glass,
     width: auto;
     max-width: 100px;
   }
-  
+
   .archive-item-liquid-glass {
     padding: 0.625rem 1rem;
     margin: 0.375rem 0;
     backdrop-filter: blur(18px) saturate(1.05);
     -webkit-backdrop-filter: blur(18px) saturate(1.05);
-    box-shadow: 
+    box-shadow:
       0 6px 25px rgba(128, 102, 153, 0.15),
       0 3px 12px rgba(255, 255, 255, 0.2),
       0 2px 6px rgba(196, 190, 226, 0.1),
@@ -917,7 +823,7 @@ div.year-liquid-glass,
       inset 0 0 0 1px rgba(255, 255, 255, 0.2),
       inset 0 0 10px rgba(255, 255, 255, 0.08);
   }
-  
+
   .date-liquid-glass {
     width: 2rem;
     height: 2rem;
@@ -932,14 +838,14 @@ div.year-liquid-glass,
     -webkit-backdrop-filter: none;
     transform: translate(6px, -4px);
   }
-  
+
   .month-liquid-glass {
     font-size: 0.75rem;
     margin-right: 0.5rem;
     min-width: 2.5rem;
     transform: translateX(3px);
   }
-  
+
   .archive-link-liquid-glass {
     font-size: 0.9rem;
   }
@@ -949,7 +855,7 @@ div.year-liquid-glass,
     font-size: 0.8rem;
     backdrop-filter: blur(25px) saturate(1.1) brightness(1.05);
     -webkit-backdrop-filter: blur(25px) saturate(1.1) brightness(1.05);
-    box-shadow: 
+    box-shadow:
       0 8px 30px rgba(128, 102, 153, 0.2),
       0 4px 15px rgba(255, 255, 255, 0.3),
       0 2px 8px rgba(196, 190, 226, 0.15),
@@ -958,13 +864,13 @@ div.year-liquid-glass,
       inset 0 0 0 1px rgba(255, 255, 255, 0.25),
       inset 0 0 12px rgba(255, 255, 255, 0.1);
   }
-  
+
   .card-apple {
     border-radius: 20px;
     margin: 1rem 0;
     backdrop-filter: blur(20px) saturate(1.1);
     -webkit-backdrop-filter: blur(20px) saturate(1.1);
-    box-shadow: 
+    box-shadow:
       0 8px 30px rgba(128, 102, 153, 0.15),
       0 4px 15px rgba(255, 255, 255, 0.25),
       0 2px 8px rgba(196, 190, 226, 0.1),
@@ -973,35 +879,35 @@ div.year-liquid-glass,
       inset 0 0 0 1px rgba(255, 255, 255, 0.2),
       inset 0 0 10px rgba(255, 255, 255, 0.08);
   }
-  
+
   .nav-item-apple {
     padding: 0.625rem 1rem;
     border-radius: 12px;
     backdrop-filter: blur(20px) saturate(1.1);
     -webkit-backdrop-filter: blur(20px) saturate(1.1);
   }
-  
+
   .tag-apple {
     padding: 0.4rem 1rem;
     font-size: 0.75rem;
     backdrop-filter: blur(15px) saturate(1.1);
     -webkit-backdrop-filter: blur(15px) saturate(1.1);
   }
-  
+
   .input-apple {
     padding: 0.75rem 1rem;
     border-radius: 12px;
     backdrop-filter: blur(20px) saturate(1.1);
     -webkit-backdrop-filter: blur(20px) saturate(1.1);
   }
-  
+
   .modal-content-apple {
     margin: 1rem;
     border-radius: 20px;
     backdrop-filter: blur(20px) saturate(1.1);
     -webkit-backdrop-filter: blur(20px) saturate(1.1);
   }
-  
+
   .toast-apple {
     top: 1rem;
     right: 1rem;
@@ -1010,7 +916,7 @@ div.year-liquid-glass,
     backdrop-filter: blur(20px) saturate(1.1);
     -webkit-backdrop-filter: blur(20px) saturate(1.1);
   }
-  
+
   .toast-apple.show {
     transform: translateY(0);
   }
@@ -1018,11 +924,12 @@ div.year-liquid-glass,
 
 /* 태블릿 반응형 디자인 */
 @media (max-width: 1024px) and (min-width: 769px) {
+
   /* 아카이브 페이지 태블릿 최적화 */
   .archives-liquid-glass {
     padding: 1.5rem 0;
   }
-  
+
   .year-liquid-glass {
     padding: 0.875rem 1.75rem;
     font-size: 1.375rem;
@@ -1038,14 +945,14 @@ div.year-liquid-glass,
     width: auto;
     max-width: 110px;
   }
-  
+
   .archive-item-liquid-glass {
     padding: 0.7rem 1.25rem;
     margin: 0.45rem 0;
     backdrop-filter: blur(22px) saturate(1.08);
     -webkit-backdrop-filter: blur(22px) saturate(1.08);
   }
-  
+
   .date-liquid-glass {
     width: 2.25rem;
     height: 2.25rem;
@@ -1060,7 +967,7 @@ div.year-liquid-glass,
     -webkit-backdrop-filter: none;
     transform: translate(6px, -4px);
   }
-  
+
   .month-liquid-glass {
     font-size: 0.8rem;
     margin-right: 0.625rem;
@@ -1074,13 +981,13 @@ div.year-liquid-glass,
     backdrop-filter: blur(28px) saturate(1.15) brightness(1.08);
     -webkit-backdrop-filter: blur(28px) saturate(1.15) brightness(1.08);
   }
-  
+
   .card-apple {
     border-radius: 22px;
     backdrop-filter: blur(24px) saturate(1.15);
     -webkit-backdrop-filter: blur(24px) saturate(1.15);
   }
-  
+
   .nav-item-apple {
     padding: 0.7rem 1.125rem;
     border-radius: 14px;
@@ -1091,18 +998,19 @@ div.year-liquid-glass,
 
 /* 대형 화면 최적화 */
 @media (min-width: 1440px) {
+
   /* 아카이브 페이지 대형 화면 최적화 */
   .archives-liquid-glass {
     padding: 2.5rem 0;
   }
-  
+
   .year-liquid-glass {
     padding: 1.25rem 2.5rem;
     font-size: 1.75rem;
     margin: 2.5rem 0 1.5rem 0;
     backdrop-filter: blur(35px) saturate(1.25) brightness(1.12);
     -webkit-backdrop-filter: blur(35px) saturate(1.25) brightness(1.12);
-    box-shadow: 
+    box-shadow:
       0 15px 50px rgba(128, 102, 153, 0.3),
       0 8px 25px rgba(255, 255, 255, 0.4),
       0 4px 12px rgba(196, 190, 226, 0.2),
@@ -1119,20 +1027,20 @@ div.year-liquid-glass,
     width: auto;
     max-width: 130px;
   }
-  
+
   .archive-item-liquid-glass {
     padding: 1rem 2rem;
     margin: 0.75rem 0;
     backdrop-filter: blur(25px) saturate(1.15);
     -webkit-backdrop-filter: blur(25px) saturate(1.15);
-    box-shadow: 
+    box-shadow:
       0 8px 32px rgba(128, 102, 153, 0.2),
       0 4px 16px rgba(255, 255, 255, 0.25),
       inset 0 2px 0 rgba(255, 255, 255, 0.7),
       inset 0 -2px 0 rgba(128, 102, 153, 0.1),
       inset 0 0 0 1px rgba(255, 255, 255, 0.2);
   }
-  
+
   .date-liquid-glass {
     width: 3rem;
     height: 3rem;
@@ -1147,14 +1055,14 @@ div.year-liquid-glass,
     -webkit-backdrop-filter: none;
     transform: translate(6px, -4px);
   }
-  
+
   .month-liquid-glass {
     font-size: 0.9rem;
     margin-right: 0.75rem;
     min-width: 3.5rem;
     transform: translateX(3px);
   }
-  
+
   .archive-link-liquid-glass {
     font-size: 1.1rem;
   }
@@ -1164,19 +1072,19 @@ div.year-liquid-glass,
     font-size: 0.9rem;
     backdrop-filter: blur(35px) saturate(1.25) brightness(1.12);
     -webkit-backdrop-filter: blur(35px) saturate(1.25) brightness(1.12);
-    box-shadow: 
+    box-shadow:
       0 10px 40px rgba(128, 102, 153, 0.25),
       0 5px 20px rgba(255, 255, 255, 0.35),
       inset 0 2px 0 rgba(255, 255, 255, 0.9),
       inset 0 -2px 0 rgba(128, 102, 153, 0.12);
   }
-  
+
   .card-apple {
     border-radius: 28px;
     backdrop-filter: blur(30px) saturate(1.25);
     -webkit-backdrop-filter: blur(30px) saturate(1.25);
   }
-  
+
   .nav-item-apple {
     padding: 0.875rem 1.5rem;
     border-radius: 18px;
@@ -1189,13 +1097,13 @@ div.year-liquid-glass,
 /* 헤더 시스템 통합 */
 .header-liquid-glass {
   position: relative;
-  background: 
+  background:
     radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(196, 190, 226, 0.03) 100%);
   backdrop-filter: blur(30px) saturate(1.1);
   -webkit-backdrop-filter: blur(30px) saturate(1.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 
+  box-shadow:
     0 4px 20px rgba(128, 102, 153, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1205,14 +1113,14 @@ div.year-liquid-glass,
 /* 네비게이션 시스템 통합 */
 .nav-liquid-glass {
   position: relative;
-  background: 
+  background:
     radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 70%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(196, 190, 226, 0.02) 100%);
   backdrop-filter: blur(25px) saturate(1.05);
   -webkit-backdrop-filter: blur(25px) saturate(1.05);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 
+  box-shadow:
     0 8px 32px rgba(128, 102, 153, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1222,13 +1130,13 @@ div.year-liquid-glass,
 /* 사이드바 시스템 통합 */
 .sidebar-liquid-glass {
   position: relative;
-  background: 
+  background:
     radial-gradient(ellipse at 0% 50%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
     linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0%, rgba(196, 190, 226, 0.01) 100%);
   backdrop-filter: blur(20px) saturate(1.03);
   -webkit-backdrop-filter: blur(20px) saturate(1.03);
   border-right: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 
+  box-shadow:
     4px 0 20px rgba(128, 102, 153, 0.06),
     inset 1px 0 0 rgba(255, 255, 255, 0.08);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1238,13 +1146,13 @@ div.year-liquid-glass,
 /* 푸터 시스템 통합 */
 .footer-liquid-glass {
   position: relative;
-  background: 
+  background:
     radial-gradient(ellipse at 50% 100%, rgba(255, 255, 255, 0.08) 0%, transparent 70%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(196, 190, 226, 0.02) 100%);
   backdrop-filter: blur(25px) saturate(1.05);
   -webkit-backdrop-filter: blur(25px) saturate(1.05);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 
+  box-shadow:
     0 -4px 20px rgba(128, 102, 153, 0.08),
     inset 0 -1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1254,14 +1162,14 @@ div.year-liquid-glass,
 /* 메인 콘텐츠 영역 통합 */
 .main-content-liquid-glass {
   position: relative;
-  background: 
+  background:
     radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 80%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.01) 0%, rgba(196, 190, 226, 0.005) 100%);
   backdrop-filter: blur(15px) saturate(1.02);
   -webkit-backdrop-filter: blur(15px) saturate(1.02);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.04);
-  box-shadow: 
+  box-shadow:
     0 4px 16px rgba(128, 102, 153, 0.04),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1275,17 +1183,17 @@ div.year-liquid-glass,
   right: 2rem;
   padding: 1rem 1.5rem;
   border-radius: 50px;
-  background: 
+  background:
     radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(196, 190, 226, 0.08) 100%);
   backdrop-filter: blur(30px) saturate(1.2);
   -webkit-backdrop-filter: blur(30px) saturate(1.2);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 
+  box-shadow:
     0 12px 40px rgba(128, 102, 153, 0.2),
     0 6px 20px rgba(255, 255, 255, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    color: #424245;
+  color: #424245;
   font-weight: 500;
   z-index: 1000;
   transform: translateX(100%);
@@ -1325,12 +1233,12 @@ div.year-liquid-glass,
   position: relative;
   max-width: 90vw;
   max-height: 90vh;
-  background: 
+  background:
     radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 70%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50px;
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(128, 102, 153, 0.3),
     0 10px 30px rgba(255, 255, 255, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -1352,12 +1260,12 @@ div.year-liquid-glass,
   top: 100%;
   left: 0;
   min-width: 200px;
-  background: 
+  background:
     radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(196, 190, 226, 0.08) 100%);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50px;
-  box-shadow: 
+  box-shadow:
     0 12px 40px rgba(128, 102, 153, 0.2),
     0 6px 20px rgba(255, 255, 255, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -1383,7 +1291,7 @@ div.year-liquid-glass,
   width: 100%;
   height: 8px;
   border-radius: 4px;
-  background: 
+  background:
     radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 70%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(196, 190, 226, 0.01) 100%);
   backdrop-filter: blur(8px);
@@ -1399,12 +1307,12 @@ div.year-liquid-glass,
   top: 0;
   left: 0;
   height: 100%;
-  background: 
+  background:
     radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 70%),
     linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(196, 190, 226, 0.1));
   border-radius: 4px;
   transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 
+  box-shadow:
     0 0 8px rgba(255, 255, 255, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   will-change: width;
@@ -1416,7 +1324,7 @@ div.year-liquid-glass,
     margin-bottom: 1rem;
     transition: all 0.3s ease;
     /* 버튼과 동일한 그라데이션 세기 */
-    background: 
+    background:
       radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
       radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%);
@@ -1424,27 +1332,27 @@ div.year-liquid-glass,
     border-radius: 20px;
     backdrop-filter: blur(20px) saturate(1.2);
     -webkit-backdrop-filter: blur(20px) saturate(1.2);
-    box-shadow: 
+    box-shadow:
       0 8px 32px rgba(196, 190, 226, 0.12),
       0 2px 8px rgba(196, 190, 226, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.4),
       inset 0 -1px 0 rgba(196, 190, 226, 0.1);
   }
-  
+
   .card:hover {
     transform: translateY(-2px);
-    background: 
+    background:
       radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 0.7) 0%, transparent 60%),
       radial-gradient(ellipse at 85% 95%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(196, 190, 226, 0.15) 100%);
-    box-shadow: 
+    box-shadow:
       0 12px 40px rgba(196, 190, 226, 0.18),
       0 4px 12px rgba(196, 190, 226, 0.12),
       inset 0 1px 0 rgba(255, 255, 255, 0.5),
       inset 0 -1px 0 rgba(196, 190, 226, 0.15);
     border-color: rgba(255, 255, 255, 0.4);
   }
-  
+
   a {
     display: block;
     padding: 0.75rem 0.5rem;
@@ -1456,35 +1364,35 @@ div.year-liquid-glass,
     background: transparent;
     border: none;
   }
-  
+
   a:hover {
     text-decoration: none;
     color: inherit;
     background: transparent;
   }
-  
+
   .card-body {
     padding: 0;
     background: transparent;
   }
-  
+
   .card-body h3 {
     color: #424245;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     background: transparent;
   }
-  
+
   .card-body .small {
     color: #666666;
     font-size: 0.85rem;
     background: transparent;
   }
-  
+
   .card-body p {
     background: transparent;
   }
-  
+
   .card-body .text-muted {
     background: transparent;
   }
@@ -1496,7 +1404,7 @@ div.year-liquid-glass,
     margin-bottom: 1rem;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     /* 카드와 동일한 디자인 */
-    background: 
+    background:
       radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%),
       radial-gradient(circle at 30% 30%, rgba(196, 190, 226, 0.08) 0%, transparent 60%),
       radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
@@ -1507,13 +1415,13 @@ div.year-liquid-glass,
     -webkit-backdrop-filter: blur(24px);
     box-shadow: 0 8px 32px rgba(196, 190, 226, 0.15);
   }
-  
+
   .card-apple:hover {
     transform: translateY(-4px) scale(1.01);
     box-shadow: 0 16px 48px rgba(196, 190, 226, 0.2);
     border-color: rgba(196, 190, 226, 0.4);
   }
-  
+
   .nav-item-apple {
     display: block;
     padding: 1rem;
@@ -1522,7 +1430,7 @@ div.year-liquid-glass,
     border-radius: 20px;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     /* 네비게이션과 동일한 배경 */
-    background: 
+    background:
       radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
       radial-gradient(circle at 25% 25%, rgba(196, 190, 226, 0.1) 0%, transparent 60%),
       radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
@@ -1532,29 +1440,29 @@ div.year-liquid-glass,
     -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 4px 16px rgba(153, 134, 179, 0.1);
   }
-  
+
   .nav-item-apple:hover {
     text-decoration: none;
     color: inherit;
     transform: translateY(-2px);
-    background: 
+    background:
       radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
       radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.5) 0%, transparent 60%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(196, 190, 226, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%);
     border: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 8px 32px rgba(153, 134, 179, 0.2);
   }
-  
+
   .card-body {
     padding: 0;
   }
-  
+
   .card-body h3 {
     color: #424245;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .card-body .small {
     color: #666666;
     font-size: 0.85rem;
@@ -1570,9 +1478,12 @@ div.year-liquid-glass,
   box-shadow: none;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  margin-left: calc(-4px - 18px); /* timeline-width(4px) + 18px 왼쪽 이동 */
-  margin-top: -33px; /* 위로 33px 이동 */
-  transform: translate(22px, 0px); /* 오른쪽으로 22px 이동 */
+  margin-left: calc(-4px - 18px);
+  /* timeline-width(4px) + 18px 왼쪽 이동 */
+  margin-top: -33px;
+  /* 위로 33px 이동 */
+  transform: translate(22px, 0px);
+  /* 오른쪽으로 22px 이동 */
 }
 
 /* 아카이브 리스트 위로 5px 이동 */
@@ -1639,6 +1550,7 @@ div.year-liquid-glass,
 
 /* 반응형 네비게이션 - 모든 셀렉터에 적용 */
 @media (max-width: 1200px) {
+
   .sidebar .nav-link,
   .sidebar .sidebar-nav-item,
   .sidebar-wrapper .nav-link,
@@ -1665,6 +1577,7 @@ div.year-liquid-glass,
 }
 
 @media (max-width: 992px) {
+
   .sidebar .nav-link,
   .sidebar .sidebar-nav-item,
   .sidebar-wrapper .nav-link,
@@ -1691,6 +1604,7 @@ div.year-liquid-glass,
 }
 
 @media (max-width: 768px) {
+
   .sidebar .nav-link,
   .sidebar .sidebar-nav-item,
   .sidebar-wrapper .nav-link,
@@ -1717,6 +1631,7 @@ div.year-liquid-glass,
 }
 
 @media (max-width: 576px) {
+
   .sidebar .nav-link,
   .sidebar .sidebar-nav-item,
   .sidebar-wrapper .nav-link,

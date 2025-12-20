@@ -9,20 +9,144 @@
 .categories {
   margin-bottom: 2rem;
 
-  .card-header {
-    padding-right: 12px;
-    background: transparent;
-    border: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-radius: 0;
-    box-shadow: none;
+  /* 우선순위를 높이기 위해 body 태그 포함 */
+  body & {
+
+    /* 부모 컨테이너 배경 제거 */
+    /* 부모 컨테이너 (.card) 스타일 강화 - Home Page Style & User Image 1 Reference */
+    .card {
+      background: linear-gradient(135deg, rgba(196, 190, 226, 0.9) 0%, rgba(196, 190, 226, 0.8) 100%) !important;
+      border: 1px solid rgba(196, 190, 226, 0.5) !important;
+      backdrop-filter: blur(40px) saturate(1.2) !important;
+      -webkit-backdrop-filter: blur(40px) saturate(1.2) !important;
+      box-shadow:
+        0 8px 32px rgba(128, 102, 153, 0.2),
+        0 2px 8px rgba(255, 255, 255, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+      border-radius: 20px !important;
+      /* 둥근 모서리 강조 */
+      overflow: hidden;
+      /* 내부 요소가 둥근 모서리를 넘치지 않게 함 */
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      margin-bottom: 2rem;
+      /* 카드 간 간격 유지 */
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 16px 40px rgba(153, 134, 179, 0.5),
+          0 8px 16px rgba(255, 255, 255, 0.4),
+          inset 0 4px 0 rgba(255, 255, 255, 0.9),
+          inset 0 -4px 0 rgba(153, 134, 179, 0.4) !important;
+      }
+    }
+
+    /* 내부 요소 투명화 및 통합 */
+    .collapse,
+    .list-group {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    /* 링크 호버 시 배경 및 박스 그림자 완벽 제거 */
+    a:hover,
+    a:focus,
+    a:active {
+      background: transparent !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      color: inherit !important;
+    }
+
+    .card-header {
+      padding: 1rem 1.5rem;
+      /* 패딩 조정 */
+      background: transparent !important;
+      /* 배경 투명화 */
+      border: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      margin-bottom: 0;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2) !important;
+        /* 호버 시 약간 밝게 */
+      }
+
+      /* 글씨 뒤 배경 제거 */
+      span,
+      a {
+        background: transparent !important;
+      }
+    }
+
+    .list-group-item {
+      border: none !important;
+      padding: 0.75rem 1rem;
+      padding-left: 2rem;
+      background: transparent !important;
+      /* 배경 투명화 */
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      margin: 0 !important;
+      color: inherit;
+
+      &:first-child {
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2) !important;
+        /* 호버 시 약간 밝게 */
+        transform: translateX(4px);
+        font-weight: 600;
+
+        span,
+        a {
+          background: transparent !important;
+        }
+      }
+
+      &:focus,
+      &:active,
+      &.active {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        outline: none !important;
+
+        span,
+        a {
+          background: transparent !important;
+        }
+      }
+
+      /* 글씨 뒤 배경 제거 */
+      span,
+      a {
+        background: transparent !important;
+      }
+    }
   }
 
   /* 카테고리 페이지 제목 색상 개선 */
-  h1, h2, h3, h4, h5, h6,
-  .page-title, .section-title, .main-title,
-  .category-title, .folder-title {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .page-title,
+  .section-title,
+  .main-title,
+  .category-title,
+  .folder-title {
     color: #424245 !important;
   }
 
@@ -31,104 +155,58 @@
     font-size: 86%; // fontawesome icons
   }
 
-  .list-group-item {
-    border: none;
-    padding-left: 2rem;
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    overflow: hidden;
-    border-radius: 0;
-    margin: 0;
+}
 
-    &:first-child {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
+// .categories
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(66, 66, 69, 0.1), transparent);
-      transition: left 0.5s ease;
-    }
-
-    &:hover::before {
-      left: 100%;
-    }
-
-    &:hover {
-      background: transparent;
-      transform: translateX(4px);
-      box-shadow: none;
-      border: none;
-      font-weight: 600;
-    }
-  }
-
-} // .categories
-
-.category-trigger {
-  width: 1.7rem;
-  height: 1.7rem;
-  border-radius: 50%;
+/* 카테고리 트리거 버튼 스타일 오버라이드 (강력하게) */
+.categories .card-header .category-trigger {
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
   text-align: center;
   color: #1d1d1f !important;
-  background: transparent;
-  border: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  box-shadow: none;
+  background: transparent !important;
+  border: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
-  overflow: hidden;
+  overflow: visible !important;
+  padding: 0 !important;
 
+  /* 배경 효과 제거 */
   &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, rgba(66, 66, 69, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    display: none !important;
   }
 
   &:hover {
-    background: transparent;
-    transform: scale(1.1);
-    box-shadow: none;
-    border: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-
-    &::before {
-      opacity: 1;
-    }
+    background: transparent !important;
+    transform: scale(1.2);
+    box-shadow: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 
     i {
-      color: #1d1d1f;
+      color: #1d1d1f !important;
     }
   }
 
   i {
     position: relative;
-    height: 0.7rem;
-    width: 1rem;
+    height: auto;
+    width: auto;
     transition: all 300ms ease;
   }
 }
 
 .rotate {
-  -ms-transform: rotate(-90deg); /* IE 9 */
-  -webkit-transform: rotate(-90deg); /* Safari 3-8 */
+  -ms-transform: rotate(-90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-90deg);
+  /* Safari 3-8 */
   transform: rotate(-90deg);
 }
 
@@ -137,46 +215,64 @@
   %category-icon-color {
     color: #a1a1a6;
   }
-  
-  .categories {
+
+  /* body 태그로 우선순위 높임 */
+  body .categories {
     .card-header {
       background: transparent !important;
-      border-color: rgba(196, 190, 226, 0.4);
+      border: none !important;
+
+      &:hover {
+        background: rgba(203, 171, 237, 0.12) !important;
+      }
     }
-    
+
     .list-group-item {
       background: transparent !important;
-      border-color: rgba(196, 190, 226, 0.3);
+      border: none !important;
       color: #f5f5f7;
-    }
-    
-    .list-group-item:hover {
-      background: transparent !important;
-      border-color: rgba(161, 161, 166, 0.4);
-      box-shadow: 0 4px 16px rgba(161, 161, 166, 0.2);
+
+      &:hover {
+        background: rgba(203, 171, 237, 0.12) !important;
+      }
     }
 
     /* 다크 모드 카테고리 페이지 제목 색상 개선 */
-    h1, h2, h3, h4, h5, h6,
-    .page-title, .section-title, .main-title,
-    .category-title, .folder-title {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .page-title,
+    .section-title,
+    .main-title,
+    .category-title,
+    .folder-title {
       color: #424245 !important;
     }
+
+    /* 텍스트 배경 제거 */
+    .text-muted,
+    .small,
+    a,
+    span {
+      background: transparent !important;
+    }
   }
-  
-  .category-trigger {
+
+  .categories .card-header .category-trigger {
     background: transparent !important;
-    border-color: rgba(196, 190, 226, 0.4);
+    border: none !important;
     color: #a1a1a6 !important;
-  }
-  
-  .category-trigger:hover {
-    background: transparent !important;
-    border-color: rgba(161, 161, 166, 0.5);
-    box-shadow: 0 4px 16px rgba(161, 161, 166, 0.25);
-  }
-  
-  .category-trigger:hover i {
-    color: #a1a1a6;
+
+    &:hover {
+      background: transparent !important;
+      box-shadow: none !important;
+
+      i {
+        color: #a1a1a6 !important;
+      }
+    }
   }
 }
