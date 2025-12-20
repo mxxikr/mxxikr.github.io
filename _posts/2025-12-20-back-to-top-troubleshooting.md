@@ -24,17 +24,17 @@ mermaid: false
 
 - 부모 요소에 적용된 `transform` 속성이 `position: fixed`의 기준점을 뷰포트에서 부모 요소로 변경시켜 발생한 문제임
 
-- 모든 요소에 `transform`을 강제하여 부작용 발생
+- 모든 요소에 `transform`을 강제하여 발생
 
-    ```css
-    * {
-    /* 모든 요소가 Containing Block이 되어버림 */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    }
-    ```
+  ```css
+  * {
+  /* 모든 요소가 Containing Block이 되어버림 */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  }
+  ```
 
-### `transform`과 `position: fixed`의 충돌
+### transform과 position: fixed의 충돌
 
 - **동작 원리**
   - `transform` 속성이 적용된 요소는 하위 `position: fixed` 요소의 **새로운 기준점(Containing Block)**이 됨
