@@ -26,14 +26,11 @@
   https://github.com/penibelst/jekyll-compress-html/issues/71#issuecomment-188144901
 -->
 
-{% if _content contains '
-<pre class="highlight">' %}
-  {% assign _content = _content
-    | replace: '<div class="highlight"><pre class="highlight"><code', '<div class="highlight"><code'
-    | replace: '</code></pre>
-</div>', '</code></div>'
+{% assign _content = _content
+| replace: '
+<pre class="highlight"><code>', '<code>'
+| replace: '</code></pre>', '</code>'
 %}
-{% endif %}
 
 <!-- Add attribute 'hide-bullet' to the checkbox list -->
 
