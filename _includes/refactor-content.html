@@ -96,7 +96,7 @@
         <!-- Wrap prompt element of blockquote with the <div> tag -->
 
         {% assign blockquote_start = '<blockquote class=' %}
-{% assign blockquote_end = ' </blockquote>' %}
+        {% assign blockquote_end = ' </blockquote>' %}
           {% assign cls_prefix = 'prompt-' %}
 
           {% if _content contains blockquote_start %}
@@ -130,5 +130,4 @@
           {% assign left = left | slice: cls_str.size, left.size %}
           {% assign left = cls_str | append: '><div' | append: left | append: '</div>' %} {% assign
             _prompt_content=_prompt_content | append: blockquote_start | append: left | append: right %} {% endfor %} {%
-            assign _content=_prompt_content %} {% endif %} <!-- return -->
-            {{ _content }}
+            assign _content=_prompt_content %} {% endif %} {{ _content }}
