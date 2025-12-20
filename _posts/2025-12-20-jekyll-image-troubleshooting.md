@@ -26,7 +26,7 @@ mermaid: false
 
 - `git reset`과 로그 분석을 통해 원인을 파악함
 
-### Lazy Loading의 잔해 (이미지 미표시)
+### 이미지 미표시 - Lazy Loading의 잔해
 
 - 과거 성능 최적화를 위해 도입 시도했던 **Lazy Loading(지연 로딩)** 기능이 원인임
 - Lazy Loading 동작 방식
@@ -36,7 +36,7 @@ mermaid: false
   - 스크립트 파일(`safe-lazy-loading.html`)은 제거되었으나, HTML 생성 시 `src`를 `data-src`로 변환하는 로직만 남아있었음
 - 결과적으로 스크립트 부재로 인해 `data-src`가 `src`로 변환되지 못함
 
-### HTML 태그 불균형 (레이아웃 깨짐)
+### 레이아웃 깨짐 - HTML 태그 불균형
 
 - Jekyll의 Markdown 변환기(Kramdown)와 커스텀 파일(`refactor-content.html`) 간 충돌 발생
 - Kramdown이 코드 블록을 감싸기 위해 `<div>` 생성
@@ -46,27 +46,18 @@ mermaid: false
 <br/><br/>
 
 ## 해결 과정
+### Liquid 주석 처리
 
-- 복잡한 서버 사이드 템플릿 수정 대신 단순하고 확실한 방법을 선택함
+- 문제의 원인은 `_includes/refactor-content.html` 파일에 남아있던 **잘못된 주석 처리**였음
+- HTML 주석(`<!-- -->`)으로 Liquid 코드(`{% replace ... %}`)를 감쌌으나, Jekyll 빌드 시스템은 이를 무시하지 않고 실행함
+- **발견된 원인**
+  - 코드상으로는 주석 처리되어 보이지만 실제로는 서버에서 코드가 실행되어 `src`를 `data-src`로 바꾸고 있었음
+  - JavaScript 문제나 플러그인 충돌이 아닌, **Liquid 템플릿 엔진의 작동 방식에 대한 오해**가 원인
 
-### JavaScript로 데이터 복구
+### 코드 삭제로 영구 해결
 
-- 서버 빌드 단계 수정 대신 클라이언트 측 JavaScript로 해결
-- `_javascript/utils/img-extra.js` 파일에 복구 로직 추가함
-
-```javascript
-document.addEventListener('DOMContentLoaded', () => {
-  // data-src를 가진 모든 이미지를 탐색
-  document.querySelectorAll('img[data-src]').forEach(img => {
-    // data-src 값을 src로 이동
-    img.src = img.dataset.src;
-    // data-src 속성 제거
-    img.removeAttribute('data-src');
-  });
-});
-```
-
-- 해당 스크립트 적용으로 모든 이미지 정상 출력됨
+- 불완전한 JavaScript 복구 로직이나 복잡한 서버 설정을 추가하는 대신 **문제를 유발하는 코드 라인을 삭제**하여 근본적으로 해결함
+- 결과적으로 시스템의 복잡도를 낮추고 안정성을 확보함
 
 ### 코드 정리
 
