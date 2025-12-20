@@ -56,8 +56,10 @@
       src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 {{ _width }} {{ _height }}'%3E%3C/svg%3E"
       {%- endcapture -%} {% assign _left=_svg | append: ' ' | append: _left %} {% endif %} {% assign _left=_left |
       append: ' data-proofer-ignore' %} {% assign _img_content=_img_content | append: IMG_TAG | append: _left |
-      append: '>' | append: _right %} {% endfor %} {% assign _content=_img_content %} {% endif %} <!-- Create heading
-      anchors -->
+      append: '>' | append: _right %} {% endfor %} {% assign _content=_img_content %} {% endif %} <!-- Add header for
+      code snippets (Removed unstable Liquid logic, moving to JS) -->
+
+      <!-- Create heading anchors -->
 
       {% assign heading_levels = '2,3,4,5' | split: ',' %}
       {% assign _heading_content = _content %}

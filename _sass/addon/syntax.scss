@@ -53,8 +53,8 @@ $code-radius: 6px;
   @extend %code-snippet-radius;
 
   color: var(--highlighter-rouge-color);
-  margin-top: 0.5rem;
-  margin-bottom: 1.2em;
+  margin-top: 0;
+  margin-bottom: 1rem;
   /* Override BS Inline-code style */
 }
 
