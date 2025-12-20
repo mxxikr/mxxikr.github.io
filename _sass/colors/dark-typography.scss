@@ -629,27 +629,46 @@
     padding-left: 0 !important;
   }
 
-  /* Apple Liquid Glass 네비게이션 메뉴 - 리퀴드 글라스 복원 */
+  /* 네비게이션 버튼 특별 스타일링 - 통일된 둥근 모서리 및 리퀴드 글라스 */
   .nav-link,
-  .sidebar-nav-item {
+  .sidebar-nav-item,
+  .post-navigation .btn-outline-primary {
+    border-radius: 20px !important;
+    padding: 12px 20px !important;
+    margin: 4px 0 !important;
+    backdrop-filter: blur(20px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
     background:
-      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 50%),
-      radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.4) 0%, transparent 50%),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.2) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(224, 217, 237, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow:
+      0 4px 12px rgba(128, 102, 153, 0.05),
+      0 2px 8px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    color: #424245 !important;
+  }
+
+  .post-navigation .btn-outline-primary:hover {
     backdrop-filter: blur(30px) saturate(1.2) !important;
     -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
     box-shadow:
-      0 12px 32px rgba(128, 102, 153, 0.2),
-      0 4px 16px rgba(255, 255, 255, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.1),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-    position: relative !important;
-    overflow: hidden !important;
-    border-radius: 20px !important;
-    z-index: 2 !important; // 네비게이션은 더 높은 z-index
+      0 8px 24px rgba(128, 102, 153, 0.2),
+      0 4px 12px rgba(255, 255, 255, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -4px 0 rgba(128, 102, 153, 0.15),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px) !important;
+    color: rgb(153, 134, 179) !important;
   }
 
   /* Apple Liquid Glass - 실시간 렌더링 거울 반사 */
@@ -919,18 +938,18 @@
     border-radius: 20px !important;
     padding: 8px 16px !important;
     background:
-      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 50%),
-      radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.4) 0%, transparent 50%),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    backdrop-filter: blur(30px) saturate(1.2) !important;
-    -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
+      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.2) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(224, 217, 237, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(20px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
     box-shadow:
-      0 12px 32px rgba(128, 102, 153, 0.2),
-      0 4px 16px rgba(255, 255, 255, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.1),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+      0 4px 12px rgba(128, 102, 153, 0.05),
+      0 2px 8px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     position: relative !important;
     overflow: hidden !important;
@@ -947,8 +966,8 @@
     width: 100% !important;
     height: 100% !important;
     background:
-      linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%),
-      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 70%) !important;
+      linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%),
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%) !important;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     pointer-events: none !important;
     z-index: 1 !important;
@@ -961,21 +980,20 @@
     background: radial-gradient(circle at center, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%) !important;
   }
 
-  .tag:hover,
   .post-tag:hover {
-    backdrop-filter: blur(45px) saturate(1.4) !important;
-    -webkit-backdrop-filter: blur(45px) saturate(1.4) !important;
+    backdrop-filter: blur(30px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
     background:
-      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.9) 0%, transparent 60%),
-      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.6) 0%, transparent 60%),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(224, 217, 237, 0.3) 50%, rgba(255, 255, 255, 0.2) 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
     box-shadow:
-      0 16px 40px rgba(128, 102, 153, 0.4),
-      0 8px 16px rgba(255, 255, 255, 0.4),
-      inset 0 4px 0 rgba(255, 255, 255, 0.9),
-      inset 0 -4px 0 rgba(128, 102, 153, 0.3),
-      inset 0 0 0 2px rgba(255, 255, 255, 0.2) !important;
+      0 8px 24px rgba(128, 102, 153, 0.2),
+      0 4px 12px rgba(255, 255, 255, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -4px 0 rgba(128, 102, 153, 0.15),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
     transform: translateY(-2px) !important;
     color: rgb(153, 134, 179) !important;
   }
@@ -987,41 +1005,25 @@
     border-radius: 20px !important;
   }
 
-  /* Apple Liquid Glass 페이지네이션 - 실시간 렌더링 */
+  /* Apple Liquid Glass 페이지네이션 - 리퀴드 글라스 복원 */
   .pagination .page-link {
-    backdrop-filter: blur(40px) saturate(1.4) brightness(1.1) !important;
-    -webkit-backdrop-filter: blur(40px) saturate(1.4) brightness(1.1) !important;
     background:
-      /* Apple의 실시간 반사 레이어 */
-      radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.5) 0%, transparent 60%),
-      radial-gradient(ellipse at 50% 50%, rgba(224, 217, 237, 0.3) 0%, transparent 70%),
-      /* 동심원 형태 - Apple 공식 스펙 */
-      conic-gradient(from 0deg at 50% 50%,
-        rgba(255, 255, 255, 0.2) 0deg,
-        rgba(196, 190, 226, 0.15) 90deg,
-        rgba(255, 255, 255, 0.3) 180deg,
-        rgba(224, 217, 237, 0.2) 270deg,
-        rgba(255, 255, 255, 0.2) 360deg) !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    border-radius: 24px !important;
+      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(196, 190, 226, 0.2) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(224, 217, 237, 0.08) 50%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(20px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
     box-shadow:
-      /* 실시간 굴절 효과 */
-      0 15px 45px rgba(128, 102, 153, 0.3),
-      0 6px 18px rgba(255, 255, 255, 0.4),
-      0 3px 9px rgba(196, 190, 226, 0.2),
-      /* 거울 반사 inset */
-      inset 0 2px 0 rgba(255, 255, 255, 0.8),
-      inset 0 -2px 0 rgba(128, 102, 153, 0.2),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.3),
-      /* 실시간 반사 하이라이트 */
-      inset 0 0 15px rgba(255, 255, 255, 0.1) !important;
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+      0 4px 12px rgba(128, 102, 153, 0.1),
+      0 2px 8px rgba(255, 255, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     position: relative !important;
     overflow: hidden !important;
-    /* Apple의 실시간 렌더링을 위한 transform-origin */
-    transform-origin: center center !important;
-    animation: appleLiquidPulse 4s ease-in-out infinite !important;
+    animation: liquidPulse 4s ease-in-out infinite !important;
   }
 
   @keyframes appleLiquidPulse {
@@ -1092,19 +1094,19 @@
   }
 
   .pagination .page-link:hover {
-    backdrop-filter: blur(40px) saturate(1.3) !important;
-    -webkit-backdrop-filter: blur(40px) saturate(1.3) !important;
+    backdrop-filter: blur(30px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
     background:
-      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.9) 0%, transparent 60%),
-      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.6) 0%, transparent 60%),
-      linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(224, 217, 237, 0.3) 50%, rgba(255, 255, 255, 0.2) 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
     box-shadow:
-      0 20px 50px rgba(128, 102, 153, 0.4),
-      0 8px 20px rgba(255, 255, 255, 0.4),
-      inset 0 4px 0 rgba(255, 255, 255, 0.9),
-      inset 0 -4px 0 rgba(128, 102, 153, 0.3),
-      inset 0 0 0 2px rgba(255, 255, 255, 0.2) !important;
+      0 8px 24px rgba(128, 102, 153, 0.2),
+      0 4px 12px rgba(255, 255, 255, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -4px 0 rgba(128, 102, 153, 0.15),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
     transform: translateY(-2px) !important;
   }
 
@@ -1305,6 +1307,7 @@
     height: auto !important; // 고정 높이 제거
     min-height: 1.8rem !important; // 최소 높이 설정
     -webkit-line-clamp: 2 !important; // 2줄까지 표시
+    line-clamp: 2 !important; // 표준 속성 추가
     line-height: 1.4 !important; // 줄 간격 조정
     padding: 0.2rem 0 !important; // 상하 패딩 추가
   }
@@ -1400,12 +1403,14 @@
   .category-list .folder-title,
   .category-item .folder-title,
   .folder .folder-title {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    transition: none !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow:
+      0 2px 8px rgba(153, 134, 179, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     color: rgb(153, 134, 179) !important;
     text-decoration: none !important;
   }
@@ -1916,6 +1921,45 @@
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
+  }
+
+  /* 스크롤 버튼 Apple Liquid Glass - 극도로 투명한 효과 */
+  #back-to-top,
+  #go-to-bottom {
+    backdrop-filter: blur(20px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.2) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(224, 217, 237, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow:
+      0 4px 12px rgba(128, 102, 153, 0.05),
+      0 2px 8px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    color: rgb(153, 134, 179) !important;
+  }
+
+  #back-to-top:hover,
+  #go-to-bottom:hover {
+    backdrop-filter: blur(30px) saturate(1.2) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    box-shadow:
+      0 8px 24px rgba(128, 102, 153, 0.2),
+      0 4px 12px rgba(255, 255, 255, 0.2),
+      inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -4px 0 rgba(128, 102, 153, 0.15),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-2px) !important;
+    color: rgb(153, 134, 179) !important;
   }
 
 }
