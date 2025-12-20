@@ -18,6 +18,9 @@ mermaid: true
 - MySQL은 다른 주요 데이터베이스와 달리 **REPEATABLE READ**를 기본 격리 수준으로 사용하며 이는 MySQL의 MVCC(Multi-Version Concurrency Control) 구현과 밀접한 관련이 있음
 - 이 포스팅에서는 MySQL의 트랜잭션 격리 수준을 상세히 살펴보고 다른 주요 DBMS와의 차이점을 비교 분석함
 
+
+<br/><br/>
+
 ## 트랜잭션이란?
 
 - 트랜잭션은 데이터베이스에서 논리적으로 하나의 작업 단위로 처리되는 명령들의 모음임
@@ -32,12 +35,18 @@ mermaid: true
 - **지속성(Durability)**
   - 일단 커밋된 트랜잭션의 결과는 시스템에 영구히 반영되어야 함
 
+
+<br/><br/>
+
 ## 트랜잭션 격리 수준이란?
 
 - 격리 수준은 트랜잭션의 "격리성"을 어느 정도로 강하게 유지할지 설정하는 값임
 - 여러 트랜잭션이 동시에 실행될 때 데이터의 일관성을 지키기 위해 얼마나 서로 간섭을 허용할지 결정함
 - 격리 수준이 높을수록 데이터의 정합성이 높아지지만 동시 처리 성능은 떨어짐
 - 반대로 격리 수준이 낮을수록 동시성은 높아지지만 데이터 일관성 문제가 발생할 수 있음
+
+
+<br/><br/>
 
 ## MySQL의 트랜잭션 격리 수준
 
@@ -88,6 +97,9 @@ mermaid: true
 - **모든 문제 방지**
   - Dirty Read, Non-Repeatable Read, Phantom Read 모두 불가능함
 
+
+<br/><br/>
+
 ## 격리 수준별 발생 가능한 현상
 
 ### 각 현상 설명
@@ -107,6 +119,9 @@ mermaid: true
 | READ COMMITTED | 불가능 | 가능 | 가능 |
 | REPEATABLE READ | 불가능 | 불가능 | 가능 (MySQL InnoDB는 Gap Lock으로 대부분 방지) |
 | SERIALIZABLE | 불가능 | 불가능 | 불가능 |
+
+
+<br/><br/>
 
 ## 주요 DBMS와의 차이점
 
@@ -149,6 +164,9 @@ mermaid: true
   - 스냅샷 격리처럼 인덱스 버전 기반 동작 옵션도 제공함(설정 필요)
   - Dirty Read는 막으면서 동시성은 Standard 환경보다 높음
 
+
+<br/><br/>
+
 ## MySQL이 REPEATABLE READ를 기본 값으로 사용하는 이유
 
 - MySQL(InnoDB)가 다른 DBMS와 달리 REPEATABLE READ를 기본 격리 수준으로 채택한 이유는 다음과 같음
@@ -169,6 +187,9 @@ mermaid: true
 
 - 웹 중심 환경에서 데이터 정합성을 좀 더 중요시하는 경우가 많아서 REPEATABLE READ가 적합함
 
+
+<br/><br/>
+
 ## REPEATABLE READ 사용 시 생기는 차이점
 
 ### 장점
@@ -182,6 +203,9 @@ mermaid: true
 
 - **Lock 오버헤드**
   - 일부 상황에서는 더 많은 Lock이 걸려 Lock Wait Timeout이 발생하거나 성능이 READ COMMITTED보다 떨어질 수 있음
+
+
+<br/><br/>
 
 ## MVCC(Multi-Version Concurrency Control)
 
@@ -238,6 +262,9 @@ mermaid: true
 - 다른 DBMS도 MVCC와 격리 수준에 따라 구현이 다름
     - ex) 읽기 커밋 기준 스냅샷 관리
 
+
+<br/><br/>
+
 ## 버전별 차이
 
 - **MySQL 5.5 이상(InnoDB 엔진)**
@@ -247,9 +274,15 @@ mermaid: true
 - **다른 DBMS**
   - Oracle이나 PostgreSQL 등도 MVCC는 비슷하게 도입했지만 기본 격리 수준 정책은 그대로 READ COMMITTED임
 
+
+<br/><br/>
+
 ## 다음 포스팅
 
 - [MySQL InnoDB 내부 구조와 동작 원리](https://mxxikr.github.io/posts/2025-11-14-mysql-innodb-internal-structure/) - 트랜잭션 격리 수준과 MVCC가 InnoDB 엔진 내부에서 어떻게 구현되는지 상세히 살펴봄
+
+
+<br/><br/>
 
 ## Reference
 

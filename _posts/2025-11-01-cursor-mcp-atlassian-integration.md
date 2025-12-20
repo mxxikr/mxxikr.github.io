@@ -19,11 +19,17 @@ mermaid: false
 - 프로젝트별 설정과 전역 설정 두 가지 방법을 모두 다룸
 - 이 연동을 통해 Cursor에서 자연어로 Jira 티켓을 조회하고, Confluence 페이지를 검색하며 댓글을 추가하는 등의 작업을 수행할 수 있음
 
+
+<br/><br/>
+
 ## MCP(Model Context Protocol)란
 
 - MCP는 AI 모델이 외부 데이터 소스와 도구에 접근할 수 있도록 표준화된 프로토콜을 제공함
 - Cursor와 같은 AI 기반 IDE에서 MCP 서버를 통해 Jira, Confluence, GitHub 등 다양한 외부 서비스와 통신할 수 있음
 - Docker 컨테이너로 실행되는 MCP 서버는 API 인증을 처리하고 AI 모델이 이해할 수 있는 형식으로 데이터를 변환함
+
+
+<br/><br/>
 
 ## 사전 준비사항
 
@@ -41,6 +47,9 @@ docker --version
 - 사용자 이메일
 - API 토큰 또는 개인 액세스 토큰
 
+
+<br/><br/>
+
 ## API 토큰 생성 방법
 
 ### Jira Cloud API 토큰 생성
@@ -55,6 +64,9 @@ docker --version
 
 - Jira와 동일한 Atlassian 계정을 사용하는 경우 같은 API 토큰을 사용할 수 있음
 - 별도 계정인 경우 동일한 방법으로 토큰을 생성함
+
+
+<br/><br/>
 
 ## Cursor 설정 방법
 
@@ -160,6 +172,9 @@ docker --version
     - `CONFLUENCE_API_TOKEN`
     - Confluence API 토큰 (Jira와 동일한 토큰 사용 가능)
 
+
+<br/><br/>
+
 ## Docker 이미지 준비
 
 - MCP 서버 Docker 이미지를 미리 다운로드함
@@ -173,6 +188,9 @@ docker --version
     ```bash
     docker images | grep mcp-atlassian
     ```
+
+
+<br/><br/>
 
 ## 연결 테스트
 
@@ -201,6 +219,9 @@ docker --version
 
 - 정상적으로 연결되면 JSON 형식의 응답이 반환됨
 
+
+<br/><br/>
+
 ## Cursor 재시작 및 활성화 확인
 
 - 설정 완료 후 Cursor를 완전히 재시작해야 MCP 서버가 활성화됨
@@ -209,6 +230,9 @@ docker --version
     2. Cursor 재시작
     3. 우측 하단 상태바에서 MCP 서버 연결 상태 확인
     4. Cursor의 AI 채팅에서 "내가 할당된 Jira 티켓 5개만 보여줘"와 같은 명령어로 테스트
+
+
+<br/><br/>
 
 ## 사용 가능한 기능
 
@@ -251,6 +275,9 @@ docker --version
   - 첨부파일 목록 조회
 
 
+
+<br/><br/>
+
 ## Cursor에서 활용 예시
 
 ### 티켓 조회하기
@@ -279,6 +306,9 @@ PROJ 프로젝트에 "로그인 기능 버그 수정" 제목으로 버그 티켓
 ```
 DEV 스페이스에서 최근 일주일간 수정된 페이지 목록 보여줘
 ```
+
+
+<br/><br/>
 
 ## Trouble Shooting
 
@@ -333,6 +363,9 @@ DEV 스페이스에서 최근 일주일간 수정된 페이지 목록 보여줘
 - 백업 파일에서 복원
   - 설정 파일 수정 전 백업 생성 권장
 
+
+<br/><br/>
+
 ## 보안 고려사항
 
 ### API 토큰 보안
@@ -355,6 +388,9 @@ DEV 스페이스에서 최근 일주일간 수정된 페이지 목록 보여줘
 - 필요한 프로젝트와 스페이스에 대한 권한만 부여
 - 읽기 전용 작업이 많다면 읽기 전용 권한 사용 고려
 - 정기적으로 권한 검토 및 최소화
+
+
+<br/><br/>
 
 ## Reference
 

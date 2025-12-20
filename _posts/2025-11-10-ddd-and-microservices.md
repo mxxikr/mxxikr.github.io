@@ -20,6 +20,9 @@ mermaid: true
 - DDD의 바운디드 컨텍스트는 마이크로서비스 아키텍처의 경계 설정 시 참고할 수 있는 논리적 단위
 - 이번 포스팅에서는 DDD로 정의한 바운디드 컨텍스트를 마이크로서비스로 전환하는 방법과 실전 고려사항을 다룸
 
+
+<br/><br/>
+
 ## DDD와 마이크로서비스
 
 - 온라인 강의 플랫폼 예시([도메인 주도 설계(DDD)란?](https://mxxikr.github.io/posts/domain-driven-design-introduction/) 포스팅 참고)에서 3개의 바운디드 컨텍스트가 명확히 구분됨
@@ -51,6 +54,9 @@ mermaid: true
 - 각 서비스는 독립 배포 가능하며 명확한 책임을 가짐
 
 ![image](/assets/img/design/domain/image2.png)
+
+
+<br/><br/>
 
 ## 전환 시 고려사항
 
@@ -228,6 +234,9 @@ mermaid: true
     - 단점: 복잡도 증가, 디버깅 어려움
     - 사용: 상태 변경, 여러 서비스 협력
 
+
+<br/><br/>
+
 ## 언제 마이크로서비스로 전환할까?
 
 ### 전환 시기
@@ -273,6 +282,9 @@ mermaid: true
     // enrollment는 learning을 직접 참조하지 않음
     // 이벤트나 인터페이스를 통해서만 통신
     ```
+
+
+<br/><br/>
 
 ## 실전 적용 패턴
 
@@ -352,6 +364,9 @@ mermaid: true
     }
     ```
 
+
+<br/><br/>
+
 ## 주의사항
 
 ### 적절한 서비스 크기 유지
@@ -393,6 +408,9 @@ mermaid: true
   - Logging: 중앙 집중식 로그 관리
   - Tracing: 요청 흐름 추적
 
+
+<br/><br/>
+
 ## 정리
 
 ### 핵심 원칙
@@ -418,6 +436,9 @@ mermaid: true
   - 통신: 동기/비동기 통신 전략
   - 데이터: 서비스별 데이터베이스 분리 방안
   - 트랜잭션: Saga 패턴 등 분산 트랜잭션 처리
+
+
+<br/><br/>
 
 ## Reference
 
