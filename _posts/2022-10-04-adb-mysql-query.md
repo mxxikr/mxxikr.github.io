@@ -1,5 +1,5 @@
 ---
-title: "Alicloud AnalyticDB MySQL Query"
+title: "AnalyticDB for MySQL 아키텍처와 Query"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
@@ -7,381 +7,342 @@ date: 2022-10-04 23:55:00 +0900
 category:
   - [Database, MySQL]
 tags:
-  - [alicloud, mysql]
+  - [alicloud, mysql, analyticdb, adb]
 math: true
 mermaid: true
 ---
-# 테이블 생성 및 정책 설정
----
-### **테이블 생성**
-* 기본 테이블 생성
-    ```sql
-    CREATE TABLE `{TABLE_ID}`( 
-        `{INDEX_COLUMN_NAME}` BIGINT NOT NULL AUTO_INCREMENT, 
-        `{COLUMN_NAME}` {DATA_TYPE},
-        `{COLUMN_NAME}` {DATA_TYPE},
-        PRIMARY KEY (`{INDEX_COLUMN_NAME}`) 
-    ) DISTRIBUTE BY HASH(`{INDEX_COLUMN_NAME}`);
-    ```
-* 파티셔닝 설정한 테이블 생성
-    ```sql
-    CREATE TABLE `{TABLE_ID}` (
-    `{INDEX_COLUMN_NAME}` BIGINT NOT NULL AUTO_INCREMENT, 
+
+## 개요
+
+- AnalyticDB for MySQL (ADB)
+  - 대규모 데이터의 실시간 분석을 위해 설계된 클라우드 네이티브 데이터 웨어하우스임
+  - 기본적으로 MySQL 프로토콜과 호환되지만 대용량 분산 처리를 위한 고유한 문법과 아키텍처 특징이 있음
+
+<br/><br/>
+
+## 아키텍처 특징
+
+### 분산 아키텍처
+
+- 데이터를 여러 노드에 분산 저장함
+- 쿼리 작성 시 데이터 분포(Distribution)를 고려해야 성능이 나옴
+
+![image](/assets/img/database/image4.png)
+
+- 배포 키 (Distribution Key)
+  - 테이블 생성 시 `DISTRIBUTED BY HASH(col_name)` 지정 필수
+  - 조인(Join)이나 집계(Group By)에 자주 사용되는 컬럼을 지정해야 데이터 이동(Shuffle)을 최소화할 수 있음
+  - 성능에 가장 큰 영향을 미치는 설정임
+
+### 전체 컬럼 인덱싱
+
+- ADB는 기본적으로 모든 컬럼에 인덱스를 자동으로 생성함
+- 일반 MySQL처럼 인덱스를 일일이 고민할 필요가 적음
+- `WHERE` 절에 어떤 컬럼이 오더라도 빠르게 필터링 가능
+- 주의사항
+  - 쓰기 성능에 영향이 있을 수 있으므로, 불필요한 컬럼(예: 긴 텍스트 로그)은 `INDEX_ALL='N'` 옵션으로 제외 가능
+
+### 컬럼 기반 저장
+
+- 분석 쿼리(`SUM`, `AVG`, `COUNT`)에 최적화되어 있음
+- `SELECT *`보다는 필요한 컬럼만 명시하는 것이 훨씬 빠름
+
+<br/><br/>
+
+## DDL
+
+### 테이블 생성 옵션
+
+| 옵션 | 설명 | 필수 여부 |
+|:---|:---|:---:|
+| **DISTRIBUTED BY HASH** | 데이터 분산 기준 컬럼 | **필수** |
+| **PARTITION BY VALUE** | 파티션 기준 (시계열 관리) | 선택 |
+| **LIFECYCLE** | 파티션 수명 주기 (일 단위) | 선택 |
+| **INDEX_ALL** | 전체 컬럼 자동 인덱싱 (기본값 'Y') | 선택 |
+| **STORAGE_POLICY** | HOT/COLD/MIXED 스토리지 전략 | 선택 |
+| **ENGINE='ODPS'** | MaxCompute 외부 테이블 연결 | 선택 |
+
+### 기본 테이블 생성
+
+```sql
+CREATE TABLE `{TABLE_ID}` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT,
     `{COLUMN_NAME}` {DATA_TYPE},
-    `{COLUMN_NAME}` {DATA_TYPE},
-    `{COLUMN_NAME}` {DATA_TYPE},
-    `datetime` DATETIME, -- YYYY-MM-DD hh:mm:ss
-    `{PARTITION_COLUMN_NAME}` VARCHAR(255), -- 파티셔닝 설정할 날짜 칼럼
-    PRIMARY KEY (`{INDEX_COLUMN_NAME}`, {PARTITION_COLUMN_NAME}) -- 파티셔닝 칼럼 primary key 지정
-    ) DISTRIBUTE BY HASH(`{INDEX_COLUMN_NAME}`) PARTITION BY VALUE(DATE_FORMAT({PARTITION_COLUMN_NAME}, '%Y%m%d')) LIFECYCLE {LIFECYCLE}; 
-    ```
-    * `PARTITION BY VALUE(DATE_FORMAT({PARTITION_COLUMN_NAME}, '%Y%m%d'))`
-        * 문자열 형식의 날짜 데이터를 `%Y%m%d` 형식으로 변환해 파티셔닝 설정
-* lifecycle 적용 테이블 생성
-    ```sql
-    CREATE TABLE `{TABLE_ID}`( 
-        `{INDEX_COLUMN_NAME}` BIGINT NOT NULL AUTO_INCREMENT, 
-        `{COLUMN_NAME}` {DATA_TYPE},
-        `{COLUMN_NAME}` {DATA_TYPE}, 
-        PRIMARY KEY (`{INDEX_COLUMN_NAME}`) 
-    ) DISTRIBUTE BY HASH(`{INDEX_COLUMN_NAME}`) 
-    LIFECYCLE {LIFECYCLE} STORAGE_POLICY = 'MIXED' HOT_PARTITION_COUNT = 30;
-    ```
-* storage policy 설정한 테이블 생성
-    ```sql
-    CREATE TABLE `{TABLE_ID}`(
-        `{INDEX_COLUMN_NAME}` BIGINT NOT NULL AUTO_INCREMENT, 
-        `{COLUMN_NAME}` {DATA_TYPE},
-        `{COLUMN_NAME}` {DATA_TYPE},
-        `datetime` DATETIME,  -- YYYY-MM-DD hh:mm:ss
-        `{PARTITION_COLUMN_NAME}` VARCHAR, -- 파티셔닝 설정할 날짜 칼럼 
-        PRIMARY KEY (`{INDEX_COLUMN_NAME}`, {PARTITION_COLUMN_NAME}) 
-    ) DISTRIBUTE BY HASH(`{INDEX_COLUMN_NAME}`) PARTITION BY VALUE(DATE_FORMAT({PARTITION_COLUMN_NAME}, '%Y%m%d')) LIFECYCLE {LIFECYCLE} STORAGE_POLICY = 'MIXED' HOT_PARTITION_COUNT = 30;
-    ```
-    * `STORAGE_POLICY`
-        * 테이블의 데이터 스토리지 정책 설정
-        * `HOT`
-        * `COLD`
-        * `MIXED`
-    * `HOT_PARTITION_COUNT`
-        * 테이블 데이터 스토리지 정책이 `MIXED` 일 경우 HOT 스토리지 수 지정
-* odps 연결 테이블 생성
-    ```sql
-    CREATE TABLE `{TABLE_ID}`( 
-        `idx` BIGINT NOT NULL AUTO_INCREMENT, 
-        `{COLUMN_NAME}` {DATA_TYPE},
-        `{COLUMN_NAME}` {DATA_TYPE},
-        `datetime` DATETIME, 
-        `{PARTITION_COLUMN_NAME}` varchar(255), 
-        PRIMARY KEY (`idx`, {PARTITION_COLUMN_NAME})  
-    ) DISTRIBUTE BY HASH(`idx`) PARTITION BY VALUE(DATE_FORMAT({PARTITION_COLUMN_NAME}, '%Y%m%d')) LIFECYCLE {LIFECYCLE}
-    ENGINE='ODPS'
-    TABLE_PROPERTIES='{
-    "endpoint":"http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api",
-    "accessid":"{ACCESS_ID}",
-    "accesskey":"{ACCESS_KEY}",
-    "project_name":"{PROJECT_ID}",
-    "table_name":"{MAXCOMPUTE_TABLE_ID}",
-    "partition_column":"{PARTITION_COLUMN_NAME}"
-    }';
-    ```
-    * `endpoint`
-        * 연결할 maxcompute가 존재하는 리전의 endpoint 주소
-* 테이블 생성 확인
-    ```sql
-    SHOW CREATE TABLE {TABLE_ID};
-    ```
+    `region` VARCHAR(20),
+    PRIMARY KEY (`id`)
+) 
+DISTRIBUTE BY HASH(`id`)
+INDEX_ALL = 'Y';
+```
+
+### 파티셔닝과 Lifecycle 설정
+
+```sql
+CREATE TABLE `orders` (
+    `order_id` BIGINT NOT NULL,
+    `customer_id` INT NOT NULL,
+    `order_date` DATE,
+    `amount` DECIMAL(10, 2),
+    `region` VARCHAR(20),
+    PRIMARY KEY (`order_id`, `order_date`)
+) 
+DISTRIBUTED BY HASH(`order_id`)
+PARTITION BY VALUE(DATE_FORMAT(`order_date`, '%Y%m'))
+LIFECYCLE 365;
+```
+
+- PARTITION BY VALUE
+  - 시계열 데이터를 효율적으로 관리하기 위한 파티션 설정
+  - `DATE_FORMAT(order_date, '%Y%m')` - 월별 파티션 생성
+- LIFECYCLE
+  - 파티션의 수명 주기(일 단위)를 지정하여, 오래된 데이터 자동 삭제
+  - `LIFECYCLE 365` - 365일 이후 자동 삭제
+
+### Storage Policy
+
+```sql
+CREATE TABLE `logs` (
+    `id` BIGINT NOT NULL,
+    `created_at` DATETIME,
+    `message` TEXT,
+    PRIMARY KEY (`id`, `created_at`)
+) 
+DISTRIBUTE BY HASH(`id`)
+PARTITION BY VALUE(DATE_FORMAT(`created_at`, '%Y%m%d'))
+STORAGE_POLICY = 'MIXED' 
+HOT_PARTITION_COUNT = 30;
+```
+
+![image](/assets/img/database/image5.png)
+
+- STORAGE_POLICY
+  - `HOT` - 메모리/SSD (빠른 접근, 비쌈)
+  - `COLD` - HDD/OSS (느린 접근, 저렴)
+  - `MIXED` - 혼합 (권장)
+- HOT_PARTITION_COUNT
+  - 최근 30개의 파티션만 HOT 스토리지에 저장하고 나머지는 COLD로 이동
+
+### ODPS 외부 테이블 연결
+
+```sql
+CREATE TABLE `external_data` (
+    `id` BIGINT NOT NULL,
+    `val` VARCHAR(255),
+    `ds` VARCHAR(255),
+    PRIMARY KEY (`id`)
+) 
+DISTRIBUTE BY HASH(`id`)
+ENGINE='ODPS'
+TABLE_PROPERTIES='{
+  "endpoint":"http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api",
+  "accessid":"{ACCESS_ID}",
+  "accesskey":"{ACCESS_KEY}",
+  "project_name":"{PROJECT_ID}",
+  "table_name":"{ODPS_TABLE_NAME}",
+  "partition_column":"ds"
+}';
+```
+
 <br/><br/>
 
-# 파티셔닝, 정책 확인 및 변경
----
-### **파티셔닝(lifecycle) 설정 확인 및 변경**
-* 파티셔닝 설정 확인
-    ```sql
-    SELECT *
-    FROM INFORMATION_SCHEMA.PARTITIONS p
-    ORDER BY TABLE_NAME, PARTITION_NAME ASC
-    ```
-* 테이블 별 파티셔닝 수 확인
-    ```sql
-    SELECT TABLE_NAME, count(*) AS count_
-    FROM INFORMATION_SCHEMA.PARTITIONS p
-    GROUP BY TABLE_NAME
-    ```
-* 테이블 지정하여 파티셔닝 설정 확인
-    ```sql
-    SELECT * 
-    FROM INFORMATION_SCHEMA.PARTITIONS p 
-    WHERE TABLE_NAME = '{TABLE_ID}'
-    ```
-* 파티셔닝(lifecycle) 설정 변경 **(설정 변경 후 table 빌드 필수)**
-    ```sql
-    ALTER TABLE `{TABLE_ID}` partitions {LIFECYCLE};
-    BUILD TABLE {DB_NAME}.{TABLE_ID}; -- 테이블 빌드 후 설정 반영됨
-    ```
+## 테이블 관리
 
-### **storage policy 확인 및 변경**
-* 데이터 스토리지 배포 확인
-    ```sql
-    SELECT * 
-    FROM information_schema.table_usage;
-    ```
-* DB별 스토리지 배포 확인
-    ```sql
-    SELECT * 
-    FROM information_schema.table_usage 
-    WHERE table_schema = '{DB_NAME}' AND storage_policy = 'HOT';
-    ```
-* 테이블 별 스토리지 배포 정책 확인
-    ```sql
-    SELECT * 
-    FROM information_schema.table_usage 
-    WHERE table_schema='{DB_NAME}' AND table_name ='{TABLE_ID}'
-    ```
-* storage policy 정책 변경 **(설정 변경 후 table 빌드 필수)**
-    ```sql
-    ALTER TABLE `{TABLE_ID}` storage_policy = 'MIXED' hot_partition_count = 30;
-    BUILD TABLE {DB_NAME}.{TABLE_ID};
-    ```
-* 스토리지 변경 진행 상황 확인
-    ```sql
-    SELECT * 
-    FROM information_schema.storage_policy_modify_progress;
-    ```
+### 파티션 및 스토리지 정책 관리
+
+- 파티션 정보 확인
+  ```sql
+  SELECT * FROM INFORMATION_SCHEMA.PARTITIONS WHERE TABLE_NAME = '{TABLE_ID}';
+  ```
+- Lifecycle 변경
+  ```sql
+  ALTER TABLE `{TABLE_ID}` PARTITIONS {LIFECYCLE};
+  BUILD TABLE {DB_NAME}.{TABLE_ID};
+  ```
+  - `BUILD TABLE` 명령으로 빌드해야 반영됨
+- Storage Policy 변경
+  ```sql
+  ALTER TABLE `{TABLE_ID}` STORAGE_POLICY = 'MIXED' HOT_PARTITION_COUNT = 60;
+  BUILD TABLE {DB_NAME}.{TABLE_ID};
+  ```
+
+### 테이블 수정
+
+- 컬럼 추가
+  ```sql
+  ALTER TABLE {TABLE_ID} ADD {COLUMN_NAME} {DATA_TYPE} NULL;
+  ```
+- 컬럼명 변경
+  ```sql
+  ALTER TABLE {TABLE_ID} CHANGE {OLD_NAME} {NEW_NAME} {DATA_TYPE};
+  ```
+- 테이블 이름 변경
+  ```sql
+  RENAME TABLE {OLD_TABLE} TO {NEW_TABLE};
+  ```
+
 <br/><br/>
 
-# 테이블 및 데이터 복사
----
-### **테이블 구조 복사**
-* 테이블 구조 복사
-    ```sql
-    CREATE TABLE {DB_NAME}.{TGT_TABLE_ID} LIKE {DB_NAME}.{SRC_TABLE_ID};
-    ```
+## DML 및 쿼리 최적화
 
-### **데이터 복사**
-* 특정 날짜 data 복사
-    ```sql
-    INSERT INTO {TGT_TABLE_ID} 
-    SELECT * FROM {SRC_TABLE_ID} 
-    WHERE {PARTITION_COLUMN_NAME} = '2022-10-04';
-    ```
-* 비동기식 import 작업 (실행 후 job id 반환)
-    ```sql
-    /*+async_job_priority=1*/ submit job 
-    INSERT INTO {TGT_TABLE_ID} 
-    SELECT * FROM {SRC_TABLE_ID};
-    ```
-* 날짜 지정한 비동기식 import 작업
-    ```sql
-    /*+async_job_priority=1*/ submit job
-    INSERT INTO {TGT_TABLE_ID}
-    SELECT * FROM {SRC_TABLE_ID} 
-    WHERE DATE_FORMAT({PARTITION_COLUMN_NAME}, "%Y-%m-%d") BETWEEN '2022-10-01' AND '2022-10-04';
-    ```
-    ```sql
-    /*+async_job_priority=1*/ submit job
-    INSERT INTO {TGT_TABLE_ID}
-    SELECT * FROM {SRC_TABLE_ID} 
-    WHERE {PARTITION_COLUMN_NAME} BETWEEN '2022-10-01' AND '2022-10-04';
-    ```
-* 시간 지정한 비동기식 import 작업
-    ```sql
-    /*+async_job_priority=1*/ submit job
-    INSERT INTO {TGT_TABLE_ID}
-    SELECT * FROM {SRC_TABLE_ID} 
-    WHERE {PARTITION_COLUMN_NAME} = '2022-10-04' AND datetime < '2021-10-04 05:00:00';
-    ```
+### 대량 데이터 적재
 
-### **복사 작업 상태 확인**
-* 비동기식 작업 상태 확인
-    ```sql
-    SHOW job STATUS
-    ```
-* 특정 비동기식 job 상태 확인
-    ```sql
-    SHOW job STATUS WHERE job='{JOB_ID}';
-    ```
+- 단건 `INSERT`는 성능이 매우 떨어지므로 Multi-row Insert를 사용해야 함
+
+```sql
+-- 권장: Multi-row Insert
+INSERT INTO orders (order_id, customer_id) VALUES 
+(1, 100), 
+(2, 101), 
+(3, 102);
+
+-- 비권장: 단건 INSERT (느림)
+INSERT INTO orders (order_id, customer_id) VALUES (1, 100);
+INSERT INTO orders (order_id, customer_id) VALUES (2, 101);
+```
+
+### 데이터 복사 및 비동기 작업
+
+- INSERT INTO ... SELECT (동기식)
+  ```sql
+  INSERT INTO {TGT_TABLE} SELECT * FROM {SRC_TABLE};
+  ```
+- Submit Job (비동기식 대량 작업)
+  ```sql
+  /*+async_job_priority=1*/ 
+  SUBMIT JOB INSERT INTO {TGT_TABLE} 
+  SELECT * FROM {SRC_TABLE} 
+  WHERE created_at >= '2022-10-01';
+  ```
+- Job 상태 확인
+  ```sql
+  SHOW JOB STATUS WHERE job='{JOB_ID}';
+  ```
+
+### 쿼리 힌트
+
+- 조인 순서 제어
+  - 옵티마이저가 자동으로 조인 순서를 바꾸지 않도록 강제함
+  - 내가 쓴 순서대로 조인하게 함
+  ```sql
+  /*+ REORDER_JOINS=FALSE */ 
+  SELECT * FROM A JOIN B ON A.id = B.id;
+  ```
+- MPP 모드 강제
+  - 대량의 데이터 처리 시 로컬 MySQL 엔진 대신 분산 엔진을 쓰도록 유도
+
+### 조인 최적화 전략
+
+![image](/assets/img/database/image6.png)
+
+- Broadcast Join
+  - 작은 테이블(예: 코드 테이블)과 큰 테이블을 조인할 때 사용
+  - 작은 테이블을 모든 노드에 복제하여 셔플(Shuffle) 방지
+  - ADB는 통계 정보를 기반으로 자동 처리하지만, 쿼리 힌트로 제어 가능
+- Co-located Join
+  - 두 테이블이 같은 `DISTRIBUTED BY` 키를 가지고 있을 때 사용
+  - 데이터 이동 없이 각 노드에서 로컬 조인이 발생하여 매우 빠름
+  - 가장 효율적인 조인 방식임
+
+### JSON 데이터 쿼리
+
+- ADB는 JSON 타입을 지원하며, 내부적으로 인덱싱하여 빠른 검색이 가능함
+
+```sql
+SELECT json_extract(data, '$.user.name') 
+FROM logs 
+WHERE json_extract(data, '$.status') = 'error';
+```
+
+### 실시간 분석 쿼리
+
+```sql
+-- 특정 지역의 최근 1시간 매출 집계
+SELECT region, SUM(amount) 
+FROM orders 
+WHERE order_date >= NOW() - INTERVAL 1 HOUR 
+GROUP BY region;
+```
+
 <br/><br/>
 
-# 데이터 조회
----
-### **조회**
-* 날짜 지정해 데이터 조회
-    ```sql
-    SELECT * 
-    FROM {TABLE_ID} 
-    WHERE {PARTITION_COLUMN_NAME} = '2022-10-04';
-    ```
-* 날짜별 데이터량 오름차순 조회
-    ```sql
-    SELECT {PARTITION_COLUMN_NAME}, count(*) AS count_ 
-    FROM {TABLE_ID} 
-    WHERE {PARTITION_COLUMN_NAME} >= '2022-10-01' 
-    GROUP BY {PARTITION_COLUMN_NAME} 
-    ORDER BY {PARTITION_COLUMN_NAME} DESC;
-    ```
-    ```sql
-    SELECT {PARTITION_COLUMN_NAME}, count(*) AS count_ 
-    FROM {TABLE_ID} 
-    WHERE DATE_FORMAT({PARTITION_COLUMN_NAME}, '%Y%m%d') >= '2022-10-01' 
-    GROUP BY {PARTITION_COLUMN_NAME} 
-    ORDER BY {PARTITION_COLUMN_NAME} DESC;
-    ```
-* 특정 날짜 이후 데이터 오름차순 조회
-    ```sql
-    SELECT *
-    FROM {DB_NAME}.{TABLE_ID}
-    WHERE datetime >= '2022-10-01'
-    ORDER BY datetime DESC
-    LIMIT 100;
-    ```
-* 특정 시간 이후 데이터 오름차순 조회
-    ```sql
-    SELECT *
-    FROM {DB_NAME}.{TABLE_ID} 
-    WHERE datetime >= CONCAT(CURRENT_DATE(), ' 07:55')
-    ORDER BY datetime DESC
-    ```
-* DB별 테이블 조회
-    ```sql
-    SELECT table_name
-    FROM information_schema.tables
-    WHERE table_schema = '{DB_NAME}'
-    ```
+## ADB 운영 및 관리
+
+### 프로세스 및 용량 모니터링
+
+- 실행 중인 프로세스 확인
+  ```sql
+  SHOW FULL PROCESSLIST;
+  ```
+- 쿼리 타임아웃 설정
+  ```sql
+  SET query_timeout = 1800000;         -- 30분
+  SET insert_select_timeout = 3600000; -- 1시간
+  ```
+- 테이블별 용량 확인
+  ```sql
+  SELECT table_name, 
+         ROUND(SUM(data_length + index_length) / (1024 * 1024), 2) AS 'Total_MB'
+  FROM information_schema.tables
+  GROUP BY table_name
+  ORDER BY Total_MB DESC;
+  ```
+
+### 계정 및 권한 관리
+
+- 계정 생성
+  ```sql
+  CREATE USER '{USER_ID}' IDENTIFIED BY '{PASSWORD}';
+  ```
+- 권한 부여
+  ```sql
+  GRANT ALL ON {DB_NAME}.* TO '{USER_ID}';
+  GRANT SELECT ON {DB_NAME}.{TABLE_ID} TO '{USER_ID}';
+  ```
+- 권한 확인
+  ```sql
+  SHOW GRANTS FOR '{USER_ID}';
+  ```
+
 <br/><br/>
 
-# 테이블 및 칼럼 수정/삭제
----
-### **테이블 및 데이터 삭제**
-* 테이블 삭제
-    ```sql
-    DROP TABLE `{TABLE_ID}`;
-    ```
-* 테이블 데이터 삭제
-    ```sql
-    DELETE FROM `{TABLE_ID}`;
-    ```
-* 특정 날짜 지정해 테이블 데이터 삭제
-    ```sql
-    DELETE FROM `{TABLE_ID}` WHERE datetime >= '2021-10-13';
-    ```
+## MySQL과의 차이점
 
-### **테이블명 변경 및 이동**
-* 테이블명 변경
-    ```sql
-    RENAME TABLE {SRC_TABLE_ID} TO {TGT_TABLE_ID}; 
-    ```
-    ```sql
-    ALTER TABLE {SRC_TABLE_ID} RENAME {TGT_TABLE_ID};
-    ```
-    ```sql
-    RENAME TABLE {SRC_TABLE_ID} TO {TGT_TABLE_ID}, {SRC_TABLE_ID} TO {TGT_TABLE_ID};
-    ```
-* 다른 DB로 테이블 이동
-    ```sql
-    RENAME TABLE {SRC_DB_NAME}.{SRC_TABLE_ID} TO {TGT_DB_NAME}.{TGT_TABLE_ID}; 
-    ```
+### 지원하지 않는 기능
 
-### **칼럼 추가, 변경, 삭제**
-* 칼럼 추가 
-    ```sql
-    ALTER TABLE {DB_NAME}.{TABLE_ID} ADD {COLUMN_NAME} {DATA_TYPE} NULL; 
-    ```
-* 칼럼명 변경
-    ```sql
-    ALTER TABLE {DB_NAME}.{TABLE_ID} CHANGE {SRC_COLUMN_NAME} {TGT_COLUMN_NAME} {DATA_TYPE} NULL;
-    ```
-* 칼럼 타입 변경
-    ```sql
-    ALTER TABLE {DB_NAME}.{TABLE_ID} MODIFY {COLUMN_NAME} {DATA_TYPE};
-    ```
-* 칼럼 삭제
-    ```sql
-    ALTER TABLE {DB_NAME}.{TABLE_ID} DROP {COLUMN_NAME};
-    ```
+| 기능 | MySQL | ADB |
+|:---|:---:|:---:|
+| **트랜잭션** | ACID 완전 지원 | 제한적 지원 (배치 처리 권장) |
+| **Stored Procedure** | 완전 지원 | 제한적 또는 미지원 |
+| **Trigger** | 완전 지원 | 제한적 또는 미지원 |
+| **Foreign Key** | 완전 지원 | 문법만 지원 (제약 조건 미작동) |
+
+- 트랜잭션 제한
+  - ACID를 지원하지만, OLTP성 트랜잭션(짧고 빈번한 갱신)보다는 대량의 배치 `INSERT`/`UPDATE`에 최적화되어 있음
+- Stored Procedure/Trigger
+  - 지원이 제한적이거나 없을 수 있음 (버전별 상이)
+- Foreign Key
+  - 문법적으로 지원하지만, 제약 조건으로서의 기능은 하지 않음
+  - 데이터 무결성은 애플리케이션 레벨에서 관리 필요
+
 <br/><br/>
 
-# 계정 설정
----
-### **계정 생성 및 삭제**
-* 계정 생성
-    ```sql
-    CREATE USER IF NOT EXISTS '{USER_ID}' IDENTIFIED BY '{USER_PASSWORD}';
-    ```
-* 계정 삭제
-    ```sql
-    DROP USER '{USER_ID}';
-    ```
+## ADB 설계 및 개발 가이드
+
+1. **분산 키(Distribute Key) 선정에 집중**
+   - 조인 성능의 90%를 결정하므로, 조인 키로 주로 사용되는 컬럼을 선정해야 함
+   - 데이터가 특정 노드에 치우치지 않고 균등하게 분산되도록 설계
+
+2. **자동 인덱스 기능 활용**ㄴ
+   - `INDEX_ALL='Y'` 옵션 덕분에 모든 컬럼에 대해 인덱스가 자동 관리됨
+   - 수동으로 `CREATE INDEX`를 관리할 필요가 없어 운영 부담이 적음
+
+3. **배치 처리 지향**
+   - 데이터 입력은 Multi-row Insert(`INSERT INTO ... VALUES ...`)로 모아서 처리
+   - 대량의 데이터 갱신/삭제 시 `SUBMIT JOB`을 활용한 비동기 처리 권장
+
 <br/><br/>
 
-# 권한 설정
----
-### **권한 조회**
-* 부여된 권한 확인
-    ```sql
-    SHOW GRANTS;
-    ```
-* 계정 권한 확인
-    ```sql
-    SHOW GRANTS FOR '{USER_ID}';
-    ```
+## Reference
 
-### **계정 권한 설정 및 삭제** 
-* 계정에 모든 권한 추가
-    ```sql
-    GRANT ALL ON *.* TO '{USER_ID}';
-    ```
-    ```sql
-    GRANT ALL ON {DB_NAME}.* TO '{USER_ID}';
-    ```
-* 패스워드 변경과 동시에 권한 설정
-    ```sql
-    GRANT SELECT ON *.* TO '{USER_ID}' identified BY '{USER_PASSWORD}';
-    ```
-* 계정 모든 권한 삭제
-    ```sql
-    REVOKE ALL ON *.* FROM '{USER_ID}';
-    ```
-* 특정 테이블에 SELECT 권한 할당
-    ```sql
-    GRANT SELECT ON {DB_NAME}.{TABLE_ID} TO '{USER_ID}';
-    ```
-<br/><br/>
-
-# 프로세스 및 용량 확인
----
-### **프로세스 확인**
-* 실행 중인 프로세스 리스트 확인
-    ```sql
-    SHOW FULL processlist;
-    ```
-
-### **용량 확인**
-* 테이블 별 용량 확인
-    ```sql
-    SELECT table_name AS 'TableName',
-    ROUND(SUM(data_length+index_length)/(1024*1024), 2) AS 'All(MB)',
-    ROUND(data_length/(1024*1024), 2) AS 'Data(MB)',
-    ROUND(index_length/(1024*1024), 2) AS 'Index(MB)'
-    FROM information_schema.tables
-    GROUP BY table_name
-    ORDER BY data_length DESC;
-    ```
-* DB별 용량 확인
-    ```sql
-    SELECT table_schema "Database", 
-    ROUND(SUM(data_length+index_length)/1024/1024,1) "MB" 
-    FROM information_schema.TABLES 
-    GROUP BY 1 WHERE ds;
-    ```
-
-### **TIME OUT 설정**
-* 쿼리 time out 시간 설정
-    ```sql
-    SET query_timeout = 1800000
-    SET insert_SELECT_timeout = 3600000
-    ```
-<br/><br/>
-
-## **Reference**
-* [Alibaba Cloud Docs](https://www.alibabacloud.com/help/en/analyticdb-for-mysql)
+- [Alibaba Cloud AnalyticDB for MySQL Documentation](https://www.alibabacloud.com/help/en/analyticdb-for-mysql)
+- [ADB SQL Reference](https://www.alibabacloud.com/help/en/analyticdb-for-mysql/latest/sql-statements)
