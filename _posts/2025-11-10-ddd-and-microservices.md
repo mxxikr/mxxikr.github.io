@@ -16,7 +16,7 @@ mermaid: true
 
 > 이 포스팅은 DDD 시리즈의 세 번째 글입니다. [도메인 스토리텔링(DST)이란?](https://mxxikr.github.io/posts/domain-storytelling-for-ddd/)과 [도메인 주도 설계(DDD)란?](https://mxxikr.github.io/posts/domain-driven-design-introduction/)을 먼저 읽는 것을 권장합니다.
 
-- 이전 포스팅에서 도메인 주도 설계(DDD)의 핵심 개념과 전략적/전술적 설계를 다룸
+- 이전 포스팅에서 도메인 주도 설계(DDD)의 개념과 전략적/전술적 설계를 다룸
 - DDD의 바운디드 컨텍스트는 마이크로서비스 아키텍처의 경계 설정 시 참고할 수 있는 논리적 단위
 - 이번 포스팅에서는 DDD로 정의한 바운디드 컨텍스트를 마이크로서비스로 전환하는 방법과 실전 고려사항을 다룸
 

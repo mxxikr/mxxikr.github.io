@@ -20,17 +20,18 @@ mermaid: true
 
 <br/><br/>
 
-## 핵심 아키텍처 구성
+## 아키텍처 구성
 
-### 3대 핵심 컴포넌트
+### 4대 핵심 컴포넌트
 
-- BigQuery는 세 가지 핵심 컴포넌트로 구성
+- BigQuery는 네 가지 핵심 컴포넌트로 구성 (Google 인프라 논문 기준)
 
   | 컴포넌트 | 역할 | 특징 |
   |:---|:---|:---|
   | **Dremel** | 쿼리 실행 엔진 | SQL 쿼리를 분산 처리하여 실행 |
   | **Colossus** | 분산 스토리지 | 데이터를 컬럼 기반 포맷으로 저장 |
   | **Jupiter** | 네트워크 인프라 | Dremel과 Colossus 간 초고속 데이터 전송 |
+  | **Borg** | 자원 관리 & 스케줄링 | 수천 개의 Dremel 작업(Slot)을 물리적 머신에 할당 |
 
   ![image](/assets/img/database/image18.png)
 
@@ -112,7 +113,7 @@ mermaid: true
 - 특징
   - 컬럼별 압축
     - 각 컬럼의 데이터 타입과 분포에 최적화된 압축 알고리즘
-    - 평균 원본 데이터의 10% 크기로 압축
+    - 평균 원본 데이터 크기의 **1/10 수준으로 압축** (10배 이상의 효율)
   - 중첩 구조 지원
     - ARRAY, STRUCT를 효율적으로 인코딩
     - 반복 레벨(Repetition Level)과 정의 레벨(Definition Level) 사용
@@ -173,7 +174,7 @@ mermaid: true
   - 피크 시간에도 성능 저하 없이 처리
 - 사용량 기반 과금
   - On-Demand 모드 - 스캔한 데이터량에 비례 과금
-  - Capacity 모드 - 예약한 Slot 용량에 따라 과금
+  - Editions (Autoscaling) - Edition 등급(Standard/Enterprise)에 따른 Slot Autoscaling 및 사용량 과금
 
 ### 고가용성
 
@@ -198,7 +199,7 @@ mermaid: true
 - 실행 계획 수립
   - 쿼리를 여러 Stage로 분할
   - 각 Stage에 필요한 Slot 수 계산
-  - 데이터 셔플링(Shuffling) 계획 수립
+  - **인메모리 셔플(Remote Shuffle Service)** 계획 수립 (디스크 I/O 없이 메모리 간 고속 데이터 교환)
 - 분산 실행
   - 각 Stage를 수천 개의 Slot에 할당
   - Slot이 Colossus에서 데이터를 병렬로 읽기
@@ -239,9 +240,9 @@ mermaid: true
 ### 진정한 서버리스
 
 - 경쟁 제품과의 비교
-  - AWS Redshift - 클러스터 크기 사전 지정 필요
+  - AWS Redshift (Provisioned) - 클러스터 크기 사전 지정 필요 (Serverless도 워크그룹 단위 자원 공유)
   - Snowflake - Virtual Warehouse 사전 할당 필요
-  - BigQuery - 사전 할당 불필요, 쿼리마다 자동 확장
+  - BigQuery - **쿼리 단위 격리**, 쿼리 하나하나가 독립적인 슬롯을 할당받아 자동 확장
 
 ### 무제한 동시성
 
@@ -251,9 +252,9 @@ mermaid: true
 
 ### 분 단위 과금
 
-- Capacity 모드에서 분 단위 Slot 예약 가능
+- BigQuery Editions 사용 시 Slot Autoscaling 적용
   - 경쟁사 - 시간 또는 일 단위 약정 필요
-  - BigQuery - 1분 단위 유연한 Slot 할당
+  - BigQuery - 워크로드에 따라 초 단위로 Slot 자동 확장 및 과금
 
 <br/><br/>
 

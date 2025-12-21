@@ -63,9 +63,10 @@ mermaid: true
 - Standard, Enterprise, Enterprise Plus가 있음
 
 - 방식
-  - 사용할 Slot의 용량(Capacity)을 미리 구매하여 시간당 비용을 지불
+  - **Autoscaling 지원**: 최소/최대 슬롯 범위를 설정하면 워크로드에 따라 자동 조정됨
+  - 사용할 Slot의 용량(Capacity)에 따라 비용을 지불
 - Slot 관리
-  - 사용자가 직접 Reservation(예약)을 통해 관리해야 함
+  - 사용자가 Reservation(예약)을 생성하여 관리하지만, 실제 할당은 동적으로 이루어짐
 
 ![image](/assets/img/database/image24.png)
 
@@ -140,10 +141,9 @@ mermaid: true
 
 - 잘못된 쿼리가 돌고 있다면 CLI나 콘솔에서 강제 종료할 수 있음
 
-- 프로세스 중지 (CALL 사용)
-  ```sql
-  CALL BQ.JOBS.CANCEL('{PROJECT_ID}.{JOB_ID}');
-  ```
+- 프로세스 중지
+  - **주의**: SQL(`CALL ...`)로는 직접 취소할 수 없음
+  - BigQuery 콘솔(UI)에서 '취소' 버튼을 누르거나, CLI를 사용해야 함
 - bq CLI 사용
   ```bash
   bq cancel {JOB_ID}
@@ -176,7 +176,8 @@ mermaid: true
    ```
 
 - 미리보기 활용
-   - 데이터 확인이 목적이면 쿼리하지 말고 테이블 미리보기 탭을 사용 (무료)
+   - **Tip**: 데이터 확인이 목적이면 쿼리하지 말고 **테이블 미리보기(Preview) 탭**을 사용하세요.
+   - 쿼리 비용이 **무료**입니다. `LIMIT`를 걸고 `SELECT *` 하는 습관은 비용 낭비의 주범입니다.
 
 - LIMIT는 비용 절감 아님
    - `LIMIT 10`을 해도 전체 데이터를 스캔할 수 있음
