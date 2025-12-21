@@ -177,7 +177,7 @@ mermaid: trueㄴ
 
 <br/><br/>
 
-## 실무 도입 시 장단점과 주의사항
+## 장단점과 주의사항
 
 ### 장점
 
@@ -193,9 +193,7 @@ mermaid: trueㄴ
 ### 단점 및 주의사항
 
 - **빌드 속도**
-    - 증분 컴파일로 많이 개선되었으나 Clean Build 시에는 여전히 Java보다 느림
-- **인력 풀 (Manpower)**
-    - Java 개발자에 비해 숙련된 Kotlin 개발자를 구하기가 상대적으로 어려움
+    - 증분 컴파일로 많이 개선되었으나 Clean Build 시에는 여전히 Java보다 느림ㄴ
 - **기본 final 클래스 정책**
     - 코틀린의 클래스는 기본적으로 상속 불가(final)이므로 Spring AOP/JPA 프록시 사용 시 주의 필요 (kotlin-spring 플러그인(all-open)으로 자동 해결)
 - **과도한 DSL 남용 주의**
