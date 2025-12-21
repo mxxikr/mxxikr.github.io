@@ -17,7 +17,7 @@ mermaid: true
 
 <br/><br/>
 
-## 핵심 개념
+## 개념
 
 ### Presigned URL의 본질
 

@@ -200,6 +200,9 @@ CREATE TABLE products (
 ### EXCLUSION 제약 조건
 
 ```sql
+-- 정수형(Integer) 등 스칼라 데이터 타입의 GIST 인덱싱을 위해 필요
+CREATE EXTENSION IF NOT EXISTS btree_gist;
+
 -- 회의실 이중 예약 방지
 CREATE TABLE conference_room_bookings (
     booking_id SERIAL PRIMARY KEY,
@@ -323,6 +326,8 @@ CREATE INDEX idx_logs_date ON logs (log_date);
 ALTER TABLE logs DETACH PARTITION logs_2023_01;
 
 -- 이제 logs_2023_01은 독립적인 테이블
+
+> **참고**: 운영 환경에서는 수동 관리보다 **pg_partman** 같은 확장 도구를 사용하여 파티션 생성 및 유지보수(Retention)를 자동화하는 것이 일반적입니다.
 ```
 
 <br/><br/>
@@ -355,7 +360,9 @@ CREATE TABLE tenant_001.logs_2024_01 PARTITION OF tenant_001.logs
     FOR VALUES FROM ('2024-01-01') TO ('2024-02-01');
 ```
 
-![image](/assets/img/database/image3.png)s
+![image](/assets/img/database/image3.png)
+
+> **Tip**: 파티션 테이블에 Unique나 PK를 설정하려면 반드시 **파티션 키 컬럼(`log_date`)을 포함**해야 합니다. 포함하지 않으면 "unique constraint on partitioned table must include all partitioning columns" 에러가 발생합니다.
 
 ### 성능 개선 효과
 
@@ -404,7 +411,7 @@ LIMIT 20;
 
 ## 정리
 
-| 개념 | 역할 | 실무 활용 |
+| 개념 | 역할 | 주요 활용 |
 |:---|:---|:---|
 | **Role** | 계정과 권한 관리 | 팀별, 직급별 접근 제어 |
 | **Schema** | 네임스페이스 격리 | 멀티테넌트, 환경 분리 (dev/prod) |

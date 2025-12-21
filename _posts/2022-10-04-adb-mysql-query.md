@@ -158,7 +158,7 @@ TABLE_PROPERTIES='{
   ALTER TABLE `{TABLE_ID}` PARTITIONS {LIFECYCLE};
   BUILD TABLE {DB_NAME}.{TABLE_ID};
   ```
-  - `BUILD TABLE` 명령으로 빌드해야 반영됨
+  - `BUILD TABLE` 명령으로 빌드해야 반영됨 (ADB 2.0 등 특정 버전에서 필수, 최신 버전 확인 필요)
 - Storage Policy 변경
   ```sql
   ALTER TABLE `{TABLE_ID}` STORAGE_POLICY = 'MIXED' HOT_PARTITION_COUNT = 60;
@@ -239,7 +239,7 @@ INSERT INTO orders (order_id, customer_id) VALUES (2, 101);
   - 작은 테이블을 모든 노드에 복제하여 셔플(Shuffle) 방지
   - ADB는 통계 정보를 기반으로 자동 처리하지만, 쿼리 힌트로 제어 가능
 - Co-located Join
-  - 두 테이블이 같은 `DISTRIBUTED BY` 키를 가지고 있을 때 사용
+  - 두 테이블이 같은 `DISTRIBUTED BY` 키를 가지고 있을 때 사용 (단, 샤드 개수도 동일해야 함)
   - 데이터 이동 없이 각 노드에서 로컬 조인이 발생하여 매우 빠름
   - 가장 효율적인 조인 방식임
 
@@ -332,13 +332,14 @@ GROUP BY region;
    - 조인 성능의 90%를 결정하므로, 조인 키로 주로 사용되는 컬럼을 선정해야 함
    - 데이터가 특정 노드에 치우치지 않고 균등하게 분산되도록 설계
 
-2. **자동 인덱스 기능 활용**ㄴ
+2. **자동 인덱스 기능 활용**
    - `INDEX_ALL='Y'` 옵션 덕분에 모든 컬럼에 대해 인덱스가 자동 관리됨
    - 수동으로 `CREATE INDEX`를 관리할 필요가 없어 운영 부담이 적음
 
 3. **배치 처리 지향**
    - 데이터 입력은 Multi-row Insert(`INSERT INTO ... VALUES ...`)로 모아서 처리
    - 대량의 데이터 갱신/삭제 시 `SUBMIT JOB`을 활용한 비동기 처리 권장
+   > **주의**: ADB는 `APPEND`에 최적화되어 있습니다. `UPDATE`나 `DELETE`는 파티션 재작성을 유발할 수 있어 비용이 매우 비싸므로, 빈번한 단건 수정/삭제는 피해야 합니다.
 
 <br/><br/>
 
