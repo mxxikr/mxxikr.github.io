@@ -3,7 +3,7 @@ title: "Jekyll 블로그 CSS/JS 자동 최적화"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
-date: 2025-12-21 08:35:00 +0900
+date: 2025-12-20 08:35:00 +0900
 category:
   - [Blog]
 tags:
