@@ -7,218 +7,356 @@ date: 2022-08-26 00:24:00 +0900
 category:
   - Network
 tags:
-  - [ip, network]
+  - [ip, network, subnet, supernet]
 math: true
 mermaid: true
 ---
 
-# IP
---- 
-### **IP(Internet Protocol)**
-* PC 간 연결하기 위한 통신 규약 (인터넷 규약)
-* 인터넷 상에 있는 컴퓨터 고유의 주소
-* 인터넷 상의 한 컴퓨터에서 다른 컴퓨터로 데이터 주고 받기 가능
-* IPv4와 IPv6로 나뉨  
+## IP 주소 체계 기초
 
-### **IPv4**
-* 32 bit
-* 10진수와 2진수 사용
-* 0.0.0.0 ~ 255.255.255.255 = 2^8 * 4 = 2^32 = 약 43억개의 IP 생성 가능  
+### IPv4 주소 구조
 
-### **IPv6**
-* 128 bit
-* 16진수 사용(0~f)
-* 0.0.0.0.0.0.0.0 ~ ffff.ffff.ffff.ffff.ffff.ffff.ffff.ffff = 2^123 = 43억 * 43억 * 43억 * 43억 IP 생성 가능
-* IPv4의 고갈로 인해 생성  
+- IPv4 주소는 **32비트**로 이루어져 있으며, 4개의 옥텟(Octet, 8비트씩)으로 표현됨
+
+  | 1st Octet | 2nd Octet | 3rd Octet | 4th Octet |
+  | :---: | :---: | :---: | :---: |
+  | **192** | **168** | **1** | **1** |
+  | 0~255 | 0~255 | 0~255 | 0~255 |
+
+- IPv4 주소는 2개 부분으로 나뉨
+  - **네트워크 부분(Network Portion)**
+    - 어떤 네트워크에 속하는지 식별함
+  - **호스트 부분(Host Portion)**
+    - 그 네트워크 내에서 어떤 기기인지 식별함
+
+### Subnet Mask의 역할
+
+- **Subnet Mask는 IPv4 주소에서 네트워크 부분과 호스트 부분을 구분하는 32비트 숫자**임
+- Subnet Mask는 이진법으로 다음과 같은 패턴을 가짐
+  - **1로 표현된 비트**
+    - 네트워크 부분
+  - **0으로 표현된 비트**
+    - 호스트 부분
+  - **중요**
+    - 1이 먼저 나타나고 0이 그 뒤를 따르는 **연속된 구조**여야 함
+
+- ex)
+  - `255.255.255.0`
+
+    | 구분 | 1st Octet | 2nd Octet | 3rd Octet | 4th Octet |
+    | :--- | :---: | :---: | :---: | :---: |
+    | **Decimal** | 255 | 255 | 255 | 0 |
+    | **Binary** | `11111111` | `11111111` | `11111111` | `00000000` |
+    | **Role** | Net (24bit) | Net | Net | Host (8bit) |
+    - 이 Subnet Mask를 사용하면
+      - IP 192.168.1.1과 192.168.1.100은 **같은 네트워크** (처음 24비트가 같음)
+      - IP 192.168.1.1과 192.168.2.1은 **다른 네트워크** (24번째 비트가 다름)
+
+### Binary AND 연산으로 네트워크 주소 계산
+
+- 네트워크 주소는 IP 주소와 Subnet Mask를 **AND 연산**으로 계산함
+
+  | 구분 | Binary Address | Decimal Address |
+  | :--- | :--- | :--- |
+  | **IP Address** | `11000000.10101000.00000001.00000001` | 192.168.1.1 |
+  | **Subnet Mask** | `11111111.11111111.11111111.00000000` | 255.255.255.0 |
+  | **AND Result** | `11000000.10101000.00000001.00000000` | **192.168.1.0** |
 
 <br/><br/>
 
-# IP 주소 체계와 클래스
----
-### **Class**
-  * IP의 사용에 따라 분류된 구분 값  
-  * **Classful**
-    * Network ID 고정
-    * 따로 알려주지않아도 어디까지가 Net ID인지를 인식
-    * <span style="color:rgb(203, 171, 237)"> ex) <span style="color:#F26C6C">홍</span><span style="color:#5A9EFF">길동</span>  <span style="color:#F26C6C">02</span>-<span style="color:#5A9EFF">123-4567</span>​</span>​
-    * <span style="color:rgb(203, 171, 237)"> ex) <span style="color:#5A9EFF">192.168.1.0</span>​ → <span style="color:#F26C6C">255.255.255​</span>​<span style="color:#5A9EFF">.0</span>​</span>​
-  * **Classless**
-    * Network ID 유동적 → 관리 효율
-    * 따로 알려주지 않으면 어디까지가 Net ID인지 인식 불가능
-    * Net Mask / Wildcard Mask / Prefix로 구분 가능
-    * <span style="color:rgb(203, 171, 237)"> ex) 연개소문 → <span style="color:#F26C6C">연개</span>​ <span style="color:#5A9EFF">소문</span>​/<span style="color:#F26C6C">연</span>​ <span style="color:#5A9EFF">개소문</span>​</span>​
-    * <span style="color:rgb(203, 171, 237)"> ex) 192.168.1.0 대역 255.255.255.128 → 192.168.1.0 ~ 127, 192.168.128 ~ 192.168.255</span>​  
+## IP 주소 클래스
 
-### **Class별 IP 주소**  
+### Classful과 Classless
 
-|Class|Net ID|Bit|사용 규모|사용 용도|IP|Net mask|사설 고정 IP|
-|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-**A** Class|<span style="color:#F26C6C">0 ~ 127​</span><span style="color:#5A9EFF">​.0.0.0</span>|<span style="color:#F26C6C">128bit</span>|대규모 network|국가|<span style="color:#F26C6C">0</span><span style="color:#5A9EFF">.0.0.0</span> ~ <span style="color:#F26C6C">127</span><span style="color:#5A9EFF">.0.0.0</span>|<span style="color:#F26C6C">255</span><span style="color:#5A9EFF">.0.0.0</span>|<span style="color:#F26C6C">10</span><span style="color:#5A9EFF">.0.0.0</span>
-**B** Class|<span style="color:#F26C6C">128 ~ 191.X</span><span style="color:#5A9EFF">.0.0</span>|<span style="color:#F26C6C">64bit</span>|중소규모 network|공공기관|<span style="color:#F26C6C">128.X</span><span style="color:#5A9EFF">.0.0</span> ​~ <span style="color:#F26C6C">191.X</span><span style="color:#5A9EFF">.0.0</span>|<span style="color:#F26C6C">255.255</span><span style="color:#5A9EFF">.0.0</span>|<span style="color:#F26C6C">172.16</span><span style="color:#5A9EFF">.0.0</span>, <span style="color:#F26C6C">172.31</span><span style="color:#5A9EFF">.0.0​</span>
-**​C** Class​|<span style="color:#F26C6C">192 ~ 223.X.X</span><span style="color:#5A9EFF">.0</span>​|<span style="color:#F26C6C">32bit</span>​|일반 network​|통신사​|<span style="color:#F26C6C">192.X.X</span><span style="color:#5A9EFF">.0</span> ~ <span style="color:#F26C6C">223.X.X</span><span style="color:#5A9EFF">.0</span>​|<span style="color:#F26C6C">255.255.255</span><span style="color:#5A9EFF">.0</span>​|<span style="color:#F26C6C">192.168.X</span><span style="color:#5A9EFF">.0​</span>
-**​D** Class​|<span style="color:#F26C6C">224 ~ 239.X.X</span><span style="color:#5A9EFF">.0</span>​|<span style="color:#F26C6C">16bit</span>​|Multicast​|network 장비​|​|​|
-**​E** Class​|<span style="color:#F26C6C">240 ~ 254.X.X</span><span style="color:#5A9EFF">.0</span>​|<span style="color:#F26C6C">16bit</span>​|연구, 특수 목적으로 예약된 주소​|​|​|​​  
+- **Classful**
+  - Network ID가 고정되어 있음
+  - 따로 알려주지 않아도 어디까지가 Net ID인지 인식 가능함
+  - ex)
+    - `02-123-4567` (지역번호 02가 고정된 것과 유사)
 
-* <span style="color:#F26C6C">네트워크(Net ID)</span>가 일치해야 통신 가능  
-![image](/assets/img/network/id.jpg)
-* <span style="color:#F26C6C">X(0~255)</span> = <span style="color:#F26C6C">Net ID</span> : 상위 네트워크에서 지정된 값 (사용자 변경 불가)
-* <span style="color:#5A9EFF">0(0~255)</span> = <span style="color:#5A9EFF">Host ID</span> : 하위 네트워크에서 지정된 값 (사용자 변경 가능)
+- **Classless**
+  - Network ID가 유동적임 (관리 효율성 증대)
+  - 따로 알려주지 않으면 어디까지가 Net ID인지 인식 불가능함
+  - Net Mask / Wildcard Mask / Prefix로 구분 필요함
 
-### **공인 IP** 
-* Internet 상에서 사용하는 IP
-* 유일한 IP 
+### Class별 IP 주소
 
-### **사설 IP** 
-* ISP(Internet Service Provider) 업체를 통해서 제공 받음
-* 인터넷이 가능한 IP
-* 같은 IP 여러개 존재
-* NAT(통신망의 주소 변환기)를 통해 사설 IP를 공인 IP 주소로 변환해 인터넷에 접속
-* 단독 인터넷 사용 불가능
-![image](/assets/img/network/internet.jpg)
-  * <span style="color:#9999FF">공유기나 내부 네트워크를 사용해 인터넷에 접속할 경우 **사설 IP라고 하는 특정 주소 범위(192.168.0.1~192.168.255.254)가 내부적으로 사용**되고 **공인 IP를 알아 낼 수 없다.**</span>   
-  * <span style="color:#B9E0A5">port forwarding이나 VPN 사용 시 사설 IP끼리 통신 가능</span>  
-  
+| Class | Net ID 범위 | Bit | 사용 규모 | 사용 용도 | Net mask |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| **A Class** | 0 ~ 127 | 128bit | 대규모 network | 국가 | 255.0.0.0 |
+| **B Class** | 128 ~ 191 | 64bit | 중소규모 network | 공공기관 | 255.255.0.0 |
+| **C Class** | 192 ~ 223 | 32bit | 일반 network | 통신사 | 255.255.255.0 |
+| **D Class** | 224 ~ 239 | 16bit | Multicast | network 장비 | - |
+| **E Class** | 240 ~ 254 | 16bit | 연구/특수 목적 | 예약됨 | - |
+
+- 네트워크(Net ID)가 일치해야 통신 가능함
+
+- **Net ID**
+  - 상위 네트워크에서 지정된 값 (사용자 변경 불가)
+- **Host ID**
+  - 하위 네트워크에서 지정된 값 (사용자 변경 가능)
+
 <br/><br/>
 
-# IP 표기법
----
-### **Net Mask**
-  * <span style="color:#F26C6C">Net ID</span>와 <span style="color:#5A9EFF">Host ID</span>를 구분해주는 구분자 (기준값)
-  * <span style="color:#F26C6C">변하지 않는 부분(Net ID)</span>를 2진수 1로 표기
-  * <span style="color:rgb(203, 171, 237)"> ex) <span style="color:#F26C6C">10</span><span style="color:#5A9EFF">.0.0.0</span> (<span style="color:#F26C6C">10</span><span style="color:#5A9EFF">.0.0.0</span> ~ <span style="color:#F26C6C">10</span><span style="color:#5A9EFF">.255.255.255</span>) 대역 → <span style="color:#F26C6C">1111 1111</span><span style="color:#5A9EFF">.X.X.X</span> → <span style="color:#F26C6C">255</span><span style="color:#5A9EFF">.0.0.0</span>​</span>​
-  * **A** Class : <span style="color:#F26C6C">255</span><span style="color:#5A9EFF">.0.0.0</span>
-  * **B** Class : <span style="color:#F26C6C">255.255</span><span style="color:#5A9EFF">.0.0</span>
-  * **C** Class : <span style="color:#F26C6C">255.255.255</span><span style="color:#5A9EFF">.0</span>
+## 공인 IP와 사설 IP
 
-### **Wildcard Mask**
-  * NetMask를 거꾸로 주는 형태 (1111 1100 → 0000 0011)
-  * 연속되지 않은 네트워크를 표현하기 위하여 오류검사를 통해 표현하는 표기법
-    * <span style="color:#F26C6C">0</span> : 검사 시행 (바뀌지 않음) 
-    * <span style="color:#5A9EFF">1</span> : 검사 미시행 (바꿀 수 있음)
-  * <span style="color:#5A9EFF">변하는 부분(Host ID)</span>을 2진수 1로 표기
-  * <span style="color:rgb(203, 171, 237)"> ex) <span style="color:#F26C6C">10</span><span style="color:#5A9EFF">.0.0.0</span> (<span style="color:#F26C6C">10</span><span style="color:#5A9EFF">.0.0.0</span> ~ <span style="color:#F26C6C">10</span><span style="color:#5A9EFF">.255.255.255</span>) 대역 → <span style="color:#F26C6C">X</span><span style="color:#5A9EFF">.1111 1111.1111 1111.1111 1111</span> → <span style="color:#F26C6C">0</span><span style="color:#5A9EFF">.255.255.255</span></span>​
-  * **A** Class : <span style="color:#F26C6C">0</span><span style="color:#5A9EFF">.255.255.255</span>
-  * **B** Class : <span style="color:#F26C6C">0.0</span><span style="color:#5A9EFF">.255.255</span>
-  * **C** Class : <span style="color:#F26C6C">0.0.0</span><span style="color:#5A9EFF">.255</span>  
+### 공인 IP (Public IP)
 
-### **Prefix**
-  * 앞을 고정
-  * Network-ID 부분의 1의 개수를 숫자로 표기
-  * <span style="color:rgb(203, 171, 237)"> ex) <span style="color:#F26C6C">10</span><span style="color:#5A9EFF">.0.0.0</span> → <span style="color:#F26C6C">1111 1111</span><span style="color:#5A9EFF">.0.0.0</span> → <span style="color:#F26C6C">**/8**</span></span>  
-  
-### **CIDR 표기법 (Classless Inter Domain Routing)**
-  * 네트워크 대역 표기법
-  * 2진수로 표기
-  * <span style="color:rgb(203, 171, 237)"> ex) **1111 1111.1111 1111.1111 1111**.0000 0000  → 1의 개수 : 24개</span>
-    * <span style="color:rgb(203, 171, 237)"> **Prefix** : 192.168.1.0/24</span>
-    * <span style="color:rgb(203, 171, 237)"> **IP** : 192.168.1.1 ~ 192.168.1.254</span>
-    * <span style="color:rgb(203, 171, 237)"> **Net Mask** : 255.255.255.0</span>  
-  
+- Internet 상에서 사용하는 IP임
+- 전 세계적으로 **유일한 IP**여야 함
+
+### 사설 IP (Private IP)
+
+- ISP(Internet Service Provider) 업체를 통해서 제공 받음
+- 내부 네트워크에서만 식별되는 IP임
+- 같은 사설 IP가 여러 네트워크에 존재할 수 있음
+- **NAT(Network Address Translation)**를 통해 사설 IP를 공인 IP 주소로 변환해 인터넷에 접속함
+
+- 공유기나 내부 네트워크를 사용해 인터넷에 접속할 경우 **사설 IP라고 하는 특정 주소 범위가 내부적으로 사용**되고 외부는 **공인 IP**로 보여짐
+- **주요 사설 IP 대역**
+  - `10.0.0.0 ~ 10.255.255.255`
+  - `172.16.0.0 ~ 172.31.255.255`
+  - `192.168.0.0 ~ 192.168.255.255`
+
 <br/><br/>
 
-# Subnet
----
-### **Subnet**
-  * IP 손실 줄이고 IP 보호하기 위해 **Network를 나누는 개념**
-    ![image](/assets/img/network/subnet.jpg)
-  * 서로 같은 Network 영역일 때는 Switching 했지만 **다른 Network 영역이 되어 Routing** 하게 됨
-  * 균등 Subnetting과 비균등 Subnetting으로 나눠짐
-  * <span style="color:rgb(203, 171, 237)"> ex) <span style="color:#F26C6C">홍</span> <span style="color:#5A9EFF">길동</span> → <span style="color:#F26C6C">홍ㄱ</span> <span style="color:#5A9EFF">ㅣㄹ동</span>
-  * <span style="color:rgb(203, 171, 237)"> ex) <span style="color:#F26C6C">남양 홍씨 홍</span> <span style="color:#5A9EFF">길동</span> → <span style="color:#F26C6C">남양군파 남양 홍씨 홍</span> <span style="color:#5A9EFF">길동</span> →<span style="color:#F26C6C"> 길자 돌림 남양군파 남양 홍씨 홍</span> <span style="color:#5A9EFF">길동</span>
+## 통신 발송 방식
 
-### **균등 Subnettnig**
-  * 새로 생성된 Subnet에 속하는 Host 수가 일정
-  * <span style="color:rgb(203, 171, 237)"> ex) 회사 사용 network 200.1.1.0/24 → Network 1개
-  * <span style="color:rgb(203, 171, 237)"> ex) 8개의 부서별로 Network를 분리(Subnet 8개 필요)해야함</span>
-    * <span style="color:rgb(203, 171, 237)"> **Subnet 8개** = 2^**3** = subnet-bit : **3**</span>       
-    * <span style="color:rgb(203, 171, 237)"> 8bit - **3**bit = 5bit : **host-bit  = Host 32개 = 2^5**</span>  
-    
-|부서|IP 범위|CIDR 표기법|사용 가능 host|
-|:--:|:--:|:--:|:--:|
-A 부서|200.1.1.0 ~ 200.1.1.31|255.255.255.224|1~30 (0은 대표 주소, 31는 direct broadcast 주소)
-B 부서|200.1.1.32 ~ 200.1.1.63|255.255.255.224|33~62 (32는 대표 주소, 63는direct broadcast 주소)
-C 부서|200.1.1.64 ~ 200.1.1.95|255.255.255.224|65~94 (64는 대표 주소, 95는 direct broadcast 주소)
-D 부서|200.1.1.96 ~ 200.1.1.127|255.255.255.224|97~126 (96은 대표 주소, 127은direct broadcast 주소)
-E 부서|200.1.1.128 ~ 200.1.1.159|255.255.255.224|129~158 (128은 대표 주소, 159는 direct broadcast 주소)
-F 부서|200.1.1.160 ~ 200.1.1.191|255.255.255.224|161~190 (160은 대표 주소, 191은 direct broadcast 주소)
-G 부서|200.1.1.192 ~ 200.1.1.223|255.255.255.224|193~222 (192는 대표 주소, 223은 direct broadcast 주소)
-H 부서|200.1.1.224 ~ 200.1.1.255|255.255.255.224|225~254(224은 대표 주소, 255은 direct broadcast 주소)
+### BroadCast
 
-### **비균등 Subnetting(=VLSM)**
-  * 새로 생성된 Subnet에 속하는 Host수가 다름
-  * 다양한 길이의 Subnet
-  * 가변 길이 Subnet Mask
-  * **하나의 네트워크 영역을 서로 다른 크기로 Subnetting**하는 기법
-  * VLSM (Variable Length Subnet Mask)라고 부름  
-  ![image](/assets/img/network/bit.jpg)
-  * <span style="color:rgb(203, 171, 237)"> ex) 회사 사용 network 201.10.1.0/24 Main Network 1개)</span>
-    * <span style="color:rgb(203, 171, 237)">4개의 부서별로 Network를 분리 (Subnet 4개 필요)해야 함</span>
-    * <span style="color:rgb(203, 171, 237)">영업부는 120개, 인사부는 60개, 관리부와 홍보부는 20개씩 Host 사용)</span>
+- NetWork 상 불특정 다수에게 통신 발송함
+- IPv4에서만 사용됨
+- ex)
+  - 라디오, TV
 
-|부서|사용 가능 host|IP 범위|CIDR 표기법|
-|:--:|:--:|:--:|:--:|
-영업부|host 120개 < 2^**7**(128) → **host-bit : 7**|201.10.1.0 ~ 201.10.1.127|255.255.255.128
-인사부|host 60개 < 2^**6**(64) → host-bit : **6**|201.10.1.128 ~ 201.10.1.191|255.255.255.64
-관리부|host 20개 < 2^**5**(32) → host-bit : **5**|201.10.1.192 ~ 201.10.1.223|255.255.255.32
-홍보부|host 20개 < 2^**5**(32) → host-bit : **5**|201.10.1.224 ~ 201.10.1.255|255.255.255.32  
-  
+### Multicast
+
+- NetWork 상 특정 다수(그룹)에게 통신 발송함
+- ex)
+  - 사내 방송, 특정 그룹 채팅
+
+### UniCast
+
+- 1 : 1 통신 발송 방식임
+- ex)
+  - 전화 통화
+
+### AnyCast
+
+- 가장 가까운 곳에 있는 불특정 다수에게 랜덤(혹은 최적 경로)으로 통신 발송함
+- IPv6에서 주로 사용됨 (IPv4도 제한적 사용)
+- ex)
+  - CDN 접속
+
 <br/><br/>
 
-# Supernet
----
-### **Supernet**
-  * 축약 (Summary)
-  * 공통되는 호스트를 구해 Subnet 지정
-  * 연산부하 줄이거나 상세정보를 감추려고 **Network를 합치는 개념**
-    ![image](/assets/img/network/subnet.jpg)
-  * 서로 다른 Network 영역일 때는 Routing 하지만 **같은 Network 영역이 되기 때문에 Switching** 하게 됨
+## CIDR 표기법
 
-  * <span style="color:rgb(203, 171, 237)"> ex) <span style="color:#F26C6C">홍</span> <span style="color:#5A9EFF">길동</span> → <span style="color:#F26C6C">호</span> <span style="color:#5A9EFF">ㅇ길동</span>
-  * <span style="color:rgb(203, 171, 237)"> ex) 11.1.0.0/24</span> → <span style="color:#F26C6C"><span style="background-color:#C3D8D9">0000 1011.0000 0001.0000 0</span><span style="background-color:#D7BFD9">000</span></span><span style="color:#5A9EFF">.0000 0000</span>
-  * <span style="color:rgb(203, 171, 237)"> ex) 11.1.1.0/24</span> → <span style="color:#F26C6C"><span style="background-color:#C3D8D9">0000 1011.0000 0001.0000 0</span><span style="background-color:#D7BFD9">001</span>​</span><span style="color:#5A9EFF">​.0000 0000</span>
-  * <span style="color:rgb(203, 171, 237)"> ex) 11.1.2.0/24</span> → <span style="color:#F26C6C"><span style="background-color:#C3D8D9">0000 1011.0000 0001.0000 0</span><span style="background-color:#D7BFD9">010</span>​</span><span style="color:#5A9EFF">.0000 0000</span>
-  * <span style="color:rgb(203, 171, 237)"> ex) 11.1.3.0/24</span> → <span style="color:#F26C6C"><span style="background-color:#C3D8D9">0000 1011.0000 0001.0000 0</span><span style="background-color:#D7BFD9">011</span>​</span><span style="color:#5A9EFF">​.0000 0000</span>
-  * <span style="color:rgb(203, 171, 237)"> ex) 11.1.4.0/24</span> → <span style="color:#F26C6C"><span style="background-color:#C3D8D9">0000 1011.0000 0001.0000 0</span><span style="background-color:#D7BFD9">100</span>​</span><span style="color:#5A9EFF">​.0000 0000</span>
-  * <span style="color:rgb(203, 171, 237)"> ex) 11.1.5.0/24</span> → <span style="color:#F26C6C"><span style="background-color:#C3D8D9">0000 1011.0000 0001.0000 0</span><span style="background-color:#D7BFD9">101</span>​</span><span style="color:#5A9EFF">​.0000 0000</span>
-  * <span style="color:rgb(203, 171, 237)"> ex) 11.1.6.0/24</span> → <span style="color:#F26C6C"><span style="background-color:#C3D8D9">0000 1011.0000 0001.0000 0</span><span style="background-color:#D7BFD9">110</span>​</span><span style="color:#5A9EFF">.0000 0000</span>
-  * <span style="color:rgb(203, 171, 237)"> ex) 11.1.7.0/24</span> → <span style="color:#F26C6C"><span style="background-color:#C3D8D9">0000 1011.0000 0001.0000 0</span><span style="background-color:#D7BFD9">111</span>​</span><span style="color:#5A9EFF">​.0000 0000</span>
-    * <span style="color:#F26C6C">Net-ID</span>
-    * <span style="color:#5A9EFF">Host-ID → 0으로 표기</span>
-    * <span style="color:#F26C6C"><span style="background-color:#C3D8D9">변하지 않는 Network-ID</span></span> → 1로 표기
-    * <span style="color:#F26C6C"><span style="background-color:#D7BFD9">변하는 Network-ID</span></span> → 0으로 표기
-  * <span style="color:rgb(203, 171, 237)"> ex) supernetting → 1111 1111.1111 1111.1111 1000.0000 0000</span>
-    * <span style="color:rgb(203, 171, 237)"> Net Mask → 255.255.248.0</span>
-    * <span style="color:rgb(203, 171, 237)">wildcard Mask → 0.0.7.255</span>
-    * <span style="color:rgb(203, 171, 237)">prefix → 21</span>
-* <span style="color:rgb(203, 171, 237)"> ex) 192.168.1.0 ⇒ 1111 1111.1111 1111.0000 0001.0000 0000</span>
-* <span style="color:rgb(203, 171, 237)"> ex) 192.168.2.0 ⇒ 1111 1111.1111 1111.0000 0010.0000 0000</span>
-* <span style="color:rgb(203, 171, 237)"> ex) 192.168.3.0 ⇒ 1111 1111.1111 1111.0000 0011.0000 0000</span>
-* <span style="color:rgb(203, 171, 237)"> ex) 192.168.4.0 ⇒ 1111 1111.1111 1111.0000 0100.0000 0000</span>
- * <span style="color:rgb(203, 171, 237)"> ex) 192.168.5.0 ⇒ 1111 1111.1111 1111.0000 0101.0000 0000</span>
-* <span style="color:rgb(203, 171, 237)"> ex) 1111 1111.1111 1111.0000 0111.0000 0000 ⇒ 255.255.**248(256-2^3)**.0</span>  
-  
+### CIDR란
+
+- **CIDR(Classless Inter-Domain Routing)**은 IP 주소 뒤에 슬래시(/)와 함께 네트워크 비트 수를 표기하는 방식임
+
+- **예**
+  - `192.168.1.0/24`
+  - `/24`
+    - 처음 24비트가 네트워크 부분
+  - 남은 8비트가 호스트 부분
+
+### CIDR 계산 방법
+
+- CIDR 숫자는 **Subnet Mask의 이진 표현에서 1의 개수**임
+
+  | Subnet Mask | 1의 개수 | CIDR |
+  | :--- | :---: | :---: |
+  | **255.255.255.0** | `1111...` (24개) | **/24** |
+  | **255.255.255.192** | `1111...` (26개) | **/26** |
+
+### 주요 CIDR 표기와 사용 가능 주소
+
+| CIDR | Subnet Mask | 총 주소 | 사용 가능 주소 | 용도 |
+|:---:|:---:|:---:|:---:|:---:|
+| /32 | 255.255.255.255 | 1 | 1 | 특정 호스트 |
+| /30 | 255.255.255.252 | 4 | 2 | 라우터 간 링크 |
+| /26 | 255.255.255.192 | 64 | 62 | 소규모 네트워크 |
+| /24 | 255.255.255.0 | 256 | 254 | 일반적인 회사망 |
+| /22 | 255.255.252.0 | 1024 | 1022 | 대규모 네트워크 |
+| /16 | 255.255.0.0 | 65,536 | 65,534 | 대규모 조직 |
+| /8 | 255.0.0.0 | 16,777,216 | 16,777,214 | 클래스 A |
+
 <br/><br/>
 
-# **통신 발송 방식**
----
-![image](/assets/img/network/cast.jpg)  
+## Subnet (서브넷)
 
-### **BroadCast**             
-* NetWork 상 불특정 다수에게 통신 발송
-* IPv4에서만 사용 
-* <span style="color:rgb(203, 171, 237)"> ex) 라디오, TV</span>
+### Subnetting이란
 
-### **Multicast**
-* NetWork 상 특정 다수에게 통신 발송
-* 특정 그룹 통신
-* <span style="color:rgb(203, 171, 237)"> ex) 부산방송, 서울방송, 학교에서 1반만 수업</span>
+- **Subnetting**은 하나의 큰 네트워크를 여러 개의 작은 네트워크(서브넷)로 나누는 과정임
 
-### **UniCast**
-* 1 : 1 통신 발송 방식 
-* <span style="color:rgb(203, 171, 237)"> ex) 통화</span>
+### Subnetting의 목적
 
-### **AnyCast**
-* 가장 가까운 곳에 있는 불특정 다수 랜덤으로 통신 발송 
-* 근거리 통신
-* IPv6에서만 사용 
-* <span style="color:rgb(203, 171, 237)"> ex) 무전기</span>
+- **주소 공간 효율화**
+  - 필요한 만큼만 주소 할당함
+- **네트워크 보안**
+  - 네트워크를 논리적으로 분리하여 보안을 강화함
+- **라우팅 최적화**
+  - 더 작은 라우팅 테이블로 효율성을 향상시킴
+- **대역폭 관리**
+  - 각 서브넷을 독립적으로 관리함
+
+### Subnetting 및 VLSM 예시
+
+- 네트워크 `192.168.1.0/24`를 4개의 서브넷으로 나누기
+- **VLSM (Variable Length Subnet Mask)**
+  - 하나의 네트워크 영역을 서로 다른 크기로 Subnetting하는 기법임
+
+- **원래 상황**
+  - 네트워크
+    - `192.168.1.0/24`
+  - 호스트 비트
+    - 8비트 (256개 주소)
+
+- 4개의 서브넷을 만들려면 호스트 부분에서 2비트를 빌려야 함 (2²=4)
+
+  - 새로운 Subnet Mask: `/26` (255.255.255.192)
+  - 각 서브넷: 64개 주소 (사용 가능 62개)
+
+  | 구분 | Network Address | Range |
+  | :--- | :--- | :--- |
+  | **Subnet 1** | `192.168.1.0/26` | 192.168.1.0 ~ 1.63 |
+  | **Subnet 2** | `192.168.1.64/26` | 192.168.1.64 ~ 1.127 |
+  | **Subnet 3** | `192.168.1.128/26` | 192.168.1.128 ~ 1.191 |
+  | **Subnet 4** | `192.168.1.192/26` | 192.168.1.192 ~ 1.255 |
+
+  ![image](/assets/img/network/image6.png)
+
+- ex)
+  - 회사 네트워크 설계
+  - 회사에 50명의 직원이 있고 `192.168.0.0/24`를 할당받은 경우
+    - **요구사항**
+      - 최소 50개의 사용 가능 주소 필요
+    - **선택**
+      - `/26` (62개 사용 가능)으로 4개 부서 분리
+      - IT 부서
+        - `192.168.0.0/26`
+      - 영업 부서
+        - `192.168.0.64/26`
+      - 개발 부서
+        - `192.168.0.128/26`
+      - 관리 부서
+        - `192.168.0.192/26`
+
+<br/><br/>
+
+## Supernet (슈퍼넷)
+
+### Supernetting이란
+
+- **Supernetting(라우트 집계, Route Aggregation)**은 여러 개의 인접한 작은 네트워크들을 하나의 큰 네트워크로 합치는 과정임
+- 즉, **Subnetting의 반대 개념**임
+
+### Supernetting의 목적
+
+- **라우팅 테이블 최적화**
+  - 개별 라우트를 하나로 합쳐 라우팅 테이블 크기를 줄임
+
+- 예를 들어 라우터가 4개의 네트워크로의 경로를 알고 있다면
+  ![image](/assets/img/network/image7.png)
+  - **개별 라우트**
+    - Route 1
+      - `192.168.0.0/26` → Interface A
+    - Route 2
+      - `192.168.0.64/26` → Interface A
+    - Route 3
+      - `192.168.0.128/26` → Interface A
+    - Route 4
+      - `192.168.0.192/26` → Interface A
+  - **Supernet 집계**
+    - `192.168.0.0/24` → Interface A (하나로 집계)
+
+### 라우팅 테이블 감소 효과
+
+- **메모리 절약**
+  - 라우팅 테이블 크기 감소
+- **CPU 활용**
+  - 라우트 검색 및 처리 속도 향상
+- **네트워크 대역폭**
+  - 라우팅 업데이트 트래픽 감소
+
+### Supernetting 예시
+
+- ISP가 다음 4개 네트워크를 관리하는 경우
+  ```
+  192.168.0.0/26
+  192.168.0.64/26
+  192.168.0.128/26
+  192.168.0.192/26
+  ```
+  - 모두 같은 인터페이스 향할 때
+    - 최상위 Route
+      - `192.168.0.0/24` 로 집계
+  
+- 이렇게 하면 다른 라우터는 4개의 라우트 대신 **1개의 슈퍼넷 라우트만 학습**하면 됨
+
+<br/><br/>
+
+## Subnet과 Supernet 비교
+
+| 구분 | Subnet | Supernet |
+|:---:|:---:|:---:|
+| **작업** | 큰 네트워크 → 작은 네트워크 | 작은 네트워크 → 큰 네트워크 |
+| **목적** | 주소 공간 효율화, 보안 | 라우팅 테이블 최적화 |
+| **CIDR** | 숫자 증가 (ex) /24→/26) | 숫자 감소 (ex) /26→/24) |
+| **사용 시기** | 내부 네트워크 설계 | ISP, 백본 라우팅 |
+| **범위** | 하나의 조직 내부 | 전체 인터넷 라우팅 |
+
+<br/><br/>
+
+## 실무 적용
+
+### 데이터센터 네트워크 설계
+
+- `10.0.0.0/16` 범위를 할당받은 경우 내부는 각 서브넷으로 표현
+  ```
+  웹 서버: 10.0.1.0/24
+  데이터베이스: 10.0.2.0/24
+  캐시 서버: 10.0.3.0/24
+  관리 네트워크: 10.0.4.0/24
+  ```
+  - 외부에는 하나의 슈퍼넷으로 표현
+    ```
+    데이터 센터: 10.0.0.0/16
+    ```
+### AWS/GCP에서의 적용
+
+- 클라우드 제공자들이 Subnetting을 사용함
+  | Zone | Subnet | CIDR |
+  | :--- | :--- | :--- |
+  | **VPC** | Main Config | `10.0.0.0/16` |
+  | **Public** | Scbnet 1 | `10.0.1.0/24` |
+  | **Public** | Subnet 2 | `10.0.2.0/24` |
+  | **Private** | Subnet 1 | `10.0.10.0/24` |
+  | **Private** | Subnet 2 | `10.0.11.0/24` |
+
+![image](/assets/img/network/image8.png)
+
+- 각 서브넷에 다른 보안 정책(Security Group, NACL)과 라우팅 규칙을 적용함
+
+<br/><br/>
+
+## 정리
+
+- **IP 주소**
+  - 32비트로 네트워크와 호스트 부분으로 구성됨
+- **Subnet Mask/CIDR**
+  - 어디까지가 네트워크이고 어디부터가 호스트인지 정의함
+- **Subnetting**
+  - 효율적인 주소 할당과 보안을 위해 큰 네트워크를 작게 분할함
+- **Supernetting**
+  - 라우팅 효율성을 위해 작은 네트워크들을 크게 집계함
+
+<br/><br/>
+
+## Reference
+
+- [JumpCloud: What is an IPv4 Subnet Mask?](https://jumpcloud.com/it-index/what-is-an-ipv4-subnet-mask)
+- [Wikipedia: IP Address](https://en.wikipedia.org/wiki/IP_address)
+- [Siemens Docs: Subnetting](https://docs.tia.siemens.cloud/r/cqZ~A44wWiHXUUGyrtjw~g/4Ax2WqHv7gKGtY19GpPUMg)
