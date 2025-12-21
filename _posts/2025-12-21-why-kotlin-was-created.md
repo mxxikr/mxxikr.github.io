@@ -3,12 +3,12 @@ title: "코틀린의 탄생 배경과 특징"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
-date: 2025-12-21 19:17:00 +0900
+date: 2025-12-21 19:30:00 +0900
 category:
   - [Language, Kotlin]
 tags: [kotlin, language, jetbrains]
 math: true
-mermaid: trueㄴ
+mermaid: true
 ---
 
 # 개요
