@@ -19,7 +19,7 @@ mermaid: true
 
 <br/><br/>
 
-## OLTP vs OLAP
+## OLTP와 OLAP
 
 ### OLTP (Online Transactional Processing)
 
@@ -95,11 +95,11 @@ mermaid: true
   - 한 행의 모든 데이터가 함께 저장되므로, 한 행을 조회하기 빠름
   - 한 행을 한 번의 메모리 접근으로 읽을 수 있음
   - INSERT/UPDATE 쉬움 (한 행의 모든 값을 한 번에 변경)
-- 단점
-  - 특정 컬럼만 집계하려면 비효율적
-  - `SELECT AVG(age) FROM customers WHERE city = 'Seoul'` 실행 시
-    - 100만 행에서 name, email, city 정보까지 다 읽어야 함 (불필요한 I/O)
-  - 압축이 안 좋음 (다양한 데이터 타입이 섞여있음)
+  - 단점
+    - 특정 컬럼만 집계하려면 비효율적
+    - `SELECT AVG(age) FROM customers WHERE city = 'Seoul'` 실행 시
+      - 100만 행에서 name, email, city 정보까지 다 읽어야 함 (**불필요한 I/O 발생**)
+    - 압축이 안 좋음 (다양한 데이터 타입이 섞여있음)
 
 ### Columnar Storage
 
@@ -122,14 +122,15 @@ mermaid: true
 
 ![image](/assets/img/database/image10.png)
 
-- 장점
-  - 분석 쿼리 빠름
-    - `SELECT AVG(age) WHERE city='Seoul'` 실행 시
-    - age와 city 컬럼만 읽으면 되고, 나머지는 스킵
-    - Row-based는 100만 행 전체를 읽어야 하지만, Columnar는 필요한 2개 컬럼만 읽음 (100배 이상 빠름)
-  - 압축이 우수함
-    - 같은 타입의 데이터끼리 저장되므로 패턴 인식 압축이 효과적 (저장 용량 90% 감소 가능)
-  - 메모리 효율
+  - 장점
+    - 분석 쿼리 빠름
+      - `SELECT AVG(age) WHERE city='Seoul'` 실행 시
+      - age와 city 컬럼만 읽으면 되고, 나머지는 스킵
+      - Row-based는 100만 행 전체를 읽어야 하지만, Columnar는 **필요한 2개 컬럼만 쏙 빼서** 읽음 (100배 이상 빠름)
+    - 압축이 우수함
+      - 같은 타입의 데이터를 연속으로 저장하므로 압축 효율이 극대화됨
+      - 예: `city` 컬럼에 'Seoul'이 100만 개 있으면, `Seoul: 100만개` 형태의 메타데이터로 저장하여 용량을 획기적으로 줄임 (저장 용량 90% 이상 감소)
+    - 메모리 효율
     - 필요한 컬럼만 메모리에 로드
 - 단점
   - 한 행 조회 느림
@@ -163,8 +164,9 @@ mermaid: true
 
 ![image](/assets/img/database/image12.png)
 
-- Shared-Nothing Architecture
+- Shared-Nothing Architecture (또는 Storage-Compute Decoupled)
   - 각 노드가 독립적으로 자신의 데이터 처리
+  - **BigQuery**는 특히 스토리지(Colossus)와 연산(Borg)이 완전히 분리된 구조로, 무제한 확장성을 제공함
 - 특징
   - 쿼리가 자동으로 분산 (1조 행 데이터도 수천 개 노드에서 병렬 처리)
   - 수평 확장 자동 (노드 추가하면 성능 거의 선형 증가)
@@ -175,17 +177,17 @@ mermaid: true
 
 ## 데이터베이스 비교
 
-### AnalyticDB vs BigQuery
+### AnalyticDB와 BigQuery
 
 | 특징 | AnalyticDB for MySQL | BigQuery |
 |:---|:---|:---|
-| **아키텍처** | MPP (분산) | Serverless MPP + Colossus 저장 |
+| **아키텍처** | MPP (분산) | **Serverless (Storage-Compute Decoupled)** |
 | **스토리지** | 컬럼 기반 | 컬럼 기반 (Capacitor 포맷) |
-| **가격 모델** | 예약형 (시간당) | On-Demand (TB당) 또는 Slot 예약 |
+| **가격 모델** | 예약형 (시간당) | On-Demand (TB당) 또는 Editions (Autoscaling) |
 | **쿼리 속도** | 중간~빠름 (수초) | 매우 빠름 (초 단위) |
 | **데이터 크기 제한** | 클러스터 용량 제한 | 무제한 (페타바이트) |
 | **관리 복잡도** | 높음 (노드 관리) | 낮음 (자동 관리) |
-| **실시간 삽입** | 가능하지만 배치 권장 | 매우 우수 (스트리밍 지원) |
+| **실시간 삽입** | **매우 우수 (MySQL 호환)** - 높은 동시성 | 우수 (스트리밍 지원, 비용 발생) |
 | **강점** | 기존 MySQL 호환성 | 무제한 확장성, 구글 ML 통합 |
 
 ### 가격 모델 비교
@@ -201,18 +203,16 @@ mermaid: true
   - 데이터 저장: $0.15/GB/month
   - 특징: 예측 가능한 비용
 - BigQuery (구글)
-  - Option A: On-Demand (기본)
+  - Option A: On-Demand (문서당 과금)
     - 쿼리 비용: $6.25 per TiB 스캔 (약 $5.70 per TB)
-    - 100TB 분석: $570
-    - 저장비: $20/TB active, $10/TB long-term
     - 특징: 사용한 만큼만 지불, 비용 예측 어려움
-  - Option B: Capacity (예약형)
-    - 월간: 기본 100 Slot ≈ $2,000
-    - Flex Slots: 시간당 (버스트 필요시)
-    - 특징: 대량 쿼리면 저렴, 예측 가능
+  - Option B: **BigQuery Editions (Slot Autoscaling)**
+    - 쿼리량에 따라 슬롯(연산 자원)이 자동으로 늘어나고 줄어드는 구조
+    - **Standard / Enterprise / Enterprise Plus** 등급에 따라 슬롯당 비용 지불
+    - 기존의 정액제(Flat Rate)는 폐지됨
+    - 특징: "예측 가능성"보다는 **"성능과 비용의 유연성"**이 강조됨
   - 예시
-    - 월 1000TB 분석 필요 → On-Demand는 $5,700 / Capacity는 $2,000
-    - 월 10TB만 분석 → On-Demand는 $57 / Capacity는 $2,000 (낭비)
+    - 쿼리가 없을 때는 슬롯 0개 (비용 0), 폭주시 수천 개로 자동 확장 (비용 발생)
 
 <br/><br/>
 

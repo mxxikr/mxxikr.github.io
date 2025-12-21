@@ -110,21 +110,7 @@ WHERE parent_table = '{SCHEMA_NAME}.{TABLE_ID}';
   - `p_start_partition`
     - partition 시작지점
 
-```mermaid
-graph TD
-    Main[메인 테이블<br/>{TABLE_ID}] -->|파티션 생성| P1["{TABLE_ID}_p2024_01_01"]
-    Main --> P2["{TABLE_ID}_p2024_01_02"]
-    Main --> P3["{TABLE_ID}_p2024_01_03"]
-    Main --> P4["..."]
-    Main --> P5["{TABLE_ID}_p2024_01_15"]
-    
-    PM[pg_partman] -.->|자동 관리| Main
-    PM -.->|retention<br/>6개월| Old["{TABLE_ID}_p2023_07_01<br/>(삭제)"]
-    
-    style Main fill:#bbf,stroke:#333
-    style PM fill:#f96,stroke:#333
-    style Old fill:#ddd,stroke:#333,stroke-dasharray: 5 5
-```
+![mermaid-diagram](/assets/img/database/2022-09-01-postgre-query-diagram-1.png)
 
 ### 파티션 테이블 수동 생성
 
@@ -296,23 +282,7 @@ ALTER USER {USER_ID} WITH PASSWORD '{USER_PASSWORD}';
 | **Privilege_type** | 권한의 유형 |
 | **Is_grantable** | 권한을 줄 수 있을 경우 YES, 아닐 경우 NO |
 
-```mermaid
-flowchart TD
-    DB[(Database)] --> Schema1[Schema]
-    Schema1 --> T1[Table 1]
-    Schema1 --> T2[Table 2]
-    
-    User[User/Role] -.->|CONNECT| DB
-    User -.->|USAGE| Schema1
-    User -.->|SELECT, INSERT| T1
-    User -.->|SELECT| T2
-    
-    style DB fill:#bbf,stroke:#333
-    style Schema1 fill:#bfb,stroke:#333
-    style T1 fill:#fbb,stroke:#333
-    style T2 fill:#fbb,stroke:#333
-    style User fill:#ffe,stroke:#333
-```
+![postgres_permission_structure](/assets/img/database/postgres_permission_structure.png)
 
 ### 권한 확인
 

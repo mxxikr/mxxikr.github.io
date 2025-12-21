@@ -1,5 +1,5 @@
 ---
-title: "Disk와 Partition"
+title: "Linux 디스크 및 파티션 관리"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
@@ -7,356 +7,893 @@ date: 2022-10-31 22:55:00 +0900
 category:
   - [OS, Linux]
 tags:
-  - [os, linux, mount]
+  - [os, linux, mount, storage, lvm, partition, devops]
 math: true
 mermaid: true
 ---
-# Disk 구조와 타입
----
-### **디스크 구조**
-* **하드 디스크 구조**  
-![image](/assets/img/linux/disk-1.jpg)  
-  * `sector`
-    * 하드 디스크의 가장 작은 흐름 단위
-  * `boot sector`
-    * 가장 최초의 섹터(파티션마다 부트섹터가 있음)
-  * `MBR (Master Boot Sector)`
-    * 가장 최초의 부트 섹터           
-  * `cylinder`
-    * 하드 디스크 용량 결정 (용량 단위)
-
-### **Disk Type**
-* **IDE** 
-  * 가장 오래된 규격
-  * 40개의 핀으로 구성된 직사각형 포트
-  * 데이터를 병렬로 전송(병렬 하드)
-  * 컴퓨터와 디스크 구동 장치 간의 표준 인터페이스
-  * CPU에서 직접 하드 관리
-  * 부팅 중 장착 불가
-  * 장치명 : `/dec/hda`, `/dec/hdb`, `/dec/hdc` 등
-
-* **SATA**(Serial Advanced Technologly Attachment)
-  * 최근에 나온 interface로 하드 디스크 드라이브의 속도와 연결 방식을 개선하기 위해 개발
-  * 직렬 방식 interface(직렬 하드)
-  * IDE 확장 버전
-  * 장치명 : `/dec/sda`, `/dec/sdb`, `/dec/sdc` 등
-
-* **SCSI**(Small Computer System Interface) 
-  * 서버나 워크스테이션 등에 쓰이는 고속 인터페이스
-  * 안정성이 높지만 가격이 비쌈
-  * 별도의 확장 카드를 사용해야 함
-  * 컴퓨터와 주변 장치들을 연결하는 인터페이스 규격
-  * 하드 디스크 컨트롤러
-  * 액세스 속도는 높으나 데이터 저장공간이 많지않음 (디스크 플래터 1장)
-  * 초기 병렬 방식 → 직렬 방식 interface (직렬 하드)
-  * 내부 SCISI chip에서 직접 하드 관리
-  * 부팅 중 장착 가능
-  * 장치명 : `/dec/sda`, `/dec/sdb`, `/dec/sdc` 등
-
-* **SAS**(Serial Attached SCSI) 
-  * SCSI 규격을 한단계 발전 시킨 disk 
-  * 서버 등 대형 컴퓨터에 주로 사용 (서버 계의 SSD)
-  * SATA 하드 디스크를 SAS 장치에 연결 가능, SAS 하드 디스크를 SATA interface에 연결 불가 
-  * 직렬 방식 interface (직렬 하드)
-  * 장치명 : `/dec/sda`, `/dec/sdb`, `/dec/sdc` 등
-
-* **SSD**(Solid State Drive)
-  * 하드 디스크 드라이브와 비슷하게 동작하면서도 반도체를 이용하여 정보를 저장
-  * 고속으로 데이터 입출력 가능
-  * 기계적 지연이나 실패율 적음
-  * 장치명 : `/dec/sda`, `/dec/sdb`, `/dec/sdc`,등
-
-### **Windows와 Linux의 하드 디스크 구조**      
-
-|분류|Windows|Linux|
-|:--:|:--:|:--:|
-|**하드 이름**|disk|`/dev/sda,b,c,d,e` 등|
-|**파티션명**|`C:`, `D:`, drive|`/dev/sdx1,2,3,4,5` 등, 1 ~ 4 physical 영역, 5 ~ logical 영역|
-|**파티션 도구**|disk part, partition magic, fdisk (98이후 X)|fdisk, parted(2TB이상 하드)|
-|**포맷**|windows 탐색기|mkfs(MaKe File System)|
-|**FileSystem**|FAT시리즈, NTFS, REFS|UFS, EXT 시리즈|    
 
 <br/><br/>
 
-# Partition 구조
----
-### **파티션 (partition)**  
-* 하드 디스크를 논리적으로 나눈 구역  
-* 하나의 디스크를 여러개의 파티션으로 나누면 각 파티션마다 하나의 드라이브로 인식  
-* 하나의 하드 디스크에는 <span style="color:#F26C6C">**최대 3개의 primary**와 **1개의 extended 파티션** 생성 가능</span>    
-  ![image](/assets/img/linux/disk-2.jpg)   
-      **<span style="color:#F26C6C">primary 파티션 1</span>**, extended 파티션 0 (logical 파티션 0)  
-      **<span style="color:#F26C6C">primary 파티션 2</span>**, extended 파티션 0 (logical 파티션 0)  
-      **<span style="color:#F26C6C">primary 파티션 3</span>**, extended 파티션 0 (logical 파티션 0)  
-      **<span style="color:#F26C6C">primary 파티션 3</span>**, **<span style="color:#F26C6C">extended 파티션 1</span>** (<span style="color:#F26C6C">**logical 파티션 2**</span>)    
-      **<span style="color:#F26C6C">primary 파티션 3</span>**, **<span style="color:#F26C6C">extended 파티션 1</span>** (<span style="color:#F26C6C">**logical 파티션 5**</span>)      
+## 디스크 장치 이름 체계
 
-### **primary 파티션**
-* 기본 파티션
-* 주파티션
-* 부팅 파티션 사용
-* **최대 3개**  
 
-### **extended 파티션**
-* 확장 파티션
-* 여러 개의 논리(logical) 드라이브로 나뉨
-* 논리 영역 공간
-* 부팅 하드 X
-* **최대 1개**
+### Linux 장치 명명 규칙
 
-<br/><br/>
+- Linux는 모든 하드웨어를 파일로 취급
+- 디스크 타입과 연결 방식에 따라 장치 이름 다름
+- 모든 장치 파일은 `/dev` 디렉토리에 위치
 
-# Linux Disk와 FileSystem
----
-### **File System**
-* 파일 다루거나 조작 할 때 관리하기 편하게 파일이 운용되는 방식(틀) 
-* `ufs`
-  * 유닉스 파일 시스템
-* `ext2`
-  * 속도 UP
-* `ext3`
-  * 속도 UP
-  * 저널링 기능
-  * 안정성 UP
-* `ext4`
-  * 속도 UP
-  * 저널링 기능 대폭 향상
-  * 안정성 UP
-  * 가장 효율적
-* `xfs`
-  * 2TB 이하에서는 비효율 (대용량 파일 시스템)
 
-### **Linux Disk 관련 명령어**
-* `fdisk` (**f**ixed **disk**)
-  * **<span style="color:#F26C6C">하드 디스크 분할, 파일 시스템 지정, 새 하드 디스크 포맷이 가능한 상태</span>**로 만드는 프로그램
-  * **<span style="color:#F26C6C">linux의 disk 파티션을 생성, 수정, 삭제</span>** 할 수 있는 유틸리티
-  * 주로 파티션 나눌 때 사용하는 명령어 
-  * `/dev/하드 장치명`
-    * 하드 파티션 구성하기
-  * `-a`
-    * 부트 가능한 flag로 변경
-  * `-b`
-    * bsd 디스크 레이블을 편집
-  * `-c`
-    * DOS 호환 flag로 변경
-  * `-d`
-    * 파티션 삭제
-  * `-l`
-    * 하드 디스크 전체 list 보기
-  * `-m`
-    * 메뉴얼
-    * `--help`와 동일
-  * `-n`
-    * 파티션 생성
-  * `-p`
-    * 파티션 상태 보기
-    * 파티션 테이블 출력
-  * `-q`
-    * 파티션 변경 저장하지 않고 종료
-  * `-w`
-    * 파티션 저장 후 종료
-    * 디스크에 테이블을 기록하고 나가기
-  * `-t`
-    * 파티션의 시스템 ID를 변경
-    * 파티션 속성 변경
-* `mkfs` (**M**a**K**e **F**ile**S**ystem)
-  ```bash
-  mkfs -t {FILE_SYSTEM_TYPE} {DEVICE_NAME}  
-  ```
-  ```bash
-  mkfs.{FILE_SYSTEM_TYPE} {DEVICE_NAME}
-  ```
-    * **<span style="color:#F26C6C">파티션 작업을 한 하드 디스크 포맷</span>**할 때 사용 
-    * extended 파티션은 포맷 불가능
-    * `-t`
-      * 파일 시스템의 형식을 지정(`ext2`, `ext3`, `ext4` 등)
-* `mount`
-  ```bash
-  mount -t {FILE_SYSTEM_TYPE} -o {옵션} {DEVICE_NAME} {MOUNT_POINT}
-  ```
-    * **<span style="color:#F26C6C">Directory에 파티션을 나누고 포맷 통해 드라이브 연결</span>**하는 개념
-    * Linux는 디스크를 파티션으로 나누고 포맷 한 후에 mount 해야 함
-    * **<span style="color:#F26C6C">포맷이 완료된 파티션 및 장치를 사용자가 읽고 쓸 수 있도록 디렉토리에 연결하는 것</span>** (장치 연결)
-    * mount point로 할 directory 생성해야 함
-    * mount point 외의 장소에서 mount 해야 함
-    * `-t`
-      * 파일 시스템의 형식을 지정(`ext2`, `ext3`, `ext4` 등)
-    * `-o`
-      * 옵션 (`rw`, `suid`, `exec`, `auto`, `nouser`, `async` 등)
-* `umount`
-  ```bash
-  umount {DEVICE_NAME}
-  umount {MOUNT_POINT}
-  ```
-    * **<span style="color:#F26C6C">마운트 해제</span>** 명령어
-    * mount point 외의 장소에서 umount 해야함
-* `fuser`
-  ```bash
-  fuser {MOUNT_POINT}
-  ```
-    * **<span style="color:#F26C6C">directory 내 process 확인</span>**
-    * 특정 파일이나 directory를 사용하는 process 정보나 사용자 정보 확인 가능
-      * `-u`
-        * process와 사용자 정보 출력
-      * `-v`
-        * process와 사용자의 상세 정보 출력
-      * `-k`
-        * process를 모두 종료
-      * `-mk`
-        * 디렉토리 내 프로세스 모두 종료 (긴급)
-* `df`
-  * **<span style="color:#F26C6C">하드 디스크 여유 공간 확인</span>** 명령어
-  * `-h`
-    * **<span style="color:#F26C6C">mount 확인</span>**
-  * `-Th`
-    * **<span style="color:#F26C6C">file system 정보와 mount 확인</span>**
-* `du`
-  * **<span style="color:#F26C6C">하드 디스크 사용 공간 확인</span>** 명령어
-* `blkid`
-  * **<span style="color:#F26C6C">포맷한 파일 시스템 확인</span>** 명령어
+### 디스크 타입별 장치명
 
-### **​fsck 에러 코드**  
+![image](/assets/img/linux/disk-device-naming.png)
 
-|Error Code|Error Type|Description|
-|:--:|:--:|:--:|
-|<span style="color:#F26C6C">**0**</span>|clean|에러 X|
-|<span style="color:#F26C6C">**1**</span>|fix|파일 시스템 에러 고쳐짐|
-|<span style="color:#F26C6C">**2**</span>|reboot|리부팅 필요|
-|<span style="color:#F26C6C">**4**</span>|save|파일 시스템 에러 고치지 않고 그대로 둠|
-|<span style="color:#F26C6C">**8**</span>|exe error|실행 에러|
-|<span style="color:#F26C6C">**16**</span>|use error|사용법 또는 문법 에러|
-|<span style="color:#F26C6C">**128**</span>|lib error|공유 라이브러리 에러|  
+
+### 주요 디스크 타입
+
+| 타입 | 장치명 예시 | 파티션 명명 | 특징 | 사용 환경 |
+|------|-------------|-------------|------|-----------|
+| **SATA/SCSI/SAS** | `/dev/sda`, `/dev/sdb` | `sda1`, `sda2` | 가장 일반적인 명명 규칙 | 대부분의 서버, 데스크톱 |
+| **NVMe SSD** | `/dev/nvme0n1`, `/dev/nvme1n1` | `nvme0n1p1`, `nvme0n1p2` | 고속 SSD, p 접두사 사용 | 최신 서버, 고성능 시스템 |
+| **가상 디스크 (KVM/Xen)** | `/dev/vda`, `/dev/vdb` | `vda1`, `vda2` | 가상화 환경 전용 | 클라우드, 가상 머신 |
+| **IDE (레거시)** | `/dev/hda`, `/dev/hdb` | `hda1`, `hda2` | 거의 사용하지 않음 | 구형 시스템 |
+
+
+### NVMe 장치명 구조
+
+- **nvme0n1 구조 설명**
+  - `nvme0`
+    - 첫 번째 NVMe 컨트롤러
+  - `n1`
+    - 첫 번째 네임스페이스 (Namespace)
+    - 보통 물리 디스크 1개 = 네임스페이스 1개
+  - `p1`
+    - 첫 번째 파티션 (Partition)
+
+- 예시
+  - `/dev/nvme0n1p1`
+    - 첫 번째 NVMe 컨트롤러, 첫 번째 네임스페이스, 첫 번째 파티션
+
 
 <br/><br/>
 
-# Linux Mount
----
-### **Linux Disk 수동 Mount**
-* **<span style="color:#F26C6C">하드 디스크 추가 → 파티션 생성 → 포맷 → mount</span>**   
+## 디스크 구조 및 타입
 
-1. 하드 디스크 재부팅 없이 인식
-  ```bash
-  find /sys -name scan  # 가장 마지막 host 내용 드래그
-  echo "- - -" > /sys/device/~~  # 마지막 host 내용 붙이기
-  ```
-2. 새 디스크 장착
-  * VMware Virtual Machine Settings → Hardware → HDD 추가
-3. 디스크에 파티션 나누기
-  ```bash
-  fdisk -l  # 추가한 HDD list 확인
-  fdisk /dev/sdb  # 추가한 /dev/sdb를 fdisk 명령어를 이용하여 실행
-    p  # 파티션 테이블 출력(현재 파티션 정보 확인)
-    n  # 새로운 파티션 추가
-    p  # primary 파티션 생성
-    1  # 파티션 넘버 1 선택
-    # Enter
-    # Enter
-    p  # 파티션 생성 확인
-    w  # 파티션 정보 저장
-  ```
-4. 파티션에 파일 시스템 생성 (포맷)
-  ```bash
-  blkid  # 파일 시스템 타입 구성 확인 (sdb1 fs 확인)
-  mkfs.ext4 /dev/sdb1  # /dev/sdb1 파티션을 포맷 
-  done  # 저널공간 생성 확인
-  ```
-5. 디스크 마운트 및 마운트 해제
-  ```bash
-  df -h  # mount 정보 출력, sdb1은 mount 되지않은 상태 확인 
-  mkdir /mount  # mount point로 지정할 directory 생성
-  cd /mount  # mp directory로 이동
-  pwd  # 현재 위치 확인
-  ls -l                                   
-  mount -t ext4 /dev/sdb1 /mount  # ext 4 파일 시스템 형식으로 /dev/sdb1을 /mount 디렉토리에 mount (mount할때는 mp밖에서)
-  df -h  # mount 정보 출력 (/dev/sdb1이 /mount에 마운트된 것 확인)
-  touch 1.txt  # 1.txt 파일 생성
-  ls -l  # mount 후에 1.txt 존재하는 것 확인
-  umount /mount  # 마운트 해제 (umount할 때는 mp밖에서)
-  df -Th  # mount 정보 출력 (-T : filesystem type 출력)
-  ls -l  # umount 후에는 1.txt 존재하지 않는 것 확인                                 
-  ```
-    * lost+found 디렉토리  
-      * mount 되는 파일 시스템에 존재하는 fsck 등에 의해서 발견된 결함이 있는 파일에 대한 정보가 보관되는 디렉토리
 
-### **Linux Disk 자동 Mount**
-* **<span style="color:#F26C6C">컴퓨터 재부팅 시 mount 했던 설정들은 초기화 됨</span>**   
+### 하드 디스크 물리 구조
 
-1. 파일 시스템 타입 구성 확인
+- **Sector**
+  - 하드 디스크의 가장 작은 저장 단위
+  - 전통적으로 512 바이트
+
+- **Boot Sector**
+  - 각 파티션의 가장 첫 번째 섹터
+  - 부팅 정보 포함
+
+- **MBR (Master Boot Record)**
+  - 디스크 전체의 가장 첫 번째 부트 섹터
+  - 파티션 테이블 정보 보유
+  - 최대 2TB 제한
+
+- **Cylinder**
+  - 하드 디스크 용량을 결정하는 단위
+  - 여러 플래터(Platter)의 동일 위치 트랙 집합
+
+![mermaid-diagram](/assets/img/linux/2022-10-31-disk-partition-diagram-1.png)
+
+
+
+### 디스크 인터페이스 타입 비교
+
+| 타입 | 전송 방식 | 속도 | 주요 특징 | 장치명 | 사용 환경 |
+|------|-----------|------|-----------|--------|-----------|
+| **IDE** | 병렬 (Parallel) | 느림 | 구형 규격, CPU 직접 관리 | `/dev/hda` | 거의 사용 안 함 |
+| **SATA** | 직렬 (Serial) | 중간 | IDE 개선 버전, 핫플러그 지원 | `/dev/sda` | 일반 PC, 서버 |
+| **SCSI** | 직렬 | 빠름 | 고속, 안정성 높음, 비쌈 | `/dev/sda` | 워크스테이션, 서버 |
+| **SAS** | 직렬 | 매우 빠름 | SCSI 발전형, SATA 호환 | `/dev/sda` | 엔터프라이즈 서버 |
+| **SSD** | - | 매우 빠름 | 반도체 기반, 기계 지연 없음 | `/dev/sda` | 모든 환경 |
+| **NVMe SSD** | PCIe | 최고 | 최신 고속 인터페이스 | `/dev/nvme0n1` | 고성능 시스템 |
+
+
+### 주요 디스크 타입 상세
+
+- **IDE (Integrated Drive Electronics)**
+  - 40핀 직사각형 포트
+  - 병렬 데이터 전송
+  - CPU가 직접 관리
+  - 부팅 중 장착 불가
+  - 거의 사용하지 않음
+
+- **SATA (Serial Advanced Technology Attachment)**
+  - 직렬 데이터 전송
+  - IDE의 개선 버전
+  - 핫플러그 지원
+  - 가장 일반적인 인터페이스
+
+- **SCSI (Small Computer System Interface)**
+  - 서버급 고속 인터페이스
+  - 안정성 높지만 비쌈
+  - 전용 컨트롤러 필요
+  - 내장 칩에서 디스크 관리
+  - 부팅 중 장착 가능
+
+- **SAS (Serial Attached SCSI)**
+  - SCSI의 직렬 버전
+  - 서버 및 대형 컴퓨터용
+  - SATA 디스크를 SAS 컨트롤러에 사용 가능 (역은 불가)
+  - 엔터프라이즈급 성능
+
+- **SSD (Solid State Drive)**
+  - 반도체 기반 저장 장치
+  - 기계적 지연 없음
+  - 고속 입출력
+  - 낮은 실패율
+
+
+<br/><br/>
+
+## 파티션 개념 및 구조
+
+
+### 파티션 필요성
+
+- 하드 디스크를 논리적으로 나눈 구역
+- 각 파티션은 독립된 드라이브로 인식
+- OS와 데이터 분리로 안정성 향상
+- 다양한 파일 시스템 동시 사용 가능
+
+
+### MBR 파티션 구조
+
+![mermaid-diagram](/assets/img/linux/2022-10-31-disk-partition-diagram-2.png)
+
+![image](/assets/img/linux/partition-structure.png)
+
+
+### 파티션 타입
+
+- **Primary 파티션 (주 파티션)**
+  - 최대 3개까지 생성 가능 (Extended 사용 시)
+  - 부팅 가능
+  - 독립적인 파일 시스템
+
+- **Extended 파티션 (확장 파티션)**
+  - 최대 1개만 생성 가능
+  - 직접 사용 불가 (컨테이너 역할)
+  - 논리 파티션을 담는 공간
+  - 부팅 불가
+
+- **Logical 파티션 (논리 파티션)**
+  - Extended 파티션 내부에 생성
+  - 개수 제한 없음
+  - 번호는 5번부터 시작
+  - 데이터 저장용
+
+
+
+### 파티션 조합 예시
+
+| 구성 | Primary | Extended | Logical | 설명 |
+|------|---------|----------|---------|------|
+| **케이스 1** | 3개 | 0개 | 0개 | 모두 Primary로 구성 |
+| **케이스 2** | 2개 | 1개 | 여러 개 | 일반적인 구성 |
+| **케이스 3** | 1개 | 1개 | 여러 개 | OS 하나 + Extended |
+| **케이스 4** | 3개 | 1개 | 여러 개 | MBR 최대 구성 |
+
+
+<br/><br/>
+
+## 파티셔닝 도구
+
+
+### 도구 비교
+
+| 도구 | 지원 파티션 타입 | 디스크 크기 제한 | 인터페이스 | 주요 용도 |
+|------|------------------|------------------|------------|-----------|
+| **fdisk** | MBR 최적화 w/ GPT Support | 2TB 이하 권장 | 대화형 | 간단한 파티션 작업, MBR 디스크 |
+| **gdisk** | GPT 전용 | 2TB 이상 지원 | 대화형 | 대용량 디스크, 최신 시스템 |
+| **parted** | MBR, GPT 모두 지원 | 제한 없음 | 대화형 + 스크립트 | 범용적 사용, 자동화 |
+
+
+### fdisk 명령어
+
+- MBR 파티션 테이블 관리 도구
+- 2TB 이하 디스크 권장
+
+
+#### 주요 옵션
+
+- `-l`
+  - 모든 디스크의 파티션 목록 표시
+
+- 대화형 명령어 (fdisk /dev/sdb 실행 후)
+  - `p`
+    - 파티션 테이블 출력
+  - `n`
+    - 새 파티션 생성
+  - `d`
+    - 파티션 삭제
+  - `t`
+    - 파티션 타입 변경
+  - `w`
+    - 변경 사항 저장 후 종료
+  - `q`
+    - 저장하지 않고 종료
+  - `m`
+    - 도움말 표시
+
+> **참고**: 최신 `fdisk` 버전은 **GPT 파티션 테이블을 지원**합니다. 과거에는 MBR 전용이었으나, 현재는 대화형 인터페이스로 GPT 디스크 관리도 가능합니다. 다만, 대용량 디스크 관리에는 `parted`나 `gdisk`가 여전히 많이 사용됩니다.
+
+
+
+### parted 사용법
+
+- MBR과 GPT 모두 지원하는 범용 도구
+- 스크립팅 가능
+
+```bash
+# parted 실행
+sudo parted /dev/sdb
+
+# GPT 레이블 설정 (2TB 이상 디스크)
+(parted) mklabel gpt
+
+# 파티션 생성 (전체 용량 사용)
+(parted) mkpart primary ext4 0% 100%
+
+# 파티션 테이블 확인
+(parted) print
+
+# 종료
+(parted) quit
+```
+
+
+### gdisk 사용법
+
+- GPT 파티션 전용 도구
+- 2TB 이상 디스크 필수
+- fdisk와 유사한 인터페이스
+
+```bash
+# gdisk 실행
+sudo gdisk /dev/sdb
+
+# 대화형 명령어
+p  # 파티션 테이블 출력
+n  # 새 파티션 생성
+d  # 파티션 삭제
+w  # 저장 후 종료
+q  # 저장하지 않고 종료
+```
+
+
+<br/><br/>
+
+## 파일 시스템
+
+
+### 파일 시스템 비교
+
+| 파일 시스템 | 특징 | 장점 | 단점 | 권장 용도 |
+|-------------|------|------|------|-----------|
+| **ext4** | Linux 표준 | 안정적, 호환성 우수, 성숙한 기술 | 대용량 파일 성능 | 일반 서버, OS 루트 파티션 |
+| **XFS** | 대용량 최적화 | 대용량 파일 처리 우수, 확장성 | 2TB 이하 비효율적 | DB 서버, 대용량 로그/데이터 (RHEL 기본) |
+| **Btrfs** | 차세대 파일 시스템 | 스냅샷, 압축, 데이터 무결성 | 아직 성숙도 낮음 | 백업 시스템, 컨테이너 스토리지 |
+| **ext2** | 저널링 없음 | 빠름 | 안정성 낮음 | USB, 임시 저장소 |
+| **ext3** | ext2 + 저널링 | 안정성 향상 | ext4보다 성능 낮음 | 구형 시스템 호환 |
+
+
+### 파일 시스템 포맷
+
+- **mkfs 명령어**
+  - MaKe FileSystem의 약자
+  - 파티션에 파일 시스템 생성
+
+```bash
+# ext4 포맷
+sudo mkfs.ext4 /dev/sdb1
+
+# XFS 포맷
+sudo mkfs.xfs /dev/sdb1
+
+# ext4 포맷 (옵션 지정)
+sudo mkfs -t ext4 /dev/sdb1
+
+# Btrfs 포맷
+sudo mkfs.btrfs /dev/sdb1
+```
+
+- **포맷 시 주의사항**
+  - Extended 파티션은 포맷 불가 (논리 파티션만 포맷)
+  - 포맷 시 기존 데이터 모두 삭제
+  - 반드시 올바른 장치 확인 후 실행
+
+
+<br/><br/>
+
+## LVM (Logical Volume Manager)
+
+
+### LVM 개념
+
+- 물리 디스크를 유연하게 관리하기 위한 추상화 계층
+- **운영 환경에서 가장 많이 사용하는 스토리지 관리 방식**
+- 온라인 상태에서 용량 확장/축소 가능
+
+
+### LVM 구조
+
+![mermaid-diagram](/assets/img/linux/2022-10-31-disk-partition-diagram-3.png)
+
+
+### LVM 주요 구성 요소
+
+- **PV (Physical Volume)**
+  - 실제 물리 디스크 파티션
+  - LVM에서 사용할 수 있도록 초기화된 파티션
+  - 예시: `/dev/sdb1`, `/dev/sdc1`
+
+- **VG (Volume Group)**
+  - 여러 PV를 묶은 스토리지 풀
+  - 하나의 거대한 가상 디스크처럼 동작
+  - 예시: `my_vg`, `data_vg`
+
+- **LV (Logical Volume)**
+  - VG에서 할당받은 가상 파티션
+  - 사용자가 실제로 포맷하고 마운트하여 사용
+  - 크기 조정 가능
+  - 예시: `/dev/my_vg/my_lv`
+
+
+### LVM 구축 및 확장 예시
+
+```bash
+# 1. PV 생성 (물리 디스크 초기화)
+sudo pvcreate /dev/sdb1
+
+# PV 목록 확인
+sudo pvs
+sudo pvdisplay
+
+# 2. VG 생성 (스토리지 풀 만들기)
+sudo vgcreate my_vg /dev/sdb1
+
+# 추가 디스크를 같은 VG에 추가
+sudo vgextend my_vg /dev/sdc1
+
+# VG 상태 확인
+sudo vgs
+sudo vgdisplay
+
+# 3. LV 생성 (가상 파티션 할당)
+sudo lvcreate -L 10G -n my_lv my_vg
+
+# 또는 VG 전체 용량 사용
+sudo lvcreate -l 100%FREE -n my_lv my_vg
+
+# LV 목록 확인
+sudo lvs
+sudo lvdisplay
+
+# 4. 포맷 및 마운트
+sudo mkfs.ext4 /dev/my_vg/my_lv
+sudo mkdir -p /mnt/data
+sudo mount /dev/my_vg/my_lv /mnt/data
+
+# 5. 용량 확장 (온라인 상태에서 가능!)
+# Step 1: LV 크기 증가
+sudo lvextend -L +5G /dev/my_vg/my_lv
+
+# Step 2: 파일 시스템 크기 조정
+# ext4의 경우
+sudo resize2fs /dev/my_vg/my_lv
+
+# XFS의 경우
+sudo xfs_growfs /mnt/data
+```
+
+
+### LVM 장점
+
+  - 온라인 상태에서 LV 크기 조정 가능
+  - 여러 디스크를 하나의 볼륨으로 통합
+  - **주의**: **XFS 파일 시스템은 축소(Shrink)가 불가능**합니다. 확장만 가능하므로 용량 계획 시 주의가 필요합니다. (ext4는 축소 가능)
+
+- **스냅샷 기능**
+  - 특정 시점의 데이터 상태 저장
+  - 백업 및 복구 용이
+
+- **확장성**
+  - 나중에 디스크 추가 시 기존 VG에 쉽게 확장
+  - 다운타임 최소화
+
+
+<br/><br/>
+
+## 마운트 (Mount)
+
+
+### 마운트 개념
+
+- 포맷된 디스크 파티션을 디렉토리 트리에 연결하는 작업
+- Linux는 모든 파일 시스템을 단일 트리 구조로 통합
+- 마운트 포인트: 파티션이 연결될 디렉토리
+
+
+### 마운트 프로세스
+
+![mermaid-diagram](/assets/img/linux/2022-10-31-disk-partition-diagram-4.png)
+
+![image](/assets/img/linux/mount-process.png)
+
+### 일회성 마운트
+
+- 재부팅 시 마운트 해제됨
+- 임시 테스트용으로 적합
+
+```bash
+# 기본 마운트
+sudo mount /dev/sdb1 /mnt/data
+
+# 파일 시스템 타입 지정
+sudo mount -t ext4 /dev/sdb1 /mnt/data
+
+# 옵션 지정
+sudo mount -t ext4 -o rw,noexec /dev/sdb1 /mnt/data
+
+# 마운트 상태 확인
+df -h
+mount | grep sdb1
+
+# 마운트 해제
+sudo umount /mnt/data
+# 또는
+sudo umount /dev/sdb1
+```
+
+
+### 마운트 옵션
+
+| 옵션 | 설명 | 사용 예시 |
+|------|------|-----------|
+| **defaults** | `rw`, `suid`, `exec`, `auto`, `nouser`, `async` 모두 적용 | 일반적인 경우 |
+| **rw** | 읽기/쓰기 허용 | 데이터 파티션 |
+| **ro** | 읽기 전용 | 백업 디스크, 보호 필요 데이터 |
+| **noexec** | 실행 파일 실행 금지 | 데이터 전용 파티션 |
+| **nosuid** | SetUID/SetGID 비활성화 | 보안 강화 |
+| **auto** | 부팅 시 자동 마운트 | 일반 파티션 |
+| **noauto** | 부팅 시 자동 마운트 안 함 | 외장 드라이브 |
+| **user** | 일반 사용자 마운트 허용 | USB 드라이브 |
+| **nouser** | root만 마운트 가능 | 시스템 파티션 |
+
+
+<br/><br/>
+
+## 자동 마운트 (/etc/fstab)
+
+
+### /etc/fstab 개요
+
+- 부팅 시 자동으로 마운트할 파일 시스템 정의
+- 시스템 재부팅 후에도 마운트 유지
+- 오류 시 부팅 실패 가능하므로 신중하게 편집
+
+
+### UUID 확인
+
+- **장치명 대신 UUID 사용 권장**
+  - 장치명(`/dev/sdb1`)은 부팅 순서나 하드웨어 변경 시 바뀔 수 있음
+  - UUID는 파티션의 고유 식별자로 변하지 않음
+
+```bash
+# UUID 확인
+sudo blkid /dev/sdb1
+
+# 출력 예시
+/dev/sdb1: UUID="eba229d1-9333-4b9a-9058-1c4b63f869c6" TYPE="ext4"
+
+# 모든 블록 장치 UUID 확인
+sudo blkid
+```
+
+
+### /etc/fstab 형식
+
+```
+<파일 시스템>  <마운트 포인트>  <타입>  <옵션>  <덤프>  <무결성 검사>
+```
+
+
+### 필드 설명
+
+| 필드 | 설명 | 예시 |
+|------|------|------|
+| **파일 시스템** | UUID 또는 장치명 | `UUID=eba229d1-9333-4b9a-9058-1c4b63f869c6` |
+| **마운트 포인트** | 마운트할 디렉토리 경로 | `/mnt/data` |
+| **타입** | 파일 시스템 종류 | `ext4`, `xfs`, `btrfs` |
+| **옵션** | 마운트 옵션 (쉼표로 구분) | `defaults`, `rw,noexec` |
+| **덤프** | 백업 여부 (0=안함, 1=함) | `0` |
+| **무결성 검사** | fsck 검사 순서 (0=안함, 1=최우선, 2=차순위) | `0` |
+
+
+### /etc/fstab 설정 예시
+
+```bash
+# /etc/fstab 편집
+sudo vi /etc/fstab
+
+# 기본 예시
+UUID=eba229d1-9333-4b9a-9058-1c4b63f869c6 /mnt/data ext4 defaults 0 0
+
+# XFS 파일 시스템
+UUID=abcd-1234-efgh-5678 /var/log xfs defaults 0 0
+
+# 읽기 전용 마운트
+UUID=1234-5678 /mnt/backup ext4 ro,noexec 0 2
+
+# LVM 볼륨
+/dev/mapper/my_vg-my_lv /data ext4 defaults 0 2
+
+# NFS 원격 마운트
+192.168.1.100:/share /mnt/nfs nfs defaults 0 0
+```
+
+
+### fstab 테스트 및 적용
+
+```bash
+# 1. 편집 후 문법 검사
+sudo mount -a
+
+# 오류가 없으면 정상
+# 오류가 있으면 즉시 수정 (부팅 실패 방지)
+
+# 2. 현재 마운트 확인
+df -h
+
+# 3. 재부팅 후 자동 마운트 테스트
+sudo reboot
+
+# 재부팅 후 확인
+df -h
+```
+
+
+### fstab 주의사항
+
+- **오타 주의**
+  - fstab 오류 시 부팅 실패 가능
+  - 복구 모드로 진입하여 수정 필요
+
+- **UUID 사용 권장**
+  - 장치명은 변경될 수 있음
+  - UUID는 영구 불변
+
+- **백업**
+  - 편집 전 백업 필수
   ```bash
-  blkid    # 파일 시스템 타입 구성 확인 
+  sudo cp /etc/fstab /etc/fstab.backup
   ```
-  * 영구 mount할 디바이스 UUID 드래그  
-    <span style="color:rgb(203, 171, 237)">ex) `/dev/sdb1: UUID="eba229d1-9333-4b9a-9058-1c4b63f869c6" TYPE="ext4"`</span>
-2. /etc/fstab 파일 수정
+
+- **테스트**
+  - `mount -a`로 반드시 테스트
+  - 재부팅 전 오류 확인
+
+
+<br/><br/>
+
+## 디스크 확장 실습
+
+
+### 디스크 추가 및 마운트 전체 프로세스
+
+![image](/assets/img/linux/disk-expansion-workflow.png)
+
+
+### 수동 마운트 (LVM 없이)
+
+```bash
+# 1. 디스크 재부팅 없이 인식 (가상 머신 / Hot-plug 환경)
+# VMware, KVM 등에서 디스크 추가 후 재부팅 없이 인식시킬 때 사용
+# find /sys -name scan
+echo "- - -" > /sys/class/scsi_host/host0/scan  # 환경에 따라 host0, host1 등 변경 필요
+
+# 2. 디스크 확인
+lsblk
+fdisk -l
+
+# 3. 파티션 생성
+sudo fdisk /dev/sdb
+
+# fdisk 대화형 명령
+p  # 파티션 테이블 출력
+n  # 새 파티션 생성
+p  # primary 파티션
+1  # 파티션 번호 1
+   # (Enter - 기본 시작 섹터)
+   # (Enter - 기본 종료 섹터, 전체 사용)
+p  # 생성 확인
+w  # 저장 후 종료
+
+# 4. 파티션 포맷
+sudo mkfs.ext4 /dev/sdb1
+
+# 5. 마운트 포인트 생성
+sudo mkdir -p /mnt/data
+
+# 6. 마운트
+sudo mount /dev/sdb1 /mnt/data
+
+# 7. 확인
+df -h
+ls -la /mnt/data
+
+# 8. 테스트 파일 생성
+sudo touch /mnt/data/test.txt
+ls -l /mnt/data
+
+# 9. 마운트 해제 테스트
+cd ~  # 마운트 포인트 밖으로 이동
+sudo umount /mnt/data
+ls -l /mnt/data  # test.txt 안 보임 (마운트 해제됨)
+
+# 10. 다시 마운트
+sudo mount /dev/sdb1 /mnt/data
+ls -l /mnt/data  # test.txt 다시 보임
+```
+
+
+### 자동 마운트 설정
+
+```bash
+# 1. UUID 확인
+sudo blkid /dev/sdb1
+
+# 출력 예시
+/dev/sdb1: UUID="eba229d1-9333-4b9a-9058-1c4b63f869c6" TYPE="ext4"
+
+# 2. fstab 백업
+sudo cp /etc/fstab /etc/fstab.backup
+
+# 3. fstab 편집
+sudo vi /etc/fstab
+
+# 4. 추가 내용
+UUID=eba229d1-9333-4b9a-9058-1c4b63f869c6 /mnt/data ext4 defaults 0 0
+
+# 5. 테스트 (중요!)
+sudo mount -a
+
+# 6. 확인
+df -h
+
+# 7. 재부팅 테스트
+sudo reboot
+
+# 재부팅 후 자동 마운트 확인
+df -h
+```
+
+
+<br/><br/>
+
+## 유용한 디스크 관리 명령어
+
+
+### 디스크 및 마운트 확인
+
+- **lsblk**
+  - 블록 장치를 트리 구조로 표시
+  - 가장 보기 편한 명령어
   ```bash
-  vi /etc/fstab    # 리눅스 부팅시 mount(자동 mount) 정보 들어있는 파일
-  # UUID=파일 시스템 장치명  mout point   filesystem type  mount option  로그 기록 여부  오류체크
-  ```  
-  * `/etc/fstab`
-    * mount 설정을 영구적으로 할 수 있도록 존재하는 설정 파일
-    * 리눅스 부팅 시 mount (자동 mount) 정보 들어있는 파일   
-    * `UUID=파일 시스템 장치명  mount point   filesystem type  mount option  로그 기록 여부  오류체크`    
-    <span style="color:rgb(203, 171, 237)">ex) `UUID=eba229d1-9333-4b9a-9058-1c4b63f869c6 /mount ext4 defaults 0 0`</span>
-    * `파일 시스템 장치명`(File System Device Name)
-      * 파티션들의 위치
-      * `fdisk -l` 쳤을때 나오는 주소
-    * `mount point`
-      * 등록할 파티션을 어디에 위치한 디렉토리에 연결할 것인지 설정하는 필드
-      * 마운트할 디렉토리 경로
-    * `filesystem type`
-      * 파일 다루거나 조작 할 때 관리하기 편하게 파일이 운용되는 방식(틀) 
-      * `ext` 
-        * 초기 리눅스에서 사용했던 종류, 현재 사용 X
-      * `ext2`   
-        * 긴 파일 시스템 이름을 지원
-      * `ext3`   
-        * 저널링 파일 시스템
-      * `ext4`   
-        * 더 큰 용량을 지원, 파일 복구, 파일 시스템 점검속도가 빨라짐
-      * `ufs` 
-        * Unix File System에서 표준 파일 시스템으로 사용
-      * `nfs` 
-        * Network File System, 원격 서버에서 파일 시스템 마운트할 때 사용하는 시스템
-      * `swap`  
-        * 스왚 파일 시스템, 스왚 공간으로 사용되는 파일 시스템
-      * `vfat` 
-        * window 95/98등등 ntfs를 지원하기 위한 파일 시스템
-      * `ramdisk`
-        * RAM을 지원하기 위한 파일 시스템에 사용
-    * `mount option`
-      * 파일 시스템에 맞게 사용되는 옵션을 설정하는 필드
-      * `default`
-        * `rw`, `nouser`, `auto`, `exec`, `suid` 속성을 모두 설정
-      * `auto`
-        * 부팅시 자동 mount
-      * `noauto`
-        * 부팅시 자동 mount 하지 않음
-      * `exec`
-        * 실행파일이 실행되는 것을 허용
-      * `noexec`
-        * 실행 파일이 실행되는 것을 허용하지 않음
-      * `suid` 
-        * SetUID, SetGID 사용을 허용
-      * `nosuid` 
-        * SetUID, SetGID 사용을 허용하지 않음
-      * `ro`     
-        * 읽기 전용의 파일 시스템으로 설정
-      * `rw`    
-        * 읽기/쓰기 전용의 파일 시스템으로 설정
-      * `user` 
-        * 일반 사용자 mount 가능
-      * `nouser` 
-        * 일반 사용자 mount 불가능, 관리자만 가능
-      * `quota`   
-        * Quota 설정이 가능
-      * `noquota`
-        * Quota 설정이 불가능
-    * `로그 기록 여부`
-      * 로그 (Dump) 기록 여부를 설정하는 필드
-        * `0` : 기록 X
-        * `1` : 기록 O
-    * `오류 체크` (FSCK)
-      * File Sequence Check Option에 의한 무결성 검사 우선 순위를 정하는 옵션
-        * `0` : 무결성 검사 체크 X
-        * `1` : 우선순위 1위부터 체크
-        * `2` : 차순 체크
+  lsblk
+  
+  # 파일 시스템 정보 포함
+  lsblk -f
+  ```
+
+- **df**
+  - 마운트된 파일 시스템의 사용량 확인
+  ```bash
+  df -h           # 사람이 읽기 쉬운 형식
+  df -Th          # 파일 시스템 타입 포함
+  ```
+
+- **du**
+  - 디렉토리 및 파일의 디스크 사용량
+  ```bash
+  du -sh /var/log      # 디렉토리 전체 크기
+  du -h --max-depth=1  # 1단계 하위까지
+  ```
+
+- **blkid**
+  - 블록 장치의 UUID 및 파일 시스템 타입 확인
+  ```bash
+  sudo blkid
+  sudo blkid /dev/sdb1
+  ```
+
+
+### 마운트 관련
+
+- **mount**
+  - 현재 마운트된 파일 시스템 목록
+  ```bash
+  mount
+  mount | grep sdb
+  ```
+
+- **umount**
+  - 마운트 해제
+  ```bash
+  sudo umount /mnt/data
+  
+  # 강제 해제 (주의!)
+  sudo umount -f /mnt/data
+  
+  # lazy 해제 (사용 중이어도 나중에 해제)
+  sudo umount -l /mnt/data
+  ```
+
+- **fuser**
+  - 파일 시스템을 사용 중인 프로세스 확인
+  ```bash
+  fuser /mnt/data
+  
+  # 프로세스 및 사용자 정보 표시
+  fuser -uv /mnt/data
+  
+  # 모든 프로세스 종료 (위험!)
+  fuser -mk /mnt/data
+  ```
+
+
+<br/><br/>
+
+## fsck 오류 코드
+
+
+### fsck (File System ChecK)
+
+- 파일 시스템 무결성 검사 및 복구 도구
+- 마운트되지 않은 파일 시스템에서만 실행
+- **lost+found 디렉토리**: `fsck` 실행 중 발견된, 연결이 끊어진(결함 있는) 파일 조각들이 저장되는 곳
+
+
+### 오류 코드
+
+| 코드 | 타입 | 설명 | 조치 |
+|:--:|:--:|:--:|:--:|
+| **0** | Clean | 오류 없음 | 정상 |
+| **1** | Fix | 파일 시스템 오류가 수정됨 | 재부팅 권장 |
+| **2** | Reboot | 리부팅 필요 | 즉시 재부팅 |
+| **4** | Save | 오류가 수정되지 않고 남음 | 수동 복구 필요 |
+| **8** | Exe Error | 실행 오류 | 명령어 확인 |
+| **16** | Use Error | 사용법 또는 문법 오류 | 옵션 확인 |
+| **128** | Lib Error | 공유 라이브러리 오류 | 시스템 점검 필요 |
+
+
+<br/><br/>
+
+## 디스크 관리 권장 사항
+
+
+### 디스크 추가 체크리스트
+
+- **계획 단계**
+  - 용량 요구사항 확인
+  - 향후 확장 가능성 고려
+  - LVM 사용 여부 결정
+    - 확장 가능성 있으면 LVM 권장
+
+- **파티셔닝**
+  - 2TB 초과 시 GPT 파티션 사용 (parted 또는 gdisk)
+  - 2TB 이하면 MBR도 가능 (fdisk)
+
+- **파일 시스템 선택**
+  - 일반 용도
+    - ext4 권장
+  - 대용량 데이터
+    - XFS 권장
+  - 백업 및 스냅샷 필요
+    - Btrfs 고려
+
+- **마운트 설정**
+  - /etc/fstab에 UUID 사용 필수
+  - `mount -a`로 반드시 테스트
+  - 백업 필수
+
+- **보안**
+  - 데이터 파티션에 `noexec`, `nosuid` 옵션 고려
+  - 민감한 데이터는 별도 파티션 분리
+
+
+
+### 용량 확장 시나리오
+
+- **LVM 사용 시 (권장)**
+  - 새 디스크 추가
+  - PV 생성
+  - VG에 추가
+  - LV 확장
+  - 파일 시스템 확장
+  - 온라인 작업 가능 (다운타임 없음)
+
+- **LVM 미사용 시**
+  - 새 디스크 추가
+  - 파티션 생성 및 포맷
+  - 새 마운트 포인트로 마운트
+  - 데이터 마이그레이션 필요
+  - 다운타임 발생
+
+
+
+### 트러블슈팅
+
+| 문제 | 원인 | 해결 방법 |
+|------|------|-----------|
+| **부팅 실패 (fstab 오류)** | /etc/fstab 오타 또는 장치 없음 | 복구 모드 진입 후 fstab 수정 |
+| **umount 실패 (busy)** | 프로세스가 파일 시스템 사용 중 | `fuser -mk` 또는 프로세스 종료 후 재시도 |
+| **UUID 변경됨** | 파티션 재생성 또는 포맷 | blkid로 새 UUID 확인 후 fstab 업데이트 |
+| **LV 확장 안 됨** | VG에 여유 공간 부족 | 새 PV 추가 후 VG 확장 |
+| **파일 시스템 손상** | 비정상 종료, 하드웨어 오류 | `fsck`로 복구 시도 |
+
+
+<br/><br/>
+
+## 요약 및 핵심 포인트
+
+
+### 빠른 참조 가이드
+
+| 작업 | 명령어 | 비고 |
+|------|--------|------|
+| **디스크 확인** | `lsblk`, `fdisk -l` | lsblk가 가장 보기 편함 |
+| **파티션 생성** | `fdisk` (MBR), `gdisk` (GPT), `parted` (범용) | 2TB 초과 시 GPT 필수 |
+| **포맷** | `mkfs.ext4 /dev/sdb1` | XFS는 `mkfs.xfs` |
+| **UUID 확인** | `blkid` | fstab에 UUID 사용 권장 |
+| **마운트** | `mount /dev/sdb1 /mnt/data` | 일회성 마운트 |
+| **자동 마운트** | `/etc/fstab` 편집 | `mount -a`로 테스트 필수 |
+| **LVM PV 생성** | `pvcreate /dev/sdb1` | LVM 첫 단계 |
+| **LVM VG 생성** | `vgcreate my_vg /dev/sdb1` | 스토리지 풀 |
+| **LVM LV 생성** | `lvcreate -L 10G -n my_lv my_vg` | 가상 파티션 |
+| **LV 확장** | `lvextend -L +5G /dev/my_vg/my_lv` | 온라인 확장 가능 |
+| **파일 시스템 확장** | `resize2fs` (ext4), `xfs_growfs` (XFS) | LV 확장 후 실행 |
+
+
+### 핵심 기억 사항
+
+- **디스크 장치 이름**
+  - SATA/SCSI: `/dev/sda`
+  - NVMe: `/dev/nvme0n1`
+  - 파티션: `sda1`, `nvme0n1p1`
+
+- **파티셔닝**
+  - 2TB 넘으면 GPT 파티션 (parted, gdisk)
+  - MBR은 Primary 최대 3개 + Extended 1개
+
+- **파일 시스템**
+  - 일반 용도: ext4
+  - 대용량: XFS
+  - 스냅샷 필요: Btrfs
+
+- **LVM 필수**
+  - 나중에 확장 가능성 있으면 무조건 LVM
+  - 온라인 확장 가능
+  - 유연한 용량 관리
+
+- **자동 마운트**
+  - /etc/fstab에 UUID 사용
+  - `mount -a`로 테스트 필수
+  - 오타 시 부팅 실패
+
+
+<br/><br/>
+
+## Reference
+- [Red Hat LVM 가이드](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html-single/configuring_and_managing_logical_volumes/index)
+- [DigitalOcean LVM 튜토리얼](https://www.digitalocean.com/community/tutorials/an-introduction-to-lvm-concepts-terminology-and-operations)
+- [Linux Filesystem Comparison](https://www.networkworld.com/article/3631604/linux-filesystems-ext4-btrfs-xfs-zfs-and-more.html)
+- [fstab 가이드](https://www.baeldung.com/linux/network-drive-etc-fstab)
+- [fdisk vs parted 비교](https://www.baeldung.com/linux/fdisk-vs-parted)

@@ -75,7 +75,7 @@ mermaid: true
 #### 4-Way Handshake (연결 종료)
 
 - 통신을 마친 후 **안전하게 연결을 해제**하는 과정
-- 남아있는 데이터가 모두 전송될 때까지 대기(Time Wait) 후 종료함
+- 연결 종료 후 패킷 유실 방지 및 지연 패킷 처리를 위해 일정 시간 대기(Time Wait)
 
 ![image](/assets/img/network/image5.png)
 
@@ -93,8 +93,8 @@ mermaid: true
   - 오버헤드가 적어(헤더 8byte) 속도가 매우 빠름
 - **사용 사례**
   - 끊기면 안 되는 스트리밍, 속도가 중요한 온라인 게임, DNS 등
-- **일방 통신 (단방향)**
-  - 단순히 데이터를 던지는 방식
+- **비연결성 데이터 전송**
+  - 상태 정보를 유지하지 않고 데이터를 전송함 (Stateless)
 
 <br/><br/>
 
@@ -137,7 +137,7 @@ mermaid: true
 | 69 | TFTP | Router 전용 단순 파일 전송 | UDP |
 | 80 | HTTP | 웹서비스 제공 | TCP |
 | 110 | POP3 | 메일 수신 (로컬 저장) | TCP |
-| 138 | NetBios | 윈도우 파일 공유 | TCP |
+| 139 | NetBios Session | 윈도우 파일 공유 (세션 서비스) | TCP |
 | 143 | IMAP | 메일 수신 (서버 저장) | TCP |
 | 161 | SNMP | 네트워크 정보 관리 및 모니터링 | UDP |
 | 443 | HTTPS | 암호화된 웹 전송 (SSL/TLS) | TCP |
