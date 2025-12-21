@@ -1,5 +1,5 @@
 ---
-title: "PostgreSQL 아키텍쳐"
+title: "PostgreSQL 아키텍처"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
@@ -12,7 +12,7 @@ math: true
 mermaid: true
 ---
 
-## Role 개념
+## Role
 
 ### PostgreSQL의 Role 모델
 
@@ -67,24 +67,7 @@ GRANT admin_group TO junior_dev;
 -- 그룹에 권한을 주면 모든 멤버가 권한을 갖게 됨
 GRANT SELECT, INSERT ON TABLE orders TO admin_group;
 ```
-
-```mermaid
-graph TD
-    AdminGrp[admin_group<br/>NOLOGIN]
-    Senior[senior_dev<br/>LOGIN]
-    Junior[junior_dev<br/>LOGIN]
-    
-    AdminGrp -->|권한 상속| Senior
-    AdminGrp -->|권한 상속| Junior
-    
-    Orders[(orders 테이블)]
-    AdminGrp -.->|SELECT, INSERT| Orders
-    
-    style AdminGrp fill:#bbf,stroke:#333
-    style Senior fill:#bfb,stroke:#333
-    style Junior fill:#bfb,stroke:#333
-    style Orders fill:#fbb,stroke:#333
-```
+![image](/assets/img/database/image1.png)
 
 - SET ROLE
   - 로그인한 유저가 다른 Role로 전환 가능 (권한이 있다면)
@@ -95,7 +78,7 @@ graph TD
 
 <br/><br/>
 
-## Schema 개념
+## Schema
 
 ### Schema의 역할
 
@@ -134,22 +117,7 @@ SET search_path TO my_schema, public;
 -- search_path 변경 (특정 유저에게 영구적용)
 ALTER ROLE my_user SET search_path TO my_schema, public;
 ```
-
-```mermaid
-flowchart TD
-    Start([SELECT * FROM users]) --> Check1{my_schema.users<br/>존재?}
-    
-    Check1 -->|있음| Use1[my_schema.users 사용]
-    Check1 -->|없음| Check2{public.users<br/>존재?}
-    
-    Check2 -->|있음| Use2[public.users 사용]
-    Check2 -->|없음| Error[에러 발생]
-    
-    style Start fill:#f96,stroke:#333
-    style Use1 fill:#9f6,stroke:#333
-    style Use2 fill:#9f6,stroke:#333
-    style Error fill:#fbb,stroke:#333
-```
+![image](/assets/img/database/image.png)
 
 ### Schema 보안
 
@@ -162,13 +130,13 @@ flowchart TD
 
 <br/><br/>
 
-## Constraint 개념
+## 제약 조건
 
 - 제약조건은 테이블에 저장되는 데이터의 유효성을 보장함
 
-### Constraint 종류
+### 제약 조건 종류
 
-| Constraint | 설명 | 예시 |
+| 제약 조건 | 설명 | 예시 |
 |:---|:---|:---|
 | **Primary Key** | 유일하고 NULL 불가 | `product_id SERIAL PRIMARY KEY` |
 | **Foreign Key** | 다른 테이블 참조 | `FOREIGN KEY (customer_id) REFERENCES customers(id)` |
@@ -214,7 +182,7 @@ CREATE TABLE orders (
   - `orders.customer_id = 999`를 삽입하려고 하는데, `customers` 테이블에 `customer_id = 999`가 없으면 FOREIGN KEY VIOLATION 에러
   - `customers` 테이블에서 `customer_id = 123` 행을 삭제하려는데, `orders` 테이블에 `customer_id = 123`이 있으면 삭제 실패
 
-### CHECK Constraint
+### CHECK 제약 조건
 
 ```sql
 CREATE TABLE products (
@@ -229,7 +197,7 @@ CREATE TABLE products (
 - 동작
   - `price = -100`을 삽입하려면 CHECK VIOLATION 에러
 
-### EXCLUSION Constraint
+### EXCLUSION 제약 조건
 
 ```sql
 -- 회의실 이중 예약 방지
@@ -248,7 +216,7 @@ CREATE TABLE conference_room_bookings (
 
 <br/><br/>
 
-## Partition 개념
+## Partition
 
 ### Partition이 필요한 이유
 
@@ -325,24 +293,8 @@ CREATE TABLE conference_room_bookings (
 
 - 쿼리의 WHERE 절에 파티션 키가 있으면, PostgreSQL이 불필요한 파티션을 건너뜀
 
-```mermaid
-flowchart TD
-    Query([SELECT * FROM logs<br/>WHERE log_date = '2024-01-15']) --> Analyzer{Query Analyzer}
-    
-    Analyzer -->|파티션 키 발견| Pruning{Partition Pruning}
-    
-    Pruning --> Skip1[logs_2024_02 스킵]
-    Pruning --> Skip2[logs_2024_03 스킵]
-    Pruning --> Scan[logs_2024_01만 스캔]
-    
-    Scan --> Result([빠른 결과 반환])
-    
-    style Query fill:#f96,stroke:#333
-    style Scan fill:#9f6,stroke:#333
-    style Skip1 fill:#ddd,stroke:#333
-    style Skip2 fill:#ddd,stroke:#333
-    style Result fill:#9f6,stroke:#333
-```
+![image](/assets/img/database/image2.png)
+
 - 효율적 사용
   ```sql
   EXPLAIN SELECT * FROM logs WHERE log_date = '2024-01-15';
@@ -403,31 +355,7 @@ CREATE TABLE tenant_001.logs_2024_01 PARTITION OF tenant_001.logs
     FOR VALUES FROM ('2024-01-01') TO ('2024-02-01');
 ```
 
-```mermaid
-graph TD
-    DB[(PostgreSQL Database)]
-    
-    T1[tenant_001 Schema]
-    T2[tenant_002 Schema]
-    T3[tenant_003 Schema]
-    
-    DB --> T1
-    DB --> T2
-    DB --> T3
-    
-    T1 --> L1[logs 테이블]
-    L1 --> P1[logs_2024_01]
-    L1 --> P2[logs_2024_02]
-    
-    U1[tenant_001_user]
-    U1 -.->|권한| T1
-    
-    style DB fill:#bbf,stroke:#333
-    style T1 fill:#bfb,stroke:#333
-    style T2 fill:#bfb,stroke:#333
-    style T3 fill:#bfb,stroke:#333
-    style L1 fill:#fbb,stroke:#333
-```
+![image](/assets/img/database/image3.png)s
 
 ### 성능 개선 효과
 
