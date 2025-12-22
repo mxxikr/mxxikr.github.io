@@ -1,6 +1,9 @@
 ---
 title: "배열(Array)과 리스트(List)의 차이"
-date: 2025-12-23 08:00:00 +0900
+author:
+  name: mxxikr
+  link: https://github.com/mxxikr
+date: 2025-12-23 08:05:00 +0900
 category:
   - [Computer Science, Algorithm]
 tags: [array, list, arraylist, linkedlist, algorithm]
