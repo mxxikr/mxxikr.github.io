@@ -3,7 +3,7 @@ title: "주니어 백엔드 개발자가 반드시 알아야 할 실무 지식 -
 author:
   name: mxxikr
   link: https://github.com/mxxikr
-date: 2025-12-22 08:06:00 +0900
+date: 2025-12-22 12:40:00 +0900
 category:
   - [Book, Backend]
 tags: [backend, database, connection-pool, book-review]
