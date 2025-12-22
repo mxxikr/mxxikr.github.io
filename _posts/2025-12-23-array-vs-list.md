@@ -2,8 +2,8 @@
 title: "배열(Array)과 리스트(List)의 차이"
 date: 2025-12-23 08:00:00 +0900
 category:
-  - [Computer Science, Data Structure]
-tags: [array, list, arraylist, linkedlist, data-structure, algorithm]
+  - [Computer Science, Algorithm]
+tags: [array, list, arraylist, linkedlist, algorithm]
 math: true
 mermaid: false
 ---
