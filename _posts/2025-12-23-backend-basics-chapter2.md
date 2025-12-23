@@ -3,7 +3,7 @@ title: "주니어 백엔드 개발자가 반드시 알아야 할 실무 지식 -
 author:
   name: mxxikr
   link: https://github.com/mxxikr
-date: 2025-12-23 19:00:00 +0900
+date: 2025-12-23 19:20:00 +0900
 category:
   - [Book, Backend]
 tags: [backend, performance, scaling, caching, cdn, book-review]
@@ -92,7 +92,7 @@ $$
 - **HikariCP 권장 공식**
 
 $$
-\text{connections} = (\text{core\_count} \times 2) + \text{effective\_spindle\_count}
+\text{connections} = (\text{core_count} \times 2) + \text{effective_spindle_count}
 $$
 
 - **공식 설명**
