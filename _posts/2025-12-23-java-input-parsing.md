@@ -382,9 +382,15 @@ public class StringSplitExample {
 
 - **정규식 메타 문자 이스케이프 필요**
   - 특수 문자를 구분자로 사용 시 백슬래시(`\\`) 이스케이프 처리 필수
-  - 정규식 메타 문자 목록
-    - `. * + ? ^ $ { } [ ] ( ) | \`
-  - 잘못된 사용 예시
+  - **정규식 메타 문자 목록**
+
+```
+. (점)      * (별표)    + (플러스)   ? (물음표)
+^ (캐럿)    $ (달러)    { } (중괄호)
+[ ] (대괄호) ( ) (소괄호) | (파이프)    \ (백슬래시)
+```
+
+- 잘못된 사용 예시
 
 ```java
 // 잘못된 사용 - 의도와 다르게 동작
@@ -395,6 +401,14 @@ String[] parts = text.split(".");  // 모든 문자를 구분자로 인식
 String data = "a|b|c";
 String[] items = data.split("|");  // 빈 문자열로 분리됨
 // 결과: ["a", "|", "b", "|", "c"]
+
+String count = "1+2+3";
+String[] nums = count.split("+");  // + 는 수량자로 인식됨
+// 결과: PatternSyntaxException 또는 예상치 못한 결과
+
+String pattern = "a*b*c";
+String[] parts2 = pattern.split("*");  // * 는 수량자로 인식됨
+// 결과: PatternSyntaxException
 ```
 
 - **올바른 사용 방법**
@@ -407,6 +421,14 @@ String[] parts = text.split("\\.");  // 점(.)을 이스케이프
 
 String data = "a|b|c";
 String[] items = data.split("\\|");  // 파이프(|)를 이스케이프
+// 결과: ["a", "b", "c"]
+
+String count = "1+2+3";
+String[] nums = count.split("\\+");  // 플러스(+)를 이스케이프
+// 결과: ["1", "2", "3"]
+
+String pattern = "a*b*c";
+String[] parts2 = pattern.split("\\*");  // 별표(*)를 이스케이프
 // 결과: ["a", "b", "c"]
 ```
 
@@ -698,6 +720,33 @@ public class BufferedWriterExample {
 - **적합한 상황**
   - 결과를 모두 조립한 후 한 번에 출력
   - 문자열 연결이 많은 경우
+- **성능 최적화 팁**
+  - 잘못된 사용
+    - `sb.append(a + " " + b)`
+    - 내부적으로 또 다른 `StringBuilder` 생성
+    - 불필요한 객체 생성 오버헤드
+  - 올바른 사용
+    - `sb.append(a).append(" ").append(b)`
+    - 연속적인 `append()` 호출로 최적화
+    - 불필요한 중간 객체 생성 방지
+  - 초기 용량 설정으로 성능 향상
+    - 출력량이 많을 경우 내부 배열 확장 발생
+    - 예상 크기를 아는 경우 초기 용량 지정 권장
+
+```java
+// 기본 생성자 - 초기 용량 16
+StringBuilder sb = new StringBuilder();
+
+// 초기 용량 지정 - 배열 확장 최소화
+int expectedSize = 100000;
+StringBuilder sb = new StringBuilder(expectedSize);
+
+// 실제 사용 예시
+StringBuilder result = new StringBuilder(n * 10); // n개의 결과, 각 10자 예상
+for (int i = 0; i < n; i++) {
+    result.append(i).append("\n");
+}
+```
 
 ```java
 public class StringBuilderExample {
@@ -788,6 +837,28 @@ public class OptimizedSolution {
   - 복잡한 출력 포맷
     - `StringBuilder`로 조립 후 `BufferedWriter`로 출력
 
+### 입출력 최적화 흐름
+
+![입출력 최적화 흐름](/assets/img/algorithm/io-optimization-flow.png)
+
+- **최적화된 데이터 흐름**
+  - 입력
+    - `BufferedReader`가 8KB 버퍼로 데이터를 한 번에 읽기
+    - 읽기 횟수 최소화
+  - 파싱
+    - `StringTokenizer`가 필요한 토큰만 지연 추출 (Lazy)
+    - 메모리 효율성 극대화
+  - 출력
+    - `StringBuilder`로 결과 문자열 조립 (Chaining)
+    - 조립된 전체 결과를 `System.out`에 일괄 출력
+- **성능 최적화 포인트**
+  - 입출력 횟수 최소화
+    - 8KB 단위 버퍼링
+  - 불필요한 메모리 할당 방지
+    - 지연 처리 방식
+  - 출력 동기화 오버헤드 제거
+    - 일괄 출력
+
 <br/><br/>
 
 ## 결론
@@ -797,7 +868,6 @@ public class OptimizedSolution {
 - `StringTokenizer`는 단순하고 빠름
 - `String.split()`은 유연하지만 상대적으로 느림
 - 코딩 테스트에서는 `BufferedReader` + `StringTokenizer` 조합이 가장 효율적
-- 상황에 맞는 조합 선택이 성능 최적화의 핵심
 
 <br/><br/>
 
