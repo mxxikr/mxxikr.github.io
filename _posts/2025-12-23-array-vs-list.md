@@ -243,7 +243,7 @@ public class LinkedListExample {
 }
 ```
 
-### LinkedList의 진정한 O(1) 삽입 및 삭제
+### `ListIterator`를 통한 O(1) 삽입 및 삭제
 
 - **일반적인 메서드의 한계**
   - `list.add(index, element)` 호출 시 문제점
@@ -253,7 +253,7 @@ public class LinkedListExample {
   - `list.get(index)` 역시 동일한 문제
     - Head나 Tail에서 가까운 쪽부터 탐색
     - 최악의 경우 \(O(n)\) 시간 소요
-- **ListIterator를 활용한 진정한 O(1) 연산**
+- **`ListIterator`를 활용한 실제 O(1) 연산**
   - Iterator가 현재 노드 위치를 기억
     - 순회 중 노드 참조를 직접 보유
     - 추가 탐색 없이 즉시 삽입 및 삭제 가능
@@ -275,7 +275,7 @@ public class LinkedListIteratorExample {
         }
         // 현재 리스트: [10, 20, 30, 40, 50]
 
-        // ListIterator를 사용한 진정한 O(1) 삽입
+        // ListIterator를 사용한 O(1) 삽입
         ListIterator<Integer> iterator = list.listIterator();
 
         // 순회하며 조건에 맞는 위치에 O(1) 삽입
@@ -293,7 +293,7 @@ public class LinkedListIteratorExample {
 
         System.out.println("삽입 후: " + list);
 
-        // ListIterator를 사용한 진정한 O(1) 삭제
+        // ListIterator를 사용한 O(1) 삭제
         iterator = list.listIterator();
 
         while (iterator.hasNext()) {
