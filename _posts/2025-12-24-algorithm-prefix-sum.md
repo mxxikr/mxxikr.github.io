@@ -3,7 +3,7 @@ title: "구간 합(Prefix Sum)이란?"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
-date: 2025-12-24 10:45:00 +0900
+date: 2025-12-24 11:00:00 +0900
 category:
   - [Computer Science, Algorithm]
 tags: [algorithm, prefix-sum, time-complexity]
@@ -136,6 +136,8 @@ $$Sum = D[x2][y2] - D[x1-1][y2] - D[x2][y1-1] + D[x1-1][y1-1]$$
 
 ### 1차원 구간 합
 
+{% raw %}
+
 ```java
 public class PrefixSumExample {
     public static void main(String[] args) {
@@ -160,7 +162,11 @@ public class PrefixSumExample {
 }
 ```
 
+{% endraw %}
+
 ### 2차원 구간 합
+
+{% raw %}
 
 ```java
 public class PrefixSum2DExample {
@@ -186,6 +192,8 @@ public class PrefixSum2DExample {
     }
 }
 ```
+
+{% endraw %}
 
 <br/><br/>
 
