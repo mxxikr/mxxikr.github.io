@@ -15,7 +15,7 @@ mermaid: true
 
 - 김영한님의 실전 자바 강의 중 기본형과 참조형 챕터를 학습하며 자바의 **기본형**과 **참조형**의 차이, **메모리 관리 방식(Stack vs Heap)**, 그리고 변수 대입 시 **값 복사와 참조값 복사**의 차이를 정리함
 
-</br></br>
+<br/><br/>
 
 ## 기본형과 참조형의 차이
 
@@ -50,7 +50,7 @@ mermaid: true
     - 객체 내부의 기본형 변수에 접근해서 계산해야 함
   - `null` 값을 가질 수 있음 (참조하는 대상이 없음)
 
-</br></br>
+<br/><br/>
 
 ## 변수 대입의 대원칙
 
@@ -105,7 +105,7 @@ mermaid: true
   System.out.println("player2 level = " + player2.level); // 5 (함께 변경됨)
   ```
 
-</br></br>
+<br/><br/>
 
 ## 메서드 호출과 파라미터 전달
 
@@ -155,7 +155,7 @@ mermaid: true
   }
   ```
 
-</br></br>
+<br/><br/>
 
 ## 변수의 초기화
 
@@ -177,7 +177,7 @@ mermaid: true
 - **자동으로 초기화되지 않음**
 - 초기화하지 않고 사용하려 하면 컴파일 에러 발생 (`Variable 'x' might not have been initialized`)
 
-</br></br>
+<br/><br/>
 
 ## null과 Garbage Collection
 
@@ -196,7 +196,7 @@ mermaid: true
 
   ![가비지 컬렉션 동작 흐름](/assets/img/java-basic/reference-types/gc-process.png)
 
-</br></br>
+<br/><br/>
 
 ## NullPointerException
 
@@ -248,7 +248,7 @@ mermaid: true
   System.out.println(myGuild.master.level); // 정상 동작
   ```
 
-</br></br>
+<br/><br/>
 
 ## 요약 정리
 
@@ -273,7 +273,7 @@ mermaid: true
 - Garbage Collection
   - 참조가 끊긴 객체는 가비지 컬렉터가 자동으로 메모리에서 정리해줌
 
-</br></br>
+<br/><br/>
 
 ## 연습 문제
 
@@ -310,7 +310,7 @@ mermaid: true
    - 참조 변수가 null인 상태에서 점(.) 이음을 해당 객체의 필드나 메서드에 접근하려고 시도할 때 이 예외가 발생함
    - 대상이 없는데 접근하려 한 거라 에러가 남
 
-</br></br>
+<br/><br/>
 
 ## Reference
 
