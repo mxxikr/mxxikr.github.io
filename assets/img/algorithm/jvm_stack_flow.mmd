@@ -1,0 +1,9 @@
+sequenceDiagram
+    participant Thread
+    participant Stack as JVM Stack
+    participant Frame as Stack Frame
+    Thread->>Stack: 메서드 호출 및 스택 푸시
+    Stack->>Frame: 로컬 변수 및 연산 스택 생성
+    Note over Frame: 메서드 로직 수행
+    Thread->>Stack: 메서드 종료 및 스택 팝
+    Stack->>Frame: 프레임 제거 및 메모리 반환
