@@ -1,0 +1,15 @@
+graph LR
+    EntryLeft((입력/출력))
+    SubLeft[앞단]
+    SubRight[뒷단]
+    EntryRight((입력/출력))
+    
+    subgraph Deque ["덱 (Double-Ended Queue)"]
+        direction LR
+        Node1((1))---Node2((2))---Node3((3))
+    end
+    
+    EntryLeft <--> SubLeft
+    SubLeft --- Node1
+    Node3 --- SubRight
+    SubRight <--> EntryRight
