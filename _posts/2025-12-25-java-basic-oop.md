@@ -5,7 +5,7 @@ author:
   link: https://github.com/mxxikr
 date: 2025-12-25 21:10:00 +0900
 category:
-  - [Java, OOP]
+  - [Language, java]
 tags: [java, oop, encapsulation, procedural-programming]
 math: false
 mermaid: true
