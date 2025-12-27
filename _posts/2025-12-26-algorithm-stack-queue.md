@@ -49,6 +49,24 @@ mermaid: true
 - 삽입과 삭제 연산이 후입선출(LIFO, Last-In First-Out) 방식으로 이루어지는 구조임
 - 데이터의 삽입과 삭제가 한쪽 끝에서만 일어나는 특징이 있음
 
+```java
+import java.util.Stack;
+
+public class StackExample {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        System.out.println("Top Element: " + stack.peek()); // 3
+        System.out.println("Pop Element: " + stack.pop());  // 3
+        System.out.println("Is Empty: " + stack.isEmpty()); // false
+    }
+}
+```
+
 ### 스택 용어 정리
 
 - 위치
@@ -92,6 +110,26 @@ mermaid: true
 - 먼저 들어온 데이터가 먼저 나가는 공평한 구조임
 - 삽입과 삭제가 양방향에서 각각 독립적으로 수행됨
 
+```java
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueExample {
+    public static void main(String[] args) {
+        // Queue는 인터페이스이므로 LinkedList로 구현
+        Queue<Integer> queue = new LinkedList<>();
+
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
+
+        System.out.println("Front Element: " + queue.peek()); // 1
+        System.out.println("Poll Element: " + queue.poll());  // 1
+        System.out.println("Is Empty: " + queue.isEmpty());   // false
+    }
+}
+```
+
 ### 큐 용어 정리
 
 - 위치
@@ -127,17 +165,101 @@ mermaid: true
 - 큐 설정에 따라 `front`에 항상 최댓값 혹은 최솟값이 위치하도록 설계됨
 - 내부적으로 힙(Heap) 자료구조를 이용하여 구현하며 삽입과 삭제에 $O(\log N)$이 소요됨
 
+- 기본적으로 낮은 숫자가 우선순위를 갖는 최소 힙(Min Heap)으로 동작함
+- 높은 숫자가 우선순위를 갖게 하려면 `Collections.reverseOrder()`를 사용해야 함
+
+```java
+import java.util.PriorityQueue;
+import java.util.Collections;
+
+public class PriorityQueueExample {
+    public static void main(String[] args) {
+        // 최소 힙 (기본) - 낮은 숫자가 우선
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        minHeap.add(10);
+        minHeap.add(5);
+        minHeap.add(20);
+
+        System.out.println("Min Heap: " + minHeap.poll()); // 5 출력
+
+        // 최대 힙 - 높은 숫자가 우선
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+        maxHeap.add(10);
+        maxHeap.add(5);
+        maxHeap.add(20);
+
+        System.out.println("Max Heap: " + maxHeap.poll()); // 20 출력
+
+        // 절댓값 힙 - 절댓값이 낮은 숫자가 우선 (같으면 원래 숫자가 작은 순)
+        PriorityQueue<Integer> absHeap = new PriorityQueue<>((o1, o2) -> {
+            int abs1 = Math.abs(o1);
+            int abs2 = Math.abs(o2);
+
+            if (abs1 == abs2) return o1 - o2; // 절댓값이 같으면 원래 숫자 기준 오름차순
+            return abs1 - abs2; // 절댓값 기준 오름차순
+        });
+
+        absHeap.add(-10);
+        absHeap.add(5);
+        absHeap.add(-20);
+
+        System.out.println("Abs Heap: " + absHeap.poll()); // 5 출력
+    }
+}
+```
+
 ![우선순위 큐 원리 시각화](/assets/img/algorithm/priority_queue_principle.png)
 
 <br/><br/>
-
-<br/><br/>
+a
 
 ## 덱 (Deque)
 
 - 덱(Double-Ended Queue)은 양쪽 끝에서 삽입과 삭제가 모두 가능한 자료구조임
 - 스택과 큐의 장점을 결합하여 매우 유연하게 활용할 수 있음
 - Java의 `ArrayDeque`가 대표적인 구현체이며 상황에 따라 스택 혹은 큐처럼 동작함
+- 양쪽 끝에서 데이터 접근이 가능하므로 앞쪽(`First`)과 뒤쪽(`Last`) 메서드를 구분해서 사용해야 함
+
+```java
+import java.util.ArrayDeque;
+import java.util.LinkedList;
+import java.util.Deque;
+
+public class DequeExample {
+    public static void main(String[] args) {
+        // ArrayDeque 구현체 (일반적인 덱/스택/큐 연산 시 권장 - 속도 빠름)
+        Deque<Integer> arrayDeque = new ArrayDeque<>();
+
+        arrayDeque.offerLast(1);
+        arrayDeque.offerLast(2);
+        arrayDeque.offerLast(3);
+        System.out.println("ArrayDeque Poll: " + arrayDeque.pollFirst()); // 1 출력
+
+        // 덱의 양방향 활용
+        arrayDeque.offerFirst(100); // 앞쪽에 100 추가
+        arrayDeque.offerLast(200);  // 뒤쪽에 200 추가
+
+        System.out.println("Front: " + arrayDeque.peekFirst()); // 100
+        System.out.println("Rear: "  + arrayDeque.peekLast());  // 200
+
+        // LinkedList 구현체 (Deque 인터페이스 구현, 중간 삽입/삭제 시 유리)
+        Deque<Integer> linkedDeque = new LinkedList<>();
+
+        linkedDeque.offerFirst(10);
+        linkedDeque.offerLast(20);
+        System.out.println("LinkedList Poll: " + linkedDeque.pollFirst()); // 10 출력
+
+        // 사용법(메서드)은 동일함 (인터페이스가 Deque이므로)
+        // 덱을 스택처럼 사용할 경우 push(), pop()
+        // 덱을 큐처럼 사용할 경우 offer(), poll()
+        arrayDeque.push(100);
+        linkedDeque.push(100);
+
+        System.out.println("ArrayDeque Top: " + arrayDeque.peek()); // 100
+        System.out.println("LinkedList Top: " + linkedDeque.peek()); // 100
+    }
+}
+```
 
 ![덱 원리 시각화](/assets/img/algorithm/deque_principle.png)
 
