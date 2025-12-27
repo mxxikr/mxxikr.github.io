@@ -147,9 +147,7 @@ math: true
 
 <br/><br/>
 
-## 요약 및 참고
-
-### 요약 정리
+## 요약 정리
 
 - 도입 시점
   - 프로젝트 시작할 때 바로 넣어야 함
@@ -165,7 +163,9 @@ math: true
 - CI/CD
   - Flyway는 애플리케이션 배포 시 자동 실행되므로, 별도의 배포 파이프라인 설정이 필요 없어 매우 편리함
 
-### Reference
+<br/><br/>
+
+## Reference
 
 - [Flyway Documentation](https://flywaydb.org/documentation/)
 - [Spring Boot Flyway Guide](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto.data-access.flyway)
