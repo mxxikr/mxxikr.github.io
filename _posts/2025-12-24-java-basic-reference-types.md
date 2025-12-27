@@ -5,7 +5,7 @@ author:
   link: https://github.com/mxxikr
 date: 2025-12-24 22:20:00 +0900
 category:
-  - [Java, Basic]
+  - [Language, java]
 tags: [java, primitive-type, reference-type, memory, garbage-collection]
 math: false
 mermaid: true
