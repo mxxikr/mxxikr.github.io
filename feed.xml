@@ -1,0 +1,317 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://mxxikr.github.io/</id>
+  <title>MXXI.kr</title>
+  <subtitle>Backend Developer. Sharing knowledge about software development, system design, and technology insights.</subtitle>
+  <updated>2025-12-28T10:32:04+09:00</updated>
+  <author>
+    <name>mxxikr</name>
+    <uri>https://mxxikr.github.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://mxxikr.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://mxxikr.github.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2025 mxxikr </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>김영한의 실전 자바 - 패키지</title>
+    <link href="https://mxxikr.github.io/posts/java-basic-package/" rel="alternate" type="text/html" title="김영한의 실전 자바 - 패키지" />
+    <published>2025-12-27T20:25:00+09:00</published>
+  
+    <updated>2025-12-27T20:25:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/java-basic-package/</id>
+    <content src="https://mxxikr.github.io/posts/java-basic-package/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="java" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      패키지
+
+
+  김영한님의 실전 자바 강의 중 패키지 챕터를 학습하며 클래스를 분류하고 관리하는 패키지의 개념과 사용법을 정리함
+
+
+
+
+패키지란?
+
+패키지의 필요성
+
+
+  프로그램의 기능이 추가되어 규모가 커지면 관리해야 할 클래스가 매우 많아짐
+  관련 있는 기능들을 분류하여 관리하기 위해 컴퓨터의 폴더와 유사한 개념인 패키지를 사용함
+  user, product, order 등 카테고리를 만들고 관련 클래스들을 해당 패키지에 넣어서 관리함
+
+
+패키지 사용법
+
+
+  패키지를 사용하는 경우 항상 코드 첫 줄에 패키지 이름을 적어주어야 함
+  패키지 이름은 package pack과 같이 선언함
+  클래스 생성 시 다른 패키지에서 호출하려면 생성자에 public 키워드를 사용해야 함
+
+
+패키지 위치에 따른 ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Flyway란?</title>
+    <link href="https://mxxikr.github.io/posts/flyway-basics/" rel="alternate" type="text/html" title="Flyway란?" />
+    <published>2025-12-27T19:10:00+09:00</published>
+  
+    <updated>2025-12-27T19:20:20+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/flyway-basics/</id>
+    <content src="https://mxxikr.github.io/posts/flyway-basics/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Infrastructure" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Flyway 기초
+
+정의 및 필요성
+
+
+  정의
+    
+      DB 스키마를 Git처럼 버전 관리하고 배포 시 자동으로 마이그레이션해 주는 도구임
+      애플리케이션 코드와 DB 스키마의 변경 사항을 동기화하여 배포 안정성을 높임
+    
+  
+  필요성
+    
+      수동으로 SQL을 실행하면 사람의 실수로 인해 누락되거나 순서가 꼬일 위험이 있음
+      개발, 스테이징, 운영 환경 간의 스키마 불일치 문제를 해결함
+    
+  
+
+
+동작 원리
+
+
+  버전 관리 규칙
+    
+      파일 이름에 버전을 명시하여 순서를 제어함
+      V1__init.sql, V2__add_user_table.sql 형식을 따름 (V + 버전 + __ + 설명)
+    
+  
+  메타데이터 관리...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Terraform이란?</title>
+    <link href="https://mxxikr.github.io/posts/terraform-basics/" rel="alternate" type="text/html" title="Terraform이란?" />
+    <published>2025-12-27T18:20:00+09:00</published>
+  
+    <updated>2025-12-27T18:20:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/terraform-basics/</id>
+    <content src="https://mxxikr.github.io/posts/terraform-basics/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Infrastructure" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      테라폼이란
+
+
+  정의
+    
+      코드로 인프라를 관리하는 도구 (Infrastructure as Code, IaC)임
+      GUI(Azure Portal)에서 클릭으로 서버를 만드는 대신 코드를 작성해서 인프라를 생성, 수정, 삭제함
+    
+  
+  철학
+    
+      Declarative (선언적)
+      “VM을 하나 생성해”라고 명령(Imperative)하는 것이 아니라 “나는 VM 1개가 있는 상태를 원해”라고 선언(Declarative)함
+      테라폼이 현재 상태와 목표 상태의 차이(Diff)를 계산해서 필요한 작업만 수행함
+    
+  
+  주요 컴포넌트
+    
+      State (상태 파일) 관리
+        
+          현재 인프라의 상태를 ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Ansible이란?</title>
+    <link href="https://mxxikr.github.io/posts/ansible-basics/" rel="alternate" type="text/html" title="Ansible이란?" />
+    <published>2025-12-27T18:00:00+09:00</published>
+  
+    <updated>2025-12-27T18:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/ansible-basics/</id>
+    <content src="https://mxxikr.github.io/posts/ansible-basics/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Infrastructure" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      앤서블 기초
+
+정의 및 특징
+
+
+  서버의 설정을 자동화하는 도구(Configuration Management)임
+  수십, 수백 대의 서버에 접속해서 패키지 설치, 환경변수 설정 등의 작업을 자동화함
+  특징
+    
+      Agentless (에이전트리스)
+        
+          관리 대상 서버에 별도의 프로그램을 설치할 필요가 없음
+          SSH 접속 권한과 Python 설치가 필요함 (Managed Node 포함)
+            
+              최신 Ansible은 Python 3.x 사용을 권장함
+              Python이 없는 환경(초경량 컨테이너 등)에서는 raw 모듈 사용이 제한적으로 가능함
+            
+          ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Java LTS 버전별 차이</title>
+    <link href="https://mxxikr.github.io/posts/java-lts-versions/" rel="alternate" type="text/html" title="Java LTS 버전별 차이" />
+    <published>2025-12-27T17:55:00+09:00</published>
+  
+    <updated>2025-12-27T17:55:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/java-lts-versions/</id>
+    <content src="https://mxxikr.github.io/posts/java-lts-versions/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="Java" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      현재 Java 생태계
+
+
+  현재 Java 생태계의 표준은 Java 17로 이동함
+  Java 8
+    
+      여전히 많이 쓰이나 Legacy임
+      모던 인프라와 프레임워크의 혜택을 받을 수 없음
+    
+  
+  Java 17
+    
+      현재 Java 생태계의 주요 표준 버전임
+      Spring Boot 3.0의 최소 요구사항임
+      성능과 안정성의 균형이 갖춰진 버전임
+    
+  
+  Java 21
+    
+      주요 기능이 업데이트된 최신 LTS 버전임
+      Virtual Threads의 도입으로 비동기 프로그래밍 방식에 변화를 줌
+      신규 프로젝트라면 도입을 추천하는 버전임
+    
+  
+
+
+
+
+주요 LTS 버전별 분석
+
+Java 8 (LTS...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
