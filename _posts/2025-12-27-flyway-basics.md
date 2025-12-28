@@ -41,11 +41,22 @@ math: true
   - `flyway-core` 의존성만 추가하면 별도 설정 없이 바로 사용 가능함
   - `src/main/resources/db/migration` 경로에 SQL 파일을 두면 부트 실행 시 자동 감지함
 - 트랜잭션 지원
-  - PostgreSQL, SQL Server 등 DDL 트랜잭션을 지원하는 DB에서는 스크립트 실행을 트랜잭션으로 묶음
-  - 마이그레이션 실패 시 자동으로 롤백되어 부분 반영되는 문제를 방지함
-  - 주의사항
-    - MySQL은 DDL 실행 시 암시적 커밋(Implicit Commit)이 발생하여 롤백이 불가능함
-    - 실패 시 수동 복구가 필요할 수 있음
+
+  - DB별 DDL 트랜잭션 지원 현황
+
+    | DB         | DDL 트랜잭션 | 롤백 가능 여부          |
+    | :--------- | :----------- | :---------------------- |
+    | PostgreSQL | 완전 지원    | 거의 모든 DDL 롤백 가능 |
+    | SQL Server | 부분 지원    | 일부 DDL만 롤백 가능    |
+    | Oracle     | 미지원       | 암시적 커밋 발생        |
+    | MySQL      | 미지원       | 암시적 커밋 발생        |
+    | MariaDB    | 미지원       | 암시적 커밋 발생        |
+
+  - MySQL/Oracle의 주의사항
+    - DDL 실행 시 암시적 커밋(Implicit Commit)이 발생하여 롤백이 불가능함
+    - 하나의 마이그레이션 파일에 여러 변경이 있으면 중간 실패 시 부분 적용됨
+    - 해결책: 마이그레이션 파일을 작게 쩌개기 (1 파일 = 1 테이블)
+
 - SQL 우선 (SQL-first)
   - 특정 DSL(Domain Specific Language)이 아닌 표준 SQL을 그대로 사용함
   - DB 벤더 고유의 기능(파티셔닝, 특정 인덱스 옵션 등)을 제약 없이 활용 가능함
@@ -64,8 +75,11 @@ math: true
     - 커뮤니티 버전에서는 자동 롤백(`undo`) 기능을 거의 지원하지 않음
     - 실패 시 수정 스크립트(V3\_\_fix...)를 추가하여 전진(Roll-forward)하는 방식이 일반적임
   - 불변성 원칙
-    - 한 번 실행된(성공한) 스크립트는 절대 수정하면 안 됨
+    - 이미 실행된(성공한) 스크립트는 원칙적으로 수정하면 안 됨
     - 수정 시 체크섬 불일치로 인해 Flyway가 실행을 거부하고 에러를 발생시킴
+    - 예외 상황
+      - 개발 환경에서 아직 다른 팀원이 실행하지 않았다면 수정 가능
+      - 단, 팀 전체가 `flyway clean` 후 재실행 필요
   - 복잡한 제어 부족
     - 조건부 실행이나 다중 DB 지원 등 복잡한 시나리오에는 Liquibase보다 유연성이 떨어짐
 
@@ -101,10 +115,13 @@ math: true
     - `V1__init_schema.sql` (최초 테이블 생성)
     - `V2__add_phone_number.sql` (컬럼 추가)
   - `R__{설명}.sql` (Repeatable Migration)
-    - 파일의 체크섬이 변경될 때마다 반복적으로 실행됨
+    - 모든 Versioned Migration(V\_\_) 실행 후에 실행됨
+    - 파일 내용(체크섬)이 변경될 때마다 반복 실행됨
+    - 파일명의 알파벳 순서로 실행됨 (버전 번호 없음)
     - View, Stored Procedure, Function 관리에 적합함
+    - 멱등성 보장 필요 (`CREATE OR REPLACE` 사용)
 - 주의사항
-  - 한 번 실행된 파일(`V1`)은 **절대 수정하면 안 됨**
+  - 이미 실행된 파일(`V1`)은 원칙적으로 수정하면 안 됨
   - 내용을 고치고 싶으면 `V3__update_V1.sql`을 새로 만들어야 함 (수정 시 Checksum 에러 발생)
 
 ### 트러블슈팅 가이드
@@ -113,12 +130,27 @@ math: true
   - 원인
     - 이미 성공한 `V1__init.sql` 파일을 수정하고 재배포할 때 발생함
   - 해결 방법
-    - 수동으로 DB의 체크섬 기록을 업데이트하거나, 신규 버전(`V2`)을 생성하여 대응함
-- 마이그레이션 실패 시 수동 조치
+    - 개발 환경
+      ```bash
+      flyway repair  # 체크섬 재계산
+      ```
+    - 프로덕션 환경
+      - 신규 버전(`V2__fix...`)을 생성하여 대응함
+    - flyway_schema_history 테이블의 체크섬 직접 수정은 권장하지 않음
+- 마이그레이션 실패 시 수동 조치 (MySQL 등)
   - 원인
     - 트랜잭션을 지원하지 않는 DB (MySQL 등)에서 실패한 경우
-  - 해결 방법
-    - 메타데이터 테이블에서 해당 실패 열(Success = false)을 직접 삭제해야 재실행이 가능함
+  - 해결 절차
+    - 실패 지점 파악
+      ```sql
+      SELECT * FROM flyway_schema_history WHERE success = 0;
+      ```
+    - 부분 적용된 변경사항 수동 롤백 (필요한 경우)
+    - 메타데이터 정리
+      ```sql
+      DELETE FROM flyway_schema_history WHERE version = '5';
+      ```
+    - 스크립트 수정 후 재실행
 
 ### 선택 가이드
 
@@ -137,13 +169,17 @@ math: true
 - 이유
   - XML/YAML로 추상화하여 DB 벤더 독립성을 챙길 수 있음
 
-**Case C (아무것도 안 씀)**
+**Case C (ddl-auto 사용)**
 
 - 상황
   - "극초기 개인 프로젝트라 스키마가 하루에 100번 바뀐다."
-- 이유
-  - 이럴 땐 그냥 `ddl-auto: create`로 밀어버리는 게 속 편할 수 있음
-  - 단, 배포 전에는 반드시 Flyway로 전환해야 함
+- 주의사항
+  - `ddl-auto: create`는 서버 재시작마다 데이터 소멸
+  - 실수로 운영 환경에 적용 시 치명적인 장애 발생 가능
+  - 프로필로 철저히 격리 (`profiles.active: local`)
+- 권장사항
+  - 가능하면 처음부터 Flyway 사용 습관화
+  - 배포 전에는 반드시 Flyway로 전환해야 함
 
 <br/><br/>
 
@@ -152,7 +188,10 @@ math: true
 - 도입 시점
   - 프로젝트 시작할 때 바로 넣어야 함
   - 나중에 넣으려면 `baseline` 설정으로 고생할 수 있음
-    - `baseline-on-migrate: true` 설정은 기존 DB 스키마를 V1로 간주하고 마이그레이션을 시작하게 함
+- baseline-on-migrate 설명
+  - 기존 DB에 flyway_schema_history 테이블이 없으면 자동 생성함
+  - 현재 스키마를 baseline 버전(기본 1)으로 기록하고 그 이후 버전만 실행함
+  - 프로덕션 적용 시 신중하게 사용해야 함
 - Spring Boot 설정
   ```yaml
   spring:
