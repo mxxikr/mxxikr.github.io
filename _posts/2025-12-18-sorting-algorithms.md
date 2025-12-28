@@ -6,7 +6,17 @@ author:
 date: 2025-12-18 00:00:00 +0900
 category:
   - [Computer Science, Algorithm]
-tags: [algorithm, sorting, bubble sort, selection sort, insertion sort, merge sort, quick sort, heap sort]
+tags:
+  [
+    algorithm,
+    sorting,
+    bubble sort,
+    selection sort,
+    insertion sort,
+    merge sort,
+    quick sort,
+    heap sort,
+  ]
 math: true
 mermaid: true
 ---
@@ -35,18 +45,31 @@ mermaid: true
 
 <br/><br/>
 
-## 정렬 알고리즘 성능 비교
+## 정렬 알고리즘
 
-| 알고리즘 | 평균 시간 복잡도 | 최악 시간 복잡도 | 최선 시간 복잡도 | 공간 복잡도 | 안정성 |
-|---------|----------------|----------------|----------------|------------|--------|
-| 버블 정렬 | $O(n^2)$ | $O(n^2)$ | $O(n)$ | $O(1)$ | 안정 |
-| 선택 정렬 | $O(n^2)$ | $O(n^2)$ | $O(n^2)$ | $O(1)$ | 불안정 |
-| 삽입 정렬 | $O(n^2)$ | $O(n^2)$ | $O(n)$ | $O(1)$ | 안정 |
-| 병합 정렬 | $O(n \log n)$ | $O(n \log n)$ | $O(n \log n)$ | $O(n)$ | 안정 |
-| 퀵 정렬 | $O(n \log n)$ | $O(n^2)$ | $O(n \log n)$ | $O(\log n)$ | 불안정 |
-| 힙 정렬 | $O(n \log n)$ | $O(n \log n)$ | $O(n \log n)$ | $O(1)$ | 불안정 |
-| 계수 정렬 | $O(n + k)$ | $O(n + k)$ | $O(n + k)$ | $O(k)$ | 안정 |
-| 기수 정렬 | $O(d \times n)$ | $O(d \times n)$ | $O(d \times n)$ | $O(n + k)$ | 안정 |
+### 정의
+
+| 정렬 알고리즘 | 정의                                                                                    |
+| ------------- | --------------------------------------------------------------------------------------- |
+| 버블          | 데이터의 인접 요소끼리 비교하고, swap 연산을 수행하며 정렬하는 방식                     |
+| 선택          | 대상에서 가장 크거나 작은 데이터를 찾아가 선택을 반복하면서 정렬하는 방식               |
+| 삽입          | 대상을 선택해 정렬된 영역에서 선택 데이터의 적절한 위치를 찾아 삽입하면서 정렬하는 방식 |
+| 퀵            | pivot 값을 선정해 해당 값을 기준으로 정렬하는 방식                                      |
+| 병합          | 이미 정렬된 부분 집합들을 효율적으로 병합해 전체를 정렬하는 방식                        |
+| 기수          | 데이터의 자릿수를 바탕으로 비교해 데이터를 정렬하는 방식                                |
+
+### 성능 비교
+
+| 알고리즘  | 평균 시간 복잡도 | 최악 시간 복잡도 | 최선 시간 복잡도 | 공간 복잡도 | 안정성 |
+| --------- | ---------------- | ---------------- | ---------------- | ----------- | ------ |
+| 버블 정렬 | $O(n^2)$         | $O(n^2)$         | $O(n)$           | $O(1)$      | 안정   |
+| 선택 정렬 | $O(n^2)$         | $O(n^2)$         | $O(n^2)$         | $O(1)$      | 불안정 |
+| 삽입 정렬 | $O(n^2)$         | $O(n^2)$         | $O(n)$           | $O(1)$      | 안정   |
+| 병합 정렬 | $O(n \log n)$    | $O(n \log n)$    | $O(n \log n)$    | $O(n)$      | 안정   |
+| 퀵 정렬   | $O(n \log n)$    | $O(n^2)$         | $O(n \log n)$    | $O(\log n)$ | 불안정 |
+| 힙 정렬   | $O(n \log n)$    | $O(n \log n)$    | $O(n \log n)$    | $O(1)$      | 불안정 |
+| 계수 정렬 | $O(n + k)$       | $O(n + k)$       | $O(n + k)$       | $O(k)$      | 안정   |
+| 기수 정렬 | $O(d \times n)$  | $O(d \times n)$  | $O(d \times n)$  | $O(n + k)$  | 안정   |
 
 <br/><br/>
 
@@ -58,14 +81,27 @@ mermaid: true
 - 거품이 수면으로 올라오는 것처럼 큰 요소가 배열의 끝으로 이동함
 - 각 패스마다 가장 큰 요소가 맨 뒤로 정렬됨
 - 시간 복잡도
-    - 평균: $O(n^2)$
-    - 최악: $O(n^2)$
-    - 최선: $O(n)$
+  - 평균: $O(n^2)$
+  - 최악: $O(n^2)$
+  - 최선: $O(n)$
 - 공간 복잡도
-    - $O(1)$ (추가 메모리 불필요)
+  - $O(1)$ (추가 메모리 불필요)
 - 안정성
-    - 안정적임
+  - 안정적임
 - 구현이 단순하지만 성능이 매우 떨어짐
+
+### 버블 정렬 과정
+
+1. 비교 연산이 필요한 루프 범위를 설정함
+2. 인접한 데이터 값을 비교함
+3. swap 조건에 부합하면 swap 연산을 수행함
+4. 루프 범위가 끝날 때까지 2~3을 반복함
+5. 정렬 영역을 설정함 (다음 루프를 실행할 때는 이 영역을 제외함)
+6. 비교 대상이 없을 때까지 1~5를 반복함
+
+- 만약 특정한 루프의 전체 영역에서 swap이 한 번도 발생하지 않았다면 그 영역 뒤에 있는 데이터가 모두 정렬됐다는 뜻이므로 프로세스를 종료해도 됨
+
+![버블 정렬 흐름도](/assets/img/algorithm/bubble_sort_flow.png)
 
 ```java
 void bubbleSort(int[] array) {
@@ -95,12 +131,14 @@ void bubbleSort(int[] array) {
 - 가장 작은 요소부터 차례로 앞으로 이동함
 - 각 패스마다 정렬되지 않은 부분에서 최솟값을 선택함
 - 시간 복잡도
-    - 모든 경우: $O(n^2)$
+  - 모든 경우: $O(n^2)$
 - 공간 복잡도
-    - $O(1)$
+  - $O(1)$
 - 안정성
-    - 불안정적임
+  - 불안정적임
 - 버블 정렬보다 교환 횟수가 적어 조금 더 빠름
+
+![선택 정렬 흐름도](/assets/img/algorithm/selection_sort_flow.png)
 
 ```java
 void selectionSort(int[] array) {
@@ -128,22 +166,24 @@ void selectionSort(int[] array) {
 - 카드 게임에서 카드를 정렬하는 방식과 유사함
 - 현재 요소를 이미 정렬된 부분과 비교하며 적절한 위치를 찾음
 - 시간 복잡도
-    - 평균: $O(n^2)$
-    - 최악: $O(n^2)$
-    - 최선: $O(n)$
+  - 평균: $O(n^2)$
+  - 최악: $O(n^2)$
+  - 최선: $O(n)$
 - 공간 복잡도
-    - $O(1)$
+  - $O(1)$
 - 안정성
-    - 안정적임
+  - 안정적임
 - 작은 데이터셋에 효율적이며, 거의 정렬된 상태의 데이터에서 매우 빠름
 - 온라인 정렬(streaming data)에 적합함
+
+![삽입 정렬 흐름도](/assets/img/algorithm/insertion_sort_flow.png)
 
 ```java
 void insertionSort(int[] array) {
     for (int i = 1; i < array.length; i++) {
         int key = array[i];
         int j = i - 1;
-        
+
         // key보다 큰 요소들을 한 칸씩 뒤로 이동
         while (j >= 0 && array[j] > key) {
             array[j + 1] = array[j];
@@ -165,25 +205,27 @@ void insertionSort(int[] array) {
 ![image](/assets/img/algorithm/image3.png)
 
 - 시간 복잡도
-    - 모든 경우: $O(n \log n)$
+  - 모든 경우: $O(n \log n)$
 - 공간 복잡도
-    - $O(n)$ (추가 배열 필요)
+  - $O(n)$ (추가 배열 필요)
 - 안정성
-    - 안정적임
+  - 안정적임
 - 항상 일정한 성능을 보장함
 - 대규모 데이터셋에 적합하지만 추가 메모리가 필요함
+
+![병합 정렬 흐름도](/assets/img/algorithm/merge_sort_flow.png)
 
 ```java
 void mergeSort(int[] array) {
     if (array.length <= 1) return;
-    
+
     int mid = array.length / 2;
     int[] left = new int[mid];
     int[] right = new int[array.length - mid];
-    
+
     System.arraycopy(array, 0, left, 0, mid);
     System.arraycopy(array, mid, right, 0, array.length - mid);
-    
+
     mergeSort(left);
     mergeSort(right);
     merge(array, left, right);
@@ -191,12 +233,12 @@ void mergeSort(int[] array) {
 
 void merge(int[] array, int[] left, int[] right) {
     int i = 0, j = 0, k = 0;
-    
+
     // 두 배열을 비교하며 병합
     while (i < left.length && j < right.length) {
         array[k++] = left[i] <= right[j] ? left[i++] : right[j++];
     }
-    
+
     // 남은 요소 복사
     while (i < left.length) array[k++] = left[i++];
     while (j < right.length) array[k++] = right[j++];
@@ -214,18 +256,20 @@ void merge(int[] array, int[] left, int[] right) {
 ![image](/assets/img/algorithm/image4.png)
 
 - 시간 복잡도
-    - 평균: $O(n \log n)$
-    - 최악: $O(n^2)$
-    - 최악의 경우는 이미 정렬된 배열이나 역순 배열에서 피벗을 잘못 선택했을 때 발생함
-    - 단순히 마지막 요소를 피벗으로 잡을 경우, 정렬된 데이터에서 성능이 급격히 저하됨
-    - 실무에서는 난수 분할(Randomized Partition)이나 중앙값(Median-of-Three) 방식을 사용하여 해결함
+  - 평균: $O(n \log n)$
+  - 최악: $O(n^2)$
+  - 최악의 경우는 이미 정렬된 배열이나 역순 배열에서 피벗을 잘못 선택했을 때 발생함
+  - 단순히 마지막 요소를 피벗으로 잡을 경우, 정렬된 데이터에서 성능이 급격히 저하됨
+  - 실무에서는 난수 분할(Randomized Partition)이나 중앙값(Median-of-Three) 방식을 사용하여 해결함
 - 공간 복잡도
-    - $O(\log n)$ (재귀 스택)
-    - 제자리 정렬(In-place sort)이 가능하여 추가 메모리가 거의 필요 없음
+  - $O(\log n)$ (재귀 스택)
+  - 제자리 정렬(In-place sort)이 가능하여 추가 메모리가 거의 필요 없음
 - 안정성
-    - 불안정적임
+  - 불안정적임
 - 대부분의 경우 매우 빠르지만, 피벗 선택이 부적절하면 최악의 성능을 보임
 - 평균적으로 가장 많이 사용되는 정렬임
+
+![퀵 정렬 흐름도](/assets/img/algorithm/quick_sort_flow.png)
 
 ```java
 void quickSort(int[] array, int left, int right) {
@@ -239,7 +283,7 @@ void quickSort(int[] array, int left, int right) {
 int partition(int[] array, int left, int right) {
     int pivot = array[right];  // 마지막 요소를 피벗으로 선택
     int i = left - 1;
-    
+
     for (int j = left; j < right; j++) {
         if (array[j] < pivot) {
             i++;
@@ -249,12 +293,12 @@ int partition(int[] array, int left, int right) {
             array[j] = temp;
         }
     }
-    
+
     // 피벗을 중간 위치로 이동
     int temp = array[i + 1];
     array[i + 1] = array[right];
     array[right] = temp;
-    
+
     return i + 1;
 }
 ```
@@ -267,30 +311,32 @@ int partition(int[] array, int left, int right) {
 - 나머지 요소들로 다시 힙을 구성하는 과정을 반복함
 - 힙 자료구조의 특성을 활용한 정렬임
 - 시간 복잡도
-    - 모든 경우: $O(n \log n)$
+  - 모든 경우: $O(n \log n)$
 - 공간 복잡도
-    - $O(1)$
+  - $O(1)$
 - 안정성
-    - 불안정적임
+  - 불안정적임
 - 추가 메모리 없이 항상 $O(n \log n)$을 보장함
 - 최악의 경우에도 일정한 성능을 유지하지만, 실제로는 퀵 정렬보다 느린 편임
+
+![힙 정렬 흐름도](/assets/img/algorithm/heap_sort_flow.png)
 
 ```java
 void heapSort(int[] array) {
     int n = array.length;
-    
+
     // 최대 힙 구성
     for (int i = n / 2 - 1; i >= 0; i--) {
         heapify(array, n, i);
     }
-    
+
     // 힙에서 요소를 하나씩 추출하여 정렬
     for (int i = n - 1; i > 0; i--) {
         // 루트(최댓값)를 끝으로 이동
         int temp = array[0];
         array[0] = array[i];
         array[i] = temp;
-        
+
         // 나머지 요소로 힙 재구성
         heapify(array, i, 0);
     }
@@ -300,23 +346,23 @@ void heapify(int[] array, int n, int i) {
     int largest = i;
     int left = 2 * i + 1;
     int right = 2 * i + 2;
-    
+
     // 왼쪽 자식이 더 크면
     if (left < n && array[left] > array[largest]) {
         largest = left;
     }
-    
+
     // 오른쪽 자식이 더 크면
     if (right < n && array[right] > array[largest]) {
         largest = right;
     }
-    
+
     // 가장 큰 값이 루트가 아니면 교환
     if (largest != i) {
         int temp = array[i];
         array[i] = array[largest];
         array[largest] = temp;
-        
+
         // 재귀적으로 힙 재구성
         heapify(array, n, largest);
     }
@@ -333,31 +379,31 @@ void heapify(int[] array, int n, int i) {
 - 비교 연산 없이 인덱스를 활용하여 정렬함
 - 정수 데이터에 특화된 정렬 알고리즘임
 - 시간 복잡도
-    - $O(n + k)$ (k는 최댓값)
+  - $O(n + k)$ (k는 최댓값)
 - 공간 복잡도
-    - $O(k)$
+  - $O(k)$
 - 안정성
-    - 안정적임
-    - 안정성을 보장하기 위해 입력 배열을 뒤에서부터 순회하여 결과 배열에 채움
+  - 안정적임
+  - 안정성을 보장하기 위해 입력 배열을 뒤에서부터 순회하여 결과 배열에 채움
 - 시간 복잡도가 매우 낮음
 - 음수나 매우 큰 범위의 숫자에는 부적합함
 
 ```java
 void countingSort(int[] array) {
     if (array.length == 0) return;
-    
+
     // 최댓값 찾기
     int max = array[0];
     for (int num : array) {
         if (num > max) max = num;
     }
-    
+
     // 카운팅 배열 생성
     int[] count = new int[max + 1];
     for (int num : array) {
         count[num]++;
     }
-    
+
     // 정렬된 결과 생성
     int idx = 0;
     for (int i = 0; i <= max; i++) {
@@ -377,24 +423,24 @@ void countingSort(int[] array) {
 - 각 자리수마다 안정한 정렬(보통 계수 정렬)을 사용함
 - 정수의 자리수를 기준으로 분류하여 정렬함
 - 시간 복잡도
-    - $O(d \times n)$ (d는 자리수)
+  - $O(d \times n)$ (d는 자리수)
 - 공간 복잡도
-    - $O(n + k)$
+  - $O(n + k)$
 - 안정성
-    - 안정적임
+  - 안정적임
 - 정수 정렬에서 매우 빠름
 - 추가 메모리가 필요함
 
 ```java
 void radixSort(int[] array) {
     if (array.length == 0) return;
-    
+
     // 최댓값 찾기
     int max = array[0];
     for (int num : array) {
         if (num > max) max = num;
     }
-    
+
     // 각 자리수마다 정렬
     for (int exp = 1; max / exp > 0; exp *= 10) {
         countingSortByDigit(array, exp);
@@ -405,24 +451,24 @@ void countingSortByDigit(int[] array, int exp) {
     int n = array.length;
     int[] output = new int[n];
     int[] count = new int[10];
-    
+
     // 현재 자리수의 숫자 카운팅
     for (int i = 0; i < n; i++) {
         count[(array[i] / exp) % 10]++;
     }
-    
+
     // 누적 카운트
     for (int i = 1; i < 10; i++) {
         count[i] += count[i - 1];
     }
-    
+
     // 정렬된 결과 생성
     for (int i = n - 1; i >= 0; i--) {
         int digit = (array[i] / exp) % 10;
         output[count[digit] - 1] = array[i];
         count[digit]--;
     }
-    
+
     // 원본 배열에 복사
     System.arraycopy(output, 0, array, 0, n);
 }
@@ -435,33 +481,33 @@ void countingSortByDigit(int[] array, int exp) {
 ### 데이터 크기에 따른 선택
 
 - 작은 데이터셋 (n < 50)
-    - 삽입 정렬이 효율적임
+  - 삽입 정렬이 효율적임
 - 중간 크기 데이터셋
-    - 퀵 정렬이 일반적으로 가장 빠름
+  - 퀵 정렬이 일반적으로 가장 빠름
 - 대규모 데이터셋
-    - 병합 정렬이나 힙 정렬로 안정적인 성능 보장
+  - 병합 정렬이나 힙 정렬로 안정적인 성능 보장
 
 ### 데이터 특성에 따른 선택
 
 - 거의 정렬된 데이터
-    - 삽입 정렬이나 버블 정렬의 최적화 버전이 좋음
+  - 삽입 정렬이나 버블 정렬의 최적화 버전이 좋음
 - 역순으로 정렬된 데이터
-    - 퀵 정렬은 피하고 병합 정렬 사용
+  - 퀵 정렬은 피하고 병합 정렬 사용
 - 중복이 많은 데이터
-    - 3-way 퀵 정렬이나 계수 정렬 고려
+  - 3-way 퀵 정렬이나 계수 정렬 고려
 
 ### 요구사항에 따른 선택
 
 - 일반적인 경우
-    - 퀵 정렬 - 대부분의 프로그래밍 언어의 표준 라이브러리가 퀵 정렬 기반임
+  - 퀵 정렬 - 대부분의 프로그래밍 언어의 표준 라이브러리가 퀵 정렬 기반임
 - 최악의 경우 보장 필요
-    - 병합 정렬이나 힙 정렬
+  - 병합 정렬이나 힙 정렬
 - 안정한 정렬 필요
-    - 병합 정렬이나 삽입 정렬
+  - 병합 정렬이나 삽입 정렬
 - 메모리 제약이 심할 때
-    - 힙 정렬 (제자리 정렬)
+  - 힙 정렬 (제자리 정렬)
 - 정수 범위가 제한적
-    - 계수 정렬이나 기수 정렬
+  - 계수 정렬이나 기수 정렬
 
 ![image](/assets/img/algorithm/image5.png)
 
@@ -483,9 +529,11 @@ void countingSortByDigit(int[] array, int exp) {
 ### 안정한 정렬과 불안정한 정렬
 
 **안정한 정렬**
+
 - 버블 정렬, 삽입 정렬, 병합 정렬, 계수 정렬, 기수 정렬
 
 **불안정한 정렬**
+
 - 선택 정렬, 퀵 정렬, 힙 정렬
 
 <br/><br/>
