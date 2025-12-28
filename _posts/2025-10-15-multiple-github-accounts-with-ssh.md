@@ -29,26 +29,28 @@ mermaid: false
 <br/><br/>
 
 ## 환경 안내
+
 > 이 가이드는 macOS 환경을 기준으로 작성되었음
+>
 > - Windows 사용자: `pbcopy` 대신 `clip` 사용
 > - Linux 사용자: `pbcopy` 대신 `xclip` 또는 `xsel` 사용
 
 ### SSH Config 동작 원리
 
-[image](/assets/img/versioncontrol/git/image.png)
+![SSH Config 동작 원리](/assets/img/versioncontrol/git/ssh-config-flow.png)
 
 ### 새 SSH 키 생성
 
 - 계정별로 사용할 SSH 키를 새로 만듦
 - 기존 키를 덮어쓰지 않도록 `-f` 옵션으로 파일 이름을 명확히 지정
 
-    ```bash
-    # 첫 번째 계정용 SSH 키 생성
-    ssh-keygen -t ed25519 -C "account1@example.com" -f ~/.ssh/id_ed25519_account1
+  ```bash
+  # 첫 번째 계정용 SSH 키 생성
+  ssh-keygen -t ed25519 -C "account1@example.com" -f ~/.ssh/id_ed25519_account1
 
-    # 두 번째 계정용 SSH 키 생성
-    ssh-keygen -t ed25519 -C "account2@example.com" -f ~/.ssh/id_ed25519_account2
-    ```
+  # 두 번째 계정용 SSH 키 생성
+  ssh-keygen -t ed25519 -C "account2@example.com" -f ~/.ssh/id_ed25519_account2
+  ```
 
 - 키를 생성하는 중간에 `passphrase` (비밀암호)를 입력함
   - 이건 키 파일 자체를 보호하는 비밀번호라 푸시할 때마다 물어보게 됨
@@ -57,13 +59,13 @@ mermaid: false
 
 - 생성한 공개 키(`.pub`) 파일의 내용을 클립보드로 복사
 
-    ```bash
-    # 첫 번째 계정용 공개 키 복사
-    pbcopy < ~/.ssh/id_ed25519_account1.pub
+  ```bash
+  # 첫 번째 계정용 공개 키 복사
+  pbcopy < ~/.ssh/id_ed25519_account1.pub
 
-    # 두 번째 계정용 공개 키 복사
-    pbcopy < ~/.ssh/id_ed25519_account2.pub
-    ```
+  # 두 번째 계정용 공개 키 복사
+  pbcopy < ~/.ssh/id_ed25519_account2.pub
+  ```
 
 - 각 GitHub 계정에 로그인
 - `Settings` > `SSH and GPG keys` 메뉴로 이동
@@ -74,9 +76,9 @@ mermaid: false
 - SSH가 특정 주소로 접속할 때, 어떤 키를 사용해야 할지 알려주는 설정 파일이 필요
 - `~/.ssh/config` 파일을 열어서 (없으면 새로 만들어) 아래 내용을 추가
 
-    ```bash
-    vim ~/.ssh/config
-    ```
+  ```bash
+  vim ~/.ssh/config
+  ```
 
 - `Host` 부분에 `github.com`이 아닌, 계정별 별명(Alias)을 지정해야 함
 
@@ -158,28 +160,29 @@ git remote set-url origin git@github.com-account2:username2/repository.git
 
 - 설정이 제대로 되었는지 확인하려면 다음 명령어로 테스트
 
-    ```bash
-    # 첫 번째 계정 테스트
-    ssh -T git@github.com-account1
+  ```bash
+  # 첫 번째 계정 테스트
+  ssh -T git@github.com-account1
 
-    # 두 번째 계정 테스트
-    ssh -T git@github.com-account2
-    ```
+  # 두 번째 계정 테스트
+  ssh -T git@github.com-account2
+  ```
 
 - 정상적으로 연결되면 다음과 같은 메시지가 출력됨
 
-    ```
-    Hi username! You've successfully authenticated, but GitHub does not provide shell access.
-    ```
+  ```
+  Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+  ```
 
 - **최초 연결 시 주의**
+
   - 새로운 Host Alias로 처음 접속할 때 다음과 같은 메시지가 나타날 수 있음
-  
+
     ```
     The authenticity of host 'github.com (IP)' can't be established.
     Are you sure you want to continue connecting (yes/no)?
     ```
-  
+
   - `yes`를 입력하면 GitHub의 지문(fingerprint)이 `~/.ssh/known_hosts` 파일에 저장됨
   - 이후 동일한 호스트로 접속할 때는 이 메시지가 나타나지 않음
 
@@ -187,37 +190,37 @@ git remote set-url origin git@github.com-account2:username2/repository.git
 
 - SSH 키의 passphrase를 매번 입력하기 싫다면 ssh-agent에 키를 추가
 
-    ```bash
-    ssh-add ~/.ssh/id_ed25519_account1
-    ssh-add ~/.ssh/id_ed25519_account2
-    ```
+  ```bash
+  ssh-add ~/.ssh/id_ed25519_account1
+  ssh-add ~/.ssh/id_ed25519_account2
+  ```
 
 - Mac의 경우 키체인에 저장하려면 다음 명령어 사용
 
-    ```bash
-    ssh-add --apple-use-keychain ~/.ssh/id_ed25519_account1
-    ssh-add --apple-use-keychain ~/.ssh/id_ed25519_account2
-    ```
+  ```bash
+  ssh-add --apple-use-keychain ~/.ssh/id_ed25519_account1
+  ssh-add --apple-use-keychain ~/.ssh/id_ed25519_account2
+  ```
 
 ### 기존 저장소의 원격 주소 확인
 
 - 현재 저장소가 어떤 원격 주소를 사용하는지 확인
 
-    ```bash
-    git remote -v
-    ```
+  ```bash
+  git remote -v
+  ```
 
 ### 새 저장소 클론할 때
 
 - 처음부터 SSH 주소로 클론하려면 Host 별명을 사용
 
-    ```bash
-    # 첫 번째 계정 저장소 클론
-    git clone git@github.com-account1:username1/repository.git
+  ```bash
+  # 첫 번째 계정 저장소 클론
+  git clone git@github.com-account1:username1/repository.git
 
-    # 두 번째 계정 저장소 클론
-    git clone git@github.com-account2:username2/repository.git
-    ```
+  # 두 번째 계정 저장소 클론
+  git clone git@github.com-account2:username2/repository.git
+  ```
 
 <br/><br/>
 
@@ -251,8 +254,9 @@ git remote set-url origin git@github.com-account2:username2/repository.git
   - SSH는 보안상 config 파일이나 키 파일의 권한이 너무 열려 있으면 접속을 거부함
   - 다른 사용자가 파일을 읽거나 수정할 수 있는 권한이 있으면 에러 발생
 - **해결**
+
   - 파일 권한을 소유자만 읽고 쓸 수 있도록 변경
-  
+
     ```bash
     chmod 600 ~/.ssh/config
     chmod 600 ~/.ssh/id_ed25519_account1
@@ -263,10 +267,9 @@ git remote set-url origin git@github.com-account2:username2/repository.git
 
 - `~/.ssh/config` 파일을 열어서 확인
 
-    ```bash
-    cat ~/.ssh/config
-    ```
-
+  ```bash
+  cat ~/.ssh/config
+  ```
 
 <br/><br/>
 
