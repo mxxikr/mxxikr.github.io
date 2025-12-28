@@ -41,6 +41,8 @@ math: true
 - Kubernetes
   - 준비된 인프라 위에서 Docker 컨테이너(애플리케이션)를 배포하고 관리함
 
+![Terraform 워크플로우](/assets/img/terraform/workflow.png)
+
 <br/><br/>
 
 ## 설정 방법
