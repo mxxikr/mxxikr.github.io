@@ -24,10 +24,14 @@ math: true
     - 현재 인프라의 상태를 JSON 형태로 저장함
     - 협업 시 동일한 리소스를 중복 생성하지 않도록 막아주는 기준점이 됨 (Locking)
   - Drift (상태 불일치) 감지
-    - 실제 인프라가 코드 몰래 수정되었을 때 이를 감지하고 코드를 기준으로 원복시킴
+    - 실제 인프라가 코드 몰래 수정되었을 때 이를 감지함
+    - `terraform plan`으로 현재 상태와 코드의 차이를 확인하고, 사용자가 승인하면 `terraform apply`로 코드 기준으로 수정함
+    - 자동 원복 기능은 없으며 항상 수동 개입이 필요함
   - 보안 주의사항
-    - API 키나 데이터베이스 비밀번호 등이 포함될 수 있으므로 반드시 암호화하여 원격(Remote)에 저장해야 함
-    - 스토리지 계정의 암호화(SSE) 기능을 활성화하고 코드 내에서는 `sensitive = true` 속성을 활용하여 로그 노출을 방지함
+    - State 파일에는 **민감한 정보가 평문으로 저장**됨 (암호화되지 않음)
+    - `sensitive = true`는 **CLI 출력에서만 숨김** - State 파일 내부에는 여전히 평문
+    - 민감 정보는 State에 직접 저장하지 말고 Azure Key Vault 참조 권장
+    - 스토리지 계정의 암호화(SSE) 기능을 활성화할 것
 
 <br/><br/>
 
@@ -114,6 +118,11 @@ resource "azurerm_linux_virtual_machine" "app_server" {
     azurerm_network_interface.nic.id,
   ]
 
+  admin_ssh_key {
+    username   = "adminuser"
+    public_key = file("~/.ssh/id_rsa.pub")  # 또는 var.ssh_public_key
+  }
+
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
@@ -133,7 +142,7 @@ resource "azurerm_linux_virtual_machine" "app_server" {
 - terraform init
   - 필요한 플러그인(azurerm)을 다운로드함
 - terraform plan
-  - 가장 중요
+  - 프로덕션 환경에서 특히 중요함
   - 실제로 만들기 전에 무엇이 변경될지 미리 보여줌 (Dry Run)
   - `az login`을 통해 Azure에 인증된 상태여야 함
 - terraform apply
@@ -209,23 +218,24 @@ terraform {
 
 ### 테라폼의 현재 지위
 
-- 2024년 기준 IaC 시장 점유율 1위지만 경쟁 심화 단계임
-- IBM의 HashiCorp 인수 (2024)
+- 2024년 기준 IaC 시장 점유율 1위이지만 경쟁 심화 단계임
+- IBM의 HashiCorp 인수 (2024년 12월 완료)
   - 거대 IT 기업의 인수로 인한 생태계 변화 가능성이 존재함
 - 가장 큰 위협 요소
   - 2023년 8월 라이센싱을 Open-source (MPL)에서 BSL (Business Source License)로 변경함
+  - BSL은 상용 경쟁 제품을 만들 수 없음 (특정 수익 규모 이상 제한)
   - 이로 인해 OpenTofu 포크 및 기업들의 이탈을 초래함
 
 ### 타 서비스 분석
 
 - OpenTofu (테라폼의 오픈소스 포크)
   - 특징
-    - 라이센싱이 MPL 2.0으로 진정한 오픈소스임
+    - 라이센싱이 MPL 2.0으로 완전한 자유 사용 가능함
     - Linux Foundation / CNCF Sandbox 프로젝트로 커뮤니티가 로드맵을 주도함
   - 장점
     - 테라폼과 완전히 호환 가능하며 State 암호화 등 보안 기능이 강화됨
   - 추천
-    - 규제 산업(금융, 의료)이나 오픈소스 거버넌스를 중시하는 엔터프라이즈
+    - 규제 산업(금융, 의료)이나 BSL이 문제되는 엔터프라이즈
 - CloudFormation (AWS 최적화)
   - 특징
     - JSON 또는 YAML을 사용하며 AWS가 State를 자동 관리함
@@ -260,14 +270,14 @@ terraform {
 
 ### 선택 가이드
 
-| 상황                   | 추천 도구          | 이유                                                                       |
-| :--------------------- | :----------------- | :------------------------------------------------------------------------- |
-| GCP + AWS 멀티클라우드 | **Terraform**      | 유일하게 두 클라우드를 동일한 HCL로 관리 가능하며 커뮤니티 규모가 압도적임 |
-| AWS 전용, 개발자 팀    | **AWS CDK**        | TypeScript/Python으로 인프라 패턴 구현 가능하며 학습 곡선이 낮음           |
-| AWS 전용, 운영 팀      | **CloudFormation** | 최신 AWS 기능 최우선 지원 및 강력한 Drift Detection                        |
-| Azure 전용             | **Bicep**          | Azure에 완전히 최적화되어 있고 문법이 간단함                               |
-| 오픈소스/금융규제      | **OpenTofu**       | State 암호화 및 오픈소스 거버넌스 지원                                     |
-| 복잡한 비즈니스 로직   | **Pulumi**         | 일반 프로그래밍 언어로 복잡한 패턴 구현 및 강력한 테스트 가능              |
+| 상황                   | 추천 도구          | 이유                                                             |
+| :--------------------- | :----------------- | :--------------------------------------------------------------- |
+| GCP + AWS 멀티클라우드 | **Terraform**      | 가장 성숙한 멀티클라우드 지원과 방대한 커뮤니티                  |
+| AWS 전용, 개발자 팀    | **AWS CDK**        | TypeScript/Python으로 인프라 패턴 구현 가능하며 학습 곡선이 낮음 |
+| AWS 전용, 운영 팀      | **CloudFormation** | 최신 AWS 기능 최우선 지원 및 강력한 Drift Detection              |
+| Azure 전용             | **Bicep**          | Azure에 완전히 최적화되어 있고 문법이 간단함                     |
+| 오픈소스/금융규제      | **OpenTofu**       | State 암호화 및 오픈소스 거버넌스 지원                           |
+| 복잡한 비즈니스 로직   | **Pulumi**         | 일반 프로그래밍 언어로 복잡한 패턴 구현 및 강력한 테스트 가능    |
 
 <br/><br/>
 
