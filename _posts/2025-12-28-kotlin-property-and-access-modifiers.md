@@ -302,8 +302,19 @@ private val v: Int
 
 - 같은 모듈(Gradle/Maven 빌드 단위, 또는 IntelliJ IDEA 모듈)에서만 접근 가능함
 - 라이브러리에서 내부 API를 숨기고 싶을 때 유용함
-- JVM 바이트코드 레벨에서는 `public`으로 컴파일되지만 이름이 인코딩(Mangling)됨
-- Kotlin 컴파일러에 의해서만 접근이 제한되며, Java에서 의도적으로 접근하는 것은 기술적으로 가능하지만 권장되지 않음
+- JVM 바이트코드 레벨 동작
+
+  ```kotlin
+  // Kotlin 소스
+  internal fun doSomething() { }
+
+  // JVM 바이트코드 변환 결과
+  // public final void doSomething$myapp_main() { }
+  ```
+
+  - 모듈 이름이 함수명에 추가됨 (`$모듈명`)
+  - Java에서 접근 시 컴파일은 되지만 이름이 변경되어 있음
+  - Kotlin 컴파일러에 의해서만 접근이 제한되며, Java에서 의도적으로 접근하는 것은 기술적으로 가능하지만 권장되지 않음
 
 #### Internal vs Package-Private 비교
 
@@ -434,7 +445,7 @@ class User(
 
 <br/><br/>
 
-## 비교
+## Java와 Kotlin 별 구현 비교
 
 ### Plain Java
 
@@ -564,8 +575,14 @@ plugins {
 
 **data class를 Entity에 사용하면 안 되는 구체적 이유**
 
-- data class의 `equals()`와 `hashCode()`는 모든 필드를 사용함
-- 연관 관계가 있을 때 문제 발생
+| 메서드       | 문제점                                                         |
+| ------------ | -------------------------------------------------------------- |
+| `equals()`   | 모든 필드 비교 → 연관 엔티티 로드 → 무한 재귀 또는 N+1 쿼리    |
+| `hashCode()` | 모든 필드 기반 → Lazy Loading 강제 발생                        |
+| `toString()` | 모든 필드 출력 → 연관 엔티티 로드 → 로그 출력 시 N+1 쿼리 발생 |
+| `copy()`     | 새 인스턴스 생성 → JPA가 추적하지 못함 → 변경 감지 실패        |
+
+- 무한 재귀 문제 예시
 
 ```kotlin
 // 위험한 예시
@@ -592,13 +609,23 @@ user1 == user2  // equals() 호출
 // → StackOverflowError 발생
 ```
 
-- Lazy Loading 문제
+- toString() 문제 예시
 
-  - `equals()` 호출 시 연관 엔티티를 강제로 로드함
-  - N+1 쿼리 문제 발생 가능
+```kotlin
+// 로그 출력 시
+logger.info("User: $user")  // toString() 호출 → orders 전체 로드 → N+1 쿼리
+```
+
+- copy() 문제 예시
+
+```kotlin
+val user = userRepository.findById(1L)
+val updatedUser = user.copy(name = "New Name")  // 새 객체 생성
+userRepository.save(updatedUser)  // ❌ JPA가 이를 새 엔티티로 인식 → INSERT 시도
+```
 
 - 해결책
-  - 일반 class 사용
+  - 일반 class 사용 필수
   - 필요한 경우 ID 기반으로 `equals()`/`hashCode()` 직접 구현
 
 ```kotlin
