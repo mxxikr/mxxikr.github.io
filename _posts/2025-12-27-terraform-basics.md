@@ -20,18 +20,35 @@ math: true
   - "VM을 하나 생성해"라고 명령(Imperative)하는 것이 아니라 "나는 VM 1개가 있는 상태를 원해"라고 선언(Declarative)함
   - 테라폼이 현재 상태와 목표 상태의 차이(Diff)를 계산해서 필요한 작업만 수행함
 - 주요 컴포넌트
+
   - State (상태 파일) 관리
     - 현재 인프라의 상태를 JSON 형태로 저장함
     - 협업 시 동일한 리소스를 중복 생성하지 않도록 막아주는 기준점이 됨 (Locking)
   - Drift (상태 불일치) 감지
+
     - 실제 인프라가 코드 몰래 수정되었을 때 이를 감지함
-    - `terraform plan`으로 현재 상태와 코드의 차이를 확인하고, 사용자가 승인하면 `terraform apply`로 코드 기준으로 수정함
-    - 자동 원복 기능은 없으며 항상 수동 개입이 필요함
+
+      | 구분      | 오픈소스 Terraform       | Terraform Cloud            |
+      | --------- | ------------------------ | -------------------------- |
+      | 감지 방식 | 수동 (`terraform plan`)  | 자동 (12/24시간 주기 설정) |
+      | 알림      | 없음 (직접 구현 필요)    | Email/Slack/Webhook        |
+      | 교정      | 수동 (`terraform apply`) | 수동 승인 후 apply         |
+
+    - 주의
+      - Terraform은 Drift를 감지만 하며, 자동 교정하지 않음
+      - 항상 사람의 승인이 필요함
+
   - 보안 주의사항
-    - State 파일에는 **민감한 정보가 평문으로 저장**됨 (암호화되지 않음)
-    - `sensitive = true`는 **CLI 출력에서만 숨김** - State 파일 내부에는 여전히 평문
+
+    | 저장 위치       | At-Rest 암호화 | In-Transit | State 내부 민감 정보    |
+    | --------------- | -------------- | ---------- | ----------------------- |
+    | 로컬 파일       | 없음           | N/A        | 평문                    |
+    | Azure Storage   | SSE (기본)     | TLS        | 평문                    |
+    | Terraform Cloud | AES-256        | TLS        | 암호화 가능 (추가 비용) |
+
+    - `sensitive = true`는 **CLI 출력에서만 마스킹**되며, State 파일 내부에는 여전히 평문
     - 민감 정보는 State에 직접 저장하지 말고 Azure Key Vault 참조 권장
-    - 스토리지 계정의 암호화(SSE) 기능을 활성화할 것
+    - State 파일 접근 권한을 RBAC으로 엄격히 제한할 것
 
 <br/><br/>
 
@@ -211,6 +228,54 @@ terraform {
   }
 }
 ```
+
+### Git 관리 주의사항
+
+- .gitignore 필수 설정
+
+  ```gitignore
+  # 절대 커밋하지 말 것
+  *.tfstate
+  *.tfstate.*
+  .terraform/
+
+  # 민감 정보
+  *.tfvars
+  backend.conf
+  ```
+
+- 환경변수 활용
+
+  ```bash
+  # 민감한 변수는 환경변수로
+  export TF_VAR_db_password="secret"
+  terraform apply
+  ```
+
+### State Lock 문제 해결
+
+- 증상
+  - `Error acquiring the state lock` 발생
+- 원인
+  - 이전 `terraform apply`가 비정상 종료
+  - 네트워크 끊김으로 Lock 해제 실패
+- 해결
+
+  ```bash
+  # Lock ID 확인 후
+  terraform force-unlock <LOCK_ID>
+
+  # 확인 후 다시 실행
+  terraform apply
+  ```
+
+### 비용 관리
+
+- 실수 방지 체크리스트
+  - `terraform plan`에서 리소스 타입/크기 확인
+  - Azure Cost Management 예산 알림 설정
+  - Infracost 등 비용 예측 도구 통합
+  - 태그로 리소스 추적 (`Environment`, `Owner`, `Project`)
 
 <br/><br/>
 

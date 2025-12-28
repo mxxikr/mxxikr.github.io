@@ -71,20 +71,32 @@ global:
   scrape_interval: 15s
 
 scrape_configs:
-  # 1. Kafka 클러스터 메트릭 (Kafka Exporter)
+  # Kafka 클러스터 메트릭 (Kafka Exporter)
   - job_name: "kafka-cluster"
     static_configs:
       - targets: ["kafka-exporter:9308"]
 
-  # 2. Spring Boot 애플리케이션 메트릭 (Actuator)
+  # Spring Boot 애플리케이션 메트릭 (Actuator)
   - job_name: "spring-boot-app"
     metrics_path: "/actuator/prometheus"
     scrape_interval: 5s
     static_configs:
-      # Docker 내부 통신용 주소 (Mac/Windows Docker Desktop)
+      # macOS/Windows Docker Desktop
       - targets: ["host.docker.internal:8080"]
-      # Linux 환경인 경우 호스트 IP 사용 필요 (예: 172.17.0.1:8080)
 ```
+
+- Linux 환경 설정 (아래 둘 중 하나 선택)
+  - 옵션 1
+    - `docker-compose.yml`의 prometheus 서비스에 `extra_hosts` 추가
+      ```yaml
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
+      ```
+  - 옵션 2
+    - 호스트 IP 직접 지정 (Docker 기본 브리지 게이트웨이)
+      ```yaml
+      - targets: ["172.17.0.1:8080"]
+      ```
 
 <br/><br/>
 
@@ -244,7 +256,7 @@ groups:
 
           ExecutorService executor = Executors.newFixedThreadPool(threadCount);
           CountDownLatch latch = new CountDownLatch(messageCount);
-          // 동시성 처리를 위해 Thread-Safe 리스트 사용
+          // 동시성 처리를 위해 Thread-Safe 리스트 사용
           List<Long> latencies = Collections.synchronizedList(new ArrayList<>());
 
           long start = System.currentTimeMillis();

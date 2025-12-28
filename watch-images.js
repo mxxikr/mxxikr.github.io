@@ -44,9 +44,9 @@ function startWatching() {
                         console.log(`🖼️  새 이미지 발견: ${filename}`);
                         
                         if (optimizeImage(filePath)) {
-                            console.log(`✅ 최적화 완료: ${filename}`);
+                            console.log(`최적화 완료: ${filename}`);
                         } else {
-                            console.log(`❌ 최적화 실패: ${filename}`);
+                            console.log(`최적화 실패: ${filename}`);
                         }
                     }
                 }, 1000); // 1초 대기 (파일 쓰기 완료 대기)

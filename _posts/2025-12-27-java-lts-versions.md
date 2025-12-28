@@ -39,9 +39,14 @@ math: true
   - 풍부한 레퍼런스, 안정성, 기존 라이브러리와의 완벽한 호환성
 - 단점
   - 컨테이너 환경 효율 저하
-    - 8u131부터 cgroups 실험적 지원, 8u191에서 안정화됨
-    - 최신 JVM 대비 컨테이너 메모리 인식 및 리소스 최적화가 부족함
-    - 문제 사례: Docker `-m 2g` 제한 시 호스트 전체 메모리 기준으로 힙 할당 → OOMKilled
+    - 8u131 이전
+      - cgroups 미지원 → 컨테이너 메모리 제한 무시
+    - 8u131-8u190
+      - `-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap` 플래그 필요
+    - 8u191+
+      - 기본적으로 컨테이너 메모리 인식
+      - 단, Java 11+ 대비 힙 크기 자동 조정 정확도가 낮음
+      - `-m 2g` 설정 시 `-XX:MaxRAMPercentage` 수동 조정 권장
   - 모던 프레임워크 지원 중단
     - Spring Boot 3.x 이상 사용 불가능
   - GC 성능
@@ -89,7 +94,10 @@ math: true
     - SQL, JSON 문자열을 큰따옴표 3개로 깔끔하게 작성 가능
 - 성능
   - Java 8 대비 G1GC 처리량(Throughput) 및 지연시간(Latency) 상당히 개선됨
-  - 벤치마크와 워크로드에 따라 편차가 크나 일반적으로 10-40% 개선 보고됨
+  - 벤치마크 기준 ([Renaissance Suite v0.14.2](https://renaissance.dev), SPECjbb2015 등)
+    - G1GC Throughput: 평균 15-25% 개선
+    - 지연시간(Latency): 워크로드에 따라 10-40% 개선
+    - 주의: 애플리케이션 특성에 따라 편차 큼
 - 지원 일정
   - Eclipse Temurin 17: 2029년까지 지원 예정
 - Record와 DDD (불변성 확보)
@@ -108,20 +116,38 @@ math: true
 - 동시성 처리 성능이 강화된 버전임
 - 동기 방식 코드로 비동기 수준의 성능을 제공하여 개발 생산성을 크게 개선함
 - 주요 기능
-  - Virtual Threads (Project Loom)
+
+  - Virtual Threads (Project Loom, JEP 444)
     - 기존 Java 스레드(OS 스레드 1:1 매핑)의 한계를 극복함
-    - 이론상 수백만 개 생성 가능하나 실무에서는 메모리와 CPU에 따라 수만~수십만 단위로 사용
+    - JEP 444 벤치마크
+      - 100만 스레드 생성 시 약 200MB 메모리 사용
+    - 실무 권장
+      - I/O bound 작업
+        - 수만~수십만 개도 문제없음 (대부분이 대기 상태)
+      - CPU bound 작업
+        - Platform Thread 수와 유사한 수준으로 제한 필요
+        - 16코어 → 약 16-32개의 CPU 집약 작업이 최적
+      - 제약은 Virtual Thread 개수가 아니라 **동시에 실행 중인(Running) 작업의 수**
   - Sequenced Collections
-    - `list.getFirst()`, `list.getLast()` 등 순서가 있는 컬렉션 처리가 일관성 있게 통합됨
-  - Generational ZGC
-    - TB(테라바이트) 단위 힙에서도 1ms 미만의 GC 중단 시간을 목표로 함
-    - `-XX:+UseZGC` 사용 시 Generational 모드가 기본 활성화됨 (JEP 439)
+    - `list.getFirst()`, `list.getLast()` 등 순서가 있는 커렉션 처리가 일관성 있게 통합됨
+  - Generational ZGC (JEP 439)
+
+    - TB(테라바이트) 단위 힙에서도 10ms 미만의 GC 중단 시간을 목표로 함
+    - `-XX:+UseZGC` 사용 시 Generational 모드가 기본 활성화됨
     - 비활성화하려면 `-XX:-ZGenerational` 옵션 필요
-    - 선택 기준
-      - 힙 크기가 16GB 이하인 경우 G1GC가 여전히 효율적일 수 있음
-      - 수백 GB에서 TB(테라바이트) 단위의 대용량 힙 환경에서는 ZGC가 유리함
+    - ZGC vs G1GC 비교 (힙 크기별)
+
+      | 힙 크기 | G1GC STW (Mixed GC)   | ZGC STW      | 권장             |
+      | ------- | --------------------- | ------------ | ---------------- |
+      | ~16GB   | 10-50ms (일반적)      | 5-10ms       | G1GC (오버헤드↓) |
+      | 32-64GB | 50-200ms              | 5-15ms       | 워크로드 따라    |
+      | 100GB+  | 200-500ms (최악 1초+) | <10ms (목표) | ZGC 권장         |
+
+    - 주의
+      - 실제 STW는 힙 크기뿐 아니라 라이브 객체 수, 할당 속도에 크게 영향받음
+
 - 장점
-  - 복잡한 Reactive Programming(WebFlux, Mono/Flux) 없이도 동기 코드 스타일로 비동기급 처리량을 달성 가능함
+  - Reactive Programming(WebFlux, Mono/Flux)의 학습 곡선 없이도 동기 코드 스타일로 비동기급 처리량을 달성 가능함
 - 지원 일정
   - Eclipse Temurin 21: 2031년까지 지원 예정 (예상)
 
@@ -137,10 +163,32 @@ math: true
     - 코루틴처럼 동작하지만 코드는 동기 스타일
 - Virtual Threads vs Reactive
   - Reactive (WebFlux)
-    - Context Switching 비용이 낮아 CPU 효율이 높으나 코드가 복잡하고 디버깅이 어려움
+    - 학습 곡선이 있으나 CPU 효율이 높음
+    - 콜백 기반 코드로 디버깅이 상대적으로 어려움
   - Virtual Threads
-    - 메모리 효율: 스레드당 수 KB 수준
-    - 개발 생산성: 기존 동기 코드 그대로 사용 가능
+    - 메모리 효율
+      - 스레드당 수 KB 수준
+    - 개발 생산성
+      - 기존 동기 코드 그대로 사용 가능
+- 코드 예시
+
+  ```java
+  // Before: Platform Threads (Java 8-17)
+  ExecutorService executor = Executors.newFixedThreadPool(100);
+  executor.submit(() -> {
+      String data = callExternalAPI();  // 100개 스레드 제한
+      processData(data);
+  });
+
+  // After: Virtual Threads (Java 21)
+  try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
+      executor.submit(() -> {
+          String data = callExternalAPI();  // 수만 개도 OK
+          processData(data);
+      });
+  }
+  ```
+
 - 주의사항
   - CPU 집중 작업 (CPU-bound) 시 성능 저하가 발생할 수 있음
   - Thread Pinning 현상
@@ -152,6 +200,8 @@ math: true
     - 대용량 힙 사용 시 GC 중단 시간(STW) 증가로 인스턴스를 잘게 나누어야 했음
   - Java 21의 개선점
     - Generational ZGC로 대용량 힙에서도 짧은 중단 시간 유지 가능
+    - TB 단위 힙에서 ZGC는 G1GC 대비 STW 시간을 수십 배 줄일 수 있음
+    - 16GB 이하 힙에서는 G1GC가 오버헤드가 적어 효율적
     - Vertical Scaling이 가능해져 관리 포인트(Pod 수) 감소 및 CPU 절감 효과 기대
 - 결론
   - 동기 방식(Spring MVC)으로 개발하면서 비동기 수준의 처리량을 확보 가능함

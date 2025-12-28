@@ -18,7 +18,7 @@ function createBackup() {
   if (!fs.existsSync(BACKUP_DIR)) {
     
     execSync(`cp -r ${IMAGE_DIR} ${BACKUP_DIR}`, { stdio: 'inherit' });
-    console.log('✅ 백업 완료:', BACKUP_DIR);
+    console.log('백업 완료:', BACKUP_DIR);
   } else {
     console.log('📦 백업이 이미 존재합니다:', BACKUP_DIR);
   }
@@ -100,5 +100,5 @@ if (fs.existsSync(IMAGE_DIR)) {
   console.log('📊 최적화 결과를 확인하려면 다음 명령어를 실행하세요:');
   console.log('du -sh assets/img');
 } else {
-  console.log('❌ 이미지 디렉토리를 찾을 수 없습니다:', IMAGE_DIR);
+  console.log('이미지 디렉토리를 찾을 수 없습니다:', IMAGE_DIR);
 }

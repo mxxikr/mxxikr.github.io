@@ -56,15 +56,15 @@ math: false
 
   - 처리 성능
     - 초당 1000개 이상 메시지 처리
-    - 10ms 이내 처리 지연 목표
-      - 네트워크 환경과 직렬화 로직에 따라 가변적
+    - 10ms 이내 단일 구간 처리 지연 목표 (end-to-end가 아닌 Kafka 브로커 내 처리 시간)
+      - 네트워크 레이턴시, 직렬화/역직렬화 시간은 별도
       - 로컬 테스트 결과가 실제 트래픽이 몰리는 운영 환경의 성능을 대변하지 않음
       - 정확한 성능 측정은 실제 운영 환경과 유사한 조건에서 부하 테스트 필요
     - 전송 및 복제 단계에서의 데이터 유실 방지
       - min.insync.replicas=2 + acks=all 설정
       - 전송 과정에서의 유실 차단
       - 물리적 재해(동시 디스크 손상)는 별도 백업 필요
-      - 브로커 3대 구성 필요 (고가용성 달성 조건)
+      - 브로커 3대 구성 권장 (고가용성 달성 조건)
   - 가용성
     - 99.9% 이상 서비스 가용성
     - 브로커 3대 구성으로 단일 장애 대응
@@ -275,6 +275,24 @@ math: false
 ### Docker Compose 설정
 
 - `docker-compose.yml` 파일 생성
+- Kafka 메모리 구성 원칙
+
+  - Heap
+    - JVM 객체, 메타데이터 저장
+    - 보통 4-6GB 최대 권장
+  - Page Cache
+    - OS 파일 시스템 캐시
+    - 나머지 메모리 전부 할당
+  - 컨테이너 메모리별 권장 설정
+    - 2GB
+      - Heap 1GB (50/50)
+    - 4GB
+      - Heap 2GB (50/50)
+    - 8GB
+      - Heap 4GB (50/50)
+    - 16GB 이상
+      - Heap 6GB (Heap 37.5%, Page Cache 62.5%)
+      - 메모리가 많을수록 Page Cache 비중을 높이는 것이 유리함
 
   ```yaml
   version: "3.8"
@@ -302,8 +320,11 @@ math: false
         KAFKA_INTER_BROKER_LISTENER_NAME: "INTERNAL"
 
         # 클러스터 ID
-        # 실제 운영 시에는 kafka-storage random-uuid 명령어로 매번 고유한 ID를 생성해야 함
-        CLUSTER_ID: "MkU3OEVBNTcwNTJENDM2Qk"
+        # 보안 경고: 아래 CLUSTER_ID는 학습용 예시이며, 프로덕션 환경에서 절대 사용 금지
+        # 각 클러스터는 고유한 ID가 필요하며, 동일 ID 사용 시 데이터 손상 위험
+        # 프로덕션 ID 생성:
+        # docker run --rm confluentinc/cp-kafka:7.5.1 kafka-storage random-uuid
+        CLUSTER_ID: "MkU3OEVBNTcwNTJENDM2Qk" # 절대 프로덕션에 사용 금지
 
         # 복제 및 고가용성
         KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
@@ -325,7 +346,6 @@ math: false
         KAFKA_JMX_PORT: 9991
         KAFKA_JMX_OPTS: -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
 
-        # 메모리 최적화 (Heap 50%, Page Cache 50%)
         KAFKA_HEAP_OPTS: "-Xmx1G -Xms1G"
 
       deploy:
@@ -634,7 +654,20 @@ math: false
         retry-backoff-ms: 1000 # 지수 백오프 시작값
         batch-size: 16384 # 16KB (네트워크 패킷 효율과 지연 시간의 균형점)
         buffer-memory: 33554432 # 32MB (프로듀서가 전송 대기 중인 레코드를 버퍼링할 메모리)
-        compression-type: zstd # 2025년 기준 Zstd가 CPU 효율 대비 압축률이 가장 우수하여 네트워크 비용 절감에 탁월함
+        # 압축 알고리즘 선택 가이드
+        #
+        # 시나리오별 권장:
+        # 1. 네트워크 대역폭이 병목 (원격 데이터센터 간 복제)
+        #    → zstd (높은 압축률로 전송 데이터량 최소화)
+        #
+        # 2. 실시간 처리가 중요 (IoT 센서, 실시간 알림)
+        #    → lz4 (낮은 지연시간, 빠른 압축/해제)
+        #
+        # 3. 대부분의 일반적인 경우
+        #    → snappy (압축률과 속도의 균형)
+        #
+        # 현재 설정: zstd (스마트 팩토리 환경에서 네트워크 비용 절감 우선)
+        compression-type: zstd
         max-request-size: 1048576 # 최대 요청 크기 1MB
 
       # 공통 컨슈머 설정
@@ -915,7 +948,7 @@ math: false
 
       /**
        * 에러 핸들러 빈 생성 (DLT 설정)
-       * 실패 시 재시도(3회, 1초 간격) 후 Dead Letter Topic으로 전송
+       * 실패 시 재시도(최대 3회, 지수 백오프) 후 Dead Letter Topic으로 전송
        */
       @Bean
       public DefaultErrorHandler errorHandler() {
@@ -923,8 +956,13 @@ math: false
           // 기본적으로 topic-name.DLT 토픽으로 전송됨
           DeadLetterPublishingRecoverer recoverer = new DeadLetterPublishingRecoverer(kafkaTemplate());
 
-          // FixedBackOff: 1초 간격으로 최대 3회 재시도
-          FixedBackOff backOff = new FixedBackOff(1000L, 3L);
+          // ExponentialBackOff: 지수 백오프 (1초 → 2초 → 4초, 최대 3회)
+          // 일시적 장애 복구에 더 효과적
+          ExponentialBackOff backOff = new ExponentialBackOff(1000L, 2.0);
+          backOff.setMaxElapsedTime(10000L);  // 최대 10초
+
+          // 또는 고정 간격 사용 시:
+          // FixedBackOff backOff = new FixedBackOff(1000L, 3L);
 
           return new DefaultErrorHandler(recoverer, backOff);
       }
