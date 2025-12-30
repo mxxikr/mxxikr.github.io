@@ -621,7 +621,7 @@ logger.info("User: $user")  // toString() 호출 → orders 전체 로드 → N+
 ```kotlin
 val user = userRepository.findById(1L)
 val updatedUser = user.copy(name = "New Name")  // 새 객체 생성
-userRepository.save(updatedUser)  // ❌ JPA가 이를 새 엔티티로 인식 → INSERT 시도
+userRepository.save(updatedUser)  // JPA가 이를 새 엔티티로 인식 → INSERT 시도
 ```
 
 - 해결책
