@@ -1,5 +1,5 @@
 ---
-title: "주니어 백엔드 개발자가 반드시 알아야 할 실무 지식 - 1장"
+title: "주니어 백엔드 개발자가 반드시 알아야 할 실무 지식 - 1장 들어가며"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
@@ -53,6 +53,7 @@ mermaid: true
 ![커넥션 부족 시나리오](/assets/img/books/backend-basics-ch1/connection_shortage.png)
 
 ![커넥션 부족 시나리오](/assets/img/books/backend-basics-ch1/connection_shortage2.png)
+
 ### 올바른 구현 방법
 
 ```java
