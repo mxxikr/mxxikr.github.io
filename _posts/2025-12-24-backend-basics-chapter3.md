@@ -1,5 +1,5 @@
 ---
-title: "주니어 백엔드 개발자가 반드시 알아야 할 실무 지식 - 3장"
+title: "주니어 백엔드 개발자가 반드시 알아야 할 실무 지식 - 3장 성능을 좌우하는 DB 설계와 쿼리"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
