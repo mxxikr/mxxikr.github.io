@@ -412,14 +412,14 @@ public class ApiClient {
 
 - 스레드에 안전하지 않은 컬렉션 객체를 여러 스레드가 공유하면 데이터가 깨짐
 - 예를 들어 자바에서 `HashMap`이나 `HashSet`은 여러 스레드가 공유하면서 데이터를 변경하면 데이터가 깨짐
-
-```java
-Map<String, String> map = new HashMap<>();
-Map<String, String> syncMap = Collections.synchronizedMap(map);
-syncMap.put("key1", "value1"); // put 메서드는 내부적으로 synchronized로 처리됨
-```
-
 - 동기화된 컬렉션 객체는 변경이나 조회와 관련된 메서드 모두 동기화된 블록에서 실행되어 동시성 문제를 해결함
+
+  ```java
+  Map<String, String> map = new HashMap<>();
+  Map<String, String> syncMap = Collections.synchronizedMap(map);
+  syncMap.put("key1", "value1"); // put 메서드는 내부적으로 synchronized로 처리됨
+  ```
+
 - **복합 연산 주의**
   - 개별 메서드는 스레드 안전하지만 복합 연산은 별도 동기화 필요
   - ex) `if (!map.containsKey(key)) map.put(key, value)`는 여전히 경쟁 상태(race condition) 발생 가능
@@ -429,10 +429,10 @@ syncMap.put("key1", "value1"); // put 메서드는 내부적으로 synchronized�
 
 - 동시성 문제를 해결하는 또 다른 방법은 동시성을 지원하는 컬렉션 타입을 사용하는 것임
 
-```java
-ConcurrentMap<String, String> map = new ConcurrentHashMap<>();
-map.put("key1", "value1"); // 동시성 지원 클래스로 잠금 범위를 최소화함
-```
+  ```java
+  ConcurrentMap<String, String> map = new ConcurrentHashMap<>();
+  map.put("key1", "value1"); // 동시성 지원 클래스로 잠금 범위를 최소화함
+  ```
 
 - `ConcurrentHashMap` 타입은 데이터를 변경할 때 잠금 범위를 최소화함
 - 따라서 키의 해시 분포가 균등하고 동시 수정이 많으면, 동기화된 맵을 사용하는 것보다 더 나은 성능을 제공함
@@ -460,15 +460,17 @@ map.put("key1", "value1"); // 동시성 지원 클래스로 잠금 범위를 최
 
 - 선점 잠금과 비관적 잠금은 같은 개념을 지칭하는 용어임
 - 선점 잠금은 데이터에 먼저 접근한 트랜잭션이 잠금을 획득하는 방식임
-- 선점 잠금을 획득하기 위한 쿼리는 다음 형식을 갖음(오라클과 MySQL 기준이며 DB에 따라 쿼리 방식은 다를 수 있음)
+- 선점 잠금을 획득하기 위한 쿼리는 다음 형식을 갖음
 
-```sql
-select * from 테이블 where 조건
-for update
-```
+  - 오라클과 MySQL 기준이며 DB에 따라 쿼리 방식은 다를 수 있음
 
-- `for update`로 조회하면서 잠금 획득
-- 트랜잭션 종료(커밋/롤백) 시 잠금 반환
+  ```sql
+  select * from 테이블 where 조건
+  for update
+  ```
+
+  - `for update`로 조회하면서 잠금 획득
+  - 트랜잭션 종료(커밋/롤백) 시 잠금 반환
 
 ![선점 잠금 시퀀스](/assets/img/books/backend-basics-ch6/pessimistic-lock.png)
 
@@ -489,8 +491,7 @@ select .., version from 테이블 where id = 아이디
 UPDATE 테이블 SET .., version = version + 1
 WHERE id = 아이디 AND version = [1에서 조회한 version 값]
 
--- UPDATE 결과로 변경된 행 개수가 0이면, 이미 다른 트랜잭션에서 version 칼럼 증가시킨 것이므로 데이터
--- 변경에 실패한 것이므로 이 경우 트랜잭션을 롤백함
+-- UPDATE 결과로 변경된 행 개수가 0이면, 이미 다른 트랜잭션에서 version 칼럼 증가시킨 것이므로 데이터 변경에 실패한 것이므로 이 경우 트랜잭션을 롤백함
 ```
 
 - 다음은 위 과정을 코드로 표현한 것임
@@ -551,7 +552,7 @@ private Order getOrder(String orderId) {
 ### 외부 연동과 잠금
 
 - 트랜잭션 내에서 외부 시스템 연동 시 비선점 잠금보다 선점 잠금 권장
-- 예: PG 환불 후 DB 변경 실패 시 환불만 되고 데이터는 롤백되는 문제
+- ex) PG 환불 후 DB 변경 실패 시 환불만 되고 데이터는 롤백되는 문제
 
 ![외부 연동 잠금 문제](/assets/img/books/backend-basics-ch6/external-lock-problem.png)
 
@@ -559,8 +560,7 @@ private Order getOrder(String orderId) {
 
 ## 중복 쿼리
 
-- 예전에 참여자 수가 가끔씩 틀어지는데 어떤 문제인지 확인해달라는 요청을 받은 적이 있음
-- 문제가 된 코드는 다음과 같은 형태로 쿼리를 실행하고 있었음
+- 다음 코드는 참여자 수 카운트에서 동시성 문제가 발생할 수 있음
 
   ```java
   // 이벤트 조회
@@ -621,7 +621,7 @@ if (lock.tryLock()) {
 }
 ```
 
-### 잠금 입도(Lock Granularity)
+### 잠금 범위(Lock Granularity)
 
 - **거친 잠금(Coarse-grained Lock)**
   - 넓은 범위를 하나의 잠금으로 보호
@@ -650,8 +650,8 @@ if (lock.tryLock()) {
   - 이렇게 프로세스나 스레드가 자원을 할당 받지 못해 작업을 진행하지 못하는 상황을 기아상태라고 부름
 
 - **라이브락(livelock)**
-  - 좌은 복도에서 두 사람이 마주치는 것을 피해 이동하는 것과 유사함
-  - 라이브락은 각자가 움직이는 바람에 결국 서로 부딫히게 되는 상황
+  - 복도에서 두 사람이 마주치는 것을 피해 이동하는 것과 유사함
+  - 라이브락은 각자가 움직이는 바람에 결국 서로 부딪히게 되는 상황
   - 같은 실행은 하고 있지만 결국 대상 처리가 완료되지 않는 상황을 라이브락이라고 함
 
 <br/><br/>
@@ -683,7 +683,7 @@ while (running) {
             // modifyState()는 한 스레드만 접근하므로 동시성 문제가 없다
             obj.modifyState();
             break;
-        // .. 다른 작업
+        // 다른 작업
     }
 }
 ```
@@ -693,7 +693,7 @@ while (running) {
 - **Go 언어의 철학**
   - Go 언어에는 "메모리를 공유하는 방식으로 (고루틴) 간에 소통하지 말고 통신을 통해 메모리를 공유하라"는 말이 있음
   - Go 언어는 여러 고루틴이 동시에 접근하는 것을 권장하지 않고, 채널을 통해 고루틴 간에 데이터를 공유하는 방식으로 동시성을 구현하는 것을 권장함
-  - 이는 동시성 문제를 줄여주는 데 도움이 됨
+  - 이는 동시성 문제를 줄여주는 데 도움 됨
 
 ### 성능 고려사항
 
