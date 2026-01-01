@@ -655,6 +655,37 @@ figure .mfp-title {
   margin-top: 0.5rem;
 }
 
+/* Allow image to expand beyond viewport height and width */
+img.mfp-img {
+  max-height: 100vh !important; /* Start with viewport height (fallback) */
+  max-width: 100% !important;   /* Start with viewport width (fallback) */
+}
+
+/* On larger screens, allow truly unconstrained zoom */
+@media screen and (min-width: 800px) {
+  img.mfp-img {
+    max-height: none !important;
+    max-width: none !important;
+  }
+}
+
+/* FIX: Remove purple background inherited from global theme overrides */
+.mfp-bg, .mfp-wrap, .mfp-container, .mfp-content, .mfp-figure, .mfp-figure figure, .mfp-arrow {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Hide preloader text "Loading..." */
+.mfp-preloader {
+  display: none !important;
+}
+
+/* Ensure only the overlay has a background (optional, standard black dimming) */
+.mfp-bg {
+    background-color: #0b0b0b !important; /* Standard dark overlay */
+    opacity: 0.8 !important;
+}
+
 /* mermaid */
 .mermaid {
   text-align: center;

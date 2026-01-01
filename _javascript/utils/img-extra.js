@@ -6,23 +6,25 @@
 
 $(function () {
 
-  const IMG_SCOPE = '#main > div.row:first-child > div:first-child';
+  /* popup */
+  const $images = $('.post-content img:not(.emoji), .preview-img');
 
-  if ($(`${IMG_SCOPE} img`).length <= 0) {
+  if ($images.length <= 0) {
     return;
   }
 
-  /* popup */
-
-  $(`${IMG_SCOPE} p > img,${IMG_SCOPE} img.preview-img`).each(
-    function () {
-      let nextTag = $(this).next();
-      const title = nextTag.prop('tagName') === 'EM' ? nextTag.text() : '';
-      const src = $(this).attr('src'); // use standard src attribute
-
-      $(this).wrap(`<a href="${src}" title="${title}" class="popup"></a>`);
+  $images.each(function () {
+    // If the image is already wrapped in a link, skip it or handle appropriately
+    if ($(this).parent().is('a')) {
+      return;
     }
-  );
+
+    let nextTag = $(this).next();
+    const title = nextTag.prop('tagName') === 'EM' ? nextTag.text() : '';
+    const src = $(this).attr('src'); // use standard src attribute
+
+    $(this).wrap(`<a href="${src}" title="${title}" class="popup img-link"></a>`);
+  });
 
   $('.popup').magnificPopup({
     type: 'image',
@@ -32,11 +34,14 @@ $(function () {
       enabled: true,
       duration: 300,
       easing: 'ease-in-out'
+    },
+    tLoading: '',
+    image: {
+      verticalFit: false 
     }
   });
 
-  /* markup the image links */
-
-  $(`${IMG_SCOPE} a`).has('img').addClass('img-link');
+  $('.popup').on('click', function() {
+  });
 
 });
