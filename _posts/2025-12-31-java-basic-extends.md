@@ -77,7 +77,7 @@ public class PrivateJet extends Airplane {
 
 ### 상속 관계 다이어그램
 
-![Airplane Class Diagram](/assets/img/posts/2025-12-31-java-basic-extends/class-diagram-airplane.png)
+![Airplane Class Diagram](/assets/img/java-basic/extends/class-diagram-airplane.png)
 
 - `extends` 키워드
   - 자식 클래스가 부모 클래스를 상속받음
@@ -99,7 +99,7 @@ public class PrivateJet extends Airplane {
 FighterJet fighterJet = new FighterJet();
 ```
 
-![Memory Creation](/assets/img/posts/2025-12-31-java-basic-extends/memory-creation.png)
+![Memory Creation](/assets/img/java-basic/extends/memory-creation.png)
 
 - 핵심 원리
   - 자식 객체를 생성하면 부모 객체도 함께 메모리에 생성됨
@@ -108,7 +108,7 @@ FighterJet fighterJet = new FighterJet();
 
 ### 메모리 구조 시각화
 
-![Memory Structure](/assets/img/posts/2025-12-31-java-basic-extends/memory-structure.png)
+![Memory Structure](/assets/img/java-basic/extends/memory-structure.png)
 
 ### 메서드 호출 순서
 
@@ -123,7 +123,7 @@ FighterJet fighterJet = new FighterJet();
   - `Airplane`에 `fly()` 메서드가 존재함
   - 해당 메서드를 실행함
 
-![Method Call](/assets/img/posts/2025-12-31-java-basic-extends/method-call.png)
+![Method Call](/assets/img/java-basic/extends/method-call.png)
 
 - 메서드 검색 원칙
   - 자기 자신의 타입에서 먼저 검색함
@@ -186,7 +186,7 @@ class PrivateJet extends Airplane {
 
 ### 접근 제어자의 범위
 
-![Access Modifier](/assets/img/posts/2025-12-31-java-basic-extends/access-modifier.png)
+![Access Modifier](/assets/img/java-basic/extends/access-modifier.png)
 
 | 접근 제어자 | 같은 클래스 | 같은 패키지 | 자식 클래스 (다른 패키지) | 외부 |
 | ----------- | ----------- | ----------- | ------------------------- | ---- |
@@ -255,7 +255,7 @@ public class FighterJet extends Airplane {
 
 - `Airplane`의 `fly()` 메서드를 `FighterJet`에서 재정의함
 
-![Override Sequence](/assets/img/posts/2025-12-31-java-basic-extends/override-sequence.png)
+![Override Sequence](/assets/img/java-basic/extends/override-sequence.png)
 
 - **@Override 애노테이션**
   - 컴파일러에게 메서드 오버라이딩을 명시적으로 알림
@@ -372,7 +372,7 @@ public class FighterJet extends Airplane {
 
 - **생성자 호출 순서**
 
-![Super Constructor Sequence](/assets/img/posts/2025-12-31-java-basic-extends/super-constructor-sequence.png)
+![Super Constructor Sequence](/assets/img/java-basic/extends/super-constructor-sequence.png)
 
 - **실행 결과**
 
