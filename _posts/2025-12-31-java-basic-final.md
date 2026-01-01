@@ -174,7 +174,7 @@ public class SharedSettings {
 
 - **메모리 구조 비교**
 
-  ![Memory Comparison](/assets/img/posts/2025-12-31-java-basic-final/memory-comparison.png)
+  ![Memory Comparison](/assets/img/java-basic/final/memory-comparison.png)
 
   - **Settings**
     - 인스턴스별로 다른 `final` 값을 가질 수 있어 의미가 있음
@@ -216,7 +216,7 @@ public class FinalRefMain {
 
 ### 메모리 구조와 final 참조
 
-![Final Reference Memory](/assets/img/posts/2025-12-31-java-basic-final/final-reference-memory.png)
+![Final Reference Memory](/assets/img/java-basic/final/final-reference-memory.png)
 
 - **가능** (`data.value = 20`)
   - 참조하는 대상의 객체 내부 값(`value`)은 변경할 수 있음
