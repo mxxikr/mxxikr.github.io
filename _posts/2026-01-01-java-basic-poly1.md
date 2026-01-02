@@ -12,11 +12,52 @@ math: false
 
 # 다형성 1
 
-- 김영한님의 실전 자바 강의 중 다형성 1 챕터를 학습하며 다형성의 개념, 다형적 참조, 캐스팅, instanceof, 메서드 오버라이딩의 동작 원리를 정리함
+- 김영한님의 실전 자바 강의 중 다형성 1 챕터를 학습하며 다형성이 필요한 이유, 다형적 참조, 캐스팅, instanceof, 메서드 오버라이딩의 동작 원리를 정리함
 
 <br/><br/>
 
-## 다형성(Polymorphism)이란?
+## 다형성이 필요한 이유
+
+### 타입이 다른 객체를 처리하는 문제
+
+- **문제 상황**
+
+  - 프로그램에서 여러 종류의 객체를 처리해야 하는 경우가 많음
+  - 각 객체의 타입이 다르면 개별적으로 처리해야 함
+  - 코드 중복이 발생하고 확장성이 떨어짐
+
+- **예시**
+
+  ```java
+  Piano piano = new Piano();
+  Guitar guitar = new Guitar();
+  Drum drum = new Drum();
+
+  // 각각 개별적으로 호출해야 함
+  piano.play();
+  guitar.play();
+  drum.play();
+
+  // 배열에 담을 수 없음 (타입이 다름)
+  // 반복문을 사용할 수 없음
+  ```
+
+### 기존 방식의 한계
+
+- **불가능한 작업들**
+
+  - 서로 다른 타입의 객체를 하나의 배열에 담을 수 없음
+  - 반복문으로 통합 처리할 수 없음
+  - 메서드 파라미터로 공통 처리할 수 없음
+
+- **해결 방법**
+  - 상속 관계를 활용함
+  - 부모 타입으로 자식 객체를 참조함
+  - 다형성을 통해 통합 처리가 가능해짐
+
+<br/><br/>
+
+## 다형성(Polymorphism)이란
 
 ### 기본 개념
 
@@ -72,11 +113,11 @@ public class PolyMain {
         piano.play();  // 상속받은 메서드
         piano.tune();   // 자식 고유 메서드
 
-        // 다형적 참조: 부모 변수가 자식 인스턴스 참조
+        // 다형적 참조는 부모 변수가 자식 인스턴스 참조
         Instrument poly = new Piano();
         poly.play();
 
-        // poly.tune();  // 컴파일 오류!
+        // poly.tune();  // 컴파일 오류
     }
 }
 ```
@@ -97,7 +138,7 @@ Instrument.play
 - **가능한 경우**
 
   ```java
-  Instrument poly = new Piano();     // 부모는 자식을 담을 수 있음
+  Instrument poly = new Piano();       // 부모는 자식을 담을 수 있음
   Instrument poly = new GrandPiano();  // 부모는 손자도 담을 수 있음
   ```
 
@@ -116,7 +157,7 @@ Instrument.play
 ```java
 Instrument poly = new Piano();
 poly.play();  // 호출 가능
-poly.tune();   // 컴파일 오류
+poly.tune();  // 컴파일 오류
 ```
 
 - **규칙**
@@ -126,7 +167,7 @@ poly.tune();   // 컴파일 오류
 
 <br/><br/>
 
-## 다운캐스팅
+## 캐스팅
 
 ### 다운캐스팅의 필요성
 
@@ -185,11 +226,7 @@ Piano piano = (Piano) poly;
 - 변수 선언 없이 일시적으로 캐스팅하여 메서드 호출
 - 한 번만 사용할 때 유용함
 
-<br/><br/>
-
-## 업캐스팅
-
-### 업캐스팅은 생략 가능
+### 업캐스팅
 
 ```java
 Piano piano = new Piano();
@@ -209,25 +246,21 @@ Instrument instrument2 = piano;
 
 ![Casting Direction](/assets/img/java-basic/poly1/casting-direction.png)
 
-<br/><br/>
-
-## 다운캐스팅의 위험성
-
-### ClassCastException 발생
+### 다운캐스팅의 위험성
 
 ```java
 package instrument.basic;
 
 public class CastingMain4 {
     public static void main(String[] args) {
-        // 케이스 1: 안전한 다운캐스팅
+        // 안전한 다운캐스팅
         Instrument instrument1 = new Piano();
         Piano piano1 = (Piano) instrument1;
         piano1.tune();  // 정상 실행
 
-        // 케이스 2: 위험한 다운캐스팅
+        // 위험한 다운캐스팅
         Instrument instrument2 = new Instrument();
-        Piano piano2 = (Piano) instrument2;  // ClassCastException!
+        Piano piano2 = (Piano) instrument2;  // ClassCastException
         piano2.tune();  // 실행되지 않음
     }
 }
@@ -257,12 +290,9 @@ Exception in thread "main" java.lang.ClassCastException:
   - 업캐스팅으로 부모 타입 변수에 담겨있더라도, 실제 인스턴스 타입이 중요
 
 - **예시**
-
   - `new Piano()`로 생성
-
     - A, B, C 타입으로 모두 업캐스팅 가능
     - A, B, C 타입에서 모두 다시 `Piano`로 다운캐스팅 가능
-
   - `new Instrument()`로 생성
     - `Instrument` 타입으로만 업캐스팅 가능
     - `Piano`로 다운캐스팅 시도 시 `ClassCastException` 발생
@@ -335,9 +365,9 @@ instrument instanceof Piano  // new Piano() instanceof Piano → true
 
   ```java
   new Instrument() instanceof Instrument  // true
-  new Piano() instanceof Instrument   // true (자식은 부모의 인스턴스이기도 함)
-  new Instrument() instanceof Piano   // false (부모는 자식의 인스턴스가 아님)
-  new Piano() instanceof Piano    // true
+  new Piano() instanceof Instrument       // true (자식은 부모의 인스턴스이기도 함)
+  new Instrument() instanceof Piano       // false (부모는 자식의 인스턴스가 아님)
+  new Piano() instanceof Piano            // true
   ```
 
   ![Instanceof Logic](/assets/img/java-basic/poly1/instanceof-logic.png)
@@ -408,8 +438,8 @@ public class OverridingMain {
 
         // 부모 변수가 자식 인스턴스 참조 (다형적 참조)
         Instrument poly = new Piano();
-        System.out.println("value = " + poly.value);      // parent ❗
-        poly.method();                                     // Piano.method ❗
+        System.out.println("value = " + poly.value);      // parent
+        poly.method();                                     // Piano.method
     }
 }
 ```
@@ -484,6 +514,12 @@ Piano.method
 <br/><br/>
 
 ## 요약 정리
+
+### 다형성의 필요성
+
+- 타입이 다른 객체를 통합 처리하기 위함
+- 배열과 반복문으로 공통 처리 가능
+- 코드의 확장성과 유연성 향상
 
 ### 주요 개념
 
