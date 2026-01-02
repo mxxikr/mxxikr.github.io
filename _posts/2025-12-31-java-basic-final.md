@@ -12,16 +12,28 @@ math: false
 
 # final
 
-- 김영한님의 실전 자바 강의 중 final 챕터를 학습하며 final 키워드의 개념, 지역 변수와 필드에서의 사용법, 그리고 상수(Constant) 정의 방법을 정리함
+- 김영한님의 실전 자바 강의 중 final 챕터를 학습하며 final 키워드의 목적, 변경 불가능성의 필요성, 그리고 지역 변수, 필드, 상수에서의 사용법을 정리함
 
 <br/><br/>
 
-## final 키워드란?
+## final 키워드의 목적
 
-### 기본 개념
+### 변경 불가능성이 왜 필요한가
+
+- **문제 상황**
+
+  - 프로그램에서 특정 값이 변경되면 버그가 발생하는 경우가 많음
+  - 개발자의 실수로 중요한 값이 변경될 수 있음
+  - 여러 곳에서 공유하는 값이 예기치 않게 변경될 수 있음
+
+- **해결책**
+  - 값의 변경을 원천적으로 막아야 함
+  - 컴파일 시점에 변경을 감지하여 오류를 발생시켜야 함
+  - 코드의 의도를 명확히 전달해야 함
+
+### final 키워드란
 
 - `final` 키워드는 **변경 불가능**을 의미함
-
 - `final`이 붙은 변수는 최초 한 번만 값을 할당할 수 있음
 - 이후 값을 변경하려고 하면 컴파일 오류가 발생함
 
@@ -30,18 +42,20 @@ math: false
   // value = 20;  // 컴파일 오류 발생
   ```
 
-- 적용 범위
+### final의 적용 대상
 
-  - **지역 변수/매개변수**
-    - 값 재할당 방지
-  - **인스턴스 필드**
-    - 객체별 불변 값 생성
-  - **클래스(static) 필드**
-    - 전역 상수 선언
-  - **메서드**
-    - 오버라이딩 방지
-  - **클래스**
-    - 상속 방지
+- **변수**
+
+  - 지역 변수와 매개변수: 값 재할당 방지
+  - 인스턴스 필드: 객체별 불변 값 생성
+  - 클래스(static) 필드: 전역 상수 선언
+
+- **메서드**
+
+  - 오버라이딩을 방지함
+
+- **클래스**
+  - 상속을 방지함
 
 <br/><br/>
 
@@ -54,12 +68,12 @@ package final1;
 
 public class FinalLocalMain {
     public static void main(String[] args) {
-        // final 지역 변수 - 선언과 초기화 분리
+        // final 지역 변수는 선언과 초기화를 분리 가능함
         final int data1;
-        data1 = 10; // 최초 한 번만 할당 가능
+        data1 = 10; // 최초 한 번만 할당 가능함
         // data1 = 20; // 컴파일 오류 발생
 
-        // final 지역 변수 - 선언과 동시에 초기화
+        // final 지역 변수는 선언과 동시에 초기화 가능함
         final int data2 = 10;
         // data2 = 20; // 컴파일 오류 발생
 
@@ -73,8 +87,7 @@ public class FinalLocalMain {
 }
 ```
 
-- 규칙
-
+- **규칙**
   - `final` 변수는 최초 한 번만 할당 가능함
   - 선언과 초기화를 분리할 수 있지만, 최초 할당 이후 값 변경 불가함
   - `final` 매개변수는 메서드 내에서 값을 변경할 수 없음
@@ -88,7 +101,6 @@ public class FinalLocalMain {
 ```java
 package final1;
 
-// final 필드 - 생성자 초기화
 public class Settings {
     final int threshold;
 
@@ -108,7 +120,7 @@ package final1;
 
 public class SharedSettings {
     final int limit = 10;              // 인스턴스 필드
-    static final int MAX_LIMIT = 10; // 클래스 필드
+    static final int MAX_LIMIT = 10;   // 클래스 필드
 }
 ```
 
@@ -116,27 +128,25 @@ public class SharedSettings {
 
   - 모든 인스턴스가 동일한 값 `10`을 가짐
   - 각 인스턴스마다 별도의 메모리 공간을 차지함
-    - 객체가 100개면 동일한 값 `10`이 100번 저장됨 (메모리 낭비)
+  - 객체가 100개면 동일한 값 `10`이 100번 저장됨 (메모리 낭비)
 
 - **클래스 final 필드 (`static final int MAX_LIMIT`)**
   - 메서드 영역(static 영역)에 단 1개만 존재함
   - 모든 인스턴스가 이 하나의 값을 공유함
   - 메모리 효율적이며, 전역 상수로 사용하기 적합함
 
-> **메모리 비교**(객체 1000개 생성 시)
+> 메모리 비교(객체 1000개 생성 시)
 >
 > - `final int limit = 10`은 4KB 사용 (4byte × 1000)
 > - `static final int MAX_LIMIT = 10`은 4byte만 사용
 
 ### 초기화 방식 비교
 
-- **비교 표**
-
-  | 초기화 방식   | 메모리 위치          | 특징                     | 사용 시기                      |
-  | ------------- | -------------------- | ------------------------ | ------------------------------ |
-  | 생성자 초기화 | 힙 (각 인스턴스)     | 객체마다 다른 값 가능    | 객체별로 다른 final 값 필요 시 |
-  | 필드 초기화   | 힙 (각 인스턴스)     | 모든 객체가 같은 값 공유 | 비효율적, static 사용 권장     |
-  | static final  | 메서드 영역 (단 1개) | 전역 공유                | 상수 정의에 적합               |
+| 초기화 방식   | 메모리 위치          | 특징                     | 사용 시기                      |
+| ------------- | -------------------- | ------------------------ | ------------------------------ |
+| 생성자 초기화 | 힙 (각 인스턴스)     | 객체마다 다른 값 가능    | 객체별로 다른 final 값 필요 시 |
+| 필드 초기화   | 힙 (각 인스턴스)     | 모든 객체가 같은 값 공유 | 비효율적, static 사용 권장     |
+| static final  | 메서드 영역 (단 1개) | 전역 공유                | 상수 정의에 적합               |
 
 - **생성자 초기화 - 객체별 다른 값**
 
@@ -148,7 +158,6 @@ public class SharedSettings {
   ```
 
   - **사용 사례**
-
     - 주문 번호, 회원 ID처럼 객체마다 달라야 하는 불변 값
 
 - **필드 초기화 - 모든 객체가 같은 값**
@@ -163,7 +172,6 @@ public class SharedSettings {
   - **문제점**
     - 모든 객체가 같은 값인데 각 객체마다 메모리를 차지함
   - **해결책**
-
     - `static final`을 사용함
 
 - **static final - 상수**
@@ -172,16 +180,107 @@ public class SharedSettings {
   System.out.println(SharedSettings.MAX_LIMIT); // 10 (객체 생성 없이 접근)
   ```
 
-- **메모리 구조 비교**
+### 메모리 구조 비교
 
-  ![Memory Comparison](/assets/img/java-basic/final/memory-comparison.png)
+![Memory Comparison](/assets/img/java-basic/final/memory-comparison.png)
 
-  - **Settings**
-    - 인스턴스별로 다른 `final` 값을 가질 수 있어 의미가 있음
-  - **SharedSettings**
-    - 모든 인스턴스가 같은 값(10)을 가지면서 메모리를 중복해서 사용함
-  - **static final**
-    - 메서드 영역에 하나만 존재하므로 가장 효율적임
+- **Settings**
+  - 인스턴스별로 다른 `final` 값을 가질 수 있어 의미가 있음
+- **SharedSettings**
+  - 모든 인스턴스가 같은 값(10)을 가지면서 메모리를 중복해서 사용함
+- **static final**
+  - 메서드 영역에 하나만 존재하므로 가장 효율적임
+
+### static final로 상수 정의
+
+- **상수란**
+
+  - 프로그램에서 절대 변하지 않는 공용 값을 의미함
+  - 자바에서는 `static final` 키워드를 사용하여 정의함
+
+- **상수 명명 관례**
+
+  - 대문자로 작성하고, 단어 사이는 `_` (언더스코어)로 구분함
+  - 일반 변수(소문자 시작)와 명확히 구분하기 위함
+
+  ```java
+  package final1;
+
+  public class GameConfig {
+      // 게임 설정 상수
+      public static final int MAX_PLAYERS = 4;
+
+      // 수학 상수
+      public static final double PI = 3.14;
+  }
+  ```
+
+### 상수를 사용해야 하는 이유
+
+- **문제점**
+
+  - **가독성 저하**
+    - 코드에 있는 숫자가 정확히 어떤 용도인지 파악하기 힘듦
+  - **유지보수 어려움**
+    - 해당 숫자가 코드 여러 곳에 퍼져 있다면, 값을 변경할 때 모든 곳을 찾아서 수정해야 함
+    - 하나라도 빠뜨리면 버그가 발생할 수 있음
+
+- **해결책**
+  - 상수를 사용하여 숫자에 의미 있는 이름을 부여하고 한 곳에서 관리해야 함
+
+### 상수 사용 전후 비교
+
+- **상수 사용 전**
+
+  ```java
+  package final1;
+
+  public class GameMain {
+      public static void main(String[] args) {
+          System.out.println("최대 플레이어 수: " + 4);
+          int currentPlayerCount = 3;
+          joinGame(currentPlayerCount++);
+          joinGame(currentPlayerCount++);
+          joinGame(currentPlayerCount++);
+      }
+
+      private static void joinGame(int currentPlayerCount) {
+          System.out.println("참가자 수: " + currentPlayerCount);
+          if (currentPlayerCount > 4) {
+              System.out.println("대기열로 이동합니다.");
+          } else {
+              System.out.println("게임에 참가합니다.");
+          }
+      }
+  }
+  ```
+
+- **상수 사용 후**
+
+  ```java
+  package final1;
+
+  public class GameMainRefactored {
+      public static void main(String[] args) {
+          System.out.println("최대 플레이어 수: " + GameConfig.MAX_PLAYERS);
+          int currentPlayerCount = 3;
+          joinGame(currentPlayerCount++);
+          joinGame(currentPlayerCount++);
+          joinGame(currentPlayerCount++);
+      }
+
+      private static void joinGame(int currentPlayerCount) {
+          System.out.println("참가자 수: " + currentPlayerCount);
+          if (currentPlayerCount > GameConfig.MAX_PLAYERS) {
+              System.out.println("대기열로 이동합니다.");
+          } else {
+              System.out.println("게임에 참가합니다.");
+          }
+      }
+  }
+  ```
+
+- 가독성과 유지보수성이 모두 향상됨
 
 <br/><br/>
 
@@ -205,7 +304,7 @@ public class FinalRefMain {
         final Data data = new Data();
         // data = new Data(); // final 변수이므로 참조 대상 변경 불가
 
-        // 참조 대상의 값은 변경 가능
+        // 참조 대상의 값은 변경 가능함
         data.value = 10;
         System.out.println(data.value); // 10
         data.value = 20;
@@ -219,103 +318,13 @@ public class FinalRefMain {
 ![Final Reference Memory](/assets/img/java-basic/final/final-reference-memory.png)
 
 - **가능** (`data.value = 20`)
+
   - 참조하는 대상의 객체 내부 값(`value`)은 변경할 수 있음
   - `final`은 참조 변수 `data`의 값을 고정하는 것이지, 힙 영역에 있는 객체 자체를 불변으로 만드는 것이 아님
+
 - **불가** (`data = new Data()`)
   - 참조값(주소) 자체를 변경할 수 없음
   - 한 번 가리킨 객체(x001)를 끝까지 가리켜야 함
-
-<br/><br/>
-
-## 상수 (Constant)
-
-### 상수란?
-
-- 프로그램에서 절대 변하지 않는 공용 값을 의미함
-- 자바에서는 `static final` 키워드를 사용하여 정의함
-
-- **상수 관례**
-  - 대문자로 작성하고, 단어 사이는 `_` (언더스코어)로 구분함
-  - 일반 변수(소문자 시작)와 명확히 구분하기 위함
-
-### static final
-
-- 모든 인스턴스가 같은 값을 공유할 때는 `static final`을 사용하는 것이 가장 효율적임
-
-  ```java
-  package final1;
-
-  public class GameConfig {
-      // 게임 설정 상수
-      public static final int MAX_PLAYERS = 4;
-
-      // 수학 상수
-      public static final double PI = 3.14;
-  }
-  ```
-
-### 상수가 필요한 이유
-
-- **문제점**
-
-  - **가독성 저하**
-    - 코드에 있는 숫자가 정확히 어떤 용도인지 파악하기 힘듦
-  - **유지보수 어려움**
-    - 해당 숫자가 코드 여러 곳에 퍼져 있다면, 값을 변경할 때 모든 곳을 찾아서 수정해야 함
-    - 하나라도 빠뜨리면 버그가 발생할 수 있음
-
-- **해결책**
-  - 상수를 사용하여 숫자에 의미 있는 이름을 부여하고 한 곳에서 관리해야 함
-
-### 상수로 개선된 코드
-
-```java
-package final1;
-
-  public class GameMain {
-  public static void main(String[] args) {
-  System.out.println("최대 플레이어 수: " + 4);
-  int currentPlayerCount = 3;
-  joinGame(currentPlayerCount++);
-  joinGame(currentPlayerCount++);
-  joinGame(currentPlayerCount++);
-  }
-
-      private static void joinGame(int currentPlayerCount) {
-          System.out.println("참가자 수: " + currentPlayerCount);
-          if (currentPlayerCount > 4) {
-              System.out.println("대기열로 이동합니다.");
-          } else {
-              System.out.println("게임에 참가합니다.");
-          }
-      }
-  }
-```
-
-```java
-package final1;
-
-public class GameMainRefactored {
-    public static void main(String[] args) {
-        System.out.println("최대 플레이어 수: " + GameConfig.MAX_PLAYERS);
-        int currentPlayerCount = 3;
-        joinGame(currentPlayerCount++);
-        joinGame(currentPlayerCount++);
-        joinGame(currentPlayerCount++);
-    }
-
-    private static void joinGame(int currentPlayerCount) {
-        System.out.println("참가자 수: " + currentPlayerCount);
-        if (currentPlayerCount > GameConfig.MAX_PLAYERS) {
-            System.out.println("대기열로 이동합니다.");
-        } else {
-            System.out.println("게임에 참가합니다.");
-        }
-    }
-}
-```
-
-- 가독성과 유지보수성이 모두 대폭 향상됨
 
 <br/><br/>
 
@@ -360,7 +369,7 @@ public class GameMainRefactored {
 
    - a. 상수
 
-   - static은 공유, final은 변경 불가 속성이임
+   - static은 공유, final은 변경 불가 속성임
    - 이 둘을 함께 써서 프로그램 내내 바뀌지 않고 공유되는 '상수'를 정의함
 
 4. MAX_USERS처럼 프로그램 전반에 걸쳐 사용되는 고정된 값에 static final을 사용하는 주된 이유는 무엇일까요?
@@ -379,15 +388,21 @@ public class GameMainRefactored {
 
 ## 요약 정리
 
+### final의 목적
+
+- 변경 불가능성을 통한 안정성 확보
+- 개발자 실수 방지
+- 코드 의도 명확화
+
 ### final 사용 목적별 분류
 
-| 분류               | 키워드 적용 위치 | 설명                                                         |
-| ------------------ | ---------------- | ------------------------------------------------------------ |
-| **재할당 방지**    | 기본형 변수      | 값을 한 번만 할당 가능, 이후 변경 불가                       |
-| **참조 고정**      | 참조형 변수      | 참조하는 객체(주소)를 변경 불가, 객체 내부 상태는 변경 가능  |
-| **불변 필드**      | 인스턴스 필드    | 생성자 초기화 이후 값 변경 불가 (개별 객체마다 다른 값 가능) |
-| **상수**           | static 필드      | `static final`, 전역적으로 공유되는 불변의 값                |
-| **확장/변경 금지** | 메서드/클래스    | 오버라이딩 불가(메서드), 상속 불가(클래스)                   |
+| 분류             | 키워드 적용 위치 | 설명                                                         |
+| ---------------- | ---------------- | ------------------------------------------------------------ |
+| 재할당 방지      | 기본형 변수      | 값을 한 번만 할당 가능, 이후 변경 불가                       |
+| 참조 고정        | 참조형 변수      | 참조하는 객체(주소)를 변경 불가, 객체 내부 상태는 변경 가능  |
+| 불변 필드        | 인스턴스 필드    | 생성자 초기화 이후 값 변경 불가 (개별 객체마다 다른 값 가능) |
+| 상수             | static 필드      | `static final`, 전역적으로 공유되는 불변의 값                |
+| 확장과 변경 금지 | 메서드와 클래스  | 오버라이딩 불가(메서드), 상속 불가(클래스)                   |
 
 <br/><br/>
 
