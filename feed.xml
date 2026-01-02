@@ -1,0 +1,378 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://mxxikr.github.io/</id>
+  <title>MXXI.kr</title>
+  <subtitle>Backend Developer. Sharing knowledge about software development, system design, and technology insights.</subtitle>
+  <updated>2026-01-02T21:48:30+09:00</updated>
+  <author>
+    <name>mxxikr</name>
+    <uri>https://mxxikr.github.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://mxxikr.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://mxxikr.github.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2026 mxxikr </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>김영한의 실전 자바 - 다형성과 설계</title>
+    <link href="https://mxxikr.github.io/posts/java-basic-poly3/" rel="alternate" type="text/html" title="김영한의 실전 자바 - 다형성과 설계" />
+    <published>2026-01-02T19:00:00+09:00</published>
+  
+    <updated>2026-01-02T19:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/java-basic-poly3/</id>
+    <content src="https://mxxikr.github.io/posts/java-basic-poly3/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="java" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      다형성과 설계
+
+
+  김영한님의 실전 자바 강의 중 다형성과 설계 챕터를 학습하며 OCP(개방-폐쇄 원칙)와 전략 패턴을 활용한 설계 방법을 정리함
+
+
+
+
+좋은 객체 지향 설계
+
+객체 지향의 본질
+
+
+  
+    객체들의 협력
+
+    
+      프로그램을 독립적인 객체들의 협력으로 봄
+      각 객체는 메시지를 주고받으며 데이터를 처리함
+    
+  
+  
+    역할과 구현의 분리
+    
+      역할(Role)
+        
+          인터페이스로 정의함
+        
+      
+      구현(Implementation)
+        
+          구체 클래스로 구현함
+        
+      
+      클라이언트는 역할만 알면 구현을 몰라도 됨
+    
+  
+
+...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>김영한의 실전 자바 - 다형성 2</title>
+    <link href="https://mxxikr.github.io/posts/java-basic-poly2/" rel="alternate" type="text/html" title="김영한의 실전 자바 - 다형성 2" />
+    <published>2026-01-01T19:00:00+09:00</published>
+  
+    <updated>2026-01-02T21:47:54+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/java-basic-poly2/</id>
+    <content src="https://mxxikr.github.io/posts/java-basic-poly2/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="java" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      다형성
+
+
+  김영한님의 실전 자바 강의 중 다형성 2 챕터를 학습하며 추상 클래스와 인터페이스를 활용한 다형성 구현 방법의 발전 과정과 설계 원칙을 정리함
+
+
+
+
+다형성 구현의 발전
+
+문제와 해결 과정
+
+
+  
+    문제
+
+    
+      타입이 다른 객체들을 하나로 묶어서 처리해야 함
+      배열과 반복문으로 통합 처리가 필요함
+    
+  
+  
+    해결 과정
+    
+      상속
+        
+          부모 클래스를 만들어 타입 통일
+          문제
+            
+              부모 클래스를 직접 인스턴스화할 수 있음 (의미 없음)
+            
+          
+        
+      
+      추상 클래스
+        
+...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>김영한의 실전 자바 - 다형성 1</title>
+    <link href="https://mxxikr.github.io/posts/java-basic-poly1/" rel="alternate" type="text/html" title="김영한의 실전 자바 - 다형성 1" />
+    <published>2026-01-01T18:00:00+09:00</published>
+  
+    <updated>2026-01-02T21:47:54+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/java-basic-poly1/</id>
+    <content src="https://mxxikr.github.io/posts/java-basic-poly1/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="java" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      다형성 1
+
+
+  김영한님의 실전 자바 강의 중 다형성 1 챕터를 학습하며 다형성이 필요한 이유, 다형적 참조, 캐스팅, instanceof, 메서드 오버라이딩의 동작 원리를 정리함
+
+
+
+
+다형성이 필요한 이유
+
+타입이 다른 객체를 처리하는 문제
+
+
+  
+    문제 상황
+
+    
+      프로그램에서 여러 종류의 객체를 처리해야 하는 경우가 많음
+      각 객체의 타입이 다르면 개별적으로 처리해야 함
+      코드 중복이 발생하고 확장성이 떨어짐
+    
+  
+  
+    예시
+
+    Piano piano = new Piano();
+Guitar guitar = new Guitar();
+Drum drum = new Drum();
+
+// 각각 개별적으로 호출해야 함
+piano.play();
+g...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>김영한의 실전 자바 - 상속</title>
+    <link href="https://mxxikr.github.io/posts/java-basic-extends/" rel="alternate" type="text/html" title="김영한의 실전 자바 - 상속" />
+    <published>2025-12-31T23:50:00+09:00</published>
+  
+    <updated>2026-01-02T08:24:33+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/java-basic-extends/</id>
+    <content src="https://mxxikr.github.io/posts/java-basic-extends/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="java" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      상속
+
+
+  김영한님의 실전 자바 강의 중 상속 챕터를 학습하며 상속의 개념, 메모리 구조, 메서드 오버라이딩, super 키워드, 접근 제어자의 동작 원리를 정리함
+
+
+
+
+상속이란?
+
+
+  
+    상속은 기존 클래스의 필드와 메서드를 새로운 클래스에서 재사용하는 것을 말함
+  
+  부모 클래스 (Super Class)
+    
+      상속을 통해 자신의 필드와 메서드를 다른 클래스에 제공하는 클래스
+    
+  
+  자식 클래스 (Sub Class)
+    
+      부모 클래스로부터 필드와 메서드를 상속받는 클래스
+    
+  
+
+
+상속이 필요한 이유
+
+
+  
+    코드 중복 문제
+
+    
+      여러 클래스에 동일한 기능(메서드)과 속성(필드)이 반복해서 작성됨
+    
+  
+  문...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>김영한의 실전 자바 - final</title>
+    <link href="https://mxxikr.github.io/posts/java-basic-final/" rel="alternate" type="text/html" title="김영한의 실전 자바 - final" />
+    <published>2025-12-31T15:00:00+09:00</published>
+  
+    <updated>2026-01-02T21:47:54+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/java-basic-final/</id>
+    <content src="https://mxxikr.github.io/posts/java-basic-final/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="java" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      final
+
+
+  김영한님의 실전 자바 강의 중 final 챕터를 학습하며 final 키워드의 목적, 변경 불가능성의 필요성, 그리고 지역 변수, 필드, 상수에서의 사용법을 정리함
+
+
+
+
+final 키워드의 목적
+
+변경 불가능성이 왜 필요한가
+
+
+  
+    문제 상황
+
+    
+      프로그램에서 특정 값이 변경되면 버그가 발생하는 경우가 많음
+      개발자의 실수로 중요한 값이 변경될 수 있음
+      여러 곳에서 공유하는 값이 예기치 않게 변경될 수 있음
+    
+  
+  
+    해결책
+    
+      값의 변경을 원천적으로 막아야 함
+      컴파일 시점에 변경을 감지하여 오류를 발생시켜야 함
+      코드의 의도를 명확히 전달해야 함
+    
+  
+
+
+final 키워드란
+
+
+...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
