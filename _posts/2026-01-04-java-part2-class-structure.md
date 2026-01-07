@@ -634,6 +634,8 @@ public class BankAccount {
 
 - **런타임 데이터 영역 구조**
 
+  ![JVM Memory Structure](/assets/img/java-part2/class-structure/jvm_memory.png)
+
   - JVM의 런타임 데이터 영역은 크게 `Stack`, `Heap area`, `Method area` 등으로 구분됨
   - 각 영역은 특정 목적에 따라 메모리를 관리함
   - 스레드 공유 여부에 따라 영역이 나뉨
