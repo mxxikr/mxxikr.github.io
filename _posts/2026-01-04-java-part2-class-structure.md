@@ -3,7 +3,7 @@ title: "독하게 시작하는 Java Part 2 - 클래스1"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
-date: 2026-01-06 06:00:00 +0900
+date: 2026-01-04 06:00:00 +0900
 category:
   - [Language, java]
 tags: [java, class, object, instance, oop, encapsulation, access-modifier]
@@ -52,7 +52,7 @@ math: false
 
 ### 계층 구조의 의미
 
-![Java Program Hierarchy](/assets/img/java-part2/class-structure/hierarchy.png)
+![Java Program Hierarchy](/assets/img/java-part2/class-structure/java_hierarchy.png)
 
 - Java는 체계적인 포함 관계를 통해 코드를 조직화함
 - 각 계층은 명확한 역할과 책임을 가짐
@@ -100,14 +100,20 @@ math: false
 - **예시**
 
   ```java
-  public class Student {
-      // 필드 - 학생의 상태
-      private String name;
-      private int age;
+  public class Member {
+      // 멤버의 이름을 저장함
+      private String memberName;
+      // 멤버의 등급을 저장함
+      private int level;
 
-      // 메서드 - 학생의 행동
-      public void study() {
-          System.out.println(name + "이(가) 공부합니다.");
+      // 활동 메서드
+      public void participate() {
+          System.out.println(memberName + "님이 활동 중입니다");
+      }
+
+      // 정보 출력 메서드
+      public void displayInfo() {
+          System.out.println("이름: " + memberName + ", 레벨: " + level);
       }
   }
   ```
@@ -123,8 +129,8 @@ math: false
 - **생성 방법**
 
   ```java
-  Student student1 = new Student();  // 첫 번째 인스턴스
-  Student student2 = new Student();  // 두 번째 인스턴스
+  Member member1 = new Member();  // 첫 번째 멤버 객체 생성
+  Member member2 = new Member();  // 두 번째 멤버 객체 생성
   ```
 
   - 하나의 클래스로부터 여러 개의 독립적인 인스턴스를 생성할 수 있음
@@ -145,13 +151,17 @@ math: false
 - **필드(Field)**
 
   ```java
-  public class Product {
-      private String name = "기본 제품";  // 선언 시 초기화
-      private int price;  // 기본값 0으로 자동 초기화
+  public class Item {
+      private String itemName = "기본 상품";  // 필드 선언 시 초기값 지정
+      private int cost;  // 초기값 지정 안하면 0으로 자동 초기화됨
 
-      public Product(String name, int price) {
-          this.name = name;    // 생성자에서 재할당 (최종값)
-          this.price = price;
+      public Item(String itemName, int cost) {
+          this.itemName = itemName;  // 생성자가 최종 값을 설정함
+          this.cost = cost;
+      }
+
+      public void showDetails() {
+          System.out.println(itemName + ": " + cost + "원");
       }
   }
   ```
@@ -181,8 +191,8 @@ math: false
 - **자동 호출**
 
   ```java
-  Product product = new Product("노트북", 1500000);
-  // new 연산자 사용 시 생성자가 자동으로 호출됨
+  Item item = new Item("노트북", 1500000);  // 생성자 호출
+  // new 연산자를 사용하면 생성자가 자동으로 실행됨
   ```
 
   - `new` 연산자를 통해 객체가 생성되는 시점에 단 한 번 자동으로 실행됨
@@ -191,14 +201,14 @@ math: false
 - **명명 규칙**
 
   ```java
-  public class Product {
-      // 올바른 생성자 클래스 - 이름과 동일, 반환 타입 없음
-      public Product() {
+  public class Item {
+      // 올바른 생성자 - 클래스명과 동일하며 반환 타입 없음
+      public Item() {
           // 초기화 코드
       }
 
       // 잘못된 예 - 반환 타입이 있으면 일반 메서드가 됨
-      // public void Product() { }  // 이것은 생성자가 아님
+      // public void Item() { }  // 이것은 생성자가 아님
   }
   ```
 
@@ -208,12 +218,12 @@ math: false
 - **컴파일러의 역할**
 
   ```java
-  public class Product {
-      private String name;
+  public class Item {
+      private String itemName;
 
       // 생성자를 정의하지 않으면
       // 컴파일러가 자동으로 다음을 추가함
-      // public Product() { }
+      // public Item() { }
   }
   ```
 
@@ -223,26 +233,26 @@ math: false
 - **생성자 오버로딩**
 
   ```java
-  public class Product {
-      private String name;
-      private int price;
+  public class Item {
+      private String itemName;
+      private int cost;
 
       // 기본 생성자
-      public Product() {
-          this.name = "기본 제품";
-          this.price = 0;
+      public Item() {
+          this.itemName = "기본 상품";
+          this.cost = 0;
       }
 
       // 매개변수 1개 생성자
-      public Product(String name) {
-          this.name = name;
-          this.price = 0;
+      public Item(String itemName) {
+          this.itemName = itemName;
+          this.cost = 0;
       }
 
       // 매개변수 2개 생성자
-      public Product(String name, int price) {
-          this.name = name;
-          this.price = price;
+      public Item(String itemName, int cost) {
+          this.itemName = itemName;
+          this.cost = cost;
       }
   }
   ```
@@ -256,8 +266,8 @@ math: false
 - **포인터와의 유사성**
 
   ```java
-  Product product1 = new Product();  // C++의 Product* product1 = new Product(); 와 유사
-  Product product2 = product1;       // 참조 복사 (같은 객체를 가리킴)
+  Item item1 = new Item();  // C++의 Item* item1 = new Item(); 과 유사함
+  Item item2 = item1;       // 참조 복사 (같은 객체를 가리킴)
   ```
 
   - Java의 클래스 타입 변수는 모두 참조자
@@ -269,13 +279,13 @@ math: false
 - **자동 메모리 관리**
 
   ```java
-  public void createProduct() {
-      Product product = new Product();
-      product.setName("임시 제품");
-      // 메서드 종료 시 product 참조 소멸
-      // 나중에 GC가 메모리 자동 회수
+  public void processItem() {
+      Item item = new Item();  // 임시 객체 생성
+      item.setName("일시 상품");
+      // 메서드 종료 시 item 참조가 사라짐
+      // 나중에 GC가 메모리를 자동으로 회수함
   }
-  // C++처럼 delete를 호출할 필요 없음
+  // C++처럼 delete를 호출할 필요가 없음
   ```
 
   - Java는 소멸자가 존재하지 않음
@@ -287,12 +297,12 @@ math: false
 - **주소 비교**
 
   ```java
-  Product product1 = new Product("노트북", 1000000);
-  Product product2 = new Product("노트북", 1000000);
-  Product product3 = product1;
+  Item item1 = new Item("노트북", 1000000);  // 첫 번째 객체 생성
+  Item item2 = new Item("노트북", 1000000);  // 두 번째 객체 생성
+  Item item3 = item1;  // item1과 같은 객체를 가리킴
 
-  System.out.println(product1 == product2);  // false (다른 객체)
-  System.out.println(product1 == product3);  // true (같은 객체)
+  System.out.println(item1 == item2);  // false - 다른 객체임
+  System.out.println(item1 == item3);  // true - 같은 객체임
   ```
 
   - 참조형 변수에 `==` 또는 `!=` 연산자를 사용하면 객체의 내부 값이 아닌 메모리 주소를 비교함
@@ -301,57 +311,57 @@ math: false
 - **equals() 메서드**
 
   ```java
-  Product p1 = new Product("노트북", 1000000);
-  Product p2 = new Product("노트북", 1000000);
-  Product p3 = p1;
+  Item i1 = new Item("노트북", 1000000);
+  Item i2 = new Item("노트북", 1000000);
+  Item i3 = i1;
 
   // == 연산자 - 참조(주소) 비교
-  System.out.println(p1 == p2);        // false (다른 객체)
-  System.out.println(p1 == p3);        // true (같은 객체)
+  System.out.println(i1 == i2);        // false - 서로 다른 객체
+  System.out.println(i1 == i3);        // true - 동일한 객체
 
-  // equals() - 내용 비교 (Object 클래스의 equals()를 오버라이드하지 않으면 ==와 동일)
-  System.out.println(p1.equals(p2));   // false (기본 구현은 ==와 동일)
-  System.out.println(p1.equals(p3));   // true
+  // equals() - 내용 비교 (기본 구현은 ==와 동일)
+  System.out.println(i1.equals(i2));   // false - 기본 구현은 주소 비교
+  System.out.println(i1.equals(i3));   // true - 동일 객체
   ```
 
 - **equals() 오버라이드**
 
   ```java
-  public class Product {
-      private String name;
-      private int price;
+  public class Item {
+      private String itemName;
+      private int cost;
 
-      public Product(String name, int price) {
-          this.name = name;
-          this.price = price;
+      public Item(String itemName, int cost) {
+          this.itemName = itemName;
+          this.cost = cost;
       }
 
-      // equals() 메서드 오버라이드
+      // equals() 메서드 재정의
       @Override
       public boolean equals(Object obj) {
-          if (this == obj) return true;  // 같은 객체면 true
+          if (this == obj) return true;  // 동일 객체면 true 반환
           if (obj == null || getClass() != obj.getClass()) return false;
 
-          Product product = (Product) obj;
-          return price == product.price &&
-                 name != null && name.equals(product.name);
+          Item item = (Item) obj;  // 타입 변환
+          return cost == item.cost &&
+                 itemName != null && itemName.equals(item.itemName);
       }
 
       @Override
       public int hashCode() {
-          // equals()를 오버라이드하면 hashCode()도 함께 오버라이드해야 함
-          return Objects.hash(name, price);
+          // equals()를 재정의하면 hashCode()도 함께 재정의해야 함
+          return Objects.hash(itemName, cost);
       }
   }
   ```
 
   ```java
-  // equals() 오버라이드 후
-  Product p1 = new Product("노트북", 1000000);
-  Product p2 = new Product("노트북", 1000000);
+  // equals() 재정의 후 사용 예제
+  Item i1 = new Item("노트북", 1000000);
+  Item i2 = new Item("노트북", 1000000);
 
-  System.out.println(p1 == p2);        // false (여전히 다른 객체)
-  System.out.println(p1.equals(p2));   // true (내용이 같음)
+  System.out.println(i1 == i2);        // false - 여전히 다른 객체
+  System.out.println(i1.equals(i2));   // true - 내용이 동일함
   ```
 
   - `Object` 클래스의 `equals()` 기본 구현은 `==`와 동일하게 참조를 비교함
@@ -363,12 +373,12 @@ math: false
 - **`null`의 의미**
 
   ```java
-  Product product = null;  // 인스턴스가 연결되지 않은 상태
+  Item item = null;  // 인스턴스가 연결되지 않은 상태
 
-  // product.setName("테스트");  // NullPointerException 발생
+  // item.setName("테스트");  // NullPointerException 발생
 
-  if (product != null) {  // null 체크 필수
-      product.setName("테스트");
+  if (item != null) {  // null 체크는 필수
+      item.setName("테스트");
   }
   ```
 
@@ -378,11 +388,11 @@ math: false
 - **`NullPointerException`**
 
   ```java
-  int price = 0;       // 정수형에는 null 불가
-  // int value = null; // 컴파일 오류
+  int cost = 0;       // 정수형에는 null 불가능
+  // int value = null; // 컴파일 오류 발생
 
-  Product product = null;  // 참조형만 가능
-  product.getPrice();      // NullPointerException
+  Item item = null;  // 참조형만 가능
+  item.getCost();    // NullPointerException 발생
   ```
 
   - `null` 상태인 참조자로 멤버에 접근하려 하면 발생함
