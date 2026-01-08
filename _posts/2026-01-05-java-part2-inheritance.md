@@ -437,7 +437,8 @@ animal.sound(); // "Bark" - 런타임에 Dog의 vtable을 확인하여 호출
   - JVM 구현에 따라 다를 수 있지만, 대부분 vtable과 유사한 메커니즘을 사용함
   - 각 클래스는 자신의 메서드 테이블 정보를 유지함
   - 객체는 자신의 클래스 메타데이터를 가리키는 참조를 포함함
-  - **주의**: Java 언어 스펙은 구체적인 구현 방식을 명시하지 않음
+  - **주의**
+    - Java 언어 스펙은 구체적인 구현 방식을 명시하지 않음
 
 - **동작 방식 (HotSpot JVM 기준)**
   - 오버라이딩된 메서드는 vtable에서 자식 클래스의 메서드 주소로 갱신됨
@@ -502,4 +503,3 @@ animal.sound(); // "Bark" - 런타임에 Dog의 vtable을 확인하여 호출
 ## Reference
 
 - [독하게 시작하는 Java - Part 2 강의](https://www.inflearn.com/course/%EB%8F%85%ED%95%98%EA%B2%8C-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-java-part2)
-  ㄴ
