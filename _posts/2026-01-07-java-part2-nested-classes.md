@@ -303,14 +303,14 @@ math: false
   ````java
   // 불가능: 생성자 선언
   OnClickListener listener = new OnClickListener() {
-  // public OnClickListener() { }  // 컴파일 에러!
+  // public OnClickListener() { }  // 컴파일 에러
 
       @Override
       public void onClick() { }
   };
 
   // 불가능: 여러 인터페이스 동시 구현
-  // Runnable r = new Runnable(), Serializable() { };  // 구문 오류!
+  // Runnable r = new Runnable(), Serializable() { };  // 구문 오류
 
   // 불가능: 인터페이스와 클래스 동시 상속/구현
   // Object obj = new Object(), Runnable() { };  // 불가능
@@ -408,7 +408,7 @@ math: false
     - 오픈소스
       - `org.apache.commons`
   - 예약어 피하기 권장 (`com.company.class`는 기술적으로 가능하지만 매우 권장되지 않음)
-    - `import com.company.class.MyClass;`처럼 `class` 키워드와 혼동 가능ㄴ
+    - `import com.company.class.MyClass;`처럼 `class` 키워드와 혼동 가능
   - 언더스코어 사용 지양 (`com.company.my_project` 사용 안 함, `com.company.myproject` 사용)
 
 ### **import 문 정리**
@@ -443,8 +443,9 @@ public class Calculator {
 - ex)
   - `max(abs(-10), min(5, 3))` - 어디서 온 메서드인지 알 수 없음
 - **권장 사용 패턴**
-- 상수(`PI`, `E`)처럼 출처가 명확한 경우만 사용
-- 반복적으로 사용되는 유틸리티 메서드에 제한적으로 사용
+
+  - 상수(`PI`, `E`)처럼 출처가 명확한 경우만 사용
+  - 반복적으로 사용되는 유틸리티 메서드에 제한적으로 사용
 
   ```java
   // static import 남용 시 가독성 저하
@@ -484,11 +485,13 @@ package com.example;
 class PackagePrivateClass {  // default 접근 제어자
     void packagePrivateMethod() { }  // 같은 패키지에서만 접근 가능
 }
+```
 
+```java
 // 다른 패키지
 package com.other;
 
-import com.example.PackagePrivateClass;  // 컴파일 에러! (default는 패키지 외부 접근 불가)
+import com.example.PackagePrivateClass;  // 컴파일 에러 (default는 패키지 외부 접근 불가)
 ```
 
 ```java
