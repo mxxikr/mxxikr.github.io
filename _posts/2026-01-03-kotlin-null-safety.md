@@ -3,7 +3,7 @@ title: "Kotlin의 Null Safety"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
-date: 2026-01-08 00:00:00 +0900
+date: 2026-01-03 00:00:00 +0900
 category:
   - [Language, Kotlin]
 tags:
