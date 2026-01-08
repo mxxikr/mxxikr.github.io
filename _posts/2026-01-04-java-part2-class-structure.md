@@ -765,7 +765,7 @@ public class BankAccount {
 
 <br/><br/>
 
-## 요약 정리
+## 정리
 
 ### 클래스와 객체
 
