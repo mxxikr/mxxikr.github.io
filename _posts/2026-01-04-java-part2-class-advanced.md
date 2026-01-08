@@ -3,7 +3,7 @@ title: "독하게 시작하는 Java Part 2 - 클래스2"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
-date: 2026-01-04 08:00:00 +0900
+date: 2026-01-04 12:00:00 +0900
 category:
   - [Language, Java]
 tags: [java, class, constructor, static, copy, deep copy, shallow copy]
