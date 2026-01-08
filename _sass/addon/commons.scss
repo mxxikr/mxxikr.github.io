@@ -896,7 +896,7 @@ $sidebar-display: "sidebar-display";
     margin-bottom: 2.1rem;
 
     @include ml-mr(auto);
-    @include pl-pr(1rem);
+    @include pl-pr(0.5rem);
 
     %icon {
       width: 2.4rem;
@@ -1521,6 +1521,13 @@ $sidebar-display: "sidebar-display";
     }
   }
 
+  /* 작은 화면에서는 소셜 아이콘의 왼쪽 패딩을 기본값으로 */
+  .sidebar-bottom {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    justify-content: flex-start;
+  }
+
 }
 
 /* max-width: 849px */
@@ -1579,6 +1586,20 @@ $sidebar-display: "sidebar-display";
 
   #topbar-title {
     text-align: left;
+  }
+
+  /* 큰 화면에서만 소셜 아이콘을 스크롤 버튼 오른쪽에 위치 */
+  #sidebar .sidebar-bottom {
+    padding-left: 6rem;  /* 스크롤 버튼(40px + 50px width) 오른쪽에 배치 */
+  }
+
+  /* 큰 화면에서 스크롤 버튼을 원래 위치로 */
+  #go-to-bottom {
+    left: 40px !important;
+  }
+
+  #back-to-top {
+    left: 40px !important;
   }
 
 }
@@ -1805,7 +1826,7 @@ $sidebar-display: "sidebar-display";
     }
 
     .sidebar-bottom {
-      padding-left: 3.5rem;
+      padding-left: 6rem;  /* 스크롤 버튼 오른쪽에 배치 */
       width: 100%;
 
       $icon-block-size: 2rem;
@@ -1853,6 +1874,15 @@ $sidebar-display: "sidebar-display";
   }
 
   /* #sidebar */
+
+  /* 큰 화면에서 스크롤 버튼을 원래 위치로 */
+  #go-to-bottom {
+    left: 40px !important;
+  }
+
+  #back-to-top {
+    left: 40px !important;
+  }
 
 }
 
