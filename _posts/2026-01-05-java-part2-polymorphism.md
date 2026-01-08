@@ -12,7 +12,7 @@ math: false
 
 # 다형성
 
-- 널널한 개발자님의 독하게 시작하는 Java Part 2에서 다형성의 개념과 클래스 형변환(업캐스팅, 다운캐스팅), 추상 클래스와 인터페이스의 차이점, 열거형을 활용한 심볼릭 상수 정의 방법을 학습하며 객체 지향 프로그래밍의 핵심 원리를 정리함
+- 널널한 개발자님의 독하게 시작하는 Java Part 2에서 다형성의 개념과 클래스 형변환(업캐스팅, 다운캐스팅), 추상 클래스와 인터페이스의 차이점, 열거형을 활용한 심볼릭 상수 정의 방법을 학습하며 객체 지향 프로그래밍의 원리를 정리함
 
 <br/><br/>
 
@@ -40,26 +40,26 @@ math: false
 
   ```java
   // 다형성의 실용적 활용
-  class ShapeManager {
-      private List<Shape> shapes = new ArrayList<>();
+  class ZooKeeper {
+      private List<Animal> animals = new ArrayList<>();
 
-      public void addShape(Shape shape) {
-          shapes.add(shape);  // 어떤 도형이든 추가 가능
+      public void addAnimal(Animal animal) {
+          animals.add(animal);  // 어떤 동물이든 추가 가능
       }
 
-      public void renderAll() {
-          for (Shape shape : shapes) {
-              shape.render();  // 각자의 방식으로 렌더링 (동적 바인딩)
+      public void makeAllSounds() {
+          for (Animal animal : animals) {
+              animal.sound();  // 각자의 방식으로 소리 내기 (동적 바인딩)
           }
       }
   }
 
   // 사용
-  ShapeManager manager = new ShapeManager();
-  manager.addShape(new Circle());     // 새 도형 추가
-  manager.addShape(new Triangle());   // ShapeManager 코드 수정 불필요
-  manager.addShape(new Rectangle());
-  manager.renderAll();  // 일괄 처리
+  ZooKeeper zoo = new ZooKeeper();
+  zoo.addAnimal(new Dog()); // 개 추가
+  zoo.addAnimal(new Cat()); // 고양이 추가
+  zoo.addAnimal(new Rabbit()); // 토끼 추가
+  zoo.makeAllSounds(); // 일괄 처리
   ```
 
 - **인스턴스 메모리 구조**
@@ -68,7 +68,7 @@ math: false
   - **구조 설명**
     - **Heap 영역**
       - 객체 인스턴스가 생성됨
-      - 부모 클래스의 멤버(`parentData`)와 자식 클래스의 멤버(`childData`)가 모두 포함됨
+      - 부모 클래스의 멤버(`Animal Members`)와 자식 클래스의 멤버(`Dog Members`)가 모두 포함됨
     - **Method 영역**
       - 클래스 메타정보, 메서드 바이트코드, 상속 정보 등이 저장됨
   - **특징**
@@ -108,16 +108,16 @@ math: false
   // 업캐스팅
   Animal animal = new Dog(); // 자동 변환
   animal.eat();              // "Dog eating..." 출력 (동적 바인딩)
-  // animal.bark();          // 컴파일 에러 - Animal 타입에는 bark() 없음
+  // animal.bark();          // 컴파일 에러, Animal 타입에는 bark() 없음
   ```
 
-  - **특징**
-    - **자동 형변환**
-      - 명시적 캐스팅 없이 부모 타입으로 대입 가능함
-    - **접근 제한**
-      - 부모 클래스에 선언된 멤버만 접근 가능함
-    - **동적 바인딩**
-      - 오버라이딩된 메서드는 참조 변수의 타입이 아닌, **실제 객체**(Dog)의 메서드가 실행됨
+- **특징**
+  - **자동 형변환**
+    - 명시적 캐스팅 없이 부모 타입으로 대입 가능함
+  - **접근 제한**
+    - 부모 클래스에 선언된 멤버만 접근 가능함
+  - **동적 바인딩**
+    - 오버라이딩된 메서드는 참조 변수의 타입이 아닌, **실제 객체**(Dog)의 메서드가 실행됨
 
 ![Casting Flow](/assets/img/java-part2/polymorphism/casting_flow_diagram.png)
 
@@ -136,7 +136,7 @@ math: false
 
   // 잘못된 다운캐스팅 - 런타임 에러
   Animal animal2 = new Animal(); // 실제 객체는 Animal
-  // Dog dog2 = (Dog) animal2;   // ClassCastException 발생!
+  // Dog dog2 = (Dog) animal2;   // ClassCastException 발생
   ```
 
   - **주의사항 및 생략 권고**
@@ -148,52 +148,52 @@ math: false
 
 - **instanceof 연산자**
 
-  - 다운캐스팅이 가능한지 실행 시점에 확인(RTTI, Run Time Type Information)하는 연산자임
+  - 다운캐스팅이 가능한지 실행 시점에 확인(RTTI, Run Time Type Information)하는 연산자
 
   ```java
   public class Main {
       public static void main(String[] args) {
           Scanner s = new Scanner(System.in);
           int input = s.nextInt();
-          Shape shape;
+          Animal animal;
 
           // 업캐스팅 활용
           if(input == 0)
-              shape = new Rectangle();
+              animal = new Dog();
           else
-              shape = new Triangle();
+              animal = new Cat();
 
           // 다형성을 통한 메서드 호출 (권장)
-          shape.render();
+          animal.sound();
 
           // 다운캐스팅 활용
-          // 자식 클래스만의 고유 기능이 필요한 경우에 한정적으로 사용
-          if(shape instanceof Rectangle) {
-              Rectangle rect = (Rectangle) shape;
-              // Rectangle에만 있는 calculateArea() 메서드 호출
-              // System.out.println("넓이: " + rect.calculateArea());
-              System.out.println("사각형입니다.");
-          } else if(shape instanceof Triangle) {
-              Triangle tri = (Triangle) shape;
-              // Triangle에만 있는 getHeight() 메서드 호출
-              // System.out.println("높이: " + tri.getHeight());
-              System.out.println("삼각형입니다.");
+          // 자식 클래스만의 고유 기능이 필요한 경우에 한정적으로 사용 (OCP 관점에서는 지양 대상)
+          if(animal instanceof Dog) {
+              Dog dog = (Dog) animal;
+              // Dog에만 있는 guardHouse() 메서드 호출
+              dog.guardHouse();
+              System.out.println("강아지입니다.");
+          } else if(animal instanceof Cat) {
+              Cat cat = (Cat) animal;
+              // Cat에만 있는 groom() 메서드 호출
+              cat.groom();
+              System.out.println("고양이입니다.");
           }
       }
 
       // 다형성 활용 (OCP 준수)
-      void processShape(Shape shape) {
-          shape.render();  // 각 클래스가 알아서 처리
+      void makeAnimalSound(Animal animal) {
+          animal.sound();  // 각 클래스가 알아서 처리
       }
 
       // 타입별 분기 (OCP 위반)
-      void processShapeBad(Shape shape) {
-          if(shape instanceof Circle) {
+      void makeAnimalSoundBad(Animal animal) {
+          if(animal instanceof Dog) {
               // ...
-          } else if(shape instanceof Rectangle) {
+          } else if(animal instanceof Rabbit) {
               // ...
           }
-          // 새로운 도형 추가 시 메서드 수정 필요!
+          // 새로운 동물 추가 시 메서드 수정 필요!
       }
   }
   ```
@@ -230,30 +230,22 @@ public abstract class ClassName {
 ### 구현 예제
 
 ```java
-abstract class Shape {
+abstract class Animal {
     // 파생 클래스에서 반드시 구현해야 함
-    abstract public void render();
+    abstract public void sound();
 }
 
-class Triangle extends Shape {
+class Dog extends Animal {
     @Override
-    public void render() {
-        for(int i = 0; i < 5; ++i) {
-            for(int j = 0; j < i + 1; ++j)
-                System.out.print("*\t");
-            System.out.print('\n');
-        }
+    public void sound() {
+        System.out.println("Bow Wow");
     }
 }
 
-class Rectangle extends Shape {
+class Cat extends Animal {
     @Override
-    public void render() {
-        for(int i = 0; i < 5; ++i) {
-            for(int j = 0; j < 5; ++j)
-                System.out.print("*\t");
-            System.out.print('\n');
-        }
+    public void sound() {
+        System.out.println("Meow");
     }
 }
 ```
@@ -296,30 +288,22 @@ class Rectangle extends Shape {
 ### 구현 예제
 
 ```java
-interface Shape {
+interface Animal {
     // public abstract가 생략된 형태
-    void render();
+    void sound();
 }
 
-class Triangle implements Shape {
+class Dog implements Animal {
     @Override
-    public void render() {
-        for(int i = 0; i < 5; ++i) {
-            for(int j = 0; j < i + 1; ++j)
-                System.out.print("*\t");
-            System.out.print('\n');
-        }
+    public void sound() {
+        System.out.println("Bow Wow");
     }
 }
 
-class Rectangle implements Shape {
+class Cat implements Animal {
     @Override
-    public void render() {
-        for(int i = 0; i < 5; ++i) {
-            for(int j = 0; j < 5; ++j)
-                System.out.print("*\t");
-            System.out.print('\n');
-        }
+    public void sound() {
+        System.out.println("Meow");
     }
 }
 ```
@@ -410,27 +394,26 @@ public enum EnumName {
 ### 기본 사용 예제
 
 ```java
-enum Week {
-    MONDAY, TUESDAY, WEDNESDAY,
-    THURSDAY, FRIDAY, SATURDAY, SUNDAY
+enum Season {
+    SPRING, SUMMER, AUTUMN, WINTER
 }
 
 public class Main {
     public static void main(String[] args) {
-        Week week = Week.SUNDAY;
+        Season season = Season.WINTER;
 
         // 서수(인덱스) 출력
-        System.out.println(Week.valueOf("MONDAY").ordinal()); // 0
+        System.out.println(Season.valueOf("SPRING").ordinal()); // 0
 
         // 이름 출력
-        System.out.println(week.name()); // SUNDAY
+        System.out.println(season.name()); // WINTER
 
         // 서수 출력
-        System.out.println(week.ordinal()); // 6
+        System.out.println(season.ordinal()); // 3
 
         // 전체 항목 순회
-        for(Week w : Week.values()) {
-            System.out.println(w.name());
+        for(Season s : Season.values()) {
+            System.out.println(s.name());
         }
     }
 }
@@ -450,34 +433,35 @@ public class Main {
 
     - 열거 상수의 서수(0부터 시작하는 인덱스)를 반환함
     - **주의**
-      - **실무에서는 `ordinal()` 사용을 지양해야 함**
-      - 열거 상수의 선언 순서가 바뀌면 반환되는 정수 값이 바뀌어 심각한 버그를 초래할 수 있음 (`Alternative`: 별도의 필드를 정의하여 사용)
 
-### 올바른 사용 예제 (ordinal 대신 필드 사용)
+      - 열거 상수의 선언 순서가 바뀌면 반환되는 정수 값이 바뀌어 버그를 초래할 수 있음
+      - `Alternative`
 
-```java
-// ordinal() 사용
-enum Priority {
-    LOW, MEDIUM, HIGH
-}
-// Priority.HIGH.ordinal() -> 2 (순서 변경 시 값 변동 위험)
+        - 별도의 필드를 정의하여 사용
 
-// 명시적 필드 사용
-enum Priority {
-    LOW(1), MEDIUM(5), HIGH(10);
+        ```java
+        // ordinal() 사용
+        enum Priority {
+            LOW, MEDIUM, HIGH
+        }
+        // Priority.HIGH.ordinal() // 2 (순서 변경 시 값 변동 위험)
 
-    private final int level;
+        // 명시적 필드 사용
+        enum Priority {
+            LOW(1), MEDIUM(5), HIGH(10);
 
-    Priority(int level) {
-        this.level = level;
-    }
+            private final int level;
 
-    public int getLevel() {
-        return level;
-    }
-}
-// Priority.HIGH.getLevel() -> 10 (순서와 무관하게 고정)
-```
+            Priority(int level) {
+                this.level = level;
+            }
+
+            public int getLevel() {
+                return level;
+            }
+        }
+        Priority.HIGH.getLevel() // 10 (순서와 무관하게 고정)
+        ```
 
 ### 활용 예제
 
@@ -551,7 +535,7 @@ System.out.println(status.getDescription()); // "실행 중"
 
 ## 정리
 
-- 다형성은 같은 타입의 참조자로 여러 형태의 객체를 다룰 수 있게 하는 핵심 개념임
+- 다형성은 같은 타입의 참조자로 여러 형태의 객체를 다룰 수 있게 하는 개념임
 - 업캐스팅은 자동으로 이루어지며 안전하지만, 다운캐스팅은 `instanceof`로 확인 후 수행해야 함
 - 추상 클래스는 공통 기능을 제공하면서 일부 메서드의 구현을 강제할 수 있음
 - 인터페이스는 순수한 명세를 정의하며 다중 구현이 가능함
