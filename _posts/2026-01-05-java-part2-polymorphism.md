@@ -63,6 +63,7 @@ math: false
   ```
 
 - **인스턴스 메모리 구조**
+
   ![Instance Memory Structure](/assets/img/java-part2/polymorphism/memory_structure_diagram.png)
 
   - **구조 설명**
