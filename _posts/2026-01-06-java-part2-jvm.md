@@ -6,8 +6,7 @@ author:
 date: 2026-01-06 13:00:00 +0900
 category:
   - [Language, Java]
-tags:
-  [java, jvm, garbage collection, class loader, heap, stack, memory management]
+tags: [java, jvm, garbage collection, class loader, heap, stack, memory management]
 math: false
 ---
 
