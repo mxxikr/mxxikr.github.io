@@ -6,17 +6,7 @@ author:
 date: 2026-01-08 07:00:00 +0900
 category:
   - [Language, Java]
-tags:
-  [
-    java,
-    exception,
-    error,
-    try-catch,
-    finally,
-    throws,
-    checked-exception,
-    unchecked-exception,
-  ]
+tags: [java, exception, error, try-catch, finally, throws, checked-exception, unchecked-exception]
 math: false
 ---
 

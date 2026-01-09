@@ -6,18 +6,7 @@ author:
 date: 2026-01-07 00:00:00 +0900
 category:
   - [Language, Java]
-tags:
-  [
-    java,
-    immutable,
-    string,
-    stringbuilder,
-    wrapper,
-    boxing,
-    unboxing,
-    constant-pool,
-    string-buffer,
-  ]
+tags: [java, immutable, string, stringbuilder, wrapper, boxing, unboxing, constant-pool, string-buffer]
 math: false
 ---
 
