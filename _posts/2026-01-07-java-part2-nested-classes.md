@@ -6,16 +6,7 @@ author:
 date: 2026-01-07 13:00:00 +0900
 category:
   - [Language, Java]
-tags:
-  [
-    java,
-    nested-class,
-    inner-class,
-    static-nested-class,
-    anonymous-object,
-    package,
-    import,
-  ]
+tags: [java, nested-class, inner-class, static-nested-class, anonymous-object, package, import]
 math: false
 ---
 

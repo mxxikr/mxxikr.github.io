@@ -6,16 +6,7 @@ author:
 date: 2026-01-06 15:00:00 +0900
 category:
   - [Language, Java]
-tags:
-  [
-    java,
-    garbage collection,
-    gc algorithm,
-    object class,
-    memory layout,
-    equals,
-    hashcode,
-  ]
+tags: [java, garbage collection, gc algorithm, object class, memory layout, equals, hashcode]
 math: false
 ---
 
