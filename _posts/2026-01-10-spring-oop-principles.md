@@ -66,7 +66,7 @@ public class OrderServiceImpl implements OrderService {
   - `OrderServiceImpl`이 인터페이스뿐만 아니라 구체 클래스에도 의존
   - 구체 클래스가 변경되면 `OrderServiceImpl`도 함께 변경되어야 함
 
-![DIP 위반 구조](/assets/img/posts/spring-oop-principles/dip-violation.png)
+![DIP 위반 구조](/assets/img/spring/spring-oop-principles/dip-violation.png)
 
 ### OCP 위반 (개방-폐쇄 원칙)
 
@@ -175,7 +175,7 @@ public class OrderServiceImpl implements OrderService {
   - 클라이언트 코드를 변경하지 않고 클라이언트가 호출하는 대상의 타입 인스턴스를 변경할 수 있음
   - 정적인 클래스 의존관계를 변경하지 않고 동적인 객체 인스턴스 의존관계를 쉽게 변경할 수 있음
 
-![AppConfig를 통한 의존관계 주입](/assets/img/posts/spring-oop-principles/di-structure.png)
+![AppConfig를 통한 의존관계 주입](/assets/img/spring/spring-oop-principles/di-structure.png)
 
 <br/><br/>
 
@@ -228,7 +228,7 @@ public class AppConfig {
 - **사용 영역 (`ServiceImpl`)**
   - 실행에만 집중
 
-![구성 영역과 사용 영역 분리](/assets/img/posts/spring-oop-principles/area-separation.png)
+![구성 영역과 사용 영역 분리](/assets/img/spring/spring-oop-principles/area-separation.png)
 
 ### 할인 정책 변경
 
