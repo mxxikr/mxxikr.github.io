@@ -72,55 +72,6 @@ mermaid: true
     - $O(V)$
     - 모든 노드의 방문 여부 저장
 
-```java
-import java.util.*;
-
-public class DFSRecursive {
-    static ArrayList<Integer>[] graph;
-    static boolean[] visited;
-
-    public static void dfs(int node) {
-        // 현재 노드 방문 처리
-        visited[node] = true;
-        System.out.print(node + " "); // 방문 순서 출력
-
-        // 인접한 미방문 노드를 재귀적으로 탐색
-        for (int next : graph[node]) {
-            if (!visited[next]) {
-                dfs(next);  // 깊이 우선으로 탐색
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        int n = 6;  // 노드 개수
-        graph = new ArrayList[n + 1];
-        visited = new boolean[n + 1];
-
-        // 그래프 초기화
-        for (int i = 1; i <= n; i++) {
-            graph[i] = new ArrayList<>();
-        }
-
-        // 간선 추가 (무방향 그래프)
-        addEdge(1, 2);
-        addEdge(1, 3);
-        addEdge(2, 5);
-        addEdge(2, 6);
-        addEdge(3, 4);
-        addEdge(4, 6);
-
-        dfs(1);
-    }
-
-    // 무방향 그래프 간선 추가 헬퍼 메서드
-    static void addEdge(int u, int v) {
-        graph[u].add(v);
-        graph[v].add(u);
-    }
-}
-```
-
 ### DFS 용어 및 동작 원리
 
 - 구성 요소
@@ -135,7 +86,9 @@ public class DFSRecursive {
   2. 현재 노드와 연결된 인접 노드 중 방문하지 않은 노드를 찾아 방문함 (재귀/스택)
   3. 더 이상 방문할 인접 노드가 없으면 이전 노드(부모)로 되돌아감 (Backtracking)
 
-![DFS Mechanism](/assets/img/algorithm/dfs/dfs-mechanism.png)
+![DFS 기본 동작 원리](/assets/img/algorithm/dfs/dfs-principle.png)
+
+![DFS 기본 동작 플로우차트](/assets/img/algorithm/dfs/dfs-principle-flowchart.png)
 
 ### DFS의 활용처와 패턴
 
@@ -252,61 +205,124 @@ public class DFSRecursive {
 ### 구현 방식과 차이
 
 - **재귀 함수 (Recursion)**
+
   - 코드가 간결하고 직관적임
   - 시스템 스택(Call Stack)을 사용하므로 깊이가 매우 깊어지면 `StackOverflowError` 발생 가능함
+
+    ```java
+    import java.util.*;
+
+    public class DFSRecursive {
+        static ArrayList<Integer>[] graph;
+        static boolean[] visited;
+
+        public static void dfs(int node) {
+            // 현재 노드 방문 처리
+            visited[node] = true;
+            System.out.print(node + " "); // 방문 순서 출력
+
+            // 인접한 미방문 노드를 재귀적으로 탐색
+            for (int next : graph[node]) {
+                if (!visited[next]) {
+                    dfs(next);  // 깊이 우선으로 탐색
+                }
+            }
+        }
+
+        public static void main(String[] args) {
+            int n = 6;  // 노드 개수
+            graph = new ArrayList[n + 1];
+            visited = new boolean[n + 1];
+
+            // 그래프 초기화
+            for (int i = 1; i <= n; i++) {
+                graph[i] = new ArrayList<>();
+            }
+
+            // 간선 추가 (무방향 그래프)
+            addEdge(1, 2);
+            addEdge(1, 3);
+            addEdge(2, 5);
+            addEdge(2, 6);
+            addEdge(3, 4);
+            addEdge(4, 6);
+
+            dfs(1);
+        }
+
+        // 무방향 그래프 간선 추가 헬퍼 메서드
+        static void addEdge(int u, int v) {
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+    }
+    ```
+
+- **동작 흐름**
+
+![DFS 재귀 호출 흐름](/assets/img/algorithm/dfs/recursive-flow.png)
+
+![DFS 재귀 플로우차트](/assets/img/algorithm/dfs/recursive-flowchart.png)
+
 - **반복문 + 스택 (Iterative Stack)**
 
   - 명시적인 `Stack` 자료구조를 사용함
   - 재귀 깊이 제한에서 자유로우며, 힙 메모리를 사용하여 대규모 그래프 탐색에 유리함
   - 방문 순서가 재귀와 미세하게 다를 수 있음 (인접 노드 삽입 순서에 따라)
 
-```java
-// 스택을 이용한 반복문 구현 (Push 시 방문 처리)
-public static void dfsIterative(int start) {
-    Stack<Integer> stack = new Stack<>();
-    stack.push(start);
-    visited[start] = true; // push 시점에 방문 처리
+  ```java
+  // 스택을 이용한 반복문 구현 (Push 시 방문 처리)
+  public static void dfsIterative(int start) {
+      Stack<Integer> stack = new Stack<>();
+      stack.push(start);
+      visited[start] = true; // push 시점에 방문 처리
 
-    while (!stack.isEmpty()) {
-        int node = stack.pop();
-        System.out.print(node + " ");
+      while (!stack.isEmpty()) {
+          int node = stack.pop();
+          System.out.print(node + " ");
 
-        // 인접 노드를 역순으로 스택에 삽입 -> 스택은 후입선출(LIFO)이므로 나중에 넣은 것이 먼저 나옴
-        // 작은 번호를 먼저 방문하려면 큰 번호부터 넣어야 함
-        for (int i = graph[node].size() - 1; i >= 0; i--) {
-            int next = graph[node].get(i);
-            // 방문하지 않은 노드만 스택에 추가
-            if (!visited[next]) {
-                visited[next] = true; // 중복 push 방지를 위해 여기서 방문 처리
-                stack.push(next);
-            }
-        }
-    }
-}
+          // 인접 노드를 역순으로 스택에 삽입 -> 스택은 후입선출(LIFO)이므로 나중에 넣은 것이 먼저 나옴
+          // 작은 번호를 먼저 방문하려면 큰 번호부터 넣어야 함
+          for (int i = graph[node].size() - 1; i >= 0; i--) {
+              int next = graph[node].get(i);
+              // 방문하지 않은 노드만 스택에 추가
+              if (!visited[next]) {
+                  visited[next] = true; // 중복 push 방지를 위해 여기서 방문 처리
+                  stack.push(next);
+              }
+          }
+      }
+  }
 
-// Pop 시 방문 처리 방식 (재귀 DFS와 순서 동일, 중복 Push 가능성 있음)
-public static void dfsIterativeAlt(int start) {
-    Stack<Integer> stack = new Stack<>();
-    stack.push(start);
+  // Pop 시 방문 처리 방식 (재귀 DFS와 순서 동일, 중복 Push 가능성 있음)
+  public static void dfsIterativeAlt(int start) {
+      Stack<Integer> stack = new Stack<>();
+      stack.push(start);
 
-    while (!stack.isEmpty()) {
-        int node = stack.pop();
+      while (!stack.isEmpty()) {
+          int node = stack.pop();
 
-        if (visited[node]) continue; // pop 후 방문 확인
+          if (visited[node]) continue; // pop 후 방문 확인
 
-        visited[node] = true; // pop 시점에 방문 처리
-        System.out.print(node + " ");
+          visited[node] = true; // pop 시점에 방문 처리
+          System.out.print(node + " ");
 
-        // 역순 삽입은 동일
-        for (int i = graph[node].size() - 1; i >= 0; i--) {
-            int next = graph[node].get(i);
-            if (!visited[next]) {
-                stack.push(next); // 방문 체크 없이 push
-            }
-        }
-    }
-}
-```
+          // 역순 삽입은 동일
+          for (int i = graph[node].size() - 1; i >= 0; i--) {
+              int next = graph[node].get(i);
+              if (!visited[next]) {
+                  stack.push(next); // 방문 체크 없이 push
+              }
+          }
+      }
+  }
+  ```
+
+- **동작 흐름**
+
+![DFS 반복문 스택 흐름](/assets/img/algorithm/dfs/iterative-flow.png)
+
+![DFS 반복문 플로우차트](/assets/img/algorithm/dfs/iterative-flowchart.png)
 
 ### 구현 시 주의사항 및 팁
 
