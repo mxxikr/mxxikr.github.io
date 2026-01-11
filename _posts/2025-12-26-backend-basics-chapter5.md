@@ -1,22 +1,12 @@
 ---
-title: "주니어 백엔드 개발자가 반드시 알아야 할 실무 지식 - 5장 비동기 연동, 언제 어떻게 써야 할까"
+title: "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 5장 비동기 연동, 언제 어떻게 써야 할까"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
 date: 2025-12-26 17:45:00 +0900
 category:
   - [Book, Backend]
-tags:
-  [
-    backend,
-    architecture,
-    async,
-    messaging,
-    outbox-pattern,
-    batch,
-    cdc,
-    book-review,
-  ]
+tags: [backend, architecture, async, messaging, outbox-pattern, batch, cdc, book-review]
 math: true
 mermaid: true
 ---

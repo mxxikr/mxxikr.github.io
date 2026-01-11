@@ -1,5 +1,5 @@
 ---
-title: "독하게 시작하는 Java Part 2 - 클래스2"
+title: "[독하게 시작하는 Java Part 2] 클래스2"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
@@ -351,4 +351,4 @@ class MyTest {
 
 ## Reference
 
-- [독하게 시작하는 Java - Part 2 강의](https://www.inflearn.com/course/%EB%8F%85%ED%95%98%EA%B2%8C-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-java-part2)
+- [독하게 시작하는 Java - Part 2](https://www.inflearn.com/course/%EB%8F%85%ED%95%98%EA%B2%8C-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-java-part2)

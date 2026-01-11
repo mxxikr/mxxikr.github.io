@@ -1,5 +1,5 @@
 ---
-title: "김영한의 스프링 핵심 원리 기본편 - 스프링 컨테이너와 스프링 빈"
+title: "[김영한의 스프링 핵심 원리 기본편] 스프링 컨테이너와 스프링 빈"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
