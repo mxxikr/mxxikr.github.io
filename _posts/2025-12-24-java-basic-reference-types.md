@@ -1,5 +1,5 @@
 ---
-title: "김영한의 실전 자바 - 기본형과 참조형"
+title: "[김영한의 실전 자바 기본편] 기본형과 참조형"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

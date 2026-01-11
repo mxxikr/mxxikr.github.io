@@ -1,22 +1,12 @@
 ---
-title: "김영한의 실전 자바 - 자바 메모리 구조와 static"
+title: "[김영한의 실전 자바 기본편] 자바 메모리 구조와 static"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
 date: 2025-12-30 23:50:00 +0900
 category:
   - [Language, java]
-tags:
-  [
-    java,
-    static,
-    memory,
-    stack,
-    heap,
-    method-area,
-    class-variable,
-    static-method,
-  ]
+tags: [java, static, memory, stack, heap, method-area, class-variable, static-method]
 math: false
 mermaid: true
 ---
