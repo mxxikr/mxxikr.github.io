@@ -1,5 +1,5 @@
 ---
-title: "김영한의 스프링 핵심 원리 기본편 - 객체지향 설계와 스프링"
+title: "[김영한의 스프링 핵심 원리 기본편] 객체지향 설계와 스프링"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
