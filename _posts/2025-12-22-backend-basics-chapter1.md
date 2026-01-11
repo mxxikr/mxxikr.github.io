@@ -1,5 +1,5 @@
 ---
-title: "주니어 백엔드 개발자가 반드시 알아야 할 실무 지식 - 1장 들어가며"
+title: "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 1장 들어가며"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
@@ -82,4 +82,4 @@ try (Connection conn = ds.getConnection()) {
 
 ## Reference
 
-- [주니어 백엔드 개발자가 반드시 알아야 할 실무 지식 - 한빛미디어](https://product.kyobobook.co.kr/detail/S000216376461?utm_source=google&utm_medium=cpc&utm_campaign=googleSearch&gt_network=g&gt_keyword=&gt_target_id=dsa-435935280379&gt_campaign_id=9979905549&gt_adgroup_id=132556570510&gad_source=1)
+- [주니어 백엔드 개발자가 반드시 알아야 할 실무 지식](https://product.kyobobook.co.kr/detail/S000216376461?utm_source=google&utm_medium=cpc&utm_campaign=googleSearch&gt_network=g&gt_keyword=&gt_target_id=dsa-435935280379&gt_campaign_id=9979905549&gt_adgroup_id=132556570510&gad_source=1)

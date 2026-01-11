@@ -1,5 +1,5 @@
 ---
-title: "김영한의 실전 자바 - 다형성 1"
+title: "[김영한의 실전 자바 기본편] 다형성 1"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

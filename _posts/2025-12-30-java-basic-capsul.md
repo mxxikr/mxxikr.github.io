@@ -1,22 +1,12 @@
 ---
-title: "김영한의 실전 자바 - 접근 제어자"
+title: "[김영한의 실전 자바 기본편] 접근 제어자"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
 date: 2025-12-30 22:10:00 +0900
 category:
   - [Language, java]
-tags:
-  [
-    java,
-    access-modifier,
-    encapsulation,
-    private,
-    public,
-    protected,
-    default,
-    oop,
-  ]
+tags: [java, access-modifier, encapsulation, private, public, protected, default, oop]
 math: false
 mermaid: true
 ---

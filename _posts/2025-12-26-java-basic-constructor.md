@@ -1,5 +1,5 @@
 ---
-title: "김영한의 실전 자바 - 생성자"
+title: "[김영한의 실전 자바 기본편] 생성자"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

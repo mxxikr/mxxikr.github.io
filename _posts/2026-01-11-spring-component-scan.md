@@ -1,5 +1,5 @@
 ---
-title: "김영한의 스프링 핵심 원리 기본편 - 컴포넌트 스캔"
+title: "[김영한의 스프링 핵심 원리 기본편] 컴포넌트 스캔"
 author:
   name: mxxikr
   link: https://github.com/mxxikr

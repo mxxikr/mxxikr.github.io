@@ -1,5 +1,5 @@
 ---
-title: "김영한의 실전 자바 - 객체 지향 프로그래밍"
+title: "[김영한의 실전 자바 기본편] 객체 지향 프로그래밍"
 author:
   name: mxxikr
   link: https://github.com/mxxikr
