@@ -43,10 +43,10 @@ assertThat(memberService1).isNotSameAs(memberService2);
 - 메모리 낭비 발생
 - [전체 코드 보기](https://github.com/mxxikr/spring-basic/blob/master/core/src/test/java/hello/core/singleton/SingletonTest.java)
 
-**해결책**
+- **해결책**
 
-- 객체가 딱 1개만 생성되고 공유되도록 설계
-- 싱글톤 패턴
+  - 객체가 딱 1개만 생성되고 공유되도록 설계
+  - 싱글톤 패턴
 
   ![순수 DI 컨테이너 vs 싱글톤 컨테이너](/assets/img/spring/spring-singleton-container/pure-container-vs-singleton.png)
 
@@ -77,11 +77,11 @@ public class SingletonService {
 }
 ```
 
-**구현 포인트**
+- **구현 포인트**
 
-- static 영역에 객체를 미리 하나 생성
-- `getInstance()` 메서드를 통해서만 조회 가능 (항상 같은 인스턴스 반환)
-- private 생성자로 외부에서 `new` 사용 차단
+  - static 영역에 객체를 미리 하나 생성
+  - `getInstance()` 메서드를 통해서만 조회 가능 (항상 같은 인스턴스 반환)
+  - private 생성자로 외부에서 `new` 사용 차단
 
 ![싱글톤 패턴 구조](/assets/img/spring/spring-singleton-container/singleton-pattern-structure.png)
 
@@ -129,11 +129,11 @@ assertThat(singletonService1).isSameAs(singletonService2);
 - 스프링 컨테이너는 싱글톤 컨테이너 역할
 - 싱글톤 객체를 생성하고 관리하는 기능을 싱글톤 레지스트리라 함
 
-**장점**
+- **장점**
 
-- 싱글톤 패턴의 지저분한 코드 불필요
-- DIP, OCP, 테스트, private 생성자로부터 자유로움
-- 싱글톤 패턴의 모든 단점을 해결하면서 싱글톤 유지
+  - 싱글톤 패턴의 지저분한 코드 불필요
+  - DIP, OCP, 테스트, private 생성자로부터 자유로움
+  - 싱글톤 패턴의 모든 단점을 해결하면서 싱글톤 유지
 
 ### 스프링 컨테이너 사용
 
