@@ -19,26 +19,12 @@ mermaid: true
 
 ## API URI 설계 원칙
 
-### 잘못된 설계 예시
-
-- `/read-member-list`
-- `/read-member-by-id`
-- `/create-member`
-- `/update-member`
-- `/delete-member`
-
-### 문제점
-
-- URI에 행위(동사)가 포함되어 있음
-
 ### 올바른 설계 원칙
 
 - 리소스 중심 사고
 
   - 리소스란
     - 회원을 등록, 수정, 조회하는 행위가 아니라 회원(member) 자체
-  - 비유
-    - "미네랄을 캐라"에서 리소스는 "캐는 행위"가 아니라 "미네랄"
 
 - 리소스와 행위의 분리
   - URI
@@ -72,106 +58,88 @@ mermaid: true
 
 ### 주요 메서드
 
-![Diagram 01](/assets/img/posts/http-methods/01_diagram.png)
+| HTTP 메서드 | 용도                                              |
+| ----------- | ------------------------------------------------- |
+| **GET**     | 리소스 조회                                       |
+| **POST**    | 데이터 처리/등록                                  |
+| **PUT**     | 리소스 대체                                       |
+| **PATCH**   | 리소스 부분 변경                                  |
+| **DELETE**  | 리소스 삭제                                       |
+| **HEAD**    | GET과 동일하지만 헤더만 반환                      |
+| **OPTIONS** | 통신 가능한 옵션(메서드) 확인, 주로 CORS에서 사용 |
+| **CONNECT** | 서버 터널 설정                                    |
+| **TRACE**   | 메시지 루프백 테스트                              |
 
-### 기타 메서드
+### GET 메서드
 
-- HEAD
-  - GET과 동일하지만 헤더만 반환
-- OPTIONS
-  - 통신 가능한 옵션(메서드) 확인
-  - 주로 CORS에서 사용
-- CONNECT
-  - 서버 터널 설정
-- TRACE
-  - 메시지 루프백 테스트
+- 특징
 
-<br/><br/>
+  - 리소스 조회
+  - 데이터 전달
+    - 쿼리 파라미터 사용 (쿼리 스트링)
+  - 메시지 바디
+    - 사용 가능하지만 권장하지 않음
 
-## GET 메서드
-
-### 특징
-
-- 리소스 조회
-- 데이터 전달
-  - 쿼리 파라미터 사용 (쿼리 스트링)
-- 메시지 바디
-  - 사용 가능하지만 권장하지 않음
-
-### 예시
-
-```http
-GET /search?q=hello&hl=ko HTTP/1.1
-Host: www.google.com
-```
-
-### 동작 흐름
+  ```http
+  GET /search?q=hello&hl=ko HTTP/1.1
+  Host: www.google.com
+  ```
 
 ![Diagram 02](/assets/img/posts/http-methods/02_diagram.png)
 
-<br/><br/>
+### POST 메서드
 
-## POST 메서드
+- 특징
 
-### 특징
+  - 요청 데이터 처리
+  - 메시지 바디를 통해 데이터 전달
+  - 주로 신규 리소스 등록, 프로세스 처리에 사용
 
-- 요청 데이터 처리
-- 메시지 바디를 통해 데이터 전달
-- 주로 신규 리소스 등록, 프로세스 처리에 사용
+- POST의 3가지 용도
 
-### POST의 3가지 용도
+  - 새 리소스 생성(등록)
 
-- 새 리소스 생성(등록)
+    - 서버가 아직 식별하지 않은 새 리소스 생성
 
-  - 서버가 아직 식별하지 않은 새 리소스 생성
+  - 요청 데이터 처리
 
-- 요청 데이터 처리
-- 프로세스 상태 변경
-  - 예시
-    - 결제완료 → 배달시작 → 배달완료
-- 새로운 리소스가 생성되지 않을 수도 있음
-  - 예시
-    - `POST /orders/{orderId}/start-delivery` (컨트롤 URI)
-- 다른 메서드로 애매한 경우
-  - JSON으로 조회 데이터를 넘겨야 하는데 GET 사용이 어려운 경우
-  - 애매하면 POST 사용
+    - 프로세스 상태 변경 - 예시 - 결제완료 → 배달시작 → 배달완료 - 새로운 리소스가 생성되지 않을 수도 있음
+    - ex) `POST /orders/{orderId}/start-delivery` (컨트롤 URI)
 
-### 동작 흐름
+  - 다른 메서드로 애매한 경우
+    - JSON으로 조회 데이터를 넘겨야 하는데 GET 사용이 어려운 경우
+    - 애매하면 POST 사용
 
-![Diagram 03](/assets/img/posts/http-methods/03_diagram.png)
+  ![Diagram 03](/assets/img/posts/http-methods/03_diagram.png)
 
-<br/><br/>
+### PUT 메서드
 
-## PUT 메서드
+- 특징
 
-### 특징
+  - 리소스를 완전히 대체
+  - 리소스가 있으면 대체, 없으면 생성
+  - 클라이언트가 리소스 위치를 알고 URI 지정
 
-- 리소스를 완전히 대체
-- 리소스가 있으면 대체, 없으면 생성
-- 클라이언트가 리소스 위치를 알고 URI 지정
+- POST와의 차이점
 
-### POST와의 차이점
+  - POST
+    - `POST /members`
+    - 서버가 리소스 URI 생성
+  - PUT
+    - `PUT /members/100`
+    - 클라이언트가 리소스 URI 지정
 
-- POST
-  - `POST /members`
-  - 서버가 리소스 URI 생성
-- PUT
-  - `PUT /members/100`
-  - 클라이언트가 리소스 URI 지정
+- 주의사항
 
-### 주의사항
-
-- 완전 대체
-  - 기존
-    - username: young, age: 20
-  - `PUT /members/100` 요청
-    - age: 50
-  - 결과
-    - age: 50 (username 필드 삭제됨)
+  - 완전 대체
+    - 기존
+      - username: young, age: 20
+    - `PUT /members/100` 요청
+      - age: 50
+    - 결과
+      - age: 50 (username 필드 삭제됨)
 
 ![Diagram 04](/assets/img/posts/http-methods/04_diagram.png)
-
-### 예시
 
 ```http
 PUT /members/100 HTTP/1.1
@@ -185,34 +153,30 @@ Content-Type: application/json
   - `{"age": 50}`
   - username 필드 삭제됨
 
-<br/><br/>
+### PATCH 메서드
 
-## PATCH 메서드
+- 특징
 
-### 특징
+  - 리소스 부분 변경
 
-- 리소스 부분 변경
+- PUT과 PATCH 비교
 
-### PUT과 PATCH 비교
-
-- PUT
-  - 기존
-    - username: young, age: 20
-  - `PUT /members/100` 요청
-    - age: 50
-  - 결과
-    - age: 50 (username 삭제)
-- PATCH
-  - 기존
-    - username: young, age: 20
-  - `PATCH /members/100` 요청
-    - age: 50
-  - 결과
-    - username: young, age: 50 (username 유지)
+  - PUT
+    - 기존
+      - username: young, age: 20
+    - `PUT /members/100` 요청
+      - age: 50
+    - 결과
+      - age: 50 (username 삭제)
+  - PATCH
+    - 기존
+      - username: young, age: 20
+    - `PATCH /members/100` 요청
+      - age: 50
+    - 결과
+      - username: young, age: 50 (username 유지)
 
 ![Diagram 05](/assets/img/posts/http-methods/05_diagram.png)
-
-### 예시
 
 ```http
 PATCH /members/100 HTTP/1.1
@@ -226,15 +190,11 @@ Content-Type: application/json
   - `{"username": "young", "age": 50}`
   - username 유지
 
-<br/><br/>
+### DELETE 메서드
 
-## DELETE 메서드
+- 특징
 
-### 특징
-
-- 리소스 제거
-
-### 동작 흐름
+  - 리소스 제거
 
 ![Diagram 06](/assets/img/posts/http-methods/06_diagram.png)
 
@@ -278,29 +238,11 @@ Content-Type: application/json
   - 삭제된 상태 유지
 - POST
   - 중복 발생 가능
+- 멱등은 외부 요인으로 인한 변경은 고려하지 않음
 
 ![Diagram 07](/assets/img/posts/http-methods/07_diagram.png)
 
-### 활용
-
-- 자동 복구 메커니즘
-  - 서버 TIMEOUT 시 재요청 가능 여부 판단
-
-### 문제
-
-- 재요청 중간에 다른 곳에서 리소스 변경하면?
-  - 사용자1
-    - GET → username:A, age:20
-  - 사용자2
-    - PUT → username:A, age:30
-  - 사용자1
-    - GET → username:A, age:30 (변경된 데이터 조회)
-
-### 답변
-
-- 멱등은 외부 요인으로 인한 변경은 고려하지 않음
-
-### 캐시가능(Cacheable)
+### 캐시 가능(Cacheable)
 
 - 정의
   - 응답 결과를 캐시해서 사용 가능한지 여부

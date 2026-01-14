@@ -1690,11 +1690,16 @@ $sidebar-display: "sidebar-display";
     width: 85%;
   }
 
-  /* 포스팅 페이지 본문 너비 확장 */
+  /* 포스팅 페이지 본문 너비 확장 - 사이드바 공간 확보 */
   #core-wrapper.col-xl-9,
   #tail-wrapper.col-xl-9 {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
+    flex: 0 0 75% !important; /* 100%에서 75%로 변경 - 사이드바 공간 확보 */
+    max-width: 75% !important;
+  }
+
+  #panel-wrapper {
+    flex: 0 0 25% !important; /* 사이드바 25% 공간 확보 */
+    max-width: 25% !important;
   }
 }
 
