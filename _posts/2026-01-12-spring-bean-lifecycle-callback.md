@@ -74,8 +74,10 @@ call: null message = 초기화 연결 메시지
 
 ### 콜백 시점
 
-- **초기화 콜백** - 빈이 생성되고, 빈의 의존관계 주입이 완료된 후 호출
-- **소멸전 콜백** - 빈이 소멸되기 직전에 호출
+- **초기화 콜백**
+  - 빈이 생성되고, 빈의 의존관계 주입이 완료된 후 호출
+- **소멸전 콜백**
+  - 빈이 소멸되기 직전에 호출
 
 <br/><br/>
 
@@ -111,9 +113,9 @@ call: null message = 초기화 연결 메시지
 
 <br/><br/>
 
-## 인터페이스 (InitializingBean, DisposableBean)
+## 인터페이스 (`InitializingBean`, `DisposableBean`)
 
-### 핵심 코드
+### 예제 코드
 
 ```java
 public class NetworkClient implements InitializingBean, DisposableBean {
@@ -154,7 +156,7 @@ public class NetworkClient implements InitializingBean, DisposableBean {
 
 ## 설정 정보에 초기화, 소멸 메서드 지정
 
-### 핵심 코드
+### 예제 코드
 
 ```java
 public class NetworkClient {
@@ -202,9 +204,9 @@ static class LifeCycleConfig {
 
 <br/><br/>
 
-## @PostConstruct, @PreDestroy 애노테이션 (권장)
+## `@PostConstruct`, `@PreDestroy` 애노테이션 (권장)
 
-### 핵심 코드
+### 예제 코드
 
 ```java
 import javax.annotation.PostConstruct;
@@ -260,7 +262,7 @@ close: http://hello-spring.dev
 | ---------------------- | -------------------------------------- |
 | **최신 스프링 권장**   | 가장 권장하는 방법                     |
 | **매우 편리**          | 애노테이션 하나만 붙이면 됨            |
-| **자바 표준**          | `javax.annotation` 패키지 (JSR-250)    |
+| **자바 표준**          | `javax.annotation` 패키지 (`JSR-250`)  |
 | **다른 컨테이너 지원** | 스프링이 아닌 다른 컨테이너에서도 동작 |
 | **컴포넌트 스캔**      | 컴포넌트 스캔과 잘 어울림              |
 
@@ -339,7 +341,7 @@ public class AppConfig {
 - 레거시 코드
 - 특정 메서드명 사용 필요
 
-### destroyMethod 추론 활용
+### `destroyMethod` 추론 활용
 
 ```java
 @Bean  // destroyMethod 생략
@@ -368,30 +370,30 @@ public DataSource dataSource() {
    - 빈 생성과 의존성 주입이 이루어지는 주기가 다르므로, 초기화를 따로 했을 때 의존성이 모두 주입된 후에만 초기화 로직을 실행할 수 있음
    - 생성자는 주입된 값을 활용하고, 초기화는 주입 전후에 맞춰 분리함
 
-2. InitializingBean 인터페이스의 afterPropertiesSet() 메서드는 빈 생명주기 중 언제 호출될까요?
+2. `InitializingBean` 인터페이스의 `afterPropertiesSet()` 메서드는 빈 생명주기 중 언제 호출될까요?
 
    a. 의존성 주입이 완료된 후
 
-   - InitializingBean의 afterPropertiesSet은 스프링이 해당 빈의 모든 의존성 주입(주로 setter/field 주입)을 마친 후에 호출함
+   - `InitializingBean`의 `afterPropertiesSet`은 스프링이 해당 빈의 모든 의존성 주입(주로 `setter`/`field` 주입)을 마친 후에 호출함
 
-3. InitializingBean, DisposableBean 인터페이스를 사용한 빈 생명주기 콜백 방식의 단점은 무엇일까요?
+3. `InitializingBean`, `DisposableBean` 인터페이스를 사용한 빈 생명주기 콜백 방식의 단점은 무엇일까요?
 
    a. 스프링 전용 인터페이스에 의존해야 함
 
-   - InitializingBean/DisposableBean은 스프링 프레임워크 고유의 인터페이스라, 특정 프레임워크에 코드가 종속되어 유연성이 떨어짐
+   - `InitializingBean`/`DisposableBean`은 스프링 프레임워크 고유의 인터페이스라, 특정 프레임워크에 코드가 종속되어 유연성이 떨어짐
    - 매서드 이름도 고정되어 있어서 자유도가 낮음
 
-4. @PostConstruct, @PreDestroy 어노테이션 방식이 권장되는 주된 이유는 무엇일까요?
+4. `@PostConstruct`, `@PreDestroy` 어노테이션 방식이 권장되는 주된 이유는 무엇일까요?
 
-   a. Java 표준(JSR250)으로 다른 컨테이너와 호환
+   a. Java 표준(`JSR250`)으로 다른 컨테이너와 호환
 
-   - @PostConstruct/@PreDestroy는 Java 표준 애노테이션이라 스프링뿐만 아니라 다양한 JavaEE 컨테이너에서도 사용할 수 있어 이식성이 좋음
+   - `@PostConstruct`/`@PreDestroy`는 Java 표준 애노테이션이라 스프링뿐만 아니라 다양한 JavaEE 컨테이너에서도 사용할 수 있어 이식성이 좋음
 
 5. 코드를 직접 수정할 수 없는 외부 라이브러리 객체 초기화/소멸에 적합한 스프링 빈 설정 방식은 무엇일까요?
 
-   a. @Bean 등록 시 initMethod/destroyMethod 지정
+   a. `@Bean` 등록 시 `initMethod`/`destroyMethod` 지정
 
-   - 외부 라이브러리는 코드를 수정할 인터페이스를 구현하거나 애노테이션을 붙일 수 없어서, @Bean 등록 시 설정으로 초기화/소멸 메서드를 지정하는 방식을 써야 함
+   - 외부 라이브러리는 코드를 수정할 인터페이스를 구현하거나 애노테이션을 붙일 수 없어서, `@Bean` 등록 시 설정으로 초기화/소멸 메서드를 지정하는 방식을 써야 함
 
 <br/><br/>
 
@@ -402,18 +404,25 @@ public DataSource dataSource() {
 - **스프링 빈의 라이프사이클**
   - 스프링 컨테이너 생성 → 스프링 빈 생성 → 의존관계 주입 → 초기화 콜백 → 사용 → 소멸전 콜백 → 스프링 종료
 - **객체 생성과 초기화 분리**
-  - 생성자 - 객체 생성, 메모리 할당
-  - 초기화 메서드 - 무거운 동작 (외부 커넥션 연결 등)
+  - 생성자
+    - 객체 생성, 메모리 할당
+  - 초기화 메서드
+    - 무거운 동작 (외부 커넥션 연결 등)
 - **빈 생명주기 콜백 3가지 방법**
-  - 인터페이스 (InitializingBean, DisposableBean) - 거의 사용 안 함
-  - 설정 정보 (@Bean의 initMethod, destroyMethod) - 외부 라이브러리용
-  - @PostConstruct, @PreDestroy 애노테이션 - 권장 (자바 표준)
+  - 인터페이스 (`InitializingBean`, `DisposableBean`)
+    - 거의 사용 안 함
+  - 설정 정보 (`@Bean`의 `initMethod`, `destroyMethod`)
+    - 외부 라이브러리용
+  - `@PostConstruct`, `@PreDestroy` 애노테이션
+    - 권장 (자바 표준)
 - **종료 메서드 추론 기능**
   - `destroyMethod`의 기본값은 `(inferred)`
   - `close`, `shutdown` 메서드를 자동으로 호출
 - **실무 권장 방법**
-  - 일반적인 경우 - @PostConstruct, @PreDestroy 사용
-  - 외부 라이브러리 - @Bean(initMethod, destroyMethod) 사용
+  - 일반적인 경우
+    - `@PostConstruct`, `@PreDestroy` 사용
+  - 외부 라이브러리
+    - `@Bean`(`initMethod`, `destroyMethod`) 사용
 
 <br/><br/>
 
