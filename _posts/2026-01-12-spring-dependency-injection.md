@@ -22,7 +22,7 @@ mermaid: false
 ### 의존 관계 주입 방법
 
 - 생성자 주입
-- 수정자 주입(setter 주입)
+- 수정자 주입(`setter` 주입)
 - 필드 주입
 - 일반 메서드 주입
 
@@ -61,8 +61,7 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
     // @Autowired 생략 가능 (생성자가 1개만 있을 때)
-    public OrderServiceImpl(MemberRepository memberRepository,
-                           DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
@@ -101,7 +100,7 @@ public class OrderServiceImpl implements OrderService {
 ```
 
 - `@Autowired`의 기본 동작은 주입할 대상이 없으면 오류 발생
-- 선택적으로 하려면 `@Autowired(required = false)` 사용
+- 선택적으로 하려면 `@Autowired(required=false)` 사용
 
 ### 자바빈 프로퍼티 규약
 
@@ -129,7 +128,7 @@ class Data {
 
 - 코드가 간결하지만 **외부에서 변경 불가능**
 - **테스트하기 힘듦** (치명적 단점)
-- DI 프레임워크 없으면 아무것도 할 수 없음
+- `DI` 프레임워크 없으면 아무것도 할 수 없음
 - **사용하지 말 것**
 
 ### 필드 주입 예시
@@ -181,8 +180,7 @@ public class OrderServiceImpl implements OrderService {
     private DiscountPolicy discountPolicy;
 
     @Autowired
-    public void init(MemberRepository memberRepository,
-                    DiscountPolicy discountPolicy) {
+    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
@@ -195,12 +193,12 @@ public class OrderServiceImpl implements OrderService {
 
 ## 주입 방법 비교
 
-| 방법            | 불변성 | final 사용 | 테스트 | 권장도          |
-| --------------- | ------ | ---------- | ------ | --------------- |
-| **생성자 주입** | 불변   | 가능       | 쉬움   | 권장            |
-| **수정자 주입** | 가변   | 불가       | 보통   | 선택적 사용     |
-| **필드 주입**   | 가변   | 불가       | 어려움 | 사용 금지       |
-| **메서드 주입** | 가변   | 불가       | 보통   | 거의 사용 안 함 |
+| 방법            | 불변성 | `final` 사용 | 테스트 | 권장도          |
+| --------------- | ------ | ------------ | ------ | --------------- |
+| **생성자 주입** | 불변   | 가능         | 쉬움   | 권장            |
+| **수정자 주입** | 가변   | 불가         | 보통   | 선택적 사용     |
+| **필드 주입**   | 가변   | 불가         | 어려움 | 사용 금지       |
+| **메서드 주입** | 가변   | 불가         | 보통   | 거의 사용 안 함 |
 
 <br/><br/>
 
@@ -245,11 +243,11 @@ setNoBean3 = Optional.empty
 
 ### 옵션 처리 방법 비교
 
-| 방법                         | 동작                | 사용 가능 위치 |
-| ---------------------------- | ------------------- | -------------- |
-| `@Autowired(required=false)` | 메서드 호출 안 됨   | 메서드 레벨    |
-| `@Nullable`                  | null 입력           | 파라미터, 필드 |
-| `Optional<>`                 | Optional.empty 입력 | 파라미터, 필드 |
+| 방법                         | 동작                  | 사용 가능 위치 |
+| ---------------------------- | --------------------- | -------------- |
+| `@Autowired(required=false)` | 메서드 호출 안 됨     | 메서드 레벨    |
+| `@Nullable`                  | null 입력             | 파라미터, 필드 |
+| `Optional<>`                 | `Optional.empty` 입력 | 파라미터, 필드 |
 
 - `@Nullable`, `Optional`은 스프링 전반에서 지원 (생성자 주입의 특정 필드에도 사용 가능)
 
@@ -278,7 +276,7 @@ public class OrderServiceImpl implements OrderService {
 }
 ```
 
-- `setXxx` 메서드를 **public으로 열어둠**
+- `setXxx` 메서드를 **`public`으로 열어둠**
 - 누군가 실수로 변경할 수 있음
 - 변경하면 안 되는 메서드를 열어두는 것은 **좋은 설계가 아님**
 
@@ -306,21 +304,21 @@ public class OrderServiceImpl implements OrderService {
 
 ### 수정자 주입 문제
 
-- 실행은 되지만 **NullPointerException(NPE)** 발생 가능
+- 실행은 되지만 **`NullPointerException`(`NPE`)** 발생 가능
 - 의존관계 주입이 **누락**될 수 있음
 
 ### 생성자 주입 장점
 
 - **컴파일 시점**에 오류 발견
-- IDE가 어떤 값을 필수로 주입해야 하는지 알려줌
+- `IDE`가 어떤 값을 필수로 주입해야 하는지 알려줌
 
 - [테스트 코드 보기](https://github.com/mxxikr/spring-basic/blob/master/core/src/test/java/hello/core/order/OrderServiceTest.java)
 
 <br/><br/>
 
-## final 키워드 사용
+## `final` 키워드 사용
 
-### final 키워드의 장점
+### `final` 키워드의 장점
 
 ```java
 @Component
@@ -358,7 +356,7 @@ java: variable discountPolicy might not have been initialized
 
 - 프레임워크에 의존하지 않음
 - 순수한 자바 언어의 특징을 잘 살림
-- 불변성, 누락 방지, final 키워드 사용 가능
+- 불변성, 누락 방지, `final` 키워드 사용 가능
 
 ### 권장 사항
 
@@ -390,14 +388,14 @@ public class OrderServiceImpl implements OrderService {
 }
 ```
 
-- `@RequiredArgsConstructor` - **final이 붙은 필드**를 모아서 생성자를 자동 생성
+- `@RequiredArgsConstructor`
+  - **final이 붙은 필드**를 모아서 생성자를 자동 생성
 - 컴파일 시점에 생성자 코드가 자동으로 생성됨
 
 ### 실제 생성되는 코드 (보이지 않지만 존재)
 
 ```java
-public OrderServiceImpl(MemberRepository memberRepository,
-                       DiscountPolicy discountPolicy) {
+public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
     this.memberRepository = memberRepository;
     this.discountPolicy = discountPolicy;
 }
@@ -405,7 +403,7 @@ public OrderServiceImpl(MemberRepository memberRepository,
 
 ### 최신 트렌드
 
-- 생성자 1개 + @Autowired 생략 + @RequiredArgsConstructor = 깔끔하고 간결한 코드
+- 생성자 1개 + `@Autowired` 생략 + `@RequiredArgsConstructor` = 깔끔하고 간결한 코드
 
 - [전체 코드 보기](https://github.com/mxxikr/spring-basic/blob/master/core/src/main/java/hello/core/order/OrderServiceImpl.java)
 
@@ -420,7 +418,7 @@ public OrderServiceImpl(MemberRepository memberRepository,
 private DiscountPolicy discountPolicy;
 ```
 
-- `@Autowired`는 **타입**(Type)으로 조회
+- `@Autowired`는 **타입**(`Type`)으로 조회
 - `ac.getBean(DiscountPolicy.class)`와 유사하게 동작
 
 ### 같은 타입의 빈이 2개 이상일 때
@@ -449,14 +447,14 @@ fixDiscountPolicy, rateDiscountPolicy
 private RateDiscountPolicy discountPolicy;  // 구체 타입 지정
 ```
 
-- DIP 위반
+- `DIP` 위반
 - 유연성 저하
 - 이름만 다른 똑같은 타입의 빈이 2개 있을 때 해결 안 됨
 - 해결 방법 3가지
 
-  1. @Autowired 필드 명 매칭
-  2. @Qualifier 사용
-  3. @Primary 사용
+  1. `@Autowired` 필드 명 매칭
+  2. `@Qualifier` 사용
+  3. `@Primary` 사용
 
 - [전체 코드 보기](https://github.com/mxxikr/spring-basic/blob/master/core/src/test/java/hello/core/autowired)
 
@@ -512,8 +510,7 @@ public class FixDiscountPolicy implements DiscountPolicy {}
 
 ```java
 @Autowired
-public OrderServiceImpl(MemberRepository memberRepository,
-                       @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
+public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
     this.memberRepository = memberRepository;
     this.discountPolicy = discountPolicy;
 }
@@ -560,8 +557,7 @@ public class FixDiscountPolicy implements DiscountPolicy {}
 
 ```java
 @Autowired
-public OrderServiceImpl(MemberRepository memberRepository,
-                       DiscountPolicy discountPolicy) {  // @Primary가 주입됨
+public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {  // @Primary가 주입됨
     this.memberRepository = memberRepository;
     this.discountPolicy = discountPolicy;
 }
@@ -576,8 +572,6 @@ public OrderServiceImpl(MemberRepository memberRepository,
 | **코드 간결성** | 간결 (주입 시 별도 코드 불필요) | 모든 주입 지점에 `@Qualifier` 필요 |
 | **우선순위**    | 낮음 (기본값)                   | 높음 (명시적)                      |
 | **사용 시점**   | 메인 DB 같은 기본 빈            | 서브 DB 같은 특수 빈               |
-
-### 활용 예시
 
 ### 메인 DB (자주 사용)
 
@@ -633,8 +627,7 @@ public void setSubDB(@Qualifier("subDB") DBConnection subDB) {
 ### 해결 - 커스텀 애노테이션
 
 ```java
-@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER,
-         ElementType.TYPE, ElementType.ANNOTATION_TYPE})
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.TYPE, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Qualifier("mainDiscountPolicy")
@@ -652,8 +645,7 @@ public class RateDiscountPolicy implements DiscountPolicy {}
 
 // 생성자 주입
 @Autowired
-public OrderServiceImpl(MemberRepository memberRepository,
-                       @MainDiscountPolicy DiscountPolicy discountPolicy) {
+public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
     this.memberRepository = memberRepository;
     this.discountPolicy = discountPolicy;
 }
@@ -668,7 +660,7 @@ public void setDiscountPolicy(@MainDiscountPolicy DiscountPolicy discountPolicy)
 ### 장점
 
 - 컴파일 타임 체크 가능
-- IDE의 자동완성 지원
+- `IDE`의 자동완성 지원
 
 - 애노테이션에는 상속 개념이 없음
 - 여러 애노테이션을 모아서 사용하는 것은 스프링이 지원하는 기능
@@ -682,7 +674,7 @@ public void setDiscountPolicy(@MainDiscountPolicy DiscountPolicy discountPolicy)
 
 ### 사용 사례
 
-- 클라이언트가 할인 종류(rate, fix)를 선택할 수 있는 경우
+- 클라이언트가 할인 종류(`rate`, `fix`)를 선택할 수 있는 경우
 
 ### List, Map 활용 예시
 
@@ -714,7 +706,7 @@ discount(member, 10000, "fixDiscountPolicy")
 1. `policyMap.get("fixDiscountPolicy")` → `FixDiscountPolicy` 빈 조회
 2. 해당 빈의 `discount()` 메서드 실행
 
-- 해당 타입의 스프링 빈이 없으면 빈 컬렉션이나 빈 Map 주입
+- 해당 타입의 스프링 빈이 없으면 빈 컬렉션이나 빈 `Map` 주입
 
 - [전체 코드 보기](https://github.com/mxxikr/spring-basic/blob/master/core/src/test/java/hello/core/autowired)
 
@@ -768,7 +760,7 @@ public class MemberServiceImpl implements MemberService {
 }
 ```
 
-- 자동 빈 등록도 OCP, DIP 준수 가능
+- 자동 빈 등록도 `OCP`, `DIP` 준수 가능
 
 <br/><br/>
 
@@ -793,7 +785,7 @@ public class MemberServiceImpl implements MemberService {
 ### 기술 지원 로직 빈
 
 - **데이터베이스 연결**
-- **공통 로그 처리** (AOP)
+- **공통 로그 처리** (`AOP`)
 - 업무 로직을 지원하는 하부 기술
 
 - 특징
@@ -884,35 +876,35 @@ discount
    a. 순수 Java 코드로 테스트하기 어려워서
 
    - 필드 주입은 외부에서 의존성을 주입할 수 없어서 순수 Java 테스트가 힘듦
-   - 또한 final 키워드를 사용할 수 없어 불변성을 보장하기 어려움
+   - 또한 `final` 키워드를 사용할 수 없어 불변성을 보장하기 어려움
    - 단점이 많아서 권장되지 않음
 
-2. @Autowired로 의존성을 주입받을 때, Bean이 없는 경우를 처리하는 방법과 거기 맞 정답은?
+2. `@Autowired`로 의존성을 주입받을 때, `Bean`이 없는 경우를 처리하는 방법과 거기 맞 정답은?
 
-   a. @Primary 애노테이션 사용
+   a. `@Primary` 애노테이션 사용
 
-   - @Primary는 동일 타입 Bean이 여러 개 있을 때 특정 Bean을 자동으로 선택함
-   - Bean이 없는 경우 대응 방법은 required=false, @Nullable, Optional 수입됨
+   - `@Primary`는 동일 타입 `Bean`이 여러 개 있을 때 특정 `Bean`을 자동으로 선택함
+   - `Bean`이 없는 경우 대응 방법은 `required=false`, `@Nullable`, `Optional` 수입됨
 
-3. @Autowired 사용 시 같은 타입의 Bean이 여러 개 있을 때, Spring이 의존성을 해결하는 방법 중 우선순위가 가장 높은 것은?
+3. `@Autowired` 사용 시 같은 타입의 `Bean`이 여러 개 있을 때, Spring이 의존성을 해결하는 방법 중 우선순위가 가장 높은 것은?
 
-   a. @Qualifier 사용
+   a. `@Qualifier` 사용
 
-   - Spring은 동일 타입 Bean이 여러 개일 때 @Qualifier를 통해 Bean을 가장 먼저 찾음
-   - 그 다음 @Primary, 마지막으로 필드/파라미터 이름으로 매칭함
+   - Spring은 동일 타입 `Bean`이 여러 개일 때 `@Qualifier`를 통해 `Bean`을 가장 먼저 찾음
+   - 그 다음 `@Primary`, 마지막으로 필드/파라미터 이름으로 매칭함
 
-4. final 필드를 매개변수로 하는 생성자를 자동 생성하여 생성자 주입 코드를 간소화해주는 Lombok 애노테이션은 무엇일까요?
+4. `final` 필드를 매개변수로 하는 생성자를 자동 생성하여 생성자 주입 코드를 간소화해주는 Lombok 애노테이션은 무엇일까요?
 
-   a. @RequiredArgsConstructor
+   a. `@RequiredArgsConstructor`
 
-   - 이 애노테이션은 클래스의 final 필드를 모아 자동으로 생성자를 만들어줌
+   - 이 애노테이션은 클래스의 `final` 필드를 모아 자동으로 생성자를 만들어줌
    - 반복적인 생성자 코드를 간결하게 만들 수 있음
 
-5. @Autowired를 사용하여 특정 타입의 모든 Spring Bean들을 한번에 주입받고자 할 때, 주로 사용되는 컬렉션 타입은 무엇일까요?
+5. `@Autowired`를 사용하여 특정 타입의 모든 Spring `Bean`들을 한번에 주입받고자 할 때, 주로 사용되는 컬렉션 타입은 무엇일까요?
 
-   a. List 또는 Map
+   a. `List` 또는 `Map`
 
-   - Spring 컨테이너는 특정 타입의 모든 Bean을 List나 Map 형태로 주입하는 기능을 지원함
+   - Spring 컨테이너는 특정 타입의 모든 `Bean`을 `List`나 `Map` 형태로 주입하는 기능을 지원함
    - 이를 통해 여러 구현체 중 하나를 동적으로 선택하는 전략 패턴 등을 쉽게 구현할 수 있음
 
 <br/><br/>
@@ -927,27 +919,37 @@ discount
 - **생성자 주입을 권장하는 이유**
   - 불변성 보장
   - 누락 방지 (컴파일 시점 체크)
-  - final 키워드 사용 가능
+  - `final` 키워드 사용 가능
 - **옵션 처리**
-  - `@Autowired(required=false)` - 메서드 호출 안 됨
-  - `@Nullable` - null 입력
-  - `Optional<>` - Optional.empty 입력
+  - `@Autowired(required=false)`
+    - 메서드 호출 안 됨
+  - `@Nullable`
+    - `null` 입력
+  - `Optional<>`
+    - `Optional.empty` 입력
 - **롬복과 최신 트렌드**
-  - `@RequiredArgsConstructor` - final 필드 생성자 자동 생성
-  - 생성자 1개면 @Autowired 생략 가능
+  - `@RequiredArgsConstructor`
+    - `final` 필드 생성자 자동 생성
+  - 생성자 1개면 `@Autowired` 생략 가능
 - **조회 빈이 2개 이상일 때 해결 방법**
-  - @Autowired 필드 명 매칭
-  - @Qualifier - 추가 구분자
-  - @Primary - 우선순위 지정
+  - `@Autowired` 필드 명 매칭
+  - `@Qualifier`
+    - 추가 구분자
+  - `@Primary`
+    - 우선순위 지정
 - **커스텀 애노테이션**
-  - @Qualifier 대신 컴파일 타임 체크 가능한 커스텀 애노테이션 생성
+  - `@Qualifier` 대신 컴파일 타임 체크 가능한 커스텀 애노테이션 생성
 - **조회한 빈이 모두 필요할 때**
-  - `Map<String, 타입>` - 빈 이름과 객체를 Map으로 주입
+  - `Map<String, 타입>`
+    - 빈 이름과 객체를 Map으로 주입
   - `List<타입>` - 해당 타입의 모든 빈을 List로 주입
-- **자동 vs 수동 빈 등록**
-  - 업무 로직 - 자동 등록 사용 (권장)
-  - 기술 지원 로직 - 수동 등록 사용
-  - 다형성을 적극 활용하는 비즈니스 로직 - 수동 등록 또는 패키지 구조화
+- **자동 빈 등록과 수동 빈 등록**
+  - 업무 로직
+    - 자동 등록 사용 (권장)
+  - 기술 지원 로직
+    - 수동 등록 사용
+  - 다형성을 적극 활용하는 비즈니스 로직
+    - 수동 등록 또는 패키지 구조화
 
 <br/><br/>
 
