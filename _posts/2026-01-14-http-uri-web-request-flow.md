@@ -185,7 +185,7 @@ https://www.google.com:443/search?q=hello&hl=ko
   - `key=value` 형태
   - `?`로 시작
   - `&`로 추가
-  - 예 - `?keyA=valueA&keyB=valueB&keyC=valueC`
+  - ex) `?keyA=valueA&keyB=valueB&keyC=valueC`
 - **별칭**
   - Query Parameter
   - Query String
@@ -266,14 +266,14 @@ Host: www.google.com
 
 ![SOCKET 라이브러리를 통한 전달](/assets/img/posts/http-uri-web-request-flow/08_socket_transmission.png)
 
-**전송 과정**
+- **전송 과정**
 
-1. 웹 브라우저가 HTTP 메시지 생성
-2. SOCKET 라이브러리를 통해 OS에 전달
-   1. TCP/IP 연결 (IP, PORT)
-   2. 데이터 전달
-3. TCP/IP 패킷 생성, HTTP 메시지 포함
-4. LAN 카드를 통해 네트워크로 전송
+  1. 웹 브라우저가 HTTP 메시지 생성
+  2. SOCKET 라이브러리를 통해 OS에 전달
+  3. TCP/IP 연결 (IP, PORT)
+  4. 데이터 전달
+  5. TCP/IP 패킷 생성, HTTP 메시지 포함
+  6. LAN 카드를 통해 네트워크로 전송
 
 ### TCP/IP 패킷 생성
 

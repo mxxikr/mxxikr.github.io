@@ -34,10 +34,6 @@ mermaid: true
   - 거의 모든 형태의 데이터 전송 가능
   - 서버간 통신도 HTTP 사용
 
-### HTTP 역사
-
-![Diagram 02](/assets/img/posts/http-basic/02_diagram.png)
-
 ### 버전별 특징
 
 | HTTP 버전    | 전송 계층  | 특징                           |
@@ -75,6 +71,16 @@ mermaid: true
 
 ![Diagram 05](/assets/img/posts/http-basic/05_diagram.png)
 
+### Stateful과 Stateless 비교
+
+|                   | Stateful       | Stateless             |
+| ----------------- | -------------- | --------------------- |
+| **상태 보관**     | 서버가 보관    | 서버가 보관하지 않음  |
+| **서버 선택**     | 항상 같은 서버 | 아무 서버나 가능      |
+| **서버 확장**     | 어려움         | 쉬움 (무한 확장)      |
+| **장애 대응**     | 어려움         | 쉬움                  |
+| **데이터 전송량** | 적음           | 많음 (추가 정보 전달) |
+
 ### Stateful - 상태 유지
 
 - 정상 동작
@@ -91,29 +97,14 @@ mermaid: true
 
   ![Diagram 08](/assets/img/posts/http-basic/08_diagram.png)
 
-### Stateful과 Stateless 비교
-
-![Diagram 09](/assets/img/posts/http-basic/09_diagram.png)
-
-|                   | Stateful       | Stateless             |
-| ----------------- | -------------- | --------------------- |
-| **상태 보관**     | 서버가 보관    | 서버가 보관하지 않음  |
-| **서버 선택**     | 항상 같은 서버 | 아무 서버나 가능      |
-| **서버 확장**     | 어려움         | 쉬움 (무한 확장)      |
-| **장애 대응**     | 어려움         | 쉬움                  |
-| **데이터 전송량** | 적음           | 많음 (추가 정보 전달) |
-
-### Stateless - 무한 확장 가능 (스케일 아웃)
-
-![Diagram 10](/assets/img/posts/http-basic/10_diagram.png)
-
-- **Stateless 확장성**
+- 확장성
 
   - 응답 서버를 쉽게 바꿀 수 있음
   - 서버를 무한히 증설할 수 있음
   - **스케일 아웃 가능** (수평 확장)
+    ![Diagram 10](/assets/img/posts/http-basic/10_diagram.png)
 
-### Stateless 실무 설계
+### 실무 설계
 
 ![Diagram 11](/assets/img/posts/http-basic/11_diagram.png)
 
@@ -160,8 +151,6 @@ mermaid: true
   - 서버 자원을 효율적으로 사용
   - 동시 접속자 수 증가에 유리
 
-### 장단점
-
 - **장점**
 
   - HTTP는 기본적으로 연결을 유지하지 않음
@@ -179,11 +168,11 @@ mermaid: true
 
 ![Diagram 14](/assets/img/posts/http-basic/14_diagram.png)
 
-**HTTP 지속 연결 장점**
+- **장점**
 
-- 한 번 맺은 연결 재사용 (연결 시간 절약)
-- 여러 리소스를 효율적으로 다운로드
-- HTTP/2, HTTP/3에서 더 많은 최적화
+  - 한 번 맺은 연결 재사용 (연결 시간 절약)
+  - 여러 리소스를 효율적으로 다운로드
+  - HTTP/2, HTTP/3에서 더 많은 최적화
 
 <br/><br/>
 
@@ -225,52 +214,48 @@ Content-Length: 3423
 
 ![Diagram 17](/assets/img/posts/http-basic/17_diagram.png)
 
-<br/><br/>
+### start-line
 
-## 시작 라인 (Start Line)
+- HTTP 메서드
 
-### HTTP 메서드
+  | 메서드      | 용도             | 설명                                      |
+  | ----------- | ---------------- | ----------------------------------------- |
+  | **GET**     | 리소스 조회      | 서버에 전달할 데이터는 쿼리 파라미터 사용 |
+  | **POST**    | 요청 데이터 처리 | 메시지 바디를 통해 서버로 데이터 전송     |
+  | **PUT**     | 리소스 대체      | 해당 리소스가 없으면 생성                 |
+  | **PATCH**   | 리소스 부분 변경 | 리소스의 일부만 변경                      |
+  | **DELETE**  | 리소스 삭제      | 리소스를 제거                             |
+  | **HEAD**    | 메타데이터 조회  | GET과 동일하지만 body 없이 헤더만 조회    |
+  | **OPTIONS** | 통신 옵션 조회   | 대상 리소스의 통신 옵션 확인              |
 
-|             | 용도             | 설명                                   |
-| ----------- | ---------------- | -------------------------------------- |
-| **GET**     | 리소스 조회      | 서버에 전달할 데이터는 쿼리 파라미터로 |
-| **POST**    | 요청 데이터 처리 | 메시지 바디를 통해 서버로 데이터 전송, |
-| **PUT**     | 리소스 대체      | 해당 리소스가 없으면 생성              |
-| **PATCH**   | 리소스 부분 변경 | 리소스의 일부만 변경                   |
-| **DELETE**  | 리소스 삭제      | 리소스를 제거                          |
-| **HEAD**    | 메타데이터 조회  | GET과 동일하지만 body 없이 헤더만 조회 |
-| **OPTIONS** | 통신 옵션 조회   | 대상 리소스의 통신 옵션 확인           |
+  ![Diagram 18](/assets/img/posts/http-basic/18_diagram.png)
 
-![Diagram 18](/assets/img/posts/http-basic/18_diagram.png)
+- HTTP 상태 코드
 
-### HTTP 상태 코드
+  ![Diagram 19](/assets/img/posts/http-basic/19_diagram.png)
 
-![Diagram 19](/assets/img/posts/http-basic/19_diagram.png)
+  | 코드    | 메시지                | 설명                          |
+  | ------- | --------------------- | ----------------------------- |
+  | **200** | OK                    | 요청 성공                     |
+  | **201** | Created               | 요청 성공, 새로운 리소스 생성 |
+  | **400** | Bad Request           | 잘못된 요청                   |
+  | **401** | Unauthorized          | 인증 필요                     |
+  | **403** | Forbidden             | 권한 없음                     |
+  | **404** | Not Found             | 리소스를 찾을 수 없음         |
+  | **500** | Internal Server Error | 서버 내부 오류                |
+  | **503** | Service Unavailable   | 서비스 이용 불가              |
 
-|         |                       |                               |
-| ------- | --------------------- | ----------------------------- |
-| **200** | OK                    | 요청 성공                     |
-| **201** | Created               | 요청 성공, 새로운 리소스 생성 |
-| **400** | Bad Request           | 잘못된 요청                   |
-| **401** | Unauthorized          | 인증 필요                     |
-| **403** | Forbidden             | 권한 없음                     |
-| **404** | Not Found             | 리소스를 찾을 수 없음         |
-| **500** | Internal Server Error | 서버 내부 오류                |
-| **503** | Service Unavailable   | 서비스 이용 불가              |
+### HTTP 헤더 (Header)
 
-<br/><br/>
+- 분류
 
-## HTTP 헤더 (Header)
+  - **HTTP 헤더 주요 유형**
 
-### 분류
+  ![Diagram 20](/assets/img/posts/http-basic/20_diagram.png)
 
-**HTTP 헤더 주요 유형**
+  - **주요 헤더**
 
-![Diagram 20](/assets/img/posts/http-basic/20_diagram.png)
-
-- **주요 헤더**
-
-  |                    |                  |                             |
+  | 헤더               | 설명             | 예시                        |
   | ------------------ | ---------------- | --------------------------- |
   | **Host**           | 요청 대상 호스트 | Host: www.google.com        |
   | **Content-Type**   | 표현 데이터 형식 | Content-Type: text/html     |
