@@ -1,17 +1,12 @@
 ---
-title: "[파이썬 프로그래밍 기초] 4강 - 파이썬 시작하기"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[파이썬 프로그래밍 기초] 4강 - 파이썬 시작하기'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-03-31 00:00:00 +0900
-category:
-  - [Language, Python]
-tags:
-  - [knou, python]
+category: [Language, Python]
+tags: [knou, python]
 math: true
 mermaid: true
 ---
-
 **<center>💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. </center>**
 
 <br/><br/>

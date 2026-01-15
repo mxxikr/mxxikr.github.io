@@ -1,17 +1,12 @@
 ---
-title: "PostgreSQL 아키텍처"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: PostgreSQL 아키텍처
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-08-31 03:27:00 +0900
-category:
-  - [Database, PostgreSQL]
-tags:
-  - [database, postgresql, architecture]
+category: [Database, PostgreSQL]
+tags: [database, postgresql, architecture]
 math: true
 mermaid: true
 ---
-
 ## Role
 
 ### PostgreSQL의 Role 모델

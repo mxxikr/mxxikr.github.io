@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 스프링 핵심 원리 기본편] 예제 만들기"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 스프링 핵심 원리 기본편] 예제 만들기'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-09 23:00:00 +0900
-category:
-  - [Framework, Spring]
+category: [Framework, Spring]
 tags: [spring, java, oop, domain, member, order, discount]
 math: false
 mermaid: false
 ---
-
 # 예제 만들기
 
 - 김영한님의 스프링 핵심 원리 강의 중 순수 자바로 비즈니스 로직을 구현하고 객체지향 설계 원칙을 적용하며 설계의 문제점을 파악하는 과정을 정리함

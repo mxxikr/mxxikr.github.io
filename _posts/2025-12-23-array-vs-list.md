@@ -1,16 +1,12 @@
 ---
-title: "배열(Array)과 리스트(List)의 차이"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 배열(Array)과 리스트(List)의 차이
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-23 08:05:00 +0900
-category:
-  - [Computer Science, Algorithm]
+category: [Computer Science, Algorithm]
 tags: [array, list, arraylist, linkedlist, algorithm]
 math: true
 mermaid: false
 ---
-
 ## 개요
 
 - 배열과 리스트는 모두 여러 데이터를 저장하는 자료 구조이지만, 메모리 구조와 특성이 근본적으로 다름

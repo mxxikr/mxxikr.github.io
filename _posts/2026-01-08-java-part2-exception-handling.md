@@ -1,15 +1,11 @@
 ---
-title: "[독하게 시작하는 Java Part 2]  예외 처리"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[독하게 시작하는 Java Part 2]  예외 처리'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-08 07:00:00 +0900
-category:
-  - [Language, Java]
+category: [Language, Java]
 tags: [java, exception, error, try-catch, finally, throws, checked-exception, unchecked-exception]
 math: false
 ---
-
 # 예외 처리
 
 - 널널한 개발자님의 독하게 시작하는 Java Part 2에서 에러와 예외의 개념, Checked/Unchecked 예외의 차이, try-catch-finally 구문 사용법, 예외 클래스 계층 구조, throws를 이용한 예외 전파, 그리고 사용자 정의 예외 작성 방법을 정리함

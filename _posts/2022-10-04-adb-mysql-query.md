@@ -1,17 +1,12 @@
 ---
-title: "AnalyticDB for MySQL 아키텍처와 Query"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: AnalyticDB for MySQL 아키텍처와 Query
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-04 23:55:00 +0900
-category:
-  - [Database, MySQL]
-tags:
-  - [alicloud, mysql, analyticdb, adb]
+category: [Database, MySQL]
+tags: [alicloud, mysql, analyticdb, adb]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - AnalyticDB for MySQL (ADB)

@@ -1,17 +1,12 @@
 ---
-title: "Apache Kafka 모니터링과 운영 - Prometheus & Grafana"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Apache Kafka 모니터링과 운영 - Prometheus & Grafana
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-17 01:00:00 +0900
-category:
-  - [Messaging, Kafka]
-tags:
-  - [kafka, monitoring, prometheus, grafana, operations]
+category: [Messaging, Kafka]
+tags: [kafka, monitoring, prometheus, grafana, operations]
 math: false
 mermaid: true
 ---
-
 > **Apache Kafka 시리즈**
 >
 > 1. [Apache Kafka 기본 개념 - 메시징 시스템의 이해](/posts/apache-kafka-basic-concepts)

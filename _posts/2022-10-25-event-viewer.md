@@ -1,17 +1,12 @@
 ---
-title: "Windows Event Viewer"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Windows Event Viewer
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-25 04:00:00 +0900
-category:
-  - [OS, Windows]
-tags:
-  - [os, windows, event viewer, troubleshooting, logging]
+category: [OS, Windows]
+tags: [os, windows, event-viewer, troubleshooting, logging]
 math: true
 mermaid: true
 ---
-
 <br/><br/>
 
 ## Event Viewer 개요

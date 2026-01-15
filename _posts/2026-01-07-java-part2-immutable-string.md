@@ -1,15 +1,12 @@
 ---
-title: "[독하게 시작하는 Java Part 2]  불변 객체와 String 클래스"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[독하게 시작하는 Java Part 2]  불변 객체와 String 클래스'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-07 00:00:00 +0900
-category:
-  - [Language, Java]
-tags: [java, immutable, string, stringbuilder, wrapper, boxing, unboxing, constant-pool, string-buffer]
+category: [Language, Java]
+tags: [java, immutable, string, stringbuilder, wrapper, boxing, unboxing, constant-pool,
+  string-buffer]
 math: false
 ---
-
 # 불변 객체와 String 클래스
 
 - 널널한 개발자님의 독하게 시작하는 Java Part 2에서 불변 객체의 필요성과 정의, 자바의 대표적인 불변 객체인 `String`의 내부 구조와 메모리 최적화 기법(Constant Pool), 가변 문자열 처리를 위한 `StringBuilder`, 그리고 기본 데이터 타입을 객체로 다루기 위한 `Wrapper` 클래스와 오토 박싱/언박싱 개념을 정리함

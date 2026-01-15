@@ -1,17 +1,12 @@
 ---
-title: "Jekyll 블로그 Utterances 댓글 시스템 추가"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Jekyll 블로그 Utterances 댓글 시스템 추가
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-11 19:00:00 +0900
-category:
-  - [Blog]
-tags:
-  - [jekyll, utterances]
+category: [Blog]
+tags: [jekyll, utterances]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - Jekyll 블로그에 Utterances 댓글 시스템을 추가하는 방법을 설명함

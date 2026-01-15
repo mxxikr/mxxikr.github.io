@@ -1,17 +1,12 @@
 ---
-title: "MySQL InnoDB 내부 구조와 동작 원리"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: MySQL InnoDB 내부 구조와 동작 원리
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-11-14 00:00:00 +0900
-category:
-  - [Database, MySQL]
-tags:
-  - [mysql, innodb, database, storage-engine]
+category: [Database, MySQL]
+tags: [mysql, innodb, database, storage-engine]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 - MySQL은 여러 스토리지 엔진을 지원하는 DBMS이며 InnoDB는 그 중 가장 널리 사용되는 스토리지 엔진임

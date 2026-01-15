@@ -1,17 +1,12 @@
 ---
-title: "DDD와 마이크로서비스 아키텍처"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: DDD와 마이크로서비스 아키텍처
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-11-10 09:00:00 +0900
-category:
-  - [Software Engineering, Design]
-tags:
-  - [ddd, microservices, architecture]
+category: [Software Engineering, Design]
+tags: [ddd, microservices, architecture]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 > 이 포스팅은 DDD 시리즈의 세 번째 글입니다. [도메인 스토리텔링(DST)이란?](https://mxxikr.github.io/posts/domain-storytelling-for-ddd/)과 [도메인 주도 설계(DDD)란?](https://mxxikr.github.io/posts/domain-driven-design-introduction/)을 먼저 읽는 것을 권장합니다.

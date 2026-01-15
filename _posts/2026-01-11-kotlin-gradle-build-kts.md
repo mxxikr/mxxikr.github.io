@@ -1,16 +1,12 @@
 ---
-title: "build.gradle.kts와 Kotlin Script, DSL의 이해"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: build.gradle.kts와 Kotlin Script, DSL의 이해
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-11 12:00:00 +0900
-category:
-  - [Language, Kotlin]
+category: [Language, Kotlin]
 tags: [kotlin, gradle, build-script, dsl, groovy, type-safety, kotlin-dsl, kotlin-script]
 math: false
 mermaid: false
 ---
-
 # 개요
 
 - 빌드 도구는 Maven의 XML, Groovy DSL을 거쳐 Kotlin DSL로 발전해옴

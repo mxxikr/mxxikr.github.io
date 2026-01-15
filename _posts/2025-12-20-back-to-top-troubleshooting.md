@@ -1,16 +1,12 @@
 ---
-title: "Jekyll 블로그 플로팅 버튼 고정 실패(position: fixed 속성) 트러블 슈팅"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 'Jekyll 블로그 플로팅 버튼 고정 실패(position: fixed 속성) 트러블 슈팅'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-20 08:20:00 +0900
-category:
-  - [Blog]
+category: [Blog]
 tags: [jekyll, troubleshooting, css]
 math: false
 mermaid: false
 ---
-
 ## 문제 상황
 
 - **Top / Bottom 이동을 위한 플로팅 버튼(Floating Button)**을 구현했으나 의도대로 작동하지 않음

@@ -1,16 +1,11 @@
 ---
-title: "Apache Kafka 파티션과 컨슈머 그룹 - 병렬 처리의 핵심"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Apache Kafka 파티션과 컨슈머 그룹 - 병렬 처리의 핵심
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-13 01:00:00 +0900
-category:
-  - [Messaging, Kafka]
-tags:
-  - [kafka, partition, consumer-group, distributed-system]
+category: [Messaging, Kafka]
+tags: [kafka, partition, consumer-group, distributed-system]
 math: false
 ---
-
 > **Apache Kafka 시리즈**
 >
 > 1. [Apache Kafka 기본 개념 - 메시징 시스템의 이해](/posts/apache-kafka-basic-concepts)

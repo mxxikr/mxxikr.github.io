@@ -6,7 +6,7 @@ author:
 date: 2025-12-27 19:10:00 +0900
 category:
   - Infrastructure
-tags: [Flyway, Database, DevOps, Migration]
+tags: [flyway, database, devops, migration]
 math: true
 ---
 

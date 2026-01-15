@@ -1,17 +1,12 @@
 ---
-title: "Kotlin 프로퍼티와 접근 제어자"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Kotlin 프로퍼티와 접근 제어자
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-28 13:10:00 +0900
-category:
-  - [Language, Kotlin]
-tags:
-  [kotlin, property, access-modifier, visibility, backing-field, getter, setter]
+category: [Language, Kotlin]
+tags: [kotlin, property, access-modifier, visibility, backing-field, getter, setter]
 math: false
 mermaid: false
 ---
-
 # 개요
 
 - Kotlin의 프로퍼티(Property)는 Java의 필드(Field)와 getter/setter를 통합한 개념임

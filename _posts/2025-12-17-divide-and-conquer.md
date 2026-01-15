@@ -1,16 +1,12 @@
 ---
-title: "분할 정복 알고리즘이란?"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 분할 정복 알고리즘이란?
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-17 00:00:00 +0900
-category:
-  - [Computer Science, Algorithm]
-tags: [algorithm, divide and conquer, merge sort, quick sort, binary search, recursion]
+category: [Computer Science, Algorithm]
+tags: [algorithm, divide-and-conquer, merge-sort, quick-sort, binary-search, recursion]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - 분할 정복은 큰 문제를 작은 부분 문제로 나누어 각각을 해결한 후, 그 결과를 결합하여 원래 문제를 해결하는 알고리즘 설계 패러다임임

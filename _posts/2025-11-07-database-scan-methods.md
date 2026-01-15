@@ -1,16 +1,12 @@
 ---
-title: "데이터베이스 스캔 방식"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 데이터베이스 스캔 방식
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-11-07 00:00:00 +0900
-category:
-  - [Database, Theory]
+category: [Database, Theory]
 tags: [database, scan, index]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 - 데이터베이스에서 쿼리를 실행할 때 데이터를 읽는 다양한 방식을 이해하는 것이 성능 최적화에 중요함

@@ -1,16 +1,12 @@
 ---
-title: "[모든 개발자를 위한 HTTP 웹 기본 지식] 인터넷 네트워크"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[모든 개발자를 위한 HTTP 웹 기본 지식] 인터넷 네트워크'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-14 16:11:00 +0900
-category:
-  - [Computer Science, Web]
+category: [Computer Science, Web]
 tags: [http, network, ip, tcp, udp, port, dns, protocol]
 math: false
 mermaid: true
 ---
-
 # 인터넷 네트워크
 
 - 김영한님의 모든 개발자를 위한 HTTP 웹 기본 지식 강의를 통해 인터넷에서 클라이언트와 서버가 통신할 때 데이터가 전달되는 원리를 이해하기 위해 IP, TCP/UDP, PORT, DNS 프로토콜의 역할과 동작 방식을 정리함

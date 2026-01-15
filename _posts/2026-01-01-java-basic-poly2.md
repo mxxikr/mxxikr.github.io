@@ -1,15 +1,11 @@
 ---
-title: "[김영한의 실전 자바 기본편] 다형성 2"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 실전 자바 기본편] 다형성 2'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-01 19:00:00 +0900
-category:
-  - [Language, java]
+category: [Language, Java]
 tags: [java, polymorphism, abstract-class, interface, multiple-inheritance]
 math: false
 ---
-
 # 다형성
 
 - 김영한님의 실전 자바 강의 중 다형성 2 챕터를 학습하며 추상 클래스와 인터페이스를 활용한 다형성 구현 방법의 발전 과정과 설계 원칙을 정리함

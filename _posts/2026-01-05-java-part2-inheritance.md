@@ -1,15 +1,11 @@
 ---
-title: "[독하게 시작하는 Java Part 2]  상속과 관계"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[독하게 시작하는 Java Part 2]  상속과 관계'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-05 00:00:00 +0900
-category:
-  - [Language, Java]
+category: [Language, Java]
 tags: [java, inheritance, extends, super, override, polymorphism, binding, uml]
 math: false
 ---
-
 # 상속과 관계
 
 - 널널한 개발자님의 독하게 시작하는 Java Part 2에서 상속의 기본 개념과 `extends` 키워드 사용법, 생성자 호출 스택과 `super` 키워드의 역할, 메서드 재정의와 프레임워크 패턴 구현 방법, 클래스 간의 관계를 UML로 표현하는 방법, 정적 바인딩과 동적 바인딩의 차이를 학습하며 객체 지향 프로그래밍의 상속 개념을 정리함

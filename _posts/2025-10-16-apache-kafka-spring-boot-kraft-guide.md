@@ -1,16 +1,11 @@
 ---
-title: "Spring Boot와 KRaft를 활용한 Apache Kafka 개발"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Spring Boot와 KRaft를 활용한 Apache Kafka 개발
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-16 01:00:00 +0900
-category:
-  - [Messaging, Kafka]
-tags:
-  - [kafka, spring-boot, kraft, docker, production-grade, error-handling]
+category: [Messaging, Kafka]
+tags: [kafka, spring-boot, kraft, docker, production-grade, error-handling]
 math: false
 ---
-
 > **Apache Kafka 시리즈**
 >
 > 1. [Apache Kafka 기본 개념 - 메시징 시스템의 이해](/posts/apache-kafka-basic-concepts)

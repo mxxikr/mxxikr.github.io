@@ -1,17 +1,12 @@
 ---
-title: "Java의 배열 복사 System.arraycopy"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Java의 배열 복사 System.arraycopy
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-23 14:45:00 +0900
-category:
-  - [Computer Science, Algorithm]
-tags:
-  - [java, array, system-arraycopy, performance, algorithm]
+category: [Computer Science, Algorithm]
+tags: [java, array, system-arraycopy, performance, algorithm]
 math: true
 mermaid: false
 ---
-
 ## 개요
 
 - `System.arraycopy`는 Java에서 배열을 고속으로 복사하기 위한 네이티브 메서드

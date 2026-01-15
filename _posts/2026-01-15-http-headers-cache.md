@@ -1,16 +1,12 @@
 ---
-title: "[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 헤더2 - 캐시와 조건부 요청"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 헤더2 - 캐시와 조건부 요청'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-15 17:54:00 +0900
-category:
-  - [Computer Science, Web]
+category: [Computer Science, Web]
 tags: [http, cache, conditional-request, etag, last-modified, cache-control]
 math: false
 mermaid: true
 ---
-
 # HTTP 헤더2 - 캐시와 조건부 요청
 
 - 김영한님의 모든 개발자를 위한 HTTP 웹 기본 지식 강의를 통해 HTTP 캐시의 기본 동작 원리, 검증 헤더(`Last-Modified`, `ETag`)와 조건부 요청(`If-Modified-Since`, `If-None-Match`), 캐시 제어 헤더(`Cache-Control`), 프록시 캐시, 캐시 무효화 방법을 정리함

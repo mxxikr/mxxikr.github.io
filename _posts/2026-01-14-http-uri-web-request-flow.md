@@ -1,16 +1,12 @@
 ---
-title: "[모든 개발자를 위한 HTTP 웹 기본 지식] URI와 웹 브라우저 요청 흐름"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[모든 개발자를 위한 HTTP 웹 기본 지식] URI와 웹 브라우저 요청 흐름'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-14 16:19:00 +0900
-category:
-  - [Computer Science, Web]
+category: [Computer Science, Web]
 tags: [http, uri, url, urn, web, browser, request, dns]
 math: false
 mermaid: true
 ---
-
 # URI와 웹 브라우저 요청 흐름
 
 - 김영한님의 모든 개발자를 위한 HTTP 웹 기본 지식 강의를 통해 웹 브라우저에 URL을 입력했을 때 일어나는 전체 과정을 이해하기 위해 URI 구조와 HTTP 요청 흐름을 정리함

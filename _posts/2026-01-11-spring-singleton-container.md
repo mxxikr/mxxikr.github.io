@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 스프링 핵심 원리 기본편] 싱글톤 컨테이너"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 스프링 핵심 원리 기본편] 싱글톤 컨테이너'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-11 08:00:00 +0900
-category:
-  - [Framework, Spring]
+category: [Framework, Spring]
 tags: [spring, java, singleton, container, configuration, cglib]
 math: false
 mermaid: false
 ---
-
 # 싱글톤 컨테이너
 
 - 김영한님의 스프링 핵심 원리 강의에서 싱글톤 패턴의 문제점과 스프링 컨테이너가 이를 해결하는 방법, @Configuration의 역할을 정리함

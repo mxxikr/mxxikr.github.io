@@ -1,17 +1,12 @@
 ---
-title: "Git SSH Config로 GitHub 계정 분리하기"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Git SSH Config로 GitHub 계정 분리하기
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-15 09:00:00 +0900
-category:
-  - [Version Control, Git]
-tags:
-  - [git, github]
+category: [Version Control, Git]
+tags: [git, github]
 math: false
 mermaid: false
 ---
-
 ## 배경
 
 - 하나의 PC에서 GitHub 계정을 두 개 사용해야 하는 상황

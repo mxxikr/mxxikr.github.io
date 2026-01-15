@@ -1,16 +1,12 @@
 ---
-title: "에라토스테네스의 체 (Sieve of Eratosthenes) 알고리즘"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 에라토스테네스의 체 (Sieve of Eratosthenes) 알고리즘
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-15 07:35:00 +0900
-category:
-  - [Computer Science, Algorithm]
+category: [Computer Science, Algorithm]
 tags: [algorithm, sieve-of-eratosthenes, prime-number, time-complexity, java, optimization]
 math: true
 mermaid: true
 ---
-
 - 소수(Prime Number)를 찾는 문제는 고대부터 현대 암호학까지 이어지는 컴퓨터 과학의 핵심 주제임
 - 기원전 3세기 그리스 수학자 에라토스테네스(Eratosthenes)가 고안한 에라토스테네스의 체는 2000년이 지난 지금도 특정 범위 내 모든 소수를 찾는 가장 효율적인 알고리즘 중 하나로 평가받고 있음
 - 소수를 직접 찾는 것이 아니라 소수가 아닌 수(합성수, Composite Number)를 제거하는 방식으로 동작함

@@ -1,17 +1,12 @@
 ---
-title: "BigQuery 프로세스 관리"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: BigQuery 프로세스 관리
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-19 12:40:00 +0900
-category:
-  - [Cloud, GCP]
-tags:
-  - [bigquery, gcp, slot, optimization]
+category: [Cloud, GCP]
+tags: [bigquery, gcp, slot, optimization]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - BigQuery에서 프로세스 관리는 Slot(슬롯) 관리와 쿼리 최적화로 귀결됨

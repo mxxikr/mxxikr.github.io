@@ -1,13 +1,11 @@
 ---
-title: "전략 패턴(Strategy Pattern)"
+title: 전략 패턴(Strategy Pattern)
 date: 2025-11-24 00:00:00 +0900
-category:
-  - [Software Engineering, Design]
+category: [Software Engineering, Design]
 tags: [design-pattern, strategy-pattern, oop]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 - 전략 패턴은 행위를 클래스로 추상화하여 런타임에 알고리즘을 자유롭게 교체할 수 있게 해주는 객체 지향 디자인 패턴임

@@ -1,17 +1,12 @@
 ---
-title: "Cursor에서 MCP로 Jira/Confluence 연동하기"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Cursor에서 MCP로 Jira/Confluence 연동하기
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-11-01 09:00:00 +0900
-category:
-  - [AI, MCP]
-tags:
-  - [cursor, mcp, jira, confluence]
+category: [AI, MCP]
+tags: [cursor, mcp, jira, confluence]
 math: false
 mermaid: false
 ---
-
 ## 개요
 
 - Cursor IDE에서 MCP(Model Context Protocol) 서버를 통해 Jira와 Confluence를 직접 연동하는 방법을 소개함

@@ -1,16 +1,12 @@
 ---
-title: "[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 상태코드"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 상태코드'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-15 17:43:00 +0900
-category:
-  - [Computer Science, Web]
+category: [Computer Science, Web]
 tags: [http, status-code, 2xx, 3xx, 4xx, 5xx, redirect, prg-pattern]
 math: false
 mermaid: true
 ---
-
 # HTTP 상태코드
 
 - 김영한님의 모든 개발자를 위한 HTTP 웹 기본 지식 강의를 통해 HTTP 상태코드의 개념과 분류, 2xx(성공), 3xx(리다이렉션), 4xx(클라이언트 오류), 5xx(서버 오류) 각 분류별 주요 상태코드와 PRG 패턴을 정리함

@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 실전 자바 기본편] 객체 지향 프로그래밍"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 실전 자바 기본편] 객체 지향 프로그래밍'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-25 21:10:00 +0900
-category:
-  - [Language, java]
+category: [Language, Java]
 tags: [java, oop, encapsulation, procedural-programming]
 math: false
 mermaid: true
 ---
-
 # 객체 지향 프로그래밍
 
 - 김영한님의 실전 자바 강의 중 객체 지향 프로그래밍 챕터를 학습하며 절차 지향과 객체 지향의 차이, 캡슐화의 원리, 그리고 객체의 데이터와 기능을 하나로 묶는 설계 방식을 정리함

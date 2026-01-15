@@ -1,15 +1,12 @@
 ---
-title: "[독하게 시작하는 Java Part 2]  JVM과 GC 그리고 객체"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[독하게 시작하는 Java Part 2]  JVM과 GC 그리고 객체'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-06 15:00:00 +0900
-category:
-  - [Language, Java]
-tags: [java, garbage collection, gc algorithm, object class, memory layout, equals, hashcode]
+category: [Language, Java]
+tags: [java, garbage-collection, gc-algorithm, object-class, memory-layout, equals,
+  hashcode]
 math: false
 ---
-
 # JVM과 GC 그리고 객체
 
 - 널널한 개발자님의 독하게 시작하는 Java Part 2에서 세대별 컬렉션 이론과 주요 GC 알고리즘(Mark-Sweep, Mark-Copy, Mark-Compact), 도달 가능성 분석, 클래식 가비지 컬렉터 종류, 객체 메모리 레이아웃 구조, Object 클래스의 주요 메서드와 동등성·동일성 개념을 학습하며 JVM의 메모리 관리 메커니즘을 정리함

@@ -1,16 +1,12 @@
 ---
-title: "[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 메서드"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 메서드'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-14 16:27:00 +0900
-category:
-  - [Computer Science, Web]
+category: [Computer Science, Web]
 tags: [http, method, get, post, put, patch, delete, rest-api]
 math: false
 mermaid: true
 ---
-
 # HTTP 메서드
 
 - 김영한님의 모든 개발자를 위한 HTTP 웹 기본 지식 강의를 통해 `HTTP` 메서드의 종류와 특징, `API URI` 설계 원칙, 각 메서드의 속성(안전성, 멱등성, 캐시 가능성)을 정리함

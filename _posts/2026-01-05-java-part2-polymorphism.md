@@ -1,15 +1,11 @@
 ---
-title: "[독하게 시작하는 Java Part 2]  다형성"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[독하게 시작하는 Java Part 2]  다형성'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-05 00:00:00 +0900
-category:
-  - [Language, Java]
+category: [Language, Java]
 tags: [java, polymorphism, abstract, interface, enum, casting, instanceof]
 math: false
 ---
-
 # 다형성
 
 - 널널한 개발자님의 독하게 시작하는 Java Part 2에서 다형성의 개념과 클래스 형변환(업캐스팅, 다운캐스팅), 추상 클래스와 인터페이스의 차이점, 열거형을 활용한 심볼릭 상수 정의 방법을 학습하며 객체 지향 프로그래밍의 원리를 정리함

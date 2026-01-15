@@ -1,17 +1,12 @@
 ---
-title: "OLTP와 OLAP 데이터베이스 비교"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: OLTP와 OLAP 데이터베이스 비교
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-17 12:40:00 +0900
-category:
-  - [Database]
-tags:
-  - [database, oltp, olap, comparison]
+category: [Database]
+tags: [database, oltp, olap, comparison]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - 데이터베이스는 크게 OLTP와 OLAP로 구분됨

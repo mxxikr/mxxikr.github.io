@@ -1,17 +1,12 @@
 ---
-title: "IntelliJ MaxCompute Plugin 설치 및 사용"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: IntelliJ MaxCompute Plugin 설치 및 사용
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-20 04:30:00 +0900
-category:
-  - [Cloud, Alicloud]
-tags:
-  - [alicloud, maxcompute, intellij, plugin]
+category: [Cloud, Alicloud]
+tags: [alicloud, maxcompute, intellij, plugin]
 math: true
 mermaid: true
 ---
-
 <br/><br/>
 
 ## MaxCompute Studio 개요

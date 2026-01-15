@@ -1,17 +1,12 @@
 ---
-title: "Docker 명령어 및 활용 가이드"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Docker 명령어 및 활용 가이드
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-25 05:55:00 +0900
-category:
-  - [Infrastructure, Docker]
-tags:
-  - [docker, docker-compose, devops, container]
+category: [Infrastructure, Docker]
+tags: [docker, docker-compose, devops, container]
 math: true
 mermaid: true
 ---
-
 <br/><br/>
 
 ## Docker와 Docker Compose 차이점

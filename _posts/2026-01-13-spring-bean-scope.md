@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 스프링 핵심 원리 기본편] 빈 스코프"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 스프링 핵심 원리 기본편] 빈 스코프'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-13 17:00:00 +0900
-category:
-  - [Framework, Spring]
+category: [Framework, Spring]
 tags: [spring, java, bean-scope, prototype, request, provider, proxy]
 math: false
 mermaid: false
 ---
-
 # 빈 스코프
 
 - 김영한님의 스프링 핵심 원리 강의에서 빈 스코프의 종류와 특징, 프로토타입 스코프와 싱글톤 스코프의 차이, 웹 스코프의 활용 방법, `Provider`와 프록시를 이용한 문제 해결 방법을 정리함

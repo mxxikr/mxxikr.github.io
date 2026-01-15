@@ -6,7 +6,7 @@ author:
 date: 2025-12-27 18:20:00 +0900
 category:
   - Infrastructure
-tags: [Terraform, Azure, IaC, DevOps, Backend]
+tags: [terraform, azure, iac, devops, backend]
 math: true
 ---
 

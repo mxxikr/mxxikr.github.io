@@ -1,15 +1,11 @@
 ---
-title: "[독하게 시작하는 Java Part 2]  클래스1"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[독하게 시작하는 Java Part 2]  클래스1'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-04 06:00:00 +0900
-category:
-  - [Language, java]
+category: [Language, Java]
 tags: [java, class, object, instance, oop, encapsulation, access-modifier]
 math: false
 ---
-
 # 클래스
 
 - 널널한 개발자님의 독하게 시작하는 Java Part 2에서 Java 클래스의 구조, 객체와 인스턴스의 개념, 접근 제어와 캡슐화, 그리고 JVM 메모리 구조를 학습하며 객체 지향 프로그래밍의 핵심 원리를 정리함

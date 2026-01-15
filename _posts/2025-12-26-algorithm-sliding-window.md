@@ -1,16 +1,12 @@
 ---
-title: "슬라이딩 윈도우 알고리즘"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 슬라이딩 윈도우 알고리즘
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-26 8:15:00 +0900
-category:
-  - [Computer Science, Algorithm]
+category: [Computer Science, Algorithm]
 tags: [algorithm, sliding-window, two-pointers, time-complexity, java]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - 슬라이딩 윈도우(Sliding Window)는 배열이나 문자열의 연속된 부분 집합을 효율적으로 처리하기 위한 알고리즘 기법임

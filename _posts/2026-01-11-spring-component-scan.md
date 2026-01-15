@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 스프링 핵심 원리 기본편] 컴포넌트 스캔"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 스프링 핵심 원리 기본편] 컴포넌트 스캔'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-11 10:30:00 +0900
-category:
-  - [Framework, Spring]
+category: [Framework, Spring]
 tags: [spring, java, component-scan, autowired, dependency-injection]
 math: false
 mermaid: false
 ---
-
 # 컴포넌트 스캔
 
 - 김영한님의 스프링 핵심 원리 강의에서 컴포넌트 스캔을 이용한 자동 빈 등록과 @Autowired를 이용한 자동 의존관계 주입을 정리함

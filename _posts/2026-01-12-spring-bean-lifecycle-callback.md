@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 스프링 핵심 원리 기본편] 빈 생명주기 콜백"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 스프링 핵심 원리 기본편] 빈 생명주기 콜백'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-12 15:00:00 +0900
-category:
-  - [Framework, Spring]
+category: [Framework, Spring]
 tags: [spring, java, bean-lifecycle, callback, postconstruct, predestroy, initializingbean]
 math: false
 mermaid: false
 ---
-
 # 빈 생명주기 콜백
 
 - 김영한님의 스프링 핵심 원리 강의에서 스프링 빈의 생명주기와 콜백 메서드, 초기화와 소멸 작업을 처리하는 3가지 방법을 정리함

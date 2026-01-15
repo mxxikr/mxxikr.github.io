@@ -1,16 +1,12 @@
 ---
-title: "데이터베이스 동시성 제어"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikrㄴ
+title: 데이터베이스 동시성 제어
+author: {name: mxxikr, link: 'https://github.com/mxxikrㄴ'}
 date: 2025-11-03 00:00:00 +0900
-category:
-  - [Database, Theory]
+category: [Database, Theory]
 tags: [database, concurrency-control, mvcc, deadlock]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 - 여러 트랜잭션이 동시에 데이터에 접근할 때 충돌을 방지하고 일관성을 보장하는 기법임

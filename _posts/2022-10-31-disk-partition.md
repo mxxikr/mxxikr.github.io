@@ -1,17 +1,12 @@
 ---
-title: "Linux 디스크 및 파티션 관리"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Linux 디스크 및 파티션 관리
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-31 22:55:00 +0900
-category:
-  - [OS, Linux]
-tags:
-  - [os, linux, mount, storage, lvm, partition, devops]
+category: [OS, Linux]
+tags: [os, linux, mount, storage, lvm, partition, devops]
 math: true
 mermaid: true
 ---
-
 <br/><br/>
 
 ## 디스크 장치 이름 체계

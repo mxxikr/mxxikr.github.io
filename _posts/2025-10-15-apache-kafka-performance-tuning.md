@@ -1,16 +1,11 @@
 ---
-title: "Apache Kafka 성능 튜닝과 운영 - 최적화"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Apache Kafka 성능 튜닝과 운영 - 최적화
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-15 01:00:00 +0900
-category:
-  - [Messaging, Kafka]
-tags:
-  - [kafka, performance-tuning, optimization, configuration]
+category: [Messaging, Kafka]
+tags: [kafka, performance-tuning, optimization, configuration]
 math: false
 ---
-
 > **Apache Kafka 시리즈**
 >
 > 1. [Apache Kafka 기본 개념 - 메시징 시스템의 이해](/posts/apache-kafka-basic-concepts)

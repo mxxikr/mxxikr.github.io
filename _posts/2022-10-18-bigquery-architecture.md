@@ -1,17 +1,12 @@
 ---
-title: "BigQuery 아키텍처"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: BigQuery 아키텍처
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-18 12:40:00 +0900
-category:
-  - [Cloud, GCP]
-tags:
-  - [bigquery, gcp, architecture]
+category: [Cloud, GCP]
+tags: [bigquery, gcp, architecture]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - BigQuery는 구글의 완전 관리형, 서버리스 데이터 웨어하우스

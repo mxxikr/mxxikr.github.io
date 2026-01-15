@@ -1,15 +1,11 @@
 ---
-title: "Java LTS 버전별 차이"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Java LTS 버전별 차이
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-27 17:55:00 +0900
-category:
-  - [Language, Java]
-tags: [Java, Spring Boot, LTS, Backend]
+category: [Language, Java]
+tags: [java, spring-boot, lts, backend]
 math: true
 ---
-
 ## 현재 Java 생태계
 
 - 현재 Java 생태계의 표준은 Java 17로 이동함

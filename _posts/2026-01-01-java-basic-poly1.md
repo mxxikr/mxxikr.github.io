@@ -1,15 +1,11 @@
 ---
-title: "[김영한의 실전 자바 기본편] 다형성 1"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 실전 자바 기본편] 다형성 1'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-01 18:00:00 +0900
-category:
-  - [Language, java]
+category: [Language, Java]
 tags: [java, polymorphism, casting, overriding, instanceof]
 math: false
 ---
-
 # 다형성 1
 
 - 김영한님의 실전 자바 강의 중 다형성 1 챕터를 학습하며 다형성이 필요한 이유, 다형적 참조, 캐스팅, instanceof, 메서드 오버라이딩의 동작 원리를 정리함

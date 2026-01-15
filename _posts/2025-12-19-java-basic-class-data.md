@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 실전 자바 기본편] 클래스와 데이터"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 실전 자바 기본편] 클래스와 데이터'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-19 14:01:00 +0900
-category:
-  - [Language, Java]
+category: [Language, Java]
 tags: [java, class, object]
 math: true
 mermaid: true
 ---
-
 # 클래스와 데이터
 
 - 김영한님의 실전 자바 강의 중 클래스와 데이터 챕터를 학습하며 클래스가 왜 필요한지, 그리고 메모리상에서 어떻게 동작하는지를 정리함

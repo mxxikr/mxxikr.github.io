@@ -1,16 +1,11 @@
 ---
-title: "Apache Kafka 기본 개념 - 메시징 시스템의 이해"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Apache Kafka 기본 개념 - 메시징 시스템의 이해
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-12 01:00:00 +0900
-category:
-  - [Messaging, Kafka]
-tags:
-  - [kafka, apache, messaging, event-streaming, basic-concepts]
+category: [Messaging, Kafka]
+tags: [kafka, apache, messaging, event-streaming, basic-concepts]
 math: false
 ---
-
 > **Apache Kafka 시리즈**
 >
 > 1. **Apache Kafka 기본 개념 - 메시징 시스템의 이해** ← 현재 글

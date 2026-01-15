@@ -1,17 +1,12 @@
 ---
-title: "GCP Compute Engine 생성 및 설정"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: GCP Compute Engine 생성 및 설정
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-19 14:30:00 +0900
-category:
-  - [Cloud, GCP]
-tags:
-  - [compute engine, gcp, devops, security]
+category: [Cloud, GCP]
+tags: [compute-engine, gcp, devops, security]
 math: true
 mermaid: true
 ---
-
 ## Compute Engine 개요
 - Google Cloud Platform의 IaaS(Infrastructure as a Service) 서비스
 - 가상 머신(VM) 인스턴스를 생성하고 관리하는 컴퓨팅 서비스

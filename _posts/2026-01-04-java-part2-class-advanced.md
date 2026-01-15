@@ -1,15 +1,11 @@
 ---
-title: "[독하게 시작하는 Java Part 2] 클래스2"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[독하게 시작하는 Java Part 2] 클래스2'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-04 12:00:00 +0900
-category:
-  - [Language, Java]
-tags: [java, class, constructor, static, copy, deep copy, shallow copy]
+category: [Language, Java]
+tags: [java, class, constructor, static, copy, deep-copy, shallow-copy]
 math: true
 ---
-
 # 클래스
 
 - 널널한 개발자님의 독하게 시작하는 Java Part 2에서 생성자 다중 정의와 `this()` 활용법, 객체 복사 방식(얕은 복사, 깊은 복사)의 차이와 복사 생성자 구현 방법, 정적 멤버의 특성과 메모리 구조, 인스턴스 생성 통제 기법을 학습하며 클래스의 개념을 정리함

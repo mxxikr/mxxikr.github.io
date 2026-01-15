@@ -1,17 +1,12 @@
 ---
-title: "Google Colab 환경의 Matplotlib 한글 폰트 깨짐 현상"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Google Colab 환경의 Matplotlib 한글 폰트 깨짐 현상
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-19 09:00:00 +0900
-category:
-  - [Data Science, Data Analysis]
-tags:
-  - [data, colab, python, 시각화]
+category: [Data Science, Data Analysis]
+tags: [data, colab, python, 시각화]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
   - Google Colab 환경에서 `matplotlib` 라이브러리 사용 시 한글 폰트가 네모(ㅁㅁㅁ) 형태로 깨지는 현상 해결 방법을 설명함

@@ -1,16 +1,13 @@
 ---
-title: "[김영한의 실전 자바 기본편] 접근 제어자"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 실전 자바 기본편] 접근 제어자'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-30 22:10:00 +0900
-category:
-  - [Language, java]
-tags: [java, access-modifier, encapsulation, private, public, protected, default, oop]
+category: [Language, Java]
+tags: [java, access-modifier, encapsulation, private, public, protected, default,
+  oop]
 math: false
 mermaid: true
 ---
-
 # 접근 제어자
 
 - 김영한님의 실전 자바 강의 중 접근 제어자 챕터를 학습하며 private, public, protected, default의 차이와 활용법, 그리고 캡슐화를 통한 데이터 보호와 객체 지향 설계 원칙을 정리함
