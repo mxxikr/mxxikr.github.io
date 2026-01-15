@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 스프링 핵심 원리 기본편] 스프링 컨테이너와 스프링 빈"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 스프링 핵심 원리 기본편] 스프링 컨테이너와 스프링 빈'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-10 23:30:00 +0900
-category:
-  - [Framework, Spring]
+category: [Framework, Spring]
 tags: [spring, java, container, bean, applicationcontext, beanfactory]
 math: false
 mermaid: false
 ---
-
 # 스프링 컨테이너와 스프링 빈
 
 - 김영한님의 스프링 핵심 원리 강의에서 스프링 컨테이너의 생성 과정, 빈 등록 및 조회 방법, BeanFactory와 ApplicationContext의 차이, 다양한 설정 형식을 정리함

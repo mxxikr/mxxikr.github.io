@@ -1,16 +1,13 @@
 ---
-title: "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 7장 IO 병목, 어떻게 해결하지"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 7장 IO 병목, 어떻게 해결하지'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-31 15:00:00 +0900
-category:
-  - [Book, Backend]
-tags: [network-io, blocking-io, non-blocking-io, virtual-thread, selector, performance, java]
+category: [Book, Backend]
+tags: [network-io, blocking-io, non-blocking-io, virtual-thread, selector, performance,
+  java]
 math: false
 mermaid: true
 ---
-
 - **💡해당 게시글은 최범균님의 '주니어 백엔드 개발자가 반드시 알아야 할 실무 지식'을 개인 공부목적으로 메모하였습니다.**
 
 <br/><br/>

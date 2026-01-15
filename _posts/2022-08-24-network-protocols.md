@@ -1,17 +1,12 @@
 ---
-title: "Network Protocol (TCP/UDP)과 Port"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Network Protocol (TCP/UDP)과 Port
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-08-24 02:00:00 +0900
-category:
-  - Network
-tags:
-  - [network, tcp, udp, port]
+category: [Network]
+tags: [network, tcp, udp, port]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - **Protocol**

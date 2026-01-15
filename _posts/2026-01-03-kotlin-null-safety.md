@@ -1,17 +1,12 @@
 ---
-title: "Kotlin의 Null Safety"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Kotlin의 Null Safety
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-03 00:00:00 +0900
-category:
-  - [Language, Kotlin]
-tags:
-  [kotlin, null safety, nullable, npe, safe call, elvis operator, type system]
+category: [Language, Kotlin]
+tags: [kotlin, null-safety, nullable, npe, safe-call, elvis-operator, type-system]
 math: false
 mermaid: false
 ---
-
 # 개요
 
 - Kotlin의 타입 시스템에 내장된 Null Safety 메커니즘을 통해 NullPointerException을 컴파일 타임에 방지함

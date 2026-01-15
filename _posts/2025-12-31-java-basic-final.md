@@ -1,15 +1,11 @@
 ---
-title: "[김영한의 실전 자바 기본편] final"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 실전 자바 기본편] final'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-31 15:00:00 +0900
-category:
-  - [Language, java]
+category: [Language, Java]
 tags: [java, final, constant, immutability, static-final]
 math: false
 ---
-
 # final
 
 - 김영한님의 실전 자바 강의 중 final 챕터를 학습하며 final 키워드의 목적, 변경 불가능성의 필요성, 그리고 지역 변수, 필드, 상수에서의 사용법을 정리함

@@ -1,25 +1,12 @@
 ---
-title: "비교 정렬 알고리즘"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 비교 정렬 알고리즘
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-18 00:00:00 +0900
-category:
-  - [Computer Science, Algorithm]
-tags:
-  [
-    algorithm,
-    sorting,
-    bubble sort,
-    selection sort,
-    insertion sort,
-    merge sort,
-    quick sort,
-    heap sort,
-  ]
+category: [Computer Science, Algorithm]
+tags: [algorithm, sorting, bubble-sort, selection-sort, insertion-sort, merge-sort,
+  quick-sort, heap-sort]
 math: true
 ---
-
 ## 개요
 
 - 정렬 알고리즘은 데이터를 일정한 순서로 배치하는 알고리즘임

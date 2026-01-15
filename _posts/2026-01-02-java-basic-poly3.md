@@ -1,15 +1,11 @@
 ---
-title: "[김영한의 실전 자바 기본편] 다형성과 설계"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 실전 자바 기본편] 다형성과 설계'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-02 19:00:00 +0900
-category:
-  - [Language, java]
+category: [Language, Java]
 tags: [java, polymorphism, ocp, strategy-pattern, design-principle]
 math: false
 ---
-
 # 다형성과 설계
 
 - 김영한님의 실전 자바 강의 중 다형성과 설계 챕터를 학습하며 OCP(개방-폐쇄 원칙)와 전략 패턴을 활용한 설계 방법을 정리함

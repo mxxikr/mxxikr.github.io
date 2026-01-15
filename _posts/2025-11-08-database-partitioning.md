@@ -1,16 +1,12 @@
 ---
-title: "데이터베이스 파티셔닝"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 데이터베이스 파티셔닝
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-11-08 00:00:00 +0900
-category:
-  - [Database, Theory]
+category: [Database, Theory]
 tags: [database, partitioning]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 - 대용량 테이블을 더 작고 관리 가능한 단위로 분할하는 기법으로 쿼리 성능 향상과 데이터 관리 효율성을 제공함

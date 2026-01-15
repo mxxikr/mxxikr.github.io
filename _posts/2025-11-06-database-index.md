@@ -1,16 +1,12 @@
 ---
-title: "데이터베이스 인덱스"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 데이터베이스 인덱스
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-11-06 00:00:00 +0900
-category:
-  - [Database, Theory]
+category: [Database, Theory]
 tags: [database, index]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 - 데이터베이스 인덱스는 테이블의 데이터 검색 속도를 향상시키기 위한 자료 구조임

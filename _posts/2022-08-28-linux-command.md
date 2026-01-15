@@ -1,17 +1,12 @@
 ---
-title: "Linux 명령어"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Linux 명령어
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-08-28 19:27:00 +0900
-category:
-  - [OS, Linux]
-tags:
-  - [os, linux]
+category: [OS, Linux]
+tags: [os, linux]
 math: true
 mermaid: true
 ---
-
 ## 명령어 기본 규칙
 
 - **명령어 뒤에는 반드시 띄어 쓰기를 함**

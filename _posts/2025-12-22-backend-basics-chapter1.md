@@ -1,16 +1,12 @@
 ---
-title: "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 1장 들어가며"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 1장 들어가며'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-22 12:40:00 +0900
-category:
-  - [Book, Backend]
+category: [Book, Backend]
 tags: [backend, database, connection-pool, book-review]
 math: true
 mermaid: true
 ---
-
 **<center>💡해당 게시글은 최범균님의 '주니어 백엔드 개발자가 반드시 알아야 할 실무 지식'을 개인 공부 목적으로 메모하였습니다. </center>**
 
 <br/><br/>

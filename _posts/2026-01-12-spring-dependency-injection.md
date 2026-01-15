@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 스프링 핵심 원리 기본편] 의존관계 자동 주입"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 스프링 핵심 원리 기본편] 의존관계 자동 주입'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-12 14:30:00 +0900
-category:
-  - [Framework, Spring]
+category: [Framework, Spring]
 tags: [spring, java, dependency-injection, autowired, qualifier, primary, lombok]
 math: false
 mermaid: false
 ---
-
 # 의존관계 자동 주입
 
 - 김영한님의 스프링 핵심 원리 강의에서 다양한 의존관계 주입 방법, 생성자 주입을 권장하는 이유, `@Autowired`의 옵션 처리 방법, 조회 빈이 여러 개일 때 해결 방법, 롬복을 활용한 최신 트렌드를 정리함

@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 실전 자바 기본편] 생성자"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 실전 자바 기본편] 생성자'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-26 12:25:00 +0900
-category:
-  - [Language, java]
+category: [Language, Java]
 tags: [java, oop, constructor, this]
 math: false
 mermaid: true
 ---
-
 # 생성자
 
 - 김영한님의 실전 자바 강의 중 생성자 챕터를 학습하며 객체 생성 시 초기화 작업을 수행하는 생성자의 개념과 활용법을 정리함

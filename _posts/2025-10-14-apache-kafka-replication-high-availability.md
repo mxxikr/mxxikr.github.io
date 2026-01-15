@@ -1,16 +1,11 @@
 ---
-title: "Apache Kafka 복제와 고가용성 - 데이터 안정성 보장"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Apache Kafka 복제와 고가용성 - 데이터 안정성 보장
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-14 01:00:00 +0900
-category:
-  - [Messaging, Kafka]
-tags:
-  - [kafka, replication, high-availability, ISR, fault-tolerance]
+category: [Messaging, Kafka]
+tags: [kafka, replication, high-availability, isr, fault-tolerance]
 math: false
 ---
-
 > **Apache Kafka 시리즈**
 >
 > 1. [Apache Kafka 기본 개념 - 메시징 시스템의 이해](/posts/apache-kafka-basic-concepts)

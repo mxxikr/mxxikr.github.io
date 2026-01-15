@@ -1,17 +1,12 @@
 ---
-title: "IP 주소 체계와 Subnet, Supernet"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: IP 주소 체계와 Subnet, Supernet
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-08-26 00:24:00 +0900
-category:
-  - Network
-tags:
-  - [ip, network, subnet, supernet]
+category: [Network]
+tags: [ip, network, subnet, supernet]
 math: true
 mermaid: true
 ---
-
 ## IP 주소 체계 기초
 
 ### IPv4 주소 구조

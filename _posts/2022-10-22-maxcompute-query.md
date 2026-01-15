@@ -1,17 +1,12 @@
 ---
-title: "Alibaba Cloud MaxCompute Query"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Alibaba Cloud MaxCompute Query
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-22 12:25:00 +0900
-category:
-  - [Database, Data Warehouse]
-tags:
-  - [alicloud, maxcompute, sql, ddl, dml]
+category: [Database, Data Warehouse]
+tags: [alicloud, maxcompute, sql, ddl, dml]
 math: true
 mermaid: true
 ---
-
 <br/><br/>
 
 ## 테이블 생성 및 변경

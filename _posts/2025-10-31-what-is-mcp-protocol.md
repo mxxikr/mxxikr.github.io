@@ -1,17 +1,12 @@
 ---
-title: "MCP(Model Context Protocol)란?"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: MCP(Model Context Protocol)란?
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-31 09:00:00 +0900
-category:
-  - [AI, MCP]
-tags:
-  - [mcp, ai]
+category: [AI, MCP]
+tags: [mcp, ai]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 - MCP(Model Context Protocol)는 AI 모델이 다양한 데이터 소스나 도구, 외부 시스템과 실시간으로 연결되어 정보를 주고받을 수 있게 만드는 표준 연결 프로토콜임

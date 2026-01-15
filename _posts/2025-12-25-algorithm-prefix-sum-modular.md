@@ -1,16 +1,12 @@
 ---
-title: "나머지 연산과 구간 합"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 나머지 연산과 구간 합
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-25 14:00:00 +0900
-category:
-  - [Computer Science, Algorithm]
+category: [Computer Science, Algorithm]
 tags: [algorithm, mathematics, modular-arithmetic, prefix-sum, optimization]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - 알고리즘에서 구간 합(Prefix Sum)은 $O(N)$의 전처리를 통해 $O(1)$로 구간의 합을 구하는 도구임

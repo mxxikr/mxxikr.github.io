@@ -1,15 +1,11 @@
 ---
-title: "[독하게 시작하는 Java Part 2]  JVM 기본 이론"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[독하게 시작하는 Java Part 2]  JVM 기본 이론'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-06 13:00:00 +0900
-category:
-  - [Language, Java]
-tags: [java, jvm, garbage collection, class loader, heap, stack, memory management]
+category: [Language, Java]
+tags: [java, jvm, garbage-collection, class-loader, heap, stack, memory-management]
 math: false
 ---
-
 # JVM 기본 이론
 
 - 널널한 개발자님의 독하게 시작하는 Java Part 2에서 Java와 C++의 메모리 관리 차이, JVM의 구성 요소와 클래스 로딩 과정, 런타임 데이터 영역의 구조, 가비지 컬렉션의 동작 원리를 학습하며 JVM 내부 메커니즘을 정리함

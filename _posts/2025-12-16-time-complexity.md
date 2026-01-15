@@ -1,16 +1,12 @@
 ---
-title: "시간 복잡도란?"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 시간 복잡도란?
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-16 00:00:00 +0900
-category:
-  - [Computer Science, Algorithm]
+category: [Computer Science, Algorithm]
 tags: [algorithm, big-o]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - 시간 복잡도는 알고리즘이 문제를 해결하는 데 걸리는 시간과 입력 크기의 함수 관계를 나타내는 개념임

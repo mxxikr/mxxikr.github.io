@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 실전 자바 기본편] 기본형과 참조형"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 실전 자바 기본편] 기본형과 참조형'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-24 22:20:00 +0900
-category:
-  - [Language, java]
+category: [Language, Java]
 tags: [java, primitive-type, reference-type, memory, garbage-collection]
 math: false
 mermaid: true
 ---
-
 # 기본형과 참조형
 
 - 김영한님의 실전 자바 강의 중 기본형과 참조형 챕터를 학습하며 자바의 **기본형**과 **참조형**의 차이, **메모리 관리 방식(Stack, Heap)**, 그리고 변수 대입 시 **값 복사와 참조값 복사**의 차이를 정리함

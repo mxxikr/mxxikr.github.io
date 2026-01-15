@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 실전 자바 기본편] 패키지"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 실전 자바 기본편] 패키지'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-27 20:25:00 +0900
-category:
-  - [Language, java]
+category: [Language, Java]
 tags: [java, package, import, naming-convention]
 math: false
 mermaid: false
 ---
-
 # 패키지
 
 - 김영한님의 실전 자바 강의 중 패키지 챕터를 학습하며 클래스를 분류하고 관리하는 패키지의 개념과 사용법을 정리함
