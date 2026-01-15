@@ -305,33 +305,12 @@ Content-Length: 3423
 
 ![Diagram 21](/assets/img/posts/http-basic/21_diagram.png)
 
-1. **HTTP Stateless 프로토콜**
-
-   - 서버가 클라이언트 상태를 보관하지 않음
-   - 서버 확장성 높음
-   - 데이터 전송량 증가
-
-2. **HTTP 버전**
-
-   - HTTP/1.1이 가장 많이 사용
-   - HTTP/2는 성능 개선
-   - HTTP/3는 UDP 기반
-
-3. **HTTP 메시지 구조**
-
-   - start-line (요청 라인 또는 상태 라인)
-   - header (헤더)
-   - empty line (공백 라인)
-   - message body (메시지 바디)
-
-4. **클라이언트-서버 구조**
-
-   - Request-Response 패턴
-   - 역할 분리로 독립적 발전
-
-5. **비연결성**
-   - 연결 유지 안 함
-   - 서버 자원 효율적 사용
+- HTTP는 클라이언트-서버 구조로 Request-Response 패턴을 따르며, 역할 분리로 독립적으로 발전할 수 있음
+- Stateless(무상태) 프로토콜로 서버 확장이 쉽지만 매 요청에 추가 데이터 전송이 필요하며, 로그인/장바구니는 쿠키/세션/토큰으로 상태를 유지함
+- 비연결성(Connectionless)으로 서버 자원을 효율적으로 사용하지만, HTTP 지속 연결(Persistent Connections)로 연결 시간을 절약할 수 있음
+- HTTP 메시지는 start-line, header, empty line, message body로 구성되며, 메서드(GET, POST, PUT, PATCH, DELETE)로 행위를 표현함
+- HTTP 상태 코드는 2xx(성공), 3xx(리다이렉션), 4xx(클라이언트 오류), 5xx(서버 오류)로 분류됨
+- HTTP 헤더는 메시지 바디의 내용, 크기, 압축, 인증, 캐시 등 전송에 필요한 모든 부가정보를 포함함
 
 <br/><br/>
 
