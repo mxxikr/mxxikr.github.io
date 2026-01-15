@@ -1,16 +1,12 @@
 ---
-title: "데이터베이스 정규화"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 데이터베이스 정규화
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-11-04 00:00:00 +0900
-category:
-  - [Database, Theory]
+category: [Database, Theory]
 tags: [database, normalization]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 - 데이터베이스 정규화는 데이터 중복을 최소화하고 무결성을 보장하기 위해 테이블을 체계적으로 구조화하는 과정임

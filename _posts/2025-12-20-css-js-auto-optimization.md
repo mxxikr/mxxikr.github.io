@@ -1,17 +1,12 @@
 ---
-title: "Jekyll 블로그 CSS/JS 자동 최적화"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Jekyll 블로그 CSS/JS 자동 최적화
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-20 08:35:00 +0900
-category:
-  - [Blog]
-tags:
-  - [jekyll, performance, automation]
+category: [Blog]
+tags: [jekyll, performance, automation]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - Jekyll 기반 블로그에서 CSS/JS 자동 최적화 시스템을 구축하여 웹 성능을 개선한 과정을 소개함

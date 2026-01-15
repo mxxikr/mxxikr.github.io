@@ -1,17 +1,12 @@
 ---
-title: "PostgreSQL Query"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: PostgreSQL Query
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-08-31 11:27:00 +0900
-category:
-  - [Database, PostgreSQL]
-tags:
-  - [database, postgresql, query]
+category: [Database, PostgreSQL]
+tags: [database, postgresql, query]
 math: true
 mermaid: true
 ---
-
 ## 스키마 생성
 
 - 현재 연결된 데이터베이스에 스키마 생성

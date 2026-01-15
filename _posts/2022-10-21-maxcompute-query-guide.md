@@ -1,17 +1,12 @@
 ---
-title: "Alibaba Cloud MaxCompute 쿼리 및 특징 가이드"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Alibaba Cloud MaxCompute 쿼리 및 특징 가이드
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-21 04:30:00 +0900
-category:
-  - [Cloud, Alicloud]
-tags:
-  - [alicloud, maxcompute, sql, query-optimization, bigdata]
+category: [Cloud, Alicloud]
+tags: [alicloud, maxcompute, sql, query-optimization, bigdata]
 math: true
 mermaid: true
 ---
-
 <br/><br/>
 
 ## MaxCompute 개요

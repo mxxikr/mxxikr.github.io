@@ -1,16 +1,12 @@
 ---
-title: "Kotlin은 어떻게 Kotlin으로 개발되었는가?"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Kotlin은 어떻게 Kotlin으로 개발되었는가?
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-28 12:00:00 +0900
-category:
-  - [Language, Kotlin]
+category: [Language, Kotlin]
 tags: [kotlin, bootstrapping, compiler, self-hosting, jetbrains]
 math: false
 mermaid: false
 ---
-
 # 개요
 
 - 프로그래밍 언어의 컴파일러를 그 언어 자신으로 작성하는 과정을 부트스트래핑(Bootstrapping)이라고 함

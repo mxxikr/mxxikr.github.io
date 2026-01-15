@@ -1,17 +1,12 @@
 ---
-title: "MySQL 트랜잭션 격리 수준과 다른 DBMS와의 차이점"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: MySQL 트랜잭션 격리 수준과 다른 DBMS와의 차이점
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-11-13 00:00:00 +0900
-category:
-  - [Database, MySQL]
-tags:
-  - [mysql, database, transaction, isolation-level, mvcc]
+category: [Database, MySQL]
+tags: [mysql, database, transaction, isolation-level, mvcc]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 - 트랜잭션 격리 수준은 데이터베이스에서 여러 트랜잭션이 동시에 실행될 때 서로의 데이터 변경을 어느 정도까지 볼 수 있도록 허용할지를 결정하는 기준임

@@ -1,16 +1,13 @@
 ---
-title: "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 4장 외부 연동이 문제일 때 살펴봐야 할 것들"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 4장 외부 연동이 문제일 때 살펴봐야 할 것들'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-25 19:10:00 +0900
-category:
-  - [Book, Backend]
-tags: [backend, architecture, timeout, retry, circuit-breaker, connection-pool, redundancy, book-review]
+category: [Book, Backend]
+tags: [backend, architecture, timeout, retry, circuit-breaker, connection-pool, redundancy,
+  book-review]
 math: true
 mermaid: true
 ---
-
 - **💡해당 게시글은 최범균님의 '주니어 백엔드 개발자가 반드시 알아야 할 실무 지식'을 개인 공부목적으로 메모하였습니다.**
 
 <br/><br/>

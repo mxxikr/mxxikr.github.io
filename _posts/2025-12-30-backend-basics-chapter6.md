@@ -1,16 +1,12 @@
 ---
-title: "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 6장 동시성, 데이터가 꼬이기 전에 잡아야한다"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 6장 동시성, 데이터가 꼬이기 전에 잡아야한다'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-30 23:00:00 +0900
-category:
-  - [Book, Backend]
+category: [Book, Backend]
 tags: [backend, concurrency, lock, mutex, semaphore, deadlock, atomic, db-lock, book-review]
 math: true
 mermaid: true
 ---
-
 - **💡해당 게시글은 최범균님의 '주니어 백엔드 개발자가 반드시 알아야 할 실무 지식'을 개인 공부목적으로 메모하였습니다.**
 
 <br/><br/>

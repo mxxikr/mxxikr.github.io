@@ -1,11 +1,8 @@
 ---
 title: "[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 헤더1 - 일반 헤더"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+author: { name: mxxikr, link: "https://github.com/mxxikr" }
 date: 2026-01-15 17:50:00 +0900
-category:
-  - [Computer Science, Web]
+category: [Computer Science, Web]
 tags: [http, header, content-type, content-negotiation, cookie, authentication]
 math: false
 mermaid: true
@@ -68,12 +65,15 @@ header-field = field-name ":" OWS field-value OWS
 
   - 엔티티(Entity) 개념 사용
   - 메시지 본문 → 엔티티 본문
+
     ![RFC2616 엔티티 개념](/assets/img/http/rfc2616-entity.png)
 
 - **RFC7230 (2014년 - 최신)**
+
   - 표현(Representation) 개념으로 변경
   - 메시지 본문 = 페이로드(payload)
   - 표현 = 표현 메타데이터 + 표현 데이터
+
     ![RFC7230 표현 개념](/assets/img/http/rfc7230-representation.png)
 
 <br/><br/>
@@ -200,7 +200,7 @@ header-field = field-name ":" OWS field-value OWS
   ```
 
 - **주의**
-  - `Transfer-Encoding`(전송 코딩)을 사용하면 `Content-Length`를 사용하면 안됨
+  - `Transfer-Encoding`(분할 전송)을 사용하면 `Content-Length`를 사용하면 안됨
 
 <br/><br/>
 
@@ -396,9 +396,6 @@ qweqwe1l2iu3019u2oehj1987askjh3q98y
   - A → B로 이동하는 경우 B 요청 시 `Referer: A` 포함
   - 유입 경로 분석 가능
   - 요청에서 사용
-
-- **참고**
-  - referer는 referrer의 오타
 
 ### User-Agent
 
@@ -663,15 +660,17 @@ Set-Cookie: sessionId=abcde1234; expires=Sat, 26-Dec-2020 00:00:00 GMT;
   - 0이나 음수를 지정하면 즉시 쿠키 삭제
 
 - **쿠키 종류**
-  - 세션 쿠키: 만료 날짜를 생략하면 브라우저 종료 시까지만 유지
-  - 영속 쿠키: 만료 날짜를 입력하면 해당 날짜까지 유지
+  - 세션 쿠키
+    - 만료 날짜를 생략하면 브라우저 종료 시까지만 유지
+  - 영속 쿠키
+    - 만료 날짜를 입력하면 해당 날짜까지 유지
 
 ### 쿠키 도메인 (Domain)
 
 - **명시적 지정**
 
   ```http
-  Set-Cookie: user=홍깧8동; domain=example.org
+  Set-Cookie: user=홍길동; domain=example.org
   ```
 
   - 명시한 문서 기준 도메인 + 서브 도메인 포함
@@ -680,7 +679,7 @@ Set-Cookie: sessionId=abcde1234; expires=Sat, 26-Dec-2020 00:00:00 GMT;
 - **생략**
 
   ```http
-  Set-Cookie: user=홍깧8동
+  Set-Cookie: user=홍길동
   ```
 
   - 현재 문서 기준 도메인만 적용
@@ -765,7 +764,8 @@ Set-Cookie: user=홍길동; path=/home
 
    a. Cookies
 
-   - HTTP는 이전 요청/응답의 정보를 기억하지 못하는 상태 비저장 프로토콜임. 쿠키는 클라이언트 측에 상태 정보를 저장하고 요청 시 자동으로 포함하여 상태를 유지할 수 있게 돕는 기술임
+   - HTTP는 이전 요청/응답의 정보를 기억하지 못하는 상태 비저장 프로토콜임
+   - 쿠키는 클라이언트 측에 상태 정보를 저장하고 요청 시 자동으로 포함하여 상태를 유지할 수 있게 돕는 기술임
 
 <br/><br/>
 

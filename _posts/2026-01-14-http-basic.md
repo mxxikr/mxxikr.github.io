@@ -1,16 +1,12 @@
 ---
-title: "[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 기본"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 기본'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-14 16:23:00 +0900
-category:
-  - [Computer Science, Web]
+category: [Computer Science, Web]
 tags: [http, web, stateless, connectionless, request, response, api]
 math: false
 mermaid: true
 ---
-
 # HTTP
 
 - 김영한님의 모든 개발자를 위한 HTTP 웹 기본 지식 강의를 통해 HTTP 프로토콜의 특징과 구조, Stateless와 Connectionless 개념, HTTP 메시지 구조를 정리함

@@ -1,16 +1,12 @@
 ---
-title: "[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 메서드 활용"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 메서드 활용'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-15 17:23:00 +0900
-category:
-  - [Computer Science, Web]
+category: [Computer Science, Web]
 tags: [http, method, api, collection, store, form, rest-api, uri-design]
 math: false
 mermaid: true
 ---
-
 # HTTP 메서드 활용
 
 - 김영한님의 모든 개발자를 위한 HTTP 웹 기본 지식 강의를 통해 클라이언트에서 서버로 데이터를 전송하는 방식, 실무에서 자주 사용되는 4가지 데이터 전송 상황, HTTP API 설계 패턴(Collection, Store, Control URI)을 정리함

@@ -6,7 +6,7 @@ author:
 date: 2025-12-27 18:00:00 +0900
 category:
   - Infrastructure
-tags: [Ansible, IaC, DevOps, Automation, Backend]
+tags: [ansible, iac, devops, automation, backend]
 math: true
 ---
 

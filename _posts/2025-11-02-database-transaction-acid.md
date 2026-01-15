@@ -1,16 +1,12 @@
 ---
-title: "데이터베이스 트랜잭션과 ACID 속성"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 데이터베이스 트랜잭션과 ACID 속성
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-11-02 00:00:00 +0900
-category:
-  - [Database, Theory]
+category: [Database, Theory]
 tags: [database, transaction, acid]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 - 트랜잭션은 데이터베이스에서 하나의 논리적 작업 단위로 실행되는 일련의 연산들임

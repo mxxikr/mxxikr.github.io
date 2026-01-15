@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 스프링 핵심 원리 기본편] 객체 지향 원리 적용"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 스프링 핵심 원리 기본편] 객체 지향 원리 적용'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-10 20:00:00 +0900
-category:
-  - [Framework, Spring]
+category: [Framework, Spring]
 tags: [spring, java, oop, solid, di, ioc, appconfig]
 math: false
 mermaid: false
 ---
-
 # 객체 지향 원리 적용
 
 - 김영한님의 스프링 핵심 원리 강의에서 순수 자바로 구현한 코드의 문제점을 발견하고, AppConfig를 통해 DI를 적용하여 SOLID 원칙을 준수하는 과정을 정리함

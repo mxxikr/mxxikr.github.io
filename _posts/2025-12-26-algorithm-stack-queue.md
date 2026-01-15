@@ -1,16 +1,12 @@
 ---
-title: "스택과 큐 알고리즘"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 스택과 큐 알고리즘
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-26 08:20:00 +0900
-category:
-  - [Computer Science, Algorithm]
+category: [Computer Science, Algorithm]
 tags: [algorithm, stack, queue, data-structure, dfs, bfs, java]
 math: true
 mermaid: true
 ---
-
 - 스택(Stack)과 큐(Queue)는 배열에서 발전된 형태의 선형 자료구조임
 - 구조는 유사하지만 데이터를 처리하는 방식에서 근본적인 차이가 있음
 - 단순 자료 저장을 넘어 실제 서비스 환경의 성능 최적화와 동시성 제어의 기초가 됨

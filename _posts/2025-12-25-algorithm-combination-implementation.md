@@ -1,23 +1,12 @@
 ---
-title: "조합(Combination) 구하기"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 조합(Combination) 구하기
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-25 16:20:00 +0900
-category:
-  - [Computer Science, Algorithm]
-tags:
-  [
-    algorithm,
-    combination,
-    dynamic-programming,
-    modular-inverse,
-    fermat-little-theorem,
-  ]
+category: [Computer Science, Algorithm]
+tags: [algorithm, combination, dynamic-programming, modular-inverse, fermat-little-theorem]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - 입력 크기($N$)와 문제 조건(모듈러 연산 여부)에 따라 적절한 알고리즘 선택이 필요함

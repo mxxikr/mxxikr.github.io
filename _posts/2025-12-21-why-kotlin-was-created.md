@@ -1,16 +1,12 @@
 ---
-title: "코틀린의 탄생 배경과 특징"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 코틀린의 탄생 배경과 특징
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-21 20:30:00 +0900
-category:
-  - [Language, Kotlin]
+category: [Language, Kotlin]
 tags: [kotlin, language, jetbrains]
 math: true
 mermaid: true
 ---
-
 # 개요
 
 - 코틀린은 JetBrains가 자신들의 IDE 제품 개발을 위해 Java와 Scala의 문제점을 해결하기 위해 개발한 프로그래밍 언어

@@ -1,15 +1,11 @@
 ---
-title: "[김영한의 실전 자바 기본편] 상속"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 실전 자바 기본편] 상속'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-31 23:50:00 +0900
-category:
-  - [Language, java]
+category: [Language, Java]
 tags: [java, inheritance, extends, override, super, access-modifier, final]
 math: false
 ---
-
 # 상속
 
 - 김영한님의 실전 자바 강의 중 상속 챕터를 학습하며 상속의 개념, 메모리 구조, 메서드 오버라이딩, super 키워드, 접근 제어자의 동작 원리를 정리함

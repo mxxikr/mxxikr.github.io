@@ -1,16 +1,12 @@
 ---
-title: "Git Push 실패: RPC failed HTTP 400 에러 해결하기"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 'Git Push 실패: RPC failed HTTP 400 에러 해결하기'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-19 14:03:00 +0900
-category:
-  - [Version Control, Git]
+category: [Version Control, Git]
 tags: [git, vscode, troubleshooting]
 math: false
 mermaid: false
 ---
-
 ## 문제 상황
 
 - VSCode에서 Git 커밋 후 "Sync Changes" 버튼을 클릭했을 때 다음과 같은 에러가 발생하였음

@@ -1,15 +1,11 @@
 ---
-title: "[독하게 시작하는 Java Part 2]  연결 리스트와 객체 지향 설계"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[독하게 시작하는 Java Part 2]  연결 리스트와 객체 지향 설계'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-08 05:00:00 +0900
-category:
-  - [Language, Java]
-tags: [java, data structure, linked list, iterator, design pattern, oop]
+category: [Language, Java]
+tags: [java, data-structure, linked-list, iterator, design-pattern, oop]
 math: false
 ---
-
 # 연결 리스트와 객체 지향 설계
 
 - 널널한 개발자님의 독하게 시작하는 Java Part 2에서 연결 리스트의 기본 개념부터 시작하여, 이를 객체지향적으로 리팩토링하며 Iterator 패턴과 프레임워크 구조로 발전시키는 과정을 정리함

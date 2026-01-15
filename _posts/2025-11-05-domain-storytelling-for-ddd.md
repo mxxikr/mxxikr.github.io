@@ -1,17 +1,12 @@
 ---
-title: "도메인 스토리텔링(DST)이란?"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 도메인 스토리텔링(DST)이란?
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-11-05 09:00:00 +0900
-category:
-  - [Software Engineering, Design]
-tags:
-  - [domain-storytelling, ddd]
+category: [Software Engineering, Design]
+tags: [domain-storytelling, ddd]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 > 이 포스팅은 DDD 시리즈의 첫 번째 글입니다. **도메인 스토리텔링(DST)이란? → [도메인 주도 설계(DDD)란?](https://mxxikr.github.io/posts/domain-driven-design-introduction/) → [DDD와 마이크로서비스 아키텍처](https://mxxikr.github.io/posts/ddd-and-microservices/)** 순서로 읽는 것을 권장합니다.

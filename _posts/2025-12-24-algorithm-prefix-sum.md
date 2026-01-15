@@ -1,16 +1,12 @@
 ---
-title: "구간 합(Prefix Sum)이란?"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 구간 합(Prefix Sum)이란?
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-24 11:00:00 +0900
-category:
-  - [Computer Science, Algorithm]
+category: [Computer Science, Algorithm]
 tags: [algorithm, prefix-sum, time-complexity]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - 구간 합(Prefix Sum)과 합 배열은 배열의 특정 구간 합을 효율적으로 계산하기 위한 알고리즘 기법임

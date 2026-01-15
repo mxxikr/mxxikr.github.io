@@ -1,13 +1,11 @@
 ---
-title: "AWS S3 Presigned URL"
+title: AWS S3 Presigned URL
 date: 2025-11-25 00:00:00 +0900
-category:
-  - [Cloud, AWS]
+category: [Cloud, AWS]
 tags: [aws, s3, presigned-url, security]
 math: false
 mermaid: true
 ---
-
 ## 개요
 
 - Presigned URL은 AWS 서명 V4 알고리즘으로 서명된 URL임

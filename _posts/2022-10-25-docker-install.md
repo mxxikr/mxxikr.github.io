@@ -1,17 +1,12 @@
 ---
-title: "Docker 개념 및 설치 가이드"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Docker 개념 및 설치 가이드
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-25 05:50:00 +0900
-category:
-  - [Infrastructure, Docker]
-tags:
-  - [docker, docker-compose, devops, container]
+category: [Infrastructure, Docker]
+tags: [docker, docker-compose, devops, container]
 math: true
 mermaid: true
 ---
-
 <br/><br/>
 
 ## Docker 개요

@@ -1,16 +1,12 @@
 ---
-title: "[김영한의 스프링 핵심 원리 기본편] 객체지향 설계와 스프링"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[김영한의 스프링 핵심 원리 기본편] 객체지향 설계와 스프링'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-09 16:00:00 +0900
-category:
-  - [Spring, Core]
+category: [Spring, Core]
 tags: [spring, java, oop, solid, di, ioc]
 math: true
 mermaid: true
 ---
-
 # 객체지향 설계와 스프링
 
 - 김영한님의 스프링 핵심 원리 기본편 강의 중 객체지향 설계와 스프링의 탄생 배경, 그리고 좋은 객체지향 설계를 위한 SOLID 원칙을 정리함

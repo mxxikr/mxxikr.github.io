@@ -1,15 +1,12 @@
 ---
-title: "[독하게 시작하는 Java Part 2]  내부 클래스와 익명 객체"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: '[독하게 시작하는 Java Part 2]  내부 클래스와 익명 객체'
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-07 13:00:00 +0900
-category:
-  - [Language, Java]
-tags: [java, nested-class, inner-class, static-nested-class, anonymous-object, package, import]
+category: [Language, Java]
+tags: [java, nested-class, inner-class, static-nested-class, anonymous-object, package,
+  import]
 math: false
 ---
-
 # 내부 클래스와 익명 객체
 
 - 널널한 개발자님의 독하게 시작하는 Java Part 2에서 중첩 클래스의 종류와 설계 목적, 정적 중첩 클래스와 내부 클래스의 차이, 익명 객체를 활용한 인터페이스 구현, 그리고 패키지를 통한 클래스 관리 방법을 정리함

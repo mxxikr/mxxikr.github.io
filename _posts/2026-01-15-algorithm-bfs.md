@@ -1,16 +1,12 @@
 ---
-title: "너비 우선 탐색 (BFS, Breadth-First Search) 알고리즘"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: 너비 우선 탐색 (BFS, Breadth-First Search) 알고리즘
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-15 08:00:00 +0900
-category:
-  - [Computer Science, Algorithm]
+category: [Computer Science, Algorithm]
 tags: [algorithm, bfs, breadth-first-search, graph, queue, java, shortest-path]
 math: true
 mermaid: true
 ---
-
 - 너비 우선 탐색(BFS, Breadth-First Search)은 그래프를 완전 탐색하는 방법 중 하나로, 시작 노드에서 출발해 시작 노드를 기준으로 가까운 노드를 먼저 방문하면서 탐색하는 알고리즘임
 - 큐(Queue) 자료구조를 이용해 구현하며, 최단 경로를 보장하는 특징이 있음
 - 그래프의 모든 정점을 한 번씩 방문하며, 레벨 순회(Level-Order Traversal) 방식으로 동작함

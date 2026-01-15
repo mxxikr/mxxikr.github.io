@@ -1,17 +1,12 @@
 ---
-title: "Jekyll 블로그 Google Analytics 연동"
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+title: Jekyll 블로그 Google Analytics 연동
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-11 19:00:00 +0900
-category:
-  - [Blog]
-tags:
-  - [google analytics, jekyll]
+category: [Blog]
+tags: [google-analytics, jekyll]
 math: true
 mermaid: true
 ---
-
 ## 개요
 
 - Jekyll 블로그에 Google Analytics를 연동하여 방문자 통계를 추적하는 방법을 설명함
