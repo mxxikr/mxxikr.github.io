@@ -5,7 +5,7 @@
  */
 
 :root {
-  --apple-blue: #A8A8A8;
+  --apple-blue: #a8a8a8;
   --apple-gray: #1d1d1f;
   --apple-gray-light: #6e6e73;
   --apple-warning: #ff9500;
@@ -20,8 +20,8 @@
 
 /* 리디바탕 폰트 정의 */
 @font-face {
-  font-family: 'RIDIBatang';
-  src: url('/assets/fonts/RIDIBatang.otf') format('opentype');
+  font-family: "RIDIBatang";
+  src: url("/assets/fonts/RIDIBatang.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -30,8 +30,8 @@
 
 /* 리디바탕 폰트 적용 */
 body {
-  font-family: 'RIDIBatang', 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 1;
+  font-family: "RIDIBatang", "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 1, "lnum" 0, "dlig" 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -48,7 +48,7 @@ h5,
 h6,
 .card-title,
 .post-title {
-  font-family: 'RIDIBatang', 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+  font-family: "RIDIBatang", "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important;
 }
 
 /* Apple 스타일 제목 */
@@ -101,19 +101,20 @@ h6 {
 }
 
 @font-face {
-  font-family: 'MapoGoldenPier';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoGoldenPierA.woff') format('woff');
+  font-family: "MapoGoldenPier";
+  src: url("/assets/fonts/MapoGoldenPier.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   unicode-range: U+0020-007E;
   /* Basic Latin (영문/숫자/기호)만 적용 */
+  font-display: swap;
 }
 
 .post-content {
   line-height: 1.7;
   font-size: 1.125rem;
   color: var(--apple-gray);
-  font-family: 'MapoGoldenPier', 'RIDIBatang', sans-serif;
+  font-family: "MapoGoldenPier", "RIDIBatang", sans-serif;
 }
 
 .post-content p {
@@ -134,7 +135,7 @@ h6 {
 
 .highlight pre {
   padding: 0.55rem 0.8rem;
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "Source Code Pro", monospace;
   font-size: 0.875rem;
   line-height: 1.6;
   background: transparent;
@@ -148,7 +149,7 @@ code:not(.highlight code) {
   color: var(--lavender-primary);
   padding: 0.25em 0.5em;
   border-radius: 4px;
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Roboto Mono", monospace;
   font-size: 0.875em;
   font-weight: 500;
 }
@@ -168,7 +169,7 @@ blockquote {
 }
 
 blockquote::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -213,7 +214,7 @@ table {
 }
 
 table::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -258,8 +259,7 @@ a:hover {
   box-shadow: 0 4px 16px rgba(196, 190, 226, 0.15);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   backdrop-filter: blur(20px);
-  background:
-    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
+  background: radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.3) 0%, transparent 50%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.1) 100%);
   -webkit-backdrop-filter: blur(20px);
@@ -269,7 +269,7 @@ a:hover {
 }
 
 .card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -290,7 +290,7 @@ a:hover {
   padding: 0.5rem 1rem;
   margin: 0.25rem;
   background: transparent;
-  color: #A8A8A8;
+  color: #a8a8a8;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   font-size: 0.875rem;
@@ -304,7 +304,7 @@ a:hover {
 }
 
 .tag::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -352,7 +352,7 @@ button {
 
 .btn::before,
 button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -439,7 +439,6 @@ select:focus {
 
 /* 반응형 네비게이션 - 매우 작은 화면에서만 작동 */
 @media (max-width: 768px) {
-
   .nav-link,
   .sidebar-nav-item,
   .topbar-nav-item {
@@ -452,7 +451,6 @@ select:focus {
 }
 
 @media (max-width: 576px) {
-
   .nav-link,
   .sidebar-nav-item,
   .topbar-nav-item {
@@ -473,7 +471,7 @@ select:focus {
 .nav-link::before,
 .sidebar-nav-item::before,
 .topbar-nav-item::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -560,7 +558,6 @@ select:focus {
 
 /* 반응형 네비게이션 - 매우 작은 화면에서만 작동 */
 @media (max-width: 768px) {
-
   .sidebar .nav-link,
   .sidebar .sidebar-nav-item,
   .sidebar-wrapper .nav-link,
@@ -586,7 +583,6 @@ select:focus {
 }
 
 @media (max-width: 576px) {
-
   .sidebar .nav-link,
   .sidebar .sidebar-nav-item,
   .sidebar-wrapper .nav-link,
@@ -641,7 +637,6 @@ select:focus {
 
 /* 반응형 네비게이션 - 매우 작은 화면에서만 작동 */
 @media (max-width: 768px) {
-
   *[class*="nav-link"],
   *[class*="nav-item"],
   *[class*="sidebar-nav"],
@@ -656,7 +651,6 @@ select:focus {
 }
 
 @media (max-width: 576px) {
-
   *[class*="nav-link"],
   *[class*="nav-item"],
   *[class*="sidebar-nav"],
@@ -690,7 +684,7 @@ select:focus {
   height: 2.5rem;
   padding: 0.5rem;
   background: rgba(60, 60, 60, 0.8);
-  color: #A8A8A8;
+  color: #a8a8a8;
   border: 1px solid rgba(168, 168, 168, 0.3);
   border-radius: 20px;
   font-size: 0.875rem;
@@ -706,7 +700,7 @@ select:focus {
 
 .pagination a::before,
 .post-pagination a::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -727,7 +721,7 @@ select:focus {
   transform: translateY(-1px) scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   border-color: rgba(168, 168, 168, 0.5);
-  color: #A8A8A8;
+  color: #a8a8a8;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
 }
@@ -735,7 +729,7 @@ select:focus {
 .pagination .current,
 .post-pagination .current {
   background: rgba(100, 100, 100, 0.9);
-  color: #A8A8A8;
+  color: #a8a8a8;
   border-color: rgba(168, 168, 168, 0.5);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   font-weight: 600;
@@ -860,7 +854,6 @@ button,
   will-change: transform;
 }
 
-
 .tag-cloud,
 .tag-list,
 #access-tags .d-flex {
@@ -876,7 +869,7 @@ button,
   display: inline-block;
   padding: 0.5rem 1rem;
   background: rgba(255, 255, 255, 0.05);
-  color: #A8A8A8;
+  color: #a8a8a8;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   font-size: 0.8rem;
@@ -893,7 +886,7 @@ button,
 .tag-cloud a::before,
 .tag-list a::before,
 .post-tag::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -916,7 +909,7 @@ button,
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.2);
-  color: #A8A8A8;
+  color: #a8a8a8;
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
 }
@@ -962,12 +955,12 @@ button,
   width: 1.8rem;
 }
 
-.code-header+.highlight {
+.code-header + .highlight {
   margin-top: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.code-header+.highlight pre {
+.code-header + .highlight pre {
   padding-top: 0.3rem;
 }
