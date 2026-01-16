@@ -92,8 +92,10 @@
   pointer-events: none;
   z-index: 2;
   border-radius: 50px;
-  /* 실시간 렌더링 애니메이션 */
-  animation: appleLiquidReflection 3s ease-in-out infinite;
+  /* 실시간 렌더링 애니메이션 제거 */
+  animation: none !important;
+  content: none !important;
+  display: none !important;
   /* 반사 강도 조절 */
   opacity: var(--reflection-intensity, 0.3);
 }
