@@ -85,8 +85,7 @@
   --post-description-color: rgb(153, 134, 179); // 포스트 설명 색상 보라색으로 변경
 
   /* Comments Widget - Apple Liquid Glass */
-  --comment-widget-bg:
-    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
+  --comment-widget-bg: radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(196, 190, 226, 0.7) 100%);
   --comment-widget-border: rgba(255, 255, 255, 0.4);
@@ -105,13 +104,8 @@
     border-radius: 50px !important;
     backdrop-filter: blur(30px) saturate(1.2) brightness(1.1) !important;
     -webkit-backdrop-filter: blur(30px) saturate(1.2) brightness(1.1) !important;
-    box-shadow:
-      0 12px 40px rgba(128, 102, 153, 0.25),
-      0 6px 20px rgba(255, 255, 255, 0.3),
-      0 3px 10px rgba(196, 190, 226, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.1),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    box-shadow: 0 12px 40px rgba(128, 102, 153, 0.25), 0 6px 20px rgba(255, 255, 255, 0.3), 0 3px 10px rgba(196, 190, 226, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 -1px 0 rgba(128, 102, 153, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.2),
       inset 0 0 20px rgba(255, 255, 255, 0.15) !important;
     position: relative;
     overflow: hidden;
@@ -123,14 +117,13 @@
   }
 
   .utterances::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
       radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.08) 0%, transparent 50%);
     pointer-events: none;
     z-index: 1;
@@ -146,7 +139,7 @@
     -webkit-backdrop-filter: blur(30px) saturate(1.2) brightness(1.1) !important;
   }
 
-  [class^=prompt-] {
+  [class^="prompt-"] {
     --link-underline-color: rgb(219 216 216);
   }
 
@@ -492,11 +485,8 @@
     border: 1px solid rgba(255, 255, 255, 0.03) !important;
     border-radius: 20px !important;
     box-shadow:
-      /* 극도로 미묘한 그림자 효과 */
-      0 1px 4px rgba(128, 102, 153, 0.01),
-      0 1px 2px rgba(255, 255, 255, 0.01),
-      inset 0 1px 0 rgba(255, 255, 255, 0.02),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.002) !important;
+      /* 극도로 미묘한 그림자 효과 */ 0 1px 4px rgba(128, 102, 153, 0.01), 0 1px 2px rgba(255, 255, 255, 0.01),
+      inset 0 1px 0 rgba(255, 255, 255, 0.02), inset 0 -1px 0 rgba(128, 102, 153, 0.002) !important;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     position: relative !important;
     overflow: hidden !important;
@@ -515,10 +505,7 @@
     background-color: transparent !important;
     backdrop-filter: blur(1px) saturate(1.005) !important;
     -webkit-backdrop-filter: blur(1px) saturate(1.005) !important;
-    box-shadow:
-      0 1px 2px rgba(128, 102, 153, 0.005),
-      0 1px 1px rgba(255, 255, 255, 0.005),
-      inset 0 1px 0 rgba(255, 255, 255, 0.01),
+    box-shadow: 0 1px 2px rgba(128, 102, 153, 0.005), 0 1px 1px rgba(255, 255, 255, 0.005), inset 0 1px 0 rgba(255, 255, 255, 0.01),
       inset 0 -1px 0 rgba(128, 102, 153, 0.001) !important;
     border: 1px solid rgba(255, 255, 255, 0.02) !important;
   }
@@ -601,19 +588,14 @@
   /* Apple Liquid Glass 네비게이션 메뉴 - 리퀴드 글라스 복원 */
   .nav-link,
   .sidebar-nav-item {
-    background:
-      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 50%),
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 50%),
       radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.4) 0%, transparent 50%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.1) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     backdrop-filter: blur(30px) saturate(1.2) !important;
     -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
-    box-shadow:
-      0 12px 32px rgba(128, 102, 153, 0.2),
-      0 4px 16px rgba(255, 255, 255, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.1),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 12px 32px rgba(128, 102, 153, 0.2), 0 4px 16px rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     position: relative !important;
     overflow: hidden !important;
@@ -624,22 +606,22 @@
   /* Apple Liquid Glass - 실시간 렌더링 거울 반사 */
   .nav-link::before,
   .sidebar-nav-item::before {
-    content: '' !important;
+    content: "" !important;
     position: absolute !important;
     top: 0 !important;
     left: -100% !important;
     width: 100% !important;
     height: 100% !important;
     background:
-      /* Apple의 실시간 거울 반사 */
-      linear-gradient(45deg,
+      /* Apple의 실시간 거울 반사 */ linear-gradient(
+        45deg,
         transparent 0%,
         rgba(255, 255, 255, 0.8) 25%,
         rgba(196, 190, 226, 0.6) 50%,
         rgba(255, 255, 255, 0.9) 75%,
-        transparent 100%),
-      /* 동적 굴절 효과 */
-      radial-gradient(ellipse at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+        transparent 100%
+      ),
+      /* 동적 굴절 효과 */ radial-gradient(ellipse at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
       radial-gradient(ellipse at 70% 70%, rgba(224, 217, 237, 0.3) 0%, transparent 50%) !important;
     transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     pointer-events: none !important;
@@ -651,57 +633,29 @@
     display: none !important;
   }
 
-      filter: brightness(1.2) saturate(1.3);
-    }
-
-    50% {
-      opacity: 0.8;
-      transform: translateX(0%) scale(1.1) rotate(0deg);
-      filter: brightness(1.4) saturate(1.5);
-    }
-
-    75% {
-      opacity: 0.6;
-      transform: translateX(50%) scale(1.05) rotate(-1deg);
-      filter: brightness(1.2) saturate(1.3);
-    }
-
-    100% {
-      opacity: 0.2;
-      transform: translateX(100%) scale(1) rotate(0deg);
-      filter: brightness(1) saturate(1);
-    }
-  }
-
   /* Apple Liquid Glass - 움직임에 동적 반응 */
   .nav-link:hover,
   .sidebar-nav-item:hover {
     backdrop-filter: blur(60px) saturate(1.8) brightness(1.3) !important;
     -webkit-backdrop-filter: blur(60px) saturate(1.8) brightness(1.3) !important;
     background:
-      /* Apple의 동적 반응 - 주변 환경 반사 */
-      radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 1) 0%, transparent 70%),
+      /* Apple의 동적 반응 - 주변 환경 반사 */ radial-gradient(ellipse at 15% 5%, rgba(255, 255, 255, 1) 0%, transparent 70%),
       radial-gradient(ellipse at 85% 95%, rgba(196, 190, 226, 0.8) 0%, transparent 70%),
       radial-gradient(ellipse at 50% 50%, rgba(224, 217, 237, 0.6) 0%, transparent 80%),
       /* 실시간 굴절 - Apple 공식 스펙 */
-      conic-gradient(from 45deg at 50% 50%,
-        rgba(255, 255, 255, 0.6) 0deg,
-        rgba(196, 190, 226, 0.4) 90deg,
-        rgba(255, 255, 255, 0.8) 180deg,
-        rgba(224, 217, 237, 0.5) 270deg,
-        rgba(255, 255, 255, 0.6) 360deg) !important;
+        conic-gradient(
+          from 45deg at 50% 50%,
+          rgba(255, 255, 255, 0.6) 0deg,
+          rgba(196, 190, 226, 0.4) 90deg,
+          rgba(255, 255, 255, 0.8) 180deg,
+          rgba(224, 217, 237, 0.5) 270deg,
+          rgba(255, 255, 255, 0.6) 360deg
+        ) !important;
     border: 2px solid rgba(255, 255, 255, 0.6) !important;
     box-shadow:
-      /* Apple의 실시간 렌더링 굴절 */
-      0 30px 80px rgba(128, 102, 153, 0.4),
-      0 12px 32px rgba(255, 255, 255, 0.6),
-      0 6px 16px rgba(196, 190, 226, 0.3),
-      /* 거울 반사 강화 */
-      inset 0 4px 0 rgba(255, 255, 255, 1),
-      inset 0 -4px 0 rgba(128, 102, 153, 0.3),
-      inset 0 0 0 2px rgba(255, 255, 255, 0.4),
-      /* 실시간 반사 하이라이트 */
-      inset 0 0 30px rgba(255, 255, 255, 0.2) !important;
+      /* Apple의 실시간 렌더링 굴절 */ 0 30px 80px rgba(128, 102, 153, 0.4), 0 12px 32px rgba(255, 255, 255, 0.6),
+      0 6px 16px rgba(196, 190, 226, 0.3), /* 거울 반사 강화 */ inset 0 4px 0 rgba(255, 255, 255, 1), inset 0 -4px 0 rgba(128, 102, 153, 0.3),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.4), /* 실시간 반사 하이라이트 */ inset 0 0 30px rgba(255, 255, 255, 0.2) !important;
     transform: translateY(-4px) scale(1.02) !important;
     animation: none !important;
     z-index: 3 !important;
@@ -750,31 +704,29 @@
     backdrop-filter: blur(70px) saturate(2) brightness(1.5) !important;
     -webkit-backdrop-filter: blur(70px) saturate(2) brightness(1.5) !important;
     background:
-      /* Apple의 동심원 형태 - 모던한 하드웨어에 맞춘 형태 */
-      radial-gradient(ellipse at 30% 20%, rgba(153, 134, 179, 0.9) 0%, transparent 60%),
+      /* Apple의 동심원 형태 - 모던한 하드웨어에 맞춘 형태 */ radial-gradient(
+        ellipse at 30% 20%,
+        rgba(153, 134, 179, 0.9) 0%,
+        transparent 60%
+      ),
       radial-gradient(ellipse at 70% 80%, rgba(196, 190, 226, 0.7) 0%, transparent 60%),
       radial-gradient(ellipse at 50% 50%, rgba(224, 217, 237, 0.5) 0%, transparent 70%),
       /* Apple 공식 동심원 conic-gradient */
-      conic-gradient(from 0deg at 50% 50%,
-        rgba(153, 134, 179, 0.8) 0deg,
-        rgba(196, 190, 226, 0.6) 90deg,
-        rgba(153, 134, 179, 0.9) 180deg,
-        rgba(224, 217, 237, 0.7) 270deg,
-        rgba(153, 134, 179, 0.8) 360deg) !important;
+        conic-gradient(
+          from 0deg at 50% 50%,
+          rgba(153, 134, 179, 0.8) 0deg,
+          rgba(196, 190, 226, 0.6) 90deg,
+          rgba(153, 134, 179, 0.9) 180deg,
+          rgba(224, 217, 237, 0.7) 270deg,
+          rgba(153, 134, 179, 0.8) 360deg
+        ) !important;
     border: 2px solid rgba(153, 134, 179, 0.7) !important;
     color: #ffffff !important;
     font-weight: 600 !important;
     box-shadow:
-      /* Apple의 실시간 렌더링 활성 상태 */
-      0 25px 70px rgba(153, 134, 179, 0.7),
-      0 10px 25px rgba(255, 255, 255, 0.5),
-      0 5px 15px rgba(196, 190, 226, 0.4),
-      /* 거울 반사 최대 강화 */
-      inset 0 5px 0 rgba(255, 255, 255, 1),
-      inset 0 -5px 0 rgba(153, 134, 179, 0.6),
-      inset 0 0 0 3px rgba(255, 255, 255, 0.4),
-      /* 실시간 반사 하이라이트 */
-      inset 0 0 40px rgba(255, 255, 255, 0.3) !important;
+      /* Apple의 실시간 렌더링 활성 상태 */ 0 25px 70px rgba(153, 134, 179, 0.7), 0 10px 25px rgba(255, 255, 255, 0.5),
+      0 5px 15px rgba(196, 190, 226, 0.4), /* 거울 반사 최대 강화 */ inset 0 5px 0 rgba(255, 255, 255, 1), inset 0 -5px 0 rgba(153, 134, 179, 0.6),
+      inset 0 0 0 3px rgba(255, 255, 255, 0.4), /* 실시간 반사 하이라이트 */ inset 0 0 40px rgba(255, 255, 255, 0.3) !important;
     z-index: 4 !important;
     /* Apple의 실시간 렌더링을 위한 transform */
     transform: scale(1.05) !important;
@@ -788,17 +740,12 @@
   .btn:hover {
     backdrop-filter: blur(35px) saturate(1.3) !important;
     -webkit-backdrop-filter: blur(35px) saturate(1.3) !important;
-    background:
-      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.7) 0%, transparent 50%),
+    background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.7) 0%, transparent 50%),
       radial-gradient(circle at 75% 75%, rgba(196, 190, 226, 0.4) 0%, transparent 50%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(224, 217, 237, 0.3) 50%, rgba(255, 255, 255, 0.2) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    box-shadow:
-      0 16px 48px rgba(128, 102, 153, 0.3),
-      0 6px 20px rgba(255, 255, 255, 0.3),
-      inset 0 2px 0 rgba(255, 255, 255, 0.6),
-      inset 0 -2px 0 rgba(128, 102, 153, 0.2),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 16px 48px rgba(128, 102, 153, 0.3), 0 6px 20px rgba(255, 255, 255, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -2px 0 rgba(128, 102, 153, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
     transform: translateY(-2px) !important;
   }
 
@@ -812,13 +759,15 @@
   .sidebar-nav-item:active {
     backdrop-filter: blur(40px) saturate(1.4) !important;
     -webkit-backdrop-filter: blur(40px) saturate(1.4) !important;
-    background:
-      radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, rgba(196, 190, 226, 0.5) 30%, rgba(255, 255, 255, 0.4) 70%, rgba(153, 134, 179, 0.2) 100%) !important;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(196, 190, 226, 0.5) 30%,
+      rgba(255, 255, 255, 0.4) 70%,
+      rgba(153, 134, 179, 0.2) 100%
+    ) !important;
     border: 1px solid rgba(255, 255, 255, 0.6) !important;
-    box-shadow:
-      0 8px 32px rgba(128, 102, 153, 0.4),
-      inset 0 4px 8px rgba(255, 255, 255, 0.7),
-      inset 0 -4px 8px rgba(128, 102, 153, 0.3),
+    box-shadow: 0 8px 32px rgba(128, 102, 153, 0.4), inset 0 4px 8px rgba(255, 255, 255, 0.7), inset 0 -4px 8px rgba(128, 102, 153, 0.3),
       inset 0 0 0 2px rgba(255, 255, 255, 0.4) !important;
     transform: translateY(1px) !important;
   }
@@ -829,14 +778,13 @@
   .category-card::before,
   .tag::before,
   .btn::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background:
-      linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%),
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.4) 50%, transparent 70%),
       radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     pointer-events: none;
@@ -862,17 +810,12 @@
     margin: 4px 0 !important;
     backdrop-filter: blur(20px) saturate(1.1) !important;
     -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
       radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.2) 0%, transparent 50%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(224, 217, 237, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow:
-      0 4px 12px rgba(128, 102, 153, 0.05),
-      0 2px 8px rgba(255, 255, 255, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.05),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 12px rgba(128, 102, 153, 0.05), 0 2px 8px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     color: #424245 !important;
   }
@@ -880,17 +823,12 @@
   .post-navigation .btn-outline-primary:hover {
     backdrop-filter: blur(30px) saturate(1.2) !important;
     -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
-    background:
-      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+    background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
       radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.35) !important;
-    box-shadow:
-      0 8px 24px rgba(128, 102, 153, 0.2),
-      0 4px 12px rgba(255, 255, 255, 0.2),
-      inset 0 2px 0 rgba(255, 255, 255, 0.6),
-      inset 0 -4px 0 rgba(128, 102, 153, 0.15),
-      inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 24px rgba(128, 102, 153, 0.2), 0 4px 12px rgba(255, 255, 255, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -4px 0 rgba(128, 102, 153, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
     transform: translateY(-2px) !important;
     color: rgb(153, 134, 179) !important;
   }
@@ -900,19 +838,14 @@
   .post-tag {
     border-radius: 20px !important;
     padding: 8px 16px !important;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
       radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.2) 0%, transparent 50%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(224, 217, 237, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
     backdrop-filter: blur(20px) saturate(1.1) !important;
     -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
-    box-shadow:
-      0 4px 12px rgba(128, 102, 153, 0.05),
-      0 2px 8px rgba(255, 255, 255, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.05),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 12px rgba(128, 102, 153, 0.05), 0 2px 8px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     position: relative !important;
     overflow: hidden !important;
@@ -937,17 +870,12 @@
   .post-tag:hover {
     backdrop-filter: blur(30px) saturate(1.2) !important;
     -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
-    background:
-      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+    background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
       radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.35) !important;
-    box-shadow:
-      0 8px 24px rgba(128, 102, 153, 0.2),
-      0 4px 12px rgba(255, 255, 255, 0.2),
-      inset 0 2px 0 rgba(255, 255, 255, 0.6),
-      inset 0 -2px 0 rgba(128, 102, 153, 0.15),
-      inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 24px rgba(128, 102, 153, 0.2), 0 4px 12px rgba(255, 255, 255, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -2px 0 rgba(128, 102, 153, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
     transform: translateY(-2px) !important; // scale 제거하여 확대 방지
     color: rgb(153, 134, 179) !important;
   }
@@ -961,19 +889,14 @@
 
   /* Apple Liquid Glass 페이지네이션 - 리퀴드 글라스 복원 */
   .pagination .page-link {
-    background:
-      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
       radial-gradient(circle at 75% 75%, rgba(196, 190, 226, 0.2) 0%, transparent 50%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(224, 217, 237, 0.08) 50%, rgba(255, 255, 255, 0.05) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     backdrop-filter: blur(20px) saturate(1.1) !important;
     -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
-    box-shadow:
-      0 4px 12px rgba(128, 102, 153, 0.1),
-      0 2px 8px rgba(255, 255, 255, 0.15),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.05),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 12px rgba(128, 102, 153, 0.1), 0 2px 8px rgba(255, 255, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     position: relative !important;
     overflow: hidden !important;
@@ -981,24 +904,15 @@
   }
 
   @keyframes liquidPulse {
-
     0%,
     100% {
-      box-shadow:
-        0 10px 30px rgba(128, 102, 153, 0.2),
-        0 3px 10px rgba(255, 255, 255, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.7),
-        inset 0 -1px 0 rgba(128, 102, 153, 0.1),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(128, 102, 153, 0.2), 0 3px 10px rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        inset 0 -1px 0 rgba(128, 102, 153, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
     }
 
     50% {
-      box-shadow:
-        0 15px 40px rgba(128, 102, 153, 0.3),
-        0 5px 15px rgba(255, 255, 255, 0.4),
-        inset 0 2px 0 rgba(255, 255, 255, 0.8),
-        inset 0 -2px 0 rgba(128, 102, 153, 0.15),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 15px 40px rgba(128, 102, 153, 0.3), 0 5px 15px rgba(255, 255, 255, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -2px 0 rgba(128, 102, 153, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
     }
   }
 
@@ -1015,32 +929,28 @@
   .pagination .page-link:hover {
     backdrop-filter: blur(30px) saturate(1.2) !important;
     -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
-    background:
-      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+    background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
       radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.35) !important;
-    box-shadow:
-      0 8px 24px rgba(128, 102, 153, 0.2),
-      0 4px 12px rgba(255, 255, 255, 0.2),
-      inset 0 2px 0 rgba(255, 255, 255, 0.6),
-      inset 0 -4px 0 rgba(128, 102, 153, 0.15),
-      inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 24px rgba(128, 102, 153, 0.2), 0 4px 12px rgba(255, 255, 255, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -4px 0 rgba(128, 102, 153, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
     transform: translateY(-2px) !important; // scale 제거하여 확대 방지
   }
 
   .pagination .active .page-link {
-    background:
-      radial-gradient(circle at center, rgba(153, 134, 179, 0.7) 0%, rgba(196, 190, 226, 0.5) 30%, rgba(153, 134, 179, 0.4) 70%, rgba(196, 190, 226, 0.2) 100%) !important;
+    background: radial-gradient(
+      circle at center,
+      rgba(153, 134, 179, 0.7) 0%,
+      rgba(196, 190, 226, 0.5) 30%,
+      rgba(153, 134, 179, 0.4) 70%,
+      rgba(196, 190, 226, 0.2) 100%
+    ) !important;
     border: 1px solid rgba(153, 134, 179, 0.5) !important;
     color: #ffffff !important;
     font-weight: 600 !important;
-    box-shadow:
-      0 12px 32px rgba(153, 134, 179, 0.6),
-      0 4px 12px rgba(255, 255, 255, 0.4),
-      inset 0 3px 0 rgba(255, 255, 255, 0.9),
-      inset 0 -3px 0 rgba(153, 134, 179, 0.5),
-      inset 0 0 0 2px rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 12px 32px rgba(153, 134, 179, 0.6), 0 4px 12px rgba(255, 255, 255, 0.4), inset 0 3px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -3px 0 rgba(153, 134, 179, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.3) !important;
     backdrop-filter: blur(40px) saturate(1.4) !important;
     -webkit-backdrop-filter: blur(40px) saturate(1.4) !important;
   }
@@ -1419,9 +1329,7 @@
     -webkit-backdrop-filter: blur(10px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(196, 190, 226, 0.05) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow:
-      0 2px 8px rgba(153, 134, 179, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 2px 8px rgba(153, 134, 179, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     text-decoration: none !important;
     color: rgb(153, 134, 179) !important;
@@ -1436,9 +1344,7 @@
     -webkit-backdrop-filter: blur(20px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(196, 190, 226, 0.2) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.35) !important;
-    box-shadow:
-      0 6px 20px rgba(153, 134, 179, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 6px 20px rgba(153, 134, 179, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
     transform: translateY(-1px) !important;
     color: #ffffff !important;
   }
@@ -1452,9 +1358,7 @@
     -webkit-backdrop-filter: blur(25px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(196, 190, 226, 0.25) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    box-shadow:
-      0 2px 8px rgba(153, 134, 179, 0.3),
-      inset 0 2px 4px rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 2px 8px rgba(153, 134, 179, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5) !important;
     transform: translateY(1px) !important;
     color: #ffffff !important;
   }
@@ -1464,7 +1368,7 @@
   .post-tags a::before,
   .categories a::before,
   .tags a::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
@@ -1495,13 +1399,8 @@
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(196, 190, 226, 0.25) 50%, rgba(255, 255, 255, 0.3) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
     border-radius: 25px !important;
-    box-shadow:
-      0 12px 40px rgba(153, 134, 179, 0.3),
-      0 4px 16px rgba(255, 255, 255, 0.2),
-      inset 0 2px 0 rgba(255, 255, 255, 0.6),
-      inset 0 -2px 0 rgba(153, 134, 179, 0.2),
-      inset 2px 0 0 rgba(255, 255, 255, 0.3),
-      inset -2px 0 0 rgba(153, 134, 179, 0.1) !important;
+    box-shadow: 0 12px 40px rgba(153, 134, 179, 0.3), 0 4px 16px rgba(255, 255, 255, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -2px 0 rgba(153, 134, 179, 0.2), inset 2px 0 0 rgba(255, 255, 255, 0.3), inset -2px 0 0 rgba(153, 134, 179, 0.1) !important;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     color: #424245 !important;
     position: relative !important;
@@ -1514,7 +1413,7 @@
   .search-box::before,
   input[type="search"]::before,
   input[type="text"]::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
@@ -1799,7 +1698,6 @@
     box-shadow: none !important;
   }
 
-
   /* 검색창 호버 효과 */
   .search-wrapper:hover,
   .search-input:hover,
@@ -1810,13 +1708,8 @@
     -webkit-backdrop-filter: blur(35px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(196, 190, 226, 0.35) 50%, rgba(255, 255, 255, 0.4) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.6) !important;
-    box-shadow:
-      0 16px 48px rgba(153, 134, 179, 0.4),
-      0 6px 20px rgba(255, 255, 255, 0.3),
-      inset 0 3px 0 rgba(255, 255, 255, 0.7),
-      inset 0 -3px 0 rgba(153, 134, 179, 0.3),
-      inset 3px 0 0 rgba(255, 255, 255, 0.4),
-      inset -3px 0 0 rgba(153, 134, 179, 0.2) !important;
+    box-shadow: 0 16px 48px rgba(153, 134, 179, 0.4), 0 6px 20px rgba(255, 255, 255, 0.3), inset 0 3px 0 rgba(255, 255, 255, 0.7),
+      inset 0 -3px 0 rgba(153, 134, 179, 0.3), inset 3px 0 0 rgba(255, 255, 255, 0.4), inset -3px 0 0 rgba(153, 134, 179, 0.2) !important;
     transform: translateY(-3px) !important;
   }
 
@@ -1838,13 +1731,8 @@
     -webkit-backdrop-filter: blur(40px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(196, 190, 226, 0.4) 50%, rgba(255, 255, 255, 0.5) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.7) !important;
-    box-shadow:
-      0 20px 56px rgba(153, 134, 179, 0.5),
-      0 8px 24px rgba(255, 255, 255, 0.4),
-      inset 0 4px 0 rgba(255, 255, 255, 0.8),
-      inset 0 -4px 0 rgba(153, 134, 179, 0.4),
-      inset 4px 0 0 rgba(255, 255, 255, 0.5),
-      inset -4px 0 0 rgba(153, 134, 179, 0.3) !important;
+    box-shadow: 0 20px 56px rgba(153, 134, 179, 0.5), 0 8px 24px rgba(255, 255, 255, 0.4), inset 0 4px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -4px 0 rgba(153, 134, 179, 0.4), inset 4px 0 0 rgba(255, 255, 255, 0.5), inset -4px 0 0 rgba(153, 134, 179, 0.3) !important;
     transform: translateY(-4px) !important;
   }
 
@@ -1866,10 +1754,7 @@
     -webkit-backdrop-filter: blur(22px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(196, 190, 226, 0.2) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.35) !important;
-    box-shadow:
-      0 10px 36px rgba(153, 134, 179, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.45),
-      inset 0 -1px 0 rgba(153, 134, 179, 0.12) !important;
+    box-shadow: 0 10px 36px rgba(153, 134, 179, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -1px 0 rgba(153, 134, 179, 0.12) !important;
     transform: translateY(-1px) !important;
   }
 
@@ -1894,13 +1779,8 @@
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(196, 190, 226, 0.25) 50%, rgba(255, 255, 255, 0.3) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
     border-radius: 50% !important;
-    box-shadow:
-      0 8px 24px rgba(153, 134, 179, 0.3),
-      0 2px 8px rgba(255, 255, 255, 0.2),
-      inset 0 2px 0 rgba(255, 255, 255, 0.6),
-      inset 0 -2px 0 rgba(153, 134, 179, 0.2),
-      inset 2px 0 0 rgba(255, 255, 255, 0.3),
-      inset -2px 0 0 rgba(153, 134, 179, 0.1) !important;
+    box-shadow: 0 8px 24px rgba(153, 134, 179, 0.3), 0 2px 8px rgba(255, 255, 255, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -2px 0 rgba(153, 134, 179, 0.2), inset 2px 0 0 rgba(255, 255, 255, 0.3), inset -2px 0 0 rgba(153, 134, 179, 0.1) !important;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     color: #424245 !important;
     position: relative !important;
@@ -1967,10 +1847,7 @@
     -webkit-backdrop-filter: blur(25px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(196, 190, 226, 0.25) 50%, rgba(255, 255, 255, 0.3) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
-    box-shadow:
-      0 8px 24px rgba(153, 134, 179, 0.3),
-      0 2px 8px rgba(255, 255, 255, 0.2),
-      inset 0 2px 0 rgba(255, 255, 255, 0.6),
+    box-shadow: 0 8px 24px rgba(153, 134, 179, 0.3), 0 2px 8px rgba(255, 255, 255, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.6),
       inset 0 -2px 0 rgba(153, 134, 179, 0.2) !important;
   }
 
@@ -2065,14 +1942,14 @@
   .search-box .search-btn,
   .search-box .search-button,
   .search-box .fa-search,
-  input[type="search"]+.search-icon,
-  input[type="search"]+.search-btn,
-  input[type="search"]+.search-button,
-  input[type="search"]+.fa-search,
-  input[type="text"]+.search-icon,
-  input[type="text"]+.search-btn,
-  input[type="text"]+.search-button,
-  input[type="text"]+.fa-search {
+  input[type="search"] + .search-icon,
+  input[type="search"] + .search-btn,
+  input[type="search"] + .search-button,
+  input[type="search"] + .fa-search,
+  input[type="text"] + .search-icon,
+  input[type="text"] + .search-btn,
+  input[type="text"] + .search-button,
+  input[type="text"] + .fa-search {
     display: inline-flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -2085,7 +1962,7 @@
   .search-btn::before,
   .search-button::before,
   .fa-search::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
@@ -2107,13 +1984,8 @@
     -webkit-backdrop-filter: blur(35px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(196, 190, 226, 0.4) 50%, rgba(255, 255, 255, 0.5) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.7) !important;
-    box-shadow:
-      0 12px 32px rgba(153, 134, 179, 0.4),
-      0 4px 12px rgba(255, 255, 255, 0.3),
-      inset 0 3px 0 rgba(255, 255, 255, 0.8),
-      inset 0 -3px 0 rgba(153, 134, 179, 0.3),
-      inset 3px 0 0 rgba(255, 255, 255, 0.4),
-      inset -3px 0 0 rgba(153, 134, 179, 0.2) !important;
+    box-shadow: 0 12px 32px rgba(153, 134, 179, 0.4), 0 4px 12px rgba(255, 255, 255, 0.3), inset 0 3px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -3px 0 rgba(153, 134, 179, 0.3), inset 3px 0 0 rgba(255, 255, 255, 0.4), inset -3px 0 0 rgba(153, 134, 179, 0.2) !important;
     transform: translateY(-2px) scale(1.05) !important;
     color: rgb(153, 134, 179) !important;
   }
@@ -2134,13 +2006,8 @@
     -webkit-backdrop-filter: blur(40px) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(196, 190, 226, 0.5) 50%, rgba(255, 255, 255, 0.6) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.8) !important;
-    box-shadow:
-      0 16px 40px rgba(153, 134, 179, 0.5),
-      0 6px 16px rgba(255, 255, 255, 0.4),
-      inset 0 4px 0 rgba(255, 255, 255, 0.9),
-      inset 0 -4px 0 rgba(153, 134, 179, 0.4),
-      inset 4px 0 0 rgba(255, 255, 255, 0.5),
-      inset -4px 0 0 rgba(153, 134, 179, 0.3) !important;
+    box-shadow: 0 16px 40px rgba(153, 134, 179, 0.5), 0 6px 16px rgba(255, 255, 255, 0.4), inset 0 4px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -4px 0 rgba(153, 134, 179, 0.4), inset 4px 0 0 rgba(255, 255, 255, 0.5), inset -4px 0 0 rgba(153, 134, 179, 0.3) !important;
     transform: translateY(-3px) scale(1.1) !important;
     color: #ffffff !important;
   }
@@ -2150,17 +2017,12 @@
   #go-to-bottom {
     backdrop-filter: blur(20px) saturate(1.1) !important;
     -webkit-backdrop-filter: blur(20px) saturate(1.1) !important;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
       radial-gradient(circle at 70% 80%, rgba(196, 190, 226, 0.2) 0%, transparent 50%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(224, 217, 237, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    box-shadow:
-      0 4px 12px rgba(128, 102, 153, 0.05),
-      0 2px 8px rgba(255, 255, 255, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      inset 0 -1px 0 rgba(128, 102, 153, 0.05),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 12px rgba(128, 102, 153, 0.05), 0 2px 8px rgba(255, 255, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(128, 102, 153, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     color: rgb(153, 134, 179) !important;
   }
@@ -2169,21 +2031,15 @@
   #go-to-bottom:hover {
     backdrop-filter: blur(30px) saturate(1.2) !important;
     -webkit-backdrop-filter: blur(30px) saturate(1.2) !important;
-    background:
-      radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+    background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
       radial-gradient(circle at 80% 90%, rgba(196, 190, 226, 0.4) 0%, transparent 60%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(224, 217, 237, 0.2) 50%, rgba(255, 255, 255, 0.15) 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.35) !important;
-    box-shadow:
-      0 8px 24px rgba(128, 102, 153, 0.2),
-      0 4px 12px rgba(255, 255, 255, 0.2),
-      inset 0 2px 0 rgba(255, 255, 255, 0.6),
-      inset 0 -4px 0 rgba(128, 102, 153, 0.15),
-      inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 24px rgba(128, 102, 153, 0.2), 0 4px 12px rgba(255, 255, 255, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -4px 0 rgba(128, 102, 153, 0.15), inset 0 0 0 2px rgba(255, 255, 255, 0.1) !important;
     transform: translateY(-2px) !important;
     color: rgb(153, 134, 179) !important;
   }
-
 }
 
 /* light-scheme */
