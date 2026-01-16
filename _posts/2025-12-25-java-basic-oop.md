@@ -5,7 +5,7 @@ date: 2025-12-25 21:10:00 +0900
 category: [Language, Java]
 tags: [java, oop, encapsulation, procedural-programming]
 math: false
-mermaid: true
+mermaid: false
 ---
 # 객체 지향 프로그래밍
 

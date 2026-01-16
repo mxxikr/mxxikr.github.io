@@ -5,7 +5,7 @@ date: 2025-10-31 09:00:00 +0900
 category: [AI, MCP]
 tags: [mcp, ai]
 math: false
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

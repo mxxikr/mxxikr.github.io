@@ -5,7 +5,7 @@ date: 2025-12-25 16:30:00 +0900
 category: [Computer Science, Algorithm]
 tags: [algorithm, two-pointers, time-complexity, sliding-window, java]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

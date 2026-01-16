@@ -5,7 +5,7 @@ date: 2026-01-15 17:50:00 +0900
 category: [Computer Science, Web]
 tags: [http, header, content-type, content-negotiation, cookie, authentication]
 math: false
-mermaid: true
+mermaid: false
 ---
 
 # HTTP 헤더1 - 일반 헤더

@@ -5,7 +5,7 @@ date: 2022-08-31 11:27:00 +0900
 category: [Database, PostgreSQL]
 tags: [database, postgresql, query]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 스키마 생성
 

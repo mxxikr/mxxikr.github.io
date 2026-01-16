@@ -5,7 +5,7 @@ date: 2025-12-26 08:20:00 +0900
 category: [Computer Science, Algorithm]
 tags: [algorithm, stack, queue, data-structure, dfs, bfs, java]
 math: true
-mermaid: true
+mermaid: false
 ---
 - 스택(Stack)과 큐(Queue)는 배열에서 발전된 형태의 선형 자료구조임
 - 구조는 유사하지만 데이터를 처리하는 방식에서 근본적인 차이가 있음

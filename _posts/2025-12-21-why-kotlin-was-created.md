@@ -5,7 +5,7 @@ date: 2025-12-21 20:30:00 +0900
 category: [Language, Kotlin]
 tags: [kotlin, language, jetbrains]
 math: true
-mermaid: true
+mermaid: false
 ---
 # 개요
 

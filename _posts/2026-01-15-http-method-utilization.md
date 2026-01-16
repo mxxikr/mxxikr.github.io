@@ -5,7 +5,7 @@ date: 2026-01-15 17:23:00 +0900
 category: [Computer Science, Web]
 tags: [http, method, api, collection, store, form, rest-api, uri-design]
 math: false
-mermaid: true
+mermaid: false
 ---
 # HTTP 메서드 활용
 

@@ -5,7 +5,7 @@ date: 2026-01-15 17:54:00 +0900
 category: [Computer Science, Web]
 tags: [http, cache, conditional-request, etag, last-modified, cache-control]
 math: false
-mermaid: true
+mermaid: false
 ---
 
 # HTTP 헤더2 - 캐시와 조건부 요청

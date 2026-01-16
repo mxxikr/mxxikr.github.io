@@ -5,7 +5,7 @@ date: 2022-08-24 02:00:00 +0900
 category: [Network]
 tags: [network, tcp, udp, port]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

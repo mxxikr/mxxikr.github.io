@@ -5,7 +5,7 @@ date: 2022-10-25 04:00:00 +0900
 category: [OS, Windows]
 tags: [os, windows, event-viewer, troubleshooting, logging]
 math: true
-mermaid: true
+mermaid: false
 ---
 <br/><br/>
 

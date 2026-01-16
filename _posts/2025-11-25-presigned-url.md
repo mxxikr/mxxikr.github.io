@@ -4,7 +4,7 @@ date: 2025-11-25 00:00:00 +0900
 category: [Cloud, AWS]
 tags: [aws, s3, presigned-url, security]
 math: false
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

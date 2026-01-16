@@ -5,7 +5,7 @@ date: 2026-01-14 16:11:00 +0900
 category: [Computer Science, Web]
 tags: [http, network, ip, tcp, udp, port, dns, protocol]
 math: false
-mermaid: true
+mermaid: false
 ---
 # 인터넷 네트워크
 

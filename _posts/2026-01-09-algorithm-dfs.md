@@ -5,7 +5,7 @@ date: 2026-01-09 09:00:00 +0900
 category: [Computer Science, Algorithm]
 tags: [dfs, graph-traversal, stack, recursion, backtracking]
 math: true
-mermaid: true
+mermaid: false
 ---
 - 깊이 우선 탐색(DFS)은 그래프 완전 탐색 기법 중 하나로, 그래프의 시작 노드에서 출발하여 한 쪽 분기를 정해 최대 깊이까지 탐색을 마친 후 다른 쪽 분기로 이동하는 알고리즘임
 - 스택(Stack) 자료구조나 재귀 함수를 이용해 구현하며, 백트래킹과 연계되어 다양한 문제 해결의 기초가 됨

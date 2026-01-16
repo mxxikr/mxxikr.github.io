@@ -5,7 +5,7 @@ date: 2022-10-22 12:25:00 +0900
 category: [Database, Data Warehouse]
 tags: [alicloud, maxcompute, sql, ddl, dml]
 math: true
-mermaid: true
+mermaid: false
 ---
 <br/><br/>
 

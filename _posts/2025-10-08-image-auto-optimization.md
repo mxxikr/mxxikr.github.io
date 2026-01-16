@@ -5,7 +5,7 @@ date: 2025-10-08 18:50:00 +0900
 category: [Blog]
 tags: [jekyll, performance, automation]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

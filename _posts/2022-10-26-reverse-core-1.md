@@ -5,7 +5,7 @@ date: 2022-10-26 23:55:00 +0900
 category: [Security, Reversing]
 tags: [reversing]
 math: true
-mermaid: true
+mermaid: false
 ---
 **<center>💡해당 게시글은 이승원 님의 '리버싱 핵심 원리'를 개인 공부 목적으로 메모하였습니다. </center>**
 <br/><br/>

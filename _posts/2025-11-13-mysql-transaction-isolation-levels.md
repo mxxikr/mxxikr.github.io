@@ -5,7 +5,7 @@ date: 2025-11-13 00:00:00 +0900
 category: [Database, MySQL]
 tags: [mysql, database, transaction, isolation-level, mvcc]
 math: false
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

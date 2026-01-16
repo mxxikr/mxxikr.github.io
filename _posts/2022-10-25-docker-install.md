@@ -5,7 +5,7 @@ date: 2022-10-25 05:50:00 +0900
 category: [Infrastructure, Docker]
 tags: [docker, docker-compose, devops, container]
 math: true
-mermaid: true
+mermaid: false
 ---
 <br/><br/>
 

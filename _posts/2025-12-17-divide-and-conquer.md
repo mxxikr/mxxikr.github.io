@@ -5,7 +5,7 @@ date: 2025-12-17 00:00:00 +0900
 category: [Computer Science, Algorithm]
 tags: [algorithm, divide-and-conquer, merge-sort, quick-sort, binary-search, recursion]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

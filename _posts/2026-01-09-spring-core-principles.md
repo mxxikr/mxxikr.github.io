@@ -5,7 +5,7 @@ date: 2026-01-09 16:00:00 +0900
 category: [Spring, Core]
 tags: [spring, java, oop, solid, di, ioc]
 math: true
-mermaid: true
+mermaid: false
 ---
 # 객체지향 설계와 스프링
 

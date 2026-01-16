@@ -5,7 +5,7 @@ date: 2025-11-05 09:00:00 +0900
 category: [Software Engineering, Design]
 tags: [domain-storytelling, ddd]
 math: false
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

@@ -5,7 +5,7 @@ date: 2022-10-31 22:55:00 +0900
 category: [OS, Linux]
 tags: [os, linux, mount, storage, lvm, partition, devops]
 math: true
-mermaid: true
+mermaid: false
 ---
 <br/><br/>
 

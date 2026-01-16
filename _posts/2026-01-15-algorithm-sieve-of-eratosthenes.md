@@ -5,7 +5,7 @@ date: 2026-01-15 07:35:00 +0900
 category: [Computer Science, Algorithm]
 tags: [algorithm, sieve-of-eratosthenes, prime-number, time-complexity, java, optimization]
 math: true
-mermaid: true
+mermaid: false
 ---
 - 소수(Prime Number)를 찾는 문제는 고대부터 현대 암호학까지 이어지는 컴퓨터 과학의 핵심 주제임
 - 기원전 3세기 그리스 수학자 에라토스테네스(Eratosthenes)가 고안한 에라토스테네스의 체는 2000년이 지난 지금도 특정 범위 내 모든 소수를 찾는 가장 효율적인 알고리즘 중 하나로 평가받고 있음

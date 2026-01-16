@@ -5,7 +5,7 @@ date: 2025-11-02 00:00:00 +0900
 category: [Database, Theory]
 tags: [database, transaction, acid]
 math: false
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

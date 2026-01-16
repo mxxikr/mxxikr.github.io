@@ -6,7 +6,7 @@ category: [Language, Java]
 tags: [java, access-modifier, encapsulation, private, public, protected, default,
   oop]
 math: false
-mermaid: true
+mermaid: false
 ---
 # 접근 제어자
 

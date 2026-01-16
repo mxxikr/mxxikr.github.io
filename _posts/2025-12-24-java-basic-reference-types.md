@@ -5,7 +5,7 @@ date: 2025-12-24 22:20:00 +0900
 category: [Language, Java]
 tags: [java, primitive-type, reference-type, memory, garbage-collection]
 math: false
-mermaid: true
+mermaid: false
 ---
 # 기본형과 참조형
 

@@ -5,7 +5,7 @@ date: 2022-10-04 23:55:00 +0900
 category: [Database, MySQL]
 tags: [alicloud, mysql, analyticdb, adb]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

@@ -5,7 +5,7 @@ date: 2025-12-16 00:00:00 +0900
 category: [Computer Science, Algorithm]
 tags: [algorithm, big-o]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

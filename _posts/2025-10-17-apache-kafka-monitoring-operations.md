@@ -5,7 +5,7 @@ date: 2025-10-17 01:00:00 +0900
 category: [Messaging, Kafka]
 tags: [kafka, monitoring, prometheus, grafana, operations]
 math: false
-mermaid: true
+mermaid: false
 ---
 > **Apache Kafka 시리즈**
 >

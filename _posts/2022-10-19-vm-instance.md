@@ -5,7 +5,7 @@ date: 2022-10-19 14:30:00 +0900
 category: [Cloud, GCP]
 tags: [compute-engine, gcp, devops, security]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## Compute Engine 개요
 - Google Cloud Platform의 IaaS(Infrastructure as a Service) 서비스

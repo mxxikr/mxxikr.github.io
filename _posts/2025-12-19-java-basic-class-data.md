@@ -5,7 +5,7 @@ date: 2025-12-19 14:01:00 +0900
 category: [Language, Java]
 tags: [java, class, object]
 math: true
-mermaid: true
+mermaid: false
 ---
 # 클래스와 데이터
 

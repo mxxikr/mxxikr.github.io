@@ -5,7 +5,7 @@ date: 2022-10-19 12:40:00 +0900
 category: [Cloud, GCP]
 tags: [bigquery, gcp, slot, optimization]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 개요
 
