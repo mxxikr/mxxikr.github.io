@@ -9,6 +9,13 @@ const resource = [
   /* --- CSS --- */
   '{{ "/assets/css/style.css" | relative_url }}',
 
+  /* --- Fonts --- */
+  '{{ "/assets/fonts/RIDIBatang.woff2" | relative_url }}',
+  '{{ "/assets/fonts/MapoGoldenPier.woff2" | relative_url }}',
+
+  /* --- Search Data --- */
+  '{{ "/assets/js/data/search.json" | relative_url }}',
+
   /* --- PWA --- */
   '{{ "/app.js" | relative_url }}',
   '{{ "/sw.js" | relative_url }}',
