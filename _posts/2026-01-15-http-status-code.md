@@ -5,7 +5,7 @@ date: 2026-01-15 17:43:00 +0900
 category: [Computer Science, Web]
 tags: [http, status-code, 2xx, 3xx, 4xx, 5xx, redirect, prg-pattern]
 math: false
-mermaid: true
+mermaid: false
 ---
 # HTTP 상태코드
 

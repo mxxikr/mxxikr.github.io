@@ -5,7 +5,7 @@ date: 2022-08-26 00:24:00 +0900
 category: [Network]
 tags: [ip, network, subnet, supernet]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## IP 주소 체계 기초
 

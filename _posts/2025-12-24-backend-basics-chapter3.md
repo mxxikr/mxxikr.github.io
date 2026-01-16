@@ -5,7 +5,7 @@ date: 2025-12-24 15:25:00 +0900
 category: [Book, Backend]
 tags: [backend, database, index, query-optimization, performance, book-review]
 math: true
-mermaid: true
+mermaid: false
 ---
 **<center>💡해당 게시글은 최범균님의 '주니어 백엔드 개발자가 반드시 알아야 할 실무 지식'을 개인 공부목적으로 메모하였습니다. </center>**
 

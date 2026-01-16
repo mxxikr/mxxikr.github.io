@@ -5,7 +5,7 @@ date: 2022-10-21 04:30:00 +0900
 category: [Cloud, Alicloud]
 tags: [alicloud, maxcompute, sql, query-optimization, bigdata]
 math: true
-mermaid: true
+mermaid: false
 ---
 <br/><br/>
 

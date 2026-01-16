@@ -4,7 +4,7 @@ date: 2025-11-24 00:00:00 +0900
 category: [Software Engineering, Design]
 tags: [design-pattern, strategy-pattern, oop]
 math: false
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

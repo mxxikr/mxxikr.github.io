@@ -5,7 +5,7 @@ date: 2026-01-14 16:23:00 +0900
 category: [Computer Science, Web]
 tags: [http, web, stateless, connectionless, request, response, api]
 math: false
-mermaid: true
+mermaid: false
 ---
 # HTTP
 

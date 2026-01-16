@@ -5,7 +5,7 @@ date: 2025-09-08 00:00:00 +0900
 category: [Data Science, Data Analysis]
 tags: [knou, data-analysis]
 math: true
-mermaid: true
+mermaid: false
 ---
 **<center>💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. </center>**
 

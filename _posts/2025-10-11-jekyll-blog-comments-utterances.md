@@ -5,7 +5,7 @@ date: 2025-10-11 19:00:00 +0900
 category: [Blog]
 tags: [jekyll, utterances]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

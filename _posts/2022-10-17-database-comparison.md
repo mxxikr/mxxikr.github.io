@@ -5,7 +5,7 @@ date: 2022-10-17 12:40:00 +0900
 category: [Database]
 tags: [database, oltp, olap, comparison]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

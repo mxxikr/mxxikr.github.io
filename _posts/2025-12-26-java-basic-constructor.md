@@ -5,7 +5,7 @@ date: 2025-12-26 12:25:00 +0900
 category: [Language, Java]
 tags: [java, oop, constructor, this]
 math: false
-mermaid: true
+mermaid: false
 ---
 # 생성자
 

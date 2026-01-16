@@ -4,7 +4,7 @@ date: 2025-11-25 00:00:00 +0900
 category: [Cloud, AWS]
 tags: [localstack, aws, docker, local-development]
 math: false
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

@@ -5,7 +5,7 @@ date: 2022-08-31 03:27:00 +0900
 category: [Database, PostgreSQL]
 tags: [database, postgresql, architecture]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## Role
 

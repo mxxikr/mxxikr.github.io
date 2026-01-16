@@ -5,7 +5,7 @@ date: 2022-08-28 19:27:00 +0900
 category: [OS, Linux]
 tags: [os, linux]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 명령어 기본 규칙
 

@@ -5,7 +5,7 @@ date: 2025-12-30 23:50:00 +0900
 category: [Language, Java]
 tags: [java, static, memory, stack, heap, method-area, class-variable, static-method]
 math: false
-mermaid: true
+mermaid: false
 ---
 # 자바 메모리 구조와 static
 

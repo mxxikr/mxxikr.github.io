@@ -5,7 +5,7 @@ date: 2025-11-06 00:00:00 +0900
 category: [Database, Theory]
 tags: [database, index]
 math: false
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

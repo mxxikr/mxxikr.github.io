@@ -5,7 +5,7 @@ date: 2025-12-24 11:00:00 +0900
 category: [Computer Science, Algorithm]
 tags: [algorithm, prefix-sum, time-complexity]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

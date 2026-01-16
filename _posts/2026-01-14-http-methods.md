@@ -5,7 +5,7 @@ date: 2026-01-14 16:27:00 +0900
 category: [Computer Science, Web]
 tags: [http, method, get, post, put, patch, delete, rest-api]
 math: false
-mermaid: true
+mermaid: false
 ---
 # HTTP 메서드
 
