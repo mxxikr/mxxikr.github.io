@@ -5,7 +5,7 @@ date: 2022-11-10 23:40:00 +0900
 category: [Network]
 tags: [network, packet-tracer]
 math: true
-mermaid: true
+mermaid: false
 ---
 # Cisco Packet Tracer 구성
 --- 

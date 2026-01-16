@@ -5,7 +5,7 @@ date: 2025-12-25 14:00:00 +0900
 category: [Computer Science, Algorithm]
 tags: [algorithm, mathematics, modular-arithmetic, prefix-sum, optimization]
 math: true
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

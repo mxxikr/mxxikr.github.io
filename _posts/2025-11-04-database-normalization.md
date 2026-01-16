@@ -5,7 +5,7 @@ date: 2025-11-04 00:00:00 +0900
 category: [Database, Theory]
 tags: [database, normalization]
 math: false
-mermaid: true
+mermaid: false
 ---
 ## 개요
 

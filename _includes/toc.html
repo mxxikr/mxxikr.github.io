@@ -7,14 +7,36 @@
   {% endif %}
 {% endif %}
 
-{% if enable_toc %}
-<!-- BS-toc.js will be loaded at medium priority -->
-<script src="{{ site.data.assets[origin].bootstrap-toc.js }}"></script>
-
-<div id="toc-wrapper" class="pl-0 pr-4 mb-5">
+{% if enable_toc %}\n<div id="toc-wrapper" class="pl-0 pr-4 mb-5">
   <div class="panel-heading pl-3 pt-2 mb-2">{{- site.data.locales[lang].panel.toc -}}</div>
   <nav id="toc" data-toggle="toc"></nav>
 </div>
+
+<script>
+// Bootstrap TOC 스크립트를 jQuery 로드 후에 동적으로 로드
+(function() {
+  function loadBootstrapToc() {
+    if (typeof jQuery === 'undefined') {
+      console.warn('jQuery not loaded yet, retrying...');
+      setTimeout(loadBootstrapToc, 100);
+      return;
+    }
+    
+    var script = document.createElement('script');
+    script.src = '{{ site.data.assets[origin].bootstrap-toc.js }}';
+    script.onload = function() {
+      console.log('Bootstrap TOC loaded successfully');
+    };
+    document.head.appendChild(script);
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadBootstrapToc);
+  } else {
+    loadBootstrapToc();
+  }
+})();
+</script>
 
 <script>
 $(document).ready(function() {

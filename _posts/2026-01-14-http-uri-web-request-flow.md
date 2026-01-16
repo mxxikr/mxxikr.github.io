@@ -5,7 +5,7 @@ date: 2026-01-14 16:19:00 +0900
 category: [Computer Science, Web]
 tags: [http, uri, url, urn, web, browser, request, dns]
 math: false
-mermaid: true
+mermaid: false
 ---
 # URI와 웹 브라우저 요청 흐름
 

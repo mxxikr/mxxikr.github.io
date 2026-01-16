@@ -5,7 +5,7 @@ date: 2025-11-14 00:00:00 +0900
 category: [Database, MySQL]
 tags: [mysql, innodb, database, storage-engine]
 math: false
-mermaid: true
+mermaid: false
 ---
 ## 개요
 
