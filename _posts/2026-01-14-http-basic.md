@@ -20,7 +20,7 @@ mermaid: false
 - **HTTP (HyperText Transfer Protocol)**
   - 거의 모든 형태의 데이터 전송 가능
 
-![Diagram 01](/assets/img/posts/http-basic/01_diagram.png)
+![Diagram 01](/assets/img/http/http-basic/01_diagram.png)
 
 - **HTTP 전송 가능 데이터**
 
@@ -44,11 +44,11 @@ mermaid: false
 
 ### Request-Response 구조
 
-![Diagram 03](/assets/img/posts/http-basic/03_diagram.png)
+![Diagram 03](/assets/img/http/http-basic/03_diagram.png)
 
 ### 역할 분리
 
-![Diagram 04](/assets/img/posts/http-basic/04_diagram.png)
+![Diagram 04](/assets/img/http/http-basic/04_diagram.png)
 
 - 각자 독립적으로 발전 가능
 - 클라이언트는 UI/UX에 집중
@@ -65,7 +65,7 @@ mermaid: false
 - **Stateless (무상태)**
   - 서버가 클라이언트의 상태를 보관하지 않음
 
-![Diagram 05](/assets/img/posts/http-basic/05_diagram.png)
+![Diagram 05](/assets/img/http/http-basic/05_diagram.png)
 
 ### Stateful과 Stateless 비교
 
@@ -81,28 +81,28 @@ mermaid: false
 
 - 정상 동작
 
-  ![Diagram 06](/assets/img/posts/http-basic/06_diagram.png)
+  ![Diagram 06](/assets/img/http/http-basic/06_diagram.png)
 
 - 서버 장애 발생 시 (중간에 서버 변경)
 
-  ![Diagram 07](/assets/img/posts/http-basic/07_diagram.png)
+  ![Diagram 07](/assets/img/http/http-basic/07_diagram.png)
 
 ### Stateless - 무상태
 
 - 서버 변경에도 정상 동작
 
-  ![Diagram 08](/assets/img/posts/http-basic/08_diagram.png)
+  ![Diagram 08](/assets/img/http/http-basic/08_diagram.png)
 
 - 확장성
 
   - 응답 서버를 쉽게 바꿀 수 있음
   - 서버를 무한히 증설할 수 있음
   - **스케일 아웃 가능** (수평 확장)
-    ![Diagram 10](/assets/img/posts/http-basic/10_diagram.png)
+    ![Diagram 10](/assets/img/http/http-basic/10_diagram.png)
 
 ### 실무 설계
 
-![Diagram 11](/assets/img/posts/http-basic/11_diagram.png)
+![Diagram 11](/assets/img/http/http-basic/11_diagram.png)
 
 - **Stateless 원칙**
 
@@ -129,7 +129,7 @@ mermaid: false
 
 ### 연결 유지 방식
 
-![Diagram 12](/assets/img/posts/http-basic/12_diagram.png)
+![Diagram 12](/assets/img/http/http-basic/12_diagram.png)
 
 - **연결 유지의 문제점**
 
@@ -139,7 +139,7 @@ mermaid: false
 
 ### 비연결성 모델
 
-![Diagram 13](/assets/img/posts/http-basic/13_diagram.png)
+![Diagram 13](/assets/img/http/http-basic/13_diagram.png)
 
 - **비연결성의 장점**
 
@@ -162,7 +162,7 @@ mermaid: false
 
 ### HTTP 지속 연결 (Persistent Connections)
 
-![Diagram 14](/assets/img/posts/http-basic/14_diagram.png)
+![Diagram 14](/assets/img/http/http-basic/14_diagram.png)
 
 - **장점**
 
@@ -176,7 +176,7 @@ mermaid: false
 
 ### HTTP 메시지 구조
 
-![Diagram 15](/assets/img/posts/http-basic/15_diagram.png)
+![Diagram 15](/assets/img/http/http-basic/15_diagram.png)
 
 - **공식 스펙 (RFC 7230)**
 
@@ -194,7 +194,7 @@ GET /search?q=hello&hl=ko HTTP/1.1
 Host: www.google.com
 ```
 
-![Diagram 16](/assets/img/posts/http-basic/16_diagram.png)
+![Diagram 16](/assets/img/http/http-basic/16_diagram.png)
 
 ### HTTP 응답 메시지
 
@@ -208,7 +208,7 @@ Content-Length: 3423
 </html>
 ```
 
-![Diagram 17](/assets/img/posts/http-basic/17_diagram.png)
+![Diagram 17](/assets/img/http/http-basic/17_diagram.png)
 
 ### start-line
 
@@ -224,11 +224,11 @@ Content-Length: 3423
   | **HEAD**    | 메타데이터 조회  | GET과 동일하지만 body 없이 헤더만 조회    |
   | **OPTIONS** | 통신 옵션 조회   | 대상 리소스의 통신 옵션 확인              |
 
-  ![Diagram 18](/assets/img/posts/http-basic/18_diagram.png)
+  ![Diagram 18](/assets/img/http/http-basic/18_diagram.png)
 
 - HTTP 상태 코드
 
-  ![Diagram 19](/assets/img/posts/http-basic/19_diagram.png)
+  ![Diagram 19](/assets/img/http/http-basic/19_diagram.png)
 
   | 코드    | 메시지                | 설명                          |
   | ------- | --------------------- | ----------------------------- |
@@ -247,7 +247,7 @@ Content-Length: 3423
 
   - **HTTP 헤더 주요 유형**
 
-  ![Diagram 20](/assets/img/posts/http-basic/20_diagram.png)
+  ![Diagram 20](/assets/img/http/http-basic/20_diagram.png)
 
   - **주요 헤더**
 
@@ -299,7 +299,7 @@ Content-Length: 3423
 
 ## 요약 정리
 
-![Diagram 21](/assets/img/posts/http-basic/21_diagram.png)
+![Diagram 21](/assets/img/http/http-basic/21_diagram.png)
 
 - HTTP는 클라이언트-서버 구조로 Request-Response 패턴을 따르며, 역할 분리로 독립적으로 발전할 수 있음
 - Stateless(무상태) 프로토콜로 서버 확장이 쉽지만 매 요청에 추가 데이터 전송이 필요하며, 로그인/장바구니는 쿠키/세션/토큰으로 상태를 유지함

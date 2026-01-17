@@ -20,7 +20,7 @@ mermaid: false
 - **URI (Uniform Resource Identifier)**
   - 리소스를 식별하는 통일된 방식
 
-![URI 구조](/assets/img/posts/http-uri-web-request-flow/01_uri_structure.png)
+![URI 구조](/assets/img/http/http-uri-web-request-flow/01_uri_structure.png)
 
 ### 용어 정의
 
@@ -77,7 +77,7 @@ scheme://[userinfo@]host[:port][/path][?query][#fragment]
   https://www.google.com:443/search?q=hello&hl=ko
   ```
 
-  ![URL 구조](/assets/img/posts/http-uri-web-request-flow/02_url_structure.png)
+  ![URL 구조](/assets/img/http/http-uri-web-request-flow/02_url_structure.png)
 
 ### Scheme (프로토콜)
 
@@ -146,7 +146,7 @@ https://www.google.com:443/search?q=hello&hl=ko
   - https → 443 포트 (생략 가능)
   - 그 외 포트는 명시 필요
 
-![포트 생략 규칙](/assets/img/posts/http-uri-web-request-flow/03_port_rules.png)
+![포트 생략 규칙](/assets/img/http/http-uri-web-request-flow/03_port_rules.png)
 
 ### Path (경로)
 
@@ -165,7 +165,7 @@ https://www.google.com:443/search?q=hello&hl=ko
   - `/items/iphone12` (특정 상품)
   - `/api/v1/users/123` (REST API)
 
-![Path 계층 구조](/assets/img/posts/http-uri-web-request-flow/04_path_hierarchy.png)
+![Path 계층 구조](/assets/img/http/http-uri-web-request-flow/04_path_hierarchy.png)
 
 ### Query (쿼리 파라미터)
 
@@ -224,11 +224,11 @@ getting-started.html#getting-started-introducing-spring-boot
 
 ### 전체 흐름 개요
 
-![웹 브라우저 요청 흐름](/assets/img/posts/http-uri-web-request-flow/05_complete_flow.png)
+![웹 브라우저 요청 흐름](/assets/img/http/http-uri-web-request-flow/05_complete_flow.png)
 
 ### DNS 조회 및 포트 확인
 
-![DNS 조회 및 포트 확인](/assets/img/posts/http-uri-web-request-flow/06_dns_port.png)
+![DNS 조회 및 포트 확인](/assets/img/http/http-uri-web-request-flow/06_dns_port.png)
 
 - **정보 추출**
 
@@ -248,7 +248,7 @@ GET /search?q=hello&hl=ko HTTP/1.1
 Host: www.google.com
 ```
 
-![HTTP 요청 메시지 구조](/assets/img/posts/http-uri-web-request-flow/07_http_request.png)
+![HTTP 요청 메시지 구조](/assets/img/http/http-uri-web-request-flow/07_http_request.png)
 
 | 요소             | 내용                               |
 | ---------------- | ---------------------------------- |
@@ -260,7 +260,7 @@ Host: www.google.com
 
 ### SOCKET 라이브러리를 통한 전달
 
-![SOCKET 라이브러리를 통한 전달](/assets/img/posts/http-uri-web-request-flow/08_socket_transmission.png)
+![SOCKET 라이브러리를 통한 전달](/assets/img/http/http-uri-web-request-flow/08_socket_transmission.png)
 
 - **전송 과정**
 
@@ -273,11 +273,11 @@ Host: www.google.com
 
 ### TCP/IP 패킷 생성
 
-![TCP/IP 패킷 구조](/assets/img/posts/http-uri-web-request-flow/09_tcpip_packet.png)
+![TCP/IP 패킷 구조](/assets/img/http/http-uri-web-request-flow/09_tcpip_packet.png)
 
 ### 요청 패킷 전달
 
-![요청 패킷 전달](/assets/img/posts/http-uri-web-request-flow/10_packet_delivery.png)
+![요청 패킷 전달](/assets/img/http/http-uri-web-request-flow/10_packet_delivery.png)
 
 - **패킷 이동 과정**
 
@@ -287,7 +287,7 @@ Host: www.google.com
 
 ### 서버에서 HTTP 메시지 해석
 
-![서버에서 HTTP 메시지 해석](/assets/img/posts/http-uri-web-request-flow/11_message_interpretation.png)
+![서버에서 HTTP 메시지 해석](/assets/img/http/http-uri-web-request-flow/11_message_interpretation.png)
 
 ### HTTP 응답 메시지 생성
 
@@ -301,7 +301,7 @@ Content-Length: 3423
 </html>
 ```
 
-![HTTP 응답 메시지 구조](/assets/img/posts/http-uri-web-request-flow/12_http_response.png)
+![HTTP 응답 메시지 구조](/assets/img/http/http-uri-web-request-flow/12_http_response.png)
 
 | 요소            | 내용                            |
 | --------------- | ------------------------------- |
@@ -314,11 +314,11 @@ Content-Length: 3423
 
 ### 응답 패킷 전달
 
-![응답 패킷 전달](/assets/img/posts/http-uri-web-request-flow/13_response_delivery.png)
+![응답 패킷 전달](/assets/img/http/http-uri-web-request-flow/13_response_delivery.png)
 
 ### HTML 렌더링
 
-![HTML 렌더링 과정](/assets/img/posts/http-uri-web-request-flow/14_html_rendering.png)
+![HTML 렌더링 과정](/assets/img/http/http-uri-web-request-flow/14_html_rendering.png)
 
 - **렌더링 과정**
 
@@ -335,7 +335,7 @@ Content-Length: 3423
 
 ### URI, URL, URN
 
-![URI, URL, URN 개념 마인드맵](/assets/img/posts/http-uri-web-request-flow/15_uri_mindmap.png)
+![URI, URL, URN 개념 마인드맵](/assets/img/http/http-uri-web-request-flow/15_uri_mindmap.png)
 
 ### URL 구성 요소
 
@@ -351,7 +351,7 @@ Content-Length: 3423
 
 ### 웹 브라우저 요청 흐름
 
-![웹 브라우저 요청 흐름 요약](/assets/img/posts/http-uri-web-request-flow/16_flow_summary.png)
+![웹 브라우저 요청 흐름 요약](/assets/img/http/http-uri-web-request-flow/16_flow_summary.png)
 
 <br/><br/>
 
