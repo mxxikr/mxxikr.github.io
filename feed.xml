@@ -1,0 +1,390 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://mxxikr.github.io/</id>
+  <title>MXXI.kr</title>
+  <subtitle>Backend Developer. Sharing knowledge about software development, system design, and technology insights.</subtitle>
+  <updated>2026-01-17T11:40:14+09:00</updated>
+  <author>
+    <name>mxxikr</name>
+    <uri>https://mxxikr.github.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://mxxikr.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://mxxikr.github.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2026 mxxikr </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 9장 최소한 알고 있어야 할 서버 지식</title>
+    <link href="https://mxxikr.github.io/posts/backend-basics-chapter9/" rel="alternate" type="text/html" title="[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 9장 최소한 알고 있어야 할 서버 지식" />
+    <published>2026-01-17T10:30:00+09:00</published>
+  
+    <updated>2026-01-17T10:30:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/backend-basics-chapter9/</id>
+    <content src="https://mxxikr.github.io/posts/backend-basics-chapter9/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Book" />
+    
+    <category term="Backend" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다.
+
+
+
+
+9장에서 다루는 내용
+
+
+  개발자와 서버
+  OS 계정과 권한
+  프로세스 관리
+  디스크 용량 관리
+  파일 디스크립터 제한
+  시간 맞추기
+  크론으로 스케줄링하기
+  alias 등록하기
+  네트워크 정보 확인
+
+
+
+
+개발자와 서버
+
+개발자의 역할
+
+
+  인프라와 플랫폼 관리
+    
+      서버의 물리적 장비와 클라우드 서비스 운영
+    
+  
+  서비스 개발
+    
+      인프라와 플랫폼을 기반으로 서비스 로직 구현
+    
+  
+  백엔드 개발
+    
+      OS 설정, 관리, 설정 등 서버 관련 업무
+    
+  
+
+
+서버와 OS의 관계
+
+
+  ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[김영한의 스프링 MVC 1편 백엔드 웹 개발 핵심 기술] Servlet</title>
+    <link href="https://mxxikr.github.io/posts/spring-mvc-servlet/" rel="alternate" type="text/html" title="[김영한의 스프링 MVC 1편 백엔드 웹 개발 핵심 기술] Servlet" />
+    <published>2026-01-16T19:14:00+09:00</published>
+  
+    <updated>2026-01-16T19:14:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-mvc-servlet/</id>
+    <content src="https://mxxikr.github.io/posts/spring-mvc-servlet/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Servlet
+
+
+  김영한님의 스프링 MVC 1편 백엔드 웹 개발 핵심 기술 강의를 통해 Servlet의 HTTP 요청/응답 처리 메커니즘과 다양한 데이터 전송 방식을 정리함
+
+
+
+
+Servlet 기본 설정
+
+프로젝트 구성
+
+
+  필수 설정
+    
+      Java
+        
+          17 이상
+        
+      
+      Spring Boot
+        
+          3.2 이상
+        
+      
+      Packaging
+        
+          War (JSP 실행을 위해 필수)
+        
+      
+      Dependencies
+        
+          Spring Web, Lombok
+        
+      
+...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[김영한의 스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 웹 애플리케이션 이해</title>
+    <link href="https://mxxikr.github.io/posts/spring-mvc-web-application/" rel="alternate" type="text/html" title="[김영한의 스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 웹 애플리케이션 이해" />
+    <published>2026-01-16T18:30:00+09:00</published>
+  
+    <updated>2026-01-17T09:39:53+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-mvc-web-application/</id>
+    <content src="https://mxxikr.github.io/posts/spring-mvc-web-application/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      웹 애플리케이션 이해
+
+
+  김영한님의 스프링 MVC 1편 백엔드 웹 개발 핵심 기술 강의를 통해 웹 애플리케이션의 구조와 핵심 기술을 정리함
+
+
+
+
+웹 애플리케이션의 기본 구조
+
+웹 서버와 WAS
+
+
+  현대 웹 애플리케이션은 HTTP 프로토콜을 기반으로 동작하며, 정적 리소스 처리와 동적 로직 실행을 분리하여 처리함
+
+
+
+
+
+  웹 서버 (Web Server)
+    
+      역할
+        
+          정적 리소스(HTML, CSS, JS, 이미지) 제공
+        
+      
+      예시
+        
+          NGINX, Apache
+        
+      
+      특징
+        
+          안정적이고 장애에 강함
+        
+     ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 8장 실무에서 꼭 필요한 보안 지식</title>
+    <link href="https://mxxikr.github.io/posts/backend-basics-chapter8/" rel="alternate" type="text/html" title="[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 8장 실무에서 꼭 필요한 보안 지식" />
+    <published>2026-01-16T10:45:00+09:00</published>
+  
+    <updated>2026-01-16T13:45:52+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/backend-basics-chapter8/</id>
+    <content src="https://mxxikr.github.io/posts/backend-basics-chapter8/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Book" />
+    
+    <category term="Backend" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다.
+
+
+
+
+8장에서 다루는 내용
+
+
+  중요한 보안
+  인증과 인가
+  암호화
+  HMAC을 이용한 데이터 검증
+  방화벽으로 트래픽 제한
+  감사 로그(Audit Log) 남기기
+  데이터 노출 줄이기
+  비정상 접근 처리
+  시큐어 코딩
+  개인 보안
+
+
+
+
+중요한 보안
+
+보안 사고의 현황
+
+
+  최근 몇 년간 대규모 개인정보 유출 사고가 빈번하게 발생하고 있음
+  주요 유출 경로
+    
+      수백만 건의 계정 정보가 노출되는 대형 서비스 해킹
+      부적절한 접근 제어로 인한 고객 정보 유출
+      취약한 인증 시스템을 통한 무단 접근
+    
+  
+
+
+URL 파라...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 헤더2 - 캐시와 조건부 요청</title>
+    <link href="https://mxxikr.github.io/posts/http-headers-cache/" rel="alternate" type="text/html" title="[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 헤더2 - 캐시와 조건부 요청" />
+    <published>2026-01-15T17:54:00+09:00</published>
+  
+    <updated>2026-01-16T11:49:34+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/http-headers-cache/</id>
+    <content src="https://mxxikr.github.io/posts/http-headers-cache/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Computer Science" />
+    
+    <category term="Web" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      HTTP 헤더2 - 캐시와 조건부 요청
+
+
+  김영한님의 모든 개발자를 위한 HTTP 웹 기본 지식 강의를 통해 HTTP 캐시의 기본 동작 원리, 검증 헤더(Last-Modified, ETag)와 조건부 요청(If-Modified-Since, If-None-Match), 캐시 제어 헤더(Cache-Control), 프록시 캐시, 캐시 무효화 방법을 정리함
+
+
+
+
+캐시 기본 동작
+
+캐시가 없을 때의 문제점
+
+
+
+
+  문제점
+    
+      데이터가 변경되지 않아도 계속 네트워크를 통해 다운로드
+      인터넷 네트워크는 매우 느리고 비쌈
+      브라우저 로딩 속도가 느림
+      느린 사용자 경험
+    
+  
+
+
+캐시 적용
+
+
+
+
+  캐시 적용 효과
+    
+      캐시 가능 시간 동안 ...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+
