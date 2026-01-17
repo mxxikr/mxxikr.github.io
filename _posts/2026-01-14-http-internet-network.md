@@ -19,7 +19,7 @@ mermaid: false
 
 - 인터넷에서 클라이언트와 서버가 통신할 때 메시지는 수많은 중간 노드(node)를 거쳐 전달됨
 
-![인터넷 통신 흐름](/assets/img/posts/http-internet-network/01_internet_communication.png)
+![인터넷 통신 흐름](/assets/img/http/http-internet-network/01_internet_communication.png)
 
 <br/><br/>
 
@@ -36,7 +36,7 @@ mermaid: false
 
 ### IP 패킷 구조
 
-![IP 패킷 구조](/assets/img/posts/http-internet-network/02_ip_packet_structure.png)
+![IP 패킷 구조](/assets/img/http/http-internet-network/02_ip_packet_structure.png)
 
 - **출발지 IP**
   - 메시지를 보내는 컴퓨터의 IP 주소
@@ -49,7 +49,7 @@ mermaid: false
 
 ### IP 패킷 전달 과정
 
-![IP 패킷 전달 과정](/assets/img/posts/http-internet-network/03_ip_packet_flow.png)
+![IP 패킷 전달 과정](/assets/img/http/http-internet-network/03_ip_packet_flow.png)
 
 - 클라이언트가 서버로 패킷 전송
 - 인터넷 노드들을 거쳐 서버에 도달
@@ -65,7 +65,7 @@ mermaid: false
 | **비신뢰성 (패킷 순서)** | 패킷이 순서대로 안 올 수 있음                            | 패킷1, 패킷3, 패킷2 순서로 도착 |
 | **프로그램 구분**        | 같은 IP를 사용하는 서버에서 여러 애플리케이션 구분 불가  | 웹, 게임, 화상통화 동시 사용 시 |
 
-![패킷 소실 예시](/assets/img/posts/http-internet-network/04_packet_loss.png)
+![패킷 소실 예시](/assets/img/http/http-internet-network/04_packet_loss.png)
 
 <br/><br/>
 
@@ -73,7 +73,7 @@ mermaid: false
 
 ### 인터넷 프로토콜 스택의 4계층
 
-![인터넷 프로토콜 4계층](/assets/img/posts/http-internet-network/05_protocol_stack.png)
+![인터넷 프로토콜 4계층](/assets/img/http/http-internet-network/05_protocol_stack.png)
 
 - **애플리케이션 계층 (HTTP, FTP)**
   - 사용자가 사용하는 서비스 제공
@@ -86,7 +86,7 @@ mermaid: false
 
 ### 프로토콜 계층 동작 과정
 
-![프로토콜 계층 동작 과정](/assets/img/posts/http-internet-network/06_protocol_operation.png)
+![프로토콜 계층 동작 과정](/assets/img/http/http-internet-network/06_protocol_operation.png)
 
 1. 프로그램이 "Hello, world!" 메시지 생성
 2. SOCKET 라이브러리를 통해 전달
@@ -96,7 +96,7 @@ mermaid: false
 
 ### TCP/IP 패킷 구조
 
-![TCP/IP 패킷 구조](/assets/img/posts/http-internet-network/07_tcpip_packet.png)
+![TCP/IP 패킷 구조](/assets/img/http/http-internet-network/07_tcpip_packet.png)
 
 - **IP 패킷**
   - 출발지 IP
@@ -128,7 +128,7 @@ mermaid: false
 
 ### TCP 3 Way Handshake
 
-![TCP 3 Way Handshake](/assets/img/posts/http-internet-network/08_tcp_handshake.png)
+![TCP 3 Way Handshake](/assets/img/http/http-internet-network/08_tcp_handshake.png)
 
 1. **SYN (접속 요청)**
    - 클라이언트가 서버에 연결 요청
@@ -144,7 +144,7 @@ mermaid: false
 
 ### TCP 데이터 전달 보증
 
-![TCP 데이터 전달 보증](/assets/img/posts/http-internet-network/09_tcp_delivery.png)
+![TCP 데이터 전달 보증](/assets/img/http/http-internet-network/09_tcp_delivery.png)
 
 1. 클라이언트가 데이터 전송
 2. 서버가 데이터 잘 받았음 (ACK) 응답
@@ -153,7 +153,7 @@ mermaid: false
 
 ### TCP 순서 보장
 
-![TCP 순서 보장](/assets/img/posts/http-internet-network/10_tcp_order.png)
+![TCP 순서 보장](/assets/img/http/http-internet-network/10_tcp_order.png)
 
 1. 클라이언트가 패킷1, 패킷2, 패킷3 전송
 2. 서버에 패킷1, 패킷3, 패킷2 순서로 도착
@@ -191,7 +191,7 @@ mermaid: false
 
 ### TCP와 UDP 비교
 
-![TCP vs UDP 비교](/assets/img/posts/http-internet-network/11_tcp_udp_comparison.png)
+![TCP vs UDP 비교](/assets/img/http/http-internet-network/11_tcp_udp_comparison.png)
 
 - **TCP - 신뢰성 우선**
   - 연결 수립 필요
@@ -208,7 +208,7 @@ mermaid: false
 
 ## Port
 
-![PORT 사용 예시](/assets/img/posts/http-internet-network/12_port_usage.png)
+![PORT 사용 예시](/assets/img/http/http-internet-network/12_port_usage.png)
 
 ### PORT란?
 
@@ -217,7 +217,7 @@ mermaid: false
 
 ### PORT 번호 체계
 
-![PORT 번호 체계](/assets/img/posts/http-internet-network/13_port_range.png)
+![PORT 번호 체계](/assets/img/http/http-internet-network/13_port_range.png)
 
 - **0 ~ 1023 - 잘 알려진 포트**
   - 사용하지 않는 것이 좋음
@@ -262,7 +262,7 @@ mermaid: false
 
 ### DNS 동작 과정
 
-![DNS 동작 과정](/assets/img/posts/http-internet-network/14_dns_operation.png)
+![DNS 동작 과정](/assets/img/http/http-internet-network/14_dns_operation.png)
 
 1. 클라이언트가 DNS 서버에 google.com의 IP 주소 요청
 2. DNS 서버가 200.200.200.2 응답
@@ -272,7 +272,7 @@ mermaid: false
 
 ### DNS 계층 구조
 
-![DNS 계층 구조](/assets/img/posts/http-internet-network/15_dns_hierarchy.png)
+![DNS 계층 구조](/assets/img/http/http-internet-network/15_dns_hierarchy.png)
 
 - **Root DNS (.)**
   - 최상위 DNS 서버
@@ -296,7 +296,7 @@ mermaid: false
 
 ### 웹 브라우저에서 google.com 접속 시
 
-![웹 브라우저에서 google.com 접속 시](/assets/img/posts/http-internet-network/16_complete_flow.png)
+![웹 브라우저에서 google.com 접속 시](/assets/img/http/http-internet-network/16_complete_flow.png)
 
 1. 사용자가 google.com 입력
 2. 웹 브라우저가 DNS 서버에 IP 주소 요청
@@ -308,7 +308,7 @@ mermaid: false
 
 ### 계층별 데이터 흐름
 
-![계층별 데이터 흐름](/assets/img/posts/http-internet-network/17_layer_flow.png)
+![계층별 데이터 흐름](/assets/img/http/http-internet-network/17_layer_flow.png)
 
 - **클라이언트**
   - Application (HTTP) → Transport (TCP) → Internet (IP) → Network (Ethernet)
@@ -355,7 +355,7 @@ mermaid: false
 
 ## 요약 정리
 
-![인터넷 네트워크 5대 개념](/assets/img/posts/http-internet-network/18_mindmap.png)
+![인터넷 네트워크 5대 개념](/assets/img/http/http-internet-network/18_mindmap.png)
 
 ### 계층별 역할
 

@@ -163,7 +163,7 @@ mermaid: false
 
 - 객체 지향 방식의 동작 흐름
 
-  ![객체 지향 동작 흐름](/assets/img/books/java-basic-oop/oop_sequence.png)
+  ![객체 지향 동작 흐름](/assets/img/java-part2/oop_sequence.png)
 
 <br/><br/>
 

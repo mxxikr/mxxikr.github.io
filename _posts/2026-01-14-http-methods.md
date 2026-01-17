@@ -83,7 +83,7 @@ mermaid: false
   Host: www.google.com
   ```
 
-![Diagram 02](/assets/img/posts/http-methods/02_diagram.png)
+![Diagram 02](/assets/img/http/http-methods/02_diagram.png)
 
 ### POST 메서드
 
@@ -108,7 +108,7 @@ mermaid: false
     - `JSON`으로 조회 데이터를 넘겨야 하는데 `GET` 사용이 어려운 경우
     - 애매하면 `POST` 사용
 
-  ![Diagram 03](/assets/img/posts/http-methods/03_diagram.png)
+  ![Diagram 03](/assets/img/http/http-methods/03_diagram.png)
 
 ### PUT 메서드
 
@@ -131,7 +131,7 @@ mermaid: false
 
   - 데이터가 완전히 대체됨
 
-    ![Diagram 04](/assets/img/posts/http-methods/04_diagram.png)
+    ![Diagram 04](/assets/img/http/http-methods/04_diagram.png)
 
 ```http
 PUT /members/100 HTTP/1.1
@@ -168,7 +168,7 @@ Content-Type: application/json
     - 결과
       - `username: young`, `age: 50` (`username` 유지)
 
-![Diagram 05](/assets/img/posts/http-methods/05_diagram.png)
+![Diagram 05](/assets/img/http/http-methods/05_diagram.png)
 
 ```http
 PATCH /members/100 HTTP/1.1
@@ -186,7 +186,7 @@ Content-Type: application/json
 
 - 리소스 제거
 
-![Diagram 06](/assets/img/posts/http-methods/06_diagram.png)
+![Diagram 06](/assets/img/http/http-methods/06_diagram.png)
 
 <br/><br/>
 
@@ -229,7 +229,7 @@ Content-Type: application/json
   - 중복 발생 가능
 - 멱등은 외부 요인으로 인한 변경은 고려하지 않음
 
-![Diagram 07](/assets/img/posts/http-methods/07_diagram.png)
+![Diagram 07](/assets/img/http/http-methods/07_diagram.png)
 
 ### 캐시 가능(Cacheable)
 
@@ -308,7 +308,7 @@ Content-Type: application/json
 - 애매한 경우
   - `POST`
 
-![Diagram 08](/assets/img/posts/http-methods/08_diagram.png)
+![Diagram 08](/assets/img/http/http-methods/08_diagram.png)
 
 ### 설계 검증 시
 
