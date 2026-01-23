@@ -96,60 +96,61 @@ mermaid: false
 
 1. **시작 노드(1) 방문**
 
-![1단계 초기 상태](/assets/img/algorithm/bfs/step1-init.png)
+  ![1단계 초기 상태](/assets/img/algorithm/bfs/step1-init.png)
 
-- 노드 1을 큐에 삽입
-- 방문 배열 체크: `visited[1] = true`
+  - 노드 1을 큐에 삽입
+  - 방문 배열 체크
+    - `visited[1] = true`
 
 2. **노드 1 꺼내고 인접 노드(2, 3) 삽입**
 
-![2단계](/assets/img/algorithm/bfs/step2.png)
+  ![2단계](/assets/img/algorithm/bfs/step2.png)
 
-- 노드 1 꺼냄 → 탐색 순서: `1`
-- 인접 노드 2, 3을 큐에 삽입
-- `visited[2] = true`, `visited[3] = true`
+  - 노드 1 꺼냄 → 탐색 순서 `1`
+  - 인접 노드 2, 3을 큐에 삽입
+  - `visited[2] = true`, `visited[3] = true`
 
 3. **노드 2 꺼내고 인접 노드(5, 6) 삽입**
 
-   ![3단계](/assets/img/algorithm/bfs/step3.png)
+  ![3단계](/assets/img/algorithm/bfs/step3.png)
 
-   - 노드 2 꺼냄 → 탐색 순서: `1 → 2`
-   - 인접 노드 중 미방문: 5, 6
-   - 노드 1은 이미 방문했으므로 스킵
-   - `visited[5] = true`, `visited[6] = true`
+  - 노드 2 꺼냄 → 탐색 순서 `1 → 2`
+  - 인접 노드 중 미방문 노드는 5, 6
+  - 노드 1은 이미 방문했으므로 스킵
+  - `visited[5] = true`, `visited[6] = true`
 
 4. **노드 3 꺼내고 인접 노드(4) 삽입**
 
-   ![4단계](/assets/img/algorithm/bfs/step4.png)
+  ![4단계](/assets/img/algorithm/bfs/step4.png)
 
-   - 노드 3 꺼냄 → 탐색 순서: `1 → 2 → 3`
-   - 인접 노드 중 미방문: 4
-   - 노드 1은 이미 방문
-   - `visited[4] = true`
+  - 노드 3 꺼냄 → 탐색 순서 `1 → 2 → 3`
+  - 인접 노드 중 미방문 노드는 4
+  - 노드 1은 이미 방문
+  - `visited[4] = true`
 
 5. **노드 5 꺼내기**
 
-   ![5단계](/assets/img/algorithm/bfs/step5.png)
+  ![5단계](/assets/img/algorithm/bfs/step5.png)
 
-   - 노드 5 꺼냄 → 탐색 순서: `1 → 2 → 3 → 5`
-   - 인접 노드(2)는 이미 방문
-   - 큐에 추가할 노드 없음
+  - 노드 5 꺼냄 → 탐색 순서 `1 → 2 → 3 → 5`
+  - 인접 노드(2)는 이미 방문
+  - 큐에 추가할 노드 없음
 
 6. **노드 6 꺼내기**
 
-   ![6단계](/assets/img/algorithm/bfs/step6.png)
+  ![6단계](/assets/img/algorithm/bfs/step6.png)
 
-   - 노드 6 꺼냄 → 탐색 순서: `1 → 2 → 3 → 5 → 6`
-   - 인접 노드(2, 4)는 이미 방문
-   - 큐에 추가할 노드 없음
+  - 노드 6 꺼냄 → 탐색 순서 `1 → 2 → 3 → 5 → 6`
+  - 인접 노드(2, 4)는 이미 방문
+  - 큐에 추가할 노드 없음
 
 7. **노드 4 꺼내고 탐색 완료**
 
-   ![7단계 완료](/assets/img/algorithm/bfs/step7-final.png)
+  ![7단계 완료](/assets/img/algorithm/bfs/step7-final.png)
 
-   - 노드 4 꺼냄 → 탐색 순서: `1 → 2 → 3 → 5 → 6 → 4`
-   - 인접 노드(3, 6)는 이미 방문
-   - 큐가 비어 탐색 종료
+  - 노드 4 꺼냄 → 탐색 순서 `1 → 2 → 3 → 5 → 6 → 4`
+  - 인접 노드(3, 6)는 이미 방문
+  - 큐가 비어 탐색 종료
 
 ### 레벨별 분석
 
