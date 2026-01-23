@@ -6,8 +6,15 @@
   letter-spacing: 0.03rem;
 
   /* 아카이브 페이지 제목 색상 개선 */
-  h1, h2, h3, h4, h5, h6,
-  .page-title, .section-title, .main-title,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .page-title,
+  .section-title,
+  .main-title,
   .archive-title {
     color: #424245 !important;
   }
@@ -48,7 +55,8 @@
       display: none;
     }
 
-    &::after { /* Year dot */
+    &::after {
+      /* Year dot */
       display: none;
       z-index: 2;
     }
@@ -58,7 +66,7 @@
     margin-top: -5px;
     position: relative;
     z-index: 2;
-    
+
     li {
       font-size: 1.1rem;
       line-height: 3rem;
@@ -94,7 +102,6 @@
       &:hover {
         background: rgb(224, 219, 239) !important;
         background-color: rgb(224, 219, 239) !important;
-        transform: translateX(4px);
         box-shadow: 0 4px 16px rgba(153, 134, 179, 0.15);
         border-color: rgba(255, 255, 255, 0.2);
       }
@@ -120,7 +127,7 @@
         float: left !important;
         background-color: rgb(153, 134, 179) !important;
         top: 0 !important;
-        left: 109px !important;
+        left: 68px !important;
         height: 3rem !important;
         border-radius: 2px !important;
         z-index: 0 !important;
@@ -140,7 +147,6 @@
       height: 1.5rem;
       top: -12px;
     }
-
   } /* #archives ul */
 
   .date {
@@ -174,7 +180,7 @@
 
     &.day {
       font-size: 85%;
-      font-family: 'Lato', sans-serif;
+      font-family: "Lato", sans-serif;
       text-align: center;
       margin-right: -2px;
       width: 1.2rem;
@@ -183,7 +189,6 @@
       color: var(--archive-date-color, rgb(153, 134, 179));
     }
   } // #archives .date
-
 } // #archives
 
 @media all and (max-width: 576px) {
