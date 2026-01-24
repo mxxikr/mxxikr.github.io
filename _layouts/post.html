@@ -88,9 +88,18 @@ tail_includes:
 
 </div> <!-- .post-meta -->
 
+
+{% if page.password %}
+  {% include post-password-form.html %}
+  <div id="protected-content" class="post-content" style="display: none;">
+    {{ content }}
+  </div>
+{% else %}
 <div class="post-content">
   {{ content }}
 </div>
+{% endif %}
+
 
 <div class="post-tail-wrapper text-muted">
 
