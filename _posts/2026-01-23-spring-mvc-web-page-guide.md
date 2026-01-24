@@ -20,9 +20,9 @@ mermaid: false
 - **빌드 도구**
   - Gradle
 - **언어**
-  - Java 11
+  - Java 21
 - **Spring Boot**
-  - 2.4.x
+  - 4.0.1
 - **패키징**
   - Jar (내장 톰캣 사용)
 - **Dependencies**
@@ -183,14 +183,14 @@ public class ItemRepository {
   <link href="../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
   ```
 
-- **URL 링크 표현식 - @{...}**
+- **URL 링크 표현식 - @{}**
 
   ```html
   th:href="@{/css/bootstrap.min.css}"
   ```
 
   - **특징**
-    - URL 링크 사용 시 `@{...}` 사용
+    - URL 링크 사용 시 `@{}` 사용
     - 서블릿 컨텍스트 자동 포함
     - 경로 변수, 쿼리 파라미터 지원
 
@@ -208,7 +208,7 @@ public class ItemRepository {
     <!-- 결과: /basic/items/1?query=test -->
     ```
 
-- **리터럴 대체 - |...|**
+- **리터럴 대체 - ||**
 
   ```html
   <!-- 복잡한 방식 -->
@@ -239,7 +239,7 @@ public class ItemRepository {
     - `items` 컬렉션의 데이터를 `item` 변수에 하나씩 할당
     - 컬렉션 수만큼 `<tr>` 태그와 하위 태그 생성
 
-- **변수 표현식 - ${...}**
+- **변수 표현식 - ${}**
 
   ```html
   <td th:text="${item.price}">10000</td>
@@ -653,7 +653,7 @@ return "redirect:/basic/items/{itemId}";
 
    a. `${}`
 
-   - `${...}`형태의 변수 표현식은 타임리프에서 모델에 담긴 객체나 데이터의 속성 값에 접근하고 출력할 때 사용되는 기본적인 문법임
+   - `${}`형태의 변수 표현식은 타임리프에서 모델에 담긴 객체나 데이터의 속성 값에 접근하고 출력할 때 사용되는 기본적인 문법임
 
 6. 다중 스레드 환경에서 여러 쓰레드가 동시에 읽고 쓸 때 안전하게 데이터를 수정할 수 있는 환경에서 사용하기 어려운 맵은 무엇인가요?
 
@@ -707,7 +707,7 @@ return "redirect:/basic/items/{itemId}";
     - 순수 HTML 유지
   - 주요 문법
     - `th:text`, `th:value`, `th:href`, `th:action`
-    - `@{...}`, `${...}`, `|...|`
+    - `@{}`, `${}`, `||`
     - `th:each`, `th:if`
 - **CRUD 기능 구현**
   - 상품 목록
