@@ -168,16 +168,7 @@ blockquote {
   overflow: hidden;
 }
 
-blockquote::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  opacity: 0.2;
-}
+/* Shimmer effect removed by user request */
 
 blockquote p {
   margin-bottom: 1rem;
@@ -213,16 +204,7 @@ table {
   position: relative;
 }
 
-table::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  opacity: 0.3;
-}
+/* Shimmer effect removed */
 
 th,
 td {
@@ -268,16 +250,7 @@ a:hover {
   overflow: hidden;
 }
 
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  opacity: 0.3;
-}
+/* Shimmer effect removed */
 
 .card:hover {
   box-shadow: 0 8px 24px rgba(196, 190, 226, 0.25);
@@ -303,20 +276,8 @@ a:hover {
   box-shadow: 0 2px 8px var(--glass-shadow);
 }
 
-.tag::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s ease;
-}
-
-.tag:hover::before {
-  left: 100%;
-}
+/* Shimmer effect removed */
+.tag::before { display: none; }
 
 .tag:hover {
   background: rgba(255, 255, 255, 0.1);
@@ -350,22 +311,8 @@ button {
   color: var(--apple-gray);
 }
 
-.btn::before,
-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s ease;
-}
-
-.btn:hover::before,
-button:hover::before {
-  left: 100%;
-}
+/* Shimmer effect removed */
+.btn::before, button::before { display: none; }
 
 .btn:hover,
 button:hover {
@@ -468,24 +415,10 @@ select:focus {
   display: none;
 }
 
+/* Shimmer effect removed */
 .nav-link::before,
 .sidebar-nav-item::before,
-.topbar-nav-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s ease;
-}
-
-.nav-link:hover::before,
-.sidebar-nav-item:hover::before,
-.topbar-nav-item:hover::before {
-  left: 100%;
-}
+.topbar-nav-item::before { display: none; }
 
 .nav-link:hover,
 .sidebar-nav-item:hover,
@@ -698,22 +631,9 @@ select:focus {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Shimmer effect removed */
 .pagination a::before,
-.post-pagination a::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s ease;
-}
-
-.pagination a:hover::before,
-.post-pagination a:hover::before {
-  left: 100%;
-}
+.post-pagination a::before { display: none; }
 
 .pagination a:hover,
 .post-pagination a:hover {
