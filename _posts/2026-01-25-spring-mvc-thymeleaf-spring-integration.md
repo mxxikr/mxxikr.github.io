@@ -245,7 +245,6 @@ mermaid: true
 | **라디오 버튼** | ENUM 활용, `checked` 자동 처리 | `th:field`, `th:value` |
 | **셀렉트 박스** | 객체 활용, `selected` 자동 처리 | `th:field`, `th:value`, `th:text` |
 
-### 핵심 개념
 
 ![타임리프 폼 기능 핵심](/assets/img/spring/thymeleaf-form-concepts.png)
 
