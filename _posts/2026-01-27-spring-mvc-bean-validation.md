@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 스프링 MVC 2편 백엔드 웹 개발 핵심 기술] 검증2 - Bean Validation'
+title: '[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 검증2 - Bean Validation'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-27 19:00:00 +0900
 category: [Framework, Spring]
@@ -502,4 +502,4 @@ public String addItem(@Validated @ModelAttribute("item") ItemSaveForm form,
 
 ## Reference
 
-- [스프링 MVC 2편 - 백엔드 웹 개발 핵심 기술](https://www.inflearn.com/course/스프링-mvc-2)
+- [스프링 MVC 2편 - 백엔드 웹 개발 활용 기술](https://www.inflearn.com/course/스프링-mvc-2)
