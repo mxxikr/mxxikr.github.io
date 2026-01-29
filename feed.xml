@@ -1,0 +1,359 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://mxxikr.github.io/</id>
+  <title>MXXI.kr</title>
+  <subtitle>Backend Developer. Sharing knowledge about software development, system design, and technology insights.</subtitle>
+  <updated>2026-01-29T13:51:40+09:00</updated>
+  <author>
+    <name>mxxikr</name>
+    <uri>https://mxxikr.github.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://mxxikr.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://mxxikr.github.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2026 mxxikr </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 예외 처리와 오류 페이지</title>
+    <link href="https://mxxikr.github.io/posts/spring-mvc-exception-handling/" rel="alternate" type="text/html" title="[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 예외 처리와 오류 페이지" />
+    <published>2026-01-28T16:00:00+09:00</published>
+  
+    <updated>2026-01-28T16:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-mvc-exception-handling/</id>
+    <content src="https://mxxikr.github.io/posts/spring-mvc-exception-handling/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      예외 처리와 오류 페이지
+
+
+  김영한님의 스프링 MVC 2편 강의를 통해 서블릿과 스프링 부트가 제공하는 예외 처리 방식과 오류 페이지 등록 방법을 이해하고, 필터와 인터셉터에서 오류 요청을 효율적으로 처리하는 방법(DispatcherType)을 정리함
+
+
+
+
+서블릿 예외 처리 기본
+
+서블릿의 예외 처리 방식
+
+
+  Exception (예외)
+  response.sendError(HTTP 상태 코드, 오류 메시지)
+
+
+Exception (예외) 방식
+
+
+  자바 직접 실행
+    
+      main 메서드에서 예외 발생 시
+      main 메서드를 넘어서면 예외 정보 남기고 쓰레드 종료됨
+    
+  
+  웹 애플리케이션
+    
+      요청별로 별도의 쓰레드 할당
+      서블릿 컨테이너...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 로그인 처리 - 필터와 인터셉터</title>
+    <link href="https://mxxikr.github.io/posts/spring-mvc-filter-interceptor/" rel="alternate" type="text/html" title="[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 로그인 처리 - 필터와 인터셉터" />
+    <published>2026-01-28T10:00:00+09:00</published>
+  
+    <updated>2026-01-28T10:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-mvc-filter-interceptor/</id>
+    <content src="https://mxxikr.github.io/posts/spring-mvc-filter-interceptor/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      로그인 처리 - 필터와 인터셉터
+
+
+  김영한님의 스프링 MVC 2편 강의를 통해 서블릿 필터와 스프링 인터셉터의 개념과 차이점을 이해하고, 이를 활용하여 로그인 인증 체크, 로깅 등 웹 공통 관심사를 효율적으로 처리하는 방법을 정리함
+
+
+
+
+공통 관심 사항의 문제
+
+문제 상황
+
+
+  요구사항
+    
+      로그인한 사용자만 상품 관리 페이지 접근 가능
+      버튼은 숨겨져 있지만 URL 직접 호출 시 접근 가능
+    
+  
+  문제점
+    
+      모든 컨트롤러에 로그인 체크 로직 중복 작성 필요
+      등록, 수정, 삭제, 조회 등 모든 메서드에 동일 로직 반복
+      로그인 로직 변경 시 모든 코드 수정 필요
+    
+  
+
+
+공통 관심사
+
+
+  정의
+    
+      애...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 로그인 처리 - 쿠키와 세션</title>
+    <link href="https://mxxikr.github.io/posts/spring-mvc-login-session/" rel="alternate" type="text/html" title="[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 로그인 처리 - 쿠키와 세션" />
+    <published>2026-01-27T20:00:00+09:00</published>
+  
+    <updated>2026-01-27T20:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-mvc-login-session/</id>
+    <content src="https://mxxikr.github.io/posts/spring-mvc-login-session/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      로그인 처리 - 쿠키와 세션
+
+
+  김영한님의 스프링 MVC 2편 강의를 통해 로그인 처리의 기본 원리와 쿠키, 세션을 활용한 관리 방법, 그리고 서블릿이 제공하는 HttpSession의 기능과 보안 전략을 정리함
+
+
+
+
+로그인 기본 구조
+
+패키지 구조 설계
+
+
+  도메인이 가장 중요함
+  도메인 = 핵심 비즈니스 업무 영역 (화면, UI, 기술 인프라 제외)
+  web은 domain을 의존하지만, domain은 web을 의존하지 않음
+  web 패키지를 삭제해도 domain에는 영향이 없어야 함
+
+
+
+
+기본 로그인 구현
+
+
+  Member 도메인
+    @Data
+public class Member {
+    private Long id;
+    @NotEmpty
+    private String l...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 검증2 - Bean Validation</title>
+    <link href="https://mxxikr.github.io/posts/spring-mvc-bean-validation/" rel="alternate" type="text/html" title="[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 검증2 - Bean Validation" />
+    <published>2026-01-27T19:00:00+09:00</published>
+  
+    <updated>2026-01-28T08:28:16+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-mvc-bean-validation/</id>
+    <content src="https://mxxikr.github.io/posts/spring-mvc-bean-validation/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      검증2 - Bean Validation
+
+
+  김영한님의 스프링 MVC 2편 강의를 통해 Bean Validation을 활용한 검증 방법과 스프링 통합, 그리고 등록/수정 시 검증 분리 방법을 정리함
+
+
+
+
+Bean Validation 소개
+
+Bean Validation이란?
+
+
+
+
+  Bean Validation 2.0 (JSR-380)
+    
+      검증 로직을 표준화한 기술 표준임
+      JPA와 마찬가지로 인터페이스의 모음임
+    
+  
+  Hibernate Validator
+    
+      Bean Validation의 가장 일반적인 구현체임
+      이름에 Hibernate가 붙어있지만 ORM과는 관련이 없음
+    
+  
+  애노테이션 기반 검증
+    
+      @Not...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 검증1 - Validation</title>
+    <link href="https://mxxikr.github.io/posts/spring-mvc-validation/" rel="alternate" type="text/html" title="[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 검증1 - Validation" />
+    <published>2026-01-26T21:00:00+09:00</published>
+  
+    <updated>2026-01-28T08:28:16+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-mvc-validation/</id>
+    <content src="https://mxxikr.github.io/posts/spring-mvc-validation/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      검증1 - Validation
+
+
+  김영한님의 스프링 MVC 2편 강의를 통해 데이터 검증의 필요성과 스프링이 제공하는 BindingResult, FieldError, ObjectError 등을 활용한 다양한 검증 처리 방법을 정리함
+
+
+
+
+검증 요구사항
+
+새로운 요구사항
+
+
+
+검증의 중요성
+
+
+  문제 상황
+    
+      검증 오류 발생 시 오류 화면으로 바로 이동하면 사용자는 처음부터 다시 입력해야 하므로 이탈률이 높아짐
+    
+  
+  필요한 기능
+    
+      오류 발생 시 입력한 데이터를 유지해야 함
+      어떤 오류가 발생했는지 친절하게 안내해야 함
+      사용자가 쉽게 수정할 수 있도록 지원해야 함
+    
+  
+
+
+컨트롤러의 역할
+
+
+
+
+  검증 로직을 잘 개발하는 ...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+
