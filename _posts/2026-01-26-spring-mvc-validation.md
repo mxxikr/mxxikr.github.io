@@ -391,20 +391,6 @@ public interface Validator {
 
 <br/><br/>
 
-## 정리
-
-| 개념 | 설명 |
-|------|------|
-| **BindingResult** | 스프링의 검증 오류 보관 객체 |
-| **FieldError** | 필드 오류 표현 (입력 값 유지 기능 포함) |
-| **ObjectError** | 글로벌 오류 표현 |
-| **rejectValue()** | 필드 오류 간편 등록 (MessageCodesResolver 사용) |
-| **MessageCodesResolver** | 검증 오류 코드로 메시지 코드들을 생성 |
-| **Validator** | 검증 로직을 분리하기 위한 스프링 표준 인터페이스 |
-| **@Validated** | 검증기를 자동으로 실행하도록 설정하는 애노테이션 |
-
-<br/><br/>
-
 ## 연습 문제
 
 1. 애플리케이션에서 검증(Validation)이 중요한 주된 이유가 무엇일까요?
@@ -466,6 +452,20 @@ public interface Validator {
     a. @Valid 또는 @Validated
 
     - `@Valid` (표준 자바) 또는 `@Validated` (Spring) 어노테이션을 사용하면 Spring이 `WebDataBinder`에 등록된 `Validator`를 찾아 해당 객체에 대한 검증을 자동으로 수행함
+
+<br/><br/>
+
+## 요약 정리
+
+| 개념 | 설명 |
+|------|------|
+| **BindingResult** | 스프링의 검증 오류 보관 객체 |
+| **FieldError** | 필드 오류 표현 (입력 값 유지 기능 포함) |
+| **ObjectError** | 글로벌 오류 표현 |
+| **rejectValue()** | 필드 오류 간편 등록 (MessageCodesResolver 사용) |
+| **MessageCodesResolver** | 검증 오류 코드로 메시지 코드들을 생성 |
+| **Validator** | 검증 로직을 분리하기 위한 스프링 표준 인터페이스 |
+| **@Validated** | 검증기를 자동으로 실행하도록 설정하는 애노테이션 |
 
 <br/><br/>
 

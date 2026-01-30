@@ -356,31 +356,6 @@ public interface HandlerExceptionResolver {
 
 <br/><br/>
 
-## 정리
-
-- **API 예외 처리의 필요성**
-  - **HTML**
-    - `BasicErrorController`가 제공하는 오류 페이지로 충분함
-  - **API**
-    - 시스템마다 응답 스펙이 달라 세밀한 제어가 필요하며, JSON 형식으로 명확한 오류 정보를 제공해야 함
-- **HandlerExceptionResolver**
-  - **역할**
-    - 컨트롤러 예외가 WAS까지 전파되지 않도록 MVC 내부에서 해결하고 정상 응답으로 변환함
-  - **단점**
-    - 직접 구현 시 `ModelAndView` 반환, `response` 직접 작성 등 사용이 번거로움
-- **@ExceptionHandler**
-  - **장점**
-    - 해당 컨트롤러에서 발생한 예외를 메서드로 처리하여 매우 유연하고 직관적임
-  - **기능**
-    - `ResponseEntity`를 통해 상태 코드, 헤더, 바디(JSON)를 자유롭게 설정 가능
-- **@ControllerAdvice**
-  - **역할**
-    - 여러 컨트롤러에 흩어진 예외 처리 코드를 별도 클래스로 분리하여 관리
-  - **적용**
-    - 특정 패키지나 애노테이션을 지정하여 글로벌하게 예외 처리 로직을 적용할 수 있음
-    
-<br/><br/>
-
 ## 연습 문제
 
 1. API 호출 시 HTML 오류 페이지가 클라이언트에게 문제가 되는 주된 이유는 무엇일까요?
@@ -420,6 +395,31 @@ public interface HandlerExceptionResolver {
    - @ControllerAdvice 또는 @RestControllerAdvice를 사용하면 여러 컨트롤러에서 발생하는 동일하거나 유사한 예외 처리 코드를 한 클래스에 모을 수 있음
    - 코드 중복을 줄이고 관리하기 쉽게 만들어 줌
 
+<br/><br/>
+
+## 요약 정리
+
+- **API 예외 처리의 필요성**
+  - **HTML**
+    - `BasicErrorController`가 제공하는 오류 페이지로 충분함
+  - **API**
+    - 시스템마다 응답 스펙이 달라 세밀한 제어가 필요하며, JSON 형식으로 명확한 오류 정보를 제공해야 함
+- **HandlerExceptionResolver**
+  - **역할**
+    - 컨트롤러 예외가 WAS까지 전파되지 않도록 MVC 내부에서 해결하고 정상 응답으로 변환함
+  - **단점**
+    - 직접 구현 시 `ModelAndView` 반환, `response` 직접 작성 등 사용이 번거로움
+- **@ExceptionHandler**
+  - **장점**
+    - 해당 컨트롤러에서 발생한 예외를 메서드로 처리하여 매우 유연하고 직관적임
+  - **기능**
+    - `ResponseEntity`를 통해 상태 코드, 헤더, 바디(JSON)를 자유롭게 설정 가능
+- **@ControllerAdvice**
+  - **역할**
+    - 여러 컨트롤러에 흩어진 예외 처리 코드를 별도 클래스로 분리하여 관리
+  - **적용**
+    - 특정 패키지나 애노테이션을 지정하여 글로벌하게 예외 처리 로직을 적용할 수 있음
+    
 <br/><br/>
 
 ## Reference

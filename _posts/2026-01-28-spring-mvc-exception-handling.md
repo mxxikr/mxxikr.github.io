@@ -276,28 +276,6 @@ public class WebConfig implements WebMvcConfigurer {
 
 <br/><br/>
 
-## 정리
-
-- **서블릿 예외 처리 방식**
-  - **Exception**
-    - WAS까지 예외가 전달되면 500 오류 발생
-  - **response.sendError()**
-    - HTTP 상태 코드 지정 및 오류 처리 가능
-- **오류 페이지 작동 원리**
-  - 예외 발생 시 WAS가 오류 페이지 경로로 다시 요청을 보냄
-  - 필터, 서블릿, 인터셉터, 컨트롤러가 모두 다시 호출됨
-- **중복 호출 방지**
-  - **필터**
-    - `DispatcherType`을 `REQUEST`로 설정하여 클라이언트 요청에만 적용
-  - **인터셉터**
-    - `excludePathPatterns`로 오류 페이지 경로 제외
-- **스프링 부트 오류 페이지**
-  - `BasicErrorController`가 `/error` 경로를 자동 처리
-  - `resources/templates/error/` 경로에 상태 코드별(4xx, 5xx) HTML 파일만 등록하면 됨
-  - `server.error.include-exception` 등의 옵션으로 오류 정보 노출 제어 가능
-
-<br/><br/>
-
 ## 연습 문제
 
 1. 웹 애플리케이션에서 예외 처리와 사용자 정의 오류 페이지를 구현하는 주된 이유는 무엇일까요?
@@ -330,6 +308,28 @@ public class WebConfig implements WebMvcConfigurer {
    a. View Templates -> Static Resources -> BasicErrorController
 
    - 스프링 부트는 뷰 템플릿(`templates/error/...`)에서 먼저 찾고, 없으면 정적 리소스(`static/error/...`)를 확인해요. 그래도 없으면 `BasicErrorController`의 기본 응답을 사용함
+
+<br/><br/>
+
+## 요약 정리
+
+- **서블릿 예외 처리 방식**
+  - **Exception**
+    - WAS까지 예외가 전달되면 500 오류 발생
+  - **response.sendError()**
+    - HTTP 상태 코드 지정 및 오류 처리 가능
+- **오류 페이지 작동 원리**
+  - 예외 발생 시 WAS가 오류 페이지 경로로 다시 요청을 보냄
+  - 필터, 서블릿, 인터셉터, 컨트롤러가 모두 다시 호출됨
+- **중복 호출 방지**
+  - **필터**
+    - `DispatcherType`을 `REQUEST`로 설정하여 클라이언트 요청에만 적용
+  - **인터셉터**
+    - `excludePathPatterns`로 오류 페이지 경로 제외
+- **스프링 부트 오류 페이지**
+  - `BasicErrorController`가 `/error` 경로를 자동 처리
+  - `resources/templates/error/` 경로에 상태 코드별(4xx, 5xx) HTML 파일만 등록하면 됨
+  - `server.error.include-exception` 등의 옵션으로 오류 정보 노출 제어 가능
 
 <br/><br/>
 

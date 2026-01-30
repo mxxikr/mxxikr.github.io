@@ -233,32 +233,6 @@ mermaid: true
 
 <br/><br/>
 
-## 정리
-
-### 타임리프 폼 기능 요약
-
-| 기능 | 설명 | 주요 속성 |
-|------|------|-----------|
-| **기본 입력 폼** | `id`, `name`, `value` 자동 처리 | `th:object`, `th:field` |
-| **체크박스 (단일)** | 히든 필드 자동 생성, `checked` 자동 처리 | `th:field` |
-| **체크박스 (멀티)** | 동적 `id` 생성, `checked` 비교 자동 처리 | `th:field`, `th:value`, `#ids.prev` |
-| **라디오 버튼** | ENUM 활용, `checked` 자동 처리 | `th:field`, `th:value` |
-| **셀렉트 박스** | 객체 활용, `selected` 자동 처리 | `th:field`, `th:value`, `th:text` |
-
-
-![타임리프 폼 기능 핵심](/assets/img/spring/thymeleaf-form-concepts.png)
-
-### 장점
-
-- **편리한 폼 개발**
-  - `th:object`, `th:field` 덕분에 반복적인 속성 작성 감소
-- **검증(Validation)**
-  - 검증 단계에서 오류 통합 기능과 시너지 발휘
-- **유지보수성**
-  - 코드 중복이 줄어들고 가독성 향상
-
-<br/><br/>
-
 ## 연습 문제
 
 1. Spring과 Thymeleaf를 함께 사용하여 폼을 처리할 때, 어떤 점이 개발에 편리함을 더해줄까요?
@@ -290,6 +264,32 @@ mermaid: true
    a. 라디오 버튼은 하나만 선택 가능하다.
 
    - 라디오 버튼은 여러 옵션 중에서 사용자에게 '하나의 선택'만을 강제할 때 사용하는 폼 요소로, 여러 개 선택이 가능한 체크박스와 구분됨
+
+<br/><br/>
+
+## 요약 정리
+
+### 타임리프 폼 기능 요약
+
+| 기능 | 설명 | 주요 속성 |
+|------|------|-----------|
+| **기본 입력 폼** | `id`, `name`, `value` 자동 처리 | `th:object`, `th:field` |
+| **체크박스 (단일)** | 히든 필드 자동 생성, `checked` 자동 처리 | `th:field` |
+| **체크박스 (멀티)** | 동적 `id` 생성, `checked` 비교 자동 처리 | `th:field`, `th:value`, `#ids.prev` |
+| **라디오 버튼** | ENUM 활용, `checked` 자동 처리 | `th:field`, `th:value` |
+| **셀렉트 박스** | 객체 활용, `selected` 자동 처리 | `th:field`, `th:value`, `th:text` |
+
+
+![타임리프 폼 기능 핵심](/assets/img/spring/thymeleaf-form-concepts.png)
+
+### 장점
+
+- **편리한 폼 개발**
+  - `th:object`, `th:field` 덕분에 반복적인 속성 작성 감소
+- **검증(Validation)**
+  - 검증 단계에서 오류 통합 기능과 시너지 발휘
+- **유지보수성**
+  - 코드 중복이 줄어들고 가독성 향상
 
 <br/><br/>
 

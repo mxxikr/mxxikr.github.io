@@ -218,6 +218,24 @@ mermaid: true
 
 <br/><br/>
 
+## 요약 정리
+
+- **메시지 적용**
+  - `messages.properties`와 같은 별도 파일로 텍스트를 관리하여 코드 수정 없이 문구 변경이 가능함
+  - 유지보수성과 일관성을 높일 수 있음
+- **국제화(i18n)**
+  - `messages_ko.properties`, `messages_en.properties`처럼 언어별 파일을 구성하여 다국어를 지원함
+  - 클라이언트의 `Locale` 정보에 따라 알맞은 언어 파일이 자동으로 선택됨
+- **스프링의 지원**
+  - **MessageSource**
+    - 메시지 관리 및 조회 기능을 통합 제공함 (스프링 부트 자동 설정)
+  - **LocaleResolver**
+    - `Accept-Language` 헤더 등을 분석하여 사용자의 언어(Locale)를 결정함
+- **타임리프 통합**
+  - `#{...}` 메시지 표현식을 사용하여 HTML 템플릿에서 편리하게 메시지 및 국제화 텍스트를 출력할 수 있음
+
+<br/><br/>
+
 ## Reference
 
 - [스프링 MVC 1편 - 백엔드 웹 개발 핵심 기술](https://www.inflearn.com/course/스프링-mvc-1)
