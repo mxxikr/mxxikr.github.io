@@ -41,7 +41,7 @@ mermaid: false
     | 스키마 | 고정 스키마 | 유연한 스키마 |
     | 일관성 | 강한 일관성 (ACID) | 최종 일관성 (BASE) |
 
-    ![RDBMS와 NoSQL 확장성 비교](/assets/img/books/backend-basics-chapter11/rdbms-vs-nosql-scaling.png)
+    ![RDBMS와 NoSQL 확장성 비교](/assets/img/books/backend-basics-appendix-b/rdbms-vs-nosql-scaling.png)
 
 ### 수평 확장과 샤딩
 
@@ -50,7 +50,7 @@ mermaid: false
   - 수평 확장을 통해 데이터 저장 용량을 늘릴 수 있음
   - NoSQL은 인메모리로 관계형 데이터베이스가 수직 확장을 통해 용량을 늘리는 것과 비교됨
 
-  ![샤딩과 NoSQL 비교](/assets/img/books/backend-basics-chapter11/sharding-vs-nosql.png)
+  ![샤딩과 NoSQL 비교](/assets/img/books/backend-basics-appendix-b/sharding-vs-nosql.png)
 
 - **샤딩과 NoSQL 비교**
   - **RDBMS의 샤딩(Sharding)**
@@ -73,7 +73,7 @@ mermaid: false
 
 ### NoSQL의 4가지 유형
 
-![NoSQL Types](/assets/img/books/backend-basics-chapter11/nosql-types.png)
+![NoSQL Types](/assets/img/books/backend-basics-appendix-b/nosql-types.png)
 
 - **유형별 분류**
   - 키-값 DB
@@ -91,7 +91,7 @@ mermaid: false
   - DynamoDB
   - Redis (인메모리 키-값 저장소)
 
-![Key-Value DB](/assets/img/books/backend-basics-chapter11/key-value-db.png)
+![Key-Value DB](/assets/img/books/backend-basics-appendix-b/key-value-db.png)
 
 - **주요 용도**
     - **세션 관리**
@@ -117,7 +117,7 @@ mermaid: false
   - 스키마가 고정되어 있지 않음
   - JSON 형태면 되므로 RDBMS의 테이블과 달리 복잡하고 중첩된 모델을 쉽게 표현할 수 있음
 
-  ![Document DB Structure](/assets/img/books/backend-basics-chapter11/document-db-structure.png)
+  ![Document DB Structure](/assets/img/books/backend-basics-appendix-b/document-db-structure.png)
 
 - **장점**
   - 새로운 속성 필요하면 추가하면 되므로 더 유연하고 구조나 배열을 사용할 수 있음
@@ -136,7 +136,7 @@ mermaid: false
 - **구조**
   - 각 DB마다 데이터 구조에 약간 차이가 있지만 각 행은 여러 컬럼들을 그룹으로 묶어 관리한다는 공통점이 있음
 
-  ![Column Family Structure](/assets/img/books/backend-basics-chapter11/column-family-structure.png)
+  ![Column Family Structure](/assets/img/books/backend-basics-appendix-b/column-family-structure.png)
 
 - **주요 용도**
   - 대규모 데이터 관리
@@ -144,7 +144,7 @@ mermaid: false
 
 - **칼럼 기반 DB**
 
-  ![Column Oriented DB](/assets/img/books/backend-basics-chapter11/column-oriented-db.png)
+  ![Column Oriented DB](/assets/img/books/backend-basics-appendix-b/column-oriented-db.png)
 
 > **칼럼 기반 DB**
 > - 칼럼 기반(Column-oriented) DB 또는 칼럼형(Columnar) DB는 칼럼 패밀리 DB와는 다름
@@ -158,7 +158,7 @@ mermaid: false
   - 그래프 이론 그대로 데이터를 그래프 형태로 관리
   - 노드 데이터가 있고 노드와 노드를 연결하는 엣지가 있다
 
-![Graph DB Structure](/assets/img/books/backend-basics-chapter11/graph-db-structure.png)
+![Graph DB Structure](/assets/img/books/backend-basics-appendix-b/graph-db-structure.png)
 
 - **주요 특징**
   - **소셜**
@@ -217,7 +217,7 @@ mermaid: false
   - 분산 시스템에서 중요하게 여겨지는 이론
   - 세 가지 조건을 모두 만족하는 분산 시스템은 존재하지 않는다는 것을 증명한 정리
 
-![CAP Theorem Triangle](/assets/img/books/backend-basics-chapter11/cap-theorem-triangle.png)
+![CAP Theorem Triangle](/assets/img/books/backend-basics-appendix-b/cap-theorem-triangle.png)
 
 - **세 가지 속성**
   - **일관성(Consistency)**
@@ -249,7 +249,7 @@ mermaid: false
   - 네트워크 분할이 발생해도 서비스는 계속 동작하며, 데이터는 나중에 동기화됨 (최종 일관성)
   - Cassandra, DynamoDB 등이 이에 해당함
 
-![CAP Classification](/assets/img/books/backend-basics-chapter11/cap-classification.png)
+![CAP Classification](/assets/img/books/backend-basics-appendix-b/cap-classification.png)
 
 - **NoSQL과 CAP**
   - NoSQL은 분산 시스템을 기반으로 하므로 분할내성(P)을 기본으로 함
@@ -262,7 +262,7 @@ mermaid: false
 
 ### 사용 사례별 NoSQL 선택
 
-![NoSQL Selection Guide](/assets/img/books/backend-basics-chapter11/nosql-selection-guide.png)
+![NoSQL Selection Guide](/assets/img/books/backend-basics-appendix-b/nosql-selection-guide.png)
 
 ### 도입 시 주의사항
 
@@ -289,7 +289,7 @@ mermaid: false
 
 ### 하이브리드 아키텍처 접근
 
-![Hybrid Architecture](/assets/img/books/backend-basics-chapter11/hybrid-architecture.png)
+![Hybrid Architecture](/assets/img/books/backend-basics-appendix-b/hybrid-architecture.png)
 
 - **RDBMS와 NoSQL의 공존**
   - RDBMS
