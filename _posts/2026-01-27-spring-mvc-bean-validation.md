@@ -415,25 +415,6 @@ public String addItem(@Validated @ModelAttribute("item") ItemSaveForm form,
 
 <br/><br/>
 
-## 정리
-
-- **Bean Validation**
-  - 애노테이션 기반의 표준 검증 기술로, 반복적인 검증 로직을 표준화함 (`JSR-380`)
-  - `Hibernate Validator`가 대표적인 구현체임
-- **스프링 부트 통합**
-  - `spring-boot-starter-validation` 추가 시 자동으로 `LocalValidatorFactoryBean`을 글로벌 검증기로 등록함
-  - `@Validated` 애노테이션으로 편리하게 검증을 적용할 수 있음
-- **에러 코드 및 메시지**
-  - `MessageCodesResolver`가 다양한 레벨의 에러 코드를 생성하여 메시지를 체계적으로 관리할 수 있음
-- **검증 분리**
-  - `Groups` 기능을 사용할 수 있으나 복잡도가 높음
-  - 실무에서는 **Form 전송 객체(`DTO`)를 분리**하여 등록/수정 요청을 독립적으로 처리하는 방식을 권장함
-- **API 검증**
-  - `@RequestBody`는 `HttpMessageConverter` 단계에서 `JSON` 파싱 실패 시 컨트롤러가 호출되지 않고 예외가 발생함
-  - 성공적으로 객체로 변환된 후에만 `Bean Validation`이 동작함
-
-<br/><br/>
-
 ## 연습 문제
 
 1. `Bean Validation`의 가장 큰 목표는 무엇일까요?
@@ -497,6 +478,25 @@ public String addItem(@Validated @ModelAttribute("item") ItemSaveForm form,
 
     - `@ModelAttribute`는 바인딩 실패 시 `BindingResult`에 오류를 담지만 검증은 계속 시도함
     - `@RequestBody`는 메시지 컨버터 변환 실패 시 예외 발생으로 검증 로직 자체가 실행되지 않는 차이가 있음
+
+<br/><br/>
+
+## 요약 정리
+
+- **Bean Validation**
+  - 애노테이션 기반의 표준 검증 기술로, 반복적인 검증 로직을 표준화함 (`JSR-380`)
+  - `Hibernate Validator`가 대표적인 구현체임
+- **스프링 부트 통합**
+  - `spring-boot-starter-validation` 추가 시 자동으로 `LocalValidatorFactoryBean`을 글로벌 검증기로 등록함
+  - `@Validated` 애노테이션으로 편리하게 검증을 적용할 수 있음
+- **에러 코드 및 메시지**
+  - `MessageCodesResolver`가 다양한 레벨의 에러 코드를 생성하여 메시지를 체계적으로 관리할 수 있음
+- **검증 분리**
+  - `Groups` 기능을 사용할 수 있으나 복잡도가 높음
+  - 실무에서는 **Form 전송 객체(`DTO`)를 분리**하여 등록/수정 요청을 독립적으로 처리하는 방식을 권장함
+- **API 검증**
+  - `@RequestBody`는 `HttpMessageConverter` 단계에서 `JSON` 파싱 실패 시 컨트롤러가 호출되지 않고 예외가 발생함
+  - 성공적으로 객체로 변환된 후에만 `Bean Validation`이 동작함
 
 <br/><br/>
 

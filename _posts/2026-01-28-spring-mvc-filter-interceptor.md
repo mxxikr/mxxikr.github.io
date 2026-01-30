@@ -431,16 +431,6 @@ public String homeLoginV3ArgumentResolver(@Login Member loginMember, Model model
 
 <br/><br/>
 
-## 정리
-
-- **공통 관심사 해결**
-  - 인증, 로깅 등 웹 애플리케이션의 공통 관심사를 서블릿 필터와 스프링 인터셉터를 통해 효율적으로 처리하는 방법을 학습함
-- **서블릿 필터와 스프링 인터셉터**
-  - 필터는 서블릿 호출 전에 동작하여 가장 앞단에서 요청을 처리하며, 인터셉터는 디스패처 서블릿과 컨트롤러 사이에서 동작하여 더 정교한 제어가 가능함
-  - 스프링 MVC를 사용한다면 `excludePathPatterns` 등 편의 기능이 강력한 인터셉터 사용을 권장함
-- **ArgumentResolver 활용**
-  - 반복적인 로그인 세션 조회 로직을 `ArgumentResolver`를 통해 간소화하고, 컨트롤러가 비즈니스 로직에만 집중할 수 있도록 개선함
-
 <br/><br/>
 
 ## 연습 문제
@@ -475,6 +465,16 @@ public String homeLoginV3ArgumentResolver(@Login Member loginMember, Model model
    a. HTTP 세션 등에서 정보를 조회하여 메소드 파라미터에 주입
 
    - Argument Resolver는 특정 조건(예: @Login 어노테이션)의 파라미터를 보고, 개발자가 정의한 로직으로 값을 찾아 해당 파라미터에 자동으로 넣어주는 역할을 함
+
+## 요약 정리
+
+- **공통 관심사 해결**
+  - 인증, 로깅 등 웹 애플리케이션의 공통 관심사를 서블릿 필터와 스프링 인터셉터를 통해 효율적으로 처리하는 방법을 학습함
+- **서블릿 필터와 스프링 인터셉터**
+  - 필터는 서블릿 호출 전에 동작하여 가장 앞단에서 요청을 처리하며, 인터셉터는 디스패처 서블릿과 컨트롤러 사이에서 동작하여 더 정교한 제어가 가능함
+  - 스프링 MVC를 사용한다면 `excludePathPatterns` 등 편의 기능이 강력한 인터셉터 사용을 권장함
+- **ArgumentResolver 활용**
+  - 반복적인 로그인 세션 조회 로직을 `ArgumentResolver`를 통해 간소화하고, 컨트롤러가 비즈니스 로직에만 집중할 수 있도록 개선함
 
 <br/><br/>
 
