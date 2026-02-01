@@ -383,25 +383,6 @@ public class ScheduledTaskService {
 
 <br/><br/>
 
-## 적용 방안
-
-- **DB 기반 분산 잠금 사용 권장**
-    - 이미 DB를 사용 중인 경우
-    - 추가 인프라 도입이 어려운 경우
-    - 잠금 빈도가 높지 않은 경우
-    - 구조를 단순하게 유지하고 싶은 경우
-- **구현 시 체크리스트**
-    - `dist_lock` 테이블 생성
-    - `name`을 Primary Key로 설정
-    - `SELECT FOR UPDATE` 사용
-    - 트랜잭션 관리 (`commit`/`rollback`)
-    - 적절한 Duration 설정
-    - 고유한 owner 생성 로직
-    - 예외 처리 (`try-finally`)
-    - `unlock` 반드시 호출
-
-<br/><br/>
-
 ## Reference
 
 - [주니어 백엔드 개발자가 반드시 알아야 할 실무 지식](http://www.yes24.com/Product/Goods/125306759)

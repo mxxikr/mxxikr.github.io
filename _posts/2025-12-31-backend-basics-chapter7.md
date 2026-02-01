@@ -394,49 +394,6 @@ while (true) {
 
 <br/><br/>
 
-## 적용 방안
-
-- 현황 파악 먼저
-  - APM 도구로 응답 시간 분석
-  - 스레드 덤프로 블로킹 지점 확인
-  - DB 쿼리, 외부 API 호출 시간 측정
-- Java 21+ 환경이라면 가상 스레드 우선 고려
-  - `Executors.newVirtualThreadPerTaskExecutor()` 사용
-  - 기존 코드 수정 최소화
-- **Spring Boot 3.2+ 적용 방법**
-
-```yaml
-# application.yml
-spring:
-  threads:
-    virtual:
-      enabled: true
-```
-
-```java
-// 프로그래밍 방식 설정
-@Configuration
-public class VirtualThreadConfig {
-    @Bean
-    public AsyncTaskExecutor applicationTaskExecutor() {
-        return new TaskExecutorAdapter(
-            Executors.newVirtualThreadPerTaskExecutor()
-        );
-    }
-}
-```
-
-- 점진적 적용
-  - 모든 시스템을 한번에 변경하지 말 것
-  - 트래픽이 많고 I/O 대기가 긴 부분부터 적용
-  - A/B 테스트로 효과 검증
-- 가상 스레드 사용 시 주의사항
-  - `synchronized` 대신 `ReentrantLock` 사용
-  - `ThreadLocal` 과도한 사용 지양
-  - 논블로킹 체인에서 블로킹 호출 혼용 금지
-
-<br/><br/>
-
 ## Reference
 
 - [주니어 백엔드 개발자가 반드시 알아야 할 실무 지식](http://www.yes24.com/Product/Goods/125306759)
