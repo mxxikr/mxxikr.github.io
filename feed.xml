@@ -1,0 +1,363 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://mxxikr.github.io/</id>
+  <title>MXXI.kr</title>
+  <subtitle>Backend Developer. Sharing knowledge about software development, system design, and technology insights.</subtitle>
+  <updated>2026-02-01T19:10:17+09:00</updated>
+  <author>
+    <name>mxxikr</name>
+    <uri>https://mxxikr.github.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://mxxikr.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://mxxikr.github.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2026 mxxikr </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>[김영한의 스프링 DB 1편 데이터 접근 핵심 원리] 트랜잭션 이해</title>
+    <link href="https://mxxikr.github.io/posts/spring-db-transaction-understanding/" rel="alternate" type="text/html" title="[김영한의 스프링 DB 1편 데이터 접근 핵심 원리] 트랜잭션 이해" />
+    <published>2026-02-01T14:00:00+09:00</published>
+  
+    <updated>2026-02-01T14:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-db-transaction-understanding/</id>
+    <content src="https://mxxikr.github.io/posts/spring-db-transaction-understanding/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      트랜잭션 이해
+
+
+  김영한님의 스프링 DB 1편 강의를 통해 트랜잭션의 개념과 ACID 원칙을 이해하고, 데이터베이스 세션과 락의 동작 원리를 정리함
+
+
+
+
+트랜잭션 개념 이해
+
+트랜잭션 기본 개념
+
+
+  트랜잭션이란?
+    
+      데이터베이스에서 여러 작업을 하나의 단위로 묶어 안전하게 처리하는 메커니즘
+      
+        모든 작업이 성공하거나, 하나라도 실패하면 전체를 취소
+      
+      ex) A 계좌에서 B 계좌로 5,000원 이체
+        
+          A 계좌
+            
+              10,000원 → 5,000원 감소
+            
+          
+          B 계좌
+            
+           ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[김영한의 스프링 DB 1편 데이터 접근 핵심 원리] 커넥션풀과 데이터소스 이해</title>
+    <link href="https://mxxikr.github.io/posts/spring-db-connection-pool-datasource/" rel="alternate" type="text/html" title="[김영한의 스프링 DB 1편 데이터 접근 핵심 원리] 커넥션풀과 데이터소스 이해" />
+    <published>2026-01-31T13:00:00+09:00</published>
+  
+    <updated>2026-01-31T13:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-db-connection-pool-datasource/</id>
+    <content src="https://mxxikr.github.io/posts/spring-db-connection-pool-datasource/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      커넥션풀과 DataSource
+
+
+  김영한님의 스프링 DB 1편 강의를 통해 커넥션 풀의 개념과 동작 원리를 이해하고, DataSource 인터페이스를 활용하여 커넥션 획득 방법을 추상화하는 방법을 정리함
+
+
+
+
+커넥션 풀 이해
+
+데이터베이스 커넥션 획득 과정
+
+
+
+
+  DB 드라이버를 통해 커넥션 조회
+  DB와 TCP/IP 커넥션 연결 (3-way handshake)
+  ID, PW와 기타 부가정보를 DB에 전달
+  DB가 내부 인증 완료 후 DB 세션 생성
+  DB가 커넥션 생성 완료 응답 전송
+  DB 드라이버가 커넥션 객체를 생성해서 반환
+
+
+커넥션 매번 생성의 문제점
+
+
+  과정이 복잡하고 시간이 많이 소모됨
+  DB와 애플리케이션 서버 모두 리소스 사용
+  응답 속도에 영향
+    
+  ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[김영한의 스프링 DB 1편 데이터 접근 핵심 원리] JDBC 이해</title>
+    <link href="https://mxxikr.github.io/posts/spring-db-jdbc-basics/" rel="alternate" type="text/html" title="[김영한의 스프링 DB 1편 데이터 접근 핵심 원리] JDBC 이해" />
+    <published>2026-01-31T12:00:00+09:00</published>
+  
+    <updated>2026-01-31T12:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-db-jdbc-basics/</id>
+    <content src="https://mxxikr.github.io/posts/spring-db-jdbc-basics/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      JDBC 이해
+
+
+  김영한님의 스프링 DB 1편 강의를 통해 JDBC의 탄생 배경과 핵심 원리를 이해하고, JDBC를 활용한 데이터베이스 CRUD 개발 방법을 정리함
+
+
+
+
+H2 데이터베이스 설정
+
+H2 소개
+
+
+  개발/테스트 용도로 적합한 가볍고 편리한 DB
+  SQL 실행 가능한 웹 화면 제공
+  다운로드
+    
+      https://www.h2database.com
+    
+  
+
+
+설정 방법
+
+
+  실행
+    
+      MAC/리눅스
+        
+          cd bin, chmod 755 h2.sh, ./h2.sh
+        
+      
+      윈도우
+        
+          h2.bat
+        
+      
+    
+  
+  데이터베이스 파일 생...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 부록 C DB로 분산 잠금 구현하기</title>
+    <link href="https://mxxikr.github.io/posts/backend-basics-appendix-c/" rel="alternate" type="text/html" title="[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 부록 C DB로 분산 잠금 구현하기" />
+    <published>2026-01-31T07:00:00+09:00</published>
+  
+    <updated>2026-02-01T19:09:36+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/backend-basics-appendix-c/</id>
+    <content src="https://mxxikr.github.io/posts/backend-basics-appendix-c/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Book" />
+    
+    <category term="Backend" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다.
+
+
+
+
+부록 C에서 다루는 내용
+
+
+  분산 잠금의 필요성
+  잠금 정보 저장 테이블 설계
+  분산 잠금 동작 원리
+  DB 기반 잠금 구현
+  사용 예시
+
+
+
+
+분산 잠금의 필요성
+
+배경
+
+
+  여러 노드에서 실행되는 애플리케이션이 동일한 작업을 동시에 실행하면 데이터 문제가 발생할 수 있음
+  동시에 두 개 이상의 프로세스가 실행되더라도 그중 하나의 프로세스, 하나의 스레드만 작업을 실행해야 함
+
+
+문제 상황
+
+
+
+
+  동시 실행 문제
+    
+      여러 노드에서 동시에 같은 작업을 실행하면 데이터 충돌이 발생함
+      분산 환경에서 하나의 스레드만 작업을 실행하도록 ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 파일 업로드</title>
+    <link href="https://mxxikr.github.io/posts/spring-mvc-file-upload/" rel="alternate" type="text/html" title="[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 파일 업로드" />
+    <published>2026-01-30T13:00:00+09:00</published>
+  
+    <updated>2026-01-30T13:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-mvc-file-upload/</id>
+    <content src="https://mxxikr.github.io/posts/spring-mvc-file-upload/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      파일 업로드
+
+
+  김영한님의 스프링 MVC 2편 강의를 통해 파일 업로드의 원리(multipart/form-data)를 이해하고, 서블릿과 스프링이 제공하는 각각의 업로드 처리 방식을 비교하며, 실제 웹 애플리케이션에서 파일 업로드와 다운로드를 구현하는 방법을 정리함
+
+
+
+
+파일 업로드 소개
+
+HTML Form 전송 방식
+
+
+  
+    HTML Form을 통한 파일 업로드를 이해하려면 두 가지 전송 방식의 차이를 이해해야 함
+
+    
+      application/x-www-form-urlencoded
+      multipart/form-data
+    
+  
+
+
+application/x-www-form-urlencoded 방식
+
+
+  개념
+    
+      HTML 폼 데이터를 서버로 전송...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+
