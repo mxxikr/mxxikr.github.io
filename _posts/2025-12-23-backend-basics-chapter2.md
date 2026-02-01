@@ -257,21 +257,6 @@ $$
 
 <br/><br/>
 
-## 적용 방안
-
-- 현재 서비스의 성능 지표 모니터링 체계 구축 필요
-  - TPS, 응답 시간, 리소스 사용률 추적
-- 수평 확장을 위한 무상태(Stateless) 아키텍처 설계
-  - 세션을 서버 메모리가 아닌 별도 저장소에 관리
-- DB 커넥션 풀 설정 최적화
-  - 현재 트래픽 패턴 분석 후 적절한 크기 결정
-- 자주 조회되는 데이터 캐싱 적용
-  - 상품 정보, 사용자 프로필 등
-- 이미지, CSS, JS 등 정적 자원은 CDN 활용
-  - CloudFlare, AWS CloudFront 등 검토
-
-<br/><br/>
-
 ## Reference
 
 - [주니어 백엔드 개발자가 반드시 알아야 할 실무 지식](https://product.kyobobook.co.kr/detail/S000216376461?utm_source=google&utm_medium=cpc&utm_campaign=googleSearch&gt_network=g&gt_keyword=&gt_target_id=dsa-435935280379&gt_campaign_id=9979905549&gt_adgroup_id=132556570510&gad_source=1)
