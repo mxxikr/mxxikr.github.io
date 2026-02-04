@@ -21,15 +21,13 @@ mermaid: false
 
 <br/><br/>
 
-## 핵심 개념
-
-### 응답 시간과 처리량
+## 응답 시간과 처리량
 
 - 응답 시간이 사용자 경험과 비즈니스 성과에 직접적 영향을 끼침
 - TPS (Transacon Per Second)
   - 초당 트랜잭션 수
 - 최대 TPS를 초과하면 응답 시간이 증가하고 서비스 품질 저하
-- **응답 시간 구성 요소**
+### **응답 시간 구성 요소**
 
   - 네트워크 지연 시간
   - 서버 처리 시간
@@ -37,7 +35,7 @@ mermaid: false
 
   ![응답 시간의 구성](/assets/img/books/backend-basics-ch2/response_time.png)
 
-- **TPS와 응답 시간의 관계**
+### **TPS와 응답 시간의 관계**
 
   - 요청이 증가할수록 TPS 상승
   - 최대 TPS 도달 시 응답 시간 급격히 증가
@@ -45,11 +43,11 @@ mermaid: false
 
   ![TPS 개념](/assets/img/books/backend-basics-ch2/tps.png)
 
-### 서버 확장 전략
+## 서버 확장 전략
 
 ![수직 확장과 수평 확장](/assets/img/books/backend-basics-ch2/scaling.png)
 
-- **수직 확장 (Scale-up)**
+### **수직 확장 (Scale-up)**
   - 하드웨어 사양 업그레이드
     - CPU 코어 수 증가 (4코어 → 8코어)
     - 메모리 용량 확장 (RAM 증설)
@@ -61,7 +59,7 @@ mermaid: false
     - 비용 비효율적
     - 물리적 한계 존재
     - 단일 장애점(SPOF)
-- **수평 확장 (Scale-out)**
+### **수평 확장 (Scale-out)**
   - 서버 대수 증가 + 로드 밸런서
   - 장점
     - 확장성이 우수함
@@ -72,24 +70,24 @@ mermaid: false
     - 무상태(Stateless) 설계 필요
     - 데이터 일관성 관리 필요
 
-### DB 커넥션 풀
+## DB 커넥션 풀
 
 - DB 커넥션을 미리 생성해 재사용
 - 매번 커넥션 생성/삭제 오버헤드 제거
 
-#### 커넥션 풀 크기 계산
+### 커넥션 풀 크기 계산
 
 - **기본 공식**
 
-$$
-\text{커넥션 풀 크기} = \frac{\text{동시 사용자 수}}{1\text{초} / \text{DB 서비스 시간}}
-$$
+  $$
+  \text{커넥션 풀 크기} = \frac{\text{동시 사용자 수}}{1\text{초} / \text{DB 서비스 시간}}
+  $$
 
 - **HikariCP 권장 공식**
 
-$$
-\text{connections} = (\text{core_count} \times 2) + \text{effective_spindle_count}
-$$
+  $$
+  \text{connections} = (\text{core_count} \times 2) + \text{effective_spindle_count}
+  $$
 
 - **공식 설명**
   - `core_count`
@@ -113,7 +111,7 @@ $$
 
 ![커넥션 풀 동작 방식](/assets/img/books/backend-basics-ch2/connection-pool.png)
 
-#### 커넥션 대기 시간
+### 커넥션 대기 시간
 
 - 모든 커넥션이 사용 중일 때 새로운 요청은 대기 큐(Wait Queue)에 진입
 - **대기 시간 계산 공식**
@@ -130,9 +128,9 @@ $$
   - 장시간 대기는 스레드 고갈 유발 가능
   - 타임아웃 발생 시 리소스 해제 및 에러 처리 필수
 
-### 트래픽 제어 전략
+## 트래픽 제어 전략
 
-- **Backpressure (백프레셔)**
+### **Backpressure (백프레셔)**
   - 시스템의 처리 한계를 초과하는 요청을 제어하는 메커니즘
   - 수용 가능한 사용자 수를 제한하고 나머지는 대기 큐에서 관리
   - Java 생태계 구현
@@ -142,7 +140,7 @@ $$
     - Project Reactor의 backpressure 연산자
       - onBackpressureBuffer (버퍼에 임시 저장)
       - onBackpressureDrop (초과 데이터 버림)
-- **Rate Limiting (속도 제한)**
+### **Rate Limiting (속도 제한)**
   - 단위 시간당 처리 가능한 요청 수를 제한
   - Token Bucket 알고리즘
     - 일정 속도로 토큰 생성
@@ -164,17 +162,17 @@ $$
   - 장시간 대기는 Thread Pool 고갈 위험
   - 대기 큐 크기 제한 필요 (메모리 부족 방지)
 
-### 캐싱 전략
+## 캐싱 전략
 
 ![캐시 아키텍처](/assets/img/books/backend-basics-ch2/cache.png)
 
-- **로컬 캐시**
+### **로컬 캐시**
   - 서버 프로세스 메모리 내 저장
   - 빠르지만 서버 간 공유 불가
-- **리모트 캐시**
+### **리모트 캐시**
   - 별도 캐시 서버 (Redis 등)
   - 여러 서버가 공유 가능
-- **캐시 전략**
+### **캐시 전략**
   - LRU (Least Recently Used)
     - 가장 오래 사용하지 않은 데이터 제거
     - 최근 사용 시간 기준
@@ -184,7 +182,7 @@ $$
   - FIFO (First In First Out)
     - 가장 먼저 저장된 데이터부터 제거
     - 저장 순서 기준
-- **캐시 접근 패턴**
+### **캐시 접근 패턴**
   - **Cache-Aside (Lazy Loading)**
     - 애플리케이션이 캐시를 직접 관리
     - 캐시 미스 시 DB에서 조회 후 캐시에 저장
@@ -195,17 +193,17 @@ $$
     - 캐시에만 먼저 쓰고 비동기로 DB에 반영
     - 쓰기 성능 최적화, 장애 시 데이터 손실 위험
 
-### CDN (Content Delivery Network)
+## CDN (Content Delivery Network)
 
 ![ CDN 구조](/assets/img/books/backend-basics-ch2/cdn.png)
 
-- **기본 개념**
+### **기본 개념**
 
   - 정적 자원을 전 세계에 분산 배치
   - 사용자와 가까운 곳에서 콘텐츠 제공하여 응답 시간 단축
   - 원본 서버 부하 감소
 
-- **네트워크 계층 관점의 최적화**
+### **네트워크 계층 관점의 최적화**
 
   - **RTT (Round Trip Time) 감소**
     - 물리적 거리 단축으로 왕복 지연 시간 최소화
@@ -227,7 +225,7 @@ $$
     - 한 번에 전송 가능한 데이터 양 증대
     - 대역폭 활용률 극대화
 
-- **L4/L7 로드 밸런싱**
+### **L4/L7 로드 밸런싱**
 
   - L4 (Transport Layer)
     - IP 주소 및 포트 기반 분산
@@ -236,7 +234,7 @@ $$
     - HTTP 헤더, URL 경로 기반 라우팅
     - 콘텐츠 유형별 최적 서버 분배
 
-- **Cache-Control 헤더**
+### **Cache-Control 헤더**
   - `max-age` 설정으로 캐시 유효 기간 지정
   - 브라우저와 CDN에서 모두 사용
   - 정적 리소스(CSS, JS, 이미지)는 긴 시간 설정 권장

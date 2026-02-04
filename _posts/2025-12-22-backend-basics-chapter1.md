@@ -46,8 +46,6 @@ mermaid: false
 
 - 모든 커넥션이 사용 중이면 대기 또는 타임아웃
 
-![커넥션 부족 시나리오](/assets/img/books/backend-basics-ch1/connection_shortage.png)
-
 ![커넥션 부족 시나리오](/assets/img/books/backend-basics-ch1/connection_shortage2.png)
 
 ### 올바른 구현 방법
@@ -69,7 +67,7 @@ try (Connection conn = ds.getConnection()) {
 
 - 프레임워크 사용법만이 아닌 시스템 리소스 관리의 중요성을 깨달음
 - 개발 환경에서는 문제없다가 운영 환경에서 발생하는 문제의 원인을 이해하게 됨
-- 모니터링이 중요한 이유를 알게 됨
+- 시스템 안정성을 위해 확인해야 할 핵심 모니터링 지표를 알게 됨
   - 활성 커넥션 수
   - 커넥션 풀 사용률
   - 대기 시간
