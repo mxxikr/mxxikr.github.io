@@ -96,11 +96,11 @@ mermaid: false
   - IDE 플러그인 및 빌드 도구 설정 필요
 
 <br/><br/>
+
 ## 롬복의 한계
 
 - **설계의 불투명성**
   - 롬복은 코드를 줄여주지만 실제 소스 코드에는 존재하지 않는 **가상 메서드**에 의존하게 함
-  - 이는 신규 팀원의 온보딩 비용을 높이고 빌드 환경의 복잡성을 가중시킴
   - 빌드 환경 의존성 및 다른 라이브러리와 충돌 가능 (`MapStruct`, `QueryDSL` 등)
   - 코드가 IDE에서 보이지 않음 (블랙박스)
 
@@ -121,10 +121,6 @@ mermaid: false
         .build();
     ```
 
-- **불변성 관리의 어려움**
-  - 가장 큰 문제는 불변성(Immutability)을 지키며 데이터를 가공할 때 발생함
-  - 자바 빌더는 기존 객체에서 하나만 바꾼 새 객체를 만드는 `copy()` 기능을 기본 제공하지 않아 코드를 작성해야 함
-
 <br/><br/>
 
 ## 코틀린의 해결책
@@ -132,7 +128,7 @@ mermaid: false
 - 코틀린은 이를 외부 도구가 아닌 '언어의 문법'으로 내재화함
 - `Default Arguments`는 불필요한 오버로딩을 제거하고, `Named Arguments`는 빌더 패턴의 가독성을 생성자 호출 시점으로 가져옴
 
-### Default Arguments
+### 생성자 오버로딩을 제거하는 Default Arguments
 
 - Kotlin은 함수와 생성자의 파라미터에 기본값을 직접 지정할 수 있음
 
@@ -162,7 +158,9 @@ mermaid: false
   val user3 = User("John", email = "john@example.com")
   ```
 
-### Default + Named Arguments 결합
+### 빌더 패턴을 대체하는 Named Arguments
+
+- **Named Arguments**를 사용하면 빌더 없이도 직관적으로 객체를 생성할 수 있음
 
 ```kotlin
 data class Product(
@@ -189,118 +187,50 @@ val p3 = Product(id = 3L, name = "Tablet", isActive = false, quantity = 10, cate
   - 필수 정보만 전달하면 됨
   - 각 값이 무엇을 의미하는지 즉시 알 수 있음
   - 필요한 파라미터만 변경 가능
-  - 이는 단순히 코드가 간결해지는 것을 넘어, **실수를 할 수 없는 구조**를 언어 차원에서 강제함
+  - 코드가 간결해지며 **실수를 할 수 없는 구조**를 언어 차원에서 강제함
 
-<br/><br/>
+### 불변 객체를 쉽게 다루는 copy() 메서드
 
-## 롬복과 코틀린의 비교
-
-### 테스트 작성 시 차이점
-
-```java
-// Java: 테스트할 때마다 모든 필드를 지정해야 함
-@Test
-public void testEmailValidation() {
-    SignupRequest request = SignupRequest.builder()
-        .name("Test User")
-        .email("invalid-email")  // 이 부분만 테스트하고 싶은데
-        .password("SecurePass123!")
-        .age(25)
-        .department("Engineering")  // 불필요한 필드도 모두 지정
-        .phoneNumber("01012345678")
-        .build();
-}
-```
-
-```kotlin
-// Kotlin: 필요한 필드만 지정
-@Test
-fun testEmailValidation() {
-    val request = SignupRequest(
-        name = "Test User",
-        email = "invalid-email",  // 이 부분만 변경
-        password = "SecurePass123!"
-        // 나머지는 기본값 사용 - 테스트 의도가 명확
-    )
-}
-```
-
-- Java는 테스트 의도와 무관한 필드도 모두 설정 필요
-- Kotlin은 변경하려는 필드만 명시하여 테스트 의도가 명확함
-
-### 검증 통합
-
-- **Kotlin의 간단함**
-  - 생성 시점에 `init` 블록과 `require`로 간결한 검증 가능
-  ```kotlin
-  init { require(age >= 18) { "age must be 18+" } }
-  ```
-
-### copy() 메서드로 불변 객체 다루기
-
-- **불변 객체의 특정 필드만 바꿀 새 객체 만들기**
-
-  - **Java의 번거로움**
-    - 모든 필드를 다시 지정하는 메서드를 직접 하나하나 구현해야 함
-
-  - **Kotlin의 간결함**
-
-    ```kotlin
-    data class User(  // data class 한 줄 선언
-        val name: String,
-        val email: String,
-        val age: Int
-    )
-    // copy(), equals(), hashCode(), toString() 모두 자동 생성!
-    
-    // copy() 메서드가 자동 생성됨
-    val user1 = User("John", "john@example.com", 30)
-    val user2 = user1.copy(email = "john.new@example.com")  // 한 줄로 해결!
-    
-    // 원본은 불변으로 유지
-    println(user1.email)  // john@example.com
-    println(user2.email)  // john.new@example.com
-    ```
-
-    - Java는 필드가 많을수록 복사 코드가 길어짐
-    - Kotlin은 바꿀 필드만 명시하면 나머지는 자동 복사
-
-<br/><br/>
-
-
-## Test Fixture 패턴
-
-- 테스트 코드는 비즈니스 로직만큼이나 가독성이 중요함
-- 자바의 빌더 방식은 테스트의 핵심 의도와 상관없는 더미 데이터까지 다 채워야 해서 의도가 흐려짐
-- 코틀린의 Fixture 패턴을 사용하면, **이번 테스트에서 무엇을 검증하려 하는가**가 코드 한 줄에 명확히 드러남
-
-### **Java 방식**
-  - 장황한 빌더 체이닝
-
-  ```java
-  // UserTestFixture.createUser() 호출
-  User user = User.builder()  // 모든 필드를 다시 지정해야 함
-      .name("Test User")
-      .email("test@example.com")
-      .age(35)  // 이 필드만 바꾸고 싶음
-      .department("Engineering")
-      .phoneNumber("01012345678")
-      .build();
-  ```
-
-### **Kotlin 방식**
-  - 간결한 Fixture
+- 불변 객체(Immutable Object)를 다룰 때, 기존 객체의 데이터 중 일부만 변경하여 새로운 객체를 만들어야 하는 경우가 많음
+  - 자바는 이를 위해 빌더 패턴을 다시 사용하거나, 복잡한 생성자 호출을 반복해야 하므로 코드가 장황해짐
+  - 코틀린의 `data class`는 `copy()` 메서드를 자동으로 생성하여 이 문제를 해결함
 
   ```kotlin
-  // UserFixture.createUser() 호출
-  val user = UserFixture.createUser(
-      age = 35  // 이 필드만 변경하고 나머지는 기본값 사용
+  data class User(
+      val name: String,
+      val email: String,
+      val age: Int
   )
+  
+  // 원본 객체 생성
+  val user1 = User("John", "john@example.com", 30)
+  
+  // email만 변경한 새로운 객체 생성 (나머지 필드는 그대로 유지)
+  val user2 = user1.copy(email = "john.new@example.com")
+  
+  // 원본은 불변으로 유지됨
+  println(user1.email)  // john@example.com
+  println(user2.email)  // john.new@example.com
   ```
 
-- **주요 차이**
-  - Java는 테스트할 때마다 모든 필드를 지정해야 함 (테스트 의도 불명확)
-  - Kotlin은 변경할 필드만 보여서 테스트 의도가 명확함
+### 테스트 의도를 명확히 하는 Fixture 패턴
+
+- 테스트 코드에서는 **검증하려는 필드**가 무엇인지 한눈에 들어와야 함
+  - 자바의 빌더는 테스트와 무관한 필수 필드까지 모두 채워야 해서 핵심 의도가 흐려짐
+  - 코틀린은 `Named Arguments`와 기본값을 활용해 **Test Fixture**를 매우 간단하게 구현할 수 있음
+
+  ```kotlin
+  // Kotlin: 필요한 필드만 지정
+  @Test
+  fun testEmailValidation() {
+      // SignupRequest의 다른 필드(name, age 등)는 기본값으로 채워짐
+      val request = SignupRequest(
+          email = "invalid-email"  // 검증하려는 필드만 명시적으로 지정
+      )
+  }
+  ```
+  - `SignupRequest`가 10개의 필드를 가지고 있더라도, 테스트에서 관심 있는 `email` 필드 하나만 작성하면 됨
+    - "이 테스트는 이메일 유효성을 검증하는구나"라고 의도가 즉시 파악됨
 
 <br/><br/>
 
@@ -324,4 +254,3 @@ fun testEmailValidation() {
 - [Kotlin Official Documentation - Classes](https://kotlinlang.org/docs/classes.html)
 - [Baeldung - Kotlin Default Arguments](https://www.baeldung.com/kotlin/default-arguments)
 - [Effective Java (Joshua Bloch)](https://www.oreilly.com/library/view/effective-java/9780134686097/)
-
