@@ -234,6 +234,14 @@ val p3 = Product(id = 3L, name = "Tablet", isActive = false, quantity = 10, cate
 
 <br/><br/>
 
+## 결론
+
+- Kotlin의 **Default Arguments**와 **Named Arguments**는 자바의 점층적 생성자나 빌더 패턴을 효과적으로 대체할 수 있음
+- 롬복(@Builder)과 같은 외부 라이브러리 의존성을 줄이고, 복잡한 오버로딩 없이도 **간결하고 안전한 코드**를 작성하는 데 도움이 됨
+- 불필요한 보일러플레이트 코드를 줄이고 가독성을 높이는 Kotlin의 특징을 잘 활용하면 유지보수하기 좋은 코드를 만들 수 있음
+
+<br/><br/>
+
 ## 정리
 
 - **자바의 한계**
