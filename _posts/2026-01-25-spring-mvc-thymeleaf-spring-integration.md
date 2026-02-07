@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 타임리프 스프링 통합과 폼 처리'
+title: '[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 타임리프 스프링 통합과 폼 처리'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-25 15:30:00 +0900
 category: [Framework, Spring]

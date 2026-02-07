@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 시작'
+title: '[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 시작'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-04 14:00:00 +0900
 category: [Framework, Spring]

@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 로그인 처리 - 쿠키와 세션'
+title: '[스프링 MVC 2편 백엔드 웹 개발 활용 기술] 로그인 처리 - 쿠키와 세션'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-27 20:00:00 +0900
 category: [Framework, Spring]

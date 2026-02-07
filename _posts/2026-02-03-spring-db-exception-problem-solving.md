@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 스프링 DB 1편 데이터 접근 핵심 원리] 스프링 예외 추상화와 반복 문제 해결'
+title: '[스프링 DB 1편 데이터 접근 핵심 원리] 스프링 예외 추상화와 반복 문제 해결'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-03 14:30:00 +0900
 category: [Framework, Spring]

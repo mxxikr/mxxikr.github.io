@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 스프링 DB 1편 데이터 접근 핵심 원리] JDBC 이해'
+title: '[스프링 DB 1편 데이터 접근 핵심 원리] JDBC 이해'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-31 12:00:00 +0900
 category: [Framework, Spring]

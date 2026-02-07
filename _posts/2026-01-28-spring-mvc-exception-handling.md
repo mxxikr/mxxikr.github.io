@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 스프링 MVC 2편 백엔드 웹 개발 활용 기술] 예외 처리와 오류 페이지'
+title: '[스프링 MVC 2편 백엔드 웹 개발 활용 기술] 예외 처리와 오류 페이지'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-28 16:00:00 +0900
 category: [Framework, Spring]

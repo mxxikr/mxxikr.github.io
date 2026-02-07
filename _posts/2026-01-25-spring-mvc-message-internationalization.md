@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 스프링 MVC 메시지, 국제화'
+title: '[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 스프링 MVC 메시지, 국제화'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-25 16:30:00 +0900
 category: [Framework, Spring]

@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 실전 자바 기본편] 객체 지향 프로그래밍'
+title: '[실전 자바 기본편] 객체 지향 프로그래밍'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-25 21:10:00 +0900
 category: [Language, Java]
@@ -245,4 +245,4 @@ mermaid: false
 
 ## Reference
 
-- [김영한의 실전 자바 - 기본편](https://www.inflearn.com/course/%EC%8B%A4%EC%A0%84-%EC%9E%90%EB%B0%94)
+- [실전 자바 - 기본편](https://www.inflearn.com/course/%EC%8B%A4%EC%A0%84-%EC%9E%90%EB%B0%94)

@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 스프링 DB 2편 - 데이터 접근 활용 기술] 스프링 JdbcTemplate'
+title: '[스프링 DB 2편 - 데이터 접근 활용 기술] 스프링 JdbcTemplate'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-04 15:00:00 +0900
 category: [Framework, Spring]

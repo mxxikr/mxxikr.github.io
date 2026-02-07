@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 스프링 MVC 웹 페이지 만들기'
+title: '[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 스프링 MVC 웹 페이지 만들기'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-23 15:00:00 +0900
 category: [Framework, Spring]

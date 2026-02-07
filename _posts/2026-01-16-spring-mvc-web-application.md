@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 웹 애플리케이션 이해'
+title: '[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 웹 애플리케이션 이해'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-16 18:30:00 +0900
 category: [Framework, Spring]

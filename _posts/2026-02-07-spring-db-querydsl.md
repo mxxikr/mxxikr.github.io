@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - Querydsl'
+title: '[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - Querydsl'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-07 14:00:00 +0900
 category: [Framework, Spring]
@@ -20,7 +20,7 @@ mermaid: false
 
 - **동적 쿼리의 어려움**
     - 순수 JPA(JPQL)나 스프링 데이터 JPA만으로는 동적 쿼리를 작성하기 까다로움
-    - 문자열 조합으로 쿼리를 만들면 오타가 발생하기 쉽고, 컴파일 시점에 오류를 잡을 수 없음
+    - 문자열 조합으로 쿼리를 만들면 오타가 발생하기 쉽고 컴파일 시점에 오류를 잡을 수 없음
 - **Querydsl의 해결책**
     - 쿼리를 자바 코드로 작성하여 컴파일 시점에 문법 오류를 잡아줌
     - IDE의 자동 완성 기능을 활용할 수 있어 개발 생산성이 높아짐
@@ -151,13 +151,16 @@ mermaid: false
 - Q 타입을 `static import`하면 코드가 더 간결해짐
 
     ```java
-    import static hello.itemservice.domain.QItem.item;
-    
-    List<Item> result = query
-        .select(item)
-        .from(item)
-        .where(item.itemName.eq("itemA").and(item.price.gt(10000)))
-        .fetch();
+    public List<Item> findAll(ItemSearchCond cond) {
+        String itemName = cond.getItemName();
+        Integer maxPrice = cond.getMaxPrice();
+
+        return query
+            .select(item)
+            .from(item)
+            .where(likeItemName(itemName), maxPrice(maxPrice))
+            .fetch();
+    }
     ```
     
     - [전체 코드 보기](https://github.com/mxxikr/spring-db-part2/blob/master/itemservice-db/src/main/java/hello/itemservice/repository/jpa/JpaItemRepositoryV3.java)

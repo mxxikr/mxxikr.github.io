@@ -1,5 +1,5 @@
 ---
-title: '[김영한의 실전 자바 기본편] 클래스와 데이터'
+title: '[실전 자바 기본편] 클래스와 데이터'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-19 14:01:00 +0900
 category: [Language, Java]
@@ -220,4 +220,4 @@ public class Character {
 
 ## Reference
 
-- [김영한의 실전 자바 - 기본편](https://www.inflearn.com/course/%EC%8B%A4%EC%A0%84-%EC%9E%90%EB%B0%94)
+- [실전 자바 - 기본편](https://www.inflearn.com/course/%EC%8B%A4%EC%A0%84-%EC%9E%90%EB%B0%94)
