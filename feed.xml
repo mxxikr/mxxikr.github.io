@@ -1,0 +1,341 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://mxxikr.github.io/</id>
+  <title>MXXI.kr</title>
+  <subtitle>Backend Developer. Sharing knowledge about software development, system design, and technology insights.</subtitle>
+  <updated>2026-02-08T19:17:55+09:00</updated>
+  <author>
+    <name>mxxikr</name>
+    <uri>https://mxxikr.github.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://mxxikr.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://mxxikr.github.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2026 mxxikr </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>[스프링 DB 2편 - 데이터 접근 핵심 원리] 트랜잭션 원리 및 설정</title>
+    <link href="https://mxxikr.github.io/posts/spring-db-transaction-principles/" rel="alternate" type="text/html" title="[스프링 DB 2편 - 데이터 접근 핵심 원리] 트랜잭션 원리 및 설정" />
+    <published>2026-02-08T16:30:00+09:00</published>
+  
+    <updated>2026-02-08T16:30:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-db-transaction-principles/</id>
+    <content src="https://mxxikr.github.io/posts/spring-db-transaction-principles/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      트랜잭션 원리 및 설정
+
+
+  김영한님의 스프링 DB 2편 강의를 통해 스프링 트랜잭션의 개념, 추상화, AOP 적용 원리, 그리고 다양한 옵션과 예외 처리 전략을 정리함
+
+
+
+
+스프링 트랜잭션 소개
+
+트랜잭션 추상화의 필요성
+
+
+  JDBC 트랜잭션 (기술 종속적)
+    
+      JDBC 기술에 종속된 코드가 비즈니스 로직에 포함됨
+      기술 변경 시 모든 트랜잭션 관련 코드를 수정해야 함
+    
+
+      public void accountTransfer(String fromId, String toId, int money) throws SQLException {
+      Connection con = dataSource.getConnection();
+      try {
+      ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - 활용 방안</title>
+    <link href="https://mxxikr.github.io/posts/spring-db-access-strategy/" rel="alternate" type="text/html" title="[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - 활용 방안" />
+    <published>2026-02-07T15:00:00+09:00</published>
+  
+    <updated>2026-02-07T15:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-db-access-strategy/</id>
+    <content src="https://mxxikr.github.io/posts/spring-db-access-strategy/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      데이터 접근 기술 활용 방안 - 실전 가이드
+
+
+  김영한님의 스프링 DB 2편 강의를 바탕으로, 실무에서 다양한 데이터 접근 기술을 어떻게 조합하고 어떤 구조로 설계하는 것이 효율적인지 정리함
+
+
+
+
+트레이드 오프와 선택
+
+어댑터 패턴과 직접 사용 비교
+
+
+
+
+  
+    어댑터 패턴 사용 시 (구조적 안정성 중시)
+
+    
+      서비스 계층이 특정 기술(Spring Data JPA 등)에 종속되지 않고 순수한 인터페이스에만 의존함
+    
+
+      // ItemService
+  @Service
+  @RequiredArgsConstructor
+  public class ItemService {
+      private final ItemRepository itemRepository; // ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - Querydsl</title>
+    <link href="https://mxxikr.github.io/posts/spring-db-querydsl/" rel="alternate" type="text/html" title="[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - Querydsl" />
+    <published>2026-02-07T14:00:00+09:00</published>
+  
+    <updated>2026-02-07T18:26:56+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-db-querydsl/</id>
+    <content src="https://mxxikr.github.io/posts/spring-db-querydsl/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      데이터 접근 기술 - Querydsl
+
+
+  김영한님의 스프링 DB 2편 강의를 통해 Querydsl의 개념, 설정 방법, 기본 문법, 동적 쿼리 작성법을 정리함
+
+
+
+
+Querydsl 소개와 문제 해결
+
+등장 배경
+
+
+  동적 쿼리의 어려움
+    
+      순수 JPA(JPQL)나 스프링 데이터 JPA만으로는 동적 쿼리를 작성하기 까다로움
+      문자열 조합으로 쿼리를 만들면 오타가 발생하기 쉽고 컴파일 시점에 오류를 잡을 수 없음
+    
+  
+  Querydsl의 해결책
+    
+      쿼리를 자바 코드로 작성하여 컴파일 시점에 문법 오류를 잡아줌
+      IDE의 자동 완성 기능을 활용할 수 있어 개발 생산성이 높아짐
+    
+  
+
+
+기존 방식과 Querydsl 비교
+
+
+  순수 ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - 스프링 데이터 JPA</title>
+    <link href="https://mxxikr.github.io/posts/spring-db-spring-data-jpa/" rel="alternate" type="text/html" title="[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - 스프링 데이터 JPA" />
+    <published>2026-02-06T15:00:00+09:00</published>
+  
+    <updated>2026-02-07T18:26:56+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-db-spring-data-jpa/</id>
+    <content src="https://mxxikr.github.io/posts/spring-db-spring-data-jpa/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      데이터 접근 기술 - 스프링 데이터 JPA
+
+
+  김영한님의 스프링 DB 2편 강의를 통해 스프링 데이터 JPA의 주요 기능, 쿼리 메서드, 그리고 실무 적용 방법을 정리함
+
+
+
+
+스프링 데이터 JPA 소개
+
+등장 배경
+
+
+  순수 JPA의 반복 코드 문제
+    
+      기본 CRUD 기능(저장, 조회, 수정, 삭제)은 대부분의 엔티티에서 비슷하게 반복됨
+      EntityManager를 사용하는 동일한 패턴의 코드를 계속 작성해야 하는 번거로움이 있음
+    
+  
+  스프링 데이터 JPA의 해결책
+    
+      인터페이스만 정의하면 구현체를 자동으로 생성해 줌
+      기본 CRUD 기능을 공통으로 제공하여 개발 생산성을 높임
+    
+  
+
+
+스프링 데이터 JPA란?
+
+
+  JPA...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - JPA</title>
+    <link href="https://mxxikr.github.io/posts/spring-db-jpa/" rel="alternate" type="text/html" title="[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - JPA" />
+    <published>2026-02-06T14:00:00+09:00</published>
+  
+    <updated>2026-02-07T18:26:56+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-db-jpa/</id>
+    <content src="https://mxxikr.github.io/posts/spring-db-jpa/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      데이터 접근 기술 - JPA
+
+
+  김영한님의 스프링 DB 2편 강의를 통해 JPA의 개념, 설정 방법, 엔티티 매핑, 그리고 JPQL을 활용한 쿼리 작성법을 정리함
+
+
+
+
+JPA 소개와 필요성
+
+JPA란?
+
+
+  JPA (Java Persistence API)
+    
+      자바의 ORM (Object-Relational Mapping) 기술 표준
+      객체와 관계형 데이터베이스를 매핑
+      개발자가 SQL을 직접 작성하지 않고, JPA가 대신 SQL을 생성하고 실행
+    
+  
+
+
+기술 스택 비교
+
+
+  JdbcTemplate / MyBatis
+    
+      SQL을 개발자가 직접 작성해야 함
+    
+
+      String sql = "insert into item (it...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+
