@@ -1,5 +1,5 @@
 ---
-title: '[스프링 DB 2편 - 데이터 접근 핵심 원리] 트랜잭션 원리 및 설정'
+title: '[스프링 DB 2편 - 데이터 접근 활용 기술] 트랜잭션 원리 및 설정'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-08 16:30:00 +0900
 category: [Framework, Spring]
