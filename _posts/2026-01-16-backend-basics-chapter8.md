@@ -29,60 +29,6 @@ mermaid: false
 
 ## 중요한 보안
 
-### 보안 사고의 현황
-
-- 최근 몇 년간 대규모 개인정보 유출 사고가 빈번하게 발생하고 있음
-- 주요 유출 경로
-  - 수백만 건의 계정 정보가 노출되는 대형 서비스 해킹
-  - 부적절한 접근 제어로 인한 고객 정보 유출
-  - 취약한 인증 시스템을 통한 무단 접근
-
-### URL 파라미터 기반 취약점
-
-- 많은 웹 서비스에서 발견되는 전형적인 보안 취약점
-- 문제가 되는 URL 구조 예시
-
-  ```
-  https://example.com/user/info?userId=12345
-  https://example.com/order/detail?orderId=98765
-  ```
-
-- 취약점의 원인
-  - URL 파라미터에 사용자 식별 정보를 직접 노출
-  - 요청자가 해당 리소스에 접근할 권한이 있는지 검증하지 않음
-  - 파라미터 값만 변경하면 다른 사용자의 정보에 접근 가능
-
-### IDOR (Insecure Direct Object Reference) 취약점
-
-- IDOR은 권한 검증 없이 직접적인 객체 참조를 허용하는 보안 취약점임
-- 공격 시나리오
-  - 공격자가 자신의 계정으로 로그인
-  - URL이나 API 파라미터의 식별값을 다른 값으로 변경
-  - 권한 검증이 없으면 타인의 정보에 무단 접근 가능
-- 대표적인 예시
-  - 주문 번호만 바꿔서 다른 사람의 주문 내역 조회
-  - 사용자 ID만 변경하여 다른 회원의 개인정보 열람
-  - 문서 ID를 조작하여 타인의 문서 다운로드
-
-### API 파라미터 검증 미흡 사례
-
-- 인증은 되어있으나 인가 검증이 없는 API의 문제점
-- 비밀번호 변경 API 예시
-
-  ```java
-  // 취약한 API 예시
-  POST /api/user/changePassword
-  {
-    "userId": "12345",
-    "newPassword": "newPassword123"
-  }
-  ```
-
-- 이러한 API의 문제점
-  - 현재 요청한 사용자가 로그인한 본인인지만 확인하고, `userId`가 본인의 ID인지는 검증하지 않음
-  - 다른 사용자의 `userId`를 입력하면 타인의 비밀번호를 변경할 수 있음
-  - 현재 비밀번호 확인 과정이 없어 계정 탈취 시 즉시 악용 가능
-
 ### 보안 취약점의 공통 패턴
 
 - 인증(Authentication)과 인가(Authorization)의 혼동
@@ -92,6 +38,7 @@ mermaid: false
     - 해당 사용자가 특정 리소스에 접근할 권한이 있는지 확인
 - 클라이언트에서 전달받은 값을 맹목적으로 신뢰
 - 서버 측에서 적절한 권한 검증 로직 누락
+
 
 <br/><br/>
 
@@ -117,57 +64,111 @@ mermaid: false
   - 생체 인증(지문, 안면 인식)
 
 ### 토큰 기반 인증
-
-- 사용자가 누구인지 확인하는 데 성공하면 서버는 클라이언트에 문자열로 된 토큰을 제공함
-- 클라이언트는 이후 각 요청마다 이 토큰을 함께 보내 자신이 누구인지 증명함
+- 인증 성공 시
+  - 서버는 클라이언트에게 토큰 발급
+  - 클라이언트는 매 요청마다 토큰 전송
+  - 서버는 토큰을 이용해 사용자 식별
 
 ![토큰 기반 인증](/assets/img/books/backend-basics-ch8/token-authentication.png)
 
-### 토큰 저장 방식
+### 토큰 저장 방식 (Stateful)
 
-- 서버는 토큰과 사용자 식별 정보를 DB나 레디스와 같은 별도 저장소에 보관함
-- 별도 저장소를 사용하면 서버를 재시작해도 토큰 데이터가 유지됨
+- **서버 저장소 활용 (DB/Redis)**
+  - 동작 방식
+    - 서버는 발급한 토큰과 사용자 매핑 정보를 DB/Redis에 저장
+    - 클라이언트 요청 시 저장소를 조회하여 유효성 검증
+  - 장점
+    - 토큰 제어(무효화, 블랙리스트 등)가 용이함
+  - 단점
+    - 별도 저장소 운영 비용 발생
+    - 트래픽 증가 시 저장소 부하 발생 가능
 
-![토큰 저장소](/assets/img/books/backend-basics-ch8/token-store.png)
+- **서버 메모리 (세션)**
+  - 동작 방식
+    - 톰캣 등 서블릿 컨테이너의 메모리(HttpSession)에 저장
+  - 단점
+    - 서버 재시작 시 데이터 소실
+    - 메모리 크기 제한으로 인한 동시 접속자 수 제한
+    - 멀티 서버 환경에서 **고정 세션(Sticky Session)** 설정 필요
+  - 해결책
+    - Spring Session 등을 이용해 세션 저장소를 외부(Redis 등)로 분리
 
-### HTTP 세션 예제
+### 토큰 자체에 정보 저장 (Stateless - JWT)
 
-```java
-// 기존 세션 조회 (새로 생성하지 않음)
-HttpSession session = request.getSession(false);
-if (session == null) {
-    throw new AuthenticationException(); // 세션이 없으면 인증 실패
-}
-
-// 세션에서 사용자 데이터 조회
-UserSessionData data = (UserSessionData) session.getAttribute("userSessionData");
-if (data == null) {
-    throw new AuthenticationException(); // 사용자 데이터 없으면 인증 실패
-}
-```
-
-### JWT를 이용한 토큰 생성
-
-- 토큰 자체에 사용자 식별값 정보를 저장하는 방식
-- 대표적인 방식이 JWT(JSON Web Token)를 이용하는 것임
+- 토큰 자체에 사용자 식별 정보와 유효성 검증 데이터를 포함함 (JWT)
+- **동작 과정**
+  1. 서버는 비밀 키로 서명한 토큰 생성 후 발급
+  2. 클라이언트는 매 요청 시 헤더/쿠키로 토큰 전송
+  3. 서버는 비밀 키로 서명 검증 및 파싱하여 사용자 식별
 
   ```java
-  // JWT 토큰 생성
-  String token = Jwts.builder()
-      .subject("userId") // 사용자 식별값 설정
-      .signWith(key) // 비밀 키로 서명
-      .compact(); // 토큰 문자열 생성
-
-  // 로그인 응답 반환
-  return LoginResponse.of(token);
+  // JWT 파싱 및 검증
+  try {
+      Jws<Claims> jwt = Jwts.parser().verifyWith(key).build().parseSignedClaims(token);
+      String userId = jwt.getPayload().getSubject();
+  } catch (JwtException e) {
+      throw new AuthenticationException(e);
+  }
   ```
 
-### RBAC (Role-Based Access Control)
+- **장점**
+  - 별도 저장소 조회 불필요 (Stateless)
+  - 서버 확장성(Scale-out) 유리
+- **단점**
+  - 토큰 크기가 커질수록 네트워크 트래픽 증가
+  - 이미 발급된 토큰의 강제 만료(제어)가 어려움
 
-- 역할 기반 권한 제어 방식
-- 사용자에게 역할을 부여하고 역할에 허용된 기능을 실행할 수 있는 권한을 부여함
+### 토큰 보안 고려사항
+
+- **전송 방식**
+  - Authorization 헤더 사용 (앱/API)
+  - 쿠키 사용 (웹 사이트)
+- **유효 시간 제한**
+  - 탈취 피해 최소화
+  - Access Token의 유효 시간을 짧게 설정
+- **리프레시 토큰 (Refresh Token)**
+  - 보안(짧은 만료)과 편의성(자동 갱신)을 동시에 만족
+  - Access Token 만료 시 Refresh Token으로 재발급
+- **보안 강화**
+  - 토큰 생성 IP와 사용 IP 불일치 시 차단
+  - 로그아웃된 토큰 등을 DB/Redis에 저장하여 접근 차단 (Stateless의 단점 보완)
+### 인가와 접근 제어 모델
+
+- **접근 제어의 기본**
+  - 접근한 사용자를 토큰이나 세션으로 식별해야 함
+  - API 요청 파라미터로 사용자 식별자를 받으면 보안에 취약함 (파라미터 변조 가능)
+
+  ```java
+  @GetMapping("/myinfo")
+  public ResponseEntity<?> getMyInfo(@RequestHeader("token") String token) {
+      String userId = getUserIdByToken(token); // 안전: 토큰에서 추출
+      // ...
+  }
+  ```
+
+### 역할 기반 접근 제어 (RBAC)
+
+- 사용자에게 역할(Role)을 부여하고, 역할에 권한(Permission)을 할당하는 방식
+- **장점**
+  - 권한 관리가 체계적이고 용이함 (역할만 변경하면 됨)
+- **주의점**
+  - 역할의 무분별한 생성 주의 (관리 복잡도 증가)
 
 ![RBAC 구조](/assets/img/books/backend-basics-ch8/rbac-structure.png)
+
+### 사용자 기반 접근 제어 (User-Based Access Control)
+
+- 역할 없이 사용자에게 개별적으로 권한을 직접 부여
+- **특징**
+  - 구현이 단순함
+  - 시스템 규모가 작거나 역할 구분이 모호할 때 적합
+
+### 속성 기반 접근 제어 (ABAC)
+
+- 사용자의 속성(IP, 위치, 부서, 시간 등)을 기반으로 접근 제어
+- **특징**
+  - 매우 정교한 제어 가능
+  - 구현 및 규칙 정의가 복잡함
 
 <br/><br/>
 
