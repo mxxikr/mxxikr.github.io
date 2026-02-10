@@ -32,10 +32,6 @@ mermaid: false
 ### 보안 취약점의 공통 패턴
 
 - 인증(Authentication)과 인가(Authorization)의 혼동
-  - 인증
-    - 사용자가 누구인지 확인 (로그인 여부)
-  - 인가
-    - 해당 사용자가 특정 리소스에 접근할 권한이 있는지 확인
 - 클라이언트에서 전달받은 값을 맹목적으로 신뢰
 - 서버 측에서 적절한 권한 검증 로직 누락
 
@@ -141,8 +137,7 @@ mermaid: false
   ```java
   @GetMapping("/myinfo")
   public ResponseEntity<?> getMyInfo(@RequestHeader("token") String token) {
-      String userId = getUserIdByToken(token); // 안전: 토큰에서 추출
-      // ...
+      String userId = getUserIdByToken(token); // 토큰에서 추출
   }
   ```
 

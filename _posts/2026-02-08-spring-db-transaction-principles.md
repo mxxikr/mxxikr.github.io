@@ -1,5 +1,5 @@
 ---
-title: '[스프링 DB 2편 - 데이터 접근 활용 기술] 트랜잭션 원리 및 설정'
+title: '[스프링 DB 2편 - 데이터 접근 활용 기술] 트랜잭션 이해'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-08 16:30:00 +0900
 category: [Framework, Spring]
@@ -8,7 +8,7 @@ math: false
 mermaid: false
 ---
 
-# 트랜잭션 원리 및 설정
+# 트랜잭션 이해
 
 - 김영한님의 스프링 DB 2편 강의를 통해 스프링 트랜잭션의 개념, 추상화, AOP 적용 원리, 그리고 다양한 옵션과 예외 처리 전략을 정리함
 
