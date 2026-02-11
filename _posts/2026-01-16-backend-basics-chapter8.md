@@ -169,258 +169,271 @@ mermaid: false
 
 ## 암호화
 
-### 데이터 암호화의 필요성
-
-- 유출되면 가장 큰 피해로 이어질 수 있는 데이터 중 하나가 로그인 비밀번호임
 - 암호화는 데이터를 특정한 규칙으로 변환하여 원본 유추를 어렵게 만드는 것
+- 유출되면 가장 큰 피해로 이어질 수 있는 데이터 중 하나가 로그인 비밀번호임
 
 ![암호화 개념](/assets/img/books/backend-basics-ch8/encryption-concept.png)
 
 ### 단방향 암호화
 
-- 암호화한 데이터를 복호화할 수 없는 암호화 방식임
-
+- 암호화한 데이터를 복호화할 수 없는 암호화 방식
+- 해시 함수를 사용해서 데이터를 해시 값으로 변환함
+- 주요 사용처
+  - 로그인 비밀번호 암호화
 - 주요 알고리즘
-  - SHA-256
-  - MD5
-  - BCrypt
+  - SHA-256, SHA-512, MD5, BCrypt
 
 ![단방향 암호화](/assets/img/books/backend-basics-ch8/one-way-encryption.png)
 
-### 해시 함수의 특징
-
-- SHA-256과 같은 해시 함수 알고리즘은 원본 데이터를 유추하기 어렵게 하기 위해 원본 데이터가 조금만 달라도 완전히 다른 해시 값을 생성함
+- **해시 함수 동작 원리**
+  - 원본 데이터가 조금만 달라도 완전히 다른 해시 값을 생성함
+  - 바이트 데이터 기반으로 동작하며, 문자열은 바이트 배열로 변환하여 처리함 (UTF-8 등 캐릭터셋 사용)
+  - 해시 결과를 저장할 때는 16진수 또는 Base64로 인코딩함
 
   ```java
   public static String encrypt(String input) {
-      StringBuilder hexString = new StringBuilder();
       try {
-          // SHA-256 해시 알고리즘 인스턴스 생성
           MessageDigest digest = MessageDigest.getInstance("SHA-256");
-          // 입력값을 바이트 배열로 변환하여 해시 생성
           byte[] hash = digest.digest(input.getBytes("UTF-8"));
-          // 바이트 배열을 16진수 문자열로 변환
+          StringBuilder hexString = new StringBuilder();
           for (byte b : hash) {
               String hex = Integer.toHexString(0xff & b);
-              if (hex.length() == 1) hexString.append('0'); // 한 자리면 0 추가
+              if (hex.length() == 1) hexString.append('0');
               hexString.append(hex);
           }
+          return hexString.toString();
       } catch (Exception e) {
           throw new RuntimeException(e);
       }
-      return hexString.toString();
   }
   ```
 
-### 충돌 저항성 (Collision Resistance)
+- **충돌 저항성**
+  - 해시 함수는 원본 데이터에 상관없이 일정한 길이의 해시 값을 생성함
+  - 서로 다른 데이터가 동일한 해시 값을 가질 수 있으나, 찾기 어려울수록 충돌 저항성이 높음
+  - 해시 길이가 길수록 충돌 가능성이 낮음
+    - SHA-256: 256비트(32바이트)
+    - SHA-512: 512비트(64바이트) - 충돌 가능성 더 낮음
 
-- 해시 함수는 원본 데이터의 산출값이 일정한 길이의 해시 값을 생성함
-- 길이가 제한되기 때문에 서로 다른 데이터가 같은 해시 값을 생성할 가능성이 있음
-- 해시 함수의 생성 결과가 길수록 충돌 발생 가능성이 낮아짐
-  - SHA-256
-    - 256비트(32바이트)
-  - SHA-512
-    - 512비트(64바이트)
-
-### 비밀번호 검증
-
-- 단방향 암호화는 해시 값을 비교하여 두 데이터가 같다고 간주함
+- **비밀번호 검증**
+  - 사용자 입력 비밀번호를 해시화하여 DB에 저장된 해시 값과 비교함
 
   ```java
-  // 사용자 입력 비밀번호를 해시 값으로 변환
   String inputPwdHash = encodePassword(inputPwd);
-
-  // DB에 저장된 비밀번호 해시 값 조회
   String dbPwdHash = selectDbPwd(userId);
-
-  // 두 해시 값 비교
   if (inputPwdHash.equals(dbPwdHash)) {
-      // 비밀번호 일치 - 인증 성공
+      // 인증 성공
   }
   ```
 
-### Salt로 보안 강화하기
+- **Salt를 이용한 보안 강화**
+  - 같은 입력값에 대해 항상 같은 해시가 생성되는 것을 방지함
+  - Salt(임의 값)를 추가하여 같은 원본 데이터라도 다른 해시 값을 생성하게 함
 
-- 같은 해시 알고리즘을 사용하면 동일한 원본 데이터에 대해 항상 동일한 해시 값이 생성됨
-- Salt를 추가하면 같은 원본 데이터라도 다른 해시 값을 생성함
+  ![Salt 사용](/assets/img/books/backend-basics-ch8/salt-usage.png)
 
-![Salt 사용](/assets/img/books/backend-basics-ch8/salt-usage.png)
-
-```java
-public static String encryptWithSalt(String input, String salt) {
-    StringBuilder hexString = new StringBuilder();
-    try {
-        // SHA-256 해시 알고리즘 인스턴스 생성
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        digest.update(salt.getBytes()); // Salt 값 추가
-        // Salt + 입력값 해시 생성
-        byte[] hash = digest.digest(input.getBytes("UTF-8"));
-        // 바이트 배열을 16진수 문자열로 변환
-        for (byte b : hash) {
-            String hex = Integer.toHexString(0xff & b);
-            if (hex.length() == 1) hexString.append("0");
-            hexString.append(hex);
-        }
-    } catch (Exception e) {
-        throw new RuntimeException(e);
-    }
-    return hexString.toString();
-}
-```
+  ```java
+  public static String encryptWithSalt(String input, String salt) {
+      try {
+          MessageDigest digest = MessageDigest.getInstance("SHA-256");
+          digest.update(salt.getBytes());
+          byte[] hash = digest.digest(input.getBytes("UTF-8"));
+          StringBuilder hexString = new StringBuilder();
+          for (byte b : hash) {
+              String hex = Integer.toHexString(0xff & b);
+              if (hex.length() == 1) hexString.append("0");
+              hexString.append(hex);
+          }
+          return hexString.toString();
+      } catch (Exception e) {
+          throw new RuntimeException(e);
+      }
+  }
+  ```
 
 ### 양방향 암호화
 
-- 암호화와 복호화가 모두 가능한 방식임
-
+- 암호화와 복호화가 모두 가능한 방식
+- 키(Key)를 사용하며, 키에 따라 암호화 결과가 달라짐
 - 주요 사용처
-  - SSH 프로토콜이나 API 호출 시 사용하는 HTTPS처럼 보안이 중요한 데이터 송수신 과정
-  - 대표적인 알고리즘으로는 AES와 RSA가 있음
+  - SSH, HTTPS 등 보안이 중요한 데이터 송수신
+- 주요 알고리즘
+  - 대칭 키
+    - AES
+  - 비대칭 키
+    - RSA
 
 ![양방향 암호화](/assets/img/books/backend-basics-ch8/two-way-encryption.png)
 
+- **대칭 키 암호화**
+  - 암호화와 복호화에 동일한 키를 사용함
+  - 키를 공유해야 하므로 키 유출 시 보안에 취약함
+
+- **비대칭 키 암호화**
+  - 암호화와 복호화에 서로 다른 키를 사용함
+  - 공개 키(Public Key)
+    - 누구에게나 공개 가능, 암호화에 사용
+  - 개인 키(Private Key)
+    - 소유자만 접근 가능, 복호화에 사용
+  - 공개 키로 암호화한 데이터는 개인 키로만 복호화 가능하므로 대칭 키보다 안전함
+
 ### AES 대칭 키 암호화
 
-- AES 구성요소
-  - 키(Key)
-  - IV(Initialization Vector, 초기화 벡터)
+- AES는 키(Key)와 IV(Initialization Vector)를 사용함
+- 키는 128/192/256비트(16/24/32바이트) 중 하나를 무작위로 생성함
+- IV는 같은 키로 암호화 시 매번 다른 결과를 생성하여 패턴 노출을 방지함 (16바이트)
 
-```java
-public static byte[] generateSecretKey() throws Exception {
-    // AES 키 생성기 인스턴스 생성
-    KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-    keyGenerator.init(256); // 256비트 (32바이트) 키 크기 설정
-    SecretKey secretKey = keyGenerator.generateKey(); // 키 생성
-    return secretKey.getEncoded(); // 바이트 배열로 반환
-}
-```
+  ```java
+  // 키 생성 (256비트)
+  public static byte[] generateSecretKey() throws Exception {
+      KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+      keyGenerator.init(256);
+      SecretKey secretKey = keyGenerator.generateKey();
+      return secretKey.getEncoded();
+  }
 
-### AES 암호화/복호화
+  // IV 생성
+  public static byte[] generateIV() {
+      byte[] iv = new byte[16];
+      new SecureRandom().nextBytes(iv);
+      return iv;
+  }
 
-```java
-// AES 암호화 메서드
-public static String encrypt(String plain, SecretKey key, byte[] iv) throws Exception {
-    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding"); // AES 암호화 알고리즘 설정
-    IvParameterSpec parameterSpec = new IvParameterSpec(iv); // IV 설정
-    cipher.init(Cipher.ENCRYPT_MODE, key, parameterSpec); // 암호화 모드 초기화
-    byte[] encrypted = cipher.doFinal(plain.getBytes("UTF-8")); // 암호화 실행
-    return Base64.getEncoder().encodeToString(encrypted); // Base64로 인코딩하여 반환
-}
+  // 바이트 배열로부터 SecretKey 생성 (저장된 키 재사용)
+  SecretKey key = new SecretKeySpec(bytes, "AES");
+  ```
 
-// AES 복호화 메서드
-public static String decrypt(String encrypted, SecretKey key, byte[] iv) throws Exception {
-    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding"); // AES 복호화 알고리즘 설정
-    IvParameterSpec parameterSpec = new IvParameterSpec(iv); // IV 설정
-    cipher.init(Cipher.DECRYPT_MODE, key, parameterSpec); // 복호화 모드 초기화
-    byte[] decoded = Base64.getDecoder().decode(encrypted); // Base64 디코딩
-    byte[] decrypted = cipher.doFinal(decoded); // 복호화 실행
-    return new String(decrypted, "UTF-8"); // 문자열로 반환
-}
-```
+- **AES 암호화/복호화**
+  - `AES/CBC/PKCS5Padding`
+    - 알고리즘/모드/패딩 방식
+
+  ```java
+  // 암호화
+  public static String encrypt(String plain, SecretKey key, byte[] iv) throws Exception {
+      Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+      IvParameterSpec parameterSpec = new IvParameterSpec(iv);
+      cipher.init(Cipher.ENCRYPT_MODE, key, parameterSpec);
+      byte[] encrypted = cipher.doFinal(plain.getBytes("UTF-8"));
+      return Base64.getEncoder().encodeToString(encrypted);
+  }
+
+  // 복호화
+  public static String decrypt(String encrypted, SecretKey key, byte[] iv) throws Exception {
+      Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+      IvParameterSpec parameterSpec = new IvParameterSpec(iv);
+      cipher.init(Cipher.DECRYPT_MODE, key, parameterSpec);
+      byte[] decoded = Base64.getDecoder().decode(encrypted);
+      byte[] decrypted = cipher.doFinal(decoded);
+      return new String(decrypted, "UTF-8");
+  }
+  ```
 
 ### RSA 비대칭 키 암호화
 
-- 공개 키/개인 키 쌍을 생성한 뒤에 공개 키를 공유함
+- 공개 키와 개인 키 쌍을 생성하여 공개 키를 공유함
+- 키 크기는 일반적으로 2048비트를 사용함
 
 ![비대칭 키 암호화](/assets/img/books/backend-basics-ch8/asymmetric-encryption.png)
 
 ```java
-// RSA 키 쌍 생성기 인스턴스 생성
+// 키 쌍 생성
 KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
-keyGen.initialize(2048); // 키 크기 2048비트 설정
-KeyPair keyPair = keyGen.generateKeyPair(); // 키 쌍 생성
-PublicKey publicKey = keyPair.getPublic(); // 공개 키
-PrivateKey privateKey = keyPair.getPrivate(); // 개인 키
-```
+keyGen.initialize(2048);
+KeyPair keyPair = keyGen.generateKeyPair();
+PublicKey publicKey = keyPair.getPublic();
+PrivateKey privateKey = keyPair.getPrivate();
 
-### RSA 암호화/복호화
-
-```java
-// RSA 공개키로 암호화
-public static String encrypt(String plain, PublicKey publicKey) {
-    Cipher cipher = Cipher.getInstance("RSA"); // RSA 알고리즘 설정
-    cipher.init(Cipher.ENCRYPT_MODE, publicKey); // 공개키로 암호화 모드 초기화
-    byte[] encryptedBytes = cipher.doFinal(plain.getBytes("UTF-8")); // 암호화 실행
-    return Base64.getEncoder().encodeToString(encryptedBytes); // Base64 인코딩
-}
-
-// RSA 개인키로 복호화
-public static String decrypt(String encrypted, PrivateKey privateKey) {
-    Cipher cipher = Cipher.getInstance("RSA"); // RSA 알고리즘 설정
-    cipher.init(Cipher.DECRYPT_MODE, privateKey); // 개인키로 복호화 모드 초기화
-    byte[] decodedBytes = Base64.getDecoder().decode(encrypted); // Base64 디코딩
-    byte[] decryptedBytes = cipher.doFinal(decodedBytes); // 복호화 실행
-    return new String(decryptedBytes, "UTF-8"); // 문자열로 반환
+// 키를 Base64 또는 바이너리 파일로 저장 후 재사용 시 변환
+public static KeyPair getKeyPairFromBytes(byte[] publicKeyBytes, byte[] privateKeyBytes) 
+    throws NoSuchAlgorithmException, InvalidKeySpecException {
+    KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+    PublicKey publicKey = keyFactory.generatePublic(new X509EncodedKeySpec(publicKeyBytes));
+    PrivateKey privateKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(privateKeyBytes));
+    return new KeyPair(publicKey, privateKey);
 }
 ```
+
+- **RSA 암호화/복호화**
+
+  ```java
+  // 공개키로 암호화
+  public static String encrypt(String plain, PublicKey publicKey) {
+      Cipher cipher = Cipher.getInstance("RSA");
+      cipher.init(Cipher.ENCRYPT_MODE, publicKey);
+      byte[] encryptedBytes = cipher.doFinal(plain.getBytes("UTF-8"));
+      return Base64.getEncoder().encodeToString(encryptedBytes);
+  }
+
+  // 개인키로 복호화
+  public static String decrypt(String encrypted, PrivateKey privateKey) {
+      Cipher cipher = Cipher.getInstance("RSA");
+      cipher.init(Cipher.DECRYPT_MODE, privateKey);
+      byte[] decodedBytes = Base64.getDecoder().decode(encrypted);
+      byte[] decryptedBytes = cipher.doFinal(decodedBytes);
+      return new String(decryptedBytes, "UTF-8");
+  }
+  ```
+
+  - **개인 키를 이용한 인증**
+    - 개인 키로 암호화하고 공개 키로 복호화하는 방식
+    - 신원 확인이나 서명 등 인증 목적으로 사용됨 (예: SSH 인증)
+    - SSH는 서버에 공개 키를 등록하고 클라이언트가 개인 키로 인증함
+      1. 클라이언트가 키 ID 전송
+      2. 서버가 공개 키로 임의 숫자 암호화하여 전송
+      3. 클라이언트가 개인 키로 복호화
+      4. 복호화한 값과 세션 키를 결합한 해시로 인증
 
 <br/><br/>
 
 ## HMAC을 이용한 데이터 검증
 
-### HMAC이란?
-
-- API 통신을 할 때 클라이언트는 데이터를 생성해서 서버에 전송함
-- 공격자가 중간에서 데이터를 가로채거나 위변조할 수 있음
-
-```json
-// 클라이언트가 전송하는 데이터 예시
-{
-  "action": "transfer",
-  "amount": 1000,
-  "toAccount": "1234567890"
-}
-```
-
-- 공격자가 데이터를 조작하는 예시
-
-```json
-// 공격자에 의해 변조된 데이터
-{
-  "action": "transfer",
-  "amount": 100000, // 금액 변조
-  "toAccount": "9999999999" // 계좌 변조
-}
-```
-
-- HMAC은 Hash-based Message Authentication Code의 약자로, 메시지의 무결성과 인증을 보장하기 위해 사용하는 암호화 기술임
+- HMAC(Hash-based Message Authentication Code)은 메시지의 무결성과 인증을 보장하는 암호화 기술
+- API 통신 시 데이터 위변조를 방지하기 위해 사용됨
 
 ![HMAC 프로세스](/assets/img/books/backend-basics-ch8/hmac-process.png)
 
-### HMAC의 주요 용도
+- **동작 방식**
+  - 발신자와 수신자는 비밀 키(Secret Key)를 공유함 (외부 노출 금지)
+  - 발신자는 메시지와 비밀 키로 MAC(Message Authentication Code)을 생성하여 메시지와 함께 전송함
+  - 수신자는 받은 메시지와 비밀 키로 MAC을 재생성한 뒤 발신자가 보낸 MAC과 비교함
+  - 두 값이 일치하면 메시지 무결성 보장, 불일치하면 위변조로 판단함
 
-- 메시지 무결성
-  - 메시지가 중간에 위변조되지 않았음
-- 인증
-  - 메시지 발신자를 인증할 수 있음(발신자만 비밀 키 보유)
+- **주요 용도**
+  - 메시지 무결성 검증 (중간 위변조 방지)
+  - 발신자 인증 (비밀 키 보유자만 유효한 MAC 생성 가능)
 
-### HMAC 예제 코드
+- **구현 예제**
 
-```java
-public static class HMAC {
-    private String secretKey;
+  ```java
+  public static class HMAC {
+      private String secretKey;
 
-    public HMAC(String secretKey) {
-        this.secretKey = secretKey; // 비밀 키 저장
-    }
+      public HMAC(String secretKey) {
+          this.secretKey = secretKey;
+      }
 
-    // HMAC 생성 메서드
-    public String hmac(String message) {
-        try {
-            // HmacSHA256 알고리즘 인스턴스 생성
-            Mac mac = Mac.getInstance("HmacSHA256");
-            // 비밀 키로 SecretKeySpec 생성
-            SecretKeySpec secretKeySpec =
-                new SecretKeySpec(secretKey.getBytes(), "HmacSHA256");
-            mac.init(secretKeySpec); // MAC 초기화
-            // 메시지에 대한 HMAC 생성
-            byte[] hash = mac.doFinal(message.getBytes("UTF-8"));
-            return Base64.getEncoder().encodeToString(hash); // Base64 인코딩하여 반환
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-}
-```
+      public String hmac(String message) {
+          try {
+              Mac mac = Mac.getInstance("HmacSHA256");
+              SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(), "HmacSHA256");
+              mac.init(secretKeySpec);
+              byte[] hash = mac.doFinal(message.getBytes("UTF-8"));
+              return Base64.getEncoder().encodeToString(hash);
+          } catch (Exception e) {
+              throw new RuntimeException(e);
+          }
+      }
+  }
+  ```
+
+- **장점**
+  - 단순하고 효율적임 (비밀 키만 공유하면 구현 가능)
+  - 낮은 비용으로 인증 보안 구현 가능
+  - 사용하는 해시 알고리즘에 따라 보안성 향상
+
+- **단점**
+  - 비밀 키가 유출되면 보안에 취약함
+  - 비밀 키 교체가 까다로울 수 있음
 
 <br/><br/>
 
