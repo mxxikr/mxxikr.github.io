@@ -66,7 +66,7 @@ mermaid: true
         private int price;
     }
     ```
-    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/ex1-hello-jpa/src/main/java/hellojpa/Item.java)
+    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Item.java)
 
     ```java
     @Entity
@@ -75,7 +75,7 @@ mermaid: true
         private String artist;
     }
     ```
-    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/ex1-hello-jpa/src/main/java/hellojpa/Album.java)
+    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Album.java)
 
 - **장점**
     - 테이블 정규화
@@ -106,7 +106,7 @@ mermaid: true
         private int price;
     }
     ```
-    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/ex1-hello-jpa/src/main/java/hellojpa/Item.java)
+    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Item.java)
 
     ```java
     @Entity
@@ -115,7 +115,7 @@ mermaid: true
         private String artist;
     }
     ```
-    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/ex1-hello-jpa/src/main/java/hellojpa/Album.java)
+    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Album.java)
 
 - **장점**
     - **조인이 필요 없어 일반적으로 조회 성능이 빠름**
@@ -143,7 +143,7 @@ mermaid: true
         private int price;
     }
     ```
-    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/ex1-hello-jpa/src/main/java/hellojpa/Item.java)
+    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Item.java)
 
     ```java
     @Entity
@@ -151,7 +151,7 @@ mermaid: true
         private String artist;
     }
     ```
-    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/ex1-hello-jpa/src/main/java/hellojpa/Album.java)
+    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Album.java)
 
 - **장점**
     - 서브 타입을 명확하게 구분해서 처리할 때 효과적
@@ -198,7 +198,7 @@ public abstract class BaseEntity { // 직접 생성해서 사용할 일이 없�
     private LocalDateTime lastModifiedDate;
 }
 ```
-- [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/ex1-hello-jpa/src/main/java/hellojpa/BaseEntity.java)
+- [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/BaseEntity.java)
 
 ```java
 @Entity // 상속받은 매핑 정보 사용
@@ -207,7 +207,7 @@ public class Member extends BaseEntity {
     private String email;
 }
 ```
-- [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/ex1-hello-jpa/src/main/java/hellojpa/Member.java)
+- [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Member.java)
 
 ```java
 @Entity // 상속받은 매핑 정보 사용
@@ -215,7 +215,7 @@ public class Seller extends BaseEntity {
     private String shopName;
 }
 ```
-- [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/ex1-hello-jpa/src/main/java/hellojpa/Seller.java)
+- [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Seller.java)
 
 ### 특징
 
@@ -233,7 +233,117 @@ public class Seller extends BaseEntity {
 <br/><br/>
 
 
+
+## 상속관계 매핑 예제
+
+### 요구사항
+
+1. **상품의 종류**는 음반, 도서, 영화가 있고 **이후 더 확장될 수 있다**
+2. **모든 데이터**는 등록일과 수정일이 필수다
+
+### 도메인 모델
+
+![상속관계 매핑 예제 도메인 모델](/assets/img/jpa/inheritance_example_domain.png)
+
+### 엔티티 상세 구조
+
+![상속관계 매핑 예제 엔티티 상세](/assets/img/jpa/inheritance_example_class.png)
+
+### 테이블 설계 (조인 전략)
+
+![상속관계 매핑 예제 테이블 설계](/assets/img/jpa/inheritance_example_erd.png)
+
+### 구현 코드
+
+- **BaseEntity (공통 매핑 정보)**
+
+    ```java
+    @MappedSuperclass
+    @Getter
+    public abstract class BaseEntity {
+        
+        @Column(name = "CREATED_DATE", updatable = false)
+        private LocalDateTime createdDate;
+        
+        @Column(name = "LAST_MODIFIED_DATE")
+        private LocalDateTime lastModifiedDate;
+        
+        private String createdBy;
+        private String lastModifiedBy;
+        
+        @PrePersist
+        public void prePersist() {
+            LocalDateTime now = LocalDateTime.now();
+            this.createdDate = now;
+            this.lastModifiedDate = now;
+        }
+        
+        @PreUpdate
+        public void preUpdate() {
+            this.lastModifiedDate = LocalDateTime.now();
+        }
+    }
+    ```
+    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/BaseEntity.java)
+
+- **Item (부모 엔티티 - 조인 전략)**
+
+    ```java
+    @Entity
+    @Inheritance(strategy = InheritanceType.JOINED)
+    @DiscriminatorColumn(name = "DTYPE")
+    @Getter @Setter
+    public abstract class Item extends BaseEntity {
+        
+        @Id @GeneratedValue
+        @Column(name = "ITEM_ID")
+        private Long id;
+        
+        private String name;
+        private int price;
+        private int stockQuantity;
+        
+        @ManyToMany(mappedBy = "items")
+        private List<Category> categories = new ArrayList<>();
+    }
+    ```
+    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Item.java)
+
+- **Album, Book, Movie (자식 엔티티)**
+
+    ```java
+    @Entity
+    @DiscriminatorValue("A")
+    @Getter @Setter
+    public class Album extends Item {
+        private String artist;
+        private String etc;
+    }
+
+    @Entity
+    @DiscriminatorValue("B")
+    @Getter @Setter
+    public class Book extends Item {
+        private String author;
+        private String isbn;
+    }
+
+    @Entity
+    @DiscriminatorValue("M")
+    @Getter @Setter
+    public class Movie extends Item {
+        private String director;
+        private String actor;
+    }
+    ```
+    - [Album 전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Album.java)
+    - [Book 전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Book.java)
+    - [Movie 전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Movie.java)
+
+<br/><br/>
+
 ## 연습 문제
+
 
 1. 객체 상속 구조를 관계형 데이터베이스에 매핑할 때 마주하게 되는 주요 도전 과제는 무엇일까요?
 

@@ -342,7 +342,106 @@ mermaid: true
 
 <br/><br/>
 
+
+## 배송과 카테고리 추가 예제
+
+### 엔티티 관계도
+
+![배송과 카테고리 추가 예제 엔티티 관계도](/assets/img/jpa/various_association_example_domain.png)
+
+**관계 정의**
+- 주문 ↔ 배송: **1:1** (`@OneToOne`)
+- 상품 ↔ 카테고리: **N:M** (`@ManyToMany`)
+
+### ERD
+
+![배송과 카테고리 추가 예제 ERD](/assets/img/jpa/various_association_example_erd.png)
+
+### 엔티티 상세 구조
+
+![배송과 카테고리 추가 예제 엔티티 상세 구조](/assets/img/jpa/various_association_example_class.png)
+
+### 구현 코드
+
+- **Category**
+
+    ```java
+    @Entity
+    public class Category {
+        
+        @Id @GeneratedValue
+        @Column(name = "CATEGORY_ID")
+        private Long id;
+        
+        private String name;
+        
+        @ManyToMany
+        @JoinTable(name = "CATEGORY_ITEM",
+            joinColumns = @JoinColumn(name = "CATEGORY_ID"),
+            inverseJoinColumns = @JoinColumn(name = "ITEM_ID")
+        )
+        private List<Item> items = new ArrayList<>();
+        
+        @ManyToOne
+        @JoinColumn(name = "PARENT_ID")
+        private Category parent;
+        
+        @OneToMany(mappedBy = "parent")
+        private List<Category> child = new ArrayList<>();
+    }
+    ```
+    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Category.java)
+
+- **Delivery**
+
+    ```java
+    @Entity
+    public class Delivery {
+
+        @Id @GeneratedValue
+        @Column(name = "DELIVERY_ID")
+        private Long id;
+        
+        @OneToOne(mappedBy = "delivery")
+        private Order order;
+        
+        @Embedded
+        private Address address;
+        
+        @Enumerated(EnumType.STRING)
+        private DeliveryStatus status;
+    }
+    ```
+    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/Delivery.java)
+
+- **OrderItem**
+
+    ```java
+    @Entity
+    public class OrderItem {
+
+        @Id @GeneratedValue
+        @Column(name = "ORDER_ITEM_ID")
+        private Long id;
+        
+        @ManyToOne
+        @JoinColumn(name = "ORDER_ID")
+        private Order order;
+        
+        @ManyToOne
+        @JoinColumn(name = "ITEM_ID")
+        private Item item;
+        
+        private int orderPrice;
+        private int count;
+    }
+    ```
+    - [전체 코드](https://github.com/mxxikr/jpa-programming-basic/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/OrderItem.java)
+
+<br/><br/>
+
 ## 연습 문제
+
 
 1. 양방향 연관관계 매핑 시, 데이터베이스 외래 키를 주로 관리하는 쪽은 어느 쪽일까요?
 
