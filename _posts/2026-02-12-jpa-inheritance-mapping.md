@@ -1,5 +1,5 @@
 ---
-title: '[자바 ORM 표준 JPA 프로그래밍 기본편] 상속관계 매핑'
+title: '[자바 ORM 표준 JPA 프로그래밍 기본편] 고급 매핑'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-12 14:00:00 +0900
 category: [Framework, JPA]
