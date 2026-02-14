@@ -2,7 +2,7 @@
 title: '[자바 ORM 표준 JPA 프로그래밍 기본편] 다양한 연관관계 매핑'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-12 10:00:00 +0900
-category: [Framework, JPA]
+category: [Language, Java, JPA]
 tags: [jpa, association-mapping, many-to-one, one-to-many, one-to-one, many-to-many]
 math: false
 mermaid: true

@@ -2,7 +2,7 @@
 title: '[자바 ORM 표준 JPA 프로그래밍 기본편] JPA 시작하기'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-10 16:59:00 +0900
-category: [Framework, JPA]
+category: [Language, Java, JPA]
 tags: [jpa, orm, hibernate, java, persistence, jpql, h2]
 math: false
 mermaid: false

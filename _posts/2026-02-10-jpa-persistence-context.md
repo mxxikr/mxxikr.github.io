@@ -2,7 +2,7 @@
 title: '[자바 ORM 표준 JPA 프로그래밍 기본편] 영속성 관리 - 내부 동작 방식'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-10 18:00:00 +0900
-category: [Framework, JPA]
+category: [Language, Java, JPA]
 tags: [jpa, persistence-context, entity-lifecycle, dirty-checking, flush, orm]
 math: false
 mermaid: false

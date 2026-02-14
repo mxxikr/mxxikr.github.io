@@ -2,7 +2,7 @@
 title: '[자바 ORM 표준 JPA 프로그래밍 기본편] 프록시와 연관관계 관리'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-13 18:00:00 +0900
-category: [Framework, JPA]
+category: [Language, Java, JPA]
 tags: [jpa, proxy, lazy-loading, eager-loading, cascade, orphan-removal, orm]
 math: false
 mermaid: false

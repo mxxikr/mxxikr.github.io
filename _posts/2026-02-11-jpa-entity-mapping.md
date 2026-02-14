@@ -2,7 +2,7 @@
 title: '[자바 ORM 표준 JPA 프로그래밍 기본편] 엔티티 매핑'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-11 15:55:00 +0900
-category: [Framework, JPA]
+category: [Language, Java, JPA]
 tags: [jpa, entity-mapping, orm, hibernate, primary-key, ddl, annotation]
 math: false
 mermaid: false

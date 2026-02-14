@@ -2,7 +2,7 @@
 title: '[자바 ORM 표준 JPA 프로그래밍 기본편] 값 타입'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-13 19:00:00 +0900
-category: [Framework, JPA]
+category: [Language, Java, JPA]
 tags: [jpa, value-type, embedded-type, immutable-object, collection-value-type, orm]
 math: false
 mermaid: false
