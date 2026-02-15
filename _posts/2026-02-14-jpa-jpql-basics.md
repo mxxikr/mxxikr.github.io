@@ -18,7 +18,7 @@ mermaid: true
 
 ### JPA가 지원하는 쿼리 방법
 
-![jpa-query-methods](/assets/images/2026-02-14-jpa-jpql-basics/jpa-query-methods.png)
+![jpa-query-methods](/assets/img/jpa/2026-02-14-jpa-jpql-basics/jpa-query-methods.png)
 
 ### JPQL이 필요한 이유
 
@@ -133,7 +133,7 @@ List<Member> result = em.createQuery(jpql, Member.class)
 
 ### 데이터 모델
 
-![jpql-data-model](/assets/images/2026-02-14-jpa-jpql-basics/jpql-data-model.png)
+![jpql-data-model](/assets/img/jpa/2026-02-14-jpa-jpql-basics/jpql-data-model.png)
 
 ### JPQL 문법 구조
 
@@ -230,7 +230,7 @@ query.setParameter(1, usernameParam);
 - **프로젝션(Projection)**
     - `SELECT` 절에 조회할 대상을 지정하는 것을 말함
 
-![jpql-projection](/assets/images/2026-02-14-jpa-jpql-basics/jpql-projection.png)
+![jpql-projection](/assets/img/jpa/2026-02-14-jpa-jpql-basics/jpql-projection.png)
 
 - **여러 값 조회 방법**
 
@@ -360,7 +360,7 @@ WHERE (SELECT COUNT(o) FROM Order o WHERE m = o.member) > 0
 
 - **서브 쿼리 한계**
 
-![jpql-subquery-limits](/assets/images/2026-02-14-jpa-jpql-basics/jpql-subquery-limits.png)
+![jpql-subquery-limits](/assets/img/jpa/2026-02-14-jpa-jpql-basics/jpql-subquery-limits.png)
 
 - **Hibernate 6 변경사항**
     - `FROM` 절에서도 서브쿼리 사용을 지원하기 시작함
