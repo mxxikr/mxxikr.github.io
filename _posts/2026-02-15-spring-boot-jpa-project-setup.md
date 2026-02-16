@@ -2,7 +2,7 @@
 title: '[실전! 스프링 부트와 JPA 활용1] 프로젝트 환경설정'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-15 14:00:00 +0900
-category: [Spring Boot, JPA]
+category: [Framework, Spring]
 tags: [spring-boot, jpa, thymeleaf, h2-database, lombok, project-setup]
 math: false
 mermaid: true

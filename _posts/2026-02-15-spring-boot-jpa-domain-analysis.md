@@ -2,7 +2,7 @@
 title: '[실전! 스프링 부트와 JPA 활용1] 도메인 분석 및 설계'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-02-15 15:00:00 +0900
-category: [Spring Boot, JPA]
+category: [Framework, Spring]
 tags: [spring-boot, jpa, domain-design, entity-mapping, erd, inheritance-mapping]
 math: false
 mermaid: true
