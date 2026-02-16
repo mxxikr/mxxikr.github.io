@@ -238,10 +238,6 @@ public class OrderItem {
 
 ![orderitem-create-sequence](/img/jpa/orderitem-create-sequence.png)
 
-### 주문상품 기능 요약
-
-![orderitem-structure](/img/jpa/orderitem-structure.png)
-
 <br/><br/>
 
 ## 주문 리포지토리 개발
@@ -256,19 +252,16 @@ public class OrderRepository {
     private final EntityManager em;
     
     public void save(Order order) {
-        em.persist(order);
+        em.persist(order); // 주문 엔티티를 영속성 컨텍스트에 저장
     }
     
     public Order findOne(Long id) {
-        return em.find(Order.class, id);
+        return em.find(Order.class, id); // 주문 식별자(id)로 조회
     }
 }
 ```
 - [전체 코드 보기](https://github.com/mxxikr/springboot-jpa-part1/blob/master/jpashop/src/main/java/jpabook/jpashop/repository/OrderRepository.java)
 
-### Repository 메서드
-
-![repository-methods](/img/jpa/repository-methods.png)
 
 <br/><br/>
 
@@ -336,8 +329,6 @@ public class OrderService {
 ![order-service-cancel-sequence](/img/jpa/order-service-cancel-sequence.png)
 
 ### Cascade와 영속성 전이
-
-![cascade-graph](/img/jpa/cascade-graph.png)
 
 - **Cascade 효과**
     ```java
@@ -442,13 +433,6 @@ public class OrderServiceTest {
 ```
 - [전체 코드 보기](https://github.com/mxxikr/springboot-jpa-part1/blob/master/jpashop/src/test/java/jpabook/jpashop/service/OrderServiceTest.java)
 
-### 테스트 시나리오 플로우
-
-- **상품 주문 테스트**
-
-![order-test-sequence](/img/jpa/order-test-sequence.png)
-
-- **재고 부족 테스트**
 
 <br/><br/>
 
