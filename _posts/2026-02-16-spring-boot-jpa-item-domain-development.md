@@ -90,7 +90,7 @@ public abstract class Item {
 - [전체 코드 보기](https://github.com/mxxikr/springboot-jpa-part1/blob/master/jpashop/src/main/java/jpabook/jpashop/domain/item/Item.java)
 
 
-- **addStock() 메서드**
+- `addStock()` 메서드
 
     ```java
     public void addStock(int quantity) {
@@ -104,7 +104,7 @@ public abstract class Item {
     - **동작**
         - 현재 재고 수량에 파라미터로 넘어온 수량을 더함
 
-- **removeStock() 메서드**
+- `removeStock()` 메서드
 
     ```java
     public void removeStock(int quantity) {
