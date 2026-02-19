@@ -16,6 +16,8 @@ mermaid: false
 
 ## 전체 구조 개요
 
+![버전별 발전 흐름](/assets/img/jpa/2026-02-19-spring-boot-jpa-api-collection-query-optimization/version-overview.png)
+
 - V1에서 V6까지 단계적으로 성능 문제를 해결함
     - **V1** → 엔티티 직접 노출 (프록시 직렬화, 순환참조 문제)
     - **V2** → DTO 변환 (N+1 쿼리 문제)
