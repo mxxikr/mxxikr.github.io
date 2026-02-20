@@ -1,7 +1,7 @@
 ---
-title: '[실전! 스프링 부트와 JPA 활용2] API 개발 고급 - OSIV와 성능 최적화'
+title: '[실전! 스프링 부트와 JPA 활용2] API 개발 고급 - 실무 필수 최적화'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
-date: 2026-02-20 18:00:00 +0900
+date: 2026-02-20 13:00:00 +0900
 category: [Framework, Spring]
 tags: [spring-boot, jpa, api, osiv, open-session-in-view, connection-pool, cqrs, performance]
 math: false
