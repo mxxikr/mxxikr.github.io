@@ -1,0 +1,327 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://mxxikr.github.io/</id>
+  <title>MXXI.kr</title>
+  <subtitle>Backend Developer. Sharing knowledge about software development, system design, and technology insights.</subtitle>
+  <updated>2026-02-22T19:44:03+09:00</updated>
+  <author>
+    <name>mxxikr</name>
+    <uri>https://mxxikr.github.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://mxxikr.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://mxxikr.github.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2026 mxxikr </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>[실전! 스프링 데이터 JPA] 쿼리 메소드 기능</title>
+    <link href="https://mxxikr.github.io/posts/spring-data-jpa-query-methods/" rel="alternate" type="text/html" title="[실전! 스프링 데이터 JPA] 쿼리 메소드 기능" />
+    <published>2026-02-22T13:00:00+09:00</published>
+  
+    <updated>2026-02-22T19:43:44+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-data-jpa-query-methods/</id>
+    <content src="https://mxxikr.github.io/posts/spring-data-jpa-query-methods/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      쿼리 메소드 기능
+
+
+  김영한님의 실전! 스프링 데이터 JPA 강의를 기반으로 스프링 데이터 JPA가 제공하는 쿼리 메소드 기능(메소드 이름으로 쿼리 생성, @Query, 파라미터 바인딩, 페이징 정렬, 벌크 수정, @EntityGraph 등)을 정리함
+
+
+
+
+개요 및 전체 구조
+
+
+  스프링 데이터 JPA는 리포지토리 인터페이스만 선언하면 쿼리를 자동으로 생성·실행하는 편리한 기능을 제공함
+  
+    쿼리 메소드 기능은 크게 세 가지 방식으로 나뉨
+
+    
+  
+  주요 장점
+    
+      세 가지 방식 모두 애플리케이션 시작 시점에 JPQL 문법 오류를 발견할 수 있음
+      런타임이 아닌 로딩 시점에 오류를 인지하는 것이 스프링 데이터 JPA의 아주 큰 이점임
+    
+  
+
+
+
+
+...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[실전! 스프링 데이터 JPA] 공통 인터페이스 기능</title>
+    <link href="https://mxxikr.github.io/posts/spring-data-jpa-common-interface/" rel="alternate" type="text/html" title="[실전! 스프링 데이터 JPA] 공통 인터페이스 기능" />
+    <published>2026-02-21T13:00:00+09:00</published>
+  
+    <updated>2026-02-21T13:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-data-jpa-common-interface/</id>
+    <content src="https://mxxikr.github.io/posts/spring-data-jpa-common-interface/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      공통 인터페이스 기능
+
+
+  김영한님의 실전! 스프링 데이터 JPA 강의를 기반으로 순수 JPA 구현 시 발생하는 반복적인 CRUD 코드를 스프링 데이터 JPA의 JpaRepository 공통 인터페이스를 통해 어떻게 자동화하고 재사용할 수 있는지, 그 내부 원리와 계층 구조를 정리함
+
+
+
+
+순수 JPA 기반 리포지토리
+
+회원 리포지토리
+
+@Repository
+public class MemberJpaRepository {
+
+    @PersistenceContext
+    private EntityManager em;
+
+    public Member save(Member member) {
+        em.persist(member);
+        return member;
+    }
+
+    p...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[실전! 스프링 데이터 JPA] 예제 도메인 모델</title>
+    <link href="https://mxxikr.github.io/posts/spring-data-jpa-domain-model/" rel="alternate" type="text/html" title="[실전! 스프링 데이터 JPA] 예제 도메인 모델" />
+    <published>2026-02-21T12:00:00+09:00</published>
+  
+    <updated>2026-02-21T12:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-data-jpa-domain-model/</id>
+    <content src="https://mxxikr.github.io/posts/spring-data-jpa-domain-model/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      예제 도메인 모델
+
+
+  김영한님의 실전! 스프링 데이터 JPA 강의를 기반으로 실습에 사용될 핵심 예제인 Member와 Team 엔티티의 양방향 연관관계와 동작 로직, 그리고 지연 로딩을 통한 쿼리 실행 흐름을 정리함
+
+
+
+
+도메인 모델 구조
+
+
+
+
+
+
+  연관관계 규칙
+    
+      Member.team이 연관관계의 주인으로, DB 외래키(team_id) 값을 관리(변경)함
+      Team.members는 mappedBy로 선언된 읽기 전용으로 외래키에 영향을 주지 않음
+      양방향 관계 변경은 편의상 Member.changeTeam() 메서드 하나로 원천적으로 처리함
+    
+  
+
+
+
+
+Member 엔티티
+
+@Entity
+@Getter @Setter
+@NoArgsConstructo...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[실전! 스프링 데이터 JPA] 프로젝트 환경설정</title>
+    <link href="https://mxxikr.github.io/posts/spring-data-jpa-project-setup/" rel="alternate" type="text/html" title="[실전! 스프링 데이터 JPA] 프로젝트 환경설정" />
+    <published>2026-02-21T11:00:00+09:00</published>
+  
+    <updated>2026-02-21T11:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-data-jpa-project-setup/</id>
+    <content src="https://mxxikr.github.io/posts/spring-data-jpa-project-setup/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      프로젝트 환경설정
+
+
+  김영한님의 실전! 스프링 데이터 JPA 강의를 기반으로 프로젝트 기본 환경설정, 라이브러리 추가, H2 데이터베이스 연동, 그리고 순수 JPA와 스프링 데이터 JPA의 기본 동작 및 차이점 등을 정리함
+
+
+
+
+프로젝트 생성
+
+build.gradle
+
+plugins {
+    id 'org.springframework.boot' version '2.2.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+   ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[실전! 스프링 부트와 JPA 활용2] 다음으로 - 스프링 데이터 JPA와 QueryDSL</title>
+    <link href="https://mxxikr.github.io/posts/spring-boot-jpa-spring-data-jpa-querydsl/" rel="alternate" type="text/html" title="[실전! 스프링 부트와 JPA 활용2] 다음으로 - 스프링 데이터 JPA와 QueryDSL" />
+    <published>2026-02-20T14:00:00+09:00</published>
+  
+    <updated>2026-02-20T14:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-boot-jpa-spring-data-jpa-querydsl/</id>
+    <content src="https://mxxikr.github.io/posts/spring-boot-jpa-spring-data-jpa-querydsl/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      다음으로 - 스프링 데이터 JPA와 QueryDSL
+
+
+  김영한님의 실전! 스프링 부트와 JPA 활용2 - API 개발과 성능 최적화 강의를 기반으로 순수 JPA 리포지토리의 반복 코드를 자동화하는 스프링 데이터 JPA와, 동적 쿼리를 자바 코드로 안전하게 작성할 수 있는 QueryDSL의 개념과 적용 방법을 정리함
+
+
+
+
+전체 개요
+
+
+  순수 JPA 리포지토리의 반복 코드를 자동화하는 스프링 데이터 JPA와, 동적 쿼리의 한계를 해결하는 QueryDSL을 함께 사용하여 생산성을 향상시킴
+
+
+
+
+스프링 데이터 JPA
+
+기존 순수 JPA 리포지토리
+
+@Repository
+@RequiredArgsConstructor
+public class MemberRepository {
+
+    private fin...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+

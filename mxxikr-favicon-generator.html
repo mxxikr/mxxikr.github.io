@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MXXIKR 브랜드 Favicon 생성기</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0812 0%, #1a1625 100%);
+            color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            background: linear-gradient(135deg, #a855f7, #c4b5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .brand-info {
+            background: rgba(26, 22, 37, 0.8);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .favicon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        .favicon-item {
+            text-align: center;
+            background: rgba(26, 22, 37, 0.8);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+        .favicon-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
+        }
+        .favicon-canvas {
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 16px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+        .favicon-canvas:hover {
+            transform: scale(1.1);
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #a855f7, #7c3aed);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.3);
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(168, 85, 247, 0.4);
+        }
+        .size-info {
+            font-size: 0.9rem;
+            color: #c4b5fd;
+            margin-top: 10px;
+        }
+        .brand-palette {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid rgba(168, 85, 247, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍇 MXXIKR 브랜드 Favicon</h1>
+            <p>연보라색과 mxxikr 브랜딩이 들어간 브라우저 탭 아이콘</p>
+        </div>
+        
+        <div class="brand-info">
+            <h3>브랜드 컬러 팔레트</h3>
+            <div class="brand-palette">
+                <div class="color-swatch" style="background: #a855f7;" title="Primary Purple"></div>
+                <div class="color-swatch" style="background: #7c3aed;" title="Secondary Purple"></div>
+                <div class="color-swatch" style="background: #c4b5fd;" title="Light Purple"></div>
+                <div class="color-swatch" style="background: #0a0812;" title="Dark Background"></div>
+                <div class="color-swatch" style="background: #f8fafc;" title="Light Text"></div>
+            </div>
+        </div>
+        
+        <div class="favicon-grid">
+            <div class="favicon-item">
+                <h3>MXXIKR 로고</h3>
+                <canvas id="favicon-logo" class="favicon-canvas" width="32" height="32"></canvas>
+                <div class="size-info">32x32px</div>
+                <button class="download-btn" onclick="downloadFavicon('favicon-logo', 'mxxikr-logo')">다운로드</button>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>MXXIKR 둥근 로고</h3>
+                <canvas id="favicon-rounded-logo" class="favicon-canvas" width="32" height="32"></canvas>
+                <div class="size-info">32x32px</div>
+                <button class="download-btn" onclick="downloadFavicon('favicon-rounded-logo', 'mxxikr-rounded-logo')">다운로드</button>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>MXXIKR 그라데이션</h3>
+                <canvas id="favicon-gradient-logo" class="favicon-canvas" width="32" height="32"></canvas>
+                <div class="size-info">32x32px</div>
+                <button class="download-btn" onclick="downloadFavicon('favicon-gradient-logo', 'mxxikr-gradient-logo')">다운로드</button>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>MXXIKR 글래스</h3>
+                <canvas id="favicon-glass-logo" class="favicon-canvas" width="32" height="32"></canvas>
+                <div class="size-info">32x32px</div>
+                <button class="download-btn" onclick="downloadFavicon('favicon-glass-logo', 'mxxikr-glass-logo')">다운로드</button>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>MXXIKR 미니멀</h3>
+                <canvas id="favicon-minimal-logo" class="favicon-canvas" width="32" height="32"></canvas>
+                <div class="size-info">32x32px</div>
+                <button class="download-btn" onclick="downloadFavicon('favicon-minimal-logo', 'mxxikr-minimal-logo')">다운로드</button>
+            </div>
+            
+            <div class="favicon-item">
+                <h3>MXXIKR 모던</h3>
+                <canvas id="favicon-modern-logo" class="favicon-canvas" width="32" height="32"></canvas>
+                <div class="size-info">32x32px</div>
+                <button class="download-btn" onclick="downloadFavicon('favicon-modern-logo', 'mxxikr-modern-logo')">다운로드</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // MXXIKR 브랜드 색상 팔레트
+        const brandColors = {
+            primary: '#a855f7',
+            secondary: '#7c3aed',
+            accent: '#c4b5fd',
+            background: '#0a0812',
+            light: '#f8fafc',
+            dark: '#1a1625'
+        };
+
+        // MXXIKR 로고 생성
+        function createMXXIKRLogo(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = 32;
+            
+            // 배경
+            ctx.fillStyle = brandColors.background;
+            ctx.fillRect(0, 0, size, size);
+            
+            // MXXIKR 텍스트
+            ctx.fillStyle = brandColors.primary;
+            ctx.font = 'bold 8px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('MXXIKR', size/2, size/2);
+            
+            // 하단 액센트 라인
+            ctx.fillStyle = brandColors.accent;
+            ctx.fillRect(4, 26, 24, 2);
+        }
+
+        // MXXIKR 둥근 로고 생성
+        function createRoundedMXXIKRLogo(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = 32;
+            
+            // 배경
+            ctx.fillStyle = brandColors.background;
+            ctx.fillRect(0, 0, size, size);
+            
+            // 둥근 배경
+            ctx.fillStyle = brandColors.primary;
+            ctx.beginPath();
+            ctx.roundRect(2, 2, 28, 28, 14);
+            ctx.fill();
+            
+            // MXXIKR 텍스트
+            ctx.fillStyle = brandColors.light;
+            ctx.font = 'bold 7px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('MXXIKR', size/2, size/2);
+        }
+
+        // MXXIKR 그라데이션 로고 생성
+        function createGradientMXXIKRLogo(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = 32;
+            
+            // 배경
+            ctx.fillStyle = brandColors.background;
+            ctx.fillRect(0, 0, size, size);
+            
+            // 그라데이션 배경
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, brandColors.primary);
+            gradient.addColorStop(0.5, brandColors.secondary);
+            gradient.addColorStop(1, brandColors.accent);
+            
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.roundRect(2, 2, 28, 28, 12);
+            ctx.fill();
+            
+            // MXXIKR 텍스트
+            ctx.fillStyle = brandColors.light;
+            ctx.font = 'bold 7px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('MXXIKR', size/2, size/2);
+        }
+
+        // MXXIKR 글래스 로고 생성
+        function createGlassMXXIKRLogo(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = 32;
+            
+            // 배경
+            ctx.fillStyle = brandColors.background;
+            ctx.fillRect(0, 0, size, size);
+            
+            // 글래스 효과 배경
+            ctx.fillStyle = 'rgba(168, 85, 247, 0.2)';
+            ctx.beginPath();
+            ctx.roundRect(2, 2, 28, 28, 12);
+            ctx.fill();
+            
+            // 테두리
+            ctx.strokeStyle = 'rgba(168, 85, 247, 0.4)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.roundRect(2, 2, 28, 28, 12);
+            ctx.stroke();
+            
+            // MXXIKR 텍스트
+            ctx.fillStyle = brandColors.primary;
+            ctx.font = 'bold 7px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('MXXIKR', size/2, size/2);
+        }
+
+        // MXXIKR 미니멀 로고 생성
+        function createMinimalMXXIKRLogo(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = 32;
+            
+            // 배경
+            ctx.fillStyle = brandColors.background;
+            ctx.fillRect(0, 0, size, size);
+            
+            // MXXIKR 텍스트 (미니멀)
+            ctx.fillStyle = brandColors.primary;
+            ctx.font = 'bold 6px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('MXXIKR', size/2, size/2);
+            
+            // 상단 점
+            ctx.fillStyle = brandColors.accent;
+            ctx.beginPath();
+            ctx.arc(size/2, 8, 2, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        // MXXIKR 모던 로고 생성
+        function createModernMXXIKRLogo(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = 32;
+            
+            // 배경
+            ctx.fillStyle = brandColors.background;
+            ctx.fillRect(0, 0, size, size);
+            
+            // 모던 배경 (사각형)
+            ctx.fillStyle = brandColors.primary;
+            ctx.fillRect(4, 4, 24, 24);
+            
+            // 내부 사각형
+            ctx.fillStyle = brandColors.light;
+            ctx.fillRect(8, 8, 16, 16);
+            
+            // MXXIKR 텍스트
+            ctx.fillStyle = brandColors.primary;
+            ctx.font = 'bold 5px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('MXXIKR', size/2, size/2);
+        }
+
+        // 다운로드 함수
+        function downloadFavicon(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename + '.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        // 페이지 로드 시 아이콘 생성
+        window.onload = function() {
+            createMXXIKRLogo(document.getElementById('favicon-logo'));
+            createRoundedMXXIKRLogo(document.getElementById('favicon-rounded-logo'));
+            createGradientMXXIKRLogo(document.getElementById('favicon-gradient-logo'));
+            createGlassMXXIKRLogo(document.getElementById('favicon-glass-logo'));
+            createMinimalMXXIKRLogo(document.getElementById('favicon-minimal-logo'));
+            createModernMXXIKRLogo(document.getElementById('favicon-modern-logo'));
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,5119 @@
+[
+  
+  {
+    "title": "[실전! 스프링 데이터 JPA] 쿼리 메소드 기능",
+    "url": "/posts/spring-data-jpa-query-methods/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, spring-data-jpa, query-method, jpql, paging",
+    "date": "2026-02-22 13:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "쿼리 메소드 기능"
+  },
+  
+  {
+    "title": "[실전! 스프링 데이터 JPA] 공통 인터페이스 기능",
+    "url": "/posts/spring-data-jpa-common-interface/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, spring-data-jpa, repository, interface, proxy",
+    "date": "2026-02-21 13:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "공통 인터페이스 기능"
+  },
+  
+  {
+    "title": "[실전! 스프링 데이터 JPA] 예제 도메인 모델",
+    "url": "/posts/spring-data-jpa-domain-model/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, spring-data-jpa, entity, domain-model, mapping",
+    "date": "2026-02-21 12:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "예제 도메인 모델"
+  },
+  
+  {
+    "title": "[실전! 스프링 데이터 JPA] 프로젝트 환경설정",
+    "url": "/posts/spring-data-jpa-project-setup/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, spring-data-jpa, h2, gradle, setup",
+    "date": "2026-02-21 11:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "프로젝트 환경설정"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용2] 다음으로 - 스프링 데이터 JPA와 QueryDSL",
+    "url": "/posts/spring-boot-jpa-spring-data-jpa-querydsl/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, spring-data-jpa, querydsl, dynamic-query, repository",
+    "date": "2026-02-20 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "다음으로 - 스프링 데이터 JPA와 QueryDSL"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용2] API 개발 고급 - 실무 필수 최적화",
+    "url": "/posts/spring-boot-jpa-api-osiv-optimization/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, api, osiv, open-session-in-view, connection-pool, cqrs, performance",
+    "date": "2026-02-20 13:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "API 개발 고급 - OSIV와 성능 최적화"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용2] API 개발 고급 - 컬렉션 조회 최적화",
+    "url": "/posts/spring-boot-jpa-api-collection-query-optimization/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, api, collection, fetch-join, batch-size, dto, paging, performance",
+    "date": "2026-02-19 18:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "API 개발 고급 - 컬렉션 조회 최적화"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용2] API 개발 고급 - 지연 로딩과 조회 성능 최적화",
+    "url": "/posts/spring-boot-jpa-api-lazy-loading-optimization/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, api, lazy-loading, n-plus-one, fetch-join, dto, performance",
+    "date": "2026-02-18 18:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "API 개발 고급 - 지연 로딩과 조회 성능 최적화"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용2] API 개발 고급 - 준비",
+    "url": "/posts/spring-boot-jpa-api-advanced-preparation/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, api, sample-data, postconstruct, init",
+    "date": "2026-02-18 17:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "API 개발 고급 - 준비"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용2] API 개발 기본",
+    "url": "/posts/spring-boot-jpa-api-development-basics/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, api, rest, dto, member-api",
+    "date": "2026-02-18 16:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "API 개발 기본"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용1] 웹 계층 개발",
+    "url": "/posts/spring-boot-jpa-web-layer-development/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, web-layer, thymeleaf, form-validation, dirty-checking",
+    "date": "2026-02-17 16:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "웹 계층 개발"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용1] 주문 도메인 개발",
+    "url": "/posts/spring-boot-jpa-order-domain-development/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, order-domain, business-logic, dynamic-query, test, querydsl",
+    "date": "2026-02-16 17:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "주문 도메인 개발"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용1] 상품 도메인 개발",
+    "url": "/posts/spring-boot-jpa-item-domain-development/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, item-domain, entity-business-logic, ddd",
+    "date": "2026-02-16 16:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "상품 도메인 개발"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용1] 회원 도메인 개발",
+    "url": "/posts/spring-boot-jpa-member-domain-development/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, member-domain, repository, service, test",
+    "date": "2026-02-16 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "회원 도메인 개발"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용1] 애플리케이션 구현 준비",
+    "url": "/posts/spring-boot-jpa-application-implementation-prep/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, application-architecture, requirements-analysis",
+    "date": "2026-02-16 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "애플리케이션 구현 준비"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용1] 도메인 분석 및 설계",
+    "url": "/posts/spring-boot-jpa-domain-analysis/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, domain-design, entity-mapping, erd, inheritance-mapping",
+    "date": "2026-02-15 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "도메인 분석 및 설계"
+  },
+  
+  {
+    "title": "[실전! 스프링 부트와 JPA 활용1] 프로젝트 환경설정",
+    "url": "/posts/spring-boot-jpa-project-setup/",
+    "categories": "Framework, Spring",
+    "tags": "spring-boot, jpa, thymeleaf, h2-database, lombok, project-setup",
+    "date": "2026-02-15 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "프로젝트 환경설정"
+  },
+  
+  {
+    "title": "[자바 ORM 표준 JPA 프로그래밍 기본편] 객체지향 쿼리 언어2 - 중급 문법",
+    "url": "/posts/jpa-jpql-intermediate/",
+    "categories": "Language, Java, JPA",
+    "tags": "jpa, jpql, orm, query, object-oriented-query, fetch-join, bulk-operation",
+    "date": "2026-02-14 17:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "객체지향 쿼리 언어2 - 중급 문법"
+  },
+  
+  {
+    "title": "[자바 ORM 표준 JPA 프로그래밍 기본편] 객체지향 쿼리 언어1 - 기본 문법",
+    "url": "/posts/jpa-jpql-basics/",
+    "categories": "Language, Java, JPA",
+    "tags": "jpa, jpql, orm, query, object-oriented-query, projection, paging, join",
+    "date": "2026-02-14 16:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "객체지향 쿼리 언어1 - 기본 문법"
+  },
+  
+  {
+    "title": "[자바 ORM 표준 JPA 프로그래밍 기본편] 값 타입",
+    "url": "/posts/jpa-value-types/",
+    "categories": "Language, Java, JPA",
+    "tags": "jpa, value-type, embedded-type, immutable-object, collection-value-type, orm",
+    "date": "2026-02-13 19:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "값 타입 (Value Type)"
+  },
+  
+  {
+    "title": "[자바 ORM 표준 JPA 프로그래밍 기본편] 프록시와 연관관계 관리",
+    "url": "/posts/jpa-proxy-association-management/",
+    "categories": "Language, Java, JPA",
+    "tags": "jpa, proxy, lazy-loading, eager-loading, cascade, orphan-removal, orm",
+    "date": "2026-02-13 18:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "프록시와 연관관계 관리"
+  },
+  
+  {
+    "title": "[자바 ORM 표준 JPA 프로그래밍 기본편] 고급 매핑",
+    "url": "/posts/jpa-inheritance-mapping/",
+    "categories": "Language, Java, JPA",
+    "tags": "jpa, inheritance, mapped-superclass, join-strategy, single-table-strategy",
+    "date": "2026-02-12 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "상속관계 매핑"
+  },
+  
+  {
+    "title": "[자바 ORM 표준 JPA 프로그래밍 기본편] 다양한 연관관계 매핑",
+    "url": "/posts/jpa-various-association-mapping/",
+    "categories": "Language, Java, JPA",
+    "tags": "jpa, association-mapping, many-to-one, one-to-many, one-to-one, many-to-many",
+    "date": "2026-02-12 10:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "다양한 연관관계 매핑"
+  },
+  
+  {
+    "title": "[자바 ORM 표준 JPA 프로그래밍 기본편] 연관관계 매핑 기초",
+    "url": "/posts/jpa-association-mapping/",
+    "categories": "Language, Java, JPA",
+    "tags": "jpa, association-mapping, many-to-one, one-to-many, bidirectional, mappedby, orm",
+    "date": "2026-02-11 18:20:00 +0900",
+    
+
+
+
+
+
+    "snippet": "연관관계 매핑 기초"
+  },
+  
+  {
+    "title": "[자바 ORM 표준 JPA 프로그래밍 기본편] 엔티티 매핑",
+    "url": "/posts/jpa-entity-mapping/",
+    "categories": "Language, Java, JPA",
+    "tags": "jpa, entity-mapping, orm, hibernate, primary-key, ddl, annotation",
+    "date": "2026-02-11 15:55:00 +0900",
+    
+
+
+
+
+
+    "snippet": "엔티티 매핑"
+  },
+  
+  {
+    "title": "[자바 ORM 표준 JPA 프로그래밍 기본편] 영속성 관리 - 내부 동작 방식",
+    "url": "/posts/jpa-persistence-context/",
+    "categories": "Language, Java, JPA",
+    "tags": "jpa, persistence-context, entity-lifecycle, dirty-checking, flush, orm",
+    "date": "2026-02-10 18:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "영속성 관리 - 내부 동작 방식"
+  },
+  
+  {
+    "title": "[자바 ORM 표준 JPA 프로그래밍 기본편] JPA 시작하기",
+    "url": "/posts/jpa-getting-started/",
+    "categories": "Language, Java, JPA",
+    "tags": "jpa, orm, hibernate, java, persistence, jpql, h2",
+    "date": "2026-02-10 16:59:00 +0900",
+    
+
+
+
+
+
+    "snippet": "JPA 시작하기"
+  },
+  
+  {
+    "title": "[스프링 DB 2편 - 데이터 접근 활용 기술] 스프링 트랜잭션 전파2 - 활용",
+    "url": "/posts/spring-transaction-propagation-practice/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, transaction, propagation, practice",
+    "date": "2026-02-09 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "스프링 트랜잭션 전파2 - 활용"
+  },
+  
+  {
+    "title": "[스프링 DB 2편 - 데이터 접근 활용 기술] 스프링 트랜잭션 전파1 - 기본",
+    "url": "/posts/spring-transaction-propagation/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, transaction, propagation, jdbc, jpa",
+    "date": "2026-02-09 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "스프링 트랜잭션 전파1 - 기본"
+  },
+  
+  {
+    "title": "[스프링 DB 2편 - 데이터 접근 활용 기술] 트랜잭션 이해",
+    "url": "/posts/spring-db-transaction-principles/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, transaction, jdbc, jpa, aop",
+    "date": "2026-02-08 16:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "트랜잭션 이해"
+  },
+  
+  {
+    "title": "[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - 활용 방안",
+    "url": "/posts/spring-db-access-strategy/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, database, design-pattern, architecture, transaction",
+    "date": "2026-02-07 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "데이터 접근 기술 활용 방안 - 실전 가이드"
+  },
+  
+  {
+    "title": "[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - Querydsl",
+    "url": "/posts/spring-db-querydsl/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, database, querydsl, jpa, dynamic-query",
+    "date": "2026-02-07 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "데이터 접근 기술 - Querydsl"
+  },
+  
+  {
+    "title": "[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - 스프링 데이터 JPA",
+    "url": "/posts/spring-db-spring-data-jpa/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, database, spring-data-jpa, query-method, jpa-repository",
+    "date": "2026-02-06 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "데이터 접근 기술 - 스프링 데이터 JPA"
+  },
+  
+  {
+    "title": "[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - JPA",
+    "url": "/posts/spring-db-jpa/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, database, jpa, orm, hibernate, jpql",
+    "date": "2026-02-06 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "데이터 접근 기술 - JPA"
+  },
+  
+  {
+    "title": "[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - MyBatis",
+    "url": "/posts/spring-db-mybatis/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, database, mybatis, sql-mapper, xml, dynamic-query",
+    "date": "2026-02-05 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "데이터 접근 기술 - MyBatis"
+  },
+  
+  {
+    "title": "[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 - 테스트",
+    "url": "/posts/spring-db-test/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, database, test, junit, transaction, h2, embedded-db",
+    "date": "2026-02-05 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "데이터 접근 기술 - 테스트"
+  },
+  
+  {
+    "title": "Kotlin Default Arguments와 Named Arguments",
+    "url": "/posts/kotlin-default-named-arguments/",
+    "categories": "Language, Kotlin",
+    "tags": "kotlin, default-arguments, named-arguments, builder-pattern, lombok, java, spring",
+    "date": "2026-02-04 19:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[스프링 DB 2편 - 데이터 접근 활용 기술] 스프링 JdbcTemplate",
+    "url": "/posts/spring-db-jdbctemplate/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, database, jdbctemplate, sql, rowmapper, namedparameterjdbctemplate, simplejdbcinsert",
+    "date": "2026-02-04 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "스프링 JdbcTemplate"
+  },
+  
+  {
+    "title": "[스프링 DB 2편 - 데이터 접근 활용 기술] 데이터 접근 기술 시작",
+    "url": "/posts/spring-db-access-technology-start/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, database, sql-mapper, orm, jdbctemplate, mybatis, jpa, querydsl",
+    "date": "2026-02-04 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "데이터 접근 기술 - 시작"
+  },
+  
+  {
+    "title": "[스프링 DB 1편 데이터 접근 핵심 원리] 스프링 예외 추상화와 반복 문제 해결",
+    "url": "/posts/spring-db-exception-problem-solving/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, exception, jdbc, jdbctemplate, data-access-exception, checked-exception, runtime-exception",
+    "date": "2026-02-03 14:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "스프링과 문제 해결 - 예외 처리, 반복"
+  },
+  
+  {
+    "title": "[스프링 DB 1편 데이터 접근 핵심 원리] 자바 예외 이해",
+    "url": "/posts/spring-db-java-exception/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, exception, checked-exception, unchecked-exception, runtime-exception, error-handling",
+    "date": "2026-02-03 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "자바 예외 이해"
+  },
+  
+  {
+    "title": "[스프링 DB 1편 데이터 접근 핵심 원리] 스프링과 문제 해결 - 트랜잭션",
+    "url": "/posts/spring-db-transaction-problem-solving/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, database, transaction, jdbc, jpa, aop, proxy, datasource",
+    "date": "2026-02-02 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "스프링과 문제 해결 - 트랜잭션"
+  },
+  
+  {
+    "title": "[스프링 DB 1편 데이터 접근 핵심 원리] 트랜잭션 이해",
+    "url": "/posts/spring-db-transaction-understanding/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, database, transaction, acid, commit, rollback, lock",
+    "date": "2026-02-01 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "트랜잭션 이해"
+  },
+  
+  {
+    "title": "[스프링 DB 1편 데이터 접근 핵심 원리] 커넥션풀과 데이터소스 이해",
+    "url": "/posts/spring-db-connection-pool-datasource/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, jdbc, connection-pool, datasource, hikaricp",
+    "date": "2026-01-31 13:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "커넥션풀과 DataSource"
+  },
+  
+  {
+    "title": "[스프링 DB 1편 데이터 접근 핵심 원리] JDBC 이해",
+    "url": "/posts/spring-db-jdbc-basics/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, jdbc, database, sql, connection, datasource",
+    "date": "2026-01-31 12:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "JDBC 이해"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 부록 C DB로 분산 잠금 구현하기",
+    "url": "/posts/backend-basics-appendix-c/",
+    "categories": "Book, Backend",
+    "tags": "backend, distributed-lock, database, concurrency, transaction, book-review",
+    "date": "2026-01-31 07:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다."
+  },
+  
+  {
+    "title": "[스프링 MVC 2편 백엔드 웹 개발 활용 기술] 파일 업로드",
+    "url": "/posts/spring-mvc-file-upload/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, file-upload, multipart, servlet",
+    "date": "2026-01-30 13:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "파일 업로드"
+  },
+  
+  {
+    "title": "[스프링 MVC 2편 백엔드 웹 개발 활용 기술] 스프링 타입 컨버터",
+    "url": "/posts/spring-mvc-type-converter/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, converter, formatter, conversion-service",
+    "date": "2026-01-30 12:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "스프링 타입 컨버터"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 부록 B NoSQL 이해하기",
+    "url": "/posts/backend-basics-nosql/",
+    "categories": "Book, Backend",
+    "tags": "backend, database, nosql, cap, architecture, book-review",
+    "date": "2026-01-30 06:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다."
+  },
+  
+  {
+    "title": "[스프링 MVC 2편 백엔드 웹 개발 활용 기술] API 예외 처리",
+    "url": "/posts/spring-mvc-api-exception-handling/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, exception, api, json, exception-handler, controller-advice",
+    "date": "2026-01-29 10:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "API 예외 처리"
+  },
+  
+  {
+    "title": "[스프링 MVC 2편 백엔드 웹 개발 활용 기술] 예외 처리와 오류 페이지",
+    "url": "/posts/spring-mvc-exception-handling/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, exception, error-page, filter, interceptor, dispatcher-type",
+    "date": "2026-01-28 16:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "예외 처리와 오류 페이지"
+  },
+  
+  {
+    "title": "[스프링 MVC 2편 백엔드 웹 개발 활용 기술] 로그인 처리 - 필터와 인터셉터",
+    "url": "/posts/spring-mvc-filter-interceptor/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, filter, interceptor, argument-resolver, aop",
+    "date": "2026-01-28 10:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "로그인 처리 - 필터와 인터셉터"
+  },
+  
+  {
+    "title": "[스프링 MVC 2편 백엔드 웹 개발 활용 기술] 로그인 처리 - 쿠키와 세션",
+    "url": "/posts/spring-mvc-login-session/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, login, cookie, session, httpsession",
+    "date": "2026-01-27 20:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "로그인 처리 - 쿠키와 세션"
+  },
+  
+  {
+    "title": "[스프링 MVC 2편 백엔드 웹 개발 활용 기술] 검증2 - Bean Validation",
+    "url": "/posts/spring-mvc-bean-validation/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, validation, bean-validation, groups",
+    "date": "2026-01-27 19:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "검증2 - Bean Validation"
+  },
+  
+  {
+    "title": "[스프링 MVC 2편 백엔드 웹 개발 활용 기술] 검증1 - Validation",
+    "url": "/posts/spring-mvc-validation/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, validation, binding-result, field-error, object-error, message-codes-resolver",
+    "date": "2026-01-26 21:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "검증1 - Validation"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 부록 A 성능 테스트",
+    "url": "/posts/backend-basics-appendix-a/",
+    "categories": "Book, Backend",
+    "tags": "backend, performance, testing, ngrinder, k6, book-review",
+    "date": "2026-01-26 10:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다."
+  },
+  
+  {
+    "title": "[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 스프링 MVC 메시지, 국제화",
+    "url": "/posts/spring-mvc-message-internationalization/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, message, i18n, locale, message-source, accept-language",
+    "date": "2026-01-25 16:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "스프링 MVC 메시지, 국제화"
+  },
+  
+  {
+    "title": "[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 타임리프 스프링 통합과 폼 처리",
+    "url": "/posts/spring-mvc-thymeleaf-spring-integration/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, thymeleaf, form, checkbox, radio-button, select-box, model-attribute",
+    "date": "2026-01-25 15:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "타임리프 - 스프링 통합과 폼 처리"
+  },
+  
+  {
+    "title": "Kotlin val과 Data Class",
+    "url": "/posts/kotlin-val-data-class/",
+    "categories": "Language, Kotlin",
+    "tags": "kotlin, val, var, data-class, immutable, spring, jpa",
+    "date": "2026-01-25 14:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 11장 자주 쓰는 서버 구조와 설계 패턴",
+    "url": "/posts/backend-basics-chapter11/",
+    "categories": "Book, Backend",
+    "tags": "backend, architecture, mvc, layered-architecture, ddd, microservices, event-driven, cqrs, book-review",
+    "date": "2026-01-24 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다."
+  },
+  
+  {
+    "title": "[스프링 MVC 2편 백엔드 웹 개발 활용 기술] 타임리프 기본 기능",
+    "url": "/posts/thymeleaf-basic-features/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, thymeleaf, template-engine, ssr, natural-template, spring-el, template-fragment, template-layout",
+    "date": "2026-01-24 12:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "타임리프 기본 기능"
+  },
+  
+  {
+    "title": "[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 스프링 MVC 웹 페이지 만들기",
+    "url": "/posts/spring-mvc-web-page-guide/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, thymeleaf, model-attribute, prg-pattern, redirect-attributes, web-application",
+    "date": "2026-01-23 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "스프링 MVC 웹 페이지 만들기"
+  },
+  
+  {
+    "title": "[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 스프링 MVC 기본 기능",
+    "url": "/posts/spring-mvc-basic-features/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, logging, request-mapping, request-param, model-attribute, request-body, response-body, http-message-converter",
+    "date": "2026-01-22 22:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "스프링 MVC 기본 기능"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 10장 모르면 답답해지는 네트워크 기초",
+    "url": "/posts/backend-basics-chapter10/",
+    "categories": "Book, Backend",
+    "tags": "backend, network, ip, domain, dns, nat, vpn, tcp, udp, quic, protocol, book-review",
+    "date": "2026-01-22 10:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다."
+  },
+  
+  {
+    "title": "Mermaid CLI로 다이어그램을 고화질 PNG로 변환하기",
+    "url": "/posts/mermaid-cli-png-conversion/",
+    "categories": "Blog",
+    "tags": "mermaid, cli, diagram, png, documentation, markdown",
+    "date": "2026-01-21 18:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "Mermaid CLI로 다이어그램을 고화질 PNG로 변환하기"
+  },
+  
+  {
+    "title": "[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 스프링 MVC 구조 이해",
+    "url": "/posts/spring-mvc-structure/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, dispatcher-servlet, handler-mapping, handler-adapter, view-resolver, request-mapping",
+    "date": "2026-01-21 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "스프링 MVC 구조 이해"
+  },
+  
+  {
+    "title": "[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] MVC 프레임워크 만들기",
+    "url": "/posts/spring-mvc-framework/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, front-controller, view-resolver, model-view, adapter-pattern",
+    "date": "2026-01-21 13:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "MVC 프레임워크 만들기"
+  },
+  
+  {
+    "title": "[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 서블릿, JSP, MVC 패턴",
+    "url": "/posts/spring-mvc-servlet-jsp-mvc/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, servlet, jsp, mvc, pattern, request, response",
+    "date": "2026-01-20 18:40:00 +0900",
+    
+
+
+
+
+
+    "snippet": "서블릿, JSP, MVC 패턴"
+  },
+  
+  {
+    "title": "Kotlin 상속 제한과 Spring과의 통합",
+    "url": "/posts/kotlin-inheritance-spring-integration/",
+    "categories": "Language, Kotlin",
+    "tags": "kotlin, inheritance, spring, open, final, sealed-class, jpa, cglib",
+    "date": "2026-01-19 10:20:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 9장 최소한 알고 있어야 할 서버 지식",
+    "url": "/posts/backend-basics-chapter9/",
+    "categories": "Book, Backend",
+    "tags": "backend, linux, server, os, process, disk-management, file-descriptor, cron, network, book-review",
+    "date": "2026-01-17 10:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다."
+  },
+  
+  {
+    "title": "[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] Servlet",
+    "url": "/posts/spring-mvc-servlet/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, servlet, http, request, response, json",
+    "date": "2026-01-16 19:14:00 +0900",
+    
+
+
+
+
+
+    "snippet": "Servlet"
+  },
+  
+  {
+    "title": "[스프링 MVC 1편 백엔드 웹 개발 핵심 기술] 웹 애플리케이션 이해",
+    "url": "/posts/spring-mvc-web-application/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, mvc, architecture, servlet, was, ssr, csr",
+    "date": "2026-01-16 18:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "웹 애플리케이션 이해"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 8장 실무에서 꼭 필요한 보안 지식",
+    "url": "/posts/backend-basics-chapter8/",
+    "categories": "Book, Backend",
+    "tags": "backend, security, authentication, authorization, encryption, hmac, firewall, audit-log, secure-coding, book-review",
+    "date": "2026-01-16 10:45:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다."
+  },
+  
+  {
+    "title": "[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 헤더2 - 캐시와 조건부 요청",
+    "url": "/posts/http-headers-cache/",
+    "categories": "Computer Science, Web",
+    "tags": "http, cache, conditional-request, etag, last-modified, cache-control",
+    "date": "2026-01-15 17:54:00 +0900",
+    
+
+
+
+
+
+    "snippet": "HTTP 헤더2 - 캐시와 조건부 요청"
+  },
+  
+  {
+    "title": "[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 헤더1 - 일반 헤더",
+    "url": "/posts/http-headers-general/",
+    "categories": "Computer Science, Web",
+    "tags": "http, header, content-type, content-negotiation, cookie, authentication",
+    "date": "2026-01-15 17:50:00 +0900",
+    
+
+
+
+
+
+    "snippet": "HTTP 헤더1 - 일반 헤더"
+  },
+  
+  {
+    "title": "[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 상태코드",
+    "url": "/posts/http-status-code/",
+    "categories": "Computer Science, Web",
+    "tags": "http, status-code, 2xx, 3xx, 4xx, 5xx, redirect, prg-pattern",
+    "date": "2026-01-15 17:43:00 +0900",
+    
+
+
+
+
+
+    "snippet": "HTTP 상태코드"
+  },
+  
+  {
+    "title": "[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 메서드 활용",
+    "url": "/posts/http-method-utilization/",
+    "categories": "Computer Science, Web",
+    "tags": "http, method, api, collection, store, form, rest-api, uri-design",
+    "date": "2026-01-15 17:23:00 +0900",
+    
+
+
+
+
+
+    "snippet": "HTTP 메서드 활용"
+  },
+  
+  {
+    "title": "너비 우선 탐색 (BFS, Breadth-First Search) 알고리즘",
+    "url": "/posts/algorithm-bfs/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm, bfs, breadth-first-search, graph, queue, java, shortest-path",
+    "date": "2026-01-15 08:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  너비 우선 탐색(BFS, Breadth-First Search)은 그래프의 시작 노드에서 가까운 노드부터 차례대로 탐색하는 알고리즘임  큐(Queue) 자료구조를 사용하여 구현하며 가중치가 없는 그래프에서 최단 경로를 보장함"
+  },
+  
+  {
+    "title": "에라토스테네스의 체 (Sieve of Eratosthenes) 알고리즘",
+    "url": "/posts/algorithm-sieve-of-eratosthenes/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm, sieve-of-eratosthenes, prime-number, time-complexity, java, optimization",
+    "date": "2026-01-15 07:35:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  소수(Prime Number)를 찾는 문제는 고대부터 현대 암호학까지 이어지는 컴퓨터 과학의 핵심 주제임  기원전 3세기 그리스 수학자 에라토스테네스(Eratosthenes)가 고안한 에라토스테네스의 체는 2000년이 지난 지금도 특정 범위 내 모든 소수를 찾는 가장 효율적인 알고리즘 중 하나로 평가받고 있음  소수를 직접 찾는 것이 아니라 소수가 아닌 수(합성수, Composite Number)를 제거하는 방식으로 동작함"
+  },
+  
+  {
+    "title": "[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 메서드",
+    "url": "/posts/http-methods/",
+    "categories": "Computer Science, Web",
+    "tags": "http, method, get, post, put, patch, delete, rest-api",
+    "date": "2026-01-14 16:27:00 +0900",
+    
+
+
+
+
+
+    "snippet": "HTTP 메서드"
+  },
+  
+  {
+    "title": "[모든 개발자를 위한 HTTP 웹 기본 지식] HTTP 기본",
+    "url": "/posts/http-basic/",
+    "categories": "Computer Science, Web",
+    "tags": "http, web, stateless, connectionless, request, response, api",
+    "date": "2026-01-14 16:23:00 +0900",
+    
+
+
+
+
+
+    "snippet": "HTTP"
+  },
+  
+  {
+    "title": "[모든 개발자를 위한 HTTP 웹 기본 지식] URI와 웹 브라우저 요청 흐름",
+    "url": "/posts/http-uri-web-request-flow/",
+    "categories": "Computer Science, Web",
+    "tags": "http, uri, url, urn, web, browser, request, dns",
+    "date": "2026-01-14 16:19:00 +0900",
+    
+
+
+
+
+
+    "snippet": "URI와 웹 브라우저 요청 흐름"
+  },
+  
+  {
+    "title": "[모든 개발자를 위한 HTTP 웹 기본 지식] 인터넷 네트워크",
+    "url": "/posts/http-internet-network/",
+    "categories": "Computer Science, Web",
+    "tags": "http, network, ip, tcp, udp, port, dns, protocol",
+    "date": "2026-01-14 16:11:00 +0900",
+    
+
+
+
+
+
+    "snippet": "인터넷 네트워크"
+  },
+  
+  {
+    "title": "[스프링 핵심 원리 기본편] 빈 스코프",
+    "url": "/posts/spring-bean-scope/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, bean-scope, prototype, request, provider, proxy",
+    "date": "2026-01-13 17:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "빈 스코프"
+  },
+  
+  {
+    "title": "[스프링 핵심 원리 기본편] 빈 생명주기 콜백",
+    "url": "/posts/spring-bean-lifecycle-callback/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, bean-lifecycle, callback, postconstruct, predestroy, initializingbean",
+    "date": "2026-01-12 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "빈 생명주기 콜백"
+  },
+  
+  {
+    "title": "[스프링 핵심 원리 기본편] 의존관계 자동 주입",
+    "url": "/posts/spring-dependency-injection/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, dependency-injection, autowired, qualifier, primary, lombok",
+    "date": "2026-01-12 14:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "의존관계 자동 주입"
+  },
+  
+  {
+    "title": "build.gradle.kts와 Kotlin Script, DSL의 이해",
+    "url": "/posts/kotlin-gradle-build-kts/",
+    "categories": "Language, Kotlin",
+    "tags": "kotlin, gradle, build-script, dsl, groovy, type-safety, kotlin-dsl, kotlin-script",
+    "date": "2026-01-11 12:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[스프링 핵심 원리 기본편] 컴포넌트 스캔",
+    "url": "/posts/spring-component-scan/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, component-scan, autowired, dependency-injection",
+    "date": "2026-01-11 10:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "컴포넌트 스캔"
+  },
+  
+  {
+    "title": "[스프링 핵심 원리 기본편] 싱글톤 컨테이너",
+    "url": "/posts/spring-singleton-container/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, singleton, container, configuration, cglib",
+    "date": "2026-01-11 08:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "싱글톤 컨테이너"
+  },
+  
+  {
+    "title": "[스프링 핵심 원리 기본편] 스프링 컨테이너와 스프링 빈",
+    "url": "/posts/spring-container-and-bean/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, container, bean, applicationcontext, beanfactory",
+    "date": "2026-01-10 23:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "스프링 컨테이너와 스프링 빈"
+  },
+  
+  {
+    "title": "[스프링 핵심 원리 기본편] 객체 지향 원리 적용",
+    "url": "/posts/spring-oop-principles/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, oop, solid, di, ioc, appconfig",
+    "date": "2026-01-10 20:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "객체 지향 원리 적용"
+  },
+  
+  {
+    "title": "[스프링 핵심 원리 기본편] 예제 만들기",
+    "url": "/posts/spring-example-creation/",
+    "categories": "Framework, Spring",
+    "tags": "spring, java, oop, domain, member, order, discount",
+    "date": "2026-01-09 23:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "예제 만들기"
+  },
+  
+  {
+    "title": "[스프링 핵심 원리 기본편] 객체지향 설계와 스프링",
+    "url": "/posts/spring-core-principles/",
+    "categories": "Spring, Core",
+    "tags": "spring, java, oop, solid, di, ioc",
+    "date": "2026-01-09 16:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "객체지향 설계와 스프링"
+  },
+  
+  {
+    "title": "깊이 우선 탐색 (DFS, Depth-First Search) 알고리즘",
+    "url": "/posts/algorithm-dfs/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "dfs, graph-traversal, stack, recursion, backtracking",
+    "date": "2026-01-09 09:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  깊이 우선 탐색(DFS, Depth-First Search)은 그래프의 시작 노드에서 갈 수 있는 한 깊게 탐색하다가 더 이상 갈 곳이 없으면 이전으로 돌아오는 알고리즘임  스택(Stack) 또는 재귀를 사용하여 구현하며 모든 경우의 수를 탐색하거나 경로의 특징을 저장해야 할 때 유리함"
+  },
+  
+  {
+    "title": "[독하게 시작하는 Java Part 2]  예외 처리",
+    "url": "/posts/java-part2-exception-handling/",
+    "categories": "Language, Java",
+    "tags": "java, exception, error, try-catch, finally, throws, checked-exception, unchecked-exception",
+    "date": "2026-01-08 07:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "예외 처리"
+  },
+  
+  {
+    "title": "[독하게 시작하는 Java Part 2]  연결 리스트와 객체 지향 설계",
+    "url": "/posts/java-part2-linked-list/",
+    "categories": "Language, Java",
+    "tags": "java, data-structure, linked-list, iterator, design-pattern, oop",
+    "date": "2026-01-08 05:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "연결 리스트와 객체 지향 설계"
+  },
+  
+  {
+    "title": "[독하게 시작하는 Java Part 2]  내부 클래스와 익명 객체",
+    "url": "/posts/java-part2-nested-classes/",
+    "categories": "Language, Java",
+    "tags": "java, nested-class, inner-class, static-nested-class, anonymous-object, package, import",
+    "date": "2026-01-07 13:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "내부 클래스와 익명 객체"
+  },
+  
+  {
+    "title": "[독하게 시작하는 Java Part 2]  불변 객체와 String 클래스",
+    "url": "/posts/java-part2-immutable-string/",
+    "categories": "Language, Java",
+    "tags": "java, immutable, string, stringbuilder, wrapper, boxing, unboxing, constant-pool, string-buffer",
+    "date": "2026-01-07 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "불변 객체와 String 클래스"
+  },
+  
+  {
+    "title": "[독하게 시작하는 Java Part 2]  JVM과 GC 그리고 객체",
+    "url": "/posts/java-part2-gc-object/",
+    "categories": "Language, Java",
+    "tags": "java, garbage-collection, gc-algorithm, object-class, memory-layout, equals, hashcode",
+    "date": "2026-01-06 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "JVM과 GC 그리고 객체"
+  },
+  
+  {
+    "title": "[독하게 시작하는 Java Part 2]  JVM 기본 이론",
+    "url": "/posts/java-part2-jvm/",
+    "categories": "Language, Java",
+    "tags": "java, jvm, garbage-collection, class-loader, heap, stack, memory-management",
+    "date": "2026-01-06 13:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "JVM 기본 이론"
+  },
+  
+  {
+    "title": "[독하게 시작하는 Java Part 2]  다형성",
+    "url": "/posts/java-part2-polymorphism/",
+    "categories": "Language, Java",
+    "tags": "java, polymorphism, abstract, interface, enum, casting, instanceof",
+    "date": "2026-01-05 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "다형성"
+  },
+  
+  {
+    "title": "[독하게 시작하는 Java Part 2]  상속과 관계",
+    "url": "/posts/java-part2-inheritance/",
+    "categories": "Language, Java",
+    "tags": "java, inheritance, extends, super, override, polymorphism, binding, uml",
+    "date": "2026-01-05 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "상속과 관계"
+  },
+  
+  {
+    "title": "[독하게 시작하는 Java Part 2] 클래스2",
+    "url": "/posts/java-part2-class-advanced/",
+    "categories": "Language, Java",
+    "tags": "java, class, constructor, static, copy, deep-copy, shallow-copy",
+    "date": "2026-01-04 12:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "클래스"
+  },
+  
+  {
+    "title": "[독하게 시작하는 Java Part 2]  클래스1",
+    "url": "/posts/java-part2-class-structure/",
+    "categories": "Language, Java",
+    "tags": "java, class, object, instance, oop, encapsulation, access-modifier",
+    "date": "2026-01-04 06:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "클래스"
+  },
+  
+  {
+    "title": "Kotlin의 Null Safety",
+    "url": "/posts/kotlin-null-safety/",
+    "categories": "Language, Kotlin",
+    "tags": "kotlin, null-safety, nullable, npe, safe-call, elvis-operator, type-system",
+    "date": "2026-01-03 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[실전 자바 기본편] 다형성과 설계",
+    "url": "/posts/java-basic-poly3/",
+    "categories": "Language, Java",
+    "tags": "java, polymorphism, ocp, strategy-pattern, design-principle",
+    "date": "2026-01-02 19:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "다형성과 설계"
+  },
+  
+  {
+    "title": "[실전 자바 기본편] 다형성 2",
+    "url": "/posts/java-basic-poly2/",
+    "categories": "Language, Java",
+    "tags": "java, polymorphism, abstract-class, interface, multiple-inheritance",
+    "date": "2026-01-01 19:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "다형성"
+  },
+  
+  {
+    "title": "[실전 자바 기본편] 다형성 1",
+    "url": "/posts/java-basic-poly1/",
+    "categories": "Language, Java",
+    "tags": "java, polymorphism, casting, overriding, instanceof",
+    "date": "2026-01-01 18:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "다형성 1"
+  },
+  
+  {
+    "title": "[실전 자바 기본편] 상속",
+    "url": "/posts/java-basic-extends/",
+    "categories": "Language, Java",
+    "tags": "java, inheritance, extends, override, super, access-modifier, final",
+    "date": "2025-12-31 23:50:00 +0900",
+    
+
+
+
+
+
+    "snippet": "상속"
+  },
+  
+  {
+    "title": "[실전 자바 기본편] final",
+    "url": "/posts/java-basic-final/",
+    "categories": "Language, Java",
+    "tags": "java, final, constant, immutability, static-final",
+    "date": "2025-12-31 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "final"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 7장 IO 병목, 어떻게 해결하지",
+    "url": "/posts/backend-basics-chapter7/",
+    "categories": "Book, Backend",
+    "tags": "network-io, blocking-io, non-blocking-io, virtual-thread, selector, performance, java",
+    "date": "2025-12-31 15:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다."
+  },
+  
+  {
+    "title": "[실전 자바 기본편] 자바 메모리 구조와 static",
+    "url": "/posts/java-basic-static/",
+    "categories": "Language, Java",
+    "tags": "java, static, memory, stack, heap, method-area, class-variable, static-method",
+    "date": "2025-12-30 23:50:00 +0900",
+    
+
+
+
+
+
+    "snippet": "자바 메모리 구조와 static"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 6장 동시성, 데이터가 꼬이기 전에 잡아야한다",
+    "url": "/posts/backend-basics-chapter6/",
+    "categories": "Book, Backend",
+    "tags": "backend, concurrency, lock, mutex, semaphore, deadlock, atomic, db-lock, book-review",
+    "date": "2025-12-30 23:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다."
+  },
+  
+  {
+    "title": "[실전 자바 기본편] 접근 제어자",
+    "url": "/posts/java-basic-capsul/",
+    "categories": "Language, Java",
+    "tags": "java, access-modifier, encapsulation, private, public, protected, default, oop",
+    "date": "2025-12-30 22:10:00 +0900",
+    
+
+
+
+
+
+    "snippet": "접근 제어자"
+  },
+  
+  {
+    "title": "Kotlin 프로퍼티와 접근 제어자",
+    "url": "/posts/kotlin-property-and-access-modifiers/",
+    "categories": "Language, Kotlin",
+    "tags": "kotlin, property, access-modifier, visibility, backing-field, getter, setter",
+    "date": "2025-12-28 13:10:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "Kotlin은 어떻게 Kotlin으로 개발되었는가?",
+    "url": "/posts/how-kotlin-was-developed-in-kotlin/",
+    "categories": "Language, Kotlin",
+    "tags": "kotlin, bootstrapping, compiler, self-hosting, jetbrains",
+    "date": "2025-12-28 12:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[실전 자바 기본편] 패키지",
+    "url": "/posts/java-basic-package/",
+    "categories": "Language, Java",
+    "tags": "java, package, import, naming-convention",
+    "date": "2025-12-27 20:25:00 +0900",
+    
+
+
+
+
+
+    "snippet": "패키지"
+  },
+  
+  {
+    "title": "Flyway란?",
+    "url": "/posts/flyway-basics/",
+    "categories": "Infrastructure",
+    "tags": "flyway, database, devops, migration",
+    "date": "2025-12-27 19:10:00 +0900",
+    
+
+
+
+
+
+    "snippet": "Flyway 기초"
+  },
+  
+  {
+    "title": "Terraform이란?",
+    "url": "/posts/terraform-basics/",
+    "categories": "Infrastructure",
+    "tags": "terraform, azure, iac, devops, backend",
+    "date": "2025-12-27 18:20:00 +0900",
+    
+
+
+
+
+
+    "snippet": "테라폼이란"
+  },
+  
+  {
+    "title": "Ansible이란?",
+    "url": "/posts/ansible-basics/",
+    "categories": "Infrastructure",
+    "tags": "ansible, iac, devops, automation, backend",
+    "date": "2025-12-27 18:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "앤서블 기초"
+  },
+  
+  {
+    "title": "Java LTS 버전별 차이",
+    "url": "/posts/java-lts-versions/",
+    "categories": "Language, Java",
+    "tags": "java, spring-boot, lts, backend",
+    "date": "2025-12-27 17:55:00 +0900",
+    
+
+
+
+
+
+    "snippet": "현재 Java 생태계"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 5장 비동기 연동, 언제 어떻게 써야 할까",
+    "url": "/posts/backend-basics-chapter5/",
+    "categories": "Book, Backend",
+    "tags": "backend, architecture, async, messaging, outbox-pattern, batch, cdc, book-review",
+    "date": "2025-12-26 17:45:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다."
+  },
+  
+  {
+    "title": "[실전 자바 기본편] 생성자",
+    "url": "/posts/java-basic-constructor/",
+    "categories": "Language, Java",
+    "tags": "java, oop, constructor, this",
+    "date": "2025-12-26 12:25:00 +0900",
+    
+
+
+
+
+
+    "snippet": "생성자"
+  },
+  
+  {
+    "title": "스택과 큐 알고리즘",
+    "url": "/posts/algorithm-stack-queue/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm, stack, queue, data-structure, dfs, bfs, java",
+    "date": "2025-12-26 08:20:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  스택(Stack)과 큐(Queue)는 배열에서 발전된 형태의 선형 자료구조임  구조는 유사하지만 데이터를 처리하는 방식에서 근본적인 차이가 있음  단순 자료 저장을 넘어 실제 서비스 환경의 성능 최적화와 동시성 제어의 기초가 됨"
+  },
+  
+  {
+    "title": "슬라이딩 윈도우 알고리즘",
+    "url": "/posts/algorithm-sliding-window/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm, sliding-window, two-pointers, time-complexity, java",
+    "date": "2025-12-26 08:15:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[실전 자바 기본편] 객체 지향 프로그래밍",
+    "url": "/posts/java-basic-oop/",
+    "categories": "Language, Java",
+    "tags": "java, oop, encapsulation, procedural-programming",
+    "date": "2025-12-25 21:10:00 +0900",
+    
+
+
+
+
+
+    "snippet": "객체 지향 프로그래밍"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 4장 외부 연동이 문제일 때 살펴봐야 할 것들",
+    "url": "/posts/backend-basics-chapter4/",
+    "categories": "Book, Backend",
+    "tags": "backend, architecture, timeout, retry, circuit-breaker, connection-pool, redundancy, book-review",
+    "date": "2025-12-25 19:10:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  💡해당 게시글은 최범균님의 ‘주니어 백엔드 개발자가 반드시 알아야 할 실무 지식’을 개인 공부목적으로 메모하였습니다."
+  },
+  
+  {
+    "title": "투 포인터 알고리즘",
+    "url": "/posts/algorithm-two-pointers/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm, two-pointers, time-complexity, sliding-window, java",
+    "date": "2025-12-25 16:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "조합(Combination) 구하기",
+    "url": "/posts/algorithm-combination-implementation/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm, combination, dynamic-programming, modular-inverse, fermat-little-theorem",
+    "date": "2025-12-25 16:20:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "나머지 연산과 구간 합",
+    "url": "/posts/algorithm-prefix-sum-modular/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm, mathematics, modular-arithmetic, prefix-sum, optimization",
+    "date": "2025-12-25 14:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[실전 자바 기본편] 기본형과 참조형",
+    "url": "/posts/java-basic-reference-types/",
+    "categories": "Language, Java",
+    "tags": "java, primitive-type, reference-type, memory, garbage-collection",
+    "date": "2025-12-24 22:20:00 +0900",
+    
+
+
+
+
+
+    "snippet": "기본형과 참조형"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 3장 성능을 좌우하는 DB 설계와 쿼리",
+    "url": "/posts/backend-basics-chapter3/",
+    "categories": "Book, Backend",
+    "tags": "backend, database, index, query-optimization, performance, book-review",
+    "date": "2025-12-24 15:25:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 최범균님의 '주니어 백엔드 개발자가 반드시 알아야 할 실무 지식'을 개인 공부목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "구간 합(Prefix Sum)이란?",
+    "url": "/posts/algorithm-prefix-sum/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm, prefix-sum, time-complexity",
+    "date": "2025-12-24 11:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 2장 느려진 서비스 어디서부터 봐야할까",
+    "url": "/posts/backend-basics-chapter2/",
+    "categories": "Book, Backend",
+    "tags": "backend, performance, scaling, caching, cdn, book-review",
+    "date": "2025-12-23 19:20:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 최범균님의 '주니어 백엔드 개발자가 반드시 알아야 할 실무 지식'을 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "Java의 배열 복사 System.arraycopy",
+    "url": "/posts/system-arraycopy/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "java, array, system-arraycopy, performance, algorithm",
+    "date": "2025-12-23 14:45:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "Java 입출력 및 파싱 방식 비교",
+    "url": "/posts/java-input-parsing/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "java, scanner, bufferedreader, stringtokenizer, string-split, algorithm, input-parsing",
+    "date": "2025-12-23 08:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "배열(Array)과 리스트(List)의 차이",
+    "url": "/posts/array-vs-list/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "array, list, arraylist, linkedlist, algorithm",
+    "date": "2025-12-23 08:05:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[주니어 백엔드 개발자가 반드시 알아야 할 실무 지식] 1장 들어가며",
+    "url": "/posts/backend-basics-chapter1/",
+    "categories": "Book, Backend",
+    "tags": "backend, database, connection-pool, book-review",
+    "date": "2025-12-22 12:40:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 최범균님의 '주니어 백엔드 개발자가 반드시 알아야 할 실무 지식'을 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "코틀린의 탄생 배경과 특징",
+    "url": "/posts/why-kotlin-was-created/",
+    "categories": "Language, Kotlin",
+    "tags": "kotlin, language, jetbrains",
+    "date": "2025-12-21 20:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "Jekyll 블로그 레이아웃 깨짐 및 이미지 로드 실패 트러블 슈팅",
+    "url": "/posts/jekyll-image-troubleshooting/",
+    "categories": "Blog",
+    "tags": "jekyll, troubleshooting, liquid, html-compression",
+    "date": "2025-12-20 19:25:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "Jekyll 블로그 CSS/JS 자동 최적화",
+    "url": "/posts/css-js-auto-optimization/",
+    "categories": "Blog",
+    "tags": "jekyll, performance, automation",
+    "date": "2025-12-20 08:35:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "Jekyll 블로그 플로팅 버튼 고정 실패(position: fixed 속성) 트러블 슈팅",
+    "url": "/posts/back-to-top-troubleshooting/",
+    "categories": "Blog",
+    "tags": "jekyll, troubleshooting, css",
+    "date": "2025-12-20 08:20:00 +0900",
+    
+
+
+
+
+
+    "snippet": "문제 상황"
+  },
+  
+  {
+    "title": "Git Push 실패: RPC failed HTTP 400 에러 해결하기",
+    "url": "/posts/git-sync-http-400-error/",
+    "categories": "Version Control, Git",
+    "tags": "git, vscode, troubleshooting",
+    "date": "2025-12-19 14:03:00 +0900",
+    
+
+
+
+
+
+    "snippet": "문제 상황"
+  },
+  
+  {
+    "title": "[실전 자바 기본편] 클래스와 데이터",
+    "url": "/posts/java-basic-class-data/",
+    "categories": "Language, Java",
+    "tags": "java, class, object",
+    "date": "2025-12-19 14:01:00 +0900",
+    
+
+
+
+
+
+    "snippet": "클래스와 데이터"
+  },
+  
+  {
+    "title": "비교하지 않는 정렬 알고리즘과 알고리즘 선택 가이드",
+    "url": "/posts/non-comparison-sorting/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm, sorting, counting-sort, radix-sort, stable-sort",
+    "date": "2025-12-19 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "비교 정렬 알고리즘",
+    "url": "/posts/comparison-sorting/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm, sorting, bubble-sort, selection-sort, insertion-sort, merge-sort, quick-sort, heap-sort",
+    "date": "2025-12-18 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "분할 정복 알고리즘이란?",
+    "url": "/posts/divide-and-conquer/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm, divide-and-conquer, merge-sort, quick-sort, binary-search, recursion",
+    "date": "2025-12-17 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "시간 복잡도란?",
+    "url": "/posts/time-complexity/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm, big-o",
+    "date": "2025-12-16 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 15강 - 컴퓨터 네트워크",
+    "url": "/posts/knou-cs-15/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-12-01 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 14강 - 데이터베이스",
+    "url": "/posts/knou-cs-14/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-11-30 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 13강 - 데이터베이스",
+    "url": "/posts/knou-cs-13/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-11-27 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "AWS S3 Presigned URL",
+    "url": "/posts/presigned-url/",
+    "categories": "Cloud, AWS",
+    "tags": "aws, s3, presigned-url, security",
+    "date": "2025-11-25 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "LocalStack으로 AWS 서비스 로컬 개발하기",
+    "url": "/posts/localstack/",
+    "categories": "Cloud, AWS",
+    "tags": "localstack, aws, docker, local-development",
+    "date": "2025-11-25 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "전략 패턴(Strategy Pattern)",
+    "url": "/posts/strategy-pattern/",
+    "categories": "Software Engineering, Design",
+    "tags": "design-pattern, strategy-pattern, oop",
+    "date": "2025-11-24 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 12강 - 프로그래밍 언어",
+    "url": "/posts/knou-cs-12/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-11-23 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 11강 - 프로그래밍 언어",
+    "url": "/posts/knou-cs-11/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-11-22 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 10강 - 컴퓨터 구조",
+    "url": "/posts/knou-cs-10/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-11-20 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 9강 - 컴퓨터 구조",
+    "url": "/posts/knou-cs-9/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-11-18 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 8강 - 운영 체제",
+    "url": "/posts/knou-cs-8/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-11-17 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 7강 - 운영 체제",
+    "url": "/posts/knou-cs-7/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-11-17 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "MySQL InnoDB 내부 구조와 동작 원리",
+    "url": "/posts/mysql-innodb-internal-structure/",
+    "categories": "Database, MySQL",
+    "tags": "mysql, innodb, database, storage-engine",
+    "date": "2025-11-14 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 6강 - 알고리즘",
+    "url": "/posts/knou-cs-6/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-11-14 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "MySQL 트랜잭션 격리 수준과 다른 DBMS와의 차이점",
+    "url": "/posts/mysql-transaction-isolation-levels/",
+    "categories": "Database, MySQL",
+    "tags": "mysql, database, transaction, isolation-level, mvcc",
+    "date": "2025-11-13 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 5강 - 알고리즘",
+    "url": "/posts/knou-cs-5/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-11-12 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "도메인 주도 설계(DDD)란?",
+    "url": "/posts/domain-driven-design-introduction/",
+    "categories": "Software Engineering, Design",
+    "tags": "ddd, domain-driven-design, architecture",
+    "date": "2025-11-10 09:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "DDD와 마이크로서비스 아키텍처",
+    "url": "/posts/ddd-and-microservices/",
+    "categories": "Software Engineering, Design",
+    "tags": "ddd, microservices, architecture",
+    "date": "2025-11-10 09:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 4강 - 자료 구조",
+    "url": "/posts/knou-cs-4/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-11-09 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "데이터베이스 파티셔닝",
+    "url": "/posts/database-partitioning/",
+    "categories": "Database, Theory",
+    "tags": "database, partitioning",
+    "date": "2025-11-08 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "데이터베이스 스캔 방식",
+    "url": "/posts/database-scan-methods/",
+    "categories": "Database, Theory",
+    "tags": "database, scan, index",
+    "date": "2025-11-07 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "데이터베이스 인덱스",
+    "url": "/posts/database-index/",
+    "categories": "Database, Theory",
+    "tags": "database, index",
+    "date": "2025-11-06 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "도메인 스토리텔링(DST)이란?",
+    "url": "/posts/domain-storytelling-for-ddd/",
+    "categories": "Software Engineering, Design",
+    "tags": "domain-storytelling, ddd",
+    "date": "2025-11-05 09:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "데이터베이스 정규화",
+    "url": "/posts/database-normalization/",
+    "categories": "Database, Theory",
+    "tags": "database, normalization",
+    "date": "2025-11-04 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "데이터베이스 동시성 제어",
+    "url": "/posts/database-concurrency-control/",
+    "categories": "Database, Theory",
+    "tags": "database, concurrency-control, mvcc, deadlock",
+    "date": "2025-11-03 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "데이터베이스 트랜잭션과 ACID 속성",
+    "url": "/posts/database-transaction-acid/",
+    "categories": "Database, Theory",
+    "tags": "database, transaction, acid",
+    "date": "2025-11-02 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "Cursor에서 MCP로 Jira/Confluence 연동하기",
+    "url": "/posts/cursor-mcp-atlassian-integration/",
+    "categories": "AI, MCP",
+    "tags": "cursor, mcp, jira, confluence",
+    "date": "2025-11-01 09:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "MCP(Model Context Protocol)란?",
+    "url": "/posts/what-is-mcp-protocol/",
+    "categories": "AI, MCP",
+    "tags": "mcp, ai",
+    "date": "2025-10-31 09:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "Google Colab 환경의 Matplotlib 한글 폰트 깨짐 현상",
+    "url": "/posts/google-colab-font-error/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "data, colab, python, 시각화",
+    "date": "2025-10-19 09:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "Apache Kafka 모니터링과 운영 - Prometheus & Grafana",
+    "url": "/posts/apache-kafka-monitoring-operations/",
+    "categories": "Messaging, Kafka",
+    "tags": "kafka, monitoring, prometheus, grafana, operations",
+    "date": "2025-10-17 01:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  Apache Kafka 시리즈      Apache Kafka 기본 개념 - 메시징 시스템의 이해    Apache Kafka 파티션과 컨슈머 그룹    Apache Kafka 복제와 고가용성 - 데이터 안정성 보장    Apache Kafka 성능 튜닝과 운영 - 최적화    Spring Boot와 KRaft를 활용한 Apache Kafka 개발    Apache Kafka 모니터링과 운영 - Prometheus &amp; Grafana ← 현재 글  "
+  },
+  
+  {
+    "title": "Spring Boot와 KRaft를 활용한 Apache Kafka 개발",
+    "url": "/posts/apache-kafka-spring-boot-kraft-guide/",
+    "categories": "Messaging, Kafka",
+    "tags": "kafka, spring-boot, kraft, docker, production-grade, error-handling",
+    "date": "2025-10-16 01:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  Apache Kafka 시리즈      Apache Kafka 기본 개념 - 메시징 시스템의 이해    Apache Kafka 파티션과 컨슈머 그룹    Apache Kafka 복제와 고가용성 - 데이터 안정성 보장    Apache Kafka 성능 튜닝과 운영 - 최적화    Spring Boot와 KRaft를 활용한 Apache Kafka 개발 ← 현재 글    Apache Kafka 모니터링과 운영 - Prometheus &amp; Grafana  "
+  },
+  
+  {
+    "title": "Git SSH Config로 GitHub 계정 분리하기",
+    "url": "/posts/multiple-github-accounts-with-ssh/",
+    "categories": "Version Control, Git",
+    "tags": "git, github",
+    "date": "2025-10-15 09:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "배경"
+  },
+  
+  {
+    "title": "Apache Kafka 성능 튜닝과 운영 - 최적화",
+    "url": "/posts/apache-kafka-performance-tuning/",
+    "categories": "Messaging, Kafka",
+    "tags": "kafka, performance-tuning, optimization, configuration",
+    "date": "2025-10-15 01:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  Apache Kafka 시리즈      Apache Kafka 기본 개념 - 메시징 시스템의 이해    Apache Kafka 파티션과 컨슈머 그룹    Apache Kafka 복제와 고가용성 - 데이터 안정성 보장    Apache Kafka 성능 튜닝과 운영 - 최적화 ← 현재 글    Spring Boot와 KRaft를 활용한 Apache Kafka 개발    Apache Kafka 모니터링과 운영 - Prometheus &amp; Grafana  "
+  },
+  
+  {
+    "title": "Apache Kafka 복제와 고가용성 - 데이터 안정성 보장",
+    "url": "/posts/apache-kafka-replication-high-availability/",
+    "categories": "Messaging, Kafka",
+    "tags": "kafka, replication, high-availability, isr, fault-tolerance",
+    "date": "2025-10-14 01:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  Apache Kafka 시리즈      Apache Kafka 기본 개념 - 메시징 시스템의 이해    Apache Kafka 파티션과 컨슈머 그룹    Apache Kafka 복제와 고가용성 - 데이터 안정성 보장 ← 현재 글    Apache Kafka 성능 튜닝과 운영 - 최적화    Spring Boot와 KRaft를 활용한 Apache Kafka 개발    Apache Kafka 모니터링과 운영 - Prometheus &amp; Grafana  "
+  },
+  
+  {
+    "title": "Apache Kafka 파티션과 컨슈머 그룹 - 병렬 처리의 핵심",
+    "url": "/posts/apache-kafka-partitions-consumer-groups/",
+    "categories": "Messaging, Kafka",
+    "tags": "kafka, partition, consumer-group, distributed-system",
+    "date": "2025-10-13 01:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  Apache Kafka 시리즈      Apache Kafka 기본 개념 - 메시징 시스템의 이해    Apache Kafka 파티션과 컨슈머 그룹 ← 현재 글    Apache Kafka 복제와 고가용성 - 데이터 안정성 보장    Apache Kafka 성능 튜닝과 운영 - 최적화    Spring Boot와 KRaft를 활용한 Apache Kafka 개발    Apache Kafka 모니터링과 운영 - Prometheus &amp; Grafana  "
+  },
+  
+  {
+    "title": "Apache Kafka 기본 개념 - 메시징 시스템의 이해",
+    "url": "/posts/apache-kafka-basic-concepts/",
+    "categories": "Messaging, Kafka",
+    "tags": "kafka, apache, messaging, event-streaming, basic-concepts",
+    "date": "2025-10-12 01:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "  Apache Kafka 시리즈      Apache Kafka 기본 개념 - 메시징 시스템의 이해 ← 현재 글    Apache Kafka 파티션과 컨슈머 그룹    Apache Kafka 복제와 고가용성 - 데이터 안정성 보장    Apache Kafka 성능 튜닝과 운영 - 최적화    Spring Boot와 KRaft를 활용한 Apache Kafka 개발    Apache Kafka 모니터링과 운영 - Prometheus &amp; Grafana  "
+  },
+  
+  {
+    "title": "Jekyll 블로그 Utterances 댓글 시스템 추가",
+    "url": "/posts/jekyll-blog-comments-utterances/",
+    "categories": "Blog",
+    "tags": "jekyll, utterances",
+    "date": "2025-10-11 19:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "Jekyll 블로그 Google Analytics 연동",
+    "url": "/posts/google-analytics-jekyll-integration/",
+    "categories": "Blog",
+    "tags": "google-analytics, jekyll",
+    "date": "2025-10-11 19:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "Jekyll 블로그 설치 및 로컬 실행 가이드",
+    "url": "/posts/jekyll-blog-installation-guide/",
+    "categories": "Blog",
+    "tags": "jekyll, git-blog",
+    "date": "2025-10-11 18:50:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "Jekyll 블로그 이미지 자동 최적화",
+    "url": "/posts/image-auto-optimization/",
+    "categories": "Blog",
+    "tags": "jekyll, performance, automation",
+    "date": "2025-10-08 18:50:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 3강 - 자료 구조",
+    "url": "/posts/knou-cs-3/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-10-06 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 15강 - 셀프 체크",
+    "url": "/posts/knou-cloud-15/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-10-03 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 15강 - 시계열 데이터 분석",
+    "url": "/posts/knou-data-analysis-15/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-10-02 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 14강 - 일기 예보 전송 서비스 구현",
+    "url": "/posts/knou-cloud-14/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-09-30 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 14강 - 비정형 데이터 분석",
+    "url": "/posts/knou-data-analysis-14/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-09-29 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 13강 - 클라우드 기반 데이터 분석",
+    "url": "/posts/knou-cloud-13/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-09-27 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 13강 - 반정형 데이터 분석",
+    "url": "/posts/knou-data-analysis-13/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-09-26 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 2강 - 컴퓨터와 데이터",
+    "url": "/posts/knou-cs-2/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-09-25 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 12강 - 클라우드 컴퓨팅의 미래",
+    "url": "/posts/knou-cloud-12/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-09-24 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 12강 - 정형 데이터 분석",
+    "url": "/posts/knou-data-analysis-12/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-09-23 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 11강 - 클라우드 아키텍처",
+    "url": "/posts/knou-cloud-11/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-09-21 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 11강 - 데이터 시각화",
+    "url": "/posts/knou-data-analysis-11/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-09-20 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 10강 - 클라우드 아키텍처",
+    "url": "/posts/knou-cloud-10/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-09-18 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 10강 - 데이터 시각화",
+    "url": "/posts/knou-data-analysis-10/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-09-17 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 9강 - 클라우드 컴퓨팅 기술",
+    "url": "/posts/knou-cloud-9/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-09-15 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 9강 - 데이터 분석",
+    "url": "/posts/knou-data-analysis-9/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-09-14 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 8강 - 연습 문제 풀이",
+    "url": "/posts/knou-cloud-8/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-09-12 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 8강 - 데이터 분석",
+    "url": "/posts/knou-data-analysis-8/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-09-11 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 7강 - 클라우드 컴퓨팅 기술",
+    "url": "/posts/knou-cloud-7/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-09-09 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 7강 - 데이터 전처리",
+    "url": "/posts/knou-data-analysis-7/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-09-08 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 6강 - 클라우드 컴퓨팅 기술",
+    "url": "/posts/knou-cloud-6/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-09-06 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 6강 - 데이터 전처리",
+    "url": "/posts/knou-data-analysis-6/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-09-05 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 5강 - 클라우드 이용 모델",
+    "url": "/posts/knou-cloud-5/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-09-03 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 5강 - 데이터 저장",
+    "url": "/posts/knou-data-analysis-5/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-09-02 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 4강 - 클라우드 컴퓨팅 서비스",
+    "url": "/posts/knou-cloud-4/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-08-31 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 4강 - 데이터 수집",
+    "url": "/posts/knou-data-analysis-4/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-08-30 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 3강 - 클라우드 컴퓨팅의 특징",
+    "url": "/posts/knou-cloud-3/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-08-28 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 3강 - 데이터 분석을 위한 파이썬 프로그래밍",
+    "url": "/posts/knou-data-analysis-3/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-08-27 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 2강 - 온프레미스와 클라우드",
+    "url": "/posts/knou-cloud-2/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-08-25 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 2강 - 데이터 분석을 위한 파이썬 프로그래밍",
+    "url": "/posts/knou-data-analysis-2/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-08-24 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[클라우드 컴퓨팅] 1강 - 클라우드 컴퓨팅의 이해",
+    "url": "/posts/knou-cloud-1/",
+    "categories": "Cloud, Theory",
+    "tags": "knou, cloud",
+    "date": "2025-08-22 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '클라우드 컴퓨팅' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[오픈 소스 기반 데이터 분석] 1강 - 데이터 분석 개요",
+    "url": "/posts/knou-data-analysis-1/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-analysis",
+    "date": "2025-08-21 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '오픈 소스 기반 데이터 분석' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[컴퓨터과학 개론] 1강 - 컴퓨터와 자료",
+    "url": "/posts/knou-cs-1/",
+    "categories": "Computer Science, CS Theory",
+    "tags": "knou, cs",
+    "date": "2025-08-19 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이관용, 정광식 교수님의 '컴퓨터과학 개론' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 15강 - 예외 처리",
+    "url": "/posts/knou-cpp-15/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-07-02 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 14강 - 템플릿",
+    "url": "/posts/knou-cpp-14/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-30 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 13강 - 템플릿",
+    "url": "/posts/knou-cpp-13/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-29 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 12강 - 상속",
+    "url": "/posts/knou-cpp-12/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-27 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 11강 - 상속",
+    "url": "/posts/knou-cpp-11/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-27 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 10강 - 상속",
+    "url": "/posts/knou-cpp-10/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-24 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 9강 - 연산자 다중 정의",
+    "url": "/posts/knou-cpp-9/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-23 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 8강 - 연산자 다중 정의",
+    "url": "/posts/knou-cpp-8/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-18 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 7강 - 클래스와 객체",
+    "url": "/posts/knou-cpp-7/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-17 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 6강 - 클래스와 객체",
+    "url": "/posts/knou-cpp-6/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-12 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 5강 - 클래스와 객체",
+    "url": "/posts/knou-cpp-5/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-10 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 4강 - 함수",
+    "url": "/posts/knou-cpp-4/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-09 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 3강  - C++ 언어의 기초",
+    "url": "/posts/knou-cpp-3/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-08 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 2강 - C++ 언어의 기초",
+    "url": "/posts/knou-cpp-2/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-07 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[C++ 프로그래밍] 1강  - C++ 언어의 소개",
+    "url": "/posts/knou-cpp-1/",
+    "categories": "Language, CPP",
+    "tags": "knou, cpp",
+    "date": "2025-06-04 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 이병래 교수님의 'C++ 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 15강 - 파이썬을 활용한 자료 분석 2",
+    "url": "/posts/knou-dip-15/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-05-30 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 15강 - 회복 시스템",
+    "url": "/posts/knou-dbs-15/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-05-28 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 15강 - 운영 체제 사례",
+    "url": "/posts/knou-os-15/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-05-27 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 15강 - 체크 포인트",
+    "url": "/posts/knou-python-15/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-05-25 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 15강 - 라이브러리와 모듈",
+    "url": "/posts/knou-java-15/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-05-23 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 14강 - 파이썬을 활용한 자료 분석",
+    "url": "/posts/knou-dip-14/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-05-22 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 14강 - 운영 체제 보안",
+    "url": "/posts/knou-os-14/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-05-20 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 14강 - 실전 프로그래밍",
+    "url": "/posts/knou-python-14/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-05-19 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 14강 - JDBC 프로그래밍",
+    "url": "/posts/knou-java-14/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-05-18 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 14강 - 동시성 제어",
+    "url": "/posts/knou-dbs-14/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-05-18 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 13강 - R을 활용한 자료 분석 2",
+    "url": "/posts/knou-dip-13/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-05-16 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 13강 - 트랜잭션",
+    "url": "/posts/knou-dbs-13/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-05-14 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 13강 - 분산 운영 체제",
+    "url": "/posts/knou-os-13/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-05-13 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 13강 - 멀티 스레드 프로그래밍",
+    "url": "/posts/knou-java-13/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-05-12 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 13강 - 실전 프로그래밍",
+    "url": "/posts/knou-python-13/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-05-11 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 12강 - 저장 장치 및 파일 관리",
+    "url": "/posts/knou-os-12/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-05-11 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 12강 - R을 활용한 자료 분석",
+    "url": "/posts/knou-dip-12/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-05-11 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 12강 - 파일",
+    "url": "/posts/knou-python-12/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-05-10 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 12강 - 해싱과 특수 인덱스",
+    "url": "/posts/knou-dbs-12/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-05-10 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 12강- 컬렉션과 스트림",
+    "url": "/posts/knou-java-12/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-05-08 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 11강 - 모듈",
+    "url": "/posts/knou-python-11/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-05-06 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 11강 - 장치 관리",
+    "url": "/posts/knou-os-11/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-05-06 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 11강 - 컬렉션",
+    "url": "/posts/knou-java-11/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-05-06 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 11강 - 인덱싱",
+    "url": "/posts/knou-dbs-11/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-05-06 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 11강 - 엑셀 활용 2",
+    "url": "/posts/knou-dip-11/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-05-04 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 10강 - 페이지 교체 알고리즘",
+    "url": "/posts/knou-os-10/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-05-02 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 10강 - 데이터 저장과 파일",
+    "url": "/posts/knou-dbs-10/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-04-30 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 10강 - 객체 지향",
+    "url": "/posts/knou-python-10/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-04-29 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 10강 - java.nio 패키지의 활용",
+    "url": "/posts/knou-java-10/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-04-28 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 9강 - 가상 메모리",
+    "url": "/posts/knou-os-9/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-04-27 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 10강 - 엑셀 활용",
+    "url": "/posts/knou-dip-10/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-04-26 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 9강 - 저장 객체",
+    "url": "/posts/knou-dbs-9/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-04-26 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 9강 - 함수",
+    "url": "/posts/knou-python-9/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-04-25 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 9강 - java.io 패키지와 스트림",
+    "url": "/posts/knou-java-9/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-04-25 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 9강 - 엑셀을 이용한 그래프 그리기 2",
+    "url": "/posts/knou-dip-9/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-04-25 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 8강 - 메모리 관리",
+    "url": "/posts/knou-os-8/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-04-21 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 8강 - 엑셀을 이용한 그래프 그리기",
+    "url": "/posts/knou-dip-8/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-04-21 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 8강 - 체크 포인트",
+    "url": "/posts/knou-python-8/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-04-20 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 8강 - 정규화",
+    "url": "/posts/knou-dbs-8/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-04-20 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 8강 - java.lang 패키지",
+    "url": "/posts/knou-java-8/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-04-19 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 7강 - 교착 상태",
+    "url": "/posts/knou-os-7/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-04-17 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 7강 - SQL",
+    "url": "/posts/knou-dbs-7/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-04-16 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 7강 - 반복 구조",
+    "url": "/posts/knou-python-7/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-04-14 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 7강 - 패키지와 예외 처리",
+    "url": "/posts/knou-java-7/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-04-13 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 6강 - 교착 상태",
+    "url": "/posts/knou-os-6/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-04-12 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 6강 - SQL",
+    "url": "/posts/knou-dbs-6/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-04-12 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 6강 - 선택 구조",
+    "url": "/posts/knou-python-6/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-04-11 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 6강 - 제네릭과 람다식",
+    "url": "/posts/knou-java-6/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-04-10 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 7강 - 엑셀을 이용한 데이터 처리 2",
+    "url": "/posts/knou-dip-7/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-04-07 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 6강 - 엑셀을 이용한 데이터 처리",
+    "url": "/posts/knou-dip-6/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-04-07 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 5강 - 문서 작성",
+    "url": "/posts/knou-dip-5/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-04-07 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 5강 - 병행 프로세스",
+    "url": "/posts/knou-os-5/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-04-06 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 5강 - SQL",
+    "url": "/posts/knou-dbs-5/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-04-06 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 5강 - 순차 구조",
+    "url": "/posts/knou-python-5/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-04-05 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 5강 - 인터페이스와 다형성",
+    "url": "/posts/knou-java-5/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-04-05 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 4강 - SQL",
+    "url": "/posts/knou-dbs-4/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-04-05 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 4강 - 통계 정보의 검색 및 활용 2",
+    "url": "/posts/knou-dip-4/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-04-02 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 4강 - 병행 프로세스",
+    "url": "/posts/knou-os-4/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-04-01 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 4강 - 파이썬 시작하기",
+    "url": "/posts/knou-python-4/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-03-31 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 4강 - 클래스와 상속",
+    "url": "/posts/knou-java-4/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-03-28 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 3강 - 관계형 모델",
+    "url": "/posts/knou-dbs-3/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-03-27 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 3강  - 통계 정보의 검색 및 활용",
+    "url": "/posts/knou-dip-3/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-03-25 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 3강 - 프로세스 스케줄링",
+    "url": "/posts/knou-os-3/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-03-24 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 3강 - 파이썬의 이해",
+    "url": "/posts/knou-python-3/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-03-21 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 2강 - 데이터베이스 모델링",
+    "url": "/posts/knou-dbs-2/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-03-19 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 2강 - 프로세스와 쓰레드",
+    "url": "/posts/knou-os-2/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-03-17 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 3강 - JAVA 기본 문법",
+    "url": "/posts/knou-java-3/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-03-14 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 2강 - 데이터 입력과 점검",
+    "url": "/posts/knou-dip-2/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-03-14 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 2강 - 컴퓨터의 구성",
+    "url": "/posts/knou-python-2/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-03-13 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 2강 - JAVA 기본 문법",
+    "url": "/posts/knou-java-2/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-03-12 00:24:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[운영 체제] 1강  - 운영 체제 소개",
+    "url": "/posts/knou-os-1/",
+    "categories": "OS, Operating System",
+    "tags": "knou, os",
+    "date": "2025-03-12 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김진욱 교수님의 '운영 체제' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터베이스 시스템] 1강 - 데이터의 이해",
+    "url": "/posts/knou-dbs-1/",
+    "categories": "Database, Theory",
+    "tags": "knou, database",
+    "date": "2025-03-10 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '데이터베이스 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[데이터 정보 처리 입문] 1강 - 데이터 분석과 컴퓨터",
+    "url": "/posts/knou-dip-1/",
+    "categories": "Data Science, Data Analysis",
+    "tags": "knou, data-information-processing",
+    "date": "2025-03-07 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김성수, 이기재 교수님의 '데이터 정보 처리 입문' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[Java 프로그래밍] 1강 - JAVA와 객체 지향 프로그래밍",
+    "url": "/posts/knou-java-1/",
+    "categories": "Language, Java",
+    "tags": "knou, java",
+    "date": "2025-03-05 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'Java 프로그래밍' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[파이썬 프로그래밍 기초] 1강 - 컴퓨터의 이해",
+    "url": "/posts/knou-python-1/",
+    "categories": "Language, Python",
+    "tags": "knou, python",
+    "date": "2025-03-04 00:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 정재화 교수님의 '파이썬 프로그래밍 기초' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "[UNIX 시스템] 1강 - 리눅스 소개",
+    "url": "/posts/knou-unix-1/",
+    "categories": "OS, UNIX",
+    "tags": "knou, os, unix",
+    "date": "2023-09-07 23:28:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 방송통신대학교 김희천 교수님의 'UNIX 시스템' 강의를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "Routing Protocol(Static/OSPF/BGP)",
+    "url": "/posts/routing/",
+    "categories": "Network",
+    "tags": "network, routing, ospf, bgp, cisco",
+    "date": "2022-11-11 01:29:00 +0900",
+    
+
+
+
+
+
+    "snippet": ""
+  },
+  
+  {
+    "title": "Cisco Packet Tracer 설정 및 CLI 명령어",
+    "url": "/posts/packet-tracer/",
+    "categories": "Network",
+    "tags": "network, packet-tracer",
+    "date": "2022-11-10 23:40:00 +0900",
+    
+
+
+
+
+
+    "snippet": "Cisco Packet Tracer 구성Cisco Packet Tracer  Cisco에서 제공하는 네트워크 실습 프로그램  Cisco Packet Tracer Download"
+  },
+  
+  {
+    "title": "LAN과 WAN",
+    "url": "/posts/lan-wan/",
+    "categories": "Network",
+    "tags": "network",
+    "date": "2022-11-04 01:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": ""
+  },
+  
+  {
+    "title": "Linux RAID",
+    "url": "/posts/raid/",
+    "categories": "OS, Linux",
+    "tags": "os, linux, raid, storage, mdadm, devops",
+    "date": "2022-11-04 01:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": ""
+  },
+  
+  {
+    "title": "RHCSA RedHat Linux 7 유형별 연습",
+    "url": "/posts/rhcsa/",
+    "categories": "OS, Linux",
+    "tags": "os, linux, rhsca, redhat",
+    "date": "2022-11-01 05:45:00 +0900",
+    
+
+
+
+
+
+    "snippet": "root 패스워드 변경  풀이    # e  # linux16 줄 끝에 rd.break  # ctrl+xmount | grep -w /sysroot  # ro확인mount -o remount,rw /sysroot  # 읽기쓰기 버전으로 리마운트chroot  /sysroot  # root를 /sysroot로 변경passwd  # 변경할 패스워드 입력touch /.autorelabel  # 레이블재지정exitexit      "
+  },
+  
+  {
+    "title": "LVM (Logical Volume Manager)",
+    "url": "/posts/lvm/",
+    "categories": "OS, Linux",
+    "tags": "os, linux, disk, partition, lvm, storage, devops",
+    "date": "2022-11-01 03:55:00 +0900",
+    
+
+
+
+
+
+    "snippet": ""
+  },
+  
+  {
+    "title": "Linux 디스크 및 파티션 관리",
+    "url": "/posts/disk-partition/",
+    "categories": "OS, Linux",
+    "tags": "os, linux, mount, storage, lvm, partition, devops",
+    "date": "2022-10-31 22:55:00 +0900",
+    
+
+
+
+
+
+    "snippet": ""
+  },
+  
+  {
+    "title": "[리버싱 핵심 원리] 기초 리버싱",
+    "url": "/posts/reverse-core-1/",
+    "categories": "Security, Reversing",
+    "tags": "reversing",
+    "date": "2022-10-26 23:55:00 +0900",
+    
+
+
+
+
+
+    "snippet": "💡해당 게시글은 이승원 님의 '리버싱 핵심 원리'를 개인 공부 목적으로 메모하였습니다. "
+  },
+  
+  {
+    "title": "Docker 명령어 및 활용 가이드",
+    "url": "/posts/docker-command/",
+    "categories": "Infrastructure, Docker",
+    "tags": "docker, docker-compose, devops, container",
+    "date": "2022-10-25 05:55:00 +0900",
+    
+
+
+
+
+
+    "snippet": ""
+  },
+  
+  {
+    "title": "Docker 개념 및 설치 가이드",
+    "url": "/posts/docker-install/",
+    "categories": "Infrastructure, Docker",
+    "tags": "docker, docker-compose, devops, container",
+    "date": "2022-10-25 05:50:00 +0900",
+    
+
+
+
+
+
+    "snippet": ""
+  },
+  
+  {
+    "title": "Windows Event Viewer",
+    "url": "/posts/event-viewer/",
+    "categories": "OS, Windows",
+    "tags": "os, windows, event-viewer, troubleshooting, logging",
+    "date": "2022-10-25 04:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": ""
+  },
+  
+  {
+    "title": "Alibaba Cloud MaxCompute Query",
+    "url": "/posts/maxcompute-query/",
+    "categories": "Database, Data Warehouse",
+    "tags": "alicloud, maxcompute, sql, ddl, dml",
+    "date": "2022-10-22 12:25:00 +0900",
+    
+
+
+
+
+
+    "snippet": ""
+  },
+  
+  {
+    "title": "Alibaba Cloud MaxCompute 쿼리 및 특징 가이드",
+    "url": "/posts/maxcompute-query-guide/",
+    "categories": "Cloud, Alicloud",
+    "tags": "alicloud, maxcompute, sql, query-optimization, bigdata",
+    "date": "2022-10-21 04:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": ""
+  },
+  
+  {
+    "title": "IntelliJ MaxCompute Plugin 설치 및 사용",
+    "url": "/posts/maxcompute-intellij/",
+    "categories": "Cloud, Alicloud",
+    "tags": "alicloud, maxcompute, intellij, plugin",
+    "date": "2022-10-20 04:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": ""
+  },
+  
+  {
+    "title": "유클리드 호제법을 이용해 최대 공약수, 최소 공배수 구하기",
+    "url": "/posts/gcd-lcm/",
+    "categories": "Computer Science, Algorithm",
+    "tags": "algorithm",
+    "date": "2022-10-19 22:20:00 +0900",
+    
+
+
+
+
+
+    "snippet": "최대 공약수 구하기최대 공약수(GCD)  GCD (Greatest Common Divisor)  수들의 공통 약수(공약수) 중 가장 큰 수"
+  },
+  
+  {
+    "title": "GCP Compute Engine 생성 및 설정",
+    "url": "/posts/vm-instance/",
+    "categories": "Cloud, GCP",
+    "tags": "compute-engine, gcp, devops, security",
+    "date": "2022-10-19 14:30:00 +0900",
+    
+
+
+
+
+
+    "snippet": "Compute Engine 개요  Google Cloud Platform의 IaaS(Infrastructure as a Service) 서비스  가상 머신(VM) 인스턴스를 생성하고 관리하는 컴퓨팅 서비스  DevOps 워크플로우의 기본 인프라 구성 요소"
+  },
+  
+  {
+    "title": "BigQuery 프로세스 관리",
+    "url": "/posts/bigquery-process/",
+    "categories": "Cloud, GCP",
+    "tags": "bigquery, gcp, slot, optimization",
+    "date": "2022-10-19 12:40:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "BigQuery 아키텍처",
+    "url": "/posts/bigquery-architecture/",
+    "categories": "Cloud, GCP",
+    "tags": "bigquery, gcp, architecture",
+    "date": "2022-10-18 12:40:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "OLTP와 OLAP 데이터베이스 비교",
+    "url": "/posts/database-comparison/",
+    "categories": "Database",
+    "tags": "database, oltp, olap, comparison",
+    "date": "2022-10-17 12:40:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "AnalyticDB for MySQL 아키텍처와 Query",
+    "url": "/posts/adb-mysql-query/",
+    "categories": "Database, MySQL",
+    "tags": "alicloud, mysql, analyticdb, adb",
+    "date": "2022-10-04 23:55:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "PostgreSQL Query",
+    "url": "/posts/postgre-query/",
+    "categories": "Database, PostgreSQL",
+    "tags": "database, postgresql, query",
+    "date": "2022-08-31 11:27:00 +0900",
+    
+
+
+
+
+
+    "snippet": "스키마 생성"
+  },
+  
+  {
+    "title": "PostgreSQL 아키텍처",
+    "url": "/posts/postgre-architecture/",
+    "categories": "Database, PostgreSQL",
+    "tags": "database, postgresql, architecture",
+    "date": "2022-08-31 03:27:00 +0900",
+    
+
+
+
+
+
+    "snippet": "Role"
+  },
+  
+  {
+    "title": "vi 문서 편집",
+    "url": "/posts/vi-vim/",
+    "categories": "OS, Linux",
+    "tags": "os, linux, vi",
+    "date": "2022-08-30 21:55:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "OS와 Linux",
+    "url": "/posts/linux/",
+    "categories": "OS, Linux",
+    "tags": "os, linux",
+    "date": "2022-08-29 03:27:00 +0900",
+    
+
+
+
+
+
+    "snippet": "운영체제(OS)"
+  },
+  
+  {
+    "title": "Linux 명령어",
+    "url": "/posts/linux-command/",
+    "categories": "OS, Linux",
+    "tags": "os, linux",
+    "date": "2022-08-28 19:27:00 +0900",
+    
+
+
+
+
+
+    "snippet": "명령어 기본 규칙"
+  },
+  
+  {
+    "title": "Google Cloud SDK 설치 및 gcloud, gsutil 사용법",
+    "url": "/posts/gsutil/",
+    "categories": "Cloud, GCP",
+    "tags": "gcp, cloud-sdk, gcloud, gsutil",
+    "date": "2022-08-27 17:13:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "IP 주소 체계와 Subnet, Supernet",
+    "url": "/posts/ip-subnet-supernet/",
+    "categories": "Network",
+    "tags": "ip, network, subnet, supernet",
+    "date": "2022-08-26 00:24:00 +0900",
+    
+
+
+
+
+
+    "snippet": "IP 주소 체계 기초"
+  },
+  
+  {
+    "title": "Network 기초 및 OSI 7 Layer",
+    "url": "/posts/osi-7-layer/",
+    "categories": "Network",
+    "tags": "network, osi, tcpip",
+    "date": "2022-08-25 01:40:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  },
+  
+  {
+    "title": "Network Protocol (TCP/UDP)과 Port",
+    "url": "/posts/network-protocols/",
+    "categories": "Network",
+    "tags": "network, tcp, udp, port",
+    "date": "2022-08-24 02:00:00 +0900",
+    
+
+
+
+
+
+    "snippet": "개요"
+  }
+  
+]
+
