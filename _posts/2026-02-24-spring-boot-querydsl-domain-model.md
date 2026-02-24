@@ -18,11 +18,11 @@ mermaid: false
 
 - Member와 Team 엔티티 간의 다대일(N:1) 양방향 연관관계 구조
 
-  ![엔티티 클래스 다이어그램](/assets/img/jpa/2026-02-25-spring-boot-querydsl-domain-model/domain-class.png)
+  ![엔티티 클래스 다이어그램](/assets/img/jpa/2026-02-24-spring-boot-querydsl-domain-model/domain-class.png)
 
 - 데이터베이스 관점의 테이블명 및 조인 식별자 구조 명시
 
-  ![엔티티 ERD 구조](/assets/img/jpa/2026-02-25-spring-boot-querydsl-domain-model/domain-erd.png)
+  ![엔티티 ERD 구조](/assets/img/jpa/2026-02-24-spring-boot-querydsl-domain-model/domain-erd.png)
 
   - 연관관계의 주인은 물리 테이블에 외래키를 보유한 `Member.team`으로 지정
   - DB 외래키 값 변경 제어권은 `Member.team`이 가지며, 역방향인 `Team.members`는 읽기 전용 상태로 데이터 관리 역할을 수행함
@@ -68,7 +68,7 @@ mermaid: false
   - JPA 스펙상 요구되는 기본 생성자는 유효성 검사 누락 방지를 위해 `@NoArgsConstructor(access = AccessLevel.PROTECTED)` 수준으로 통제함
   - 객체 로깅 시 발생할 수 있는 무한 루프를 막으려 `@ToString`에서 양방향 참조 필드(`team`)는 필히 명세에서 제외함
 
-  ![연관관계 편의 메서드 동작 흐름](/assets/img/jpa/2026-02-25-spring-boot-querydsl-domain-model/domain-method.png)
+  ![연관관계 편의 메서드 동작 흐름](/assets/img/jpa/2026-02-24-spring-boot-querydsl-domain-model/domain-method.png)
 
 - Team 엔티티 코드
 
