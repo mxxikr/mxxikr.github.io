@@ -85,6 +85,7 @@ mermaid: false
 
   ```java
   public interface UsernameOnly {
+      // 조회할 엔티티의 필드를 getter 형태로 지정하면, 해당 필드만 선택하여 조회하는 최적화된 쿼리(Closed Projections)가 실행됨
       String getUsername();
   }
   ```
@@ -95,6 +96,7 @@ mermaid: false
 
   ```java
   public interface UsernameOnly {
+      // SpEL 문법을 사용하여 DB에서 엔티티의 모든 필드를 조회한 후, 애플리케이션 메모리에서 조합 반환하므로 SELECT 절 최적화(Open Projections)가 지원되지 않음
       @Value("#{target.username + ' ' + target.age + ' ' + target.team.name}")
       String getUsername();
   }
