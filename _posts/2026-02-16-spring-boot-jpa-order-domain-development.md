@@ -50,7 +50,7 @@ mermaid: true
 
 ### 주문 엔티티 구조
 
-![order-class-diagram](/img/jpa/order-class-diagram.png)
+![order-class-diagram](/assets/img/jpa/order-class-diagram.png)
 
 ### Order 엔티티 코드
 
@@ -143,18 +143,18 @@ public class Order {
 
 ### 주문 생성 메서드
 
-![order-create-sequence](/img/jpa/order-create-sequence.png)    
+![order-create-sequence](/assets/img/jpa/order-create-sequence.png)    
 - `static` 메서드로 생성 로직 캡슐화
 - 가변 인자(`OrderItem...`)로 여러 주문상품 처리
 - 초기 상태 설정 (ORDER, 현재 시간)
 
 ### 주문 취소 로직
 
-![order-cancel-flow](/img/jpa/order-cancel-flow.png)
+![order-cancel-flow](/assets/img/jpa/order-cancel-flow.png)
 
 - **취소 프로세스**
 
-    ![order-cancel-sequence](/img/jpa/order-cancel-sequence.png)
+    ![order-cancel-sequence](/assets/img/jpa/order-cancel-sequence.png)
 
 ### 전체 주문 가격 조회
 
@@ -236,7 +236,7 @@ public class OrderItem {
 
 ### 주문상품 생성 프로세스
 
-![orderitem-create-sequence](/img/jpa/orderitem-create-sequence.png)
+![orderitem-create-sequence](/assets/img/jpa/orderitem-create-sequence.png)
 
 <br/><br/>
 
@@ -322,11 +322,11 @@ public class OrderService {
 
 ### 주문 생성 프로세스
 
-![order-service-sequence](/img/jpa/order-service-sequence.png)
+![order-service-sequence](/assets/img/jpa/order-service-sequence.png)
 
 ### 주문 취소 프로세스
 
-![order-service-cancel-sequence](/img/jpa/order-service-cancel-sequence.png)
+![order-service-cancel-sequence](/assets/img/jpa/order-service-cancel-sequence.png)
 
 ### Cascade와 영속성 전이
 
