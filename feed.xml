@@ -1,0 +1,336 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://mxxikr.github.io/</id>
+  <title>MXXI.kr</title>
+  <subtitle>Backend Developer. Sharing knowledge about software development, system design, and technology insights.</subtitle>
+  <updated>2026-03-06T20:05:01+09:00</updated>
+  <author>
+    <name>mxxikr</name>
+    <uri>https://mxxikr.github.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://mxxikr.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://mxxikr.github.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2026 mxxikr </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>[스프링 핵심 원리 - 고급편] 스프링 AOP 구현</title>
+    <link href="https://mxxikr.github.io/posts/spring-advanced-aop-implementation/" rel="alternate" type="text/html" title="[스프링 핵심 원리 - 고급편] 스프링 AOP 구현" />
+    <published>2026-03-06T15:00:00+09:00</published>
+  
+    <updated>2026-03-06T15:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-advanced-aop-implementation/</id>
+    <content src="https://mxxikr.github.io/posts/spring-advanced-aop-implementation/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      스프링 AOP 구현
+
+
+  김영한님의 스프링 원리 - 고급편 강의를 바탕으로 스프링 AOP의 구현 방법과 단계별 진화 과정, 그리고 다양한 어드바이스 종류를 정리함
+
+
+
+
+프로젝트 설정
+
+build.gradle
+
+      implementation 'org.springframework.boot:spring-boot-starter-aspectj'
+  
+      // 테스트에서 lombok 사용
+      testCompileOnly 'org.projectlombok:lombok'
+      testAnnotationProcessor 'org.projectlombok:lombok'
+
+
+
+  스프링 부트를 사용하면 @EnableAspectJAutoProxy는 자동으로 추가됨
+
+
+
+
+예제 프로젝트 구조
+
+...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[스프링 핵심 원리 - 고급편] 스프링 AOP 개념</title>
+    <link href="https://mxxikr.github.io/posts/spring-advanced-aop-concept/" rel="alternate" type="text/html" title="[스프링 핵심 원리 - 고급편] 스프링 AOP 개념" />
+    <published>2026-03-06T14:00:00+09:00</published>
+  
+    <updated>2026-03-06T14:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-advanced-aop-concept/</id>
+    <content src="https://mxxikr.github.io/posts/spring-advanced-aop-concept/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      스프링 AOP 개념
+
+
+  김영한님의 스프링 원리 - 고급편 강의를 바탕으로 AOP의 등장 배경과 주요 개념, 적용 방식, 용어 정리, 그리고 스프링 AOP와 AspectJ의 차이를 정리함
+
+
+
+
+핵심 기능과 부가 기능
+
+개요
+
+  
+    애플리케이션 로직은 크게 두 가지로 구분됨
+
+    
+      
+        
+          구분
+          설명
+          예시
+        
+      
+      
+        
+          핵심 기능
+          해당 객체가 제공하는 고유 기능
+          OrderService의 주문 로직
+        
+        
+          부가 기능
+          핵심 기능을 보조하기 위한 기능
+         ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[스프링 핵심 원리 - 고급편] @Aspect AOP</title>
+    <link href="https://mxxikr.github.io/posts/spring-advanced-aspect-aop/" rel="alternate" type="text/html" title="[스프링 핵심 원리 - 고급편] @Aspect AOP" />
+    <published>2026-03-05T15:00:00+09:00</published>
+  
+    <updated>2026-03-05T15:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-advanced-aspect-aop/</id>
+    <content src="https://mxxikr.github.io/posts/spring-advanced-aspect-aop/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      @Aspect AOP
+
+
+  김영한님의 스프링 원리 - 고급편 강의를 바탕으로 @Aspect 애노테이션을 활용한 편리한 프록시 적용 방법과 스프링 자동 프록시 생성기의 동작 원리, 그리고 횡단 관심사 개념을 정리함
+
+
+
+
+@Aspect 프록시 - 적용
+
+개요
+
+
+  지금까지는 Advisor(포인트컷 + 어드바이스)를 직접 빈으로 등록하는 방식을 사용했음
+  스프링은 관점 지향 프로그래밍(AOP)을 지원하기 위해 @Aspect 애노테이션을 제공하며, 이를 사용하면 포인트컷과 어드바이스를 하나의 클래스에 선언적으로 편리하게 작성할 수 있음
+
+
+
+  참고
+  
+    @Aspect는 원래 AspectJ 프로젝트에서 제공하는 애노테이션임
+    스프링은 이 애노테이션을 차용해서 프록시 기반의 AOP를 자체적으...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[스프링 핵심 원리 - 고급편] 빈 후처리기</title>
+    <link href="https://mxxikr.github.io/posts/spring-advanced-bean-post-processor/" rel="alternate" type="text/html" title="[스프링 핵심 원리 - 고급편] 빈 후처리기" />
+    <published>2026-03-05T14:00:00+09:00</published>
+  
+    <updated>2026-03-05T14:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-advanced-bean-post-processor/</id>
+    <content src="https://mxxikr.github.io/posts/spring-advanced-bean-post-processor/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      빈 후처리기
+
+
+  김영한님의 스프링 원리 - 고급편 강의를 바탕으로 스프링 빈 생명주기를 가로채어 객체를 조작하거나 프록시로 교체하는 빈 후처리기 개념과 자동 프록시 생성기의 동작 방식을 이해하고 정리함
+
+
+
+
+빈 후처리기 - 소개
+
+일반적인 스프링 빈 등록 흐름
+
+
+
+빈 후처리기란?
+
+
+  스프링이 생성한 객체를 빈 저장소에 정식으로 등록하기 직전 단계에 개입함
+  
+    이 시점에 원본 빈을 자유롭게 조작하거나 아예 다른 프록시 객체로 바꿔치기 할 수 있는 확장 기능을 제공함
+
+    
+  
+
+
+BeanPostProcessor 인터페이스
+
+  public interface BeanPostProcessor {
+      // @PostConstruct 같은 초기화 발생 직전 호출
+      Obj...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[스프링 핵심 원리 - 고급편] 스프링이 지원하는 프록시</title>
+    <link href="https://mxxikr.github.io/posts/spring-advanced-proxy-factory/" rel="alternate" type="text/html" title="[스프링 핵심 원리 - 고급편] 스프링이 지원하는 프록시" />
+    <published>2026-03-04T14:00:00+09:00</published>
+  
+    <updated>2026-03-04T14:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-advanced-proxy-factory/</id>
+    <content src="https://mxxikr.github.io/posts/spring-advanced-proxy-factory/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      스프링이 지원하는 프록시
+
+
+  김영한님의 스프링 원리 - 고급편 강의를 바탕으로 스프링이 제공하는 ProxyFactory와 Pointcut, Advice, Advisor의 개념을 정리함
+
+
+
+
+프록시 팩토리 (ProxyFactory)
+
+기존 동적 프록시 기술의 한계
+
+  기술 선택의 분리
+    
+      인터페이스 유무에 따라 JDK 동적 프록시와 CGLIB를 개발자가 직접 분기해서 사용해야 함
+    
+  
+  로직 작성의 중복
+    
+      목적이 같더라도 JDK용 InvocationHandler와 CGLIB용 MethodInterceptor를 각각 따로 구현해야 함
+    
+  
+  조건부 적용과 필터링의 부재
+    
+      특정 조건의 메서드에만 프록시 로직을 적용하려면 일일이 ...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+
