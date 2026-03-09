@@ -1,0 +1,344 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://mxxikr.github.io/</id>
+  <title>MXXI.kr</title>
+  <subtitle>Backend Developer. Sharing knowledge about software development, system design, and technology insights.</subtitle>
+  <updated>2026-03-10T06:58:11+09:00</updated>
+  <author>
+    <name>mxxikr</name>
+    <uri>https://mxxikr.github.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://mxxikr.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://mxxikr.github.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2026 mxxikr </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>[스프링 핵심 원리 - 고급편] 스프링 AOP 실무 주의사항</title>
+    <link href="https://mxxikr.github.io/posts/spring-advanced-aop-precautions/" rel="alternate" type="text/html" title="[스프링 핵심 원리 - 고급편] 스프링 AOP 실무 주의사항" />
+    <published>2026-03-09T15:00:00+09:00</published>
+  
+    <updated>2026-03-09T15:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-advanced-aop-precautions/</id>
+    <content src="https://mxxikr.github.io/posts/spring-advanced-aop-precautions/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      스프링 AOP - 실무 주의사항
+
+
+  김영한님의 스프링 핵심 원리 - 고급편 강의를 바탕으로 스프링 AOP 적용 시 마주할 수 있는 프록시 내부 호출 한계점과 해결책, 그리고 프록시 적용 기술(JDK 동적 프록시, CGLIB)의 발전 과정 및 차이를 정리함
+
+
+
+
+프록시와 내부 호출 - 문제
+
+주요 원칙
+
+
+  스프링 AOP는 프록시 방식으로 동작함
+  
+    AOP가 적용되려면 반드시 프록시를 통해 대상 객체(Target)를 호출해야 함
+
+    클라이언트 → 프록시(어드바이스 실행) → Target 호출
+    
+  
+  스프링은 AOP 적용 시 대상 객체 대신 프록시를 스프링 빈으로 등록하므로 의존관계 주입 시 항상 프록시가 주입됨
+
+
+문제 발생 상황
+
+
+  
+    대상 객체 내부에서 자신의...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[스프링 핵심 원리 - 고급편] 스프링 AOP 실전 예제</title>
+    <link href="https://mxxikr.github.io/posts/spring-advanced-aop-example/" rel="alternate" type="text/html" title="[스프링 핵심 원리 - 고급편] 스프링 AOP 실전 예제" />
+    <published>2026-03-08T15:00:00+09:00</published>
+  
+    <updated>2026-03-10T06:57:48+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-advanced-aop-example/</id>
+    <content src="https://mxxikr.github.io/posts/spring-advanced-aop-example/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      스프링 AOP - 실전 예제
+
+
+  김영한님의 스프링 핵심 원리 - 고급편 강의를 바탕으로 유용하게 쓰일 수 있는 로그 출력 AOP(@Trace)와 재시도 AOP(@Retry)를 직접 구현해보고 전체적인 코드 구조와 흐름을 정리함
+
+
+
+
+예제 구조
+
+전체 패키지 아키텍처
+
+
+  
+    애노테이션, 애스펙트, 그리고 실제 비즈니스 로직 클래스들로 분리하여 구성함
+
+    hello.aop.exam
+├── annotation
+│   ├── Trace.java
+│   └── Retry.java
+├── aop
+│   ├── TraceAspect.java
+│   └── RetryAspect.java
+├── ExamRepository.java
+├── ExamService.java
+└── ExamTest.java...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[스프링 핵심 원리 - 고급편] 스프링 AOP 포인트컷</title>
+    <link href="https://mxxikr.github.io/posts/spring-advanced-aop-pointcut/" rel="alternate" type="text/html" title="[스프링 핵심 원리 - 고급편] 스프링 AOP 포인트컷" />
+    <published>2026-03-07T14:00:00+09:00</published>
+  
+    <updated>2026-03-07T14:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-advanced-aop-pointcut/</id>
+    <content src="https://mxxikr.github.io/posts/spring-advanced-aop-pointcut/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      스프링 AOP 포인트컷의 이해
+
+
+  김영한님의 스프링 원리 - 고급편 강의를 바탕으로 스프링 AOP의 포인트컷 지시자의 종류와 사용법을 정리함
+
+
+
+
+포인트컷 지시자
+
+
+  
+    포인트컷 표현식은 execution 같은 포인트컷 지시자(Pointcut Designator)로 시작함
+
+    
+      execution
+        
+          메서드 실행 조인 포인트 매칭
+        
+      
+      within
+        
+          특정 타입 내 조인 포인트 매칭
+          부모 타입 지정 불가
+        
+      
+      args
+        
+          인자 타입으로 매칭 (런타임 판단)
+          단독 사용 금지
+     ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[스프링 핵심 원리 - 고급편] 스프링 AOP 구현</title>
+    <link href="https://mxxikr.github.io/posts/spring-advanced-aop-implementation/" rel="alternate" type="text/html" title="[스프링 핵심 원리 - 고급편] 스프링 AOP 구현" />
+    <published>2026-03-06T15:00:00+09:00</published>
+  
+    <updated>2026-03-06T15:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-advanced-aop-implementation/</id>
+    <content src="https://mxxikr.github.io/posts/spring-advanced-aop-implementation/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      스프링 AOP 구현
+
+
+  김영한님의 스프링 원리 - 고급편 강의를 바탕으로 스프링 AOP의 구현 방법과 단계별 진화 과정, 그리고 다양한 어드바이스 종류를 정리함
+
+
+
+
+프로젝트 설정
+
+build.gradle
+
+      implementation 'org.springframework.boot:spring-boot-starter-aspectj'
+  
+      // 테스트에서 lombok 사용
+      testCompileOnly 'org.projectlombok:lombok'
+      testAnnotationProcessor 'org.projectlombok:lombok'
+
+
+
+  스프링 부트를 사용하면 @EnableAspectJAutoProxy는 자동으로 추가됨
+
+
+
+
+예제 프로젝트 구조
+
+...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>[스프링 핵심 원리 - 고급편] 스프링 AOP 개념</title>
+    <link href="https://mxxikr.github.io/posts/spring-advanced-aop-concept/" rel="alternate" type="text/html" title="[스프링 핵심 원리 - 고급편] 스프링 AOP 개념" />
+    <published>2026-03-06T14:00:00+09:00</published>
+  
+    <updated>2026-03-06T14:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/spring-advanced-aop-concept/</id>
+    <content src="https://mxxikr.github.io/posts/spring-advanced-aop-concept/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Framework" />
+    
+    <category term="Spring" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      스프링 AOP 개념
+
+
+  김영한님의 스프링 원리 - 고급편 강의를 바탕으로 AOP의 등장 배경과 주요 개념, 적용 방식, 용어 정리, 그리고 스프링 AOP와 AspectJ의 차이를 정리함
+
+
+
+
+핵심 기능과 부가 기능
+
+개요
+
+  
+    애플리케이션 로직은 크게 두 가지로 구분됨
+
+    
+      
+        
+          구분
+          설명
+          예시
+        
+      
+      
+        
+          핵심 기능
+          해당 객체가 제공하는 고유 기능
+          OrderService의 주문 로직
+        
+        
+          부가 기능
+          핵심 기능을 보조하기 위한 기능
+         ...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+
