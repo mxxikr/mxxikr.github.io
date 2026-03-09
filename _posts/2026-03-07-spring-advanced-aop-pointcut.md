@@ -1,7 +1,7 @@
 ---
 title: '[스프링 핵심 원리 - 고급편] 스프링 AOP 포인트컷'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
-date: 2026-03-09 14:00:00 +0900
+date: 2026-03-07 14:00:00 +0900
 category: [Framework, Spring]
 tags: [spring-boot, spring-advanced, aop, pointcut, execution, within, args, annotation]
 math: false
