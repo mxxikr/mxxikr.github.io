@@ -1,7 +1,7 @@
 ---
 title: Kotlin val과 Data Class
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
-date: 2026-01-25 14:30:00 +0900
+date: 2026-03-21 14:30:00 +0900
 category: [Language, Kotlin]
 tags: [kotlin, val, var, data-class, immutable, spring, jpa]
 math: false
@@ -163,37 +163,6 @@ data class User(
   | `copy()` | 일부만 변경 복사 | `copy(name = "Jane")` |
   | `componentN()` | 구조 분해용 함수 | 각 property를 순서대로 반환 |
 
-### Component Functions 활용한 구조 분해
-
-- **기능**
-  - Data class가 자동으로 생성하는 `componentN()` 함수를 통해 구조 분해 가능
-
-```kotlin
-data class Employee(
-    val id: Long,
-    val name: String,
-    val department: String,
-    val salary: Double
-)
-
-fun main() {
-    val emp = Employee(101, "Alice", "Engineering", 120000.0)
-    
-    // 기본 구조 분해
-    val (id, name, dept, sal) = emp
-    println("$name works in $dept earning $sal")
-    
-    // 일부만 추출 (underscore로 건너뛰기)
-    val (empId, empName, _, _) = emp
-    println("ID: $empId, Name: $empName")
-    
-    // Loop에서 구조 분해
-    val employees = listOf(emp)
-    for ((eId, eName, eDept, _) in employees) {
-        println("$eName in $eDept")
-    }
-}
-```
 
 ### 불변성을 유지하면서 변경하는 Copy 메서드
 
@@ -234,53 +203,7 @@ fun main() {
 
 <br/><br/>
 
-## Java와의 비교
 
-### Java Record와 Kotlin Data Class (Java 14+)
-
-- **Java Record**
-  - Java 14에서 도입되어 data class와 유사해졌지만 차이 존재
-
-    | 특징 | Kotlin Data Class | Java Record (Java 14+) |
-    |------|-------------------|------------------------|
-    | **기본 목적** | 데이터 저장 | 데이터 저장 |
-    | **equals/hashCode** | 자동 생성 | 자동 생성 |
-    | **toString** | 자동 생성 | 자동 생성 |
-    | **copy() 메서드** | **있음** | 없음 |
-    | **가변성** | `var`/`val` 둘 다 가능 | `final`(불변)만 가능 |
-    | **상속** | 가능 (Open class 상속은 불가) | 상속 불가 (`extends` 불가) |
-    | **구조 분해** | 지원 (`componentN`) | 지원 (Pattern matching) |
-
-- **Java 코드 예시**
-
-  ```java
-  // Java 14+ Record
-  public record User(long id, String name, String email) {}
-  
-  User user2 = new User(user1.id(), "Jane", user1.email());
-  ```
-  - 제약
-    - 모든 필드가 final
-    - `copy()` 메서드가 없으므로 새 인스턴스를 직접 생성해야 함
-- **결론**
-  - Kotlin이 더 유연하며 `copy()` 메서드의 존재가 큰 장점
-
-### Regular Class와의 구분
-
-- **Regular Class 직접 구현 시 필요 내용**
-  - `equals`, `hashCode`, `toString` 직접 구현
-  - `copy` 메서드 직접 구현
-  - `componentN` 직접 구현
-
-- **Data Class**
-  - `data class User(...)` 한 줄로 해결
-
-- **Regular class 사용 권장 사례**
-  - 복잡한 비즈니스 로직이 필요한 경우
-  - 일부 필드만 `equals`/`hashCode`에 포함하려는 경우
-  - 순환 참조가 있는 경우 (별도 구현 필요)
-
-<br/><br/>
 
 ## 주의사항과 해결책
 
@@ -394,12 +317,3 @@ user.email = "john.new@ex.com"
   - 상속 불가능, 순환 참조 이슈(StackOverflowError) 등 구조적 제약 사항 숙지 필요
   - 데이터 전달 목적의 DTO에는 적극 권장
   - JPA Entity 사용 시에는 순환 참조 방지를 위해 `hashCode` 오버라이드 등 주의 필요
-
-<br/><br/>
-
-## Reference
-
-- [Kotlin Official Documentation - Properties](https://kotlinlang.org/docs/properties.html)
-- [Kotlin Official Documentation - Data Classes](https://kotlinlang.org/docs/data-classes.html)
-- [Droidcon - The val property is not immutable](https://www.droidcon.com/2024/09/20/the-val-property-immutable-in-kotlin/)
-- [Kt. Academy - Data Classes](https://kt.academy/article/kfde-data)

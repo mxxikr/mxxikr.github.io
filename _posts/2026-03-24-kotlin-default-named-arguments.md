@@ -97,31 +97,7 @@ mermaid: false
 
 <br/><br/>
 
-## 롬복의 한계
 
-- **설계의 불투명성**
-  - 롬복은 코드를 줄여주지만 실제 소스 코드에는 존재하지 않는 **가상 메서드**에 의존하게 함
-  - 빌드 환경 의존성 및 다른 라이브러리와 충돌 가능 (`MapStruct`, `QueryDSL` 등)
-  - 코드가 IDE에서 보이지 않음 (블랙박스)
-
-    ```java
-    @Data
-    @Builder
-    public class User {
-        private String name;
-        private String email;
-        private int age;
-        private String department;
-    }
-    
-    // IDE에서는 builder() 메서드가 보이지 않음
-    // 실제로는 컴파일 후에 생성됨
-    User user = User.builder()  // 플러그인 없이는 에러처럼 보일 수 있음
-        .name("John")
-        .build();
-    ```
-
-<br/><br/>
 
 ## 코틀린의 해결책
 
@@ -162,26 +138,26 @@ mermaid: false
 
 - **Named Arguments**를 사용하면 빌더 없이도 직관적으로 객체를 생성할 수 있음
 
-```kotlin
-data class Product(
-    val id: Long,
-    val name: String,
-    val description: String = "",
-    val price: BigDecimal = BigDecimal.ZERO,
-    val quantity: Int = 0,
-    val category: String = "General",
-    val isActive: Boolean = true
-)
+  ```kotlin
+  data class Product(
+      val id: Long,
+      val name: String,
+      val description: String = "",
+      val price: BigDecimal = BigDecimal.ZERO,
+      val quantity: Int = 0,
+      val category: String = "General",
+      val isActive: Boolean = true
+  )
 
-// 최소한의 정보만 제공
-val p1 = Product(id = 1L, name = "Laptop")
+  // 최소한의 정보만 제공
+  val p1 = Product(id = 1L, name = "Laptop")
 
-// 필요한 정보만 선택해서 재정의
-val p2 = Product(id = 2L, name = "Phone", price = BigDecimal("999.99"))
+  // 필요한 정보만 선택해서 재정의
+  val p2 = Product(id = 2L, name = "Phone", price = BigDecimal("999.99"))
 
-// 순서와 관계없이 명확하게
-val p3 = Product(id = 3L, name = "Tablet", isActive = false, quantity = 10, category = "Electronics")
-```
+  // 순서와 관계없이 명확하게
+  val p3 = Product(id = 3L, name = "Tablet", isActive = false, quantity = 10, category = "Electronics")
+  ```
 
 - **장점**
   - 필수 정보만 전달하면 됨
@@ -189,50 +165,7 @@ val p3 = Product(id = 3L, name = "Tablet", isActive = false, quantity = 10, cate
   - 필요한 파라미터만 변경 가능
   - 코드가 간결해지며 **실수를 할 수 없는 구조**를 언어 차원에서 강제함
 
-### 불변 객체를 쉽게 다루는 copy() 메서드
 
-- 불변 객체(Immutable Object)를 다룰 때, 기존 객체의 데이터 중 일부만 변경하여 새로운 객체를 만들어야 하는 경우가 많음
-  - 자바는 이를 위해 빌더 패턴을 다시 사용하거나, 복잡한 생성자 호출을 반복해야 하므로 코드가 장황해짐
-  - 코틀린의 `data class`는 `copy()` 메서드를 자동으로 생성하여 이 문제를 해결함
-
-  ```kotlin
-  data class User(
-      val name: String,
-      val email: String,
-      val age: Int
-  )
-  
-  // 원본 객체 생성
-  val user1 = User("John", "john@example.com", 30)
-  
-  // email만 변경한 새로운 객체 생성 (나머지 필드는 그대로 유지)
-  val user2 = user1.copy(email = "john.new@example.com")
-  
-  // 원본은 불변으로 유지됨
-  println(user1.email)  // john@example.com
-  println(user2.email)  // john.new@example.com
-  ```
-
-### 테스트 의도를 명확히 하는 Fixture 패턴
-
-- 테스트 코드에서는 **검증하려는 필드**가 무엇인지 한눈에 들어와야 함
-  - 자바의 빌더는 테스트와 무관한 필수 필드까지 모두 채워야 해서 핵심 의도가 흐려짐
-  - 코틀린은 `Named Arguments`와 기본값을 활용해 **Test Fixture**를 매우 간단하게 구현할 수 있음
-
-  ```kotlin
-  // Kotlin: 필요한 필드만 지정
-  @Test
-  fun testEmailValidation() {
-      // SignupRequest의 다른 필드(name, age 등)는 기본값으로 채워짐
-      val request = SignupRequest(
-          email = "invalid-email"  // 검증하려는 필드만 명시적으로 지정
-      )
-  }
-  ```
-  - `SignupRequest`가 10개의 필드를 가지고 있더라도, 테스트에서 관심 있는 `email` 필드 하나만 작성하면 됨
-    - "이 테스트는 이메일 유효성을 검증하는구나"라고 의도가 즉시 파악됨
-
-<br/><br/>
 
 ## 결론
 
@@ -253,12 +186,3 @@ val p3 = Product(id = 3L, name = "Tablet", isActive = false, quantity = 10, cate
   - `copy()` 메서드와 간결한 문법으로 생산성 극대화
 - **결론**
   - 언어 차원의 지원으로 외부 의존성 없이 안전하고 간결한 코드 작성 가능
-
-<br/><br/>
-
-## Reference
-
-- [Kotlin Official Documentation - Functions](https://kotlinlang.org/docs/functions.html)
-- [Kotlin Official Documentation - Classes](https://kotlinlang.org/docs/classes.html)
-- [Baeldung - Kotlin Default Arguments](https://www.baeldung.com/kotlin/default-arguments)
-- [Effective Java (Joshua Bloch)](https://www.oreilly.com/library/view/effective-java/9780134686097/)

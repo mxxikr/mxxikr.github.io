@@ -1,7 +1,7 @@
 ---
 title: build.gradle.kts와 Kotlin Script, DSL의 이해
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
-date: 2026-01-11 12:00:00 +0900
+date: 2026-03-18 12:00:00 +0900
 category: [Language, Kotlin]
 tags: [kotlin, gradle, build-script, dsl, groovy, type-safety, kotlin-dsl, kotlin-script]
 math: false
@@ -261,27 +261,7 @@ fun greet(name: String) {
 
 - 일반 프로그램은 여러 함수와 클래스가 섞여 있어 시작점을 지정해야 하지만 스크립트는 파일 전체가 순차 실행됨
 
-### 스크립트 실행 방법
 
-- kotlinc -script 사용
-
-  ```bash
-  kotlinc -script my-script.kts
-  ```
-
-- Shebang으로 직접 실행
-
-  ```kotlin
-  #!/usr/bin/env kotlin
-  // hello.kts
-
-  println("Hello, World!")
-  ```
-
-  ```bash
-  chmod +x hello.kts
-  ./hello.kts  # bash 스크립트처럼 실행
-  ```
 
 ### build.gradle.kts 실행 과정
 
@@ -309,101 +289,7 @@ fun greet(name: String) {
   // 이후 Gradle이 이 정보로 태스크 그래프 생성
   ```
 
-### 실제 사용 사례
 
-- Gradle 빌드 파일
-
-  ```kotlin
-  // build.gradle.kts
-  plugins {
-      kotlin("jvm") version "1.9.0"  // Kotlin JVM 플러그인
-      application  // Application 플러그인
-  }
-
-  dependencies {
-      implementation("org.example:lib:1.0")  // 런타임 의존성
-      testImplementation("org.junit.jupiter:junit-jupiter:5.9.0")  // 테스트 의존성
-  }
-
-  application {
-      mainClass.set("com.example.AppKt")
-  }
-  ```
-
-- 자동화 스크립트
-
-  ```kotlin
-  // deploy.kts
-  import java.io.File
-
-  val version = "1.0.0"
-  val buildDir = File("build")
-
-  println("Starting deployment of version $version...")
-
-  buildDir.deleteRecursively()
-  println("Cleaned build directory")
-
-  println("Building application...")
-  println("Deployment complete!")
-  ```
-
-  ```bash
-  kotlinc -script deploy.kts
-  ```
-
-- 명령줄 도구
-
-  ```kotlin
-  // cli-tool.kts
-  // args는 스크립트에서 암묵적으로 제공됨
-  when {
-      args.contains("--help") -> println("Usage: ./cli-tool.kts [options]")
-      args.contains("--version") -> println("1.0.0")
-      else -> println("Running tool...")
-  }
-  ```
-
-  ```bash
-  kotlinc -script cli-tool.kts --help
-  ```
-
-### 스크립트에서 함수 정의와 호출
-
-```kotlin
-// script.kts
-fun calculateSum(a: Int, b: Int): Int {
-    return a + b
-}
-
-fun greet(name: String) {
-    println("Hello, $name!")
-}
-
-// 최상위 코드로 직접 실행
-println("Welcome to Kotlin Script!")
-greet("Alice")
-
-val result = calculateSum(5, 3)
-println("5 + 3 = $result")
-
-for (i in 1..3) {
-    println("Iteration $i")
-}
-```
-
-### 성능 비교
-
-- Kotlin Script는 첫 실행 시 컴파일이 필요하지만, 이후 캐시를 활용하여 빠르게 실행됨
-
-  | 측면             | .kt 파일             | .kts 파일                      |
-  | ---------------- | -------------------- | ------------------------------ |
-  | **첫 실행**      | 빠름 (미리 컴파일됨) | 약간 느림 (컴파일 + 캐시 생성) |
-  | **두 번째 실행** | 동일 (jar 실행)      | 매우 빠름 (컴파일 캐시 재사용) |
-  | **수정 후 실행** | 느림 (재컴파일 필요) | 빠름 (변경 부분만 재컴파일)    |
-  | **배포**         | 안정적 (jar 파일)    | 의존성 필요 (Kotlin 런타임)    |
-
-<br/><br/>
 
 ## Groovy와 Kotlin DSL 비교
 
@@ -572,13 +458,3 @@ java {
   - Kotlin 프로젝트에서 빌드 스크립트도 Kotlin으로 통일 가능함
 - **스크립팅 편의성**
   - Python이나 Bash처럼 간편하게 작성하면서도 타입 안전성을 보장함
-
-<br/><br/>
-
-## Reference
-
-- [Gradle Official Documentation - Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
-- [Gradle Official Documentation - Migrating to Kotlin DSL](https://docs.gradle.org/current/userguide/migrating_from_groovy_to_kotlin_dsl.html)
-- [Kotlin Official Documentation - Kotlin Scripting](https://kotlinlang.org/docs/custom-script-deps-tutorial.html)
-- [JetBrains Blog - Kotlin DSL](https://blog.jetbrains.com/kotlin/category/gradle/)
-- [Android Developers - Gradle Kotlin DSL](https://developer.android.com/build/migrate-to-kotlin-dsl)

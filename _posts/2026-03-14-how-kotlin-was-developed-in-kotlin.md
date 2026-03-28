@@ -1,7 +1,7 @@
 ---
 title: Kotlin은 어떻게 Kotlin으로 개발되었는가?
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
-date: 2025-12-28 12:00:00 +0900
+date: 2026-03-14 12:00:00 +0900
 category: [Language, Kotlin]
 tags: [kotlin, bootstrapping, compiler, self-hosting, jetbrains]
 math: false
@@ -98,29 +98,6 @@ mermaid: false
 
 <br/><br/>
 
-## 다른 언어들의 부트스트래핑
-
-### 부트스트래핑 역사
-
-| 언어        | 초기 컴파일러     | 자가 호스팅 시점                                                 |
-| :---------- | :---------------- | :--------------------------------------------------------------- |
-| **Java**    | C (Sun, 1995)     | 초기에는 C로 작성, 현재 javac는 Java로 자가 호스팅 (JVM은 C/C++) |
-| **GCC (C)** | 이전 버전의 GCC   | 3단계 부트스트래핑                                               |
-| **Python**  | C (CPython, 주류) | PyPy는 Python으로 작성된 대안 구현체                             |
-| **Kotlin**  | Java (2010-2012)  | 2015년경 (Kotlin 1.0 전)                                         |
-| **Rust**    | OCaml (2010)      | 2011년 Rust로 재작성                                             |
-
-### GCC의 3단계 부트스트래핑
-
-- **Stage 1**
-  - 시스템에 설치된 기존 GCC 버전 (또는 다른 C 컴파일러)으로 새 GCC 소스를 컴파일
-- **Stage 2**
-  - Stage 1 결과물(GCC)로 자신을 다시 컴파일
-- **Stage 3**
-  - Stage 2 결과물로 자신을 한 번 더 컴파일하여 Stage 2와 동일한지 **비교 검증**(bootstrap comparison)
-- Stage 3의 목적은 최적화가 아니라 컴파일러의 정확성을 검증하는 것임
-
-<br/><br/>
 
 ## Kotlin의 부트스트래핑
 
@@ -193,10 +170,3 @@ mermaid: false
     - Kotlin 컴파일러 v1으로 Kotlin으로 작성된 v2를 컴파일
   - 이후
     - Kotlin 컴파일러가 자기 자신을 계속 개선 가능해짐
-
-<br/><br/>
-
-## Reference
-
-- [Kotlin Official Website](https://kotlinlang.org/)
-- [JetBrains Blog - Kotlin History](https://blog.jetbrains.com/kotlin/)

@@ -1,7 +1,7 @@
 ---
 title: Kotlin 프로퍼티와 접근 제어자
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
-date: 2025-12-28 13:10:00 +0900
+date: 2026-03-15 13:10:00 +0900
 category: [Language, Kotlin]
 tags: [kotlin, property, access-modifier, visibility, backing-field, getter, setter]
 math: false
@@ -440,72 +440,6 @@ class User(
 
 <br/><br/>
 
-## Java와 Kotlin 별 구현 비교
-
-### Plain Java
-
-- 모든 보일러플레이트를 수동으로 작성해야 함
-- equals, hashCode, toString, getter/setter를 직접 구현함
-
-```java
-class Email {
-    private String value;
-
-    public Email(String value) {
-        if (!isValidEmail(value)) throw new IllegalArgumentException();
-        this.value = value;
-    }
-
-    public String getValue() { return value; }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Email email = (Email) o;
-        return Objects.equals(value, email.value);
-    }
-
-    @Override
-    public int hashCode() { return Objects.hash(value); }
-
-    @Override
-    public String toString() { return "Email{value='" + value + "'}"; }
-}
-```
-
-### Java + Spring (Lombok)
-
-- Lombok 어노테이션으로 보일러플레이트 감소
-- 여전히 외부 라이브러리 의존성 필요함
-- JPA Entity에서 `@Data` 사용 시 주의 필요 (연관 관계 순환 참조 위험)
-
-```java
-// Value Object
-@Value
-class Email {
-    String value;
-
-    public Email(String value) {
-        if (!isValidEmail(value)) throw new IllegalArgumentException();
-        this.value = value;
-    }
-}
-
-// JPA Entity
-@Entity
-@Getter @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String name;
-    private String email;
-}
-```
 
 ### Plain Kotlin
 
@@ -577,78 +511,7 @@ plugins {
 | `toString()` | 모든 필드 출력 → 연관 엔티티 로드 → 로그 출력 시 N+1 쿼리 발생 |
 | `copy()`     | 새 인스턴스 생성 → JPA가 추적하지 못함 → 변경 감지 실패        |
 
-- 무한 재귀 문제 예시
 
-```kotlin
-// 위험한 예시
-@Entity
-data class User(
-    @Id val id: Long,
-    var name: String,
-    @OneToMany val orders: List<Order> = emptyList()
-)
-
-@Entity
-data class Order(
-    @Id val id: Long,
-    @ManyToOne val user: User
-)
-
-// 문제 상황
-val user1 = User(1, "Alice")
-val user2 = User(1, "Alice")
-user1 == user2  // equals() 호출
-// → orders 리스트 비교
-// → Order의 equals() 호출
-// → User 비교 (무한 재귀)
-// → StackOverflowError 발생
-```
-
-- toString() 문제 예시
-
-```kotlin
-// 로그 출력 시
-logger.info("User: $user")  // toString() 호출 → orders 전체 로드 → N+1 쿼리
-```
-
-- copy() 문제 예시
-
-```kotlin
-val user = userRepository.findById(1L)
-val updatedUser = user.copy(name = "New Name")  // 새 객체 생성
-userRepository.save(updatedUser)  // JPA가 이를 새 엔티티로 인식 → INSERT 시도
-```
-
-- 해결책
-  - 일반 class 사용 필수
-  - 필요한 경우 ID 기반으로 `equals()`/`hashCode()` 직접 구현
-
-```kotlin
-@Entity
-class User(
-    @Id val id: Long,
-    var name: String
-) {
-    @OneToMany
-    val orders: MutableList<Order> = mutableListOf()
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is User) return false
-        return id == other.id
-    }
-
-    override fun hashCode() = id.hashCode()
-}
-
-### 비교 요약
-
-| 구분                | 보일러플레이트    | 외부 의존성 | JPA 안전성        | 디버깅           |
-| :------------------ | :---------------- | :---------- | :---------------- | :--------------- |
-| **Plain Java**      | 매우 많음 (15줄+) | 없음        | 안전              | 쉬움             |
-| **Java + Lombok**   | 적음 (어노테이션) | Lombok 필요 | 주의 필요         | 생성 코드 안보임 |
-| **Plain Kotlin**    | 매우 적음 (1-5줄) | 없음        | data class는 위험 | 쉬움             |
-| **Kotlin + Spring** | 적음              | kotlin-jpa  | 안전 (일반 class) | 쉬움             |
 
 <br/><br/>
 
@@ -677,12 +540,3 @@ class User(
   - internal modifier로 라이브러리 내부 API를 효과적으로 숨김
 - **강력한 위임 기능**
   - lazy, observable 등으로 반복 코드를 획기적으로 줄임
-
-<br/><br/>
-
-## Reference
-
-- [Kotlin Official Documentation - Properties](https://kotlinlang.org/docs/properties.html)
-- [Kotlin Official Documentation - Visibility Modifiers](https://kotlinlang.org/docs/visibility-modifiers.html)
-- [Kotlin Official Documentation - Delegated Properties](https://kotlinlang.org/docs/delegated-properties.html)
-```

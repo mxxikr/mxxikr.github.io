@@ -1,7 +1,7 @@
 ---
 title: 코틀린의 탄생 배경과 특징
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
-date: 2025-12-21 20:30:00 +0900
+date: 2026-03-13 20:30:00 +0900
 category: [Language, Kotlin]
 tags: [kotlin, language, jetbrains]
 math: true
@@ -197,19 +197,6 @@ mermaid: false
 - **러닝 커브와 Gradle 구성**
     - 코루틴, KMP 등 고급 기능의 학습 곡선이 있으며 Gradle Script를 Groovy로 할지 Kotlin DSL로 할지 선택 필요
 
-<br/><br/>
-
-
-## JVM 및 JetBrains 생태계와의 관계
-
-![JVM Interoperability](/assets/img/kt/jvm_interop.png)
-
-- **JVM 타겟과 런타임**
-    - Kotlin/JVM은 Java와 동일한 바이트코드를 생성하므로 GC, JIT 컴파일러, 스레드 모델 등 JVM의 런타임 특성을 그대로 따름
-- **생태계 재사용**
-    - JVM 위에서 동작하므로 Spring, Netty 등 기존 실무 프레임워크를 100% 재사용
-- **JetBrains 언어 생태계**
-    - JetBrains MPS(메타 언어)나 IDE 스크립트 언어와 달리, Kotlin은 범용 애플리케이션 개발을 위한 핵심 주력 언어
 
 <br/><br/>
 
@@ -218,10 +205,3 @@ mermaid: false
 - 코틀린은 단순히 "더 나은 언어를 만들겠다"는 엔지니어의 이상보다는 **"당장 내일의 업무를 편하게 만들겠다"는 JetBrains의 필요에 의해 탄생한 언어**
 - 학문적인 완벽함보다는 기존 Java 생태계를 100% 활용하면서 생산성을 높이는 **'실용주의(Pragmatism)'**를 선택
 - 이러한 철학 덕분에 코틀린은 구글 안드로이드 공식 언어이자, 서버 사이드 개발의 강력한 대안으로 자리 잡음
-
-<br/><br/>
-
-## Reference
-
-- [Kotlin Official Website](https://kotlinlang.org/)
-- [JetBrains Blog - Why Kotlin?](https://blog.jetbrains.com/kotlin/2011/08/why-kotlin/)

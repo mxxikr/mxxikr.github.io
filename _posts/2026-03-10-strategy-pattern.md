@@ -1,6 +1,6 @@
 ---
 title: 전략 패턴(Strategy Pattern)
-date: 2025-11-24 00:00:00 +0900
+date: 2026-03-10 00:00:00 +0900
 category: [Software Engineering, Design]
 tags: [design-pattern, strategy-pattern, oop]
 math: false
@@ -49,7 +49,7 @@ mermaid: false
 
 ### UML 구조
 
-![image.png](/assets/img/design/2025-11-24-strategy-pattern/image.png)
+![image.png](/assets/img/design/2026-03-10-strategy-pattern/image.png)
 
 
 <br/><br/>
@@ -114,7 +114,7 @@ mermaid: false
 
 ### 동작 흐름
 
-![image.png](/assets/img/design/2025-11-24-strategy-pattern/image1.png)
+![image.png](/assets/img/design/2026-03-10-strategy-pattern/image1.png)
 
 
 <br/><br/>
@@ -140,45 +140,6 @@ mermaid: false
   - 모든 전략이 동일한 인터페이스를 가져야 하므로 신중한 설계 필요
 - 런타임 오버헤드
   - 전략 객체 생성과 교체에 따른 메모리와 성능 비용 발생 가능
-
-
-<br/><br/>
-
-## 단점 해결 방법
-
-### Java 8 람다 표현식 활용
-
-- 전략 인터페이스가 함수형 인터페이스(메서드가 하나인 인터페이스)라면 람다식으로 전략을 정의할 수 있음
-- 별도의 클래스 파일 없이 인라인으로 전략 구현 가능
-- 클래스 수 증가 문제 완화
-
-- Strategy 인터페이스가 함수형 인터페이스인 경우
-    ```java
-    @FunctionalInterface
-    public interface Strategy {
-        int calculate(int a, int b);
-    }
-    ```
-
-- 람다식으로 전략 즉시 구현
-    ```java
-    Calculator calculator = new Calculator((a, b) -> a + b); // 더하기 전략
-    System.out.println(calculator.execute(5, 3)); // 8
-
-    calculator.setStrategy((a, b) -> a - b); // 빼기 전략
-    System.out.println(calculator.execute(5, 3)); // 2
-
-    calculator.setStrategy((a, b) -> a * b); // 곱하기 전략
-    System.out.println(calculator.execute(5, 3)); // 15
-    ```
-
-- 장점
-  - 별도 클래스 파일 불필요
-  - 코드 간결성 향상
-  - 간단한 전략의 경우 람다가 더 적합
-- 제한 사항
-  - 복잡한 로직이 필요한 경우에는 여전히 별도 클래스가 유리함
-  - 전략에 상태(state)가 필요한 경우 람다로는 구현 어려움
 
 
 <br/><br/>
@@ -219,70 +180,6 @@ mermaid: false
   - 상위 클래스에서 알고리즘 골격 정의
   - 하위 클래스가 일부 단계만 재정의
   - 상속을 사용하여 컴파일 타임에 구조 고정
-
-
-<br/><br/>
-
-## 적용 예제
-
-### 할인 정책 적용
-
-- 전략 인터페이스
-    ```java
-    public interface DiscountStrategy {
-        double calculateDiscount(double price);
-    }
-    ```
-
-- 구체 전략들
-    ```java
-    public class RegularDiscountStrategy implements DiscountStrategy {
-        public double calculateDiscount(double price) {
-            return price * 0.1; // 10% 할인
-        }
-    }
-
-    public class VIPDiscountStrategy implements DiscountStrategy {
-        public double calculateDiscount(double price) {
-            return price * 0.2; // 20% 할인
-        }
-    }
-
-    public class SeasonalDiscountStrategy implements DiscountStrategy {
-        public double calculateDiscount(double price) {
-            return price * 0.15; // 15% 할인
-        }
-    }
-    ```
-
-- 컨텍스트
-    ```java
-    public class PriceCalculator {
-        private DiscountStrategy discountStrategy;
-        
-        // 생성자를 통한 필수 전략 주입
-        public PriceCalculator(DiscountStrategy strategy) {
-            this.discountStrategy = strategy;
-        }
-        
-        public void setDiscountStrategy(DiscountStrategy strategy) {
-            this.discountStrategy = strategy;
-        }
-        
-        public double calculateFinalPrice(double originalPrice) {
-            if (discountStrategy == null) {
-                throw new IllegalStateException("DiscountStrategy must be set");
-            }
-            double discount = discountStrategy.calculateDiscount(originalPrice);
-            return originalPrice - discount;
-        }
-    }
-    ```
-
-- 참고
-  - 위 예제는 전략 패턴의 구조를 설명하기 위해 `double` 타입을 사용했으나 실제 금융이나 결제 시스템에서는 부동소수점 오차를 방지하기 위해 `BigDecimal` 사용을 권장함
-  - 실무에서는 정확한 금액 계산을 위해 `BigDecimal`을 사용하는 것이 원칙임
-  - 실무에서는 `Context` 생성자에서 기본 전략을 설정하거나 생성자를 통해 필수적으로 전략을 주입받게 강제하여 `NullPointerException`을 방지하는 것이 좋음
 
 
 <br/><br/>
@@ -356,34 +253,12 @@ mermaid: false
     }
     ```
 
-- 장점
-  - `if-else` 분기 제거
-  - 새로운 전략 추가 시 컨텍스트 코드 수정 불필요
-  - Spring의 의존성 주입 활용
-  - 전략 선택 로직이 명확함
 
-### List를 이용한 전략 선택
+- `if-else` 분기 제거
+- 새로운 전략 추가 시 컨텍스트 코드 수정 불필요
+- Spring의 의존성 주입 활용
+- 전략 선택 로직이 명확함
 
-- 전략 선택 기준이 복잡한 경우 `List`로 주입받아 조건에 맞는 전략을 찾는 방식도 사용됨
-
-    ```java
-    @Service
-    public class DiscountService {
-        private final List<DiscountStrategy> strategies;
-        
-        public DiscountService(List<DiscountStrategy> strategies) {
-            this.strategies = strategies;
-        }
-        
-        public BigDecimal calculateDiscount(String userType, BigDecimal price) {
-            return strategies.stream()
-                .filter(strategy -> strategy.supports(userType))
-                .findFirst()
-                .map(strategy -> strategy.calculateDiscount(price))
-                .orElse(BigDecimal.ZERO);
-        }
-    }
-    ```
 
 
 <br/><br/>

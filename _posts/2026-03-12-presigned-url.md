@@ -1,6 +1,6 @@
 ---
 title: AWS S3 Presigned URL
-date: 2025-11-25 00:00:00 +0900
+date: 2026-03-12 00:00:00 +0900
 category: [Cloud, AWS]
 tags: [aws, s3, presigned-url, security]
 math: false
@@ -17,7 +17,7 @@ mermaid: false
 
 ## 개념
 
-### Presigned URL의 본질
+### Presigned URL
 
 - AWS 서명 V4로 서명된 URL로 다음 요소들을 조합해 만든 보안 토큰임
   - 클라이언트 요청 정보 (HTTP 메서드, 버킷, 키, 헤더)
@@ -47,7 +47,7 @@ mermaid: false
 
 ### 전체 흐름
 
-![image.png](/assets/img/cloud/aws/2025-11-25-presigned-url/image.png)
+![image.png](/assets/img/cloud/aws/2026-03-12-presigned-url/image.png)
 
 1. **클라이언트 → 서버**
    - Presigned URL 요청
@@ -90,8 +90,8 @@ mermaid: false
   1. 요청에서 X-Amz-Signature 값 추출
   2. S3가 같은 정보로 서명 재계산
   3. 두 서명 비교
-     - 일치: 요청 진행
-     - 불일치: 403 Forbidden
+     - 일치 시 요청 진행
+     - 불일치 시 403 Forbidden
 
 ### 서명에 포함되는 정보
 
@@ -116,10 +116,6 @@ mermaid: false
 
 ## Spring Boot 구현
 
-- 참고
-    본 예제는 AWS SDK for Java v1 (`com.amazonaws.services.s3`)을 기준으로 작성됨
-- AWS는 현재 SDK v2 (`software.amazon.awssdk`) 사용을 권장하지만 v1도 여전히 널리 사용되고 있음
-- SDK v2의 경우 `S3Presigner` 클래스를 사용하며 API가 다소 상이함
 
 ### 기본 설정
 
@@ -157,23 +153,15 @@ public class S3PresignedService {
     
     /**
      * PUT (업로드) Presigned URL 생성
-     * 
-     * 이 방식은 PUT 메서드를 사용하여 단일 파일을 덮어쓰거나 생성할 때 사용함
-     * Presigned POST와는 다르며 PUT은 단일 파일 업로드에 최적화됨
-     * 
+     *
      * @param fileName 저장될 파일명
      * @param expirationMinutes 유효 기간 (분)
      * @param contentType 파일 MIME 타입 (서명에 포함)
      * @return Presigned URL과 만료 시간을 포함한 결과 객체
      */
-    public PresignedUrlResult generatePresignedUploadUrl(
-        String fileName,
-        int expirationMinutes,
-        String contentType
-    ) {
+    public PresignedUrlResult generatePresignedUploadUrl(String fileName, int expirationMinutes, String contentType) {
         Date expiration = new Date();
-        long expirationTimeInMillis = 
-            expiration.getTime() + (expirationMinutes * 60 * 1000L);
+        long expirationTimeInMillis = expiration.getTime() + (expirationMinutes * 60 * 1000L);
         expiration.setTime(expirationTimeInMillis);
         
         GeneratePresignedUrlRequest request = 
@@ -194,13 +182,9 @@ public class S3PresignedService {
     /**
      * GET (다운로드) Presigned URL 생성
      */
-    public PresignedUrlResult generatePresignedDownloadUrl(
-        String fileName,
-        int expirationMinutes
-    ) {
+    public PresignedUrlResult generatePresignedDownloadUrl(String fileName, int expirationMinutes) {
         Date expiration = new Date();
-        long expirationTimeInMillis = 
-            expiration.getTime() + (expirationMinutes * 60 * 1000L);
+        long expirationTimeInMillis = expiration.getTime() + (expirationMinutes * 60 * 1000L);
         expiration.setTime(expirationTimeInMillis);
         
         GeneratePresignedUrlRequest request = 
@@ -215,13 +199,9 @@ public class S3PresignedService {
     /**
      * DELETE (삭제) Presigned URL 생성
      */
-    public String generatePresignedDeleteUrl(
-        String fileName,
-        int expirationMinutes
-    ) {
+    public String generatePresignedDeleteUrl(String fileName, int expirationMinutes) {
         Date expiration = new Date();
-        long expirationTimeInMillis = 
-            expiration.getTime() + (expirationMinutes * 60 * 1000L);
+        long expirationTimeInMillis = expiration.getTime() + (expirationMinutes * 60 * 1000L);
         expiration.setTime(expirationTimeInMillis);
         
         GeneratePresignedUrlRequest request = 
@@ -245,9 +225,7 @@ public class FilePresignedController {
     private final S3PresignedService presignedService;
     
     @PostMapping("/presigned-upload-url")
-    public ResponseEntity<PresignedUrlResponse> getUploadUrl(
-        @RequestBody PresignedUrlRequest request
-    ) {
+    public ResponseEntity<PresignedUrlResponse> getUploadUrl(@RequestBody PresignedUrlRequest request) {
         String fileName = generateUniqueFileName(request.fileName());
         
         S3PresignedService.PresignedUrlResult result = 
@@ -265,187 +243,41 @@ public class FilePresignedController {
     }
     
     @GetMapping("/presigned-download-url")
-    public ResponseEntity<PresignedUrlResponse> getDownloadUrl(
-        @RequestParam String fileName
-    ) {
-        S3PresignedService.PresignedUrlResult result = 
-            presignedService.generatePresignedDownloadUrl(fileName, 15);
+    public ResponseEntity<PresignedUrlResponse> getDownloadUrl(@RequestParam String fileName) {
+        S3PresignedService.PresignedUrlResult result = presignedService.generatePresignedDownloadUrl(fileName, 15);
         
         return ResponseEntity.ok(new PresignedUrlResponse(
             result.url(),
             fileName,
-            result.expiresAt()
+            result.expiresAt()a
         ));
     }
     
     @PostMapping("/upload-complete")
-    public ResponseEntity<Void> notifyUploadComplete(
-        @RequestBody UploadCompleteRequest request
-    ) {
+    public ResponseEntity<Void> notifyUploadComplete(@RequestBody UploadCompleteRequest requesta) {
         // 파일이 실제로 S3에 저장됐는지 확인
         // DB에 파일 메타데이터 저장
         return ResponseEntity.ok().build();
     }
     
     private String generateUniqueFileName(String originalFileName) {
-        return System.currentTimeMillis() + "_" + originalFileName;
+        return java.util.UUID.randomUUID().toString() + "_" + originalFileName;
     }
 }
 
 // DTO
-record PresignedUrlRequest(
-    String fileName,
-    String contentType
-) {}
+record PresignedUrlRequest(String fileName, String contentType) {
 
-record PresignedUrlResponse(
-    String presignedUrl,
-    String fileName,
-    long expiresAt
-) {}
+}
 
-record UploadCompleteRequest(
-    String fileName
-) {}
+record PresignedUrlResponse(String presignedUrl, String fileName, long expiresAt) {}
+
+record UploadCompleteRequest(String fileName) {}
 ```
 
 
 <br/><br/>
 
-## 클라이언트 코드
-
-### JavaScript 기본 업로드
-
-```javascript
-// 올바른 방식
-async function uploadWithPresignedUrl(file) {
-    // 서버에서 Presigned URL 받기
-    const response = await fetch('/api/files/presigned-upload-url', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            fileName: file.name,
-            contentType: file.type
-        })
-    });
-    
-    const { presignedUrl, fileName, expiresAt } = await response.json();
-    
-    // 유효성 확인
-    if (Date.now() > expiresAt) {
-        console.error('URL 이미 만료됨');
-        return;
-    }
-    
-    // Presigned URL로 직접 S3 업로드
-    const s3Response = await fetch(presignedUrl, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': file.type
-        },
-        body: file
-    });
-    
-    if (!s3Response.ok) {
-        console.error('S3 업로드 실패:', s3Response.status);
-        return;
-    }
-    
-    // 서버에 업로드 완료 알림
-    await fetch('/api/files/upload-complete', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fileName })
-    });
-    
-    console.log('업로드 완료');
-}
-```
-
-### React Hook
-
-```jsx
-import { useState } from 'react';
-
-function FileUpload() {
-    const [loading, setLoading] = useState(false);
-    const [progress, setProgress] = useState(0);
-    
-    const handleUpload = async (file) => {
-        setLoading(true);
-        
-        try {
-            // Presigned URL 요청
-            const urlResponse = await fetch('/api/files/presigned-upload-url', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    fileName: file.name,
-                    contentType: file.type
-                })
-            });
-            
-            const { presignedUrl, fileName } = await urlResponse.json();
-            
-            // XMLHttpRequest로 진행률 추적
-            await uploadToS3WithProgress(presignedUrl, file);
-            
-            // 완료 알림
-            await fetch('/api/files/upload-complete', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ fileName })
-            });
-            
-            console.log('업로드 성공');
-        } catch (error) {
-            console.error('업로드 실패:', error);
-        } finally {
-            setLoading(false);
-        }
-    };
-    
-    const uploadToS3WithProgress = (url, file) => {
-        return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-            
-            xhr.upload.addEventListener('progress', (event) => {
-                const percent = (event.loaded / event.total) * 100;
-                setProgress(percent);
-            });
-            
-            xhr.addEventListener('load', () => {
-                if (xhr.status === 200) {
-                    resolve();
-                } else {
-                    reject(new Error(`HTTP ${xhr.status}`));
-                }
-            });
-            
-            xhr.addEventListener('error', () => reject(new Error('Upload failed')));
-            xhr.open('PUT', url);
-            xhr.setRequestHeader('Content-Type', file.type);
-            xhr.send(file);
-        });
-    };
-    
-    return (
-        <div>
-            <input
-                type="file"
-                onChange={(e) => handleUpload(e.target.files[0])}
-                disabled={loading}
-            />
-            {loading && <p>진행률: {progress.toFixed(0)}%</p>}
-        </div>
-    );
-}
-
-export default FileUpload;
-```
-
-
-<br/><br/>
 
 ## 주의 사항
 
@@ -479,17 +311,6 @@ export default FileUpload;
 - 해결 방법
   - NTP로 시스템 시간 동기화
   - 만료 시간에 여유 두기 (10분 → 15분으로 설정)
-
-### Path-style vs Virtual-hosted-style
-
-- Path-style (LocalStack/호환 서비스)
-    ```plaintext
-    https://localhost:4566/mybucket/myfile.jpg
-    ```
-- Virtual-hosted-style (AWS 기본)
-    ```plaintext
-    https://mybucket.s3.amazonaws.com/myfile.jpg
-    ```
 
 - LocalStack은 Path-style만 지원하므로 반드시 `.withPathStyleAccessEnabled(true)` 설정 필요
 
@@ -564,104 +385,7 @@ export default FileUpload;
 
 <br/><br/>
 
-## 성능 최적화
 
-### URL 재사용 vs 매번 생성
-
-- 매번 생성하는 방식은 불필요한 오버헤드가 발생함
-- URL 캐싱을 통해 성능 개선 가능
-
-    ```java
-    @Service
-    public class S3CachedPresignedService {
-        private final S3PresignedService presignedService;
-        private final Map<String, CachedUrl> urlCache = new ConcurrentHashMap<>();
-        
-        public String getOrGenerateUrl(String key, int expirationMinutes) {
-            CachedUrl cached = urlCache.get(key);
-            
-            // 캐시된 URL이 아직 유효한가?
-            if (cached != null && cached.expiresAt > System.currentTimeMillis()) {
-                return cached.url;
-            }
-            
-            // 새로 생성
-            S3PresignedService.PresignedUrlResult result = 
-                presignedService.generatePresignedUploadUrl(
-                    key, expirationMinutes, "image/jpeg"
-                );
-            
-            urlCache.put(key, new CachedUrl(
-                result.url(),
-                result.expiresAt()
-            ));
-            
-            return result.url();
-        }
-        
-        record CachedUrl(String url, long expiresAt) {}
-    }
-    ```
-
-### 배치 URL 생성
-
-- 여러 파일에 대한 Presigned URL을 한 번에 생성할 때 병렬 처리 고려
-
-    ```java
-    @PostMapping("/batch-presigned-urls")
-    public ResponseEntity<Map<String, String>> getBatchUrls(
-        @RequestBody List<String> fileNames
-    ) {
-        Map<String, String> urls = fileNames.parallelStream()
-            .collect(Collectors.toMap(
-                fileName -> fileName,
-                fileName -> presignedService.generatePresignedUploadUrl(
-                    fileName, 5, "image/jpeg"
-                ).url()
-            ));
-        
-        return ResponseEntity.ok(urls);
-    }
-    ```
-
-
-<br/><br/>
-
-## LocalStack에서의 Presigned URL
-
-- LocalStack도 동일한 방식으로 동작함
-- 시간 기반 검증을 완전히 지원함
-
-    ```yaml
-    # docker-compose.yml
-    services:
-    localstack:
-        environment:
-        - SERVICES=s3
-        - AWS_ACCESS_KEY_ID=test
-        - AWS_SECRET_ACCESS_KEY=test
-    ```
-
-    ```java
-    @Bean
-    public AmazonS3 amazonS3() {
-        return AmazonS3ClientBuilder.standard()
-            .withEndpointConfiguration(new EndpointConfiguration(
-                "http://localhost:4566", "us-east-1"
-            ))
-            .withCredentials(new AWSStaticCredentialsProvider(
-                new BasicAWSCredentials("test", "test")
-            ))
-            .withPathStyleAccessEnabled(true)
-            .build();
-    }
-    ```
-
-    - 생성된 URL
-        - `http://localhost:4566/mybucket/file.jpg?X-Amz-Signature=...`
-
-
-<br/><br/>
 
 ## 결론
 

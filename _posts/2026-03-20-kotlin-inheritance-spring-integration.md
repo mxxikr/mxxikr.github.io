@@ -1,7 +1,7 @@
 ---
 title: Kotlin 상속 제한과 Spring과의 통합
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
-date: 2026-01-19 10:20:00 +0900
+date: 2026-03-20 10:20:00 +0900
 category: [Language, Kotlin]
 tags: [kotlin, inheritance, spring, open, final, sealed-class, jpa, cglib]
 math: false
@@ -165,23 +165,7 @@ mermaid: false
 | 프로퍼티 | final | 불가 | `open` |
 | Sealed 클래스 | abstract + 제한 | 같은 파일/패키지만 | - |
 
-### Sealed Classes 활용
 
-```kotlin
-sealed class Result {
-    data class Success(val data: String) : Result()
-    data class Error(val exception: Exception) : Result()
-    object Loading : Result()
-}
-
-// when 표현식에서 모든 경우 처리 강제
-fun handleResult(result: Result) = when (result) {
-    is Result.Success -> println(result.data)
-    is Result.Error -> println(result.exception.message)
-    is Result.Loading -> println("Loading...")
-    // else 불필요 - 모든 케이스를 컴파일러가 확인
-}
-```
 
 <br/><br/>
 
@@ -446,29 +430,7 @@ open class LegacyUserService(
 | **DTO/Request** | 일반 클래스 | 프록시 불필요 |
 | **도메인 타입** | Sealed class | Sum type 표현 |
 
-### 위임을 통한 조합
 
-```kotlin
-// 상속 대신 위임 사용
-interface Logger {
-    fun log(msg: String)
-}
-
-class ConsoleLogger : Logger {
-    override fun log(msg: String) = println(msg)
-}
-
-// Kotlin의 by 키워드 활용
-class Application(
-    logger: Logger = ConsoleLogger()
-) : Logger by logger
-```
-
-- **위임의 장점**
-    - 런타임 구현체 변경 가능
-    - 다중 행동 조합 가능
-    - 상속으로 인한 결합도 문제 해소
-    - 테스트 시 mock 주입 용이
 
 ### 프로젝트 설정 가이드
 
@@ -531,12 +493,3 @@ class Application(
 4. **상속보다 조합**
    - Kotlin의 `by` 키워드로 위임 구현
    - 결합도를 낮추고 유연성 향상
-
-<br/><br/>
-
-## Reference
-
-- [Kotlin Official Documentation - Classes and Inheritance](https://kotlinlang.org/docs/classes.html)
-- [Kotlin Official Documentation - Sealed Classes](https://kotlinlang.org/docs/sealed-classes.html)
-- [Spring Boot Kotlin Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.kotlin)
-- [Effective Java (Joshua Bloch)](https://www.oreilly.com/library/view/effective-java/9780134686097/)
