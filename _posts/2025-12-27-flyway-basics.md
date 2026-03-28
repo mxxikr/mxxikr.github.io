@@ -1,11 +1,8 @@
 ---
 title: 'Flyway란?'
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-27 19:10:00 +0900
-category:
-  - Infrastructure
+category: [Infrastructure]
 tags: [flyway, database, devops, migration]
 math: true
 ---

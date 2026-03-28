@@ -1,11 +1,8 @@
 ---
 title: 'Ansible이란?'
-author:
-  name: mxxikr
-  link: https://github.com/mxxikr
+author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-27 18:00:00 +0900
-category:
-  - Infrastructure
+category: [Infrastructure]
 tags: [ansible, iac, devops, automation, backend]
 math: true
 ---
