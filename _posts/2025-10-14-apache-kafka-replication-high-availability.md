@@ -1,5 +1,5 @@
 ---
-title: Apache Kafka 복제와 고가용성 - 데이터 안정성 보장
+title: 'Apache Kafka 복제와 고가용성 - 데이터 안정성 보장'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-14 01:00:00 +0900
 category: [Messaging, Kafka]

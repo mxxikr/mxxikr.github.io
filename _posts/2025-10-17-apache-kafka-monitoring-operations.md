@@ -1,5 +1,5 @@
 ---
-title: Apache Kafka 모니터링과 운영 - Prometheus & Grafana
+title: 'Apache Kafka 모니터링과 운영 - Prometheus & Grafana'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-17 01:00:00 +0900
 category: [Messaging, Kafka]

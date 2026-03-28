@@ -1,5 +1,5 @@
 ---
-title: 배열(Array)과 리스트(List)의 차이
+title: '배열(Array)과 리스트(List)의 차이'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-23 08:05:00 +0900
 category: [Computer Science, Algorithm]

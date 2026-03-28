@@ -1,5 +1,5 @@
 ---
-title: Apache Kafka 파티션과 컨슈머 그룹 - 병렬 처리의 핵심
+title: 'Apache Kafka 파티션과 컨슈머 그룹 - 병렬 처리의 핵심'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-13 01:00:00 +0900
 category: [Messaging, Kafka]

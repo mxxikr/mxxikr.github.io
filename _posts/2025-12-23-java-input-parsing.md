@@ -1,5 +1,5 @@
 ---
-title: Java 입출력 및 파싱 방식 비교
+title: 'Java 입출력 및 파싱 방식 비교'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-23 08:30:00 +0900
 category: [Computer Science, Algorithm]

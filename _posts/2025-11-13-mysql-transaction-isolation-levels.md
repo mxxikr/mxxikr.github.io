@@ -1,5 +1,5 @@
 ---
-title: MySQL 트랜잭션 격리 수준과 다른 DBMS와의 차이점
+title: 'MySQL 트랜잭션 격리 수준과 다른 DBMS와의 차이점'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-11-13 00:00:00 +0900
 category: [Database, MySQL]

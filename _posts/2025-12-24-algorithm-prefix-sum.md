@@ -1,5 +1,5 @@
 ---
-title: 구간 합(Prefix Sum)이란?
+title: '구간 합(Prefix Sum)이란?'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-24 11:00:00 +0900
 category: [Computer Science, Algorithm]

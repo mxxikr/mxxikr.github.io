@@ -1,5 +1,5 @@
 ---
-title: 스택과 큐 알고리즘
+title: '스택과 큐 알고리즘'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-26 08:20:00 +0900
 category: [Computer Science, Algorithm]

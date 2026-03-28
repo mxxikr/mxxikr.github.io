@@ -1,5 +1,5 @@
 ---
-title: 시간 복잡도란?
+title: '시간 복잡도란?'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-16 00:00:00 +0900
 category: [Computer Science, Algorithm]

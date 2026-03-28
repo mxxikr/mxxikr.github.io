@@ -1,5 +1,5 @@
 ---
-title: Apache Kafka 성능 튜닝과 운영 - 최적화
+title: 'Apache Kafka 성능 튜닝과 운영 - 최적화'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-15 01:00:00 +0900
 category: [Messaging, Kafka]

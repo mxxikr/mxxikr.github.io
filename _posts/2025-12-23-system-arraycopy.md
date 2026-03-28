@@ -1,5 +1,5 @@
 ---
-title: Java의 배열 복사 System.arraycopy
+title: 'Java의 배열 복사 System.arraycopy'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-23 14:45:00 +0900
 category: [Computer Science, Algorithm]

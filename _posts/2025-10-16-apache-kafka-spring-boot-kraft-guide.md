@@ -1,5 +1,5 @@
 ---
-title: Spring Boot와 KRaft를 활용한 Apache Kafka 개발
+title: 'Spring Boot와 KRaft를 활용한 Apache Kafka 개발'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-10-16 01:00:00 +0900
 category: [Messaging, Kafka]

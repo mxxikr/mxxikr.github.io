@@ -1,5 +1,5 @@
 ---
-title: 비교하지 않는 정렬 알고리즘과 알고리즘 선택 가이드
+title: '비교하지 않는 정렬 알고리즘과 알고리즘 선택 가이드'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-19 00:00:00 +0900
 category: [Computer Science, Algorithm]

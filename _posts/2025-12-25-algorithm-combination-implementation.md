@@ -1,5 +1,5 @@
 ---
-title: 조합(Combination) 구하기
+title: '조합(Combination) 구하기'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-25 16:20:00 +0900
 category: [Computer Science, Algorithm]

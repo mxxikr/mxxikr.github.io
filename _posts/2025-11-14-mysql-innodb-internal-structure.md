@@ -1,5 +1,5 @@
 ---
-title: MySQL InnoDB 내부 구조와 동작 원리
+title: 'MySQL InnoDB 내부 구조와 동작 원리'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-11-14 00:00:00 +0900
 category: [Database, MySQL]

@@ -1,5 +1,5 @@
 ---
-title: 나머지 연산과 구간 합
+title: '나머지 연산과 구간 합'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-25 14:00:00 +0900
 category: [Computer Science, Algorithm]
