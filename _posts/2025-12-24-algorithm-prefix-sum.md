@@ -170,6 +170,7 @@ System.out.println("Result: " + result);
 
 
 
+{% raw %}
 ```java
 int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 int n = arr.length;
@@ -190,6 +191,7 @@ int result = sum[x2][y2] - sum[x1-1][y2]
            - sum[x2][y1-1] + sum[x1-1][y1-1];
 System.out.println("Result: " + result);
 ```
+{% endraw %}
 
 
 
