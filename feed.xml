@@ -1,0 +1,306 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://mxxikr.github.io/</id>
+  <title>MXXI.kr</title>
+  <subtitle>Backend Developer. Sharing knowledge about software development, system design, and technology insights.</subtitle>
+  <updated>2026-03-28T13:15:26+09:00</updated>
+  <author>
+    <name>mxxikr</name>
+    <uri>https://mxxikr.github.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://mxxikr.github.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://mxxikr.github.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
+  <rights> © 2026 mxxikr </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>Kotlin Default Arguments와 Named Arguments</title>
+    <link href="https://mxxikr.github.io/posts/kotlin-default-named-arguments/" rel="alternate" type="text/html" title="Kotlin Default Arguments와 Named Arguments" />
+    <published>2026-03-25T19:00:00+09:00</published>
+  
+    <updated>2026-03-25T19:00:00+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/kotlin-default-named-arguments/</id>
+    <content src="https://mxxikr.github.io/posts/kotlin-default-named-arguments/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="Kotlin" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      개요
+
+
+  Java는 파라미터가 많은 생성자를 처리하기 위해 생성자 오버로딩(Constructor Overloading)이 필요하지만 보일러플레이트 코드가 증가하는 문제 발생함
+  Lombok @Builder로 보일러플레이트를 줄일 수 있지만 외부 의존성, IDE 설정, 코드 가시성 등 고려해야 할 점이 있음
+  Kotlin은 Default Arguments와 Named Arguments를 언어 차원에서 제공하여 이러한 문제를 깔끔하게 해결함
+  Spring Boot 프로젝트에서 DTO와 설정 클래스 작성 시 생산성과 가독성을 크게 향상시킴
+
+
+
+
+자바의 고충
+
+Constructor Overloading
+
+
+  자바는 인자가 하나씩 늘어날 때마다 계단식으로 쌓이는 점층적 생성자 패턴(Telescopi...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Kotlin val과 Data Class</title>
+    <link href="https://mxxikr.github.io/posts/kotlin-val-data-class/" rel="alternate" type="text/html" title="Kotlin val과 Data Class" />
+    <published>2026-03-24T14:30:00+09:00</published>
+  
+    <updated>2026-03-28T10:05:41+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/kotlin-val-data-class/</id>
+    <content src="https://mxxikr.github.io/posts/kotlin-val-data-class/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="Kotlin" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      개요
+
+
+  Kotlin의 val은 참조 불변성만 보장하며 객체 불변성을 보장하지 않음
+  Data Class는 보일러플레이트 코드를 제거하지만 순환 참조와 상속 제한 등의 주의점이 있음
+  Java의 final, record와 비교하여 Kotlin만의 특징과 장점을 이해함
+  Spring/JPA 환경에서 발생할 수 있는 실무적인 문제와 해결책을 제시함
+
+
+
+
+val의 참조 불변성
+
+기본 정의와 오해
+
+
+  val의 특성
+    
+      단순히 “읽기 전용”이며, 절대로 “불변(immutable)”이 아님
+        // val + primitive type = 진짜 불변
+val age: Int = 25
+// age = 30  // 컴파일 에러
+
+// val + 가변 객체 = 참조는 불변, 객체...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Kotlin 상속 제한과 Spring과의 통합</title>
+    <link href="https://mxxikr.github.io/posts/kotlin-inheritance-spring-integration/" rel="alternate" type="text/html" title="Kotlin 상속 제한과 Spring과의 통합" />
+    <published>2026-03-23T10:20:00+09:00</published>
+  
+    <updated>2026-03-28T10:05:41+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/kotlin-inheritance-spring-integration/</id>
+    <content src="https://mxxikr.github.io/posts/kotlin-inheritance-spring-integration/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="Kotlin" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      개요
+
+
+  Kotlin은 기본적으로 모든 클래스와 메서드를 final로 설정하여 상속을 제한함
+  이는 Joshua Bloch의 “Effective Java” 원칙을 언어 수준에서 강제한 설계 철학임
+  Spring Framework는 CGLIB 프록시를 사용하므로 Kotlin의 final 클래스와 충돌이 발생함
+  all-open 플러그인과 Interface 기반 설계로 이 문제를 해결할 수 있음
+
+
+
+
+Kotlin의 상속 제한 철학
+
+Effective Java 원칙 채택
+
+
+  Kotlin은 Joshua Bloch의 “Design and document for inheritance or else prohibit it” 원칙을 기반으로 설계됨
+  
+    이 원칙은 상속이 다음 두 경우 중 하나여야...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>build.gradle.kts와 Kotlin Script, DSL의 이해</title>
+    <link href="https://mxxikr.github.io/posts/kotlin-gradle-build-kts/" rel="alternate" type="text/html" title="build.gradle.kts와 Kotlin Script, DSL의 이해" />
+    <published>2026-03-22T12:00:00+09:00</published>
+  
+    <updated>2026-03-28T10:05:41+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/kotlin-gradle-build-kts/</id>
+    <content src="https://mxxikr.github.io/posts/kotlin-gradle-build-kts/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="Kotlin" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      개요
+
+
+  빌드 도구는 Maven의 XML, Groovy DSL을 거쳐 Kotlin DSL로 발전해옴
+  Java와 Kotlin의 빌드 파일 차이와 각각의 선택 배경을 이해함
+  .kts 확장자의 의미와 Kotlin Script의 실행 방식을 학습함
+  DSL의 개념과 Lambda with Receiver를 활용한 Gradle Kotlin DSL의 동작 원리를 파악함
+
+
+
+
+빌드 도구의 발전 과정
+
+빌드 도구란
+
+
+  개발자가 작성한 소스 코드를 실행 가능한 애플리케이션으로 변환하는 과정을 자동화함
+  의존성 관리, 컴파일, 테스트, 패키징 등의 작업을 정의하고 실행함
+  프로젝트가 커질수록 수동으로 관리하기 어려운 작업들을 일관되게 처리함
+
+
+Maven과 XML 방식
+
+
+  Maven은 XML 기반...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Kotlin의 Null Safety</title>
+    <link href="https://mxxikr.github.io/posts/kotlin-null-safety/" rel="alternate" type="text/html" title="Kotlin의 Null Safety" />
+    <published>2026-03-21T00:00:00+09:00</published>
+  
+    <updated>2026-03-28T10:05:41+09:00</updated>
+  
+    <id>https://mxxikr.github.io/posts/kotlin-null-safety/</id>
+    <content src="https://mxxikr.github.io/posts/kotlin-null-safety/" />
+    <author>
+      <name>{"name"=>"mxxikr", "link"=>"https://github.com/mxxikr"}</name>
+    </author>
+
+  
+    
+    <category term="Language" />
+    
+    <category term="Kotlin" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      개요
+
+
+  Kotlin의 타입 시스템에 내장된 Null Safety 메커니즘을 통해 NullPointerException을 컴파일 타임에 방지함
+  Safe Call(?.)과 Elvis Operator(?:)의 동작 원리 및 다른 언어들과의 비교를 학습함
+  Java 상호운용 시 주의사항과 Zero-Cost Abstraction의 의미를 이해함
+
+
+
+
+Null Safety의 개념
+
+Java의 문제점
+
+
+  Java에서는 모든 참조 타입이 기본적으로 null이 될 수 있음
+  컴파일러가 null 가능성을 검증하지 않음
+  개발자가 if (name != null) 체크를 잊으면 런타임 에러 발생
+  
+    NPE는 프로그램이 실행 중일 때만 발견됨
+
+    // Java
+String name = get...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+
