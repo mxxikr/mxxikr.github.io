@@ -1,5 +1,5 @@
 ---
-title: Kotlin val과 Data Class
+title: 'Kotlin val과 Data Class'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-03-24 14:30:00 +0900
 category: [Language, Kotlin]

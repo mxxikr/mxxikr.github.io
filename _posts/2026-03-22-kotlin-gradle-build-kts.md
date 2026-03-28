@@ -1,5 +1,5 @@
 ---
-title: build.gradle.kts와 Kotlin Script, DSL의 이해
+title: 'build.gradle.kts와 Kotlin Script, DSL의 이해'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-03-22 12:00:00 +0900
 category: [Language, Kotlin]

@@ -1,5 +1,5 @@
 ---
-title: Spring Security 아키텍처와 인증/인가 구조
+title: 'Spring Security 아키텍처와 인증/인가 구조'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-03-16 00:00:00 +0900
 category: [Framework, Spring]

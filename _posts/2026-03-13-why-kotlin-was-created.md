@@ -1,5 +1,5 @@
 ---
-title: 코틀린의 탄생 배경과 특징
+title: '코틀린의 탄생 배경과 특징'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-03-13 20:30:00 +0900
 category: [Language, Kotlin]

@@ -1,5 +1,5 @@
 ---
-title: Kotlin은 어떻게 Kotlin으로 개발되었는가?
+title: 'Kotlin은 어떻게 Kotlin으로 개발되었는가?'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-03-14 12:00:00 +0900
 category: [Language, Kotlin]

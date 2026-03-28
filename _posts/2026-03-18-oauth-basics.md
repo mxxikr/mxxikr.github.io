@@ -1,5 +1,5 @@
 ---
-title: OAuth 2.0의 개념과 동작 원리
+title: 'OAuth 2.0의 개념과 동작 원리'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-03-18 11:00:00 +0900
 category: [Web, Security]

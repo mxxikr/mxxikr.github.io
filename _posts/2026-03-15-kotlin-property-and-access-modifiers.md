@@ -1,5 +1,5 @@
 ---
-title: Kotlin 프로퍼티와 접근 제어자
+title: 'Kotlin 프로퍼티와 접근 제어자'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-03-15 13:10:00 +0900
 category: [Language, Kotlin]

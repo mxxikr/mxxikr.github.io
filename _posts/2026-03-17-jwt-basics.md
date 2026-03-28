@@ -1,5 +1,5 @@
 ---
-title: JWT(JSON Web Token)의 구조와 동작 원리
+title: 'JWT(JSON Web Token)의 구조와 동작 원리'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-03-17 10:00:00 +0900
 category: [Web, Security]

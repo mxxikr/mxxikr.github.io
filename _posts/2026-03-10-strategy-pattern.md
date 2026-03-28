@@ -1,5 +1,5 @@
 ---
-title: 전략 패턴(Strategy Pattern)
+title: '전략 패턴(Strategy Pattern)'
 date: 2026-03-10 00:00:00 +0900
 category: [Software Engineering, Design]
 tags: [design-pattern, strategy-pattern, oop]
