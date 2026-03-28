@@ -142,64 +142,56 @@ $$Sum = D[x2][y2] - D[x1-1][y2] - D[x2][y1-1] + D[x1-1][y1-1]$$
 
 ### 1차원 구간 합
 
-{% raw %}
+
 
 ```java
-public class PrefixSumExample {
-    public static void main(String[] args) {
-        int[] arr = {15, 13, 10, 7, 3, 12};
-        int[] sum = new int[arr.length + 1]; // 1-Based Indexing (크기 N+1)
+int[] arr = {15, 13, 10, 7, 3, 12};
+int[] sum = new int[arr.length + 1]; // 1-Based Indexing (크기 N+1)
 
-        // 합 배열 구성 - O(N)
-        // S[0] = 0 (자동 초기화)으로 두고 1부터 채움
-        for (int i = 1; i <= arr.length; i++) {
-            sum[i] = sum[i - 1] + arr[i - 1];
-        }
-
-        // 구간 합 계산 (예 - 3번째 ~ 6번째 원소, 즉 A[2]~A[5])
-        // 1-Based Indexing 기준이므로 i=3, j=6
-        int i = 3, j = 6;
-
-        // 공식 - S[j] - S[i-1]
-        // 1-Based를 사용하면 i=1일 때 S[0]이 0이므로 별도 예외 처리가 필요 없음
-        int result = sum[j] - sum[i - 1];
-        System.out.println("Result: " + result);
-    }
+// 합 배열 구성 - O(N)
+// S[0] = 0 (자동 초기화)으로 두고 1부터 채움
+for (int i = 1; i <= arr.length; i++) {
+    sum[i] = sum[i - 1] + arr[i - 1];
 }
+
+// 구간 합 계산 (예 - 3번째 ~ 6번째 원소, 즉 A[2]~A[5])
+// 1-Based Indexing 기준이므로 i=3, j=6
+int i = 3, j = 6;
+
+// 공식 - S[j] - S[i-1]
+// 1-Based를 사용하면 i=1일 때 S[0]이 0이므로 별도 예외 처리가 필요 없음
+int result = sum[j] - sum[i - 1];
+System.out.println("Result: " + result);
 ```
 
-{% endraw %}
+
 
 ### 2차원 구간 합
 
-{% raw %}
+
 
 ```java
-public class PrefixSum2DExample {
-    public static void main(String[] args) {
-        int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        int n = arr.length;
-        int m = arr[0].length;
-        int[][] sum = new int[n + 1][m + 1];
+int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+int n = arr.length;
+int m = arr[0].length;
+int[][] sum = new int[n + 1][m + 1];
 
-        // 2차원 합 배열 구성 - O(N*M)
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= m; j++) {
-                sum[i][j] = sum[i-1][j] + sum[i][j-1]
-                          - sum[i-1][j-1] + arr[i-1][j-1];
-            }
-        }
-
-        // 구간 합 계산 (예 - (1,1) ~ (3,3)) - O(1)
-        int x1 = 1, y1 = 1, x2 = 3, y2 = 3;
-        int result = sum[x2][y2] - sum[x1-1][y2]
-                   - sum[x2][y1-1] + sum[x1-1][y1-1];
-        System.out.println("Result: " + result);
+// 2차원 합 배열 구성 - O(N*M)
+for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= m; j++) {
+        sum[i][j] = sum[i-1][j] + sum[i][j-1]
+                  - sum[i-1][j-1] + arr[i-1][j-1];
     }
 }
+
+// 구간 합 계산 (예 - (1,1) ~ (3,3)) - O(1)
+int x1 = 1, y1 = 1, x2 = 3, y2 = 3;
+int result = sum[x2][y2] - sum[x1-1][y2]
+           - sum[x2][y1-1] + sum[x1-1][y1-1];
+System.out.println("Result: " + result);
 ```
 
-{% endraw %}
+
 
 <br/><br/>
 

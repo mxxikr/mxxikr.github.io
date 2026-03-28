@@ -56,23 +56,19 @@ mermaid: false
 ```java
 import java.util.Scanner;
 
-public class ScannerExample {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+Scanner sc = new Scanner(System.in);
 
-        // 정수 입력
-        int n = sc.nextInt();
+// 정수 입력
+int n = sc.nextInt();
 
-        // 실수 입력
-        double d = sc.nextDouble();
+// 실수 입력
+double d = sc.nextDouble();
 
-        // 문자열 입력
-        String str = sc.next(); // 공백 전까지
-        String line = sc.nextLine(); // 한 줄 전체
+// 문자열 입력
+String str = sc.next(); // 공백 전까지
+String line = sc.nextLine(); // 한 줄 전체
 
-        sc.close();
-    }
-}
+sc.close();
 ```
 
 ### `Scanner` 사용 시 주의사항
@@ -131,22 +127,18 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
-public class BufferedReaderExample {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        // 한 줄 읽기
-        String line = br.readLine();
+// 한 줄 읽기
+String line = br.readLine();
 
-        // 정수로 변환
-        int n = Integer.parseInt(br.readLine());
+// 정수로 변환
+int n = Integer.parseInt(br.readLine());
 
-        // 실수로 변환
-        double d = Double.parseDouble(br.readLine());
+// 실수로 변환
+double d = Double.parseDouble(br.readLine());
 
-        br.close();
-    }
-}
+br.close();
 ```
 
 ### `Scanner`와 `BufferedReader` 비교
@@ -251,26 +243,22 @@ public class BufferedReaderExample {
 ```java
 import java.util.StringTokenizer;
 
-public class StringTokenizerExample {
-    public static void main(String[] args) {
-        String input = "10 20 30 40 50";
+String input = "10 20 30 40 50";
 
-        // 공백 구분자로 토큰 분리
-        StringTokenizer st = new StringTokenizer(input);
+// 공백 구분자로 토큰 분리
+StringTokenizer st = new StringTokenizer(input);
 
-        while (st.hasMoreTokens()) {
-            String token = st.nextToken();
-            System.out.println(token);
-        }
+while (st.hasMoreTokens()) {
+    String token = st.nextToken();
+    System.out.println(token);
+}
 
-        // 다른 구분자 지정
-        String csv = "apple,banana,orange";
-        StringTokenizer st2 = new StringTokenizer(csv, ",");
+// 다른 구분자 지정
+String csv = "apple,banana,orange";
+StringTokenizer st2 = new StringTokenizer(csv, ",");
 
-        while (st2.hasMoreTokens()) {
-            System.out.println(st2.nextToken());
-        }
-    }
+while (st2.hasMoreTokens()) {
+    System.out.println(st2.nextToken());
 }
 ```
 
@@ -292,31 +280,27 @@ public class StringTokenizerExample {
   - 복잡한 패턴 분리에는 필수적
 
 ```java
-public class StringSplitExample {
-    public static void main(String[] args) {
-        String input = "10 20 30 40 50";
+String input = "10 20 30 40 50";
 
-        // 공백 구분자로 분리
-        String[] tokens = input.split(" ");
+// 공백 구분자로 분리
+String[] tokens = input.split(" ");
 
-        for (String token : tokens) {
-            System.out.println(token);
-        }
-
-        // 정규식 사용
-        String complex = "apple,banana;orange:grape";
-        String[] fruits = complex.split("[,;:]");
-
-        for (String fruit : fruits) {
-            System.out.println(fruit);
-        }
-
-        // 빈 문자열 처리
-        String empty = "a,,b,,c";
-        String[] result = empty.split(",");
-        // 결과: ["a", "", "b", "", "c"]
-    }
+for (String token : tokens) {
+    System.out.println(token);
 }
+
+// 정규식 사용
+String complex = "apple,banana;orange:grape";
+String[] fruits = complex.split("[,;:]");
+
+for (String fruit : fruits) {
+    System.out.println(fruit);
+}
+
+// 빈 문자열 처리
+String empty = "a,,b,,c";
+String[] result = empty.split(",");
+// 결과: ["a", "", "b", "", "c"]
 ```
 
 ### `StringTokenizer`와 `String.split()` 비교
@@ -455,20 +439,16 @@ String[] parts2 = pattern.split("\\*");  // 별표(*)를 이스케이프
 ```java
 import java.util.Scanner;
 
-public class ScannerSimple {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
-        int[] arr = new int[n];
+int n = sc.nextInt();
+int[] arr = new int[n];
 
-        for (int i = 0; i < n; i++) {
-            arr[i] = sc.nextInt();
-        }
-
-        sc.close();
-    }
+for (int i = 0; i < n; i++) {
+    arr[i] = sc.nextInt();
 }
+
+sc.close();
 ```
 
 ### `BufferedReader` + `StringTokenizer`
@@ -487,21 +467,17 @@ public class ScannerSimple {
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class FastInput {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int n = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine());
+int n = Integer.parseInt(br.readLine());
+StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
-        }
-
-        br.close();
-    }
+int[] arr = new int[n];
+for (int i = 0; i < n; i++) {
+    arr[i] = Integer.parseInt(st.nextToken());
 }
+
+br.close();
 ```
 
 ### `BufferedReader` + `String.split()`
@@ -518,80 +494,20 @@ public class FastInput {
 ```java
 import java.io.*;
 
-public class FlexibleInput {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int n = Integer.parseInt(br.readLine());
-        String[] tokens = br.readLine().split(" ");
+int n = Integer.parseInt(br.readLine());
+String[] tokens = br.readLine().split(" ");
 
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(tokens[i]);
-        }
-
-        br.close();
-    }
+int[] arr = new int[n];
+for (int i = 0; i < n; i++) {
+    arr[i] = Integer.parseInt(tokens[i]);
 }
+
+br.close();
 ```
 
-### 성능 비교 예제
 
-```java
-import java.io.*;
-import java.util.*;
-
-public class PerformanceComparison {
-    public static void main(String[] args) throws IOException {
-        // 테스트 데이터 생성
-        int dataSize = 100000;
-        StringBuilder testData = new StringBuilder();
-        testData.append(dataSize).append("\n");
-        for (int i = 0; i < dataSize; i++) {
-            testData.append(i).append(" ");
-        }
-
-        // Scanner 방식
-        long start = System.nanoTime();
-        Scanner sc = new Scanner(testData.toString());
-        int n1 = sc.nextInt();
-        int[] arr1 = new int[n1];
-        for (int i = 0; i < n1; i++) {
-            arr1[i] = sc.nextInt();
-        }
-        long scannerTime = System.nanoTime() - start;
-        sc.close();
-
-        // BufferedReader + StringTokenizer
-        start = System.nanoTime();
-        BufferedReader br = new BufferedReader(new StringReader(testData.toString()));
-        int n2 = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int[] arr2 = new int[n2];
-        for (int i = 0; i < n2; i++) {
-            arr2[i] = Integer.parseInt(st.nextToken());
-        }
-        long tokenizerTime = System.nanoTime() - start;
-        br.close();
-
-        // BufferedReader + String.split()
-        start = System.nanoTime();
-        br = new BufferedReader(new StringReader(testData.toString()));
-        int n3 = Integer.parseInt(br.readLine());
-        String[] tokens = br.readLine().split(" ");
-        int[] arr3 = new int[n3];
-        for (int i = 0; i < n3; i++) {
-            arr3[i] = Integer.parseInt(tokens[i]);
-        }
-        long splitTime = System.nanoTime() - start;
-        br.close();
-
-        System.out.println("Scanner: " + (scannerTime / 1_000_000) + "ms");
-        System.out.println("BufferedReader + StringTokenizer: " + (tokenizerTime / 1_000_000) + "ms");
-        System.out.println("BufferedReader + String.split(): " + (splitTime / 1_000_000) + "ms");
-    }
-}
-```
 
 <br/><br/>
 
@@ -629,21 +545,17 @@ public class PerformanceComparison {
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class Solution {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int n = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine());
+int n = Integer.parseInt(br.readLine());
+StringTokenizer st = new StringTokenizer(br.readLine());
 
-        // 알고리즘 구현
+// 알고리즘 구현
 
-        bw.flush();
-        bw.close();
-        br.close();
-    }
-}
+bw.flush();
+bw.close();
+br.close();
 ```
 
 <br/><br/>
@@ -681,18 +593,14 @@ public class Solution {
 ```java
 import java.io.*;
 
-public class BufferedWriterExample {
-    public static void main(String[] args) throws IOException {
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        for (int i = 0; i < 100000; i++) {
-            bw.write(i + "\n");
-        }
-
-        bw.flush();
-        bw.close();
-    }
+for (int i = 0; i < 100000; i++) {
+    bw.write(i + "\n");
 }
+
+bw.flush();
+bw.close();
 ```
 
 ### `StringBuilder`의 활용
@@ -736,17 +644,13 @@ for (int i = 0; i < n; i++) {
 ```
 
 ```java
-public class StringBuilderExample {
-    public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder();
+StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < 100000; i++) {
-            sb.append(i).append("\n");
-        }
-
-        System.out.print(sb);
-    }
+for (int i = 0; i < 100000; i++) {
+    sb.append(i).append("\n");
 }
+
+System.out.print(sb);
 ```
 
 ### `StringBuilder`와 `StringBuffer` 비교
@@ -794,26 +698,22 @@ public class StringBuilderExample {
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class OptimizedSolution {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringBuilder sb = new StringBuilder();
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+StringBuilder sb = new StringBuilder();
 
-        int n = Integer.parseInt(br.readLine());
+int n = Integer.parseInt(br.readLine());
 
-        for (int i = 0; i < n; i++) {
-            // 계산 수행
-            int result = i * 2;
-            sb.append(result).append("\n");
-        }
-
-        bw.write(sb.toString());
-        bw.flush();
-        bw.close();
-        br.close();
-    }
+for (int i = 0; i < n; i++) {
+    // 계산 수행
+    int result = i * 2;
+    sb.append(result).append("\n");
 }
+
+bw.write(sb.toString());
+bw.flush();
+bw.close();
+br.close();
 ```
 
 - **권장 조합**

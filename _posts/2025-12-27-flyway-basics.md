@@ -1,5 +1,5 @@
 ---
-title: "Flyway란?"
+title: 'Flyway란?'
 author:
   name: mxxikr
   link: https://github.com/mxxikr
@@ -34,6 +34,20 @@ math: true
   - 메타데이터 테이블을 조회하여 아직 실행되지 않은 스크립트만 식별함
   - 버전 순서대로 SQL을 실행하고 성공 시 메타데이터에 기록함
   - 결과적으로 모든 환경이 동일한 순서로 변경 사항을 반영하게 됨
+
+```mermaid
+sequenceDiagram
+    participant App as Spring Boot App
+    participant FW as Flyway
+    participant DB as Database
+    App->>FW: Start Application
+    FW->>DB: Check flyway_schema_history
+    DB-->>FW: Return executed versions (e.g. V1)
+    FW->>FW: Compare with local scripts (V1, V2)
+    FW->>DB: Execute pending scripts (V2)
+    DB-->>FW: Success
+    FW->>DB: Update history (Record V2)
+```
 
 ### 주요 특징
 
@@ -102,7 +116,6 @@ math: true
   | **용도**   | 로컬 개발, 프로토타이핑                                                      | 개발, 테스트, 운영(Prod) 모든 환경                                                                     |
   | **안전성** | 데이터가 날아가거나, 의도치 않게 컬럼이 바뀔 수 있으며 변경 이력이 남지 않음 | 변경 이력 추적 및 배포 안정성변경 이력이 철저히 남고, 실패 시 애플리케이션 구동을 멈춰서 사고를 방지함 |
 
-<br/><br/>
 
 ## 활용 가이드
 
@@ -152,7 +165,6 @@ math: true
       ```
     - 스크립트 수정 후 재실행
 
-<br/><br/>
 
 ## 요약 정리
 
@@ -173,7 +185,6 @@ math: true
 - CI/CD
   - Flyway는 애플리케이션 배포 시 자동 실행되므로, 별도의 배포 파이프라인 설정이 필요 없어 매우 편리함
 
-<br/><br/>
 
 ## Reference
 

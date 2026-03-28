@@ -46,21 +46,15 @@ mermaid: false
 - 데이터의 삽입과 삭제가 한쪽 끝에서만 일어나는 특징이 있음
 
 ```java
-import java.util.Stack;
+Stack<Integer> stack = new Stack<>();
 
-public class StackExample {
-    public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>();
+stack.push(1);
+stack.push(2);
+stack.push(3);
 
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-
-        System.out.println("Top Element: " + stack.peek()); // 3
-        System.out.println("Pop Element: " + stack.pop());  // 3
-        System.out.println("Is Empty: " + stack.isEmpty()); // false
-    }
-}
+System.out.println("Top Element: " + stack.peek()); // 3
+System.out.println("Pop Element: " + stack.pop());  // 3
+System.out.println("Is Empty: " + stack.isEmpty()); // false
 ```
 
 ### 스택 용어 정리
@@ -107,23 +101,16 @@ public class StackExample {
 - 삽입과 삭제가 양방향에서 각각 독립적으로 수행됨
 
 ```java
-import java.util.LinkedList;
-import java.util.Queue;
+// Queue는 인터페이스이므로 LinkedList로 구현
+Queue<Integer> queue = new LinkedList<>();
 
-public class QueueExample {
-    public static void main(String[] args) {
-        // Queue는 인터페이스이므로 LinkedList로 구현
-        Queue<Integer> queue = new LinkedList<>();
+queue.add(1);
+queue.add(2);
+queue.add(3);
 
-        queue.add(1);
-        queue.add(2);
-        queue.add(3);
-
-        System.out.println("Front Element: " + queue.peek()); // 1
-        System.out.println("Poll Element: " + queue.poll());  // 1
-        System.out.println("Is Empty: " + queue.isEmpty());   // false
-    }
-}
+System.out.println("Front Element: " + queue.peek()); // 1
+System.out.println("Poll Element: " + queue.poll());  // 1
+System.out.println("Is Empty: " + queue.isEmpty());   // false
 ```
 
 ### 큐 용어 정리
@@ -165,43 +152,36 @@ public class QueueExample {
 - 높은 숫자가 우선순위를 갖게 하려면 `Collections.reverseOrder()`를 사용해야 함
 
 ```java
-import java.util.PriorityQueue;
-import java.util.Collections;
+// 최소 힙 (기본) - 낮은 숫자가 우선
+PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+minHeap.add(10);
+minHeap.add(5);
+minHeap.add(20);
 
-public class PriorityQueueExample {
-    public static void main(String[] args) {
-        // 최소 힙 (기본) - 낮은 숫자가 우선
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-        minHeap.add(10);
-        minHeap.add(5);
-        minHeap.add(20);
+System.out.println("Min Heap: " + minHeap.poll()); // 5 출력
 
-        System.out.println("Min Heap: " + minHeap.poll()); // 5 출력
+// 최대 힙 - 높은 숫자가 우선
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+maxHeap.add(10);
+maxHeap.add(5);
+maxHeap.add(20);
 
-        // 최대 힙 - 높은 숫자가 우선
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-        maxHeap.add(10);
-        maxHeap.add(5);
-        maxHeap.add(20);
+System.out.println("Max Heap: " + maxHeap.poll()); // 20 출력
 
-        System.out.println("Max Heap: " + maxHeap.poll()); // 20 출력
+// 절댓값 힙 - 절댓값이 낮은 숫자가 우선 (같으면 원래 숫자가 작은 순)
+PriorityQueue<Integer> absHeap = new PriorityQueue<>((o1, o2) -> {
+    int abs1 = Math.abs(o1);
+    int abs2 = Math.abs(o2);
 
-        // 절댓값 힙 - 절댓값이 낮은 숫자가 우선 (같으면 원래 숫자가 작은 순)
-        PriorityQueue<Integer> absHeap = new PriorityQueue<>((o1, o2) -> {
-            int abs1 = Math.abs(o1);
-            int abs2 = Math.abs(o2);
+    if (abs1 == abs2) return o1 - o2; // 절댓값이 같으면 원래 숫자 기준 오름차순
+    return abs1 - abs2; // 절댓값 기준 오름차순
+});
 
-            if (abs1 == abs2) return o1 - o2; // 절댓값이 같으면 원래 숫자 기준 오름차순
-            return abs1 - abs2; // 절댓값 기준 오름차순
-        });
+absHeap.add(-10);
+absHeap.add(5);
+absHeap.add(-20);
 
-        absHeap.add(-10);
-        absHeap.add(5);
-        absHeap.add(-20);
-
-        System.out.println("Abs Heap: " + absHeap.poll()); // 5 출력
-    }
-}
+System.out.println("Abs Heap: " + absHeap.poll()); // 5 출력
 ```
 
 ![우선순위 큐 원리 시각화](/assets/img/algorithm/priority_queue_principle.png)
@@ -217,44 +197,36 @@ a
 - 양쪽 끝에서 데이터 접근이 가능하므로 앞쪽(`First`)과 뒤쪽(`Last`) 메서드를 구분해서 사용해야 함
 
 ```java
-import java.util.ArrayDeque;
-import java.util.LinkedList;
-import java.util.Deque;
+// ArrayDeque 구현체 (일반적인 덱/스택/큐 연산 시 권장 - 속도 빠름)
+Deque<Integer> arrayDeque = new ArrayDeque<>();
 
-public class DequeExample {
-    public static void main(String[] args) {
-        // ArrayDeque 구현체 (일반적인 덱/스택/큐 연산 시 권장 - 속도 빠름)
-        Deque<Integer> arrayDeque = new ArrayDeque<>();
+arrayDeque.offerLast(1);
+arrayDeque.offerLast(2);
+arrayDeque.offerLast(3);
+System.out.println("ArrayDeque Poll: " + arrayDeque.pollFirst()); // 1 출력
 
-        arrayDeque.offerLast(1);
-        arrayDeque.offerLast(2);
-        arrayDeque.offerLast(3);
-        System.out.println("ArrayDeque Poll: " + arrayDeque.pollFirst()); // 1 출력
+// 덱의 양방향 활용
+arrayDeque.offerFirst(100); // 앞쪽에 100 추가
+arrayDeque.offerLast(200);  // 뒤쪽에 200 추가
 
-        // 덱의 양방향 활용
-        arrayDeque.offerFirst(100); // 앞쪽에 100 추가
-        arrayDeque.offerLast(200);  // 뒤쪽에 200 추가
+System.out.println("Front: " + arrayDeque.peekFirst()); // 100
+System.out.println("Rear: "  + arrayDeque.peekLast());  // 200
 
-        System.out.println("Front: " + arrayDeque.peekFirst()); // 100
-        System.out.println("Rear: "  + arrayDeque.peekLast());  // 200
+// LinkedList 구현체 (Deque 인터페이스 구현, 중간 삽입/삭제 시 유리)
+Deque<Integer> linkedDeque = new LinkedList<>();
 
-        // LinkedList 구현체 (Deque 인터페이스 구현, 중간 삽입/삭제 시 유리)
-        Deque<Integer> linkedDeque = new LinkedList<>();
+linkedDeque.offerFirst(10);
+linkedDeque.offerLast(20);
+System.out.println("LinkedList Poll: " + linkedDeque.pollFirst()); // 10 출력
 
-        linkedDeque.offerFirst(10);
-        linkedDeque.offerLast(20);
-        System.out.println("LinkedList Poll: " + linkedDeque.pollFirst()); // 10 출력
+// 사용법(메서드)은 동일함 (인터페이스가 Deque이므로)
+// 덱을 스택처럼 사용할 경우 push(), pop()
+// 덱을 큐처럼 사용할 경우 offer(), poll()
+arrayDeque.push(100);
+linkedDeque.push(100);
 
-        // 사용법(메서드)은 동일함 (인터페이스가 Deque이므로)
-        // 덱을 스택처럼 사용할 경우 push(), pop()
-        // 덱을 큐처럼 사용할 경우 offer(), poll()
-        arrayDeque.push(100);
-        linkedDeque.push(100);
-
-        System.out.println("ArrayDeque Top: " + arrayDeque.peek()); // 100
-        System.out.println("LinkedList Top: " + linkedDeque.peek()); // 100
-    }
-}
+System.out.println("ArrayDeque Top: " + arrayDeque.peek()); // 100
+System.out.println("LinkedList Top: " + linkedDeque.peek()); // 100
 ```
 
 ![덱 원리 시각화](/assets/img/algorithm/deque_principle.png)

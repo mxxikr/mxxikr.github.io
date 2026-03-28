@@ -2,8 +2,8 @@
 title: '[리버싱 핵심 원리] 기초 리버싱'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2022-10-26 23:55:00 +0900
-category: [Security, Reversing]
-tags: [Book, reversing]
+category: [Book, Reversing]
+tags: [security, reversing]
 math: true
 mermaid: false
 ---

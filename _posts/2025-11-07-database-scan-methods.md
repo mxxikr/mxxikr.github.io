@@ -198,23 +198,12 @@ mermaid: false
     1. gender의 각 distinct 값('M', 'F')에 대해
     2. 해당 gender 값과 age > 30 조건으로 인덱스 스캔
 
-### 제한 사항
+### 제한 사항 및 지원 환경
 
 - `PostgreSQL`
-  - 수동 구현 필요(`WITH RECURSIVE`)
+  - `WITH RECURSIVE`를 통한 수동 구현 필요
 - `MySQL`
-  - 8.0 이전
-    - `GROUP BY` 최적화(`Loose Index Scan`)에서만 제한적 사용
-  - 8.0 이후
-    - `Skip Scan Range Access` 도입으로 일반 `WHERE` 절에서도 지원
-    - 범위 검색 쿼리에서 선행 컬럼 없이도 인덱스 활용 가능
-    - ex)
-      ```sql
-      -- 인덱스 - gender, age, name
-      -- MySQL 8.0+에서 Skip Scan 사용 가능
-      SELECT * FROM users WHERE age > 30;
-      -- EXPLAIN 결과 - type=range, key=idx_gender_age_name, Extra=Using where; Using index for skip scan
-      ```
+  - 8.0 이상부터 `Skip Scan Range Access` 기능으로 자동 지원됨
 
 
 <br/><br/>

@@ -57,29 +57,25 @@ mermaid: false
 ### Java에서의 배열 예제
 
 ```java
-public class ArrayExample {
-    public static void main(String[] args) {
-        // 배열 생성 - 크기 고정
-        int[] numbers = new int[5];
+// 배열 생성 - 크기 고정
+int[] numbers = new int[5];
 
-        // 배열 초기화
-        int[] scores = {90, 85, 92, 88, 95};
+// 배열 초기화
+int[] scores = {90, 85, 92, 88, 95};
 
-        // 접근 - O(1)
-        System.out.println("첫 번째 점수: " + scores[0]); // 90
+// 접근 - O(1)
+System.out.println("첫 번째 점수: " + scores[0]); // 90
 
-        // 수정 - O(1)
-        scores[2] = 100;
+// 수정 - O(1)
+scores[2] = 100;
 
-        // 순회 - O(n)
-        for (int i = 0; i < scores.length; i++) {
-            System.out.println(scores[i]);
-        }
-
-        // 크기 변경 불가 - 새 배열 생성 필요
-        // scores[5] = 80; // ArrayIndexOutOfBoundsException 발생
-    }
+// 순회 - O(n)
+for (int i = 0; i < scores.length; i++) {
+    System.out.println(scores[i]);
 }
+
+// 크기 변경 불가 - 새 배열 생성 필요
+// scores[5] = 80; // ArrayIndexOutOfBoundsException 발생
 ```
 
 ### 장점
@@ -154,33 +150,29 @@ public class ArrayExample {
 ```java
 import java.util.ArrayList;
 
-public class ArrayListExample {
-    public static void main(String[] args) {
-        // ArrayList 생성 - 초기 용량 10
-        ArrayList<Integer> list = new ArrayList<>();
+// ArrayList 생성 - 초기 용량 10
+ArrayList<Integer> list = new ArrayList<>();
 
-        // 삽입 - 맨 끝에 추가 O(1)
-        list.add(10);
-        list.add(20);
-        list.add(30);
+// 삽입 - 맨 끝에 추가 O(1)
+list.add(10);
+list.add(20);
+list.add(30);
 
-        // 중간 삽입 - O(n)
-        list.add(1, 15); // [10, 15, 20, 30]
+// 중간 삽입 - O(n)
+list.add(1, 15); // [10, 15, 20, 30]
 
-        // 접근 - O(1)
-        System.out.println("두 번째 원소: " + list.get(1)); // 15
+// 접근 - O(1)
+System.out.println("두 번째 원소: " + list.get(1)); // 15
 
-        // 삭제 - O(n)
-        list.remove(2); // [10, 15, 30]
+// 삭제 - O(n)
+list.remove(2); // [10, 15, 30]
 
-        // 크기 동적 변경 가능
-        for (int i = 0; i < 100; i++) {
-            list.add(i); // 자동으로 용량 확장
-        }
-
-        System.out.println("크기: " + list.size()); // 103
-    }
+// 크기 동적 변경 가능
+for (int i = 0; i < 100; i++) {
+    list.add(i); // 자동으로 용량 확장
 }
+
+System.out.println("크기: " + list.size()); // 103
 ```
 
 ### 연결 리스트 (LinkedList)
@@ -213,30 +205,26 @@ public class ArrayListExample {
 ```java
 import java.util.LinkedList;
 
-public class LinkedListExample {
-    public static void main(String[] args) {
-        // LinkedList 생성
-        LinkedList<String> list = new LinkedList<>();
+// LinkedList 생성
+LinkedList<String> list = new LinkedList<>();
 
-        // 삽입 - 앞/뒤 추가 O(1)
-        list.addFirst("First");
-        list.addLast("Last");
-        list.add("Middle");
+// 삽입 - 앞/뒤 추가 O(1)
+list.addFirst("First");
+list.addLast("Last");
+list.add("Middle");
 
-        // 접근 - O(n)
-        System.out.println("첫 번째: " + list.get(0)); // First
-        System.out.println("마지막: " + list.getLast()); // Last
+// 접근 - O(n)
+System.out.println("첫 번째: " + list.get(0)); // First
+System.out.println("마지막: " + list.getLast()); // Last
 
-        // 삭제 - 앞/뒤 O(1), 중간 O(n)
-        list.removeFirst();
-        list.removeLast();
+// 삭제 - 앞/뒤 O(1), 중간 O(n)
+list.removeFirst();
+list.removeLast();
 
-        // 중간 삽입 - O(n)
-        list.add(0, "New First");
+// 중간 삽입 - O(n)
+list.add(0, "New First");
 
-        System.out.println(list); // [New First, Middle]
-    }
-}
+System.out.println(list); // [New First, Middle]
 ```
 
 ### `ListIterator`를 통한 O(1) 삽입 및 삭제
@@ -261,50 +249,46 @@ public class LinkedListExample {
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-public class LinkedListIteratorExample {
-    public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<>();
+LinkedList<Integer> list = new LinkedList<>();
 
-        // 초기 데이터 삽입
-        for (int i = 1; i <= 5; i++) {
-            list.add(i * 10);
-        }
-        // 현재 리스트: [10, 20, 30, 40, 50]
+// 초기 데이터 삽입
+for (int i = 1; i <= 5; i++) {
+    list.add(i * 10);
+}
+// 현재 리스트: [10, 20, 30, 40, 50]
 
-        // ListIterator를 사용한 O(1) 삽입
-        ListIterator<Integer> iterator = list.listIterator();
+// ListIterator를 사용한 O(1) 삽입
+ListIterator<Integer> iterator = list.listIterator();
 
-        // 순회하며 조건에 맞는 위치에 O(1) 삽입
-        while (iterator.hasNext()) {
-            Integer value = iterator.next();
+// 순회하며 조건에 맞는 위치에 O(1) 삽입
+while (iterator.hasNext()) {
+    Integer value = iterator.next();
 
-            // 값이 30보다 크면 그 앞에 새 값 삽입
-            if (value > 30) {
-                iterator.previous(); // 현재 위치로 돌아감
-                iterator.add(25); // O(1) 삽입
-                iterator.next(); // 원래 순회 위치로 복귀
-            }
-        }
-        // 결과 리스트: [10, 20, 30, 25, 40, 25, 50]
-
-        System.out.println("삽입 후: " + list);
-
-        // ListIterator를 사용한 O(1) 삭제
-        iterator = list.listIterator();
-
-        while (iterator.hasNext()) {
-            Integer value = iterator.next();
-
-            // 25인 값을 모두 O(1) 삭제
-            if (value == 25) {
-                iterator.remove(); // O(1) 삭제
-            }
-        }
-        // 결과 리스트: [10, 20, 30, 40, 50]
-
-        System.out.println("삭제 후: " + list);
+    // 값이 30보다 크면 그 앞에 새 값 삽입
+    if (value > 30) {
+        iterator.previous(); // 현재 위치로 돌아감
+        iterator.add(25); // O(1) 삽입
+        iterator.next(); // 원래 순회 위치로 복귀
     }
 }
+// 결과 리스트: [10, 20, 30, 25, 40, 25, 50]
+
+System.out.println("삽입 후: " + list);
+
+// ListIterator를 사용한 O(1) 삭제
+iterator = list.listIterator();
+
+while (iterator.hasNext()) {
+    Integer value = iterator.next();
+
+    // 25인 값을 모두 O(1) 삭제
+    if (value == 25) {
+        iterator.remove(); // O(1) 삭제
+    }
+}
+// 결과 리스트: [10, 20, 30, 40, 50]
+
+System.out.println("삭제 후: " + list);
 ```
 
 - **성능 비교**
@@ -314,52 +298,7 @@ public class LinkedListIteratorExample {
     - 현재 위치에서 즉시 삽입 = \(O(1)\)
   - 대량 중간 삽입 시 성능 차이가 극명함
 
-```java
-import java.util.LinkedList;
-import java.util.ListIterator;
 
-public class LinkedListPerformanceComparison {
-    public static void main(String[] args) {
-        int size = 10000;
-
-        // 방법 1: 인덱스 기반 삽입 - O(n^2)
-        LinkedList<Integer> list1 = new LinkedList<>();
-        for (int i = 0; i < size; i++) {
-            list1.add(i);
-        }
-
-        long start = System.currentTimeMillis();
-        for (int i = 0; i < 1000; i++) {
-            list1.add(size / 2, -1); // 중간 위치에 삽입 - O(n)
-        }
-        long indexBasedTime = System.currentTimeMillis() - start;
-
-        // 방법 2: ListIterator 사용 - O(n)
-        LinkedList<Integer> list2 = new LinkedList<>();
-        for (int i = 0; i < size; i++) {
-            list2.add(i);
-        }
-
-        start = System.currentTimeMillis();
-        ListIterator<Integer> iterator = list2.listIterator();
-
-        // 중간 위치까지 이동 - O(n)
-        for (int i = 0; i < size / 2; i++) {
-            iterator.next();
-        }
-
-        // 1000번 삽입 - 각각 O(1)
-        for (int i = 0; i < 1000; i++) {
-            iterator.add(-1); // O(1) 삽입
-        }
-        long iteratorBasedTime = System.currentTimeMillis() - start;
-
-        System.out.println("인덱스 기반 삽입: " + indexBasedTime + "ms");
-        System.out.println("Iterator 기반 삽입: " + iteratorBasedTime + "ms");
-        System.out.println("성능 차이: " + (indexBasedTime / (double) iteratorBasedTime) + "배");
-    }
-}
-```
 
 - **활용 시나리오**
   - 순차 탐색하며 조건부 삽입 및 삭제가 필요한 경우
@@ -442,40 +381,7 @@ public class LinkedListPerformanceComparison {
     - `Integer` 객체당 약 16바이트 추가 (객체 헤더 포함)
     - `int` 배열 대비 4-5배 메모리 사용
 
-```java
-public class PrimitiveVsWrapper {
-    public static void main(String[] args) {
-        // 기본형 배열 - 메모리 효율적
-        int[] primitiveArray = new int[1000];
-        // 1000개 × 4바이트 = 4,000바이트
 
-        // 래퍼 타입 ArrayList - 메모리 오버헤드
-        ArrayList<Integer> wrapperList = new ArrayList<>();
-        for (int i = 0; i < 1000; i++) {
-            wrapperList.add(i); // Auto-boxing 발생
-        }
-        // 1000개 × (4바이트 int + 16바이트 Integer 객체) = 약 20,000바이트
-
-        // 성능 차이 예시
-        long start = System.nanoTime();
-        int sum1 = 0;
-        for (int i = 0; i < primitiveArray.length; i++) {
-            sum1 += primitiveArray[i]; // 직접 접근
-        }
-        long primitiveTime = System.nanoTime() - start;
-
-        start = System.nanoTime();
-        int sum2 = 0;
-        for (int i = 0; i < wrapperList.size(); i++) {
-            sum2 += wrapperList.get(i); // Auto-unboxing 발생
-        }
-        long wrapperTime = System.nanoTime() - start;
-
-        System.out.println("기본형 배열 시간: " + primitiveTime + "ns");
-        System.out.println("래퍼 ArrayList 시간: " + wrapperTime + "ns");
-    }
-}
-```
 
 - **선택 기준**
   - 대량의 숫자 데이터 처리 시 기본형 배열 권장
@@ -483,73 +389,7 @@ public class PrimitiveVsWrapper {
   - 동적 크기 조정이 필요하고 메모리 오버헤드가 허용되는 경우 ArrayList 사용
   - 고성능 연산이 필요한 경우 기본형 배열이나 전용 라이브러리 (Trove, FastUtil 등) 고려
 
-### 상세 비교 예제
 
-```java
-import java.util.*;
-
-public class PerformanceComparison {
-    public static void main(String[] args) {
-        int size = 100000;
-
-        // ArrayList vs LinkedList 성능 비교
-
-        // 리스트 끝에 요소 추가 성능 비교
-        long start = System.currentTimeMillis();
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            arrayList.add(i);
-        }
-        long arrayListAddTime = System.currentTimeMillis() - start;
-
-        start = System.currentTimeMillis();
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        for (int i = 0; i < size; i++) {
-            linkedList.add(i);
-        }
-        long linkedListAddTime = System.currentTimeMillis() - start;
-
-        System.out.println("=== 끝에 추가 성능 ===");
-        System.out.println("ArrayList: " + arrayListAddTime + "ms");
-        System.out.println("LinkedList: " + linkedListAddTime + "ms");
-
-        // 랜덤 위치 접근 성능 비교
-        Random random = new Random();
-        start = System.currentTimeMillis();
-        for (int i = 0; i < 10000; i++) {
-            arrayList.get(random.nextInt(size));
-        }
-        long arrayListGetTime = System.currentTimeMillis() - start;
-
-        start = System.currentTimeMillis();
-        for (int i = 0; i < 10000; i++) {
-            linkedList.get(random.nextInt(size));
-        }
-        long linkedListGetTime = System.currentTimeMillis() - start;
-
-        System.out.println("\n=== 랜덤 접근 성능 ===");
-        System.out.println("ArrayList: " + arrayListGetTime + "ms");
-        System.out.println("LinkedList: " + linkedListGetTime + "ms");
-
-        // 리스트 앞쪽에 요소 삽입 성능 비교
-        start = System.currentTimeMillis();
-        for (int i = 0; i < 1000; i++) {
-            arrayList.add(0, i);
-        }
-        long arrayListInsertTime = System.currentTimeMillis() - start;
-
-        start = System.currentTimeMillis();
-        for (int i = 0; i < 1000; i++) {
-            linkedList.addFirst(i);
-        }
-        long linkedListInsertTime = System.currentTimeMillis() - start;
-
-        System.out.println("\n=== 앞에서 삽입 성능 ===");
-        System.out.println("ArrayList: " + arrayListInsertTime + "ms");
-        System.out.println("LinkedList: " + linkedListInsertTime + "ms");
-    }
-}
-```
 
 <br/><br/>
 
@@ -568,27 +408,25 @@ public class PerformanceComparison {
 
 ```java
 // 배열 사용 예시
-public class ArrayUseCases {
-    // 고정된 크기의 데이터
-    private static final String[] DAYS_OF_WEEK = {
-        "월", "화", "수", "목", "금", "토", "일"
-    };
+// 고정된 크기의 데이터
+private static final String[] DAYS_OF_WEEK = {
+    "월", "화", "수", "목", "금", "토", "일"
+};
 
-    // 행렬 연산
-    public static int[][] multiplyMatrix(int[][] a, int[][] b) {
-        int rows = a.length;
-        int cols = b[0].length;
-        int[][] result = new int[rows][cols];
+// 행렬 연산
+public static int[][] multiplyMatrix(int[][] a, int[][] b) {
+    int rows = a.length;
+    int cols = b[0].length;
+    int[][] result = new int[rows][cols];
 
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                for (int k = 0; k < a[0].length; k++) {
-                    result[i][j] += a[i][k] * b[k][j];
-                }
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            for (int k = 0; k < a[0].length; k++) {
+                result[i][j] += a[i][k] * b[k][j];
             }
         }
-        return result;
     }
+    return result;
 }
 ```
 
@@ -605,43 +443,41 @@ public class ArrayUseCases {
 ```java
 import java.util.ArrayList;
 
-public class ArrayListUseCases {
-    // 사용자 목록 관리
-    public static class UserManager {
-        private ArrayList<String> users = new ArrayList<>();
+// 사용자 목록 관리
+public static class UserManager {
+    private ArrayList<String> users = new ArrayList<>();
 
-        public void addUser(String user) {
-            users.add(user); // O(1) - 끝에 추가
-        }
-
-        public String getUser(int index) {
-            return users.get(index); // O(1) - 빠른 접근
-        }
-
-        public int getUserCount() {
-            return users.size();
-        }
+    public void addUser(String user) {
+        users.add(user); // O(1) - 끝에 추가
     }
 
-    // 동적 데이터 수집
-    public static ArrayList<Integer> collectPrimes(int max) {
-        ArrayList<Integer> primes = new ArrayList<>();
-
-        for (int i = 2; i <= max; i++) {
-            if (isPrime(i)) {
-                primes.add(i);
-            }
-        }
-        return primes;
+    public String getUser(int index) {
+        return users.get(index); // O(1) - 빠른 접근
     }
 
-    private static boolean isPrime(int n) {
-        if (n < 2) return false;
-        for (int i = 2; i * i <= n; i++) {
-            if (n % i == 0) return false;
-        }
-        return true;
+    public int getUserCount() {
+        return users.size();
     }
+}
+
+// 동적 데이터 수집
+public static ArrayList<Integer> collectPrimes(int max) {
+    ArrayList<Integer> primes = new ArrayList<>();
+
+    for (int i = 2; i <= max; i++) {
+        if (isPrime(i)) {
+            primes.add(i);
+        }
+    }
+    return primes;
+}
+
+private static boolean isPrime(int n) {
+    if (n < 2) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
 }
 ```
 
@@ -658,41 +494,39 @@ public class ArrayListUseCases {
 ```java
 import java.util.LinkedList;
 
-public class LinkedListUseCases {
-    // LRU 캐시 구현
-    public static class LRUCache<K, V> {
-        private LinkedList<K> accessOrder = new LinkedList<>();
-        private int capacity;
+// LRU 캐시 구현
+public static class LRUCache<K, V> {
+    private LinkedList<K> accessOrder = new LinkedList<>();
+    private int capacity;
 
-        public LRUCache(int capacity) {
-            this.capacity = capacity;
-        }
-
-        public void access(K key) {
-            accessOrder.remove(key); // O(n) 탐색 + O(1) 삭제
-            accessOrder.addFirst(key); // O(1) 앞에 추가
-
-            if (accessOrder.size() > capacity) {
-                accessOrder.removeLast(); // O(1) 뒤에서 삭제
-            }
-        }
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
     }
 
-    // 작업 큐 구현
-    public static class TaskQueue {
-        private LinkedList<String> tasks = new LinkedList<>();
+    public void access(K key) {
+        accessOrder.remove(key); // O(n) 탐색 + O(1) 삭제
+        accessOrder.addFirst(key); // O(1) 앞에 추가
 
-        public void addTask(String task) {
-            tasks.addLast(task); // O(1)
+        if (accessOrder.size() > capacity) {
+            accessOrder.removeLast(); // O(1) 뒤에서 삭제
         }
+    }
+}
 
-        public String getNextTask() {
-            return tasks.isEmpty() ? null : tasks.removeFirst(); // O(1)
-        }
+// 작업 큐 구현
+public static class TaskQueue {
+    private LinkedList<String> tasks = new LinkedList<>();
 
-        public boolean hasTasks() {
-            return !tasks.isEmpty();
-        }
+    public void addTask(String task) {
+        tasks.addLast(task); // O(1)
+    }
+
+    public String getNextTask() {
+        return tasks.isEmpty() ? null : tasks.removeFirst(); // O(1)
+    }
+
+    public boolean hasTasks() {
+        return !tasks.isEmpty();
     }
 }
 ```
@@ -700,28 +534,24 @@ public class LinkedListUseCases {
 ### 선택 가이드
 
 ```java
-public class DataStructureSelector {
-    public static void main(String[] args) {
-        // 배열 사용
-        // - 크기 고정, 빠른 접근 필요
-        int[] fixedSizeData = new int[100];
+// 배열 사용
+// - 크기 고정, 빠른 접근 필요
+int[] fixedSizeData = new int[100];
 
-        // ArrayList 사용 (일반적으로 가장 많이 사용)
-        // - 크기 가변, 빈번한 조회, 끝에서 추가/삭제
-        ArrayList<String> dynamicList = new ArrayList<>();
+// ArrayList 사용 (일반적으로 가장 많이 사용)
+// - 크기 가변, 빈번한 조회, 끝에서 추가/삭제
+ArrayList<String> dynamicList = new ArrayList<>();
 
-        // LinkedList 사용
-        // - 앞/뒤에서 빈번한 삽입/삭제
-        // - Queue, Deque 인터페이스 구현 필요
-        LinkedList<Integer> queue = new LinkedList<>();
-        queue.addFirst(1); // 앞에 추가
-        queue.addLast(2);  // 뒤에 추가
-        queue.removeFirst(); // 앞에서 삭제
+// LinkedList 사용
+// - 앞/뒤에서 빈번한 삽입/삭제
+// - Queue, Deque 인터페이스 구현 필요
+LinkedList<Integer> queue = new LinkedList<>();
+queue.addFirst(1); // 앞에 추가
+queue.addLast(2);  // 뒤에 추가
+queue.removeFirst(); // 앞에서 삭제
 
-        // 주의: 대부분의 경우 ArrayList가 LinkedList보다 성능이 좋음
-        // LinkedList는 특수한 상황(Queue/Deque)에서만 사용 권장
-    }
-}
+// 주의: 대부분의 경우 ArrayList가 LinkedList보다 성능이 좋음
+// LinkedList는 특수한 상황(Queue/Deque)에서만 사용 권장
 ```
 
 <br/><br/>
@@ -743,77 +573,75 @@ public class DataStructureSelector {
 ```java
 import java.util.*;
 
-public class OptimizationTips {
-    // ArrayList 초기 용량 설정
-    public static void tip1_setInitialCapacity() {
-        // 나쁜 예: 기본 용량(10)으로 시작, 여러 번 확장 발생
-        ArrayList<Integer> list1 = new ArrayList<>();
-        for (int i = 0; i < 10000; i++) {
-            list1.add(i);
-        }
-
-        // 좋은 예: 초기 용량 설정으로 확장 비용 제거
-        ArrayList<Integer> list2 = new ArrayList<>(10000);
-        for (int i = 0; i < 10000; i++) {
-            list2.add(i);
-        }
+// ArrayList 초기 용량 설정
+public static void tip1_setInitialCapacity() {
+    // 나쁜 예: 기본 용량(10)으로 시작, 여러 번 확장 발생
+    ArrayList<Integer> list1 = new ArrayList<>();
+    for (int i = 0; i < 10000; i++) {
+        list1.add(i);
     }
 
-    // 상황에 맞는 자료구조 선택
-    public static void tip2_chooseRightStructure() {
-        // 빈번한 검색: ArrayList 사용
-        ArrayList<String> searchList = new ArrayList<>();
-        searchList.add("item1");
-        boolean found = searchList.contains("item1"); // O(n)이지만 캐시 효율 좋음
+    // 좋은 예: 초기 용량 설정으로 확장 비용 제거
+    ArrayList<Integer> list2 = new ArrayList<>(10000);
+    for (int i = 0; i < 10000; i++) {
+        list2.add(i);
+    }
+}
 
-        // 양쪽 끝 삽입/삭제: LinkedList 사용
-        LinkedList<String> queue = new LinkedList<>();
-        queue.addFirst("front");
-        queue.addLast("back");
-        queue.removeFirst();
+// 상황에 맞는 자료구조 선택
+public static void tip2_chooseRightStructure() {
+    // 빈번한 검색: ArrayList 사용
+    ArrayList<String> searchList = new ArrayList<>();
+    searchList.add("item1");
+    boolean found = searchList.contains("item1"); // O(n)이지만 캐시 효율 좋음
 
-        // 중복 제거 필요: Set 사용
-        HashSet<String> uniqueItems = new HashSet<>();
-        uniqueItems.add("item1");
-        uniqueItems.add("item1"); // 중복 자동 제거
+    // 양쪽 끝 삽입/삭제: LinkedList 사용
+    LinkedList<String> queue = new LinkedList<>();
+    queue.addFirst("front");
+    queue.addLast("back");
+    queue.removeFirst();
+
+    // 중복 제거 필요: Set 사용
+    HashSet<String> uniqueItems = new HashSet<>();
+    uniqueItems.add("item1");
+    uniqueItems.add("item1"); // 중복 자동 제거
+}
+
+// List 순회 방법
+public static void tip3_iterationMethods() {
+    ArrayList<Integer> list = new ArrayList<>();
+    for (int i = 0; i < 1000; i++) {
+        list.add(i);
     }
 
-    // List 순회 방법
-    public static void tip3_iterationMethods() {
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < 1000; i++) {
-            list.add(i);
-        }
-
-        // ArrayList: 인덱스 기반 순회 또는 향상된 for문
-        for (int i = 0; i < list.size(); i++) {
-            int value = list.get(i); // O(1)
-        }
-
-        // 모든 List: 향상된 for문 (가장 권장)
-        for (Integer value : list) {
-            // 처리
-        }
-
-        // Stream API (Java 8+)
-        list.stream()
-            .filter(x -> x % 2 == 0)
-            .forEach(System.out::println);
+    // ArrayList: 인덱스 기반 순회 또는 향상된 for문
+    for (int i = 0; i < list.size(); i++) {
+        int value = list.get(i); // O(1)
     }
 
-    // 배열과 List 간 변환
-    public static void tip4_arrayListConversion() {
-        // 배열 → List
-        String[] array = {"a", "b", "c"};
-        List<String> list1 = Arrays.asList(array); // 고정 크기 리스트
-        List<String> list2 = new ArrayList<>(Arrays.asList(array)); // 가변 크기 리스트
-
-        // List → 배열
-        ArrayList<String> list = new ArrayList<>();
-        list.add("x");
-        list.add("y");
-        String[] newArray = list.toArray(new String[0]);
+    // 모든 List: 향상된 for문 (가장 권장)
+    for (Integer value : list) {
+        // 처리
     }
+
+    // Stream API (Java 8+)
+    list.stream()
+        .filter(x -> x % 2 == 0)
+        .forEach(System.out::println);
+}
+
+// 배열과 List 간 변환
+public static void tip4_arrayListConversion() {
+    // 배열 → List
+    String[] array = {"a", "b", "c"};
+    List<String> list1 = Arrays.asList(array); // 고정 크기 리스트
+    List<String> list2 = new ArrayList<>(Arrays.asList(array)); // 가변 크기 리스트
+
+    // List → 배열
+    ArrayList<String> list = new ArrayList<>();
+    list.add("x");
+    list.add("y");
+    String[] newArray = list.toArray(new String[0]);
 }
 ```
 

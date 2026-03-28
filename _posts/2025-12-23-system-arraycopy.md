@@ -94,21 +94,17 @@ public static native void arraycopy(Object src, int srcPos,
 ### 전체 배열 복사
 
 ```java
-public class ArrayCopyExample {
-    public static void main(String[] args) {
-        // 원본 배열
-        int[] source = {1, 2, 3, 4, 5};
+// 원본 배열
+int[] source = {1, 2, 3, 4, 5};
 
-        // 대상 배열 생성
-        int[] dest = new int[5];
+// 대상 배열 생성
+int[] dest = new int[5];
 
-        // 전체 복사
-        System.arraycopy(source, 0, dest, 0, source.length);
+// 전체 복사
+System.arraycopy(source, 0, dest, 0, source.length);
 
-        // 결과: dest = {1, 2, 3, 4, 5}
-        System.out.println(Arrays.toString(dest));
-    }
-}
+// 결과: dest = {1, 2, 3, 4, 5}
+System.out.println(Arrays.toString(dest));
 ```
 
 - **주의사항**
@@ -119,18 +115,14 @@ public class ArrayCopyExample {
 ### 부분 복사
 
 ```java
-public class PartialCopyExample {
-    public static void main(String[] args) {
-        int[] source = {1, 2, 3, 4, 5};
-        int[] dest = new int[8];
+int[] source = {1, 2, 3, 4, 5};
+int[] dest = new int[8];
 
-        // 원본 인덱스 2부터 3개 요소를 대상 인덱스 3에 복사
-        System.arraycopy(source, 2, dest, 3, 3);
+// 원본 인덱스 2부터 3개 요소를 대상 인덱스 3에 복사
+System.arraycopy(source, 2, dest, 3, 3);
 
-        // 결과: dest = {0, 0, 0, 3, 4, 5, 0, 0}
-        System.out.println(Arrays.toString(dest));
-    }
-}
+// 결과: dest = {0, 0, 0, 3, 4, 5, 0, 0}
+System.out.println(Arrays.toString(dest));
 ```
 
 - **부분 복사 장점**
@@ -141,17 +133,13 @@ public class PartialCopyExample {
 ### 같은 배열 내 복사
 
 ```java
-public class SameArrayCopyExample {
-    public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5};
+int[] array = {1, 2, 3, 4, 5};
 
-        // 인덱스 0부터 3개를 인덱스 2로 이동
-        System.arraycopy(array, 0, array, 2, 3);
+// 인덱스 0부터 3개를 인덱스 2로 이동
+System.arraycopy(array, 0, array, 2, 3);
 
-        // 결과: {1, 2, 1, 2, 3}
-        System.out.println(Arrays.toString(array));
-    }
-}
+// 결과: {1, 2, 1, 2, 3}
+System.out.println(Arrays.toString(array));
 ```
 
 - **같은 배열 복사 가능**
@@ -170,24 +158,20 @@ class Person {
     }
 }
 
-public class ObjectArrayCopyExample {
-    public static void main(String[] args) {
-        Person[] source = {
-            new Person("Alice"),
-            new Person("Bob")
-        };
+Person[] source = {
+    new Person("Alice"),
+    new Person("Bob")
+};
 
-        Person[] dest = new Person[2];
-        System.arraycopy(source, 0, dest, 0, 2);
+Person[] dest = new Person[2];
+System.arraycopy(source, 0, dest, 0, 2);
 
-        // 얕은 복사 - 같은 객체 참조
-        System.out.println(source[0] == dest[0]); // true
+// 얕은 복사 - 같은 객체 참조
+System.out.println(source[0] == dest[0]); // true
 
-        // 한쪽을 수정하면 다른 쪽도 영향받음
-        dest[0].name = "Charlie";
-        System.out.println(source[0].name); // Charlie
-    }
-}
+// 한쪽을 수정하면 다른 쪽도 영향받음
+dest[0].name = "Charlie";
+System.out.println(source[0].name); // Charlie
 ```
 
 - **얕은 복사 (Shallow Copy)**
@@ -204,42 +188,38 @@ public class ObjectArrayCopyExample {
 ```java
 import java.util.Arrays;
 
-public class PerformanceBenchmark {
-    public static void main(String[] args) {
-        int size = 10_000_000;
-        int[] source = new int[size];
-        Arrays.fill(source, 42);
+int size = 10_000_000;
+int[] source = new int[size];
+Arrays.fill(source, 42);
 
-        // System.arraycopy 측정
-        long start = System.nanoTime();
-        int[] dest1 = new int[size];
-        System.arraycopy(source, 0, dest1, 0, size);
-        long arraycopyTime = System.nanoTime() - start;
+// System.arraycopy 측정
+long start = System.nanoTime();
+int[] dest1 = new int[size];
+System.arraycopy(source, 0, dest1, 0, size);
+long arraycopyTime = System.nanoTime() - start;
 
-        // clone() 측정
-        start = System.nanoTime();
-        int[] dest2 = source.clone();
-        long cloneTime = System.nanoTime() - start;
+// clone() 측정
+start = System.nanoTime();
+int[] dest2 = source.clone();
+long cloneTime = System.nanoTime() - start;
 
-        // 반복문 측정
-        start = System.nanoTime();
-        int[] dest3 = new int[size];
-        for (int i = 0; i < size; i++) {
-            dest3[i] = source[i];
-        }
-        long loopTime = System.nanoTime() - start;
-
-        // Arrays.copyOf() 측정
-        start = System.nanoTime();
-        int[] dest4 = Arrays.copyOf(source, size);
-        long copyOfTime = System.nanoTime() - start;
-
-        System.out.println("System.arraycopy: " + arraycopyTime + " ns");
-        System.out.println("clone():          " + cloneTime + " ns");
-        System.out.println("for loop:         " + loopTime + " ns");
-        System.out.println("Arrays.copyOf():  " + copyOfTime + " ns");
-    }
+// 반복문 측정
+start = System.nanoTime();
+int[] dest3 = new int[size];
+for (int i = 0; i < size; i++) {
+    dest3[i] = source[i];
 }
+long loopTime = System.nanoTime() - start;
+
+// Arrays.copyOf() 측정
+start = System.nanoTime();
+int[] dest4 = Arrays.copyOf(source, size);
+long copyOfTime = System.nanoTime() - start;
+
+System.out.println("System.arraycopy: " + arraycopyTime + " ns");
+System.out.println("clone():          " + cloneTime + " ns");
+System.out.println("for loop:         " + loopTime + " ns");
+System.out.println("Arrays.copyOf():  " + copyOfTime + " ns");
 ```
 
 ### 성능 벤치마크 결과
@@ -412,26 +392,24 @@ private void grow() {
   - `System.arraycopy`로 한 번에 이동 처리
 
 ```java
-public class ArrayInsertionExample {
-    public static void insertAt(int[] array, int index, int value, int size) {
-        // 삽입 위치부터 끝까지를 한 칸씩 뒤로 이동
-        System.arraycopy(array, index, array, index + 1, size - index);
+public static void insertAt(int[] array, int index, int value, int size) {
+    // 삽입 위치부터 끝까지를 한 칸씩 뒤로 이동
+    System.arraycopy(array, index, array, index + 1, size - index);
 
-        // 삽입 위치에 새 값 할당
-        array[index] = value;
-    }
+    // 삽입 위치에 새 값 할당
+    array[index] = value;
+}
 
-    public static void main(String[] args) {
-        int[] array = new int[10];
-        int[] data = {1, 2, 3, 4, 5};
-        System.arraycopy(data, 0, array, 0, 5);
+public static void main(String[] args) {
+    int[] array = new int[10];
+    int[] data = {1, 2, 3, 4, 5};
+    System.arraycopy(data, 0, array, 0, 5);
 
-        // 인덱스 2에 99 삽입
-        insertAt(array, 2, 99, 5);
+    // 인덱스 2에 99 삽입
+    insertAt(array, 2, 99, 5);
 
-        // 결과: {1, 2, 99, 3, 4, 5, 0, 0, 0, 0}
-        System.out.println(Arrays.toString(array));
-    }
+    // 결과: {1, 2, 99, 3, 4, 5, 0, 0, 0, 0}
+    System.out.println(Arrays.toString(array));
 }
 ```
 
@@ -441,24 +419,22 @@ public class ArrayInsertionExample {
   - 중간 요소를 삭제하면 뒤쪽 요소들을 앞으로 이동
 
 ```java
-public class ArrayDeletionExample {
-    public static void removeAt(int[] array, int index, int size) {
-        // 삭제 위치 다음부터 끝까지를 한 칸씩 앞으로 이동
-        System.arraycopy(array, index + 1, array, index, size - index - 1);
+public static void removeAt(int[] array, int index, int size) {
+    // 삭제 위치 다음부터 끝까지를 한 칸씩 앞으로 이동
+    System.arraycopy(array, index + 1, array, index, size - index - 1);
 
-        // 마지막 요소 초기화
-        array[size - 1] = 0;
-    }
+    // 마지막 요소 초기화
+    array[size - 1] = 0;
+}
 
-    public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5, 0, 0, 0};
+public static void main(String[] args) {
+    int[] array = {1, 2, 3, 4, 5, 0, 0, 0};
 
-        // 인덱스 2 삭제
-        removeAt(array, 2, 5);
+    // 인덱스 2 삭제
+    removeAt(array, 2, 5);
 
-        // 결과: {1, 2, 4, 5, 0, 0, 0, 0}
-        System.out.println(Arrays.toString(array));
-    }
+    // 결과: {1, 2, 4, 5, 0, 0, 0, 0}
+    System.out.println(Arrays.toString(array));
 }
 ```
 
@@ -468,27 +444,25 @@ public class ArrayDeletionExample {
   - 정렬된 부분 배열을 병합할 때 임시 배열로 복사
 
 ```java
-public class MergeSortExample {
-    public static void merge(int[] array, int left, int mid, int right) {
-        int[] temp = new int[right - left + 1];
-        int i = left, j = mid + 1, k = 0;
+public static void merge(int[] array, int left, int mid, int right) {
+    int[] temp = new int[right - left + 1];
+    int i = left, j = mid + 1, k = 0;
 
-        // 병합 과정
-        while (i <= mid && j <= right) {
-            if (array[i] <= array[j]) {
-                temp[k++] = array[i++];
-            } else {
-                temp[k++] = array[j++];
-            }
+    // 병합 과정
+    while (i <= mid && j <= right) {
+        if (array[i] <= array[j]) {
+            temp[k++] = array[i++];
+        } else {
+            temp[k++] = array[j++];
         }
-
-        // 남은 요소 복사
-        while (i <= mid) temp[k++] = array[i++];
-        while (j <= right) temp[k++] = array[j++];
-
-        // 원본 배열에 복사 - System.arraycopy 사용
-        System.arraycopy(temp, 0, array, left, temp.length);
     }
+
+    // 남은 요소 복사
+    while (i <= mid) temp[k++] = array[i++];
+    while (j <= right) temp[k++] = array[j++];
+
+    // 원본 배열에 복사 - System.arraycopy 사용
+    System.arraycopy(temp, 0, array, left, temp.length);
 }
 ```
 
@@ -499,23 +473,19 @@ public class MergeSortExample {
   - 메모리 집약적 애플리케이션에서 필수
 
 ```java
-public class LargeDataCopyExample {
-    public static void main(String[] args) {
-        int size = 100_000_000; // 1억 개
-        int[] source = new int[size];
-        int[] dest = new int[size];
+int size = 100_000_000; // 1억 개
+int[] source = new int[size];
+int[] dest = new int[size];
 
-        // 데이터 초기화
-        Arrays.fill(source, 42);
+// 데이터 초기화
+Arrays.fill(source, 42);
 
-        long start = System.currentTimeMillis();
-        System.arraycopy(source, 0, dest, 0, size);
-        long elapsed = System.currentTimeMillis() - start;
+long start = System.currentTimeMillis();
+System.arraycopy(source, 0, dest, 0, size);
+long elapsed = System.currentTimeMillis() - start;
 
-        System.out.println("복사 시간: " + elapsed + "ms");
-        // 일반적으로 100ms 이내
-    }
-}
+System.out.println("복사 시간: " + elapsed + "ms");
+// 일반적으로 100ms 이내
 ```
 
 <br/><br/>
@@ -636,52 +606,44 @@ System.out.println(source[0]); // Hello (변경 없음)
   - 내부 배열들은 동일한 객체를 가리킴
 
 ```java
-public class MultiDimensionalArrayCopyExample {
-    public static void main(String[] args) {
-        int[][] source = {
-            {1, 2, 3},
-            {4, 5, 6}
-        };
+int[][] source = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
 
-        int[][] dest = new int[2][];
+int[][] dest = new int[2][];
 
-        // 최상위 배열만 복사 - 내부 배열은 참조 복사
-        System.arraycopy(source, 0, dest, 0, 2);
+// 최상위 배열만 복사 - 내부 배열은 참조 복사
+System.arraycopy(source, 0, dest, 0, 2);
 
-        // 내부 배열은 같은 객체
-        System.out.println(source[0] == dest[0]); // true
+// 내부 배열은 같은 객체
+System.out.println(source[0] == dest[0]); // true
 
-        // 한쪽 수정이 다른 쪽에도 영향
-        dest[0][0] = 999;
-        System.out.println(source[0][0]); // 999
-    }
-}
+// 한쪽 수정이 다른 쪽에도 영향
+dest[0][0] = 999;
+System.out.println(source[0][0]); // 999
 ```
 
 - **다차원 배열의 깊은 복사 방법**
   - 각 행을 개별적으로 복사
 
 ```java
-public class DeepCopyMultiDimensionalArray {
-    public static void main(String[] args) {
-        int[][] source = {
-            {1, 2, 3},
-            {4, 5, 6}
-        };
+int[][] source = {
+    {1, 2, 3},
+    {4, 5, 6}
+};
 
-        int[][] dest = new int[source.length][];
+int[][] dest = new int[source.length][];
 
-        // 각 행을 개별적으로 복사
-        for (int i = 0; i < source.length; i++) {
-            dest[i] = new int[source[i].length];
-            System.arraycopy(source[i], 0, dest[i], 0, source[i].length);
-        }
-
-        // 이제 독립적
-        dest[0][0] = 999;
-        System.out.println(source[0][0]); // 1 (변경 없음)
-    }
+// 각 행을 개별적으로 복사
+for (int i = 0; i < source.length; i++) {
+    dest[i] = new int[source[i].length];
+    System.arraycopy(source[i], 0, dest[i], 0, source[i].length);
 }
+
+// 이제 독립적
+dest[0][0] = 999;
+System.out.println(source[0][0]); // 1 (변경 없음)
 ```
 
 - **3차원 이상 배열의 경우**

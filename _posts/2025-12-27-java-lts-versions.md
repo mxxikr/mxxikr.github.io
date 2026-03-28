@@ -1,5 +1,5 @@
 ---
-title: Java LTS 버전별 차이
+title: 'Java LTS 버전별 차이'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2025-12-27 17:55:00 +0900
 category: [Language, Java]

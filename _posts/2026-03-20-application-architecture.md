@@ -31,9 +31,12 @@ mermaid: true
 - 애플리케이션을 여러 개의 수평적 계층(Layer)으로 나누어, 상위 계층이 하위 계층에 의존하도록 설계한 구조
 
 - **일반적인 3계층 구조**
-  - `Presentation Layer` (Controller): 사용자 요청(HTTP) 처리
-  - `Business Layer` (Service): 핵심 비즈니스 로직 처리
-  - `Data Access Layer` (Repository): 데이터베이스 통신
+  - `Presentation Layer` (Controller)
+    - 사용자 요청(HTTP) 처리
+  - `Business Layer` (Service)
+    - 핵심 비즈니스 로직 처리
+  - `Data Access Layer` (Repository)
+    - 데이터베이스 통신
 
 ### 장단점
 

@@ -1,5 +1,5 @@
 ---
-title: "Ansible이란?"
+title: 'Ansible이란?'
 author:
   name: mxxikr
   link: https://github.com/mxxikr
@@ -30,9 +30,23 @@ math: true
 
 ### 아키텍처 (Push 방식)
 
+```mermaid
+graph LR
+    subgraph Control Node
+        A[Ansible Engine]
+    end
+    subgraph Managed Nodes
+        B[Web Server]
+        C[DB Server]
+        D[App Server]
+    end
+    A -- SSH (Push) --> B
+    A -- SSH (Push) --> C
+    A -- SSH (Push) --> D
+```
+
 ![Ansible Push Architecture](/assets/img/ansible/push_architecture.png)
 
-<br/><br/>
 
 ## Playbook과 활용
 
@@ -76,7 +90,6 @@ math: true
         enabled: yes # 재부팅 시 자동 실행
 ```
 
-<br/><br/>
 
 ### 언제 사용하면 좋을까
 
@@ -87,7 +100,6 @@ math: true
 - Docker 없는 환경 배포
   - K8s를 사용하지 않는 환경에서 단순 애플리케이션(JAR 등) 배포 및 서비스 재시작 자동화에 적합함
 
-<br/><br/>
 
 ## 도입 전 고려사항
 
@@ -141,7 +153,6 @@ math: true
 - Ansible로 Docker 컨테이너까지 관리하는 경우도 있음
 - 팀/프로젝트 특성에 따라 경계 조정 가능
 
-<br/><br/>
 
 ## 활용 가이드
 
@@ -255,13 +266,11 @@ math: true
     - `/etc/sudoers` 파일 내 `requiretty` 옵션이 켜져 있으면 pipelining 작동이 차단됨
     - 원활한 가속을 위해 해당 옵션 비활성화 확인이 필요함
 
-<br/><br/>
 
 ## 요약 정리
 
 - 서버 관리가 필요하지만 쉘 스크립트의 관리가 부담스러운 경우 Ansible이 가장 적합함
 
-<br/><br/>
 
 ## Reference
 

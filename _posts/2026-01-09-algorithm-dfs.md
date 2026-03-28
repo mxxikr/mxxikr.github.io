@@ -1,5 +1,5 @@
 ---
-title: 깊이 우선 탐색 (DFS, Depth-First Search) 알고리즘
+title: '깊이 우선 탐색 (DFS, Depth-First Search) 알고리즘'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-09 09:00:00 +0900
 category: [Computer Science, Algorithm]
@@ -35,6 +35,8 @@ mermaid: false
 5. 다른 분기 탐색
   - 2번 노드에서 아직 방문하지 않은 다른 인접 노드(예: 4번)가 있다면 그 곳으로 이동함
   - 방문 현황: `[1 -> 2 -> 4]`
+
+![DFS 동작 흐름](/assets/img/algorithm/dfs_flow.png)
 
 <br/><br/>
 
@@ -130,52 +132,18 @@ mermaid: false
 
 ### 기본 구현
 ```java
-import java.io.*;
-import java.util.*;
+// 전역 상태 (클래스 필드 등으로 관리)
+boolean[] visited = new boolean[N + 1];
+ArrayList<Integer>[] graph = new ArrayList[N + 1];
 
-public class Main {
+// DFS 구현부
+void dfs(int node) {
+    visited[node] = true; // 현재 노드 방문 처리
 
-    // 문제에 필요한 변수 선언 (Static)
-    static boolean[] visited;
-    static ArrayList<Integer>[] graph;
-    static int N, M;
-
-    public static void main(String[] args) throws IOException {
-        // 입력 처리
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-
-        // 문제의 기본 파라미터 입력
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
-
-        // 초기화
-        visited = new boolean[N + 1];
-        graph = new ArrayList[N + 1];
-        for (int i = 1; i <= N; i++) graph[i] = new ArrayList<>();
-
-        // 그래프 구성
-        for (int i = 0; i < M; i++) {
-            st = new StringTokenizer(br.readLine());
-            int u = Integer.parseInt(st.nextToken());
-            int v = Integer.parseInt(st.nextToken());
-            graph[u].add(v);
-            graph[v].add(u); // 양방향의 경우
-        }
-
-        // 알고리즘 실행
-        dfs(1); // 시작 노드 1
-    }
-
-    private static void dfs(int node) {
-        visited[node] = true; // 현재 노드 방문 처리
-        // System.out.print(node + " ");
-
-        // 인접 노드 탐색
-        for (int next : graph[node]) {
-            if (!visited[next]) {
-                dfs(next);
-            }
+    // 인접 노드 탐색
+    for (int next : graph[node]) {
+        if (!visited[next]) {
+            dfs(next);
         }
     }
 }

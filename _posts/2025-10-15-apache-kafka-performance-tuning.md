@@ -441,21 +441,13 @@ math: false
   ```bash
   # 새 브로커 추가를 위한 단계별 프로세스
 
-  # 1. 새 브로커 설정
+  ```bash
+  # 1. 새 브로커 설정 추가 (server.properties)
   broker.id=4
   zookeeper.connect=zk1:2181,zk2:2181,zk3:2181
 
-  # 2. 파티션 재분배 계획 생성
-  cat > expand-cluster-reassignment.json << EOF
-  {
-  "version": 1,
-  "partitions": [
-      {"topic": "my-topic", "partition": 0, "replicas": [1,2,4]},
-      {"topic": "my-topic", "partition": 1, "replicas": [2,3,4]},
-      {"topic": "my-topic", "partition": 2, "replicas": [3,4,1]}
-  ]
-  }
-  EOF
+  # 2. 파티션 재분배 계획 파일(JSON)을 작성 후 실행
+
 
   # 3. 재분배 실행 및 모니터링
   kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
@@ -488,19 +480,7 @@ math: false
       3.  데이터 재분배 수행
 
       ```bash
-      # 재분배 계획 생성
-      cat > reassign.json << EOF
-      {
-      "version": 1,
-      "partitions": [
-          {"topic": "my-topic", "partition": 0, "replicas": [1,2,4]},
-          {"topic": "my-topic", "partition": 1, "replicas": [2,3,4]},
-          {"topic": "my-topic", "partition": 2, "replicas": [3,4,1]}
-      ]
-      }
-      EOF
-
-      # 재분배 실행 및 모니터링
+      # 작성된 JSON 재분배 계획 실행 (대규모 이동 시 Throttle 제한 필요)
       kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
                                   --reassignment-json-file reassign.json \
                                   --execute --throttle 50000000  # 50MB/s 제한
@@ -537,17 +517,7 @@ math: false
       2.  데이터 마이그레이션
 
       ```bash
-      # 제거할 브로커의 파티션 이동 계획
-      cat > remove-broker.json << EOF
-      {
-      "topics": [
-          {"topic": "my-topic"}
-      ],
-      "version": 1
-      }
-      EOF
-
-      # 파티션 재할당 계획 생성
+      # 제거할 브로커의 파티션 이동 계획 생성 후 재할당 실행
       kafka-reassign-partitions.sh --bootstrap-server localhost:9092 \
                                   --generate \
                                   --topics-to-move-json-file remove-broker.json \

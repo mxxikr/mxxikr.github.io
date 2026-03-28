@@ -455,16 +455,10 @@ int maxCrossingSum(int[] array, int left, int mid, int right) {
 - 문제가 충분히 작아졌을 때의 직접 해결 방법을 정의해야 함
 
 ```java
-// 나쁜 예: 기저 조건 누락
-void badRecursion(int n) {
-    if (n == 0) return;  // n이 음수가 되면?
-    badRecursion(n - 1);
-}
-
-// 좋은 예: 명확한 기저 조건
-void goodRecursion(int n) {
-    if (n <= 0) return;  // 음수도 처리
-    goodRecursion(n - 1);
+// 명확한 기저 조건 설정 필수
+void recursion(int n) {
+    if (n <= 0) return;  // 음수까지 포함한 안전한 조건
+    recursion(n - 1);
 }
 ```
 
@@ -474,18 +468,12 @@ void goodRecursion(int n) {
 - 크기가 감소하지 않으면 무한 루프에 빠질 수 있음
 
 ```java
-// 나쁜 예: 크기가 감소하지 않음
-void badDivide(int[] array, int left, int right) {
-    if (left >= right) return;
-    badDivide(array, left, right);  // 크기가 그대로!
-}
-
-// 좋은 예: 크기가 감소함
-void goodDivide(int[] array, int left, int right) {
+// 재귀 시 크기 감소 확보 필수
+void divide(int[] array, int left, int right) {
     if (left >= right) return;
     int mid = (left + right) / 2;
-    goodDivide(array, left, mid);      // 크기 감소
-    goodDivide(array, mid + 1, right); // 크기 감소
+    divide(array, left, mid);      // 크기 감소
+    divide(array, mid + 1, right); // 크기 감소
 }
 ```
 
@@ -495,19 +483,13 @@ void goodDivide(int[] array, int left, int right) {
 - 필요시 반복문으로 변환하거나 꼬리 재귀 최적화를 고려함
 
 ```java
-// 재귀 깊이가 너무 깊을 수 있음
-int factorial(int n) {
-    if (n <= 1) return 1;
-    return n * factorial(n - 1);  // O(n) 스택 공간
-}
-
-// 반복문으로 변환
+// 반복문으로 스택 오버플로우 방지 (O(1) 공간 복잡도)
 int factorialIterative(int n) {
     int result = 1;
     for (int i = 2; i <= n; i++) {
         result *= i;
     }
-    return result;  // O(1) 스택 공간
+    return result;  
 }
 ```
 

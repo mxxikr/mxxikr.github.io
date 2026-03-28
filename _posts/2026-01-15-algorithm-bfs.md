@@ -1,5 +1,5 @@
 ---
-title: 너비 우선 탐색 (BFS, Breadth-First Search) 알고리즘
+title: '너비 우선 탐색 (BFS, Breadth-First Search) 알고리즘'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
 date: 2026-01-15 08:00:00 +0900
 category: [Computer Science, Algorithm]
@@ -24,23 +24,25 @@ mermaid: false
 ### 동작 흐름
 
 1. 초기 상태
-  - 시작 노드인 1번 노드를 큐에 넣고 방문 처리를 함
-  - 큐: `[1]`
-  - 방문 배열: `[T, F, F, F, ...]`
+    - 시작 노드인 1번 노드를 큐에 넣고 방문 처리를 함
+    - 큐: `[1]`
+    - 방문 배열: `[T, F, F, F, ...]`
 2. 1번 노드 처리
-  - 큐에서 1을 꺼내고 방문하지 않은 인접 노드 2, 3을 큐에 넣고 방문 처리함
-  - 큐: `[2, 3]`
-  - 방문 배열: `[T, T, T, F, ...]`
+    - 큐에서 1을 꺼내고 방문하지 않은 인접 노드 2, 3을 큐에 넣고 방문 처리함
+    - 큐: `[2, 3]`
+    - 방문 배열: `[T, T, T, F, ...]`
 3. 2번 노드 처리
-  - 큐에서 2를 꺼내고 방문하지 않은 인접 노드 4, 5를 큐에 넣고 방문 처리함
-  - 큐: `[3, 4, 5]`
-  - 방문 배열: `[T, T, T, T, T, ...]`
+    - 큐에서 2를 꺼내고 방문하지 않은 인접 노드 4, 5를 큐에 넣고 방문 처리함
+    - 큐: `[3, 4, 5]`
+    - 방문 배열: `[T, T, T, T, T, ...]`
 4. 3번 노드 처리
-  - 큐에서 3을 꺼내고 방문하지 않은 인접 노드 6, 7을 큐에 넣고 방문 처리함
-  - 큐: `[4, 5, 6, 7]`
-  - 방문 배열: `[T, T, T, T, T, T, T, ...]`
+    - 큐에서 3을 꺼내고 방문하지 않은 인접 노드 6, 7을 큐에 넣고 방문 처리함
+    - 큐: `[4, 5, 6, 7]`
+    - 방문 배열: `[T, T, T, T, T, T, T, ...]`
 5. 종료
-  - 더 이상 방문하지 않은 인접 노드가 없으면 큐가 빌 때까지 반복하고 종료함
+    - 더 이상 방문하지 않은 인접 노드가 없으면 큐가 빌 때까지 반복하고 종료함
+
+![BFS 동작 흐름](/assets/img/algorithm/bfs_flow.png)
 
 <br/><br/>
 
@@ -136,60 +138,27 @@ mermaid: false
 
 ### 기본 구현
 ```java
-import java.io.*;
-import java.util.*;
+// 전역 상태 (클래스 필드 등으로 관리)
+boolean[] visited = new boolean[N + 1];
+ArrayList<Integer>[] graph = new ArrayList[N + 1];
 
-public class Main {
+// BFS 구현부
+void bfs(int start) {
+    Queue<Integer> queue = new LinkedList<>();
+    queue.offer(start);
+    visited[start] = true;
 
-    // 문제에 필요한 변수 선언 (Static)
-    static boolean[] visited;
-    static ArrayList<Integer>[] graph;
-    static int N, M;
+    while (!queue.isEmpty()) {
+        int current = queue.poll();
+        
+        // 현재 노드 처리 로직
+        // System.out.print(current + " ");
 
-    public static void main(String[] args) throws IOException {
-        // 입력 처리
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-
-        // 문제의 기본 파라미터 입력
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
-
-        // 초기화
-        visited = new boolean[N + 1];
-        graph = new ArrayList[N + 1];
-        for (int i = 1; i <= N; i++) graph[i] = new ArrayList<>();
-
-        // 그래프 구성
-        for (int i = 0; i < M; i++) {
-            st = new StringTokenizer(br.readLine());
-            int u = Integer.parseInt(st.nextToken());
-            int v = Integer.parseInt(st.nextToken());
-            graph[u].add(v);
-            graph[v].add(u); // 양방향의 경우
-        }
-
-        // 알고리즘 실행
-        bfs(1); // 시작 노드 1
-    }
-
-    private static void bfs(int start) {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.offer(start);
-        visited[start] = true;
-
-        while (!queue.isEmpty()) {
-            int current = queue.poll();
-            
-            // 현재 노드 처리 로직
-            // System.out.print(current + " ");
-
-            // 인접 노드 탐색
-            for (int next : graph[current]) {
-                if (!visited[next]) {
-                    visited[next] = true;
-                    queue.offer(next);
-                }
+        // 인접 노드 탐색
+        for (int next : graph[current]) {
+            if (!visited[next]) {
+                visited[next] = true;
+                queue.offer(next);
             }
         }
     }

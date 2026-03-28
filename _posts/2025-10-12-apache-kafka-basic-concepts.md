@@ -144,58 +144,7 @@ math: false
   - 효율적인 데이터 저장 방식 사용
   - 여러 소비자가 동시에 데이터 읽기 가능
 
-<br/><br/>
 
-## 핵심 구성 요소
-
-### 메시지 생산자 (Producer)
-
-- 데이터를 만들어서 Kafka로 보내는 프로그램
-
-  ![apache-kafka-basic-concepts diagram 5](/assets/img/kafka/apache-kafka-basic-concepts-05.png)
-
-- 예시
-  - 쇼핑몰의 주문 처리 시스템
-  - 핸드폰 앱의 사용자 활동 로그
-  - 기상 관측소의 온도 센서
-
-### 메시지 소비자 (Consumer)
-
-- Kafka에서 데이터를 가져와서 처리하는 프로그램
-
-![apache-kafka-basic-concepts diagram 6](/assets/img/kafka/apache-kafka-basic-concepts-06.png)
-
-- 예시
-  - 주문 데이터를 받아서 배송 처리하는 시스템
-  - 사용자 행동 데이터를 분석하는 시스템
-  - 실시간 알림을 보내는 서비스
-
-### 메시지 저장소 (Broker)
-
-- Kafka 서버를 브로커라고 부름
-- 데이터를 저장하고 관리하는 창고와 같음
-
-  ![apache-kafka-basic-concepts diagram 7](/assets/img/kafka/apache-kafka-basic-concepts-07.png)
-
-- 특징
-  - 여러 서버가 협력하여 작동 (마치 여러 지점을 가진 은행처럼)
-  - 한 서버가 고장나도 다른 서버가 대신 처리
-  - 데이터를 안전하게 보관하고 전달
-
-### 메시지 분류 (Topic)
-
-- 토픽은 같은 종류의 메시지를 모아두는 공간임
-- 도서관의 서가나 우체국의 우편함과 비슷함
-
-  ![apache-kafka-basic-concepts diagram 8](/assets/img/kafka/apache-kafka-basic-concepts-08.png)
-
-- 예시
-  - 주문 토픽
-    - 모든 주문 관련 데이터 저장
-  - 로그 토픽
-    - 시스템 로그 메시지 저장
-  - 알림 토픽
-    - 사용자 알림 메시지 저장
 
 <br/><br/>
 
