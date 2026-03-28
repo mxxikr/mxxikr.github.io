@@ -1,7 +1,7 @@
 ---
 title: Kotlin 상속 제한과 Spring과의 통합
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
-date: 2026-03-20 10:20:00 +0900
+date: 2026-03-23 10:20:00 +0900
 category: [Language, Kotlin]
 tags: [kotlin, inheritance, spring, open, final, sealed-class, jpa, cglib]
 math: false

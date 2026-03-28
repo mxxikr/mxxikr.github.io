@@ -1,7 +1,7 @@
 ---
 title: 'Kotlin Default Arguments와 Named Arguments'
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
-date: 2026-02-04 19:00:00 +0900
+date: 2026-03-25 19:00:00 +0900
 category: [Language, Kotlin]
 tags: [kotlin, default-arguments, named-arguments, builder-pattern, lombok, java, spring]
 math: false

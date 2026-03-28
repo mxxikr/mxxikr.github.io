@@ -1,7 +1,7 @@
 ---
 title: build.gradle.kts와 Kotlin Script, DSL의 이해
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
-date: 2026-03-18 12:00:00 +0900
+date: 2026-03-22 12:00:00 +0900
 category: [Language, Kotlin]
 tags: [kotlin, gradle, build-script, dsl, groovy, type-safety, kotlin-dsl, kotlin-script]
 math: false

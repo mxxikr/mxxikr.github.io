@@ -1,7 +1,7 @@
 ---
 title: Kotlin의 Null Safety
 author: {name: mxxikr, link: 'https://github.com/mxxikr'}
-date: 2026-03-17 00:00:00 +0900
+date: 2026-03-21 00:00:00 +0900
 category: [Language, Kotlin]
 tags: [kotlin, null-safety, nullable, npe, safe-call, elvis-operator, type-system]
 math: false
